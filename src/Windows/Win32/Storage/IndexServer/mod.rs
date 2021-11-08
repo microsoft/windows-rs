@@ -2,14 +2,14 @@
 #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn BindIFilterFromStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pstg: Param0, punkouter: Param1, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn BindIFilterFromStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pstg: Param0, punkouter: Param1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BindIFilterFromStorage(pstg: ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn BindIFilterFromStorage(pstg: ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        BindIFilterFromStorage(pstg.into_param().abi(), punkouter.into_param().abi(), ::std::mem::transmute(ppiunk)).ok()
+        BindIFilterFromStorage(pstg.into_param().abi(), punkouter.into_param().abi(), ::core::mem::transmute(ppiunk)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17,26 +17,26 @@ pub unsafe fn BindIFilterFromStorage<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn BindIFilterFromStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pstm: Param0, punkouter: Param1, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn BindIFilterFromStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pstm: Param0, punkouter: Param1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BindIFilterFromStream(pstm: ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn BindIFilterFromStream(pstm: ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        BindIFilterFromStream(pstm.into_param().abi(), punkouter.into_param().abi(), ::std::mem::transmute(ppiunk)).ok()
+        BindIFilterFromStream(pstm.into_param().abi(), punkouter.into_param().abi(), ::core::mem::transmute(ppiunk)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHUNKSTATE(pub i32);
 pub const CHUNK_TEXT: CHUNKSTATE = CHUNKSTATE(1i32);
 pub const CHUNK_VALUE: CHUNKSTATE = CHUNKSTATE(2i32);
 pub const CHUNK_FILTER_OWNED_VALUE: CHUNKSTATE = CHUNKSTATE(4i32);
-impl ::std::convert::From<i32> for CHUNKSTATE {
+impl ::core::convert::From<i32> for CHUNKSTATE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -45,7 +45,7 @@ unsafe impl ::windows::runtime::Abi for CHUNKSTATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHUNK_BREAKTYPE(pub i32);
 pub const CHUNK_NO_BREAK: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(0i32);
@@ -53,7 +53,7 @@ pub const CHUNK_EOW: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(1i32);
 pub const CHUNK_EOS: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(2i32);
 pub const CHUNK_EOP: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(3i32);
 pub const CHUNK_EOC: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(4i32);
-impl ::std::convert::From<i32> for CHUNK_BREAKTYPE {
+impl ::core::convert::From<i32> for CHUNK_BREAKTYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -79,7 +79,7 @@ pub const CI_PROVIDER_ALL: u32 = 4294967295u32;
 pub const CI_PROVIDER_INDEXING_SERVICE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const CI_PROVIDER_MSSEARCH: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub struct CI_STATE {
@@ -100,13 +100,13 @@ pub struct CI_STATE {
     pub dwPropCacheSize: u32,
 }
 impl CI_STATE {}
-impl ::std::default::Default for CI_STATE {
+impl ::core::default::Default for CI_STATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CI_STATE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CI_STATE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CI_STATE")
             .field("cbStruct", &self.cbStruct)
             .field("cWordList", &self.cWordList)
@@ -126,7 +126,7 @@ impl ::std::fmt::Debug for CI_STATE {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for CI_STATE {
+impl ::core::cmp::PartialEq for CI_STATE {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct
             && self.cWordList == other.cWordList
@@ -145,7 +145,7 @@ impl ::std::cmp::PartialEq for CI_STATE {
             && self.dwPropCacheSize == other.dwPropCacheSize
     }
 }
-impl ::std::cmp::Eq for CI_STATE {}
+impl ::core::cmp::Eq for CI_STATE {}
 unsafe impl ::windows::runtime::Abi for CI_STATE {
     type Abi = Self;
 }
@@ -193,7 +193,7 @@ pub const CI_VERSION_WDS30: u32 = 258u32;
 pub const CI_VERSION_WDS40: u32 = 265u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const CI_VERSION_WIN70: u32 = 1792u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -208,27 +208,27 @@ pub struct DBID {
 impl DBID {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DBID {
+impl ::core::default::Default for DBID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DBID {
+impl ::core::cmp::PartialEq for DBID {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DBID {}
+impl ::core::cmp::Eq for DBID {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -241,27 +241,27 @@ pub union DBID_0 {
 impl DBID_0 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DBID_0 {
+impl ::core::default::Default for DBID_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DBID_0 {
+impl ::core::cmp::PartialEq for DBID_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DBID_0 {}
+impl ::core::cmp::Eq for DBID_0 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBID_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -274,27 +274,27 @@ pub union DBID_1 {
 impl DBID_1 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DBID_1 {
+impl ::core::default::Default for DBID_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DBID_1 {
+impl ::core::cmp::PartialEq for DBID_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DBID_1 {}
+impl ::core::cmp::Eq for DBID_1 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBID_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(2))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -309,27 +309,27 @@ pub struct DBID {
 impl DBID {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DBID {
+impl ::core::default::Default for DBID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DBID {
+impl ::core::cmp::PartialEq for DBID {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DBID {}
+impl ::core::cmp::Eq for DBID {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(2))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -342,27 +342,27 @@ pub union DBID_0 {
 impl DBID_0 {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DBID_0 {
+impl ::core::default::Default for DBID_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DBID_0 {
+impl ::core::cmp::PartialEq for DBID_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DBID_0 {}
+impl ::core::cmp::Eq for DBID_0 {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBID_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(2))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -375,28 +375,28 @@ pub union DBID_1 {
 impl DBID_1 {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DBID_1 {
+impl ::core::default::Default for DBID_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DBID_1 {
+impl ::core::cmp::PartialEq for DBID_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DBID_1 {}
+impl ::core::cmp::Eq for DBID_1 {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBID_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DBKINDENUM(pub i32);
 pub const DBKIND_GUID_NAME: DBKINDENUM = DBKINDENUM(0i32);
@@ -406,7 +406,7 @@ pub const DBKIND_PGUID_NAME: DBKINDENUM = DBKINDENUM(3i32);
 pub const DBKIND_PGUID_PROPID: DBKINDENUM = DBKINDENUM(4i32);
 pub const DBKIND_PROPID: DBKINDENUM = DBKINDENUM(5i32);
 pub const DBKIND_GUID: DBKINDENUM = DBKINDENUM(6i32);
-impl ::std::convert::From<i32> for DBKINDENUM {
+impl ::core::convert::From<i32> for DBKINDENUM {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -472,7 +472,7 @@ pub const DBSETFUNC_ALL: u32 = 1u32;
 pub const DBSETFUNC_DISTINCT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const DBSETFUNC_NONE: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub struct FILTERREGION {
@@ -481,22 +481,22 @@ pub struct FILTERREGION {
     pub cwcExtent: u32,
 }
 impl FILTERREGION {}
-impl ::std::default::Default for FILTERREGION {
+impl ::core::default::Default for FILTERREGION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILTERREGION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILTERREGION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILTERREGION").field("idChunk", &self.idChunk).field("cwcStart", &self.cwcStart).field("cwcExtent", &self.cwcExtent).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILTERREGION {
+impl ::core::cmp::PartialEq for FILTERREGION {
     fn eq(&self, other: &Self) -> bool {
         self.idChunk == other.idChunk && self.cwcStart == other.cwcStart && self.cwcExtent == other.cwcExtent
     }
 }
-impl ::std::cmp::Eq for FILTERREGION {}
+impl ::core::cmp::Eq for FILTERREGION {}
 unsafe impl ::windows::runtime::Abi for FILTERREGION {
     type Abi = Self;
 }
@@ -526,7 +526,7 @@ pub const FILTER_S_LAST_TEXT: ::windows::runtime::HRESULT = ::windows::runtime::
 pub const FILTER_S_LAST_VALUES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(268042i32 as _);
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const FILTER_W_MONIKER_CLIPPED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(268036i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`, `Win32_System_Com_StructuredStorage`*"]
@@ -537,19 +537,19 @@ pub struct FULLPROPSPEC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl FULLPROPSPEC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::std::default::Default for FULLPROPSPEC {
+impl ::core::default::Default for FULLPROPSPEC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::std::cmp::PartialEq for FULLPROPSPEC {
+impl ::core::cmp::PartialEq for FULLPROPSPEC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::std::cmp::Eq for FULLPROPSPEC {}
+impl ::core::cmp::Eq for FULLPROPSPEC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for FULLPROPSPEC {
     type Abi = Self;
@@ -561,11 +561,11 @@ pub const GENERATE_METHOD_INFLECT: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const GENERATE_METHOD_PREFIX: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IFILTER_FLAGS(pub i32);
 pub const IFILTER_FLAGS_OLE_PROPERTIES: IFILTER_FLAGS = IFILTER_FLAGS(1i32);
-impl ::std::convert::From<i32> for IFILTER_FLAGS {
+impl ::core::convert::From<i32> for IFILTER_FLAGS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -574,7 +574,7 @@ unsafe impl ::windows::runtime::Abi for IFILTER_FLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IFILTER_INIT(pub i32);
 pub const IFILTER_INIT_CANON_PARAGRAPHS: IFILTER_INIT = IFILTER_INIT(1i32);
@@ -590,7 +590,7 @@ pub const IFILTER_INIT_FILTER_OWNED_VALUE_OK: IFILTER_INIT = IFILTER_INIT(512i32
 pub const IFILTER_INIT_FILTER_AGGRESSIVE_BREAK: IFILTER_INIT = IFILTER_INIT(1024i32);
 pub const IFILTER_INIT_DISABLE_EMBEDDED: IFILTER_INIT = IFILTER_INIT(2048i32);
 pub const IFILTER_INIT_EMIT_FORMATTING: IFILTER_INIT = IFILTER_INIT(4096i32);
-impl ::std::convert::From<i32> for IFILTER_INIT {
+impl ::core::convert::From<i32> for IFILTER_INIT {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -600,44 +600,44 @@ unsafe impl ::windows::runtime::Abi for IFILTER_INIT {
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFilter(pub ::windows::runtime::IUnknown);
 impl IFilter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn Init(&self, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfflags), ::std::mem::transmute(cattributes), ::std::mem::transmute(aattributes), ::std::mem::transmute(pflags)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfflags), ::core::mem::transmute(cattributes), ::core::mem::transmute(aattributes), ::core::mem::transmute(pflags)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstat)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstat)))
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
     pub unsafe fn GetText(&self, pcwcbuffer: *mut u32, awcbuffer: super::super::Foundation::PWSTR) -> i32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcwcbuffer), ::std::mem::transmute(awcbuffer)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcwcbuffer), ::core::mem::transmute(awcbuffer)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetValue(&self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pppropvalue)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppropvalue)))
     }
     #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
-    pub unsafe fn BindRegion<'a, Param0: ::windows::runtime::IntoParam<'a, FILTERREGION>>(&self, origpos: Param0, riid: *const ::windows::runtime::GUID, ppunk: *mut *mut ::std::ffi::c_void) -> i32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), origpos.into_param().abi(), ::std::mem::transmute(riid), ::std::mem::transmute(ppunk)))
+    pub unsafe fn BindRegion<'a, Param0: ::windows::runtime::IntoParam<'a, FILTERREGION>>(&self, origpos: Param0, riid: *const ::windows::runtime::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32 {
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), origpos.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)))
     }
 }
 unsafe impl ::windows::runtime::Interface for IFilter {
     type Vtable = IFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2310846272, 24857, 4122, [188, 183, 0, 221, 1, 6, 85, 175]);
 }
-impl ::std::convert::From<IFilter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFilter> for ::windows::runtime::IUnknown {
     fn from(value: IFilter) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFilter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFilter> for ::windows::runtime::IUnknown {
     fn from(value: &IFilter) -> Self {
         value.0.clone()
     }
@@ -666,34 +666,34 @@ pub struct IFilter_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, origpos: FILTERREGION, riid: *const ::windows::runtime::GUID, ppunk: *mut *mut ::std::ffi::c_void) -> i32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, origpos: FILTERREGION, riid: *const ::windows::runtime::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32,
 );
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPhraseSink(pub ::windows::runtime::IUnknown);
 impl IPhraseSink {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
     pub unsafe fn PutSmallPhrase<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwcnoun: Param0, cwcnoun: u32, pwcmodifier: Param2, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwcnoun.into_param().abi(), ::std::mem::transmute(cwcnoun), pwcmodifier.into_param().abi(), ::std::mem::transmute(cwcmodifier), ::std::mem::transmute(ulattachmenttype)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwcnoun.into_param().abi(), ::core::mem::transmute(cwcnoun), pwcmodifier.into_param().abi(), ::core::mem::transmute(cwcmodifier), ::core::mem::transmute(ulattachmenttype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
     pub unsafe fn PutPhrase<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwcphrase: Param0, cwcphrase: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pwcphrase.into_param().abi(), ::std::mem::transmute(cwcphrase)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pwcphrase.into_param().abi(), ::core::mem::transmute(cwcphrase)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IPhraseSink {
     type Vtable = IPhraseSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3432017904, 49240, 4122, [181, 84, 8, 0, 43, 51, 176, 230]);
 }
-impl ::std::convert::From<IPhraseSink> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPhraseSink> for ::windows::runtime::IUnknown {
     fn from(value: IPhraseSink) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPhraseSink> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPhraseSink> for ::windows::runtime::IUnknown {
     fn from(value: &IPhraseSink) -> Self {
         value.0.clone()
     }
@@ -728,14 +728,14 @@ pub const LIFF_LOAD_DEFINED_FILTER: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadIFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pwcspath: Param0, punkouter: Param1, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn LoadIFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pwcspath: Param0, punkouter: Param1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LoadIFilter(pwcspath: super::super::Foundation::PWSTR, punkouter: ::windows::runtime::RawPtr, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn LoadIFilter(pwcspath: super::super::Foundation::PWSTR, punkouter: ::windows::runtime::RawPtr, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        LoadIFilter(pwcspath.into_param().abi(), punkouter.into_param().abi(), ::std::mem::transmute(ppiunk)).ok()
+        LoadIFilter(pwcspath.into_param().abi(), punkouter.into_param().abi(), ::core::mem::transmute(ppiunk)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -743,14 +743,14 @@ pub unsafe fn LoadIFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadIFilterEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwcspath: Param0, dwflags: u32, riid: *const ::windows::runtime::GUID, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn LoadIFilterEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwcspath: Param0, dwflags: u32, riid: *const ::windows::runtime::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LoadIFilterEx(pwcspath: super::super::Foundation::PWSTR, dwflags: u32, riid: *const ::windows::runtime::GUID, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn LoadIFilterEx(pwcspath: super::super::Foundation::PWSTR, dwflags: u32, riid: *const ::windows::runtime::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        LoadIFilterEx(pwcspath.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(riid), ::std::mem::transmute(ppiunk)).ok()
+        LoadIFilterEx(pwcspath.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(riid), ::core::mem::transmute(ppiunk)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -833,7 +833,7 @@ pub const SCOPE_TYPE_VPATH: u32 = 512u32;
 pub const SCOPE_TYPE_WINPATH: u32 = 256u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const STAT_BUSY: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`, `Win32_System_Com_StructuredStorage`*"]
@@ -850,19 +850,19 @@ pub struct STAT_CHUNK {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl STAT_CHUNK {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::std::default::Default for STAT_CHUNK {
+impl ::core::default::Default for STAT_CHUNK {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::std::cmp::PartialEq for STAT_CHUNK {
+impl ::core::cmp::PartialEq for STAT_CHUNK {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::std::cmp::Eq for STAT_CHUNK {}
+impl ::core::cmp::Eq for STAT_CHUNK {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for STAT_CHUNK {
     type Abi = Self;
@@ -906,14 +906,14 @@ pub const VECTOR_RANK_MAX: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const VECTOR_RANK_MIN: u32 = 0u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WORDREP_BREAK_TYPE(pub i32);
 pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(0i32);
 pub const WORDREP_BREAK_EOS: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(1i32);
 pub const WORDREP_BREAK_EOP: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(2i32);
 pub const WORDREP_BREAK_EOC: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(3i32);
-impl ::std::convert::From<i32> for WORDREP_BREAK_TYPE {
+impl ::core::convert::From<i32> for WORDREP_BREAK_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }

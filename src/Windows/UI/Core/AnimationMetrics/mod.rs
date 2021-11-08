@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AnimationDescription(pub ::windows::runtime::IInspectable);
 impl AnimationDescription {
     #[cfg(feature = "Foundation_Collections")]
@@ -9,8 +9,8 @@ impl AnimationDescription {
     pub fn Animations(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -18,16 +18,16 @@ impl AnimationDescription {
     pub fn StaggerDelay(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn StaggerDelayFactor(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            let mut result__: f32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -35,23 +35,23 @@ impl AnimationDescription {
     pub fn DelayLimit(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn ZOrder(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> ::windows::runtime::Result<AnimationDescription> {
         Self::IAnimationDescriptionFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), effect, target, &mut result__).from_abi::<AnimationDescription>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), effect, target, &mut result__).from_abi::<AnimationDescription>(result__)
         })
     }
     pub fn IAnimationDescriptionFactory<R, F: FnOnce(&IAnimationDescriptionFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -69,12 +69,12 @@ unsafe impl ::windows::runtime::Interface for AnimationDescription {
 impl ::windows::runtime::RuntimeName for AnimationDescription {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.AnimationDescription";
 }
-impl ::std::convert::From<AnimationDescription> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AnimationDescription> for ::windows::runtime::IUnknown {
     fn from(value: AnimationDescription) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AnimationDescription> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AnimationDescription> for ::windows::runtime::IUnknown {
     fn from(value: &AnimationDescription) -> Self {
         value.0 .0.clone()
     }
@@ -89,12 +89,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AnimationDescription> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AnimationDescription> for ::windows::runtime::IInspectable {
     fn from(value: AnimationDescription) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AnimationDescription> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AnimationDescription> for ::windows::runtime::IInspectable {
     fn from(value: &AnimationDescription) -> Self {
         value.0.clone()
     }
@@ -109,10 +109,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AnimationDescription {}
-unsafe impl ::std::marker::Sync for AnimationDescription {}
+unsafe impl ::core::marker::Send for AnimationDescription {}
+unsafe impl ::core::marker::Sync for AnimationDescription {}
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AnimationEffect(pub i32);
 impl AnimationEffect {
@@ -153,7 +153,7 @@ impl AnimationEffect {
     pub const Peek: AnimationEffect = AnimationEffect(34i32);
     pub const UpdateBadge: AnimationEffect = AnimationEffect(35i32);
 }
-impl ::std::convert::From<i32> for AnimationEffect {
+impl ::core::convert::From<i32> for AnimationEffect {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -168,7 +168,7 @@ impl ::windows::runtime::DefaultType for AnimationEffect {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AnimationEffectTarget(pub i32);
 impl AnimationEffectTarget {
@@ -193,7 +193,7 @@ impl AnimationEffectTarget {
     pub const Shown: AnimationEffectTarget = AnimationEffectTarget(18i32);
     pub const Tapped: AnimationEffectTarget = AnimationEffectTarget(19i32);
 }
-impl ::std::convert::From<i32> for AnimationEffectTarget {
+impl ::core::convert::From<i32> for AnimationEffectTarget {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -208,7 +208,7 @@ impl ::windows::runtime::DefaultType for AnimationEffectTarget {
     type DefaultType = Self;
 }
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct AnimationMetricsContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
@@ -274,7 +274,7 @@ pub struct IOpacityAnimation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 pub struct IPropertyAnimation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertyAnimation {
@@ -286,8 +286,8 @@ impl IPropertyAnimation {
     pub fn Type(&self) -> ::windows::runtime::Result<PropertyAnimationType> {
         let this = self;
         unsafe {
-            let mut result__: PropertyAnimationType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
+            let mut result__: PropertyAnimationType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -295,8 +295,8 @@ impl IPropertyAnimation {
     pub fn Delay(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -304,8 +304,8 @@ impl IPropertyAnimation {
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -313,8 +313,8 @@ impl IPropertyAnimation {
     pub fn Control1(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -322,20 +322,20 @@ impl IPropertyAnimation {
     pub fn Control2(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IPropertyAnimation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{3a01b4da-4d8c-411e-b615-1ade683a9903}");
 }
-impl ::std::convert::From<IPropertyAnimation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPropertyAnimation> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyAnimation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IPropertyAnimation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPropertyAnimation> for ::windows::runtime::IUnknown {
     fn from(value: &IPropertyAnimation) -> Self {
         value.0 .0.clone()
     }
@@ -350,12 +350,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IPropertyAnimation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPropertyAnimation> for ::windows::runtime::IInspectable {
     fn from(value: IPropertyAnimation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPropertyAnimation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPropertyAnimation> for ::windows::runtime::IInspectable {
     fn from(value: &IPropertyAnimation) -> Self {
         value.0.clone()
     }
@@ -416,7 +416,7 @@ pub struct IScaleAnimation_abi(
 );
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct OpacityAnimation(pub ::windows::runtime::IInspectable);
 impl OpacityAnimation {
     #[cfg(feature = "Foundation")]
@@ -424,24 +424,24 @@ impl OpacityAnimation {
     pub fn InitialOpacity(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn FinalOpacity(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            let mut result__: f32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<PropertyAnimationType> {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__: PropertyAnimationType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
+            let mut result__: PropertyAnimationType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -449,8 +449,8 @@ impl OpacityAnimation {
     pub fn Delay(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -458,8 +458,8 @@ impl OpacityAnimation {
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -467,8 +467,8 @@ impl OpacityAnimation {
     pub fn Control1(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -476,8 +476,8 @@ impl OpacityAnimation {
     pub fn Control2(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
@@ -491,12 +491,12 @@ unsafe impl ::windows::runtime::Interface for OpacityAnimation {
 impl ::windows::runtime::RuntimeName for OpacityAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.OpacityAnimation";
 }
-impl ::std::convert::From<OpacityAnimation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<OpacityAnimation> for ::windows::runtime::IUnknown {
     fn from(value: OpacityAnimation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&OpacityAnimation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&OpacityAnimation> for ::windows::runtime::IUnknown {
     fn from(value: &OpacityAnimation) -> Self {
         value.0 .0.clone()
     }
@@ -511,12 +511,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<OpacityAnimation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<OpacityAnimation> for ::windows::runtime::IInspectable {
     fn from(value: OpacityAnimation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&OpacityAnimation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&OpacityAnimation> for ::windows::runtime::IInspectable {
     fn from(value: &OpacityAnimation) -> Self {
         value.0.clone()
     }
@@ -531,13 +531,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<OpacityAnimation> for IPropertyAnimation {
+impl ::core::convert::TryFrom<OpacityAnimation> for IPropertyAnimation {
     type Error = ::windows::runtime::Error;
     fn try_from(value: OpacityAnimation) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&OpacityAnimation> for IPropertyAnimation {
+impl ::core::convert::TryFrom<&OpacityAnimation> for IPropertyAnimation {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &OpacityAnimation) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -550,22 +550,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for OpacityAnimat
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for &OpacityAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyAnimation> {
-        ::std::convert::TryInto::<IPropertyAnimation>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPropertyAnimation>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for OpacityAnimation {}
-unsafe impl ::std::marker::Sync for OpacityAnimation {}
+unsafe impl ::core::marker::Send for OpacityAnimation {}
+unsafe impl ::core::marker::Sync for OpacityAnimation {}
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PropertyAnimation(pub ::windows::runtime::IInspectable);
 impl PropertyAnimation {
     #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<PropertyAnimationType> {
         let this = self;
         unsafe {
-            let mut result__: PropertyAnimationType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
+            let mut result__: PropertyAnimationType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -573,8 +573,8 @@ impl PropertyAnimation {
     pub fn Delay(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -582,8 +582,8 @@ impl PropertyAnimation {
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -591,8 +591,8 @@ impl PropertyAnimation {
     pub fn Control1(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -600,8 +600,8 @@ impl PropertyAnimation {
     pub fn Control2(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
@@ -615,12 +615,12 @@ unsafe impl ::windows::runtime::Interface for PropertyAnimation {
 impl ::windows::runtime::RuntimeName for PropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.PropertyAnimation";
 }
-impl ::std::convert::From<PropertyAnimation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PropertyAnimation> for ::windows::runtime::IUnknown {
     fn from(value: PropertyAnimation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PropertyAnimation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PropertyAnimation> for ::windows::runtime::IUnknown {
     fn from(value: &PropertyAnimation) -> Self {
         value.0 .0.clone()
     }
@@ -635,12 +635,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PropertyAnimation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PropertyAnimation> for ::windows::runtime::IInspectable {
     fn from(value: PropertyAnimation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PropertyAnimation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PropertyAnimation> for ::windows::runtime::IInspectable {
     fn from(value: &PropertyAnimation) -> Self {
         value.0.clone()
     }
@@ -655,30 +655,30 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<PropertyAnimation> for IPropertyAnimation {
+impl ::core::convert::From<PropertyAnimation> for IPropertyAnimation {
     fn from(value: PropertyAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&PropertyAnimation> for IPropertyAnimation {
+impl ::core::convert::From<&PropertyAnimation> for IPropertyAnimation {
     fn from(value: &PropertyAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for PropertyAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyAnimation> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for &PropertyAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyAnimation> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::std::marker::Send for PropertyAnimation {}
-unsafe impl ::std::marker::Sync for PropertyAnimation {}
+unsafe impl ::core::marker::Send for PropertyAnimation {}
+unsafe impl ::core::marker::Sync for PropertyAnimation {}
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PropertyAnimationType(pub i32);
 impl PropertyAnimationType {
@@ -686,7 +686,7 @@ impl PropertyAnimationType {
     pub const Translation: PropertyAnimationType = PropertyAnimationType(1i32);
     pub const Opacity: PropertyAnimationType = PropertyAnimationType(2i32);
 }
-impl ::std::convert::From<i32> for PropertyAnimationType {
+impl ::core::convert::From<i32> for PropertyAnimationType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -702,7 +702,7 @@ impl ::windows::runtime::DefaultType for PropertyAnimationType {
 }
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ScaleAnimation(pub ::windows::runtime::IInspectable);
 impl ScaleAnimation {
     #[cfg(feature = "Foundation")]
@@ -710,8 +710,8 @@ impl ScaleAnimation {
     pub fn InitialScaleX(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -719,24 +719,24 @@ impl ScaleAnimation {
     pub fn InitialScaleY(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn FinalScaleX(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            let mut result__: f32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn FinalScaleY(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            let mut result__: f32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -744,16 +744,16 @@ impl ScaleAnimation {
     pub fn NormalizedOrigin(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<PropertyAnimationType> {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__: PropertyAnimationType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
+            let mut result__: PropertyAnimationType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -761,8 +761,8 @@ impl ScaleAnimation {
     pub fn Delay(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -770,8 +770,8 @@ impl ScaleAnimation {
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -779,8 +779,8 @@ impl ScaleAnimation {
     pub fn Control1(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -788,8 +788,8 @@ impl ScaleAnimation {
     pub fn Control2(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
@@ -803,12 +803,12 @@ unsafe impl ::windows::runtime::Interface for ScaleAnimation {
 impl ::windows::runtime::RuntimeName for ScaleAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.ScaleAnimation";
 }
-impl ::std::convert::From<ScaleAnimation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ScaleAnimation> for ::windows::runtime::IUnknown {
     fn from(value: ScaleAnimation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ScaleAnimation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ScaleAnimation> for ::windows::runtime::IUnknown {
     fn from(value: &ScaleAnimation) -> Self {
         value.0 .0.clone()
     }
@@ -823,12 +823,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ScaleAnimation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ScaleAnimation> for ::windows::runtime::IInspectable {
     fn from(value: ScaleAnimation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ScaleAnimation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ScaleAnimation> for ::windows::runtime::IInspectable {
     fn from(value: &ScaleAnimation) -> Self {
         value.0.clone()
     }
@@ -843,13 +843,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<ScaleAnimation> for IPropertyAnimation {
+impl ::core::convert::TryFrom<ScaleAnimation> for IPropertyAnimation {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ScaleAnimation) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&ScaleAnimation> for IPropertyAnimation {
+impl ::core::convert::TryFrom<&ScaleAnimation> for IPropertyAnimation {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &ScaleAnimation) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -862,22 +862,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for ScaleAnimatio
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for &ScaleAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyAnimation> {
-        ::std::convert::TryInto::<IPropertyAnimation>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPropertyAnimation>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for ScaleAnimation {}
-unsafe impl ::std::marker::Sync for ScaleAnimation {}
+unsafe impl ::core::marker::Send for ScaleAnimation {}
+unsafe impl ::core::marker::Sync for ScaleAnimation {}
 #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TranslationAnimation(pub ::windows::runtime::IInspectable);
 impl TranslationAnimation {
     #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<PropertyAnimationType> {
         let this = self;
         unsafe {
-            let mut result__: PropertyAnimationType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
+            let mut result__: PropertyAnimationType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -885,8 +885,8 @@ impl TranslationAnimation {
     pub fn Delay(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -894,8 +894,8 @@ impl TranslationAnimation {
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -903,8 +903,8 @@ impl TranslationAnimation {
     pub fn Control1(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -912,8 +912,8 @@ impl TranslationAnimation {
     pub fn Control2(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
@@ -927,12 +927,12 @@ unsafe impl ::windows::runtime::Interface for TranslationAnimation {
 impl ::windows::runtime::RuntimeName for TranslationAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.TranslationAnimation";
 }
-impl ::std::convert::From<TranslationAnimation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TranslationAnimation> for ::windows::runtime::IUnknown {
     fn from(value: TranslationAnimation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TranslationAnimation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TranslationAnimation> for ::windows::runtime::IUnknown {
     fn from(value: &TranslationAnimation) -> Self {
         value.0 .0.clone()
     }
@@ -947,12 +947,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TranslationAnimation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TranslationAnimation> for ::windows::runtime::IInspectable {
     fn from(value: TranslationAnimation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TranslationAnimation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TranslationAnimation> for ::windows::runtime::IInspectable {
     fn from(value: &TranslationAnimation) -> Self {
         value.0.clone()
     }
@@ -967,25 +967,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<TranslationAnimation> for IPropertyAnimation {
+impl ::core::convert::From<TranslationAnimation> for IPropertyAnimation {
     fn from(value: TranslationAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&TranslationAnimation> for IPropertyAnimation {
+impl ::core::convert::From<&TranslationAnimation> for IPropertyAnimation {
     fn from(value: &TranslationAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for TranslationAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyAnimation> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for &TranslationAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyAnimation> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::std::marker::Send for TranslationAnimation {}
-unsafe impl ::std::marker::Sync for TranslationAnimation {}
+unsafe impl ::core::marker::Send for TranslationAnimation {}
+unsafe impl ::core::marker::Sync for TranslationAnimation {}

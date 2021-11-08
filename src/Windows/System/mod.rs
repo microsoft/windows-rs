@@ -25,23 +25,23 @@ pub mod Update;
 pub mod UserProfile;
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppActivationResult(pub ::windows::runtime::IInspectable);
 impl AppActivationResult {
     #[doc = "*Required features: `System`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn AppResourceGroupInfo(&self) -> ::windows::runtime::Result<AppResourceGroupInfo> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupInfo>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupInfo>(result__)
         }
     }
 }
@@ -55,12 +55,12 @@ unsafe impl ::windows::runtime::Interface for AppActivationResult {
 impl ::windows::runtime::RuntimeName for AppActivationResult {
     const NAME: &'static str = "Windows.System.AppActivationResult";
 }
-impl ::std::convert::From<AppActivationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppActivationResult> for ::windows::runtime::IUnknown {
     fn from(value: AppActivationResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppActivationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppActivationResult> for ::windows::runtime::IUnknown {
     fn from(value: &AppActivationResult) -> Self {
         value.0 .0.clone()
     }
@@ -75,12 +75,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppActivationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppActivationResult> for ::windows::runtime::IInspectable {
     fn from(value: AppActivationResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppActivationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppActivationResult> for ::windows::runtime::IInspectable {
     fn from(value: &AppActivationResult) -> Self {
         value.0.clone()
     }
@@ -95,11 +95,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppActivationResult {}
-unsafe impl ::std::marker::Sync for AppActivationResult {}
+unsafe impl ::core::marker::Send for AppActivationResult {}
+unsafe impl ::core::marker::Sync for AppActivationResult {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppDiagnosticInfo(pub ::windows::runtime::IInspectable);
 impl AppDiagnosticInfo {
     #[cfg(feature = "ApplicationModel")]
@@ -107,16 +107,16 @@ impl AppDiagnosticInfo {
     pub fn AppInfo(&self) -> ::windows::runtime::Result<super::ApplicationModel::AppInfo> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::ApplicationModel::AppInfo>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ApplicationModel::AppInfo>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `System`, `Foundation`, `Foundation_Collections`*"]
     pub fn RequestInfoAsync() -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -124,55 +124,55 @@ impl AppDiagnosticInfo {
     pub fn GetResourceGroups(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IVector<AppResourceGroupInfo>> {
         let this = &::windows::runtime::Interface::cast::<IAppDiagnosticInfo2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVector<AppResourceGroupInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVector<AppResourceGroupInfo>>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn CreateResourceGroupWatcher(&self) -> ::windows::runtime::Result<AppResourceGroupInfoWatcher> {
         let this = &::windows::runtime::Interface::cast::<IAppDiagnosticInfo2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupInfoWatcher>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupInfoWatcher>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn CreateWatcher() -> ::windows::runtime::Result<AppDiagnosticInfoWatcher> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppDiagnosticInfoWatcher>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppDiagnosticInfoWatcher>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RequestAccessAsync() -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<DiagnosticAccessStatus>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<DiagnosticAccessStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<DiagnosticAccessStatus>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `System`, `Foundation`, `Foundation_Collections`*"]
     pub fn RequestInfoForPackageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(packagefamilyname: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `System`, `Foundation`, `Foundation_Collections`*"]
     pub fn RequestInfoForAppAsync() -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `System`, `Foundation`, `Foundation_Collections`*"]
     pub fn RequestInfoForAppUserModelId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(appusermodelid: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), appusermodelid.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), appusermodelid.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
@@ -180,8 +180,8 @@ impl AppDiagnosticInfo {
     pub fn LaunchAsync(&self) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<AppActivationResult>> {
         let this = &::windows::runtime::Interface::cast::<IAppDiagnosticInfo3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<AppActivationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<AppActivationResult>>(result__)
         }
     }
     pub fn IAppDiagnosticInfoStatics<R, F: FnOnce(&IAppDiagnosticInfoStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -203,12 +203,12 @@ unsafe impl ::windows::runtime::Interface for AppDiagnosticInfo {
 impl ::windows::runtime::RuntimeName for AppDiagnosticInfo {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfo";
 }
-impl ::std::convert::From<AppDiagnosticInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppDiagnosticInfo> for ::windows::runtime::IUnknown {
     fn from(value: AppDiagnosticInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppDiagnosticInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppDiagnosticInfo> for ::windows::runtime::IUnknown {
     fn from(value: &AppDiagnosticInfo) -> Self {
         value.0 .0.clone()
     }
@@ -223,12 +223,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppDiagnosticInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppDiagnosticInfo> for ::windows::runtime::IInspectable {
     fn from(value: AppDiagnosticInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppDiagnosticInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppDiagnosticInfo> for ::windows::runtime::IInspectable {
     fn from(value: &AppDiagnosticInfo) -> Self {
         value.0.clone()
     }
@@ -243,11 +243,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppDiagnosticInfo {}
-unsafe impl ::std::marker::Sync for AppDiagnosticInfo {}
+unsafe impl ::core::marker::Send for AppDiagnosticInfo {}
+unsafe impl ::core::marker::Sync for AppDiagnosticInfo {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppDiagnosticInfoWatcher(pub ::windows::runtime::IInspectable);
 impl AppDiagnosticInfoWatcher {
     #[cfg(feature = "Foundation")]
@@ -255,78 +255,78 @@ impl AppDiagnosticInfoWatcher {
     pub fn Added<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn Removed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn EnumerationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn Stopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveStopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AppDiagnosticInfoWatcherStatus> {
         let this = self;
         unsafe {
-            let mut result__: AppDiagnosticInfoWatcherStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppDiagnosticInfoWatcherStatus>(result__)
+            let mut result__: AppDiagnosticInfoWatcherStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppDiagnosticInfoWatcherStatus>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for AppDiagnosticInfoWatcher {
@@ -339,12 +339,12 @@ unsafe impl ::windows::runtime::Interface for AppDiagnosticInfoWatcher {
 impl ::windows::runtime::RuntimeName for AppDiagnosticInfoWatcher {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfoWatcher";
 }
-impl ::std::convert::From<AppDiagnosticInfoWatcher> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppDiagnosticInfoWatcher> for ::windows::runtime::IUnknown {
     fn from(value: AppDiagnosticInfoWatcher) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppDiagnosticInfoWatcher> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppDiagnosticInfoWatcher> for ::windows::runtime::IUnknown {
     fn from(value: &AppDiagnosticInfoWatcher) -> Self {
         value.0 .0.clone()
     }
@@ -359,12 +359,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppDiagnosticInfoWatcher> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppDiagnosticInfoWatcher> for ::windows::runtime::IInspectable {
     fn from(value: AppDiagnosticInfoWatcher) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppDiagnosticInfoWatcher> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppDiagnosticInfoWatcher> for ::windows::runtime::IInspectable {
     fn from(value: &AppDiagnosticInfoWatcher) -> Self {
         value.0.clone()
     }
@@ -379,19 +379,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppDiagnosticInfoWatcher {}
-unsafe impl ::std::marker::Sync for AppDiagnosticInfoWatcher {}
+unsafe impl ::core::marker::Send for AppDiagnosticInfoWatcher {}
+unsafe impl ::core::marker::Sync for AppDiagnosticInfoWatcher {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppDiagnosticInfoWatcherEventArgs(pub ::windows::runtime::IInspectable);
 impl AppDiagnosticInfoWatcherEventArgs {
     #[doc = "*Required features: `System`*"]
     pub fn AppDiagnosticInfo(&self) -> ::windows::runtime::Result<AppDiagnosticInfo> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppDiagnosticInfo>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppDiagnosticInfo>(result__)
         }
     }
 }
@@ -405,12 +405,12 @@ unsafe impl ::windows::runtime::Interface for AppDiagnosticInfoWatcherEventArgs 
 impl ::windows::runtime::RuntimeName for AppDiagnosticInfoWatcherEventArgs {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfoWatcherEventArgs";
 }
-impl ::std::convert::From<AppDiagnosticInfoWatcherEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppDiagnosticInfoWatcherEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppDiagnosticInfoWatcherEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppDiagnosticInfoWatcherEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppDiagnosticInfoWatcherEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppDiagnosticInfoWatcherEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -425,12 +425,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppDiagnosticInfoWatcherEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppDiagnosticInfoWatcherEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: AppDiagnosticInfoWatcherEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppDiagnosticInfoWatcherEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppDiagnosticInfoWatcherEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &AppDiagnosticInfoWatcherEventArgs) -> Self {
         value.0.clone()
     }
@@ -445,10 +445,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppDiagnosticInfoWatcherEventArgs {}
-unsafe impl ::std::marker::Sync for AppDiagnosticInfoWatcherEventArgs {}
+unsafe impl ::core::marker::Send for AppDiagnosticInfoWatcherEventArgs {}
+unsafe impl ::core::marker::Sync for AppDiagnosticInfoWatcherEventArgs {}
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppDiagnosticInfoWatcherStatus(pub i32);
 impl AppDiagnosticInfoWatcherStatus {
@@ -459,7 +459,7 @@ impl AppDiagnosticInfoWatcherStatus {
     pub const Stopped: AppDiagnosticInfoWatcherStatus = AppDiagnosticInfoWatcherStatus(4i32);
     pub const Aborted: AppDiagnosticInfoWatcherStatus = AppDiagnosticInfoWatcherStatus(5i32);
 }
-impl ::std::convert::From<i32> for AppDiagnosticInfoWatcherStatus {
+impl ::core::convert::From<i32> for AppDiagnosticInfoWatcherStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -475,15 +475,15 @@ impl ::windows::runtime::DefaultType for AppDiagnosticInfoWatcherStatus {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppExecutionStateChangeResult(pub ::windows::runtime::IInspectable);
 impl AppExecutionStateChangeResult {
     #[doc = "*Required features: `System`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
 }
@@ -497,12 +497,12 @@ unsafe impl ::windows::runtime::Interface for AppExecutionStateChangeResult {
 impl ::windows::runtime::RuntimeName for AppExecutionStateChangeResult {
     const NAME: &'static str = "Windows.System.AppExecutionStateChangeResult";
 }
-impl ::std::convert::From<AppExecutionStateChangeResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppExecutionStateChangeResult> for ::windows::runtime::IUnknown {
     fn from(value: AppExecutionStateChangeResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppExecutionStateChangeResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppExecutionStateChangeResult> for ::windows::runtime::IUnknown {
     fn from(value: &AppExecutionStateChangeResult) -> Self {
         value.0 .0.clone()
     }
@@ -517,12 +517,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppExecutionStateChangeResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppExecutionStateChangeResult> for ::windows::runtime::IInspectable {
     fn from(value: AppExecutionStateChangeResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppExecutionStateChangeResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppExecutionStateChangeResult> for ::windows::runtime::IInspectable {
     fn from(value: &AppExecutionStateChangeResult) -> Self {
         value.0.clone()
     }
@@ -537,51 +537,51 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppExecutionStateChangeResult {}
-unsafe impl ::std::marker::Sync for AppExecutionStateChangeResult {}
+unsafe impl ::core::marker::Send for AppExecutionStateChangeResult {}
+unsafe impl ::core::marker::Sync for AppExecutionStateChangeResult {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppMemoryReport(pub ::windows::runtime::IInspectable);
 impl AppMemoryReport {
     #[doc = "*Required features: `System`*"]
     pub fn PrivateCommitUsage(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn PeakPrivateCommitUsage(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn TotalCommitUsage(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn TotalCommitLimit(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn ExpectedTotalCommitLimit(&self) -> ::windows::runtime::Result<u64> {
         let this = &::windows::runtime::Interface::cast::<IAppMemoryReport2>(self)?;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
 }
@@ -595,12 +595,12 @@ unsafe impl ::windows::runtime::Interface for AppMemoryReport {
 impl ::windows::runtime::RuntimeName for AppMemoryReport {
     const NAME: &'static str = "Windows.System.AppMemoryReport";
 }
-impl ::std::convert::From<AppMemoryReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppMemoryReport> for ::windows::runtime::IUnknown {
     fn from(value: AppMemoryReport) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppMemoryReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppMemoryReport> for ::windows::runtime::IUnknown {
     fn from(value: &AppMemoryReport) -> Self {
         value.0 .0.clone()
     }
@@ -615,12 +615,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppMemoryReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppMemoryReport> for ::windows::runtime::IInspectable {
     fn from(value: AppMemoryReport) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppMemoryReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppMemoryReport> for ::windows::runtime::IInspectable {
     fn from(value: &AppMemoryReport) -> Self {
         value.0.clone()
     }
@@ -635,10 +635,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppMemoryReport {}
-unsafe impl ::std::marker::Sync for AppMemoryReport {}
+unsafe impl ::core::marker::Send for AppMemoryReport {}
+unsafe impl ::core::marker::Sync for AppMemoryReport {}
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppMemoryUsageLevel(pub i32);
 impl AppMemoryUsageLevel {
@@ -647,7 +647,7 @@ impl AppMemoryUsageLevel {
     pub const High: AppMemoryUsageLevel = AppMemoryUsageLevel(2i32);
     pub const OverLimit: AppMemoryUsageLevel = AppMemoryUsageLevel(3i32);
 }
-impl ::std::convert::From<i32> for AppMemoryUsageLevel {
+impl ::core::convert::From<i32> for AppMemoryUsageLevel {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -663,23 +663,23 @@ impl ::windows::runtime::DefaultType for AppMemoryUsageLevel {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppMemoryUsageLimitChangingEventArgs(pub ::windows::runtime::IInspectable);
 impl AppMemoryUsageLimitChangingEventArgs {
     #[doc = "*Required features: `System`*"]
     pub fn OldLimit(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn NewLimit(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
 }
@@ -693,12 +693,12 @@ unsafe impl ::windows::runtime::Interface for AppMemoryUsageLimitChangingEventAr
 impl ::windows::runtime::RuntimeName for AppMemoryUsageLimitChangingEventArgs {
     const NAME: &'static str = "Windows.System.AppMemoryUsageLimitChangingEventArgs";
 }
-impl ::std::convert::From<AppMemoryUsageLimitChangingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppMemoryUsageLimitChangingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppMemoryUsageLimitChangingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppMemoryUsageLimitChangingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppMemoryUsageLimitChangingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppMemoryUsageLimitChangingEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -713,12 +713,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppMemoryUsageLimitChangingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppMemoryUsageLimitChangingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: AppMemoryUsageLimitChangingEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppMemoryUsageLimitChangingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppMemoryUsageLimitChangingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &AppMemoryUsageLimitChangingEventArgs) -> Self {
         value.0.clone()
     }
@@ -733,43 +733,43 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppMemoryUsageLimitChangingEventArgs {}
-unsafe impl ::std::marker::Sync for AppMemoryUsageLimitChangingEventArgs {}
+unsafe impl ::core::marker::Send for AppMemoryUsageLimitChangingEventArgs {}
+unsafe impl ::core::marker::Sync for AppMemoryUsageLimitChangingEventArgs {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppResourceGroupBackgroundTaskReport(pub ::windows::runtime::IInspectable);
 impl AppResourceGroupBackgroundTaskReport {
     #[doc = "*Required features: `System`*"]
     pub fn TaskId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn Trigger(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn EntryPoint(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -783,12 +783,12 @@ unsafe impl ::windows::runtime::Interface for AppResourceGroupBackgroundTaskRepo
 impl ::windows::runtime::RuntimeName for AppResourceGroupBackgroundTaskReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupBackgroundTaskReport";
 }
-impl ::std::convert::From<AppResourceGroupBackgroundTaskReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppResourceGroupBackgroundTaskReport> for ::windows::runtime::IUnknown {
     fn from(value: AppResourceGroupBackgroundTaskReport) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppResourceGroupBackgroundTaskReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppResourceGroupBackgroundTaskReport> for ::windows::runtime::IUnknown {
     fn from(value: &AppResourceGroupBackgroundTaskReport) -> Self {
         value.0 .0.clone()
     }
@@ -803,12 +803,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppResourceGroupBackgroundTaskReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppResourceGroupBackgroundTaskReport> for ::windows::runtime::IInspectable {
     fn from(value: AppResourceGroupBackgroundTaskReport) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppResourceGroupBackgroundTaskReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppResourceGroupBackgroundTaskReport> for ::windows::runtime::IInspectable {
     fn from(value: &AppResourceGroupBackgroundTaskReport) -> Self {
         value.0.clone()
     }
@@ -823,10 +823,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppResourceGroupBackgroundTaskReport {}
-unsafe impl ::std::marker::Sync for AppResourceGroupBackgroundTaskReport {}
+unsafe impl ::core::marker::Send for AppResourceGroupBackgroundTaskReport {}
+unsafe impl ::core::marker::Sync for AppResourceGroupBackgroundTaskReport {}
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppResourceGroupEnergyQuotaState(pub i32);
 impl AppResourceGroupEnergyQuotaState {
@@ -834,7 +834,7 @@ impl AppResourceGroupEnergyQuotaState {
     pub const Over: AppResourceGroupEnergyQuotaState = AppResourceGroupEnergyQuotaState(1i32);
     pub const Under: AppResourceGroupEnergyQuotaState = AppResourceGroupEnergyQuotaState(2i32);
 }
-impl ::std::convert::From<i32> for AppResourceGroupEnergyQuotaState {
+impl ::core::convert::From<i32> for AppResourceGroupEnergyQuotaState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -849,7 +849,7 @@ impl ::windows::runtime::DefaultType for AppResourceGroupEnergyQuotaState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppResourceGroupExecutionState(pub i32);
 impl AppResourceGroupExecutionState {
@@ -859,7 +859,7 @@ impl AppResourceGroupExecutionState {
     pub const Suspended: AppResourceGroupExecutionState = AppResourceGroupExecutionState(3i32);
     pub const NotRunning: AppResourceGroupExecutionState = AppResourceGroupExecutionState(4i32);
 }
-impl ::std::convert::From<i32> for AppResourceGroupExecutionState {
+impl ::core::convert::From<i32> for AppResourceGroupExecutionState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -875,23 +875,23 @@ impl ::windows::runtime::DefaultType for AppResourceGroupExecutionState {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppResourceGroupInfo(pub ::windows::runtime::IInspectable);
 impl AppResourceGroupInfo {
     #[doc = "*Required features: `System`*"]
     pub fn InstanceId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn IsShared(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -899,16 +899,16 @@ impl AppResourceGroupInfo {
     pub fn GetBackgroundTaskReports(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IVector<AppResourceGroupBackgroundTaskReport>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVector<AppResourceGroupBackgroundTaskReport>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVector<AppResourceGroupBackgroundTaskReport>>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn GetMemoryReport(&self) -> ::windows::runtime::Result<AppResourceGroupMemoryReport> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupMemoryReport>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupMemoryReport>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "System_Diagnostics"))]
@@ -916,16 +916,16 @@ impl AppResourceGroupInfo {
     pub fn GetProcessDiagnosticInfos(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IVector<Diagnostics::ProcessDiagnosticInfo>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVector<Diagnostics::ProcessDiagnosticInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVector<Diagnostics::ProcessDiagnosticInfo>>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn GetStateReport(&self) -> ::windows::runtime::Result<AppResourceGroupStateReport> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupStateReport>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupStateReport>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -933,8 +933,8 @@ impl AppResourceGroupInfo {
     pub fn StartSuspendAsync(&self) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
         let this = &::windows::runtime::Interface::cast::<IAppResourceGroupInfo2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -942,8 +942,8 @@ impl AppResourceGroupInfo {
     pub fn StartResumeAsync(&self) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
         let this = &::windows::runtime::Interface::cast::<IAppResourceGroupInfo2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -951,8 +951,8 @@ impl AppResourceGroupInfo {
     pub fn StartTerminateAsync(&self) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
         let this = &::windows::runtime::Interface::cast::<IAppResourceGroupInfo2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>(result__)
         }
     }
 }
@@ -966,12 +966,12 @@ unsafe impl ::windows::runtime::Interface for AppResourceGroupInfo {
 impl ::windows::runtime::RuntimeName for AppResourceGroupInfo {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfo";
 }
-impl ::std::convert::From<AppResourceGroupInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppResourceGroupInfo> for ::windows::runtime::IUnknown {
     fn from(value: AppResourceGroupInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppResourceGroupInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppResourceGroupInfo> for ::windows::runtime::IUnknown {
     fn from(value: &AppResourceGroupInfo) -> Self {
         value.0 .0.clone()
     }
@@ -986,12 +986,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppResourceGroupInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppResourceGroupInfo> for ::windows::runtime::IInspectable {
     fn from(value: AppResourceGroupInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppResourceGroupInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppResourceGroupInfo> for ::windows::runtime::IInspectable {
     fn from(value: &AppResourceGroupInfo) -> Self {
         value.0.clone()
     }
@@ -1006,11 +1006,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppResourceGroupInfo {}
-unsafe impl ::std::marker::Sync for AppResourceGroupInfo {}
+unsafe impl ::core::marker::Send for AppResourceGroupInfo {}
+unsafe impl ::core::marker::Sync for AppResourceGroupInfo {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppResourceGroupInfoWatcher(pub ::windows::runtime::IInspectable);
 impl AppResourceGroupInfoWatcher {
     #[cfg(feature = "Foundation")]
@@ -1018,93 +1018,93 @@ impl AppResourceGroupInfoWatcher {
     pub fn Added<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn Removed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn EnumerationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn Stopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveStopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn ExecutionStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherExecutionStateChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveExecutionStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AppResourceGroupInfoWatcherStatus> {
         let this = self;
         unsafe {
-            let mut result__: AppResourceGroupInfoWatcherStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupInfoWatcherStatus>(result__)
+            let mut result__: AppResourceGroupInfoWatcherStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupInfoWatcherStatus>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for AppResourceGroupInfoWatcher {
@@ -1117,12 +1117,12 @@ unsafe impl ::windows::runtime::Interface for AppResourceGroupInfoWatcher {
 impl ::windows::runtime::RuntimeName for AppResourceGroupInfoWatcher {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcher";
 }
-impl ::std::convert::From<AppResourceGroupInfoWatcher> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppResourceGroupInfoWatcher> for ::windows::runtime::IUnknown {
     fn from(value: AppResourceGroupInfoWatcher) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppResourceGroupInfoWatcher> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppResourceGroupInfoWatcher> for ::windows::runtime::IUnknown {
     fn from(value: &AppResourceGroupInfoWatcher) -> Self {
         value.0 .0.clone()
     }
@@ -1137,12 +1137,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppResourceGroupInfoWatcher> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppResourceGroupInfoWatcher> for ::windows::runtime::IInspectable {
     fn from(value: AppResourceGroupInfoWatcher) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppResourceGroupInfoWatcher> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppResourceGroupInfoWatcher> for ::windows::runtime::IInspectable {
     fn from(value: &AppResourceGroupInfoWatcher) -> Self {
         value.0.clone()
     }
@@ -1157,11 +1157,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppResourceGroupInfoWatcher {}
-unsafe impl ::std::marker::Sync for AppResourceGroupInfoWatcher {}
+unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcher {}
+unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcher {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppResourceGroupInfoWatcherEventArgs(pub ::windows::runtime::IInspectable);
 impl AppResourceGroupInfoWatcherEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -1169,16 +1169,16 @@ impl AppResourceGroupInfoWatcherEventArgs {
     pub fn AppDiagnosticInfos(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn AppResourceGroupInfo(&self) -> ::windows::runtime::Result<AppResourceGroupInfo> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupInfo>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupInfo>(result__)
         }
     }
 }
@@ -1192,12 +1192,12 @@ unsafe impl ::windows::runtime::Interface for AppResourceGroupInfoWatcherEventAr
 impl ::windows::runtime::RuntimeName for AppResourceGroupInfoWatcherEventArgs {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcherEventArgs";
 }
-impl ::std::convert::From<AppResourceGroupInfoWatcherEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppResourceGroupInfoWatcherEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppResourceGroupInfoWatcherEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppResourceGroupInfoWatcherEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppResourceGroupInfoWatcherEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppResourceGroupInfoWatcherEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1212,12 +1212,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppResourceGroupInfoWatcherEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppResourceGroupInfoWatcherEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: AppResourceGroupInfoWatcherEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppResourceGroupInfoWatcherEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppResourceGroupInfoWatcherEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &AppResourceGroupInfoWatcherEventArgs) -> Self {
         value.0.clone()
     }
@@ -1232,11 +1232,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppResourceGroupInfoWatcherEventArgs {}
-unsafe impl ::std::marker::Sync for AppResourceGroupInfoWatcherEventArgs {}
+unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcherEventArgs {}
+unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcherEventArgs {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppResourceGroupInfoWatcherExecutionStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -1244,16 +1244,16 @@ impl AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     pub fn AppDiagnosticInfos(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn AppResourceGroupInfo(&self) -> ::windows::runtime::Result<AppResourceGroupInfo> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupInfo>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupInfo>(result__)
         }
     }
 }
@@ -1267,12 +1267,12 @@ unsafe impl ::windows::runtime::Interface for AppResourceGroupInfoWatcherExecuti
 impl ::windows::runtime::RuntimeName for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcherExecutionStateChangedEventArgs";
 }
-impl ::std::convert::From<AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AppResourceGroupInfoWatcherExecutionStateChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AppResourceGroupInfoWatcherExecutionStateChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1287,12 +1287,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: AppResourceGroupInfoWatcherExecutionStateChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &AppResourceGroupInfoWatcherExecutionStateChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1307,10 +1307,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
-unsafe impl ::std::marker::Sync for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
+unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcherStatus(pub i32);
 impl AppResourceGroupInfoWatcherStatus {
@@ -1321,7 +1321,7 @@ impl AppResourceGroupInfoWatcherStatus {
     pub const Stopped: AppResourceGroupInfoWatcherStatus = AppResourceGroupInfoWatcherStatus(4i32);
     pub const Aborted: AppResourceGroupInfoWatcherStatus = AppResourceGroupInfoWatcherStatus(5i32);
 }
-impl ::std::convert::From<i32> for AppResourceGroupInfoWatcherStatus {
+impl ::core::convert::From<i32> for AppResourceGroupInfoWatcherStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1337,39 +1337,39 @@ impl ::windows::runtime::DefaultType for AppResourceGroupInfoWatcherStatus {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppResourceGroupMemoryReport(pub ::windows::runtime::IInspectable);
 impl AppResourceGroupMemoryReport {
     #[doc = "*Required features: `System`*"]
     pub fn CommitUsageLimit(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn CommitUsageLevel(&self) -> ::windows::runtime::Result<AppMemoryUsageLevel> {
         let this = self;
         unsafe {
-            let mut result__: AppMemoryUsageLevel = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppMemoryUsageLevel>(result__)
+            let mut result__: AppMemoryUsageLevel = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppMemoryUsageLevel>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn PrivateCommitUsage(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn TotalCommitUsage(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
 }
@@ -1383,12 +1383,12 @@ unsafe impl ::windows::runtime::Interface for AppResourceGroupMemoryReport {
 impl ::windows::runtime::RuntimeName for AppResourceGroupMemoryReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupMemoryReport";
 }
-impl ::std::convert::From<AppResourceGroupMemoryReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppResourceGroupMemoryReport> for ::windows::runtime::IUnknown {
     fn from(value: AppResourceGroupMemoryReport) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppResourceGroupMemoryReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppResourceGroupMemoryReport> for ::windows::runtime::IUnknown {
     fn from(value: &AppResourceGroupMemoryReport) -> Self {
         value.0 .0.clone()
     }
@@ -1403,12 +1403,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppResourceGroupMemoryReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppResourceGroupMemoryReport> for ::windows::runtime::IInspectable {
     fn from(value: AppResourceGroupMemoryReport) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppResourceGroupMemoryReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppResourceGroupMemoryReport> for ::windows::runtime::IInspectable {
     fn from(value: &AppResourceGroupMemoryReport) -> Self {
         value.0.clone()
     }
@@ -1423,27 +1423,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppResourceGroupMemoryReport {}
-unsafe impl ::std::marker::Sync for AppResourceGroupMemoryReport {}
+unsafe impl ::core::marker::Send for AppResourceGroupMemoryReport {}
+unsafe impl ::core::marker::Sync for AppResourceGroupMemoryReport {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppResourceGroupStateReport(pub ::windows::runtime::IInspectable);
 impl AppResourceGroupStateReport {
     #[doc = "*Required features: `System`*"]
     pub fn ExecutionState(&self) -> ::windows::runtime::Result<AppResourceGroupExecutionState> {
         let this = self;
         unsafe {
-            let mut result__: AppResourceGroupExecutionState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupExecutionState>(result__)
+            let mut result__: AppResourceGroupExecutionState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn EnergyQuotaState(&self) -> ::windows::runtime::Result<AppResourceGroupEnergyQuotaState> {
         let this = self;
         unsafe {
-            let mut result__: AppResourceGroupEnergyQuotaState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupEnergyQuotaState>(result__)
+            let mut result__: AppResourceGroupEnergyQuotaState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppResourceGroupEnergyQuotaState>(result__)
         }
     }
 }
@@ -1457,12 +1457,12 @@ unsafe impl ::windows::runtime::Interface for AppResourceGroupStateReport {
 impl ::windows::runtime::RuntimeName for AppResourceGroupStateReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupStateReport";
 }
-impl ::std::convert::From<AppResourceGroupStateReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppResourceGroupStateReport> for ::windows::runtime::IUnknown {
     fn from(value: AppResourceGroupStateReport) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppResourceGroupStateReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppResourceGroupStateReport> for ::windows::runtime::IUnknown {
     fn from(value: &AppResourceGroupStateReport) -> Self {
         value.0 .0.clone()
     }
@@ -1477,12 +1477,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppResourceGroupStateReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppResourceGroupStateReport> for ::windows::runtime::IInspectable {
     fn from(value: AppResourceGroupStateReport) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppResourceGroupStateReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppResourceGroupStateReport> for ::windows::runtime::IInspectable {
     fn from(value: &AppResourceGroupStateReport) -> Self {
         value.0.clone()
     }
@@ -1497,11 +1497,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppResourceGroupStateReport {}
-unsafe impl ::std::marker::Sync for AppResourceGroupStateReport {}
+unsafe impl ::core::marker::Send for AppResourceGroupStateReport {}
+unsafe impl ::core::marker::Sync for AppResourceGroupStateReport {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppUriHandlerHost(pub ::windows::runtime::IInspectable);
 impl AppUriHandlerHost {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1515,34 +1515,34 @@ impl AppUriHandlerHost {
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(name: Param0) -> ::windows::runtime::Result<AppUriHandlerHost> {
         Self::IAppUriHandlerHostFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<AppUriHandlerHost>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<AppUriHandlerHost>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IAppUriHandlerHost2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAppUriHandlerHost2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     pub fn IAppUriHandlerHostFactory<R, F: FnOnce(&IAppUriHandlerHostFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<AppUriHandlerHost, IAppUriHandlerHostFactory> = ::windows::runtime::FactoryCache::new();
@@ -1559,12 +1559,12 @@ unsafe impl ::windows::runtime::Interface for AppUriHandlerHost {
 impl ::windows::runtime::RuntimeName for AppUriHandlerHost {
     const NAME: &'static str = "Windows.System.AppUriHandlerHost";
 }
-impl ::std::convert::From<AppUriHandlerHost> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppUriHandlerHost> for ::windows::runtime::IUnknown {
     fn from(value: AppUriHandlerHost) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppUriHandlerHost> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppUriHandlerHost> for ::windows::runtime::IUnknown {
     fn from(value: &AppUriHandlerHost) -> Self {
         value.0 .0.clone()
     }
@@ -1579,12 +1579,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppUriHandlerHost> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppUriHandlerHost> for ::windows::runtime::IInspectable {
     fn from(value: AppUriHandlerHost) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppUriHandlerHost> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppUriHandlerHost> for ::windows::runtime::IInspectable {
     fn from(value: &AppUriHandlerHost) -> Self {
         value.0.clone()
     }
@@ -1599,27 +1599,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppUriHandlerHost {}
-unsafe impl ::std::marker::Sync for AppUriHandlerHost {}
+unsafe impl ::core::marker::Send for AppUriHandlerHost {}
+unsafe impl ::core::marker::Sync for AppUriHandlerHost {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppUriHandlerRegistration(pub ::windows::runtime::IInspectable);
 impl AppUriHandlerRegistration {
     #[doc = "*Required features: `System`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<User> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -1627,8 +1627,8 @@ impl AppUriHandlerRegistration {
     pub fn GetAppAddedHostsAsync(&self) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppUriHandlerHost>>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppUriHandlerHost>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppUriHandlerHost>>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -1636,8 +1636,8 @@ impl AppUriHandlerRegistration {
     pub fn SetAppAddedHostsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IIterable<AppUriHandlerHost>>>(&self, hosts: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), hosts.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), hosts.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1645,22 +1645,22 @@ impl AppUriHandlerRegistration {
     pub fn GetAllHosts(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IVector<AppUriHandlerHost>> {
         let this = &::windows::runtime::Interface::cast::<IAppUriHandlerRegistration2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVector<AppUriHandlerHost>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVector<AppUriHandlerHost>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `System`, `Foundation_Collections`*"]
     pub fn UpdateHosts<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IIterable<AppUriHandlerHost>>>(&self, hosts: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAppUriHandlerRegistration2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), hosts.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), hosts.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn PackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IAppUriHandlerRegistration2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -1674,12 +1674,12 @@ unsafe impl ::windows::runtime::Interface for AppUriHandlerRegistration {
 impl ::windows::runtime::RuntimeName for AppUriHandlerRegistration {
     const NAME: &'static str = "Windows.System.AppUriHandlerRegistration";
 }
-impl ::std::convert::From<AppUriHandlerRegistration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppUriHandlerRegistration> for ::windows::runtime::IUnknown {
     fn from(value: AppUriHandlerRegistration) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppUriHandlerRegistration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppUriHandlerRegistration> for ::windows::runtime::IUnknown {
     fn from(value: &AppUriHandlerRegistration) -> Self {
         value.0 .0.clone()
     }
@@ -1694,12 +1694,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppUriHandlerRegistration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppUriHandlerRegistration> for ::windows::runtime::IInspectable {
     fn from(value: AppUriHandlerRegistration) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppUriHandlerRegistration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppUriHandlerRegistration> for ::windows::runtime::IInspectable {
     fn from(value: &AppUriHandlerRegistration) -> Self {
         value.0.clone()
     }
@@ -1714,63 +1714,63 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppUriHandlerRegistration {}
-unsafe impl ::std::marker::Sync for AppUriHandlerRegistration {}
+unsafe impl ::core::marker::Send for AppUriHandlerRegistration {}
+unsafe impl ::core::marker::Sync for AppUriHandlerRegistration {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppUriHandlerRegistrationManager(pub ::windows::runtime::IInspectable);
 impl AppUriHandlerRegistrationManager {
     #[doc = "*Required features: `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<User> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn TryGetRegistration<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<AppUriHandlerRegistration> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<AppUriHandlerRegistration>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<AppUriHandlerRegistration>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<AppUriHandlerRegistrationManager> {
         Self::IAppUriHandlerRegistrationManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppUriHandlerRegistrationManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppUriHandlerRegistrationManager>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, User>>(user: Param0) -> ::windows::runtime::Result<AppUriHandlerRegistrationManager> {
         Self::IAppUriHandlerRegistrationManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<AppUriHandlerRegistrationManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<AppUriHandlerRegistrationManager>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn PackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IAppUriHandlerRegistrationManager2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn GetForPackage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(packagefamilyname: Param0) -> ::windows::runtime::Result<AppUriHandlerRegistrationManager> {
         Self::IAppUriHandlerRegistrationManagerStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<AppUriHandlerRegistrationManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<AppUriHandlerRegistrationManager>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn GetForPackageForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, User>>(packagefamilyname: Param0, user: Param1) -> ::windows::runtime::Result<AppUriHandlerRegistrationManager> {
         Self::IAppUriHandlerRegistrationManagerStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), packagefamilyname.into_param().abi(), user.into_param().abi(), &mut result__).from_abi::<AppUriHandlerRegistrationManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), user.into_param().abi(), &mut result__).from_abi::<AppUriHandlerRegistrationManager>(result__)
         })
     }
     pub fn IAppUriHandlerRegistrationManagerStatics<R, F: FnOnce(&IAppUriHandlerRegistrationManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1792,12 +1792,12 @@ unsafe impl ::windows::runtime::Interface for AppUriHandlerRegistrationManager {
 impl ::windows::runtime::RuntimeName for AppUriHandlerRegistrationManager {
     const NAME: &'static str = "Windows.System.AppUriHandlerRegistrationManager";
 }
-impl ::std::convert::From<AppUriHandlerRegistrationManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AppUriHandlerRegistrationManager> for ::windows::runtime::IUnknown {
     fn from(value: AppUriHandlerRegistrationManager) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AppUriHandlerRegistrationManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AppUriHandlerRegistrationManager> for ::windows::runtime::IUnknown {
     fn from(value: &AppUriHandlerRegistrationManager) -> Self {
         value.0 .0.clone()
     }
@@ -1812,12 +1812,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AppUriHandlerRegistrationManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AppUriHandlerRegistrationManager> for ::windows::runtime::IInspectable {
     fn from(value: AppUriHandlerRegistrationManager) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AppUriHandlerRegistrationManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AppUriHandlerRegistrationManager> for ::windows::runtime::IInspectable {
     fn from(value: &AppUriHandlerRegistrationManager) -> Self {
         value.0.clone()
     }
@@ -1832,10 +1832,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AppUriHandlerRegistrationManager {}
-unsafe impl ::std::marker::Sync for AppUriHandlerRegistrationManager {}
+unsafe impl ::core::marker::Send for AppUriHandlerRegistrationManager {}
+unsafe impl ::core::marker::Sync for AppUriHandlerRegistrationManager {}
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AutoUpdateTimeZoneStatus(pub i32);
 impl AutoUpdateTimeZoneStatus {
@@ -1843,7 +1843,7 @@ impl AutoUpdateTimeZoneStatus {
     pub const TimedOut: AutoUpdateTimeZoneStatus = AutoUpdateTimeZoneStatus(1i32);
     pub const Failed: AutoUpdateTimeZoneStatus = AutoUpdateTimeZoneStatus(2i32);
 }
-impl ::std::convert::From<i32> for AutoUpdateTimeZoneStatus {
+impl ::core::convert::From<i32> for AutoUpdateTimeZoneStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1863,7 +1863,7 @@ impl DateTimeSettings {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn SetSystemDateTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::DateTime>>(utcdatetime: Param0) -> ::windows::runtime::Result<()> {
-        Self::IDateTimeSettingsStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), utcdatetime.into_param().abi()).ok() })
+        Self::IDateTimeSettingsStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), utcdatetime.into_param().abi()).ok() })
     }
     pub fn IDateTimeSettingsStatics<R, F: FnOnce(&IDateTimeSettingsStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<DateTimeSettings, IDateTimeSettingsStatics> = ::windows::runtime::FactoryCache::new();
@@ -1874,7 +1874,7 @@ impl ::windows::runtime::RuntimeName for DateTimeSettings {
     const NAME: &'static str = "Windows.System.DateTimeSettings";
 }
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DiagnosticAccessStatus(pub i32);
 impl DiagnosticAccessStatus {
@@ -1883,7 +1883,7 @@ impl DiagnosticAccessStatus {
     pub const Limited: DiagnosticAccessStatus = DiagnosticAccessStatus(2i32);
     pub const Allowed: DiagnosticAccessStatus = DiagnosticAccessStatus(3i32);
 }
-impl ::std::convert::From<i32> for DiagnosticAccessStatus {
+impl ::core::convert::From<i32> for DiagnosticAccessStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1899,31 +1899,31 @@ impl ::windows::runtime::DefaultType for DiagnosticAccessStatus {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DispatcherQueue(pub ::windows::runtime::IInspectable);
 impl DispatcherQueue {
     #[doc = "*Required features: `System`*"]
     pub fn CreateTimer(&self) -> ::windows::runtime::Result<DispatcherQueueTimer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DispatcherQueueTimer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DispatcherQueueTimer>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn TryEnqueue<'a, Param0: ::windows::runtime::IntoParam<'a, DispatcherQueueHandler>>(&self, callback: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), callback.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), callback.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn TryEnqueueWithPriority<'a, Param1: ::windows::runtime::IntoParam<'a, DispatcherQueueHandler>>(&self, priority: DispatcherQueuePriority, callback: Param1) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), priority, callback.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), priority, callback.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1931,44 +1931,44 @@ impl DispatcherQueue {
     pub fn ShutdownStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<DispatcherQueue, DispatcherQueueShutdownStartingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveShutdownStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn ShutdownCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<DispatcherQueue, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveShutdownCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn GetForCurrentThread() -> ::windows::runtime::Result<DispatcherQueue> {
         Self::IDispatcherQueueStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DispatcherQueue>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DispatcherQueue>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn HasThreadAccess(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IDispatcherQueue2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     pub fn IDispatcherQueueStatics<R, F: FnOnce(&IDispatcherQueueStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1986,12 +1986,12 @@ unsafe impl ::windows::runtime::Interface for DispatcherQueue {
 impl ::windows::runtime::RuntimeName for DispatcherQueue {
     const NAME: &'static str = "Windows.System.DispatcherQueue";
 }
-impl ::std::convert::From<DispatcherQueue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DispatcherQueue> for ::windows::runtime::IUnknown {
     fn from(value: DispatcherQueue) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DispatcherQueue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DispatcherQueue> for ::windows::runtime::IUnknown {
     fn from(value: &DispatcherQueue) -> Self {
         value.0 .0.clone()
     }
@@ -2006,12 +2006,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DispatcherQueue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DispatcherQueue> for ::windows::runtime::IInspectable {
     fn from(value: DispatcherQueue) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DispatcherQueue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DispatcherQueue> for ::windows::runtime::IInspectable {
     fn from(value: &DispatcherQueue) -> Self {
         value.0.clone()
     }
@@ -2026,19 +2026,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DispatcherQueue {}
-unsafe impl ::std::marker::Sync for DispatcherQueue {}
+unsafe impl ::core::marker::Send for DispatcherQueue {}
+unsafe impl ::core::marker::Sync for DispatcherQueue {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DispatcherQueueController(pub ::windows::runtime::IInspectable);
 impl DispatcherQueueController {
     #[doc = "*Required features: `System`*"]
     pub fn DispatcherQueue(&self) -> ::windows::runtime::Result<DispatcherQueue> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DispatcherQueue>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DispatcherQueue>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2046,15 +2046,15 @@ impl DispatcherQueueController {
     pub fn ShutdownQueueAsync(&self) -> ::windows::runtime::Result<super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn CreateOnDedicatedThread() -> ::windows::runtime::Result<DispatcherQueueController> {
         Self::IDispatcherQueueControllerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DispatcherQueueController>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DispatcherQueueController>(result__)
         })
     }
     pub fn IDispatcherQueueControllerStatics<R, F: FnOnce(&IDispatcherQueueControllerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -2072,12 +2072,12 @@ unsafe impl ::windows::runtime::Interface for DispatcherQueueController {
 impl ::windows::runtime::RuntimeName for DispatcherQueueController {
     const NAME: &'static str = "Windows.System.DispatcherQueueController";
 }
-impl ::std::convert::From<DispatcherQueueController> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DispatcherQueueController> for ::windows::runtime::IUnknown {
     fn from(value: DispatcherQueueController) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DispatcherQueueController> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DispatcherQueueController> for ::windows::runtime::IUnknown {
     fn from(value: &DispatcherQueueController) -> Self {
         value.0 .0.clone()
     }
@@ -2092,12 +2092,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DispatcherQueueController> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DispatcherQueueController> for ::windows::runtime::IInspectable {
     fn from(value: DispatcherQueueController) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DispatcherQueueController> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DispatcherQueueController> for ::windows::runtime::IInspectable {
     fn from(value: &DispatcherQueueController) -> Self {
         value.0.clone()
     }
@@ -2112,11 +2112,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DispatcherQueueController {}
-unsafe impl ::std::marker::Sync for DispatcherQueueController {}
+unsafe impl ::core::marker::Send for DispatcherQueueController {}
+unsafe impl ::core::marker::Sync for DispatcherQueueController {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DispatcherQueueHandler(::windows::runtime::IUnknown);
 impl DispatcherQueueHandler {
     pub fn new<F: FnMut() -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
@@ -2125,12 +2125,12 @@ impl DispatcherQueueHandler {
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `System`*"]
     pub fn Invoke(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for DispatcherQueueHandler {
@@ -2161,7 +2161,7 @@ impl<F: FnMut() -> ::windows::runtime::Result<()> + 'static> DispatcherQueueHand
         *interface = if iid == &<DispatcherQueueHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
-            ::std::ptr::null_mut()
+            ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
             ::windows::runtime::HRESULT(0x8000_4002)
@@ -2188,7 +2188,7 @@ impl<F: FnMut() -> ::windows::runtime::Result<()> + 'static> DispatcherQueueHand
     }
 }
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DispatcherQueuePriority(pub i32);
 impl DispatcherQueuePriority {
@@ -2196,7 +2196,7 @@ impl DispatcherQueuePriority {
     pub const Normal: DispatcherQueuePriority = DispatcherQueuePriority(0i32);
     pub const High: DispatcherQueuePriority = DispatcherQueuePriority(10i32);
 }
-impl ::std::convert::From<i32> for DispatcherQueuePriority {
+impl ::core::convert::From<i32> for DispatcherQueuePriority {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2212,7 +2212,7 @@ impl ::windows::runtime::DefaultType for DispatcherQueuePriority {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DispatcherQueueShutdownStartingEventArgs(pub ::windows::runtime::IInspectable);
 impl DispatcherQueueShutdownStartingEventArgs {
     #[cfg(feature = "Foundation")]
@@ -2220,8 +2220,8 @@ impl DispatcherQueueShutdownStartingEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -2235,12 +2235,12 @@ unsafe impl ::windows::runtime::Interface for DispatcherQueueShutdownStartingEve
 impl ::windows::runtime::RuntimeName for DispatcherQueueShutdownStartingEventArgs {
     const NAME: &'static str = "Windows.System.DispatcherQueueShutdownStartingEventArgs";
 }
-impl ::std::convert::From<DispatcherQueueShutdownStartingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DispatcherQueueShutdownStartingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: DispatcherQueueShutdownStartingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DispatcherQueueShutdownStartingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DispatcherQueueShutdownStartingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &DispatcherQueueShutdownStartingEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -2255,12 +2255,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DispatcherQueueShutdownStartingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DispatcherQueueShutdownStartingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: DispatcherQueueShutdownStartingEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DispatcherQueueShutdownStartingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DispatcherQueueShutdownStartingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &DispatcherQueueShutdownStartingEventArgs) -> Self {
         value.0.clone()
     }
@@ -2275,11 +2275,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DispatcherQueueShutdownStartingEventArgs {}
-unsafe impl ::std::marker::Sync for DispatcherQueueShutdownStartingEventArgs {}
+unsafe impl ::core::marker::Send for DispatcherQueueShutdownStartingEventArgs {}
+unsafe impl ::core::marker::Sync for DispatcherQueueShutdownStartingEventArgs {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DispatcherQueueTimer(pub ::windows::runtime::IInspectable);
 impl DispatcherQueueTimer {
     #[cfg(feature = "Foundation")]
@@ -2287,61 +2287,61 @@ impl DispatcherQueueTimer {
     pub fn Interval(&self) -> ::windows::runtime::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
+            let mut result__: super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn SetInterval<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn IsRunning(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn IsRepeating(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SetIsRepeating(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn Tick<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<DispatcherQueueTimer, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveTick<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for DispatcherQueueTimer {
@@ -2354,12 +2354,12 @@ unsafe impl ::windows::runtime::Interface for DispatcherQueueTimer {
 impl ::windows::runtime::RuntimeName for DispatcherQueueTimer {
     const NAME: &'static str = "Windows.System.DispatcherQueueTimer";
 }
-impl ::std::convert::From<DispatcherQueueTimer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DispatcherQueueTimer> for ::windows::runtime::IUnknown {
     fn from(value: DispatcherQueueTimer) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DispatcherQueueTimer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DispatcherQueueTimer> for ::windows::runtime::IUnknown {
     fn from(value: &DispatcherQueueTimer) -> Self {
         value.0 .0.clone()
     }
@@ -2374,12 +2374,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DispatcherQueueTimer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DispatcherQueueTimer> for ::windows::runtime::IInspectable {
     fn from(value: DispatcherQueueTimer) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DispatcherQueueTimer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DispatcherQueueTimer> for ::windows::runtime::IInspectable {
     fn from(value: &DispatcherQueueTimer) -> Self {
         value.0.clone()
     }
@@ -2394,11 +2394,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DispatcherQueueTimer {}
-unsafe impl ::std::marker::Sync for DispatcherQueueTimer {}
+unsafe impl ::core::marker::Send for DispatcherQueueTimer {}
+unsafe impl ::core::marker::Sync for DispatcherQueueTimer {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FolderLauncherOptions(pub ::windows::runtime::IInspectable);
 impl FolderLauncherOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2413,8 +2413,8 @@ impl FolderLauncherOptions {
     pub fn ItemsToSelect(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IVector<super::Storage::IStorageItem>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVector<super::Storage::IStorageItem>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVector<super::Storage::IStorageItem>>(result__)
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
@@ -2422,15 +2422,15 @@ impl FolderLauncherOptions {
     pub fn DesiredRemainingView(&self) -> ::windows::runtime::Result<super::UI::ViewManagement::ViewSizePreference> {
         let this = &::windows::runtime::Interface::cast::<ILauncherViewOptions>(self)?;
         unsafe {
-            let mut result__: super::UI::ViewManagement::ViewSizePreference = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::UI::ViewManagement::ViewSizePreference>(result__)
+            let mut result__: super::UI::ViewManagement::ViewSizePreference = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UI::ViewManagement::ViewSizePreference>(result__)
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
     #[doc = "*Required features: `System`, `UI_ViewManagement`*"]
     pub fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ILauncherViewOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for FolderLauncherOptions {
@@ -2443,12 +2443,12 @@ unsafe impl ::windows::runtime::Interface for FolderLauncherOptions {
 impl ::windows::runtime::RuntimeName for FolderLauncherOptions {
     const NAME: &'static str = "Windows.System.FolderLauncherOptions";
 }
-impl ::std::convert::From<FolderLauncherOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<FolderLauncherOptions> for ::windows::runtime::IUnknown {
     fn from(value: FolderLauncherOptions) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&FolderLauncherOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&FolderLauncherOptions> for ::windows::runtime::IUnknown {
     fn from(value: &FolderLauncherOptions) -> Self {
         value.0 .0.clone()
     }
@@ -2463,12 +2463,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<FolderLauncherOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<FolderLauncherOptions> for ::windows::runtime::IInspectable {
     fn from(value: FolderLauncherOptions) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&FolderLauncherOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&FolderLauncherOptions> for ::windows::runtime::IInspectable {
     fn from(value: &FolderLauncherOptions) -> Self {
         value.0.clone()
     }
@@ -2483,13 +2483,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<FolderLauncherOptions> for ILauncherViewOptions {
+impl ::core::convert::TryFrom<FolderLauncherOptions> for ILauncherViewOptions {
     type Error = ::windows::runtime::Error;
     fn try_from(value: FolderLauncherOptions) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&FolderLauncherOptions> for ILauncherViewOptions {
+impl ::core::convert::TryFrom<&FolderLauncherOptions> for ILauncherViewOptions {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &FolderLauncherOptions) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2502,11 +2502,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ILauncherViewOptions> for FolderLaunc
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILauncherViewOptions> for &FolderLauncherOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILauncherViewOptions> {
-        ::std::convert::TryInto::<ILauncherViewOptions>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<ILauncherViewOptions>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for FolderLauncherOptions {}
-unsafe impl ::std::marker::Sync for FolderLauncherOptions {}
+unsafe impl ::core::marker::Send for FolderLauncherOptions {}
+unsafe impl ::core::marker::Sync for FolderLauncherOptions {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IAppActivationResult(pub ::windows::runtime::IInspectable);
@@ -2622,11 +2622,11 @@ pub struct IAppDiagnosticInfoStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appusermodelid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appusermodelid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
@@ -2776,9 +2776,9 @@ pub struct IAppResourceGroupBackgroundTaskReport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -2964,8 +2964,8 @@ pub struct IAppUriHandlerHost_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -3002,7 +3002,7 @@ pub struct IAppUriHandlerHostFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -3020,7 +3020,7 @@ pub struct IAppUriHandlerRegistration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
@@ -3047,7 +3047,7 @@ pub struct IAppUriHandlerRegistration2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hosts: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -3066,7 +3066,7 @@ pub struct IAppUriHandlerRegistrationManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -3084,7 +3084,7 @@ pub struct IAppUriHandlerRegistrationManager2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -3121,8 +3121,8 @@ pub struct IAppUriHandlerRegistrationManagerStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, user: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, user: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -3329,15 +3329,15 @@ pub struct IKnownUserPropertiesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -3355,7 +3355,7 @@ pub struct IKnownUserPropertiesStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -3398,16 +3398,16 @@ pub struct ILauncherOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -3425,8 +3425,8 @@ pub struct ILauncherOptions2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Storage_Search")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Search"))] usize,
     #[cfg(feature = "Storage_Search")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -3519,17 +3519,17 @@ pub struct ILauncherStatics2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, launchquerysupporttype: LaunchQuerySupportType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, launchquerysupporttype: LaunchQuerySupportType, packagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, launchquerysupporttype: LaunchQuerySupportType, packagefamilyname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, file: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, file: ::windows::runtime::RawPtr, packagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, file: ::windows::runtime::RawPtr, packagefamilyname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scheme: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scheme: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scheme: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, launchquerysupporttype: LaunchQuerySupportType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scheme: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, launchquerysupporttype: LaunchQuerySupportType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, extension: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, extension: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
@@ -3571,7 +3571,7 @@ pub struct ILauncherStatics4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, packagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, packagefamilyname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections")))] usize,
@@ -3602,13 +3602,13 @@ pub struct ILauncherStatics5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, path: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, path: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, path: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, options: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, path: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, options: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, path: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, path: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, path: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, options: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, path: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, options: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -3641,7 +3641,7 @@ pub struct ILauncherUIOptions_abi(
     #[cfg(not(feature = "UI_Popups"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `System`*"]
 pub struct ILauncherViewOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherViewOptions {
@@ -3654,26 +3654,26 @@ impl ILauncherViewOptions {
     pub fn DesiredRemainingView(&self) -> ::windows::runtime::Result<super::UI::ViewManagement::ViewSizePreference> {
         let this = self;
         unsafe {
-            let mut result__: super::UI::ViewManagement::ViewSizePreference = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::UI::ViewManagement::ViewSizePreference>(result__)
+            let mut result__: super::UI::ViewManagement::ViewSizePreference = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UI::ViewManagement::ViewSizePreference>(result__)
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
     #[doc = "*Required features: `System`, `UI_ViewManagement`*"]
     pub fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ILauncherViewOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{8a9b29f1-7ca7-49de-9bd3-3c5b7184f616}");
 }
-impl ::std::convert::From<ILauncherViewOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ILauncherViewOptions> for ::windows::runtime::IUnknown {
     fn from(value: ILauncherViewOptions) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ILauncherViewOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ILauncherViewOptions> for ::windows::runtime::IUnknown {
     fn from(value: &ILauncherViewOptions) -> Self {
         value.0 .0.clone()
     }
@@ -3688,12 +3688,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ILauncherViewOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ILauncherViewOptions> for ::windows::runtime::IInspectable {
     fn from(value: ILauncherViewOptions) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ILauncherViewOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ILauncherViewOptions> for ::windows::runtime::IInspectable {
     fn from(value: &ILauncherViewOptions) -> Self {
         value.0.clone()
     }
@@ -3837,8 +3837,8 @@ pub struct IProcessLauncherOptions_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -3874,9 +3874,9 @@ pub struct IProcessLauncherStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, args: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, args: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, args: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, options: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, args: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, options: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -4020,11 +4020,11 @@ pub struct ITimeZoneSettingsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timezonedisplayname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timezonedisplayname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -4061,10 +4061,10 @@ pub struct IUser_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut UserAuthenticationStatus) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut UserType) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, values: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
@@ -4182,7 +4182,7 @@ pub struct IUserDeviceAssociationChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
@@ -4202,7 +4202,7 @@ pub struct IUserDeviceAssociationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
@@ -4272,7 +4272,7 @@ pub struct IUserStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: UserType, status: UserAuthenticationStatus, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nonroamableid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nonroamableid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -4346,71 +4346,71 @@ impl KnownUserProperties {
     #[doc = "*Required features: `System`*"]
     pub fn DisplayName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn FirstName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn LastName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn ProviderName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn AccountName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn GuestHost() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn PrincipalName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn DomainName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn SessionInitiationProtocolUri() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn AgeEnforcementRegion() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownUserPropertiesStatics2(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     pub fn IKnownUserPropertiesStatics<R, F: FnOnce(&IKnownUserPropertiesStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -4426,7 +4426,7 @@ impl ::windows::runtime::RuntimeName for KnownUserProperties {
     const NAME: &'static str = "Windows.System.KnownUserProperties";
 }
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LaunchFileStatus(pub i32);
 impl LaunchFileStatus {
@@ -4436,7 +4436,7 @@ impl LaunchFileStatus {
     pub const FileTypeNotSupported: LaunchFileStatus = LaunchFileStatus(3i32);
     pub const Unknown: LaunchFileStatus = LaunchFileStatus(4i32);
 }
-impl ::std::convert::From<i32> for LaunchFileStatus {
+impl ::core::convert::From<i32> for LaunchFileStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4451,7 +4451,7 @@ impl ::windows::runtime::DefaultType for LaunchFileStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LaunchQuerySupportStatus(pub i32);
 impl LaunchQuerySupportStatus {
@@ -4461,7 +4461,7 @@ impl LaunchQuerySupportStatus {
     pub const NotSupported: LaunchQuerySupportStatus = LaunchQuerySupportStatus(3i32);
     pub const Unknown: LaunchQuerySupportStatus = LaunchQuerySupportStatus(4i32);
 }
-impl ::std::convert::From<i32> for LaunchQuerySupportStatus {
+impl ::core::convert::From<i32> for LaunchQuerySupportStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4476,14 +4476,14 @@ impl ::windows::runtime::DefaultType for LaunchQuerySupportStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LaunchQuerySupportType(pub i32);
 impl LaunchQuerySupportType {
     pub const Uri: LaunchQuerySupportType = LaunchQuerySupportType(0i32);
     pub const UriForResults: LaunchQuerySupportType = LaunchQuerySupportType(1i32);
 }
-impl ::std::convert::From<i32> for LaunchQuerySupportType {
+impl ::core::convert::From<i32> for LaunchQuerySupportType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4499,15 +4499,15 @@ impl ::windows::runtime::DefaultType for LaunchQuerySupportType {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LaunchUriResult(pub ::windows::runtime::IInspectable);
 impl LaunchUriResult {
     #[doc = "*Required features: `System`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<LaunchUriStatus> {
         let this = self;
         unsafe {
-            let mut result__: LaunchUriStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LaunchUriStatus>(result__)
+            let mut result__: LaunchUriStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LaunchUriStatus>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -4515,8 +4515,8 @@ impl LaunchUriResult {
     pub fn Result(&self) -> ::windows::runtime::Result<super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::ValueSet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::ValueSet>(result__)
         }
     }
 }
@@ -4530,12 +4530,12 @@ unsafe impl ::windows::runtime::Interface for LaunchUriResult {
 impl ::windows::runtime::RuntimeName for LaunchUriResult {
     const NAME: &'static str = "Windows.System.LaunchUriResult";
 }
-impl ::std::convert::From<LaunchUriResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<LaunchUriResult> for ::windows::runtime::IUnknown {
     fn from(value: LaunchUriResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&LaunchUriResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&LaunchUriResult> for ::windows::runtime::IUnknown {
     fn from(value: &LaunchUriResult) -> Self {
         value.0 .0.clone()
     }
@@ -4550,12 +4550,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<LaunchUriResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<LaunchUriResult> for ::windows::runtime::IInspectable {
     fn from(value: LaunchUriResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&LaunchUriResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&LaunchUriResult> for ::windows::runtime::IInspectable {
     fn from(value: &LaunchUriResult) -> Self {
         value.0.clone()
     }
@@ -4570,10 +4570,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for LaunchUriResult {}
-unsafe impl ::std::marker::Sync for LaunchUriResult {}
+unsafe impl ::core::marker::Send for LaunchUriResult {}
+unsafe impl ::core::marker::Sync for LaunchUriResult {}
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LaunchUriStatus(pub i32);
 impl LaunchUriStatus {
@@ -4582,7 +4582,7 @@ impl LaunchUriStatus {
     pub const ProtocolUnavailable: LaunchUriStatus = LaunchUriStatus(2i32);
     pub const Unknown: LaunchUriStatus = LaunchUriStatus(3i32);
 }
-impl ::std::convert::From<i32> for LaunchUriStatus {
+impl ::core::convert::From<i32> for LaunchUriStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4603,224 +4603,224 @@ impl Launcher {
     #[doc = "*Required features: `System`, `Foundation`, `Storage`*"]
     pub fn LaunchFileAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Storage::IStorageFile>>(file: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     #[doc = "*Required features: `System`, `Foundation`, `Storage`*"]
     pub fn LaunchFileWithOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Storage::IStorageFile>, Param1: ::windows::runtime::IntoParam<'a, LauncherOptions>>(file: Param0, options: Param1) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), file.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), file.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn LaunchUriAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>>(uri: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn LaunchUriWithOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, LauncherOptions>>(uri: Param0, options: Param1) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn LaunchUriForResultsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, LauncherOptions>>(uri: Param0, options: Param1) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<LaunchUriResult>> {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `System`, `Foundation`, `Foundation_Collections`*"]
     pub fn LaunchUriForResultsWithDataAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, LauncherOptions>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::ValueSet>>(uri: Param0, options: Param1, inputdata: Param2) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<LaunchUriResult>> {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `System`, `Foundation`, `Foundation_Collections`*"]
     pub fn LaunchUriWithDataAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, LauncherOptions>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::ValueSet>>(uri: Param0, options: Param1, inputdata: Param2) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn QueryUriSupportAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>>(uri: Param0, launchquerysupporttype: LaunchQuerySupportType) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), uri.into_param().abi(), launchquerysupporttype, &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), uri.into_param().abi(), launchquerysupporttype, &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn QueryUriSupportWithPackageFamilyNameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(uri: Param0, launchquerysupporttype: LaunchQuerySupportType, packagefamilyname: Param2) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), uri.into_param().abi(), launchquerysupporttype, packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), uri.into_param().abi(), launchquerysupporttype, packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     #[doc = "*Required features: `System`, `Foundation`, `Storage`*"]
     pub fn QueryFileSupportAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Storage::StorageFile>>(file: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     #[doc = "*Required features: `System`, `Foundation`, `Storage`*"]
     pub fn QueryFileSupportWithPackageFamilyNameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Storage::StorageFile>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(file: Param0, packagefamilyname: Param1) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), file.into_param().abi(), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), file.into_param().abi(), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `System`, `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindUriSchemeHandlersAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(scheme: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), scheme.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), scheme.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>(result__)
         })
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `System`, `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindUriSchemeHandlersWithLaunchUriTypeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(scheme: Param0, launchquerysupporttype: LaunchQuerySupportType) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), scheme.into_param().abi(), launchquerysupporttype, &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), scheme.into_param().abi(), launchquerysupporttype, &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>(result__)
         })
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `System`, `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindFileHandlersAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(extension: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), extension.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), extension.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     #[doc = "*Required features: `System`, `Foundation`, `Storage`*"]
     pub fn LaunchFolderAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Storage::IStorageFolder>>(folder: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics3(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), folder.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), folder.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     #[doc = "*Required features: `System`, `Foundation`, `Storage`*"]
     pub fn LaunchFolderWithOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Storage::IStorageFolder>, Param1: ::windows::runtime::IntoParam<'a, FolderLauncherOptions>>(folder: Param0, options: Param1) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics3(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), folder.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), folder.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn QueryAppUriSupportAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>>(uri: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn QueryAppUriSupportWithPackageFamilyNameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(uri: Param0, packagefamilyname: Param1) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), uri.into_param().abi(), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), uri.into_param().abi(), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `System`, `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAppUriHandlersAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>>(uri: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn LaunchUriForUserAsync<'a, Param0: ::windows::runtime::IntoParam<'a, User>, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>>(user: Param0, uri: Param1) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), user.into_param().abi(), uri.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), user.into_param().abi(), uri.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriStatus>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn LaunchUriWithOptionsForUserAsync<'a, Param0: ::windows::runtime::IntoParam<'a, User>, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>, Param2: ::windows::runtime::IntoParam<'a, LauncherOptions>>(user: Param0, uri: Param1, options: Param2) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriStatus>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `System`, `Foundation`, `Foundation_Collections`*"]
     pub fn LaunchUriWithDataForUserAsync<'a, Param0: ::windows::runtime::IntoParam<'a, User>, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>, Param2: ::windows::runtime::IntoParam<'a, LauncherOptions>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::ValueSet>>(user: Param0, uri: Param1, options: Param2, inputdata: Param3) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriStatus>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn LaunchUriForResultsForUserAsync<'a, Param0: ::windows::runtime::IntoParam<'a, User>, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>, Param2: ::windows::runtime::IntoParam<'a, LauncherOptions>>(user: Param0, uri: Param1, options: Param2) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<LaunchUriResult>> {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `System`, `Foundation`, `Foundation_Collections`*"]
     pub fn LaunchUriForResultsWithDataForUserAsync<'a, Param0: ::windows::runtime::IntoParam<'a, User>, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>, Param2: ::windows::runtime::IntoParam<'a, LauncherOptions>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::ValueSet>>(user: Param0, uri: Param1, options: Param2, inputdata: Param3) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<LaunchUriResult>> {
         Self::ILauncherStatics4(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn LaunchFolderPathAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(path: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics5(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), path.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), path.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn LaunchFolderPathWithOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, FolderLauncherOptions>>(path: Param0, options: Param1) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics5(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), path.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), path.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn LaunchFolderPathForUserAsync<'a, Param0: ::windows::runtime::IntoParam<'a, User>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(user: Param0, path: Param1) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics5(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), user.into_param().abi(), path.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), user.into_param().abi(), path.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn LaunchFolderPathWithOptionsForUserAsync<'a, Param0: ::windows::runtime::IntoParam<'a, User>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, FolderLauncherOptions>>(user: Param0, path: Param1, options: Param2) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics5(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), user.into_param().abi(), path.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), user.into_param().abi(), path.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     pub fn ILauncherStatics<R, F: FnOnce(&ILauncherStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -4849,7 +4849,7 @@ impl ::windows::runtime::RuntimeName for Launcher {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LauncherOptions(pub ::windows::runtime::IInspectable);
 impl LauncherOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -4863,158 +4863,158 @@ impl LauncherOptions {
     pub fn TreatAsUntrusted(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SetTreatAsUntrusted(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn DisplayApplicationPicker(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SetDisplayApplicationPicker(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn UI(&self) -> ::windows::runtime::Result<LauncherUIOptions> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LauncherUIOptions>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LauncherUIOptions>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn PreferredApplicationPackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SetPreferredApplicationPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn PreferredApplicationDisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SetPreferredApplicationDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn FallbackUri(&self) -> ::windows::runtime::Result<super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn SetFallbackUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn ContentType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SetContentType<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn TargetApplicationPackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ILauncherOptions2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SetTargetApplicationPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ILauncherOptions2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Search")]
     #[doc = "*Required features: `System`, `Storage_Search`*"]
     pub fn NeighboringFilesQuery(&self) -> ::windows::runtime::Result<super::Storage::Search::StorageFileQueryResult> {
         let this = &::windows::runtime::Interface::cast::<ILauncherOptions2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Storage::Search::StorageFileQueryResult>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Storage::Search::StorageFileQueryResult>(result__)
         }
     }
     #[cfg(feature = "Storage_Search")]
     #[doc = "*Required features: `System`, `Storage_Search`*"]
     pub fn SetNeighboringFilesQuery<'a, Param0: ::windows::runtime::IntoParam<'a, super::Storage::Search::StorageFileQueryResult>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ILauncherOptions2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_ViewManagement")]
     #[doc = "*Required features: `System`, `UI_ViewManagement`*"]
     pub fn DesiredRemainingView(&self) -> ::windows::runtime::Result<super::UI::ViewManagement::ViewSizePreference> {
         let this = &::windows::runtime::Interface::cast::<ILauncherViewOptions>(self)?;
         unsafe {
-            let mut result__: super::UI::ViewManagement::ViewSizePreference = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::UI::ViewManagement::ViewSizePreference>(result__)
+            let mut result__: super::UI::ViewManagement::ViewSizePreference = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UI::ViewManagement::ViewSizePreference>(result__)
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
     #[doc = "*Required features: `System`, `UI_ViewManagement`*"]
     pub fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ILauncherViewOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn IgnoreAppUriHandlers(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ILauncherOptions3>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SetIgnoreAppUriHandlers(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ILauncherOptions3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn LimitPickerToCurrentAppAndAppUriHandlers(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ILauncherOptions4>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SetLimitPickerToCurrentAppAndAppUriHandlers(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ILauncherOptions4>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for LauncherOptions {
@@ -5027,12 +5027,12 @@ unsafe impl ::windows::runtime::Interface for LauncherOptions {
 impl ::windows::runtime::RuntimeName for LauncherOptions {
     const NAME: &'static str = "Windows.System.LauncherOptions";
 }
-impl ::std::convert::From<LauncherOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<LauncherOptions> for ::windows::runtime::IUnknown {
     fn from(value: LauncherOptions) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&LauncherOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&LauncherOptions> for ::windows::runtime::IUnknown {
     fn from(value: &LauncherOptions) -> Self {
         value.0 .0.clone()
     }
@@ -5047,12 +5047,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<LauncherOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<LauncherOptions> for ::windows::runtime::IInspectable {
     fn from(value: LauncherOptions) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&LauncherOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&LauncherOptions> for ::windows::runtime::IInspectable {
     fn from(value: &LauncherOptions) -> Self {
         value.0.clone()
     }
@@ -5067,13 +5067,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<LauncherOptions> for ILauncherViewOptions {
+impl ::core::convert::TryFrom<LauncherOptions> for ILauncherViewOptions {
     type Error = ::windows::runtime::Error;
     fn try_from(value: LauncherOptions) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&LauncherOptions> for ILauncherViewOptions {
+impl ::core::convert::TryFrom<&LauncherOptions> for ILauncherViewOptions {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &LauncherOptions) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5086,14 +5086,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ILauncherViewOptions> for LauncherOpt
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILauncherViewOptions> for &LauncherOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILauncherViewOptions> {
-        ::std::convert::TryInto::<ILauncherViewOptions>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<ILauncherViewOptions>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for LauncherOptions {}
-unsafe impl ::std::marker::Sync for LauncherOptions {}
+unsafe impl ::core::marker::Send for LauncherOptions {}
+unsafe impl ::core::marker::Sync for LauncherOptions {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LauncherUIOptions(pub ::windows::runtime::IInspectable);
 impl LauncherUIOptions {
     #[cfg(feature = "Foundation")]
@@ -5101,45 +5101,45 @@ impl LauncherUIOptions {
     pub fn InvocationPoint(&self) -> ::windows::runtime::Result<super::Foundation::IReference<super::Foundation::Point>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::Point>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::Point>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn SetInvocationPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::IReference<super::Foundation::Point>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn SelectionRect(&self) -> ::windows::runtime::Result<super::Foundation::IReference<super::Foundation::Rect>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::Rect>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::Rect>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn SetSelectionRect<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::IReference<super::Foundation::Rect>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Popups")]
     #[doc = "*Required features: `System`, `UI_Popups`*"]
     pub fn PreferredPlacement(&self) -> ::windows::runtime::Result<super::UI::Popups::Placement> {
         let this = self;
         unsafe {
-            let mut result__: super::UI::Popups::Placement = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::UI::Popups::Placement>(result__)
+            let mut result__: super::UI::Popups::Placement = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UI::Popups::Placement>(result__)
         }
     }
     #[cfg(feature = "UI_Popups")]
     #[doc = "*Required features: `System`, `UI_Popups`*"]
     pub fn SetPreferredPlacement(&self, value: super::UI::Popups::Placement) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for LauncherUIOptions {
@@ -5152,12 +5152,12 @@ unsafe impl ::windows::runtime::Interface for LauncherUIOptions {
 impl ::windows::runtime::RuntimeName for LauncherUIOptions {
     const NAME: &'static str = "Windows.System.LauncherUIOptions";
 }
-impl ::std::convert::From<LauncherUIOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<LauncherUIOptions> for ::windows::runtime::IUnknown {
     fn from(value: LauncherUIOptions) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&LauncherUIOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&LauncherUIOptions> for ::windows::runtime::IUnknown {
     fn from(value: &LauncherUIOptions) -> Self {
         value.0 .0.clone()
     }
@@ -5172,12 +5172,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<LauncherUIOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<LauncherUIOptions> for ::windows::runtime::IInspectable {
     fn from(value: LauncherUIOptions) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&LauncherUIOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&LauncherUIOptions> for ::windows::runtime::IInspectable {
     fn from(value: &LauncherUIOptions) -> Self {
         value.0.clone()
     }
@@ -5192,97 +5192,97 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for LauncherUIOptions {}
-unsafe impl ::std::marker::Sync for LauncherUIOptions {}
+unsafe impl ::core::marker::Send for LauncherUIOptions {}
+unsafe impl ::core::marker::Sync for LauncherUIOptions {}
 #[doc = "*Required features: `System`*"]
 pub struct MemoryManager {}
 impl MemoryManager {
     #[doc = "*Required features: `System`*"]
     pub fn AppMemoryUsage() -> ::windows::runtime::Result<u64> {
         Self::IMemoryManagerStatics(|this| unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn AppMemoryUsageLimit() -> ::windows::runtime::Result<u64> {
         Self::IMemoryManagerStatics(|this| unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn AppMemoryUsageLevel() -> ::windows::runtime::Result<AppMemoryUsageLevel> {
         Self::IMemoryManagerStatics(|this| unsafe {
-            let mut result__: AppMemoryUsageLevel = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppMemoryUsageLevel>(result__)
+            let mut result__: AppMemoryUsageLevel = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppMemoryUsageLevel>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn AppMemoryUsageIncreased<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMemoryManagerStatics(|this| unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveAppMemoryUsageIncreased<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::IMemoryManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IMemoryManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn AppMemoryUsageDecreased<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMemoryManagerStatics(|this| unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveAppMemoryUsageDecreased<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::IMemoryManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IMemoryManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn AppMemoryUsageLimitChanging<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<AppMemoryUsageLimitChangingEventArgs>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMemoryManagerStatics(|this| unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveAppMemoryUsageLimitChanging<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::IMemoryManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IMemoryManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[doc = "*Required features: `System`*"]
     pub fn GetAppMemoryReport() -> ::windows::runtime::Result<AppMemoryReport> {
         Self::IMemoryManagerStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppMemoryReport>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppMemoryReport>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn GetProcessMemoryReport() -> ::windows::runtime::Result<ProcessMemoryReport> {
         Self::IMemoryManagerStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProcessMemoryReport>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessMemoryReport>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn TrySetAppMemoryUsageLimit(value: u64) -> ::windows::runtime::Result<bool> {
         Self::IMemoryManagerStatics3(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn ExpectedAppMemoryUsageLimit() -> ::windows::runtime::Result<u64> {
         Self::IMemoryManagerStatics4(|this| unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         })
     }
     pub fn IMemoryManagerStatics<R, F: FnOnce(&IMemoryManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -5306,14 +5306,14 @@ impl ::windows::runtime::RuntimeName for MemoryManager {
     const NAME: &'static str = "Windows.System.MemoryManager";
 }
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PowerState(pub i32);
 impl PowerState {
     pub const ConnectedStandby: PowerState = PowerState(0i32);
     pub const SleepS3: PowerState = PowerState(1i32);
 }
-impl ::std::convert::From<i32> for PowerState {
+impl ::core::convert::From<i32> for PowerState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5334,16 +5334,16 @@ impl ProcessLauncher {
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RunToCompletionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(filename: Param0, args: Param1) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>> {
         Self::IProcessLauncherStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), filename.into_param().abi(), args.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<ProcessLauncherResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), filename.into_param().abi(), args.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<ProcessLauncherResult>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RunToCompletionAsyncWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ProcessLauncherOptions>>(filename: Param0, args: Param1, options: Param2) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>> {
         Self::IProcessLauncherStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), filename.into_param().abi(), args.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<ProcessLauncherResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), filename.into_param().abi(), args.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<ProcessLauncherResult>>(result__)
         })
     }
     pub fn IProcessLauncherStatics<R, F: FnOnce(&IProcessLauncherStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -5356,7 +5356,7 @@ impl ::windows::runtime::RuntimeName for ProcessLauncher {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProcessLauncherOptions(pub ::windows::runtime::IInspectable);
 impl ProcessLauncherOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5371,58 +5371,58 @@ impl ProcessLauncherOptions {
     pub fn StandardInput(&self) -> ::windows::runtime::Result<super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Storage::Streams::IInputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `System`, `Storage_Streams`*"]
     pub fn SetStandardInput<'a, Param0: ::windows::runtime::IntoParam<'a, super::Storage::Streams::IInputStream>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `System`, `Storage_Streams`*"]
     pub fn StandardOutput(&self) -> ::windows::runtime::Result<super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Storage::Streams::IOutputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `System`, `Storage_Streams`*"]
     pub fn SetStandardOutput<'a, Param0: ::windows::runtime::IntoParam<'a, super::Storage::Streams::IOutputStream>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `System`, `Storage_Streams`*"]
     pub fn StandardError(&self) -> ::windows::runtime::Result<super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Storage::Streams::IOutputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `System`, `Storage_Streams`*"]
     pub fn SetStandardError<'a, Param0: ::windows::runtime::IntoParam<'a, super::Storage::Streams::IOutputStream>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn WorkingDirectory(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SetWorkingDirectory<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ProcessLauncherOptions {
@@ -5435,12 +5435,12 @@ unsafe impl ::windows::runtime::Interface for ProcessLauncherOptions {
 impl ::windows::runtime::RuntimeName for ProcessLauncherOptions {
     const NAME: &'static str = "Windows.System.ProcessLauncherOptions";
 }
-impl ::std::convert::From<ProcessLauncherOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ProcessLauncherOptions> for ::windows::runtime::IUnknown {
     fn from(value: ProcessLauncherOptions) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ProcessLauncherOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ProcessLauncherOptions> for ::windows::runtime::IUnknown {
     fn from(value: &ProcessLauncherOptions) -> Self {
         value.0 .0.clone()
     }
@@ -5455,12 +5455,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ProcessLauncherOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ProcessLauncherOptions> for ::windows::runtime::IInspectable {
     fn from(value: ProcessLauncherOptions) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ProcessLauncherOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ProcessLauncherOptions> for ::windows::runtime::IInspectable {
     fn from(value: &ProcessLauncherOptions) -> Self {
         value.0.clone()
     }
@@ -5475,19 +5475,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ProcessLauncherOptions {}
-unsafe impl ::std::marker::Sync for ProcessLauncherOptions {}
+unsafe impl ::core::marker::Send for ProcessLauncherOptions {}
+unsafe impl ::core::marker::Sync for ProcessLauncherOptions {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProcessLauncherResult(pub ::windows::runtime::IInspectable);
 impl ProcessLauncherResult {
     #[doc = "*Required features: `System`*"]
     pub fn ExitCode(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -5501,12 +5501,12 @@ unsafe impl ::windows::runtime::Interface for ProcessLauncherResult {
 impl ::windows::runtime::RuntimeName for ProcessLauncherResult {
     const NAME: &'static str = "Windows.System.ProcessLauncherResult";
 }
-impl ::std::convert::From<ProcessLauncherResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ProcessLauncherResult> for ::windows::runtime::IUnknown {
     fn from(value: ProcessLauncherResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ProcessLauncherResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ProcessLauncherResult> for ::windows::runtime::IUnknown {
     fn from(value: &ProcessLauncherResult) -> Self {
         value.0 .0.clone()
     }
@@ -5521,12 +5521,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ProcessLauncherResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ProcessLauncherResult> for ::windows::runtime::IInspectable {
     fn from(value: ProcessLauncherResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ProcessLauncherResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ProcessLauncherResult> for ::windows::runtime::IInspectable {
     fn from(value: &ProcessLauncherResult) -> Self {
         value.0.clone()
     }
@@ -5541,27 +5541,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ProcessLauncherResult {}
-unsafe impl ::std::marker::Sync for ProcessLauncherResult {}
+unsafe impl ::core::marker::Send for ProcessLauncherResult {}
+unsafe impl ::core::marker::Sync for ProcessLauncherResult {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProcessMemoryReport(pub ::windows::runtime::IInspectable);
 impl ProcessMemoryReport {
     #[doc = "*Required features: `System`*"]
     pub fn PrivateWorkingSetUsage(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn TotalWorkingSetUsage(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
 }
@@ -5575,12 +5575,12 @@ unsafe impl ::windows::runtime::Interface for ProcessMemoryReport {
 impl ::windows::runtime::RuntimeName for ProcessMemoryReport {
     const NAME: &'static str = "Windows.System.ProcessMemoryReport";
 }
-impl ::std::convert::From<ProcessMemoryReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ProcessMemoryReport> for ::windows::runtime::IUnknown {
     fn from(value: ProcessMemoryReport) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ProcessMemoryReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ProcessMemoryReport> for ::windows::runtime::IUnknown {
     fn from(value: &ProcessMemoryReport) -> Self {
         value.0 .0.clone()
     }
@@ -5595,12 +5595,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ProcessMemoryReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ProcessMemoryReport> for ::windows::runtime::IInspectable {
     fn from(value: ProcessMemoryReport) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ProcessMemoryReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ProcessMemoryReport> for ::windows::runtime::IInspectable {
     fn from(value: &ProcessMemoryReport) -> Self {
         value.0.clone()
     }
@@ -5615,10 +5615,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ProcessMemoryReport {}
-unsafe impl ::std::marker::Sync for ProcessMemoryReport {}
+unsafe impl ::core::marker::Send for ProcessMemoryReport {}
+unsafe impl ::core::marker::Sync for ProcessMemoryReport {}
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ProcessorArchitecture(pub i32);
 impl ProcessorArchitecture {
@@ -5630,7 +5630,7 @@ impl ProcessorArchitecture {
     pub const X86OnArm64: ProcessorArchitecture = ProcessorArchitecture(14i32);
     pub const Unknown: ProcessorArchitecture = ProcessorArchitecture(65535i32);
 }
-impl ::std::convert::From<i32> for ProcessorArchitecture {
+impl ::core::convert::From<i32> for ProcessorArchitecture {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5646,14 +5646,14 @@ impl ::windows::runtime::DefaultType for ProcessorArchitecture {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProtocolForResultsOperation(pub ::windows::runtime::IInspectable);
 impl ProtocolForResultsOperation {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `System`, `Foundation_Collections`*"]
     pub fn ReportCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::ValueSet>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ProtocolForResultsOperation {
@@ -5666,12 +5666,12 @@ unsafe impl ::windows::runtime::Interface for ProtocolForResultsOperation {
 impl ::windows::runtime::RuntimeName for ProtocolForResultsOperation {
     const NAME: &'static str = "Windows.System.ProtocolForResultsOperation";
 }
-impl ::std::convert::From<ProtocolForResultsOperation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ProtocolForResultsOperation> for ::windows::runtime::IUnknown {
     fn from(value: ProtocolForResultsOperation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ProtocolForResultsOperation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ProtocolForResultsOperation> for ::windows::runtime::IUnknown {
     fn from(value: &ProtocolForResultsOperation) -> Self {
         value.0 .0.clone()
     }
@@ -5686,12 +5686,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ProtocolForResultsOperation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ProtocolForResultsOperation> for ::windows::runtime::IInspectable {
     fn from(value: ProtocolForResultsOperation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ProtocolForResultsOperation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ProtocolForResultsOperation> for ::windows::runtime::IInspectable {
     fn from(value: &ProtocolForResultsOperation) -> Self {
         value.0.clone()
     }
@@ -5706,10 +5706,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ProtocolForResultsOperation {}
-unsafe impl ::std::marker::Sync for ProtocolForResultsOperation {}
+unsafe impl ::core::marker::Send for ProtocolForResultsOperation {}
+unsafe impl ::core::marker::Sync for ProtocolForResultsOperation {}
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RemoteLaunchUriStatus(pub i32);
 impl RemoteLaunchUriStatus {
@@ -5722,7 +5722,7 @@ impl RemoteLaunchUriStatus {
     pub const DeniedByLocalSystem: RemoteLaunchUriStatus = RemoteLaunchUriStatus(6i32);
     pub const DeniedByRemoteSystem: RemoteLaunchUriStatus = RemoteLaunchUriStatus(7i32);
 }
-impl ::std::convert::From<i32> for RemoteLaunchUriStatus {
+impl ::core::convert::From<i32> for RemoteLaunchUriStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5743,16 +5743,16 @@ impl RemoteLauncher {
     #[doc = "*Required features: `System`, `Foundation`, `System_RemoteSystems`*"]
     pub fn LaunchUriAsync<'a, Param0: ::windows::runtime::IntoParam<'a, RemoteSystems::RemoteSystemConnectionRequest>, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>>(remotesystemconnectionrequest: Param0, uri: Param1) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>> {
         Self::IRemoteLauncherStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), remotesystemconnectionrequest.into_param().abi(), uri.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), remotesystemconnectionrequest.into_param().abi(), uri.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "System_RemoteSystems"))]
     #[doc = "*Required features: `System`, `Foundation`, `System_RemoteSystems`*"]
     pub fn LaunchUriWithOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, RemoteSystems::RemoteSystemConnectionRequest>, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>, Param2: ::windows::runtime::IntoParam<'a, RemoteLauncherOptions>>(remotesystemconnectionrequest: Param0, uri: Param1, options: Param2) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>> {
         Self::IRemoteLauncherStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), remotesystemconnectionrequest.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), remotesystemconnectionrequest.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
@@ -5764,8 +5764,8 @@ impl RemoteLauncher {
         inputdata: Param3,
     ) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>> {
         Self::IRemoteLauncherStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), remotesystemconnectionrequest.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), remotesystemconnectionrequest.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>(result__)
         })
     }
     pub fn IRemoteLauncherStatics<R, F: FnOnce(&IRemoteLauncherStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -5778,7 +5778,7 @@ impl ::windows::runtime::RuntimeName for RemoteLauncher {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RemoteLauncherOptions(pub ::windows::runtime::IInspectable);
 impl RemoteLauncherOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5793,23 +5793,23 @@ impl RemoteLauncherOptions {
     pub fn FallbackUri(&self) -> ::windows::runtime::Result<super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn SetFallbackUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `System`, `Foundation_Collections`*"]
     pub fn PreferredAppIds(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
 }
@@ -5823,12 +5823,12 @@ unsafe impl ::windows::runtime::Interface for RemoteLauncherOptions {
 impl ::windows::runtime::RuntimeName for RemoteLauncherOptions {
     const NAME: &'static str = "Windows.System.RemoteLauncherOptions";
 }
-impl ::std::convert::From<RemoteLauncherOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RemoteLauncherOptions> for ::windows::runtime::IUnknown {
     fn from(value: RemoteLauncherOptions) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&RemoteLauncherOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RemoteLauncherOptions> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteLauncherOptions) -> Self {
         value.0 .0.clone()
     }
@@ -5843,12 +5843,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<RemoteLauncherOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RemoteLauncherOptions> for ::windows::runtime::IInspectable {
     fn from(value: RemoteLauncherOptions) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&RemoteLauncherOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RemoteLauncherOptions> for ::windows::runtime::IInspectable {
     fn from(value: &RemoteLauncherOptions) -> Self {
         value.0.clone()
     }
@@ -5863,17 +5863,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for RemoteLauncherOptions {}
-unsafe impl ::std::marker::Sync for RemoteLauncherOptions {}
+unsafe impl ::core::marker::Send for RemoteLauncherOptions {}
+unsafe impl ::core::marker::Sync for RemoteLauncherOptions {}
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ShutdownKind(pub i32);
 impl ShutdownKind {
     pub const Shutdown: ShutdownKind = ShutdownKind(0i32);
     pub const Restart: ShutdownKind = ShutdownKind(1i32);
 }
-impl ::std::convert::From<i32> for ShutdownKind {
+impl ::core::convert::From<i32> for ShutdownKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5893,27 +5893,27 @@ impl ShutdownManager {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn BeginShutdown<'a, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::TimeSpan>>(shutdownkind: ShutdownKind, timeout: Param1) -> ::windows::runtime::Result<()> {
-        Self::IShutdownManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), shutdownkind, timeout.into_param().abi()).ok() })
+        Self::IShutdownManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), shutdownkind, timeout.into_param().abi()).ok() })
     }
     #[doc = "*Required features: `System`*"]
     pub fn CancelShutdown() -> ::windows::runtime::Result<()> {
-        Self::IShutdownManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() })
+        Self::IShutdownManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() })
     }
     #[doc = "*Required features: `System`*"]
     pub fn IsPowerStateSupported(powerstate: PowerState) -> ::windows::runtime::Result<bool> {
         Self::IShutdownManagerStatics2(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), powerstate, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), powerstate, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn EnterPowerState(powerstate: PowerState) -> ::windows::runtime::Result<()> {
-        Self::IShutdownManagerStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), powerstate).ok() })
+        Self::IShutdownManagerStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), powerstate).ok() })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn EnterPowerStateWithTimeSpan<'a, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::TimeSpan>>(powerstate: PowerState, wakeupafter: Param1) -> ::windows::runtime::Result<()> {
-        Self::IShutdownManagerStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), powerstate, wakeupafter.into_param().abi()).ok() })
+        Self::IShutdownManagerStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), powerstate, wakeupafter.into_param().abi()).ok() })
     }
     pub fn IShutdownManagerStatics<R, F: FnOnce(&IShutdownManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<ShutdownManager, IShutdownManagerStatics> = ::windows::runtime::FactoryCache::new();
@@ -5928,7 +5928,7 @@ impl ::windows::runtime::RuntimeName for ShutdownManager {
     const NAME: &'static str = "Windows.System.ShutdownManager";
 }
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct SystemManagementContract(pub u8);
 #[doc = "*Required features: `System`*"]
 pub struct TimeZoneSettings {}
@@ -5936,35 +5936,35 @@ impl TimeZoneSettings {
     #[doc = "*Required features: `System`*"]
     pub fn CurrentTimeZoneDisplayName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ITimeZoneSettingsStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `System`, `Foundation_Collections`*"]
     pub fn SupportedTimeZoneDisplayNames() -> ::windows::runtime::Result<super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         Self::ITimeZoneSettingsStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn CanChangeTimeZone() -> ::windows::runtime::Result<bool> {
         Self::ITimeZoneSettingsStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn ChangeTimeZoneByDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(timezonedisplayname: Param0) -> ::windows::runtime::Result<()> {
-        Self::ITimeZoneSettingsStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), timezonedisplayname.into_param().abi()).ok() })
+        Self::ITimeZoneSettingsStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), timezonedisplayname.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn AutoUpdateTimeZoneAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TimeSpan>>(timeout: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<AutoUpdateTimeZoneStatus>> {
         Self::ITimeZoneSettingsStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), timeout.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<AutoUpdateTimeZoneStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), timeout.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<AutoUpdateTimeZoneStatus>>(result__)
         })
     }
     pub fn ITimeZoneSettingsStatics<R, F: FnOnce(&ITimeZoneSettingsStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -5981,31 +5981,31 @@ impl ::windows::runtime::RuntimeName for TimeZoneSettings {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct User(pub ::windows::runtime::IInspectable);
 impl User {
     #[doc = "*Required features: `System`*"]
     pub fn NonRoamableId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn AuthenticationStatus(&self) -> ::windows::runtime::Result<UserAuthenticationStatus> {
         let this = self;
         unsafe {
-            let mut result__: UserAuthenticationStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserAuthenticationStatus>(result__)
+            let mut result__: UserAuthenticationStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserAuthenticationStatus>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<UserType> {
         let this = self;
         unsafe {
-            let mut result__: UserType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserType>(result__)
+            let mut result__: UserType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -6013,8 +6013,8 @@ impl User {
     pub fn GetPropertyAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<::windows::runtime::IInspectable>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<::windows::runtime::IInspectable>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -6022,8 +6022,8 @@ impl User {
     pub fn GetPropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>>(&self, values: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IPropertySet>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), values.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IPropertySet>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), values.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IPropertySet>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -6031,23 +6031,23 @@ impl User {
     pub fn GetPictureAsync(&self, desiredsize: UserPictureSize) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), desiredsize, &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), desiredsize, &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn CreateWatcher() -> ::windows::runtime::Result<UserWatcher> {
         Self::IUserStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserWatcher>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserWatcher>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `System`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllAsync() -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
@@ -6055,8 +6055,8 @@ impl User {
     #[doc = "*Required features: `System`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllAsyncByType(r#type: UserType) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), r#type, &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
@@ -6064,22 +6064,22 @@ impl User {
     #[doc = "*Required features: `System`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllAsyncByTypeAndStatus(r#type: UserType, status: UserAuthenticationStatus) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), r#type, status, &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), r#type, status, &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn GetFromId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(nonroamableid: Param0) -> ::windows::runtime::Result<User> {
         Self::IUserStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), nonroamableid.into_param().abi(), &mut result__).from_abi::<User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), nonroamableid.into_param().abi(), &mut result__).from_abi::<User>(result__)
         })
     }
     #[doc = "*Required features: `System`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<User> {
         Self::IUserStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
@@ -6087,8 +6087,8 @@ impl User {
     pub fn CheckUserAgeConsentGroupAsync(&self, consentgroup: UserAgeConsentGroup) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<UserAgeConsentResult>> {
         let this = &::windows::runtime::Interface::cast::<IUser2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), consentgroup, &mut result__).from_abi::<super::Foundation::IAsyncOperation<UserAgeConsentResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), consentgroup, &mut result__).from_abi::<super::Foundation::IAsyncOperation<UserAgeConsentResult>>(result__)
         }
     }
     pub fn IUserStatics<R, F: FnOnce(&IUserStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -6110,12 +6110,12 @@ unsafe impl ::windows::runtime::Interface for User {
 impl ::windows::runtime::RuntimeName for User {
     const NAME: &'static str = "Windows.System.User";
 }
-impl ::std::convert::From<User> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<User> for ::windows::runtime::IUnknown {
     fn from(value: User) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&User> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&User> for ::windows::runtime::IUnknown {
     fn from(value: &User) -> Self {
         value.0 .0.clone()
     }
@@ -6130,12 +6130,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<User> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<User> for ::windows::runtime::IInspectable {
     fn from(value: User) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&User> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&User> for ::windows::runtime::IInspectable {
     fn from(value: &User) -> Self {
         value.0.clone()
     }
@@ -6150,10 +6150,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for User {}
-unsafe impl ::std::marker::Sync for User {}
+unsafe impl ::core::marker::Send for User {}
+unsafe impl ::core::marker::Sync for User {}
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserAgeConsentGroup(pub i32);
 impl UserAgeConsentGroup {
@@ -6161,7 +6161,7 @@ impl UserAgeConsentGroup {
     pub const Minor: UserAgeConsentGroup = UserAgeConsentGroup(1i32);
     pub const Adult: UserAgeConsentGroup = UserAgeConsentGroup(2i32);
 }
-impl ::std::convert::From<i32> for UserAgeConsentGroup {
+impl ::core::convert::From<i32> for UserAgeConsentGroup {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6176,7 +6176,7 @@ impl ::windows::runtime::DefaultType for UserAgeConsentGroup {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserAgeConsentResult(pub i32);
 impl UserAgeConsentResult {
@@ -6186,7 +6186,7 @@ impl UserAgeConsentResult {
     pub const Unknown: UserAgeConsentResult = UserAgeConsentResult(3i32);
     pub const Ambiguous: UserAgeConsentResult = UserAgeConsentResult(4i32);
 }
-impl ::std::convert::From<i32> for UserAgeConsentResult {
+impl ::core::convert::From<i32> for UserAgeConsentResult {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6201,7 +6201,7 @@ impl ::windows::runtime::DefaultType for UserAgeConsentResult {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserAuthenticationStatus(pub i32);
 impl UserAuthenticationStatus {
@@ -6209,7 +6209,7 @@ impl UserAuthenticationStatus {
     pub const LocallyAuthenticated: UserAuthenticationStatus = UserAuthenticationStatus(1i32);
     pub const RemotelyAuthenticated: UserAuthenticationStatus = UserAuthenticationStatus(2i32);
 }
-impl ::std::convert::From<i32> for UserAuthenticationStatus {
+impl ::core::convert::From<i32> for UserAuthenticationStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6225,13 +6225,13 @@ impl ::windows::runtime::DefaultType for UserAuthenticationStatus {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserAuthenticationStatusChangeDeferral(pub ::windows::runtime::IInspectable);
 impl UserAuthenticationStatusChangeDeferral {
     #[doc = "*Required features: `System`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for UserAuthenticationStatusChangeDeferral {
@@ -6244,12 +6244,12 @@ unsafe impl ::windows::runtime::Interface for UserAuthenticationStatusChangeDefe
 impl ::windows::runtime::RuntimeName for UserAuthenticationStatusChangeDeferral {
     const NAME: &'static str = "Windows.System.UserAuthenticationStatusChangeDeferral";
 }
-impl ::std::convert::From<UserAuthenticationStatusChangeDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UserAuthenticationStatusChangeDeferral> for ::windows::runtime::IUnknown {
     fn from(value: UserAuthenticationStatusChangeDeferral) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&UserAuthenticationStatusChangeDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UserAuthenticationStatusChangeDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &UserAuthenticationStatusChangeDeferral) -> Self {
         value.0 .0.clone()
     }
@@ -6264,12 +6264,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<UserAuthenticationStatusChangeDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UserAuthenticationStatusChangeDeferral> for ::windows::runtime::IInspectable {
     fn from(value: UserAuthenticationStatusChangeDeferral) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&UserAuthenticationStatusChangeDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UserAuthenticationStatusChangeDeferral> for ::windows::runtime::IInspectable {
     fn from(value: &UserAuthenticationStatusChangeDeferral) -> Self {
         value.0.clone()
     }
@@ -6284,43 +6284,43 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for UserAuthenticationStatusChangeDeferral {}
-unsafe impl ::std::marker::Sync for UserAuthenticationStatusChangeDeferral {}
+unsafe impl ::core::marker::Send for UserAuthenticationStatusChangeDeferral {}
+unsafe impl ::core::marker::Sync for UserAuthenticationStatusChangeDeferral {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserAuthenticationStatusChangingEventArgs(pub ::windows::runtime::IInspectable);
 impl UserAuthenticationStatusChangingEventArgs {
     #[doc = "*Required features: `System`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<UserAuthenticationStatusChangeDeferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserAuthenticationStatusChangeDeferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserAuthenticationStatusChangeDeferral>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<User> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn NewStatus(&self) -> ::windows::runtime::Result<UserAuthenticationStatus> {
         let this = self;
         unsafe {
-            let mut result__: UserAuthenticationStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserAuthenticationStatus>(result__)
+            let mut result__: UserAuthenticationStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserAuthenticationStatus>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn CurrentStatus(&self) -> ::windows::runtime::Result<UserAuthenticationStatus> {
         let this = self;
         unsafe {
-            let mut result__: UserAuthenticationStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserAuthenticationStatus>(result__)
+            let mut result__: UserAuthenticationStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserAuthenticationStatus>(result__)
         }
     }
 }
@@ -6334,12 +6334,12 @@ unsafe impl ::windows::runtime::Interface for UserAuthenticationStatusChangingEv
 impl ::windows::runtime::RuntimeName for UserAuthenticationStatusChangingEventArgs {
     const NAME: &'static str = "Windows.System.UserAuthenticationStatusChangingEventArgs";
 }
-impl ::std::convert::From<UserAuthenticationStatusChangingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UserAuthenticationStatusChangingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: UserAuthenticationStatusChangingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&UserAuthenticationStatusChangingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UserAuthenticationStatusChangingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &UserAuthenticationStatusChangingEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -6354,12 +6354,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<UserAuthenticationStatusChangingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UserAuthenticationStatusChangingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: UserAuthenticationStatusChangingEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&UserAuthenticationStatusChangingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UserAuthenticationStatusChangingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &UserAuthenticationStatusChangingEventArgs) -> Self {
         value.0.clone()
     }
@@ -6374,19 +6374,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for UserAuthenticationStatusChangingEventArgs {}
-unsafe impl ::std::marker::Sync for UserAuthenticationStatusChangingEventArgs {}
+unsafe impl ::core::marker::Send for UserAuthenticationStatusChangingEventArgs {}
+unsafe impl ::core::marker::Sync for UserAuthenticationStatusChangingEventArgs {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl UserChangedEventArgs {
     #[doc = "*Required features: `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<User> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -6394,8 +6394,8 @@ impl UserChangedEventArgs {
     pub fn ChangedPropertyKinds(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IVectorView<UserWatcherUpdateKind>> {
         let this = &::windows::runtime::Interface::cast::<IUserChangedEventArgs2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<UserWatcherUpdateKind>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<UserWatcherUpdateKind>>(result__)
         }
     }
 }
@@ -6409,12 +6409,12 @@ unsafe impl ::windows::runtime::Interface for UserChangedEventArgs {
 impl ::windows::runtime::RuntimeName for UserChangedEventArgs {
     const NAME: &'static str = "Windows.System.UserChangedEventArgs";
 }
-impl ::std::convert::From<UserChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UserChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: UserChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&UserChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UserChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &UserChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -6429,12 +6429,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<UserChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UserChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: UserChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&UserChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UserChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &UserChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -6449,30 +6449,30 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for UserChangedEventArgs {}
-unsafe impl ::std::marker::Sync for UserChangedEventArgs {}
+unsafe impl ::core::marker::Send for UserChangedEventArgs {}
+unsafe impl ::core::marker::Sync for UserChangedEventArgs {}
 #[doc = "*Required features: `System`*"]
 pub struct UserDeviceAssociation {}
 impl UserDeviceAssociation {
     #[doc = "*Required features: `System`*"]
     pub fn FindUserFromDeviceId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<User> {
         Self::IUserDeviceAssociationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<User>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn UserDeviceAssociationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<UserDeviceAssociationChangedEventArgs>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IUserDeviceAssociationStatics(|this| unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveUserDeviceAssociationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
-        Self::IUserDeviceAssociationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IUserDeviceAssociationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     pub fn IUserDeviceAssociationStatics<R, F: FnOnce(&IUserDeviceAssociationStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<UserDeviceAssociation, IUserDeviceAssociationStatics> = ::windows::runtime::FactoryCache::new();
@@ -6484,31 +6484,31 @@ impl ::windows::runtime::RuntimeName for UserDeviceAssociation {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserDeviceAssociationChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl UserDeviceAssociationChangedEventArgs {
     #[doc = "*Required features: `System`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn NewUser(&self) -> ::windows::runtime::Result<User> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn OldUser(&self) -> ::windows::runtime::Result<User> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
         }
     }
 }
@@ -6522,12 +6522,12 @@ unsafe impl ::windows::runtime::Interface for UserDeviceAssociationChangedEventA
 impl ::windows::runtime::RuntimeName for UserDeviceAssociationChangedEventArgs {
     const NAME: &'static str = "Windows.System.UserDeviceAssociationChangedEventArgs";
 }
-impl ::std::convert::From<UserDeviceAssociationChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UserDeviceAssociationChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: UserDeviceAssociationChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&UserDeviceAssociationChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UserDeviceAssociationChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &UserDeviceAssociationChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -6542,12 +6542,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<UserDeviceAssociationChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UserDeviceAssociationChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: UserDeviceAssociationChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&UserDeviceAssociationChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UserDeviceAssociationChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &UserDeviceAssociationChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -6562,11 +6562,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for UserDeviceAssociationChangedEventArgs {}
-unsafe impl ::std::marker::Sync for UserDeviceAssociationChangedEventArgs {}
+unsafe impl ::core::marker::Send for UserDeviceAssociationChangedEventArgs {}
+unsafe impl ::core::marker::Sync for UserDeviceAssociationChangedEventArgs {}
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserPicker(pub ::windows::runtime::IInspectable);
 impl UserPicker {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6580,42 +6580,42 @@ impl UserPicker {
     pub fn AllowGuestAccounts(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SetAllowGuestAccounts(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SuggestedSelectedUser(&self) -> ::windows::runtime::Result<User> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn SetSuggestedSelectedUser<'a, Param0: ::windows::runtime::IntoParam<'a, User>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn PickSingleUserAsync(&self) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<User>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<User>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<User>>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::IUserPickerStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     pub fn IUserPickerStatics<R, F: FnOnce(&IUserPickerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -6633,12 +6633,12 @@ unsafe impl ::windows::runtime::Interface for UserPicker {
 impl ::windows::runtime::RuntimeName for UserPicker {
     const NAME: &'static str = "Windows.System.UserPicker";
 }
-impl ::std::convert::From<UserPicker> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UserPicker> for ::windows::runtime::IUnknown {
     fn from(value: UserPicker) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&UserPicker> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UserPicker> for ::windows::runtime::IUnknown {
     fn from(value: &UserPicker) -> Self {
         value.0 .0.clone()
     }
@@ -6653,12 +6653,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<UserPicker> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UserPicker> for ::windows::runtime::IInspectable {
     fn from(value: UserPicker) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&UserPicker> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UserPicker> for ::windows::runtime::IInspectable {
     fn from(value: &UserPicker) -> Self {
         value.0.clone()
     }
@@ -6673,10 +6673,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for UserPicker {}
-unsafe impl ::std::marker::Sync for UserPicker {}
+unsafe impl ::core::marker::Send for UserPicker {}
+unsafe impl ::core::marker::Sync for UserPicker {}
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserPictureSize(pub i32);
 impl UserPictureSize {
@@ -6685,7 +6685,7 @@ impl UserPictureSize {
     pub const Size424x424: UserPictureSize = UserPictureSize(2i32);
     pub const Size1080x1080: UserPictureSize = UserPictureSize(3i32);
 }
-impl ::std::convert::From<i32> for UserPictureSize {
+impl ::core::convert::From<i32> for UserPictureSize {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6700,7 +6700,7 @@ impl ::windows::runtime::DefaultType for UserPictureSize {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserType(pub i32);
 impl UserType {
@@ -6710,7 +6710,7 @@ impl UserType {
     pub const RemoteGuest: UserType = UserType(3i32);
     pub const SystemManaged: UserType = UserType(4i32);
 }
-impl ::std::convert::From<i32> for UserType {
+impl ::core::convert::From<i32> for UserType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6726,131 +6726,131 @@ impl ::windows::runtime::DefaultType for UserType {
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserWatcher(pub ::windows::runtime::IInspectable);
 impl UserWatcher {
     #[doc = "*Required features: `System`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<UserWatcherStatus> {
         let this = self;
         unsafe {
-            let mut result__: UserWatcherStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserWatcherStatus>(result__)
+            let mut result__: UserWatcherStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserWatcherStatus>(result__)
         }
     }
     #[doc = "*Required features: `System`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `System`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn Added<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn Removed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn Updated<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn AuthenticationStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveAuthenticationStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn AuthenticationStatusChanging<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<UserWatcher, UserAuthenticationStatusChangingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveAuthenticationStatusChanging<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn EnumerationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<UserWatcher, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn Stopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<UserWatcher, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System`, `Foundation`*"]
     pub fn RemoveStopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for UserWatcher {
@@ -6863,12 +6863,12 @@ unsafe impl ::windows::runtime::Interface for UserWatcher {
 impl ::windows::runtime::RuntimeName for UserWatcher {
     const NAME: &'static str = "Windows.System.UserWatcher";
 }
-impl ::std::convert::From<UserWatcher> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UserWatcher> for ::windows::runtime::IUnknown {
     fn from(value: UserWatcher) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&UserWatcher> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UserWatcher> for ::windows::runtime::IUnknown {
     fn from(value: &UserWatcher) -> Self {
         value.0 .0.clone()
     }
@@ -6883,12 +6883,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<UserWatcher> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UserWatcher> for ::windows::runtime::IInspectable {
     fn from(value: UserWatcher) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&UserWatcher> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UserWatcher> for ::windows::runtime::IInspectable {
     fn from(value: &UserWatcher) -> Self {
         value.0.clone()
     }
@@ -6903,10 +6903,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for UserWatcher {}
-unsafe impl ::std::marker::Sync for UserWatcher {}
+unsafe impl ::core::marker::Send for UserWatcher {}
+unsafe impl ::core::marker::Sync for UserWatcher {}
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserWatcherStatus(pub i32);
 impl UserWatcherStatus {
@@ -6917,7 +6917,7 @@ impl UserWatcherStatus {
     pub const Stopped: UserWatcherStatus = UserWatcherStatus(4i32);
     pub const Aborted: UserWatcherStatus = UserWatcherStatus(5i32);
 }
-impl ::std::convert::From<i32> for UserWatcherStatus {
+impl ::core::convert::From<i32> for UserWatcherStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6932,14 +6932,14 @@ impl ::windows::runtime::DefaultType for UserWatcherStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserWatcherUpdateKind(pub i32);
 impl UserWatcherUpdateKind {
     pub const Properties: UserWatcherUpdateKind = UserWatcherUpdateKind(0i32);
     pub const Picture: UserWatcherUpdateKind = UserWatcherUpdateKind(1i32);
 }
-impl ::std::convert::From<i32> for UserWatcherUpdateKind {
+impl ::core::convert::From<i32> for UserWatcherUpdateKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6954,7 +6954,7 @@ impl ::windows::runtime::DefaultType for UserWatcherUpdateKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VirtualKey(pub i32);
 impl VirtualKey {
@@ -7131,7 +7131,7 @@ impl VirtualKey {
     pub const GamepadRightThumbstickRight: VirtualKey = VirtualKey(217i32);
     pub const GamepadRightThumbstickLeft: VirtualKey = VirtualKey(218i32);
 }
-impl ::std::convert::From<i32> for VirtualKey {
+impl ::core::convert::From<i32> for VirtualKey {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -7146,7 +7146,7 @@ impl ::windows::runtime::DefaultType for VirtualKey {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VirtualKeyModifiers(pub u32);
 impl VirtualKeyModifiers {
@@ -7156,7 +7156,7 @@ impl VirtualKeyModifiers {
     pub const Shift: VirtualKeyModifiers = VirtualKeyModifiers(4u32);
     pub const Windows: VirtualKeyModifiers = VirtualKeyModifiers(8u32);
 }
-impl ::std::convert::From<u32> for VirtualKeyModifiers {
+impl ::core::convert::From<u32> for VirtualKeyModifiers {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -7170,29 +7170,29 @@ unsafe impl ::windows::runtime::RuntimeType for VirtualKeyModifiers {
 impl ::windows::runtime::DefaultType for VirtualKeyModifiers {
     type DefaultType = Self;
 }
-impl ::std::ops::BitOr for VirtualKeyModifiers {
+impl ::core::ops::BitOr for VirtualKeyModifiers {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for VirtualKeyModifiers {
+impl ::core::ops::BitAnd for VirtualKeyModifiers {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for VirtualKeyModifiers {
+impl ::core::ops::BitOrAssign for VirtualKeyModifiers {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for VirtualKeyModifiers {
+impl ::core::ops::BitAndAssign for VirtualKeyModifiers {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for VirtualKeyModifiers {
+impl ::core::ops::Not for VirtualKeyModifiers {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())

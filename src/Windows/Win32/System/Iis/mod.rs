@@ -21,30 +21,30 @@ pub const ASP_MD_SERVER_BASE: u32 = 7000u32;
 pub const ASP_MD_UT_APP: u32 = 101u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIFtpAuthenticationProvider(pub ::windows::runtime::IUnknown);
 impl AsyncIFtpAuthenticationProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_AuthenticateUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszusername: Param2, pszpassword: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), pszpassword.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), pszpassword.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Finish_AuthenticateUser(&self, ppszcanonicalusername: *mut super::super::Foundation::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppszcanonicalusername), ::std::mem::transmute(pfauthenticated)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppszcanonicalusername), ::core::mem::transmute(pfauthenticated)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for AsyncIFtpAuthenticationProvider {
     type Vtable = AsyncIFtpAuthenticationProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259956069, 40766, 18838, [143, 177, 206, 22, 105, 22, 186, 181]);
 }
-impl ::std::convert::From<AsyncIFtpAuthenticationProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AsyncIFtpAuthenticationProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIFtpAuthenticationProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AsyncIFtpAuthenticationProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AsyncIFtpAuthenticationProvider> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIFtpAuthenticationProvider) -> Self {
         value.0.clone()
     }
@@ -72,30 +72,30 @@ pub struct AsyncIFtpAuthenticationProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIFtpAuthorizationProvider(pub ::windows::runtime::IUnknown);
 impl AsyncIFtpAuthorizationProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_GetUserAccessPermission<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszvirtualpath: Param2, pszusername: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszvirtualpath.into_param().abi(), pszusername.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszvirtualpath.into_param().abi(), pszusername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Finish_GetUserAccessPermission(&self) -> ::windows::runtime::Result<FTP_ACCESS> {
-        let mut result__: <FTP_ACCESS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FTP_ACCESS>(result__)
+        let mut result__: <FTP_ACCESS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<FTP_ACCESS>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for AsyncIFtpAuthorizationProvider {
     type Vtable = AsyncIFtpAuthorizationProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2249048889, 2021, 19036, [156, 97, 136, 32, 206, 160, 18, 188]);
 }
-impl ::std::convert::From<AsyncIFtpAuthorizationProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AsyncIFtpAuthorizationProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIFtpAuthorizationProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AsyncIFtpAuthorizationProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AsyncIFtpAuthorizationProvider> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIFtpAuthorizationProvider) -> Self {
         value.0.clone()
     }
@@ -122,31 +122,31 @@ pub struct AsyncIFtpAuthorizationProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIFtpHomeDirectoryProvider(pub ::windows::runtime::IUnknown);
 impl AsyncIFtpHomeDirectoryProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_GetUserHomeDirectoryData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszusername: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Finish_GetUserHomeDirectoryData(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for AsyncIFtpHomeDirectoryProvider {
     type Vtable = AsyncIFtpHomeDirectoryProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1945638456, 25237, 17085, [162, 190, 74, 101, 127, 124, 71, 156]);
 }
-impl ::std::convert::From<AsyncIFtpHomeDirectoryProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AsyncIFtpHomeDirectoryProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIFtpHomeDirectoryProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AsyncIFtpHomeDirectoryProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AsyncIFtpHomeDirectoryProvider> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIFtpHomeDirectoryProvider) -> Self {
         value.0.clone()
     }
@@ -174,29 +174,29 @@ pub struct AsyncIFtpHomeDirectoryProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIFtpLogProvider(pub ::windows::runtime::IUnknown);
 impl AsyncIFtpLogProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ploggingparameters)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ploggingparameters)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Finish_Log(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for AsyncIFtpLogProvider {
     type Vtable = AsyncIFtpLogProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(10530374, 9368, 18610, [149, 230, 223, 103, 142, 215, 212, 159]);
 }
-impl ::std::convert::From<AsyncIFtpLogProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AsyncIFtpLogProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIFtpLogProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AsyncIFtpLogProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AsyncIFtpLogProvider> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIFtpLogProvider) -> Self {
         value.0.clone()
     }
@@ -223,30 +223,30 @@ pub struct AsyncIFtpLogProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIFtpPostprocessProvider(pub ::windows::runtime::IUnknown);
 impl AsyncIFtpPostprocessProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppostprocessparameters)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppostprocessparameters)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Finish_HandlePostprocess(&self) -> ::windows::runtime::Result<FTP_PROCESS_STATUS> {
-        let mut result__: <FTP_PROCESS_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FTP_PROCESS_STATUS>(result__)
+        let mut result__: <FTP_PROCESS_STATUS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<FTP_PROCESS_STATUS>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for AsyncIFtpPostprocessProvider {
     type Vtable = AsyncIFtpPostprocessProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2708153666, 38548, 20145, [165, 100, 108, 46, 145, 253, 193, 51]);
 }
-impl ::std::convert::From<AsyncIFtpPostprocessProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AsyncIFtpPostprocessProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIFtpPostprocessProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AsyncIFtpPostprocessProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AsyncIFtpPostprocessProvider> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIFtpPostprocessProvider) -> Self {
         value.0.clone()
     }
@@ -273,30 +273,30 @@ pub struct AsyncIFtpPostprocessProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIFtpPreprocessProvider(pub ::windows::runtime::IUnknown);
 impl AsyncIFtpPreprocessProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppreprocessparameters)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppreprocessparameters)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Finish_HandlePreprocess(&self) -> ::windows::runtime::Result<FTP_PROCESS_STATUS> {
-        let mut result__: <FTP_PROCESS_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FTP_PROCESS_STATUS>(result__)
+        let mut result__: <FTP_PROCESS_STATUS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<FTP_PROCESS_STATUS>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for AsyncIFtpPreprocessProvider {
     type Vtable = AsyncIFtpPreprocessProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1878392207, 64910, 18609, [163, 224, 191, 112, 115, 219, 77, 181]);
 }
-impl ::std::convert::From<AsyncIFtpPreprocessProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AsyncIFtpPreprocessProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIFtpPreprocessProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AsyncIFtpPreprocessProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AsyncIFtpPreprocessProvider> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIFtpPreprocessProvider) -> Self {
         value.0.clone()
     }
@@ -323,31 +323,31 @@ pub struct AsyncIFtpPreprocessProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIFtpRoleProvider(pub ::windows::runtime::IUnknown);
 impl AsyncIFtpRoleProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_IsUserInRole<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszusername: Param2, pszrole: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), pszrole.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), pszrole.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Finish_IsUserInRole(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for AsyncIFtpRoleProvider {
     type Vtable = AsyncIFtpRoleProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1048821657, 28908, 16842, [132, 182, 172, 167, 199, 166, 44, 175]);
 }
-impl ::std::convert::From<AsyncIFtpRoleProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AsyncIFtpRoleProvider> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIFtpRoleProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AsyncIFtpRoleProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AsyncIFtpRoleProvider> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIFtpRoleProvider) -> Self {
         value.0.clone()
     }
@@ -375,37 +375,37 @@ pub struct AsyncIFtpRoleProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIMSAdminBaseSinkW(pub ::windows::runtime::IUnknown);
 impl AsyncIMSAdminBaseSinkW {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_SinkNotify(&self, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmdnumelements), ::std::mem::transmute(pcochangelist)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmdnumelements), ::core::mem::transmute(pcochangelist)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Finish_SinkNotify(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Begin_ShutdownNotify(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Finish_ShutdownNotify(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for AsyncIMSAdminBaseSinkW {
     type Vtable = AsyncIMSAdminBaseSinkW_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2850461203, 47117, 4560, [185, 185, 0, 160, 201, 34, 231, 80]);
 }
-impl ::std::convert::From<AsyncIMSAdminBaseSinkW> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AsyncIMSAdminBaseSinkW> for ::windows::runtime::IUnknown {
     fn from(value: AsyncIMSAdminBaseSinkW) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AsyncIMSAdminBaseSinkW> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AsyncIMSAdminBaseSinkW> for ::windows::runtime::IUnknown {
     fn from(value: &AsyncIMSAdminBaseSinkW) -> Self {
         value.0.clone()
     }
@@ -432,7 +432,7 @@ pub struct AsyncIMSAdminBaseSinkW_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
@@ -444,25 +444,25 @@ pub struct CERT_CONTEXT_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl CERT_CONTEXT_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::std::default::Default for CERT_CONTEXT_EX {
+impl ::core::default::Default for CERT_CONTEXT_EX {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::std::fmt::Debug for CERT_CONTEXT_EX {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CERT_CONTEXT_EX {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CERT_CONTEXT_EX").field("CertContext", &self.CertContext).field("cbAllocated", &self.cbAllocated).field("dwCertificateFlags", &self.dwCertificateFlags).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::std::cmp::PartialEq for CERT_CONTEXT_EX {
+impl ::core::cmp::PartialEq for CERT_CONTEXT_EX {
     fn eq(&self, other: &Self) -> bool {
         self.CertContext == other.CertContext && self.cbAllocated == other.cbAllocated && self.dwCertificateFlags == other.dwCertificateFlags
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::std::cmp::Eq for CERT_CONTEXT_EX {}
+impl ::core::cmp::Eq for CERT_CONTEXT_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for CERT_CONTEXT_EX {
     type Abi = Self;
@@ -476,7 +476,7 @@ pub const CLSID_ScriptingContext: ::windows::runtime::GUID = ::windows::runtime:
 pub const CLSID_Server: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768687456, 9696, 4560, [165, 95, 0, 160, 201, 12, 32, 145]);
 pub const CLSID_Session: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1352634144, 9694, 4560, [165, 95, 0, 160, 201, 12, 32, 145]);
 pub const CLSID_WamAdmin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1634960964, 61846, 4560, [153, 83, 0, 192, 79, 217, 25, 193]);
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -487,28 +487,28 @@ pub struct CONFIGURATION_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl CONFIGURATION_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CONFIGURATION_ENTRY {
+impl ::core::default::Default for CONFIGURATION_ENTRY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CONFIGURATION_ENTRY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CONFIGURATION_ENTRY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CONFIGURATION_ENTRY").field("bstrKey", &self.bstrKey).field("bstrValue", &self.bstrValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CONFIGURATION_ENTRY {
+impl ::core::cmp::PartialEq for CONFIGURATION_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         self.bstrKey == other.bstrKey && self.bstrValue == other.bstrValue
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CONFIGURATION_ENTRY {}
+impl ::core::cmp::Eq for CONFIGURATION_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONFIGURATION_ENTRY {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_ABORT: u32 = 12u32;
@@ -558,14 +558,14 @@ pub const DWN_FORCEDITHER: u32 = 128u32;
 pub const DWN_MIRRORIMAGE: u32 = 512u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DWN_RAWIMAGE: u32 = 256u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
     pub dwVersion: u32,
-    pub ConnID: *mut ::std::ffi::c_void,
+    pub ConnID: *mut ::core::ffi::c_void,
     pub dwHttpStatusCode: u32,
     pub lpszLogData: [super::super::Foundation::CHAR; 80],
     pub lpszMethod: super::super::Foundation::PSTR,
@@ -584,14 +584,14 @@ pub struct EXTENSION_CONTROL_BLOCK {
 #[cfg(feature = "Win32_Foundation")]
 impl EXTENSION_CONTROL_BLOCK {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for EXTENSION_CONTROL_BLOCK {
+impl ::core::default::Default for EXTENSION_CONTROL_BLOCK {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for EXTENSION_CONTROL_BLOCK {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for EXTENSION_CONTROL_BLOCK {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("EXTENSION_CONTROL_BLOCK")
             .field("cbSize", &self.cbSize)
             .field("dwVersion", &self.dwVersion)
@@ -614,7 +614,7 @@ impl ::std::fmt::Debug for EXTENSION_CONTROL_BLOCK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for EXTENSION_CONTROL_BLOCK {
+impl ::core::cmp::PartialEq for EXTENSION_CONTROL_BLOCK {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
             && self.dwVersion == other.dwVersion
@@ -636,7 +636,7 @@ impl ::std::cmp::PartialEq for EXTENSION_CONTROL_BLOCK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for EXTENSION_CONTROL_BLOCK {}
+impl ::core::cmp::Eq for EXTENSION_CONTROL_BLOCK {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EXTENSION_CONTROL_BLOCK {
     type Abi = Self;
@@ -646,14 +646,14 @@ pub const FP_MD_ID_BEGIN_RESERVED: u32 = 32768u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const FP_MD_ID_END_RESERVED: u32 = 36863u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FTP_ACCESS(pub i32);
 pub const FTP_ACCESS_NONE: FTP_ACCESS = FTP_ACCESS(0i32);
 pub const FTP_ACCESS_READ: FTP_ACCESS = FTP_ACCESS(1i32);
 pub const FTP_ACCESS_WRITE: FTP_ACCESS = FTP_ACCESS(2i32);
 pub const FTP_ACCESS_READ_WRITE: FTP_ACCESS = FTP_ACCESS(3i32);
-impl ::std::convert::From<i32> for FTP_ACCESS {
+impl ::core::convert::From<i32> for FTP_ACCESS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -662,14 +662,14 @@ unsafe impl ::windows::runtime::Abi for FTP_ACCESS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FTP_PROCESS_STATUS(pub i32);
 pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(0i32);
 pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(1i32);
 pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(2i32);
 pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(3i32);
-impl ::std::convert::From<i32> for FTP_PROCESS_STATUS {
+impl ::core::convert::From<i32> for FTP_PROCESS_STATUS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -695,7 +695,7 @@ pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::
         extern "system" {
             fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetExtensionVersion(::std::mem::transmute(pver)))
+        ::core::mem::transmute(GetExtensionVersion(::core::mem::transmute(pver)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -710,7 +710,7 @@ pub unsafe fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::
         extern "system" {
             fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFilterVersion(::std::mem::transmute(pver)))
+        ::core::mem::transmute(GetFilterVersion(::core::mem::transmute(pver)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -723,7 +723,7 @@ pub const HSE_APP_FLAG_IN_PROCESS: u32 = 0u32;
 pub const HSE_APP_FLAG_ISOLATED_OOP: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_APP_FLAG_POOLED_OOP: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -735,30 +735,30 @@ pub struct HSE_CUSTOM_ERROR_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl HSE_CUSTOM_ERROR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HSE_CUSTOM_ERROR_INFO {
+impl ::core::default::Default for HSE_CUSTOM_ERROR_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HSE_CUSTOM_ERROR_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_CUSTOM_ERROR_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_CUSTOM_ERROR_INFO").field("pszStatus", &self.pszStatus).field("uHttpSubError", &self.uHttpSubError).field("fAsync", &self.fAsync).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HSE_CUSTOM_ERROR_INFO {
+impl ::core::cmp::PartialEq for HSE_CUSTOM_ERROR_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pszStatus == other.pszStatus && self.uHttpSubError == other.uHttpSubError && self.fAsync == other.fAsync
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HSE_CUSTOM_ERROR_INFO {}
+impl ::core::cmp::Eq for HSE_CUSTOM_ERROR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_CUSTOM_ERROR_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -773,30 +773,30 @@ pub struct HSE_EXEC_UNICODE_URL_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl HSE_EXEC_UNICODE_URL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HSE_EXEC_UNICODE_URL_INFO {
+impl ::core::default::Default for HSE_EXEC_UNICODE_URL_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HSE_EXEC_UNICODE_URL_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_EXEC_UNICODE_URL_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_EXEC_UNICODE_URL_INFO").field("pszUrl", &self.pszUrl).field("pszMethod", &self.pszMethod).field("pszChildHeaders", &self.pszChildHeaders).field("pUserInfo", &self.pUserInfo).field("pEntity", &self.pEntity).field("dwExecUrlFlags", &self.dwExecUrlFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HSE_EXEC_UNICODE_URL_INFO {
+impl ::core::cmp::PartialEq for HSE_EXEC_UNICODE_URL_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pszUrl == other.pszUrl && self.pszMethod == other.pszMethod && self.pszChildHeaders == other.pszChildHeaders && self.pUserInfo == other.pUserInfo && self.pEntity == other.pEntity && self.dwExecUrlFlags == other.dwExecUrlFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HSE_EXEC_UNICODE_URL_INFO {}
+impl ::core::cmp::Eq for HSE_EXEC_UNICODE_URL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_EXEC_UNICODE_URL_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -808,55 +808,55 @@ pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl HSE_EXEC_UNICODE_URL_USER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HSE_EXEC_UNICODE_URL_USER_INFO {
+impl ::core::default::Default for HSE_EXEC_UNICODE_URL_USER_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HSE_EXEC_UNICODE_URL_USER_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_EXEC_UNICODE_URL_USER_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_EXEC_UNICODE_URL_USER_INFO").field("hImpersonationToken", &self.hImpersonationToken).field("pszCustomUserName", &self.pszCustomUserName).field("pszCustomAuthType", &self.pszCustomAuthType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HSE_EXEC_UNICODE_URL_USER_INFO {
+impl ::core::cmp::PartialEq for HSE_EXEC_UNICODE_URL_USER_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.hImpersonationToken == other.hImpersonationToken && self.pszCustomUserName == other.pszCustomUserName && self.pszCustomAuthType == other.pszCustomAuthType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HSE_EXEC_UNICODE_URL_USER_INFO {}
+impl ::core::cmp::Eq for HSE_EXEC_UNICODE_URL_USER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_EXEC_UNICODE_URL_USER_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: u32 = 32u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct HSE_EXEC_URL_ENTITY_INFO {
     pub cbAvailable: u32,
-    pub lpbData: *mut ::std::ffi::c_void,
+    pub lpbData: *mut ::core::ffi::c_void,
 }
 impl HSE_EXEC_URL_ENTITY_INFO {}
-impl ::std::default::Default for HSE_EXEC_URL_ENTITY_INFO {
+impl ::core::default::Default for HSE_EXEC_URL_ENTITY_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HSE_EXEC_URL_ENTITY_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_EXEC_URL_ENTITY_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_EXEC_URL_ENTITY_INFO").field("cbAvailable", &self.cbAvailable).field("lpbData", &self.lpbData).finish()
     }
 }
-impl ::std::cmp::PartialEq for HSE_EXEC_URL_ENTITY_INFO {
+impl ::core::cmp::PartialEq for HSE_EXEC_URL_ENTITY_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbAvailable == other.cbAvailable && self.lpbData == other.lpbData
     }
 }
-impl ::std::cmp::Eq for HSE_EXEC_URL_ENTITY_INFO {}
+impl ::core::cmp::Eq for HSE_EXEC_URL_ENTITY_INFO {}
 unsafe impl ::windows::runtime::Abi for HSE_EXEC_URL_ENTITY_INFO {
     type Abi = Self;
 }
@@ -866,7 +866,7 @@ pub const HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE: u32 = 128u32;
 pub const HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_IGNORE_VALIDATION_AND_RANGE: u32 = 16u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -881,25 +881,25 @@ pub struct HSE_EXEC_URL_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl HSE_EXEC_URL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HSE_EXEC_URL_INFO {
+impl ::core::default::Default for HSE_EXEC_URL_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HSE_EXEC_URL_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_EXEC_URL_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_EXEC_URL_INFO").field("pszUrl", &self.pszUrl).field("pszMethod", &self.pszMethod).field("pszChildHeaders", &self.pszChildHeaders).field("pUserInfo", &self.pUserInfo).field("pEntity", &self.pEntity).field("dwExecUrlFlags", &self.dwExecUrlFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HSE_EXEC_URL_INFO {
+impl ::core::cmp::PartialEq for HSE_EXEC_URL_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pszUrl == other.pszUrl && self.pszMethod == other.pszMethod && self.pszChildHeaders == other.pszChildHeaders && self.pUserInfo == other.pUserInfo && self.pEntity == other.pEntity && self.dwExecUrlFlags == other.dwExecUrlFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HSE_EXEC_URL_INFO {}
+impl ::core::cmp::Eq for HSE_EXEC_URL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_EXEC_URL_INFO {
     type Abi = Self;
@@ -908,7 +908,7 @@ unsafe impl ::windows::runtime::Abi for HSE_EXEC_URL_INFO {
 pub const HSE_EXEC_URL_NO_HEADERS: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_SSI_CMD: u32 = 64u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct HSE_EXEC_URL_STATUS {
@@ -917,26 +917,26 @@ pub struct HSE_EXEC_URL_STATUS {
     pub dwWin32Error: u32,
 }
 impl HSE_EXEC_URL_STATUS {}
-impl ::std::default::Default for HSE_EXEC_URL_STATUS {
+impl ::core::default::Default for HSE_EXEC_URL_STATUS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HSE_EXEC_URL_STATUS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_EXEC_URL_STATUS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_EXEC_URL_STATUS").field("uHttpStatusCode", &self.uHttpStatusCode).field("uHttpSubStatus", &self.uHttpSubStatus).field("dwWin32Error", &self.dwWin32Error).finish()
     }
 }
-impl ::std::cmp::PartialEq for HSE_EXEC_URL_STATUS {
+impl ::core::cmp::PartialEq for HSE_EXEC_URL_STATUS {
     fn eq(&self, other: &Self) -> bool {
         self.uHttpStatusCode == other.uHttpStatusCode && self.uHttpSubStatus == other.uHttpSubStatus && self.dwWin32Error == other.dwWin32Error
     }
 }
-impl ::std::cmp::Eq for HSE_EXEC_URL_STATUS {}
+impl ::core::cmp::Eq for HSE_EXEC_URL_STATUS {}
 unsafe impl ::windows::runtime::Abi for HSE_EXEC_URL_STATUS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -948,25 +948,25 @@ pub struct HSE_EXEC_URL_USER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl HSE_EXEC_URL_USER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HSE_EXEC_URL_USER_INFO {
+impl ::core::default::Default for HSE_EXEC_URL_USER_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HSE_EXEC_URL_USER_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_EXEC_URL_USER_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_EXEC_URL_USER_INFO").field("hImpersonationToken", &self.hImpersonationToken).field("pszCustomUserName", &self.pszCustomUserName).field("pszCustomAuthType", &self.pszCustomAuthType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HSE_EXEC_URL_USER_INFO {
+impl ::core::cmp::PartialEq for HSE_EXEC_URL_USER_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.hImpersonationToken == other.hImpersonationToken && self.pszCustomUserName == other.pszCustomUserName && self.pszCustomAuthType == other.pszCustomAuthType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HSE_EXEC_URL_USER_INFO {}
+impl ::core::cmp::Eq for HSE_EXEC_URL_USER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_EXEC_URL_USER_INFO {
     type Abi = Self;
@@ -1059,7 +1059,7 @@ pub const HSE_REQ_SET_FLUSH_FLAG: u32 = 1043u32;
 pub const HSE_REQ_TRANSMIT_FILE: u32 = 1006u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_VECTOR_SEND: u32 = 1037u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1073,30 +1073,30 @@ pub struct HSE_RESPONSE_VECTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl HSE_RESPONSE_VECTOR {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HSE_RESPONSE_VECTOR {
+impl ::core::default::Default for HSE_RESPONSE_VECTOR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HSE_RESPONSE_VECTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_RESPONSE_VECTOR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_RESPONSE_VECTOR").field("dwFlags", &self.dwFlags).field("pszStatus", &self.pszStatus).field("pszHeaders", &self.pszHeaders).field("nElementCount", &self.nElementCount).field("lpElementArray", &self.lpElementArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HSE_RESPONSE_VECTOR {
+impl ::core::cmp::PartialEq for HSE_RESPONSE_VECTOR {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.pszStatus == other.pszStatus && self.pszHeaders == other.pszHeaders && self.nElementCount == other.nElementCount && self.lpElementArray == other.lpElementArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HSE_RESPONSE_VECTOR {}
+impl ::core::cmp::Eq for HSE_RESPONSE_VECTOR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_RESPONSE_VECTOR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1110,25 +1110,25 @@ pub struct HSE_SEND_HEADER_EX_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl HSE_SEND_HEADER_EX_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HSE_SEND_HEADER_EX_INFO {
+impl ::core::default::Default for HSE_SEND_HEADER_EX_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HSE_SEND_HEADER_EX_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_SEND_HEADER_EX_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_SEND_HEADER_EX_INFO").field("pszStatus", &self.pszStatus).field("pszHeader", &self.pszHeader).field("cchStatus", &self.cchStatus).field("cchHeader", &self.cchHeader).field("fKeepConn", &self.fKeepConn).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HSE_SEND_HEADER_EX_INFO {
+impl ::core::cmp::PartialEq for HSE_SEND_HEADER_EX_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pszStatus == other.pszStatus && self.pszHeader == other.pszHeader && self.cchStatus == other.cchStatus && self.cchHeader == other.cchHeader && self.fKeepConn == other.fKeepConn
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HSE_SEND_HEADER_EX_INFO {}
+impl ::core::cmp::Eq for HSE_SEND_HEADER_EX_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_SEND_HEADER_EX_INFO {
     type Abi = Self;
@@ -1145,34 +1145,34 @@ pub const HSE_STATUS_SUCCESS_AND_KEEP_CONN: u32 = 2u32;
 pub const HSE_TERM_ADVISORY_UNLOAD: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_TERM_MUST_UNLOAD: u32 = 2u32;
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HSE_TF_INFO {
-    pub pfnHseIO: ::std::option::Option<PFN_HSE_IO_COMPLETION>,
-    pub pContext: *mut ::std::ffi::c_void,
+    pub pfnHseIO: ::core::option::Option<PFN_HSE_IO_COMPLETION>,
+    pub pContext: *mut ::core::ffi::c_void,
     pub hFile: super::super::Foundation::HANDLE,
     pub pszStatusCode: super::super::Foundation::PSTR,
     pub BytesToWrite: u32,
     pub Offset: u32,
-    pub pHead: *mut ::std::ffi::c_void,
+    pub pHead: *mut ::core::ffi::c_void,
     pub HeadLength: u32,
-    pub pTail: *mut ::std::ffi::c_void,
+    pub pTail: *mut ::core::ffi::c_void,
     pub TailLength: u32,
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl HSE_TF_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HSE_TF_INFO {
+impl ::core::default::Default for HSE_TF_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HSE_TF_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_TF_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_TF_INFO")
             .field("pContext", &self.pContext)
             .field("hFile", &self.hFile)
@@ -1188,18 +1188,18 @@ impl ::std::fmt::Debug for HSE_TF_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HSE_TF_INFO {
+impl ::core::cmp::PartialEq for HSE_TF_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pfnHseIO.map(|f| f as usize) == other.pfnHseIO.map(|f| f as usize) && self.pContext == other.pContext && self.hFile == other.hFile && self.pszStatusCode == other.pszStatusCode && self.BytesToWrite == other.BytesToWrite && self.Offset == other.Offset && self.pHead == other.pHead && self.HeadLength == other.HeadLength && self.pTail == other.pTail && self.TailLength == other.TailLength && self.dwFlags == other.dwFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HSE_TF_INFO {}
+impl ::core::cmp::Eq for HSE_TF_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_TF_INFO {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1212,30 +1212,30 @@ pub struct HSE_TRACE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl HSE_TRACE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HSE_TRACE_INFO {
+impl ::core::default::Default for HSE_TRACE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HSE_TRACE_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_TRACE_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_TRACE_INFO").field("fTraceRequest", &self.fTraceRequest).field("TraceContextId", &self.TraceContextId).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HSE_TRACE_INFO {
+impl ::core::cmp::PartialEq for HSE_TRACE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.fTraceRequest == other.fTraceRequest && self.TraceContextId == other.TraceContextId && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HSE_TRACE_INFO {}
+impl ::core::cmp::Eq for HSE_TRACE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_TRACE_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct HSE_UNICODE_URL_MAPEX_INFO {
@@ -1245,22 +1245,22 @@ pub struct HSE_UNICODE_URL_MAPEX_INFO {
     pub cchMatchingURL: u32,
 }
 impl HSE_UNICODE_URL_MAPEX_INFO {}
-impl ::std::default::Default for HSE_UNICODE_URL_MAPEX_INFO {
+impl ::core::default::Default for HSE_UNICODE_URL_MAPEX_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HSE_UNICODE_URL_MAPEX_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_UNICODE_URL_MAPEX_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_UNICODE_URL_MAPEX_INFO").field("lpszPath", &self.lpszPath).field("dwFlags", &self.dwFlags).field("cchMatchingPath", &self.cchMatchingPath).field("cchMatchingURL", &self.cchMatchingURL).finish()
     }
 }
-impl ::std::cmp::PartialEq for HSE_UNICODE_URL_MAPEX_INFO {
+impl ::core::cmp::PartialEq for HSE_UNICODE_URL_MAPEX_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.lpszPath == other.lpszPath && self.dwFlags == other.dwFlags && self.cchMatchingPath == other.cchMatchingPath && self.cchMatchingURL == other.cchMatchingURL
     }
 }
-impl ::std::cmp::Eq for HSE_UNICODE_URL_MAPEX_INFO {}
+impl ::core::cmp::Eq for HSE_UNICODE_URL_MAPEX_INFO {}
 unsafe impl ::windows::runtime::Abi for HSE_UNICODE_URL_MAPEX_INFO {
     type Abi = Self;
 }
@@ -1286,7 +1286,7 @@ pub const HSE_URL_FLAGS_SSL: u32 = 8u32;
 pub const HSE_URL_FLAGS_SSL128: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_URL_FLAGS_WRITE: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1301,55 +1301,55 @@ pub struct HSE_URL_MAPEX_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl HSE_URL_MAPEX_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HSE_URL_MAPEX_INFO {
+impl ::core::default::Default for HSE_URL_MAPEX_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HSE_URL_MAPEX_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_URL_MAPEX_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_URL_MAPEX_INFO").field("lpszPath", &self.lpszPath).field("dwFlags", &self.dwFlags).field("cchMatchingPath", &self.cchMatchingPath).field("cchMatchingURL", &self.cchMatchingURL).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HSE_URL_MAPEX_INFO {
+impl ::core::cmp::PartialEq for HSE_URL_MAPEX_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.lpszPath == other.lpszPath && self.dwFlags == other.dwFlags && self.cchMatchingPath == other.cchMatchingPath && self.cchMatchingURL == other.cchMatchingURL && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HSE_URL_MAPEX_INFO {}
+impl ::core::cmp::Eq for HSE_URL_MAPEX_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_URL_MAPEX_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct HSE_VECTOR_ELEMENT {
     pub ElementType: u32,
-    pub pvContext: *mut ::std::ffi::c_void,
+    pub pvContext: *mut ::core::ffi::c_void,
     pub cbOffset: u64,
     pub cbSize: u64,
 }
 impl HSE_VECTOR_ELEMENT {}
-impl ::std::default::Default for HSE_VECTOR_ELEMENT {
+impl ::core::default::Default for HSE_VECTOR_ELEMENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HSE_VECTOR_ELEMENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_VECTOR_ELEMENT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_VECTOR_ELEMENT").field("ElementType", &self.ElementType).field("pvContext", &self.pvContext).field("cbOffset", &self.cbOffset).field("cbSize", &self.cbSize).finish()
     }
 }
-impl ::std::cmp::PartialEq for HSE_VECTOR_ELEMENT {
+impl ::core::cmp::PartialEq for HSE_VECTOR_ELEMENT {
     fn eq(&self, other: &Self) -> bool {
         self.ElementType == other.ElementType && self.pvContext == other.pvContext && self.cbOffset == other.cbOffset && self.cbSize == other.cbSize
     }
 }
-impl ::std::cmp::Eq for HSE_VECTOR_ELEMENT {}
+impl ::core::cmp::Eq for HSE_VECTOR_ELEMENT {}
 unsafe impl ::windows::runtime::Abi for HSE_VECTOR_ELEMENT {
     type Abi = Self;
 }
@@ -1357,7 +1357,7 @@ unsafe impl ::windows::runtime::Abi for HSE_VECTOR_ELEMENT {
 pub const HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1368,25 +1368,25 @@ pub struct HSE_VERSION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl HSE_VERSION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HSE_VERSION_INFO {
+impl ::core::default::Default for HSE_VERSION_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HSE_VERSION_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HSE_VERSION_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HSE_VERSION_INFO").field("dwExtensionVersion", &self.dwExtensionVersion).field("lpszExtensionDesc", &self.lpszExtensionDesc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HSE_VERSION_INFO {
+impl ::core::cmp::PartialEq for HSE_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwExtensionVersion == other.dwExtensionVersion && self.lpszExtensionDesc == other.lpszExtensionDesc
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HSE_VERSION_INFO {}
+impl ::core::cmp::Eq for HSE_VERSION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_VERSION_INFO {
     type Abi = Self;
@@ -1395,7 +1395,7 @@ unsafe impl ::windows::runtime::Abi for HSE_VERSION_INFO {
 pub const HSE_VERSION_MAJOR: u32 = 8u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_VERSION_MINOR: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1407,30 +1407,30 @@ pub struct HTTP_FILTER_ACCESS_DENIED {
 #[cfg(feature = "Win32_Foundation")]
 impl HTTP_FILTER_ACCESS_DENIED {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HTTP_FILTER_ACCESS_DENIED {
+impl ::core::default::Default for HTTP_FILTER_ACCESS_DENIED {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HTTP_FILTER_ACCESS_DENIED {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HTTP_FILTER_ACCESS_DENIED {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HTTP_FILTER_ACCESS_DENIED").field("pszURL", &self.pszURL).field("pszPhysicalPath", &self.pszPhysicalPath).field("dwReason", &self.dwReason).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HTTP_FILTER_ACCESS_DENIED {
+impl ::core::cmp::PartialEq for HTTP_FILTER_ACCESS_DENIED {
     fn eq(&self, other: &Self) -> bool {
         self.pszURL == other.pszURL && self.pszPhysicalPath == other.pszPhysicalPath && self.dwReason == other.dwReason
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HTTP_FILTER_ACCESS_DENIED {}
+impl ::core::cmp::Eq for HTTP_FILTER_ACCESS_DENIED {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_ACCESS_DENIED {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1443,30 +1443,30 @@ pub struct HTTP_FILTER_AUTHENT {
 #[cfg(feature = "Win32_Foundation")]
 impl HTTP_FILTER_AUTHENT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HTTP_FILTER_AUTHENT {
+impl ::core::default::Default for HTTP_FILTER_AUTHENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HTTP_FILTER_AUTHENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HTTP_FILTER_AUTHENT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HTTP_FILTER_AUTHENT").field("pszUser", &self.pszUser).field("cbUserBuff", &self.cbUserBuff).field("pszPassword", &self.pszPassword).field("cbPasswordBuff", &self.cbPasswordBuff).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HTTP_FILTER_AUTHENT {
+impl ::core::cmp::PartialEq for HTTP_FILTER_AUTHENT {
     fn eq(&self, other: &Self) -> bool {
         self.pszUser == other.pszUser && self.cbUserBuff == other.cbUserBuff && self.pszPassword == other.pszPassword && self.cbPasswordBuff == other.cbPasswordBuff
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HTTP_FILTER_AUTHENT {}
+impl ::core::cmp::Eq for HTTP_FILTER_AUTHENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_AUTHENT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1482,14 +1482,14 @@ pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl HTTP_FILTER_AUTH_COMPLETE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HTTP_FILTER_AUTH_COMPLETE_INFO {
+impl ::core::default::Default for HTTP_FILTER_AUTH_COMPLETE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HTTP_FILTER_AUTH_COMPLETE_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HTTP_FILTER_AUTH_COMPLETE_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HTTP_FILTER_AUTH_COMPLETE_INFO")
             .field("GetHeader", &self.GetHeader)
             .field("SetHeader", &self.SetHeader)
@@ -1502,28 +1502,28 @@ impl ::std::fmt::Debug for HTTP_FILTER_AUTH_COMPLETE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HTTP_FILTER_AUTH_COMPLETE_INFO {
+impl ::core::cmp::PartialEq for HTTP_FILTER_AUTH_COMPLETE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.GetHeader == other.GetHeader && self.SetHeader == other.SetHeader && self.AddHeader == other.AddHeader && self.GetUserToken == other.GetUserToken && self.HttpStatus == other.HttpStatus && self.fResetAuth == other.fResetAuth && self.dwReserved == other.dwReserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HTTP_FILTER_AUTH_COMPLETE_INFO {}
+impl ::core::cmp::Eq for HTTP_FILTER_AUTH_COMPLETE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_AUTH_COMPLETE_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HTTP_FILTER_CONTEXT {
     pub cbSize: u32,
     pub Revision: u32,
-    pub ServerContext: *mut ::std::ffi::c_void,
+    pub ServerContext: *mut ::core::ffi::c_void,
     pub ulReserved: u32,
     pub fIsSecurePort: super::super::Foundation::BOOL,
-    pub pFilterContext: *mut ::std::ffi::c_void,
+    pub pFilterContext: *mut ::core::ffi::c_void,
     pub GetServerVariable: isize,
     pub AddResponseHeaders: isize,
     pub WriteClient: isize,
@@ -1533,14 +1533,14 @@ pub struct HTTP_FILTER_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl HTTP_FILTER_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HTTP_FILTER_CONTEXT {
+impl ::core::default::Default for HTTP_FILTER_CONTEXT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HTTP_FILTER_CONTEXT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HTTP_FILTER_CONTEXT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HTTP_FILTER_CONTEXT")
             .field("cbSize", &self.cbSize)
             .field("Revision", &self.Revision)
@@ -1557,18 +1557,18 @@ impl ::std::fmt::Debug for HTTP_FILTER_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HTTP_FILTER_CONTEXT {
+impl ::core::cmp::PartialEq for HTTP_FILTER_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.Revision == other.Revision && self.ServerContext == other.ServerContext && self.ulReserved == other.ulReserved && self.fIsSecurePort == other.fIsSecurePort && self.pFilterContext == other.pFilterContext && self.GetServerVariable == other.GetServerVariable && self.AddResponseHeaders == other.AddResponseHeaders && self.WriteClient == other.WriteClient && self.AllocMem == other.AllocMem && self.ServerSupportFunction == other.ServerSupportFunction
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HTTP_FILTER_CONTEXT {}
+impl ::core::cmp::Eq for HTTP_FILTER_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_CONTEXT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1588,14 +1588,14 @@ pub struct HTTP_FILTER_LOG {
 #[cfg(feature = "Win32_Foundation")]
 impl HTTP_FILTER_LOG {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HTTP_FILTER_LOG {
+impl ::core::default::Default for HTTP_FILTER_LOG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HTTP_FILTER_LOG {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HTTP_FILTER_LOG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HTTP_FILTER_LOG")
             .field("pszClientHostName", &self.pszClientHostName)
             .field("pszClientUserName", &self.pszClientUserName)
@@ -1612,7 +1612,7 @@ impl ::std::fmt::Debug for HTTP_FILTER_LOG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HTTP_FILTER_LOG {
+impl ::core::cmp::PartialEq for HTTP_FILTER_LOG {
     fn eq(&self, other: &Self) -> bool {
         self.pszClientHostName == other.pszClientHostName
             && self.pszClientUserName == other.pszClientUserName
@@ -1628,12 +1628,12 @@ impl ::std::cmp::PartialEq for HTTP_FILTER_LOG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HTTP_FILTER_LOG {}
+impl ::core::cmp::Eq for HTTP_FILTER_LOG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_LOG {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct HTTP_FILTER_PREPROC_HEADERS {
@@ -1644,55 +1644,55 @@ pub struct HTTP_FILTER_PREPROC_HEADERS {
     pub dwReserved: u32,
 }
 impl HTTP_FILTER_PREPROC_HEADERS {}
-impl ::std::default::Default for HTTP_FILTER_PREPROC_HEADERS {
+impl ::core::default::Default for HTTP_FILTER_PREPROC_HEADERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HTTP_FILTER_PREPROC_HEADERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HTTP_FILTER_PREPROC_HEADERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HTTP_FILTER_PREPROC_HEADERS").field("GetHeader", &self.GetHeader).field("SetHeader", &self.SetHeader).field("AddHeader", &self.AddHeader).field("HttpStatus", &self.HttpStatus).field("dwReserved", &self.dwReserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for HTTP_FILTER_PREPROC_HEADERS {
+impl ::core::cmp::PartialEq for HTTP_FILTER_PREPROC_HEADERS {
     fn eq(&self, other: &Self) -> bool {
         self.GetHeader == other.GetHeader && self.SetHeader == other.SetHeader && self.AddHeader == other.AddHeader && self.HttpStatus == other.HttpStatus && self.dwReserved == other.dwReserved
     }
 }
-impl ::std::cmp::Eq for HTTP_FILTER_PREPROC_HEADERS {}
+impl ::core::cmp::Eq for HTTP_FILTER_PREPROC_HEADERS {}
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_PREPROC_HEADERS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct HTTP_FILTER_RAW_DATA {
-    pub pvInData: *mut ::std::ffi::c_void,
+    pub pvInData: *mut ::core::ffi::c_void,
     pub cbInData: u32,
     pub cbInBuffer: u32,
     pub dwReserved: u32,
 }
 impl HTTP_FILTER_RAW_DATA {}
-impl ::std::default::Default for HTTP_FILTER_RAW_DATA {
+impl ::core::default::Default for HTTP_FILTER_RAW_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HTTP_FILTER_RAW_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HTTP_FILTER_RAW_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HTTP_FILTER_RAW_DATA").field("pvInData", &self.pvInData).field("cbInData", &self.cbInData).field("cbInBuffer", &self.cbInBuffer).field("dwReserved", &self.dwReserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for HTTP_FILTER_RAW_DATA {
+impl ::core::cmp::PartialEq for HTTP_FILTER_RAW_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.pvInData == other.pvInData && self.cbInData == other.cbInData && self.cbInBuffer == other.cbInBuffer && self.dwReserved == other.dwReserved
     }
 }
-impl ::std::cmp::Eq for HTTP_FILTER_RAW_DATA {}
+impl ::core::cmp::Eq for HTTP_FILTER_RAW_DATA {}
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_RAW_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1704,30 +1704,30 @@ pub struct HTTP_FILTER_URL_MAP {
 #[cfg(feature = "Win32_Foundation")]
 impl HTTP_FILTER_URL_MAP {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HTTP_FILTER_URL_MAP {
+impl ::core::default::Default for HTTP_FILTER_URL_MAP {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HTTP_FILTER_URL_MAP {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HTTP_FILTER_URL_MAP {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HTTP_FILTER_URL_MAP").field("pszURL", &self.pszURL).field("pszPhysicalPath", &self.pszPhysicalPath).field("cbPathBuff", &self.cbPathBuff).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HTTP_FILTER_URL_MAP {
+impl ::core::cmp::PartialEq for HTTP_FILTER_URL_MAP {
     fn eq(&self, other: &Self) -> bool {
         self.pszURL == other.pszURL && self.pszPhysicalPath == other.pszPhysicalPath && self.cbPathBuff == other.cbPathBuff
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HTTP_FILTER_URL_MAP {}
+impl ::core::cmp::Eq for HTTP_FILTER_URL_MAP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_URL_MAP {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1743,14 +1743,14 @@ pub struct HTTP_FILTER_URL_MAP_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl HTTP_FILTER_URL_MAP_EX {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HTTP_FILTER_URL_MAP_EX {
+impl ::core::default::Default for HTTP_FILTER_URL_MAP_EX {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HTTP_FILTER_URL_MAP_EX {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HTTP_FILTER_URL_MAP_EX {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HTTP_FILTER_URL_MAP_EX")
             .field("pszURL", &self.pszURL)
             .field("pszPhysicalPath", &self.pszPhysicalPath)
@@ -1763,18 +1763,18 @@ impl ::std::fmt::Debug for HTTP_FILTER_URL_MAP_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HTTP_FILTER_URL_MAP_EX {
+impl ::core::cmp::PartialEq for HTTP_FILTER_URL_MAP_EX {
     fn eq(&self, other: &Self) -> bool {
         self.pszURL == other.pszURL && self.pszPhysicalPath == other.pszPhysicalPath && self.cbPathBuff == other.cbPathBuff && self.dwFlags == other.dwFlags && self.cchMatchingPath == other.cchMatchingPath && self.cchMatchingURL == other.cchMatchingURL && self.pszScriptMapEntry == other.pszScriptMapEntry
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HTTP_FILTER_URL_MAP_EX {}
+impl ::core::cmp::Eq for HTTP_FILTER_URL_MAP_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_URL_MAP_EX {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1787,30 +1787,30 @@ pub struct HTTP_FILTER_VERSION {
 #[cfg(feature = "Win32_Foundation")]
 impl HTTP_FILTER_VERSION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HTTP_FILTER_VERSION {
+impl ::core::default::Default for HTTP_FILTER_VERSION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HTTP_FILTER_VERSION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HTTP_FILTER_VERSION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HTTP_FILTER_VERSION").field("dwServerFilterVersion", &self.dwServerFilterVersion).field("dwFilterVersion", &self.dwFilterVersion).field("lpszFilterDesc", &self.lpszFilterDesc).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HTTP_FILTER_VERSION {
+impl ::core::cmp::PartialEq for HTTP_FILTER_VERSION {
     fn eq(&self, other: &Self) -> bool {
         self.dwServerFilterVersion == other.dwServerFilterVersion && self.dwFilterVersion == other.dwFilterVersion && self.lpszFilterDesc == other.lpszFilterDesc && self.dwFlags == other.dwFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HTTP_FILTER_VERSION {}
+impl ::core::cmp::Eq for HTTP_FILTER_VERSION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_VERSION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1823,30 +1823,30 @@ pub struct HTTP_TRACE_CONFIGURATION {
 #[cfg(feature = "Win32_Foundation")]
 impl HTTP_TRACE_CONFIGURATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HTTP_TRACE_CONFIGURATION {
+impl ::core::default::Default for HTTP_TRACE_CONFIGURATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HTTP_TRACE_CONFIGURATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HTTP_TRACE_CONFIGURATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HTTP_TRACE_CONFIGURATION").field("pProviderGuid", &self.pProviderGuid).field("dwAreas", &self.dwAreas).field("dwVerbosity", &self.dwVerbosity).field("fProviderEnabled", &self.fProviderEnabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HTTP_TRACE_CONFIGURATION {
+impl ::core::cmp::PartialEq for HTTP_TRACE_CONFIGURATION {
     fn eq(&self, other: &Self) -> bool {
         self.pProviderGuid == other.pProviderGuid && self.dwAreas == other.dwAreas && self.dwVerbosity == other.dwVerbosity && self.fProviderEnabled == other.fProviderEnabled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HTTP_TRACE_CONFIGURATION {}
+impl ::core::cmp::Eq for HTTP_TRACE_CONFIGURATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_TRACE_CONFIGURATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1868,14 +1868,14 @@ pub struct HTTP_TRACE_EVENT {
 #[cfg(feature = "Win32_Foundation")]
 impl HTTP_TRACE_EVENT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HTTP_TRACE_EVENT {
+impl ::core::default::Default for HTTP_TRACE_EVENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HTTP_TRACE_EVENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HTTP_TRACE_EVENT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HTTP_TRACE_EVENT")
             .field("pProviderGuid", &self.pProviderGuid)
             .field("dwArea", &self.dwArea)
@@ -1894,7 +1894,7 @@ impl ::std::fmt::Debug for HTTP_TRACE_EVENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HTTP_TRACE_EVENT {
+impl ::core::cmp::PartialEq for HTTP_TRACE_EVENT {
     fn eq(&self, other: &Self) -> bool {
         self.pProviderGuid == other.pProviderGuid
             && self.dwArea == other.dwArea
@@ -1912,14 +1912,14 @@ impl ::std::cmp::PartialEq for HTTP_TRACE_EVENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HTTP_TRACE_EVENT {}
+impl ::core::cmp::Eq for HTTP_TRACE_EVENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_TRACE_EVENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HTTP_TRACE_EVENT_FLAG_STATIC_DESCRIPTIVE_FIELDS: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -1933,25 +1933,25 @@ pub struct HTTP_TRACE_EVENT_ITEM {
 #[cfg(feature = "Win32_Foundation")]
 impl HTTP_TRACE_EVENT_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for HTTP_TRACE_EVENT_ITEM {
+impl ::core::default::Default for HTTP_TRACE_EVENT_ITEM {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for HTTP_TRACE_EVENT_ITEM {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HTTP_TRACE_EVENT_ITEM {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HTTP_TRACE_EVENT_ITEM").field("pszName", &self.pszName).field("dwDataType", &self.dwDataType).field("pbData", &self.pbData).field("cbData", &self.cbData).field("pszDataDescription", &self.pszDataDescription).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for HTTP_TRACE_EVENT_ITEM {
+impl ::core::cmp::PartialEq for HTTP_TRACE_EVENT_ITEM {
     fn eq(&self, other: &Self) -> bool {
         self.pszName == other.pszName && self.dwDataType == other.dwDataType && self.pbData == other.pbData && self.cbData == other.cbData && self.pszDataDescription == other.pszDataDescription
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for HTTP_TRACE_EVENT_ITEM {}
+impl ::core::cmp::Eq for HTTP_TRACE_EVENT_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_TRACE_EVENT_ITEM {
     type Abi = Self;
@@ -1961,7 +1961,7 @@ pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HTTP_TRACE_LEVEL_START: u32 = 6u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_TRACE_TYPE(pub i32);
 pub const HTTP_TRACE_TYPE_BYTE: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(17i32);
@@ -1976,7 +1976,7 @@ pub const HTTP_TRACE_TYPE_LPCWSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(31i32);
 pub const HTTP_TRACE_TYPE_LPCSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(30i32);
 pub const HTTP_TRACE_TYPE_LPCGUID: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(72i32);
 pub const HTTP_TRACE_TYPE_BOOL: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(11i32);
-impl ::std::convert::From<i32> for HTTP_TRACE_TYPE {
+impl ::core::convert::From<i32> for HTTP_TRACE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1994,7 +1994,7 @@ pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
         extern "system" {
             fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32;
         }
-        ::std::mem::transmute(HttpExtensionProc(::std::mem::transmute(pecb)))
+        ::core::mem::transmute(HttpExtensionProc(::core::mem::transmute(pecb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2002,46 +2002,46 @@ pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut ::std::ffi::c_void) -> u32;
+            fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(HttpFilterProc(::std::mem::transmute(pfc), ::std::mem::transmute(notificationtype), ::std::mem::transmute(pvnotification)))
+        ::core::mem::transmute(HttpFilterProc(::core::mem::transmute(pfc), ::core::mem::transmute(notificationtype), ::core::mem::transmute(pvnotification)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IADMEXT(pub ::windows::runtime::IUnknown);
 impl IADMEXT {
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn EnumDcomCLSIDs(&self, pclsiddcom: *mut ::windows::runtime::GUID, dwenumindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclsiddcom), ::std::mem::transmute(dwenumindex)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pclsiddcom), ::core::mem::transmute(dwenumindex)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Terminate(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IADMEXT {
     type Vtable = IADMEXT_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1373628784, 63218, 4560, [185, 189, 0, 160, 201, 34, 231, 80]);
 }
-impl ::std::convert::From<IADMEXT> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IADMEXT> for ::windows::runtime::IUnknown {
     fn from(value: IADMEXT) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IADMEXT> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IADMEXT> for ::windows::runtime::IUnknown {
     fn from(value: &IADMEXT) -> Self {
         value.0.clone()
     }
@@ -2068,7 +2068,7 @@ pub struct IADMEXT_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpAuthenticationProvider(pub ::windows::runtime::IUnknown);
 impl IFtpAuthenticationProvider {
     #[cfg(feature = "Win32_Foundation")]
@@ -2082,19 +2082,19 @@ impl IFtpAuthenticationProvider {
         ppszcanonicalusername: *mut super::super::Foundation::PWSTR,
         pfauthenticated: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), pszpassword.into_param().abi(), ::std::mem::transmute(ppszcanonicalusername), ::std::mem::transmute(pfauthenticated)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), pszpassword.into_param().abi(), ::core::mem::transmute(ppszcanonicalusername), ::core::mem::transmute(pfauthenticated)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IFtpAuthenticationProvider {
     type Vtable = IFtpAuthenticationProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180301660, 54696, 18183, [178, 252, 111, 213, 121, 66, 70, 207]);
 }
-impl ::std::convert::From<IFtpAuthenticationProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFtpAuthenticationProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFtpAuthenticationProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFtpAuthenticationProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFtpAuthenticationProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IFtpAuthenticationProvider) -> Self {
         value.0.clone()
     }
@@ -2120,26 +2120,26 @@ pub struct IFtpAuthenticationProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpAuthorizationProvider(pub ::windows::runtime::IUnknown);
 impl IFtpAuthorizationProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetUserAccessPermission<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszvirtualpath: Param2, pszusername: Param3) -> ::windows::runtime::Result<FTP_ACCESS> {
-        let mut result__: <FTP_ACCESS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszvirtualpath.into_param().abi(), pszusername.into_param().abi(), &mut result__).from_abi::<FTP_ACCESS>(result__)
+        let mut result__: <FTP_ACCESS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszvirtualpath.into_param().abi(), pszusername.into_param().abi(), &mut result__).from_abi::<FTP_ACCESS>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IFtpAuthorizationProvider {
     type Vtable = IFtpAuthorizationProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768955297, 41818, 17076, [164, 243, 244, 247, 5, 122, 5, 209]);
 }
-impl ::std::convert::From<IFtpAuthorizationProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFtpAuthorizationProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFtpAuthorizationProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFtpAuthorizationProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFtpAuthorizationProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IFtpAuthorizationProvider) -> Self {
         value.0.clone()
     }
@@ -2165,26 +2165,26 @@ pub struct IFtpAuthorizationProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpHomeDirectoryProvider(pub ::windows::runtime::IUnknown);
 impl IFtpHomeDirectoryProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetUserHomeDirectoryData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszusername: Param2) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IFtpHomeDirectoryProvider {
     type Vtable = IFtpHomeDirectoryProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(154383250, 6365, 16535, [139, 156, 131, 50, 92, 53, 217, 166]);
 }
-impl ::std::convert::From<IFtpHomeDirectoryProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFtpHomeDirectoryProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFtpHomeDirectoryProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFtpHomeDirectoryProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFtpHomeDirectoryProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IFtpHomeDirectoryProvider) -> Self {
         value.0.clone()
     }
@@ -2210,25 +2210,25 @@ pub struct IFtpHomeDirectoryProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpLogProvider(pub ::windows::runtime::IUnknown);
 impl IFtpLogProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ploggingparameters)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ploggingparameters)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IFtpLogProvider {
     type Vtable = IFtpLogProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2710213836, 33433, 17416, [129, 108, 124, 59, 172, 161, 164, 14]);
 }
-impl ::std::convert::From<IFtpLogProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFtpLogProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFtpLogProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFtpLogProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFtpLogProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IFtpLogProvider) -> Self {
         value.0.clone()
     }
@@ -2254,26 +2254,26 @@ pub struct IFtpLogProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpPostprocessProvider(pub ::windows::runtime::IUnknown);
 impl IFtpPostprocessProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows::runtime::Result<FTP_PROCESS_STATUS> {
-        let mut result__: <FTP_PROCESS_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppostprocessparameters), &mut result__).from_abi::<FTP_PROCESS_STATUS>(result__)
+        let mut result__: <FTP_PROCESS_STATUS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppostprocessparameters), &mut result__).from_abi::<FTP_PROCESS_STATUS>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IFtpPostprocessProvider {
     type Vtable = IFtpPostprocessProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1159908294, 5837, 18861, [134, 83, 154, 44, 87, 158, 66, 128]);
 }
-impl ::std::convert::From<IFtpPostprocessProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFtpPostprocessProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFtpPostprocessProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFtpPostprocessProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFtpPostprocessProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IFtpPostprocessProvider) -> Self {
         value.0.clone()
     }
@@ -2299,26 +2299,26 @@ pub struct IFtpPostprocessProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpPreprocessProvider(pub ::windows::runtime::IUnknown);
 impl IFtpPreprocessProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows::runtime::Result<FTP_PROCESS_STATUS> {
-        let mut result__: <FTP_PROCESS_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppreprocessparameters), &mut result__).from_abi::<FTP_PROCESS_STATUS>(result__)
+        let mut result__: <FTP_PROCESS_STATUS as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppreprocessparameters), &mut result__).from_abi::<FTP_PROCESS_STATUS>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IFtpPreprocessProvider {
     type Vtable = IFtpPreprocessProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2747374432, 23080, 18202, [143, 147, 171, 48, 65, 28, 238, 130]);
 }
-impl ::std::convert::From<IFtpPreprocessProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFtpPreprocessProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFtpPreprocessProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFtpPreprocessProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFtpPreprocessProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IFtpPreprocessProvider) -> Self {
         value.0.clone()
     }
@@ -2344,25 +2344,25 @@ pub struct IFtpPreprocessProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpProviderConstruct(pub ::windows::runtime::IUnknown);
 impl IFtpProviderConstruct {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_System_Com`*"]
     pub unsafe fn Construct(&self, configurationentries: *const super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(configurationentries)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(configurationentries)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IFtpProviderConstruct {
     type Vtable = IFtpProviderConstruct_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1293565819, 16685, 17532, [177, 153, 100, 249, 103, 233, 162, 218]);
 }
-impl ::std::convert::From<IFtpProviderConstruct> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFtpProviderConstruct> for ::windows::runtime::IUnknown {
     fn from(value: IFtpProviderConstruct) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFtpProviderConstruct> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFtpProviderConstruct> for ::windows::runtime::IUnknown {
     fn from(value: &IFtpProviderConstruct) -> Self {
         value.0.clone()
     }
@@ -2388,26 +2388,26 @@ pub struct IFtpProviderConstruct_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpRoleProvider(pub ::windows::runtime::IUnknown);
 impl IFtpRoleProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn IsUserInRole<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszusername: Param2, pszrole: Param3) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), pszrole.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), pszrole.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IFtpRoleProvider {
     type Vtable = IFtpRoleProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2426176781, 36000, 18036, [150, 184, 204, 41, 65, 83, 87, 37]);
 }
-impl ::std::convert::From<IFtpRoleProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IFtpRoleProvider> for ::windows::runtime::IUnknown {
     fn from(value: IFtpRoleProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IFtpRoleProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IFtpRoleProvider> for ::windows::runtime::IUnknown {
     fn from(value: &IFtpRoleProvider) -> Self {
         value.0.clone()
     }
@@ -2515,28 +2515,28 @@ pub const IMGTRANS_MASK: u32 = 536870912u32;
 pub const IMGTRANS_OPAQUE: u32 = 536870912u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSAdminBase2W(pub ::windows::runtime::IUnknown);
 impl IMSAdminBase2W {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn AddKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteChildKeys<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumKeys<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdname: super::super::Foundation::PWSTR, dwmdenumobjectindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pszmdname), ::std::mem::transmute(dwmdenumobjectindex)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pszmdname), ::core::mem::transmute(dwmdenumobjectindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -2549,68 +2549,68 @@ impl IMSAdminBase2W {
         bmdoverwriteflag: Param4,
         bmdcopyflag: Param5,
     ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdsourcehandle), pszmdsourcepath.into_param().abi(), ::std::mem::transmute(hmddesthandle), pszmddestpath.into_param().abi(), bmdoverwriteflag.into_param().abi(), bmdcopyflag.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdsourcehandle), pszmdsourcepath.into_param().abi(), ::core::mem::transmute(hmddesthandle), pszmddestpath.into_param().abi(), bmdoverwriteflag.into_param().abi(), bmdcopyflag.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn RenameKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdnewname: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), pszmdnewname.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), pszmdnewname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn SetData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pmdrmddata)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD, pdwmdrequireddatalen: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pmdrmddata), ::std::mem::transmute(pdwmdrequireddatalen)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata), ::core::mem::transmute(pdwmdrequireddatalen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(dwmdidentifier), ::std::mem::transmute(dwmddatatype)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdidentifier), ::core::mem::transmute(dwmddatatype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD, dwmdenumdataindex: u32, pdwmdrequireddatalen: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pmdrmddata), ::std::mem::transmute(dwmdenumdataindex), ::std::mem::transmute(pdwmdrequireddatalen)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata), ::core::mem::transmute(dwmdenumdataindex), ::core::mem::transmute(pdwmdrequireddatalen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetAllData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(hmdhandle),
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(hmdhandle),
             pszmdpath.into_param().abi(),
-            ::std::mem::transmute(dwmdattributes),
-            ::std::mem::transmute(dwmdusertype),
-            ::std::mem::transmute(dwmddatatype),
-            ::std::mem::transmute(pdwmdnumdataentries),
-            ::std::mem::transmute(pdwmddatasetnumber),
-            ::std::mem::transmute(dwmdbuffersize),
-            ::std::mem::transmute(pbmdbuffer),
-            ::std::mem::transmute(pdwmdrequiredbuffersize),
+            ::core::mem::transmute(dwmdattributes),
+            ::core::mem::transmute(dwmdusertype),
+            ::core::mem::transmute(dwmddatatype),
+            ::core::mem::transmute(pdwmdnumdataentries),
+            ::core::mem::transmute(pdwmddatasetnumber),
+            ::core::mem::transmute(dwmdbuffersize),
+            ::core::mem::transmute(pbmdbuffer),
+            ::core::mem::transmute(pdwmdrequiredbuffersize),
         )
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteAllData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdusertype: u32, dwmddatatype: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(dwmdusertype), ::std::mem::transmute(dwmddatatype)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdusertype), ::core::mem::transmute(dwmddatatype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn CopyData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdsourcehandle: u32, pszmdsourcepath: Param1, hmddesthandle: u32, pszmddestpath: Param3, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: Param7) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(hmdsourcehandle),
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(hmdsourcehandle),
             pszmdsourcepath.into_param().abi(),
-            ::std::mem::transmute(hmddesthandle),
+            ::core::mem::transmute(hmddesthandle),
             pszmddestpath.into_param().abi(),
-            ::std::mem::transmute(dwmdattributes),
-            ::std::mem::transmute(dwmdusertype),
-            ::std::mem::transmute(dwmddatatype),
+            ::core::mem::transmute(dwmdattributes),
+            ::core::mem::transmute(dwmdusertype),
+            ::core::mem::transmute(dwmddatatype),
             bmdcopyflag.into_param().abi(),
         )
         .ok()
@@ -2618,130 +2618,130 @@ impl IMSAdminBase2W {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetDataPaths<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(dwmdidentifier), ::std::mem::transmute(dwmddatatype), ::std::mem::transmute(dwmdbuffersize), ::std::mem::transmute(pszbuffer), ::std::mem::transmute(pdwmdrequiredbuffersize)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdidentifier), ::core::mem::transmute(dwmddatatype), ::core::mem::transmute(dwmdbuffersize), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(pdwmdrequiredbuffersize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn OpenKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdaccessrequested: u32, dwmdtimeout: u32) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(dwmdaccessrequested), ::std::mem::transmute(dwmdtimeout), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdaccessrequested), ::core::mem::transmute(dwmdtimeout), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle)).ok()
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn ChangePermissions(&self, hmdhandle: u32, dwmdtimeout: u32, dwmdaccessrequested: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), ::std::mem::transmute(dwmdtimeout), ::std::mem::transmute(dwmdaccessrequested)).ok()
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), ::core::mem::transmute(dwmdtimeout), ::core::mem::transmute(dwmdaccessrequested)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn SaveData(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetHandleInfo(&self, hmdhandle: u32) -> ::windows::runtime::Result<METADATA_HANDLE_INFO> {
-        let mut result__: <METADATA_HANDLE_INFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), &mut result__).from_abi::<METADATA_HANDLE_INFO>(result__)
+        let mut result__: <METADATA_HANDLE_INFO as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), &mut result__).from_abi::<METADATA_HANDLE_INFO>(result__)
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetSystemChangeNumber(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetDataSetNumber<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn SetLastChangeTime<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdhandle: u32, pszmdpath: Param1, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetLastChangeTime<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdhandle: u32, pszmdpath: Param1, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn KeyExchangePhase1(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn KeyExchangePhase2(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Backup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(dwmdversion), ::std::mem::transmute(dwmdflags)).ok()
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Restore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(dwmdversion), ::std::mem::transmute(dwmdflags)).ok()
+        (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumBackups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(pdwmdversion), ::std::mem::transmute(pftmdbackuptime), ::std::mem::transmute(dwmdenumindex)).ok()
+        (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(pdwmdversion), ::core::mem::transmute(pftmdbackuptime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(dwmdversion)).ok()
+        (::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn UnmarshalInterface(&self) -> ::windows::runtime::Result<IMSAdminBaseW> {
-        let mut result__: <IMSAdminBaseW as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMSAdminBaseW>(result__)
+        let mut result__: <IMSAdminBaseW as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSAdminBaseW>(result__)
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetServerGuid(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).33)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn BackupWithPasswd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32, pszpasswd: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(dwmdversion), ::std::mem::transmute(dwmdflags), pszpasswd.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).34)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags), pszpasswd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn RestoreWithPasswd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32, pszpasswd: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(dwmdversion), ::std::mem::transmute(dwmdflags), pszpasswd.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).35)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags), pszpasswd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Export<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpasswd: Param0, pszfilename: Param1, pszsourcepath: Param2, dwmdflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), pszpasswd.into_param().abi(), pszfilename.into_param().abi(), pszsourcepath.into_param().abi(), ::std::mem::transmute(dwmdflags)).ok()
+        (::windows::runtime::Interface::vtable(self).36)(::core::mem::transmute_copy(self), pszpasswd.into_param().abi(), pszfilename.into_param().abi(), pszsourcepath.into_param().abi(), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Import<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpasswd: Param0, pszfilename: Param1, pszsourcepath: Param2, pszdestpath: Param3, dwmdflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), pszpasswd.into_param().abi(), pszfilename.into_param().abi(), pszsourcepath.into_param().abi(), pszdestpath.into_param().abi(), ::std::mem::transmute(dwmdflags)).ok()
+        (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self), pszpasswd.into_param().abi(), pszfilename.into_param().abi(), pszsourcepath.into_param().abi(), pszdestpath.into_param().abi(), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn RestoreHistory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdhistorylocation: Param0, dwmdmajorversion: u32, dwmdminorversion: u32, dwmdflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), pszmdhistorylocation.into_param().abi(), ::std::mem::transmute(dwmdmajorversion), ::std::mem::transmute(dwmdminorversion), ::std::mem::transmute(dwmdflags)).ok()
+        (::windows::runtime::Interface::vtable(self).38)(::core::mem::transmute_copy(self), pszmdhistorylocation.into_param().abi(), ::core::mem::transmute(dwmdmajorversion), ::core::mem::transmute(dwmdminorversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumHistory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdhistorylocation: Param0, pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), pszmdhistorylocation.into_param().abi(), ::std::mem::transmute(pdwmdmajorversion), ::std::mem::transmute(pdwmdminorversion), ::std::mem::transmute(pftmdhistorytime), ::std::mem::transmute(dwmdenumindex)).ok()
+        (::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), pszmdhistorylocation.into_param().abi(), ::core::mem::transmute(pdwmdmajorversion), ::core::mem::transmute(pdwmdminorversion), ::core::mem::transmute(pftmdhistorytime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMSAdminBase2W {
     type Vtable = IMSAdminBase2W_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2191053057, 63890, 17335, [142, 202, 80, 82, 216, 133, 185, 149]);
 }
-impl ::std::convert::From<IMSAdminBase2W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IMSAdminBase2W> for ::windows::runtime::IUnknown {
     fn from(value: IMSAdminBase2W) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IMSAdminBase2W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IMSAdminBase2W> for ::windows::runtime::IUnknown {
     fn from(value: &IMSAdminBase2W) -> Self {
         value.0.clone()
     }
@@ -2756,24 +2756,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IMSAdminBase2W> for IMSAdminBaseW {
+impl ::core::convert::From<IMSAdminBase2W> for IMSAdminBaseW {
     fn from(value: IMSAdminBase2W) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IMSAdminBase2W> for IMSAdminBaseW {
+impl ::core::convert::From<&IMSAdminBase2W> for IMSAdminBaseW {
     fn from(value: &IMSAdminBase2W) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMSAdminBaseW> for IMSAdminBase2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMSAdminBaseW> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMSAdminBaseW> for &IMSAdminBase2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMSAdminBaseW> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2850,28 +2850,28 @@ pub struct IMSAdminBase2W_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSAdminBase3W(pub ::windows::runtime::IUnknown);
 impl IMSAdminBase3W {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn AddKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteChildKeys<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumKeys<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdname: super::super::Foundation::PWSTR, dwmdenumobjectindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pszmdname), ::std::mem::transmute(dwmdenumobjectindex)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pszmdname), ::core::mem::transmute(dwmdenumobjectindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -2884,68 +2884,68 @@ impl IMSAdminBase3W {
         bmdoverwriteflag: Param4,
         bmdcopyflag: Param5,
     ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdsourcehandle), pszmdsourcepath.into_param().abi(), ::std::mem::transmute(hmddesthandle), pszmddestpath.into_param().abi(), bmdoverwriteflag.into_param().abi(), bmdcopyflag.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdsourcehandle), pszmdsourcepath.into_param().abi(), ::core::mem::transmute(hmddesthandle), pszmddestpath.into_param().abi(), bmdoverwriteflag.into_param().abi(), bmdcopyflag.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn RenameKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdnewname: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), pszmdnewname.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), pszmdnewname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn SetData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pmdrmddata)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD, pdwmdrequireddatalen: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pmdrmddata), ::std::mem::transmute(pdwmdrequireddatalen)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata), ::core::mem::transmute(pdwmdrequireddatalen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(dwmdidentifier), ::std::mem::transmute(dwmddatatype)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdidentifier), ::core::mem::transmute(dwmddatatype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD, dwmdenumdataindex: u32, pdwmdrequireddatalen: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pmdrmddata), ::std::mem::transmute(dwmdenumdataindex), ::std::mem::transmute(pdwmdrequireddatalen)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata), ::core::mem::transmute(dwmdenumdataindex), ::core::mem::transmute(pdwmdrequireddatalen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetAllData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(hmdhandle),
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(hmdhandle),
             pszmdpath.into_param().abi(),
-            ::std::mem::transmute(dwmdattributes),
-            ::std::mem::transmute(dwmdusertype),
-            ::std::mem::transmute(dwmddatatype),
-            ::std::mem::transmute(pdwmdnumdataentries),
-            ::std::mem::transmute(pdwmddatasetnumber),
-            ::std::mem::transmute(dwmdbuffersize),
-            ::std::mem::transmute(pbmdbuffer),
-            ::std::mem::transmute(pdwmdrequiredbuffersize),
+            ::core::mem::transmute(dwmdattributes),
+            ::core::mem::transmute(dwmdusertype),
+            ::core::mem::transmute(dwmddatatype),
+            ::core::mem::transmute(pdwmdnumdataentries),
+            ::core::mem::transmute(pdwmddatasetnumber),
+            ::core::mem::transmute(dwmdbuffersize),
+            ::core::mem::transmute(pbmdbuffer),
+            ::core::mem::transmute(pdwmdrequiredbuffersize),
         )
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteAllData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdusertype: u32, dwmddatatype: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(dwmdusertype), ::std::mem::transmute(dwmddatatype)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdusertype), ::core::mem::transmute(dwmddatatype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn CopyData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdsourcehandle: u32, pszmdsourcepath: Param1, hmddesthandle: u32, pszmddestpath: Param3, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: Param7) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(hmdsourcehandle),
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(hmdsourcehandle),
             pszmdsourcepath.into_param().abi(),
-            ::std::mem::transmute(hmddesthandle),
+            ::core::mem::transmute(hmddesthandle),
             pszmddestpath.into_param().abi(),
-            ::std::mem::transmute(dwmdattributes),
-            ::std::mem::transmute(dwmdusertype),
-            ::std::mem::transmute(dwmddatatype),
+            ::core::mem::transmute(dwmdattributes),
+            ::core::mem::transmute(dwmdusertype),
+            ::core::mem::transmute(dwmddatatype),
             bmdcopyflag.into_param().abi(),
         )
         .ok()
@@ -2953,135 +2953,135 @@ impl IMSAdminBase3W {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetDataPaths<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(dwmdidentifier), ::std::mem::transmute(dwmddatatype), ::std::mem::transmute(dwmdbuffersize), ::std::mem::transmute(pszbuffer), ::std::mem::transmute(pdwmdrequiredbuffersize)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdidentifier), ::core::mem::transmute(dwmddatatype), ::core::mem::transmute(dwmdbuffersize), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(pdwmdrequiredbuffersize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn OpenKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdaccessrequested: u32, dwmdtimeout: u32) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(dwmdaccessrequested), ::std::mem::transmute(dwmdtimeout), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdaccessrequested), ::core::mem::transmute(dwmdtimeout), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle)).ok()
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn ChangePermissions(&self, hmdhandle: u32, dwmdtimeout: u32, dwmdaccessrequested: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), ::std::mem::transmute(dwmdtimeout), ::std::mem::transmute(dwmdaccessrequested)).ok()
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), ::core::mem::transmute(dwmdtimeout), ::core::mem::transmute(dwmdaccessrequested)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn SaveData(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetHandleInfo(&self, hmdhandle: u32) -> ::windows::runtime::Result<METADATA_HANDLE_INFO> {
-        let mut result__: <METADATA_HANDLE_INFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), &mut result__).from_abi::<METADATA_HANDLE_INFO>(result__)
+        let mut result__: <METADATA_HANDLE_INFO as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), &mut result__).from_abi::<METADATA_HANDLE_INFO>(result__)
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetSystemChangeNumber(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetDataSetNumber<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn SetLastChangeTime<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdhandle: u32, pszmdpath: Param1, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetLastChangeTime<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdhandle: u32, pszmdpath: Param1, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn KeyExchangePhase1(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn KeyExchangePhase2(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Backup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(dwmdversion), ::std::mem::transmute(dwmdflags)).ok()
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Restore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(dwmdversion), ::std::mem::transmute(dwmdflags)).ok()
+        (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumBackups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(pdwmdversion), ::std::mem::transmute(pftmdbackuptime), ::std::mem::transmute(dwmdenumindex)).ok()
+        (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(pdwmdversion), ::core::mem::transmute(pftmdbackuptime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(dwmdversion)).ok()
+        (::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn UnmarshalInterface(&self) -> ::windows::runtime::Result<IMSAdminBaseW> {
-        let mut result__: <IMSAdminBaseW as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMSAdminBaseW>(result__)
+        let mut result__: <IMSAdminBaseW as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSAdminBaseW>(result__)
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetServerGuid(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).33)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn BackupWithPasswd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32, pszpasswd: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(dwmdversion), ::std::mem::transmute(dwmdflags), pszpasswd.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).34)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags), pszpasswd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn RestoreWithPasswd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32, pszpasswd: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(dwmdversion), ::std::mem::transmute(dwmdflags), pszpasswd.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).35)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags), pszpasswd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Export<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpasswd: Param0, pszfilename: Param1, pszsourcepath: Param2, dwmdflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), pszpasswd.into_param().abi(), pszfilename.into_param().abi(), pszsourcepath.into_param().abi(), ::std::mem::transmute(dwmdflags)).ok()
+        (::windows::runtime::Interface::vtable(self).36)(::core::mem::transmute_copy(self), pszpasswd.into_param().abi(), pszfilename.into_param().abi(), pszsourcepath.into_param().abi(), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Import<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpasswd: Param0, pszfilename: Param1, pszsourcepath: Param2, pszdestpath: Param3, dwmdflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), pszpasswd.into_param().abi(), pszfilename.into_param().abi(), pszsourcepath.into_param().abi(), pszdestpath.into_param().abi(), ::std::mem::transmute(dwmdflags)).ok()
+        (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self), pszpasswd.into_param().abi(), pszfilename.into_param().abi(), pszsourcepath.into_param().abi(), pszdestpath.into_param().abi(), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn RestoreHistory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdhistorylocation: Param0, dwmdmajorversion: u32, dwmdminorversion: u32, dwmdflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), pszmdhistorylocation.into_param().abi(), ::std::mem::transmute(dwmdmajorversion), ::std::mem::transmute(dwmdminorversion), ::std::mem::transmute(dwmdflags)).ok()
+        (::windows::runtime::Interface::vtable(self).38)(::core::mem::transmute_copy(self), pszmdhistorylocation.into_param().abi(), ::core::mem::transmute(dwmdmajorversion), ::core::mem::transmute(dwmdminorversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumHistory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdhistorylocation: Param0, pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), pszmdhistorylocation.into_param().abi(), ::std::mem::transmute(pdwmdmajorversion), ::std::mem::transmute(pdwmdminorversion), ::std::mem::transmute(pftmdhistorytime), ::std::mem::transmute(dwmdenumindex)).ok()
+        (::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self), pszmdhistorylocation.into_param().abi(), ::core::mem::transmute(pdwmdmajorversion), ::core::mem::transmute(pdwmdminorversion), ::core::mem::transmute(pftmdhistorytime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetChildPaths<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, cchmdbuffersize: u32, pszbuffer: Param3, pcchmdrequiredbuffersize: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(cchmdbuffersize), pszbuffer.into_param().abi(), ::std::mem::transmute(pcchmdrequiredbuffersize)).ok()
+        (::windows::runtime::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(cchmdbuffersize), pszbuffer.into_param().abi(), ::core::mem::transmute(pcchmdrequiredbuffersize)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMSAdminBase3W {
     type Vtable = IMSAdminBase3W_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4128413005, 15115, 19542, [149, 99, 34, 123, 123, 230, 36, 180]);
 }
-impl ::std::convert::From<IMSAdminBase3W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IMSAdminBase3W> for ::windows::runtime::IUnknown {
     fn from(value: IMSAdminBase3W) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IMSAdminBase3W> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IMSAdminBase3W> for ::windows::runtime::IUnknown {
     fn from(value: &IMSAdminBase3W) -> Self {
         value.0.clone()
     }
@@ -3096,44 +3096,44 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IMSAdminBase3W> for IMSAdminBase2W {
+impl ::core::convert::From<IMSAdminBase3W> for IMSAdminBase2W {
     fn from(value: IMSAdminBase3W) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IMSAdminBase3W> for IMSAdminBase2W {
+impl ::core::convert::From<&IMSAdminBase3W> for IMSAdminBase2W {
     fn from(value: &IMSAdminBase3W) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMSAdminBase2W> for IMSAdminBase3W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMSAdminBase2W> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMSAdminBase2W> for &IMSAdminBase3W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMSAdminBase2W> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::From<IMSAdminBase3W> for IMSAdminBaseW {
+impl ::core::convert::From<IMSAdminBase3W> for IMSAdminBaseW {
     fn from(value: IMSAdminBase3W) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IMSAdminBase3W> for IMSAdminBaseW {
+impl ::core::convert::From<&IMSAdminBase3W> for IMSAdminBaseW {
     fn from(value: &IMSAdminBase3W) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMSAdminBaseW> for IMSAdminBase3W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMSAdminBaseW> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMSAdminBaseW> for &IMSAdminBase3W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMSAdminBaseW> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3212,29 +3212,29 @@ pub struct IMSAdminBase3W_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSAdminBaseSinkW(pub ::windows::runtime::IUnknown);
 impl IMSAdminBaseSinkW {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn SinkNotify(&self, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmdnumelements), ::std::mem::transmute(pcochangelist)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmdnumelements), ::core::mem::transmute(pcochangelist)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn ShutdownNotify(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMSAdminBaseSinkW {
     type Vtable = IMSAdminBaseSinkW_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2850461202, 47117, 4560, [185, 185, 0, 160, 201, 34, 231, 80]);
 }
-impl ::std::convert::From<IMSAdminBaseSinkW> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IMSAdminBaseSinkW> for ::windows::runtime::IUnknown {
     fn from(value: IMSAdminBaseSinkW) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IMSAdminBaseSinkW> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IMSAdminBaseSinkW> for ::windows::runtime::IUnknown {
     fn from(value: &IMSAdminBaseSinkW) -> Self {
         value.0.clone()
     }
@@ -3261,28 +3261,28 @@ pub struct IMSAdminBaseSinkW_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSAdminBaseW(pub ::windows::runtime::IUnknown);
 impl IMSAdminBaseW {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn AddKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteChildKeys<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumKeys<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdname: super::super::Foundation::PWSTR, dwmdenumobjectindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pszmdname), ::std::mem::transmute(dwmdenumobjectindex)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pszmdname), ::core::mem::transmute(dwmdenumobjectindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -3295,68 +3295,68 @@ impl IMSAdminBaseW {
         bmdoverwriteflag: Param4,
         bmdcopyflag: Param5,
     ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdsourcehandle), pszmdsourcepath.into_param().abi(), ::std::mem::transmute(hmddesthandle), pszmddestpath.into_param().abi(), bmdoverwriteflag.into_param().abi(), bmdcopyflag.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdsourcehandle), pszmdsourcepath.into_param().abi(), ::core::mem::transmute(hmddesthandle), pszmddestpath.into_param().abi(), bmdoverwriteflag.into_param().abi(), bmdcopyflag.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn RenameKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdnewname: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), pszmdnewname.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), pszmdnewname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn SetData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pmdrmddata)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD, pdwmdrequireddatalen: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pmdrmddata), ::std::mem::transmute(pdwmdrequireddatalen)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata), ::core::mem::transmute(pdwmdrequireddatalen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(dwmdidentifier), ::std::mem::transmute(dwmddatatype)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdidentifier), ::core::mem::transmute(dwmddatatype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD, dwmdenumdataindex: u32, pdwmdrequireddatalen: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pmdrmddata), ::std::mem::transmute(dwmdenumdataindex), ::std::mem::transmute(pdwmdrequireddatalen)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata), ::core::mem::transmute(dwmdenumdataindex), ::core::mem::transmute(pdwmdrequireddatalen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetAllData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(hmdhandle),
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(hmdhandle),
             pszmdpath.into_param().abi(),
-            ::std::mem::transmute(dwmdattributes),
-            ::std::mem::transmute(dwmdusertype),
-            ::std::mem::transmute(dwmddatatype),
-            ::std::mem::transmute(pdwmdnumdataentries),
-            ::std::mem::transmute(pdwmddatasetnumber),
-            ::std::mem::transmute(dwmdbuffersize),
-            ::std::mem::transmute(pbmdbuffer),
-            ::std::mem::transmute(pdwmdrequiredbuffersize),
+            ::core::mem::transmute(dwmdattributes),
+            ::core::mem::transmute(dwmdusertype),
+            ::core::mem::transmute(dwmddatatype),
+            ::core::mem::transmute(pdwmdnumdataentries),
+            ::core::mem::transmute(pdwmddatasetnumber),
+            ::core::mem::transmute(dwmdbuffersize),
+            ::core::mem::transmute(pbmdbuffer),
+            ::core::mem::transmute(pdwmdrequiredbuffersize),
         )
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteAllData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdusertype: u32, dwmddatatype: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(dwmdusertype), ::std::mem::transmute(dwmddatatype)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdusertype), ::core::mem::transmute(dwmddatatype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn CopyData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdsourcehandle: u32, pszmdsourcepath: Param1, hmddesthandle: u32, pszmddestpath: Param3, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: Param7) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(hmdsourcehandle),
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(hmdsourcehandle),
             pszmdsourcepath.into_param().abi(),
-            ::std::mem::transmute(hmddesthandle),
+            ::core::mem::transmute(hmddesthandle),
             pszmddestpath.into_param().abi(),
-            ::std::mem::transmute(dwmdattributes),
-            ::std::mem::transmute(dwmdusertype),
-            ::std::mem::transmute(dwmddatatype),
+            ::core::mem::transmute(dwmdattributes),
+            ::core::mem::transmute(dwmdusertype),
+            ::core::mem::transmute(dwmddatatype),
             bmdcopyflag.into_param().abi(),
         )
         .ok()
@@ -3364,100 +3364,100 @@ impl IMSAdminBaseW {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetDataPaths<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(dwmdidentifier), ::std::mem::transmute(dwmddatatype), ::std::mem::transmute(dwmdbuffersize), ::std::mem::transmute(pszbuffer), ::std::mem::transmute(pdwmdrequiredbuffersize)).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdidentifier), ::core::mem::transmute(dwmddatatype), ::core::mem::transmute(dwmdbuffersize), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(pdwmdrequiredbuffersize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn OpenKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdaccessrequested: u32, dwmdtimeout: u32) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(dwmdaccessrequested), ::std::mem::transmute(dwmdtimeout), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdaccessrequested), ::core::mem::transmute(dwmdtimeout), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle)).ok()
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn ChangePermissions(&self, hmdhandle: u32, dwmdtimeout: u32, dwmdaccessrequested: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), ::std::mem::transmute(dwmdtimeout), ::std::mem::transmute(dwmdaccessrequested)).ok()
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), ::core::mem::transmute(dwmdtimeout), ::core::mem::transmute(dwmdaccessrequested)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn SaveData(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetHandleInfo(&self, hmdhandle: u32) -> ::windows::runtime::Result<METADATA_HANDLE_INFO> {
-        let mut result__: <METADATA_HANDLE_INFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), &mut result__).from_abi::<METADATA_HANDLE_INFO>(result__)
+        let mut result__: <METADATA_HANDLE_INFO as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), &mut result__).from_abi::<METADATA_HANDLE_INFO>(result__)
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetSystemChangeNumber(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetDataSetNumber<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn SetLastChangeTime<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdhandle: u32, pszmdpath: Param1, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetLastChangeTime<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdhandle: u32, pszmdpath: Param1, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: Param3) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::std::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn KeyExchangePhase1(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn KeyExchangePhase2(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Backup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(dwmdversion), ::std::mem::transmute(dwmdflags)).ok()
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Restore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(dwmdversion), ::std::mem::transmute(dwmdflags)).ok()
+        (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumBackups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(pdwmdversion), ::std::mem::transmute(pftmdbackuptime), ::std::mem::transmute(dwmdenumindex)).ok()
+        (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(pdwmdversion), ::core::mem::transmute(pftmdbackuptime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::std::mem::transmute(dwmdversion)).ok()
+        (::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion)).ok()
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn UnmarshalInterface(&self) -> ::windows::runtime::Result<IMSAdminBaseW> {
-        let mut result__: <IMSAdminBaseW as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMSAdminBaseW>(result__)
+        let mut result__: <IMSAdminBaseW as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSAdminBaseW>(result__)
     }
     #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetServerGuid(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).33)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMSAdminBaseW {
     type Vtable = IMSAdminBaseW_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1890915376, 46794, 4560, [185, 185, 0, 160, 201, 34, 231, 80]);
 }
-impl ::std::convert::From<IMSAdminBaseW> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IMSAdminBaseW> for ::windows::runtime::IUnknown {
     fn from(value: IMSAdminBaseW) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IMSAdminBaseW> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IMSAdminBaseW> for ::windows::runtime::IUnknown {
     fn from(value: &IMSAdminBaseW) -> Self {
         value.0.clone()
     }
@@ -3534,25 +3534,25 @@ pub struct IMSAdminBaseW_abi(
 );
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSImpExpHelpW(pub ::windows::runtime::IUnknown);
 impl IMSImpExpHelpW {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumeratePathsInFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszfilename: Param0, pszkeytype: Param1, dwmdbuffersize: u32, pszbuffer: Param3, pdwmdrequiredbuffersize: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszfilename.into_param().abi(), pszkeytype.into_param().abi(), ::std::mem::transmute(dwmdbuffersize), pszbuffer.into_param().abi(), ::std::mem::transmute(pdwmdrequiredbuffersize)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszfilename.into_param().abi(), pszkeytype.into_param().abi(), ::core::mem::transmute(dwmdbuffersize), pszbuffer.into_param().abi(), ::core::mem::transmute(pdwmdrequiredbuffersize)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMSImpExpHelpW {
     type Vtable = IMSImpExpHelpW_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(704604159, 32848, 18447, [159, 48, 204, 65, 99, 95, 47, 157]);
 }
-impl ::std::convert::From<IMSImpExpHelpW> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IMSImpExpHelpW> for ::windows::runtime::IUnknown {
     fn from(value: IMSImpExpHelpW) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IMSImpExpHelpW> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IMSImpExpHelpW> for ::windows::runtime::IUnknown {
     fn from(value: &IMSImpExpHelpW) -> Self {
         value.0.clone()
     }
@@ -3579,7 +3579,7 @@ pub struct IMSImpExpHelpW_abi(
 pub const LIBID_ASPTypeLibrary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3648679328, 43100, 4559, [131, 174, 0, 160, 201, 12, 43, 216]);
 pub const LIBID_IISRSTALib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3908797972, 22671, 4562, [157, 97, 0, 192, 79, 121, 197, 254]);
 pub const LIBID_WAMREGLib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(696396456, 62210, 4560, [153, 83, 0, 192, 79, 217, 25, 193]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -3606,14 +3606,14 @@ pub struct LOGGING_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl LOGGING_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for LOGGING_PARAMETERS {
+impl ::core::default::Default for LOGGING_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for LOGGING_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LOGGING_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LOGGING_PARAMETERS")
             .field("pszSessionId", &self.pszSessionId)
             .field("pszSiteName", &self.pszSiteName)
@@ -3637,7 +3637,7 @@ impl ::std::fmt::Debug for LOGGING_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for LOGGING_PARAMETERS {
+impl ::core::cmp::PartialEq for LOGGING_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.pszSessionId == other.pszSessionId
             && self.pszSiteName == other.pszSiteName
@@ -3660,7 +3660,7 @@ impl ::std::cmp::PartialEq for LOGGING_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for LOGGING_PARAMETERS {}
+impl ::core::cmp::Eq for LOGGING_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LOGGING_PARAMETERS {
     type Abi = Self;
@@ -4075,7 +4075,7 @@ pub const MD_CERT_NO_REVOC_CHECK: u32 = 1u32;
 pub const MD_CERT_NO_USAGE_CHECK: u32 = 65536u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CGI_RESTRICTION_LIST: u32 = 2164u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -4088,25 +4088,25 @@ pub struct MD_CHANGE_OBJECT_W {
 #[cfg(feature = "Win32_Foundation")]
 impl MD_CHANGE_OBJECT_W {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MD_CHANGE_OBJECT_W {
+impl ::core::default::Default for MD_CHANGE_OBJECT_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MD_CHANGE_OBJECT_W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MD_CHANGE_OBJECT_W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MD_CHANGE_OBJECT_W").field("pszMDPath", &self.pszMDPath).field("dwMDChangeType", &self.dwMDChangeType).field("dwMDNumDataIDs", &self.dwMDNumDataIDs).field("pdwMDDataIDs", &self.pdwMDDataIDs).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MD_CHANGE_OBJECT_W {
+impl ::core::cmp::PartialEq for MD_CHANGE_OBJECT_W {
     fn eq(&self, other: &Self) -> bool {
         self.pszMDPath == other.pszMDPath && self.dwMDChangeType == other.dwMDChangeType && self.dwMDNumDataIDs == other.dwMDNumDataIDs && self.pdwMDDataIDs == other.pdwMDDataIDs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MD_CHANGE_OBJECT_W {}
+impl ::core::cmp::Eq for MD_CHANGE_OBJECT_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MD_CHANGE_OBJECT_W {
     type Abi = Self;
@@ -4970,7 +4970,7 @@ pub const MD_WEB_SVC_EXT_RESTRICTION_LIST: u32 = 2168u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_WIN32_ERROR: u32 = 1099u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct METADATATYPES(pub i32);
 pub const ALL_METADATA: METADATATYPES = METADATATYPES(0i32);
@@ -4980,7 +4980,7 @@ pub const BINARY_METADATA: METADATATYPES = METADATATYPES(3i32);
 pub const EXPANDSZ_METADATA: METADATATYPES = METADATATYPES(4i32);
 pub const MULTISZ_METADATA: METADATATYPES = METADATATYPES(5i32);
 pub const INVALID_END_METADATA: METADATATYPES = METADATATYPES(6i32);
-impl ::std::convert::From<i32> for METADATATYPES {
+impl ::core::convert::From<i32> for METADATATYPES {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4990,7 +4990,7 @@ unsafe impl ::windows::runtime::Abi for METADATATYPES {
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_DONT_EXPAND: u32 = 512u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct METADATA_GETALL_INTERNAL_RECORD {
@@ -5003,21 +5003,21 @@ pub struct METADATA_GETALL_INTERNAL_RECORD {
     pub dwMDDataTag: u32,
 }
 impl METADATA_GETALL_INTERNAL_RECORD {}
-impl ::std::default::Default for METADATA_GETALL_INTERNAL_RECORD {
+impl ::core::default::Default for METADATA_GETALL_INTERNAL_RECORD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for METADATA_GETALL_INTERNAL_RECORD {
+impl ::core::cmp::PartialEq for METADATA_GETALL_INTERNAL_RECORD {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for METADATA_GETALL_INTERNAL_RECORD {}
+impl ::core::cmp::Eq for METADATA_GETALL_INTERNAL_RECORD {}
 unsafe impl ::windows::runtime::Abi for METADATA_GETALL_INTERNAL_RECORD {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub union METADATA_GETALL_INTERNAL_RECORD_0 {
@@ -5025,21 +5025,21 @@ pub union METADATA_GETALL_INTERNAL_RECORD_0 {
     pub pbMDData: *mut u8,
 }
 impl METADATA_GETALL_INTERNAL_RECORD_0 {}
-impl ::std::default::Default for METADATA_GETALL_INTERNAL_RECORD_0 {
+impl ::core::default::Default for METADATA_GETALL_INTERNAL_RECORD_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for METADATA_GETALL_INTERNAL_RECORD_0 {
+impl ::core::cmp::PartialEq for METADATA_GETALL_INTERNAL_RECORD_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for METADATA_GETALL_INTERNAL_RECORD_0 {}
+impl ::core::cmp::Eq for METADATA_GETALL_INTERNAL_RECORD_0 {}
 unsafe impl ::windows::runtime::Abi for METADATA_GETALL_INTERNAL_RECORD_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct METADATA_GETALL_RECORD {
@@ -5052,13 +5052,13 @@ pub struct METADATA_GETALL_RECORD {
     pub dwMDDataTag: u32,
 }
 impl METADATA_GETALL_RECORD {}
-impl ::std::default::Default for METADATA_GETALL_RECORD {
+impl ::core::default::Default for METADATA_GETALL_RECORD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for METADATA_GETALL_RECORD {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for METADATA_GETALL_RECORD {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("METADATA_GETALL_RECORD")
             .field("dwMDIdentifier", &self.dwMDIdentifier)
             .field("dwMDAttributes", &self.dwMDAttributes)
@@ -5070,16 +5070,16 @@ impl ::std::fmt::Debug for METADATA_GETALL_RECORD {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for METADATA_GETALL_RECORD {
+impl ::core::cmp::PartialEq for METADATA_GETALL_RECORD {
     fn eq(&self, other: &Self) -> bool {
         self.dwMDIdentifier == other.dwMDIdentifier && self.dwMDAttributes == other.dwMDAttributes && self.dwMDUserType == other.dwMDUserType && self.dwMDDataType == other.dwMDDataType && self.dwMDDataLen == other.dwMDDataLen && self.dwMDDataOffset == other.dwMDDataOffset && self.dwMDDataTag == other.dwMDDataTag
     }
 }
-impl ::std::cmp::Eq for METADATA_GETALL_RECORD {}
+impl ::core::cmp::Eq for METADATA_GETALL_RECORD {}
 unsafe impl ::windows::runtime::Abi for METADATA_GETALL_RECORD {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct METADATA_HANDLE_INFO {
@@ -5087,22 +5087,22 @@ pub struct METADATA_HANDLE_INFO {
     pub dwMDSystemChangeNumber: u32,
 }
 impl METADATA_HANDLE_INFO {}
-impl ::std::default::Default for METADATA_HANDLE_INFO {
+impl ::core::default::Default for METADATA_HANDLE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for METADATA_HANDLE_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for METADATA_HANDLE_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("METADATA_HANDLE_INFO").field("dwMDPermissions", &self.dwMDPermissions).field("dwMDSystemChangeNumber", &self.dwMDSystemChangeNumber).finish()
     }
 }
-impl ::std::cmp::PartialEq for METADATA_HANDLE_INFO {
+impl ::core::cmp::PartialEq for METADATA_HANDLE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwMDPermissions == other.dwMDPermissions && self.dwMDSystemChangeNumber == other.dwMDSystemChangeNumber
     }
 }
-impl ::std::cmp::Eq for METADATA_HANDLE_INFO {}
+impl ::core::cmp::Eq for METADATA_HANDLE_INFO {}
 unsafe impl ::windows::runtime::Abi for METADATA_HANDLE_INFO {
     type Abi = Self;
 }
@@ -5128,7 +5128,7 @@ pub const METADATA_PARTIAL_PATH: u32 = 2u32;
 pub const METADATA_PERMISSION_READ: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_PERMISSION_WRITE: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct METADATA_RECORD {
@@ -5141,13 +5141,13 @@ pub struct METADATA_RECORD {
     pub dwMDDataTag: u32,
 }
 impl METADATA_RECORD {}
-impl ::std::default::Default for METADATA_RECORD {
+impl ::core::default::Default for METADATA_RECORD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for METADATA_RECORD {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for METADATA_RECORD {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("METADATA_RECORD")
             .field("dwMDIdentifier", &self.dwMDIdentifier)
             .field("dwMDAttributes", &self.dwMDAttributes)
@@ -5159,12 +5159,12 @@ impl ::std::fmt::Debug for METADATA_RECORD {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for METADATA_RECORD {
+impl ::core::cmp::PartialEq for METADATA_RECORD {
     fn eq(&self, other: &Self) -> bool {
         self.dwMDIdentifier == other.dwMDIdentifier && self.dwMDAttributes == other.dwMDAttributes && self.dwMDUserType == other.dwMDUserType && self.dwMDDataType == other.dwMDDataType && self.dwMDDataLen == other.dwMDDataLen && self.pbMDData == other.pbMDData && self.dwMDDataTag == other.dwMDDataTag
     }
 }
-impl ::std::cmp::Eq for METADATA_RECORD {}
+impl ::core::cmp::Eq for METADATA_RECORD {}
 unsafe impl ::windows::runtime::Abi for METADATA_RECORD {
     type Abi = Self;
 }
@@ -5190,10 +5190,10 @@ pub type PFN_GETEXTENSIONVERSION = unsafe extern "system" fn(pver: *mut HSE_VERS
 pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = unsafe extern "system" fn(pszurl: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = unsafe extern "system" fn(pszprotocolmanagerdll: super::super::Foundation::PWSTR, pszprotocolmanagerdllinitfunction: super::super::Foundation::PWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = unsafe extern "system" fn(pszprotocolmanagerdll: super::super::Foundation::PWSTR, pszprotocolmanagerdllinitfunction: super::super::Foundation::PWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_HSE_IO_COMPLETION = unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut ::std::ffi::c_void, cbio: u32, dwerror: u32);
+pub type PFN_HSE_IO_COMPLETION = unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut ::core::ffi::c_void, cbio: u32, dwerror: u32);
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HTTPEXTENSIONPROC = unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32;
@@ -5212,7 +5212,7 @@ pub type PFN_WEB_CORE_SHUTDOWN = unsafe extern "system" fn(fimmediate: u32) -> :
 pub const POP3_MD_ID_BEGIN_RESERVED: u32 = 40960u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const POP3_MD_ID_END_RESERVED: u32 = 45055u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -5241,14 +5241,14 @@ pub struct POST_PROCESS_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl POST_PROCESS_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for POST_PROCESS_PARAMETERS {
+impl ::core::default::Default for POST_PROCESS_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for POST_PROCESS_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for POST_PROCESS_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("POST_PROCESS_PARAMETERS")
             .field("pszSessionId", &self.pszSessionId)
             .field("pszSiteName", &self.pszSiteName)
@@ -5274,7 +5274,7 @@ impl ::std::fmt::Debug for POST_PROCESS_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for POST_PROCESS_PARAMETERS {
+impl ::core::cmp::PartialEq for POST_PROCESS_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.pszSessionId == other.pszSessionId
             && self.pszSiteName == other.pszSiteName
@@ -5299,12 +5299,12 @@ impl ::std::cmp::PartialEq for POST_PROCESS_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for POST_PROCESS_PARAMETERS {}
+impl ::core::cmp::Eq for POST_PROCESS_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for POST_PROCESS_PARAMETERS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -5326,14 +5326,14 @@ pub struct PRE_PROCESS_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl PRE_PROCESS_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for PRE_PROCESS_PARAMETERS {
+impl ::core::default::Default for PRE_PROCESS_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for PRE_PROCESS_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for PRE_PROCESS_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("PRE_PROCESS_PARAMETERS")
             .field("pszSessionId", &self.pszSessionId)
             .field("pszSiteName", &self.pszSiteName)
@@ -5352,7 +5352,7 @@ impl ::std::fmt::Debug for PRE_PROCESS_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for PRE_PROCESS_PARAMETERS {
+impl ::core::cmp::PartialEq for PRE_PROCESS_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.pszSessionId == other.pszSessionId
             && self.pszSiteName == other.pszSiteName
@@ -5370,7 +5370,7 @@ impl ::std::cmp::PartialEq for PRE_PROCESS_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for PRE_PROCESS_PARAMETERS {}
+impl ::core::cmp::Eq for PRE_PROCESS_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRE_PROCESS_PARAMETERS {
     type Abi = Self;
@@ -5428,12 +5428,12 @@ pub const SF_NOTIFY_SEND_RESPONSE: u32 = 64u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_URL_MAP: u32 = 4096u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SF_PROPERTY_IIS(pub i32);
 pub const SF_PROPERTY_SSL_CTXT: SF_PROPERTY_IIS = SF_PROPERTY_IIS(0i32);
 pub const SF_PROPERTY_INSTANCE_NUM_ID: SF_PROPERTY_IIS = SF_PROPERTY_IIS(1i32);
-impl ::std::convert::From<i32> for SF_PROPERTY_IIS {
+impl ::core::convert::From<i32> for SF_PROPERTY_IIS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5442,7 +5442,7 @@ unsafe impl ::windows::runtime::Abi for SF_PROPERTY_IIS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SF_REQ_TYPE(pub i32);
 pub const SF_REQ_SEND_RESPONSE_HEADER: SF_REQ_TYPE = SF_REQ_TYPE(0i32);
@@ -5454,7 +5454,7 @@ pub const SF_REQ_SET_CERTIFICATE_INFO: SF_REQ_TYPE = SF_REQ_TYPE(5i32);
 pub const SF_REQ_GET_PROPERTY: SF_REQ_TYPE = SF_REQ_TYPE(6i32);
 pub const SF_REQ_NORMALIZE_URL: SF_REQ_TYPE = SF_REQ_TYPE(7i32);
 pub const SF_REQ_DISABLE_NOTIFICATIONS: SF_REQ_TYPE = SF_REQ_TYPE(8i32);
-impl ::std::convert::From<i32> for SF_REQ_TYPE {
+impl ::core::convert::From<i32> for SF_REQ_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5463,7 +5463,7 @@ unsafe impl ::windows::runtime::Abi for SF_REQ_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SF_STATUS_TYPE(pub i32);
 pub const SF_STATUS_REQ_FINISHED: SF_STATUS_TYPE = SF_STATUS_TYPE(134217728i32);
@@ -5472,7 +5472,7 @@ pub const SF_STATUS_REQ_NEXT_NOTIFICATION: SF_STATUS_TYPE = SF_STATUS_TYPE(13421
 pub const SF_STATUS_REQ_HANDLED_NOTIFICATION: SF_STATUS_TYPE = SF_STATUS_TYPE(134217731i32);
 pub const SF_STATUS_REQ_ERROR: SF_STATUS_TYPE = SF_STATUS_TYPE(134217732i32);
 pub const SF_STATUS_REQ_READ_NEXT: SF_STATUS_TYPE = SF_STATUS_TYPE(134217733i32);
-impl ::std::convert::From<i32> for SF_STATUS_TYPE {
+impl ::core::convert::From<i32> for SF_STATUS_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5495,5 +5495,5 @@ pub const WAM_MD_SERVER_BASE: u32 = 7500u32;
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const WEBDAV_MD_SERVER_BASE: u32 = 8500u32;
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _IIS_CRYPTO_BLOB(pub u8);

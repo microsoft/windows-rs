@@ -5,7 +5,7 @@ impl CorePerceptionAutomation {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Perception_Automation_Core`, `Foundation`*"]
     pub fn SetActivationFactoryProvider<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IGetActivationFactory>>(provider: Param0) -> ::windows::runtime::Result<()> {
-        Self::ICorePerceptionAutomationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), provider.into_param().abi()).ok() })
+        Self::ICorePerceptionAutomationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), provider.into_param().abi()).ok() })
     }
     pub fn ICorePerceptionAutomationStatics<R, F: FnOnce(&ICorePerceptionAutomationStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<CorePerceptionAutomation, ICorePerceptionAutomationStatics> = ::windows::runtime::FactoryCache::new();
@@ -35,5 +35,5 @@ pub struct ICorePerceptionAutomationStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct PerceptionAutomationCoreContract(pub u8);

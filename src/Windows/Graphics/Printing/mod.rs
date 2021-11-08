@@ -8,7 +8,7 @@ pub mod PrintTicket;
 #[cfg(feature = "Graphics_Printing_Workflow")]
 pub mod Workflow;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics_Printing`*"]
 pub struct IPrintDocumentSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintDocumentSource {
@@ -19,12 +19,12 @@ impl IPrintDocumentSource {}
 unsafe impl ::windows::runtime::RuntimeType for IPrintDocumentSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{dedc0c30-f1eb-47df-aae6-ed5427511f01}");
 }
-impl ::std::convert::From<IPrintDocumentSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPrintDocumentSource> for ::windows::runtime::IUnknown {
     fn from(value: IPrintDocumentSource) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IPrintDocumentSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPrintDocumentSource> for ::windows::runtime::IUnknown {
     fn from(value: &IPrintDocumentSource) -> Self {
         value.0 .0.clone()
     }
@@ -39,12 +39,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IPrintDocumentSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPrintDocumentSource> for ::windows::runtime::IInspectable {
     fn from(value: IPrintDocumentSource) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPrintDocumentSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPrintDocumentSource> for ::windows::runtime::IInspectable {
     fn from(value: &IPrintDocumentSource) -> Self {
         value.0.clone()
     }
@@ -334,7 +334,7 @@ pub struct IPrintTaskOptions2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics_Printing`*"]
 pub struct IPrintTaskOptionsCore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskOptionsCore {
@@ -347,20 +347,20 @@ impl IPrintTaskOptionsCore {
     pub fn GetPageDescription(&self, jobpagenumber: u32) -> ::windows::runtime::Result<PrintPageDescription> {
         let this = self;
         unsafe {
-            let mut result__: PrintPageDescription = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), jobpagenumber, &mut result__).from_abi::<PrintPageDescription>(result__)
+            let mut result__: PrintPageDescription = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), jobpagenumber, &mut result__).from_abi::<PrintPageDescription>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IPrintTaskOptionsCore {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1bdbb474-4ed1-41eb-be3c-72d18ed67337}");
 }
-impl ::std::convert::From<IPrintTaskOptionsCore> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPrintTaskOptionsCore> for ::windows::runtime::IUnknown {
     fn from(value: IPrintTaskOptionsCore) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IPrintTaskOptionsCore> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPrintTaskOptionsCore> for ::windows::runtime::IUnknown {
     fn from(value: &IPrintTaskOptionsCore) -> Self {
         value.0 .0.clone()
     }
@@ -375,12 +375,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IPrintTaskOptionsCore> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPrintTaskOptionsCore> for ::windows::runtime::IInspectable {
     fn from(value: IPrintTaskOptionsCore) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPrintTaskOptionsCore> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPrintTaskOptionsCore> for ::windows::runtime::IInspectable {
     fn from(value: &IPrintTaskOptionsCore) -> Self {
         value.0.clone()
     }
@@ -408,7 +408,7 @@ pub struct IPrintTaskOptionsCore_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics_Printing`*"]
 pub struct IPrintTaskOptionsCoreProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskOptionsCoreProperties {
@@ -419,172 +419,172 @@ impl IPrintTaskOptionsCoreProperties {
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetMediaSize(&self, value: PrintMediaSize) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn MediaSize(&self) -> ::windows::runtime::Result<PrintMediaSize> {
         let this = self;
         unsafe {
-            let mut result__: PrintMediaSize = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintMediaSize>(result__)
+            let mut result__: PrintMediaSize = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintMediaSize>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetMediaType(&self, value: PrintMediaType) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn MediaType(&self) -> ::windows::runtime::Result<PrintMediaType> {
         let this = self;
         unsafe {
-            let mut result__: PrintMediaType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintMediaType>(result__)
+            let mut result__: PrintMediaType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintMediaType>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetOrientation(&self, value: PrintOrientation) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Orientation(&self) -> ::windows::runtime::Result<PrintOrientation> {
         let this = self;
         unsafe {
-            let mut result__: PrintOrientation = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOrientation>(result__)
+            let mut result__: PrintOrientation = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintOrientation>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetPrintQuality(&self, value: PrintQuality) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn PrintQuality(&self) -> ::windows::runtime::Result<PrintQuality> {
         let this = self;
         unsafe {
-            let mut result__: PrintQuality = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintQuality>(result__)
+            let mut result__: PrintQuality = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintQuality>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetColorMode(&self, value: PrintColorMode) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn ColorMode(&self) -> ::windows::runtime::Result<PrintColorMode> {
         let this = self;
         unsafe {
-            let mut result__: PrintColorMode = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintColorMode>(result__)
+            let mut result__: PrintColorMode = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintColorMode>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetDuplex(&self, value: PrintDuplex) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Duplex(&self) -> ::windows::runtime::Result<PrintDuplex> {
         let this = self;
         unsafe {
-            let mut result__: PrintDuplex = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintDuplex>(result__)
+            let mut result__: PrintDuplex = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintDuplex>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetCollation(&self, value: PrintCollation) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Collation(&self) -> ::windows::runtime::Result<PrintCollation> {
         let this = self;
         unsafe {
-            let mut result__: PrintCollation = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintCollation>(result__)
+            let mut result__: PrintCollation = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintCollation>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetStaple(&self, value: PrintStaple) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Staple(&self) -> ::windows::runtime::Result<PrintStaple> {
         let this = self;
         unsafe {
-            let mut result__: PrintStaple = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintStaple>(result__)
+            let mut result__: PrintStaple = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintStaple>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetHolePunch(&self, value: PrintHolePunch) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn HolePunch(&self) -> ::windows::runtime::Result<PrintHolePunch> {
         let this = self;
         unsafe {
-            let mut result__: PrintHolePunch = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintHolePunch>(result__)
+            let mut result__: PrintHolePunch = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintHolePunch>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetBinding(&self, value: PrintBinding) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Binding(&self) -> ::windows::runtime::Result<PrintBinding> {
         let this = self;
         unsafe {
-            let mut result__: PrintBinding = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintBinding>(result__)
+            let mut result__: PrintBinding = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintBinding>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn MinCopies(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn MaxCopies(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetNumberOfCopies(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn NumberOfCopies(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IPrintTaskOptionsCoreProperties {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{c1b71832-9e93-4e55-814b-3326a59efce1}");
 }
-impl ::std::convert::From<IPrintTaskOptionsCoreProperties> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPrintTaskOptionsCoreProperties> for ::windows::runtime::IUnknown {
     fn from(value: IPrintTaskOptionsCoreProperties) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IPrintTaskOptionsCoreProperties> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPrintTaskOptionsCoreProperties> for ::windows::runtime::IUnknown {
     fn from(value: &IPrintTaskOptionsCoreProperties) -> Self {
         value.0 .0.clone()
     }
@@ -599,12 +599,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IPrintTaskOptionsCoreProperties> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPrintTaskOptionsCoreProperties> for ::windows::runtime::IInspectable {
     fn from(value: IPrintTaskOptionsCoreProperties) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPrintTaskOptionsCoreProperties> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPrintTaskOptionsCoreProperties> for ::windows::runtime::IInspectable {
     fn from(value: &IPrintTaskOptionsCoreProperties) -> Self {
         value.0.clone()
     }
@@ -654,7 +654,7 @@ pub struct IPrintTaskOptionsCoreProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics_Printing`*"]
 pub struct IPrintTaskOptionsCoreUIConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskOptionsCoreUIConfiguration {
@@ -667,20 +667,20 @@ impl IPrintTaskOptionsCoreUIConfiguration {
     pub fn DisplayedOptions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IPrintTaskOptionsCoreUIConfiguration {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{62e69e23-9a1e-4336-b74f-3cc7f4cff709}");
 }
-impl ::std::convert::From<IPrintTaskOptionsCoreUIConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPrintTaskOptionsCoreUIConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: IPrintTaskOptionsCoreUIConfiguration) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IPrintTaskOptionsCoreUIConfiguration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPrintTaskOptionsCoreUIConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: &IPrintTaskOptionsCoreUIConfiguration) -> Self {
         value.0 .0.clone()
     }
@@ -695,12 +695,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IPrintTaskOptionsCoreUIConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPrintTaskOptionsCoreUIConfiguration> for ::windows::runtime::IInspectable {
     fn from(value: IPrintTaskOptionsCoreUIConfiguration) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPrintTaskOptionsCoreUIConfiguration> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPrintTaskOptionsCoreUIConfiguration> for ::windows::runtime::IInspectable {
     fn from(value: &IPrintTaskOptionsCoreUIConfiguration) -> Self {
         value.0.clone()
     }
@@ -763,7 +763,7 @@ pub struct IPrintTaskRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, title: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, handler: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, title: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, handler: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -878,19 +878,19 @@ pub struct IStandardPrintTaskOptionsStatic_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -908,7 +908,7 @@ pub struct IStandardPrintTaskOptionsStatic2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -926,10 +926,10 @@ pub struct IStandardPrintTaskOptionsStatic3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Graphics_Printing`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintBinding(pub i32);
 impl PrintBinding {
@@ -951,7 +951,7 @@ impl PrintBinding {
     pub const JogOffset: PrintBinding = PrintBinding(15i32);
     pub const Trim: PrintBinding = PrintBinding(16i32);
 }
-impl ::std::convert::From<i32> for PrintBinding {
+impl ::core::convert::From<i32> for PrintBinding {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -966,7 +966,7 @@ impl ::windows::runtime::DefaultType for PrintBinding {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintBordering(pub i32);
 impl PrintBordering {
@@ -976,7 +976,7 @@ impl PrintBordering {
     pub const Bordered: PrintBordering = PrintBordering(3i32);
     pub const Borderless: PrintBordering = PrintBordering(4i32);
 }
-impl ::std::convert::From<i32> for PrintBordering {
+impl ::core::convert::From<i32> for PrintBordering {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -991,7 +991,7 @@ impl ::windows::runtime::DefaultType for PrintBordering {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintCollation(pub i32);
 impl PrintCollation {
@@ -1001,7 +1001,7 @@ impl PrintCollation {
     pub const Collated: PrintCollation = PrintCollation(3i32);
     pub const Uncollated: PrintCollation = PrintCollation(4i32);
 }
-impl ::std::convert::From<i32> for PrintCollation {
+impl ::core::convert::From<i32> for PrintCollation {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1016,7 +1016,7 @@ impl ::windows::runtime::DefaultType for PrintCollation {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintColorMode(pub i32);
 impl PrintColorMode {
@@ -1027,7 +1027,7 @@ impl PrintColorMode {
     pub const Grayscale: PrintColorMode = PrintColorMode(4i32);
     pub const Monochrome: PrintColorMode = PrintColorMode(5i32);
 }
-impl ::std::convert::From<i32> for PrintColorMode {
+impl ::core::convert::From<i32> for PrintColorMode {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1042,7 +1042,7 @@ impl ::windows::runtime::DefaultType for PrintColorMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintDuplex(pub i32);
 impl PrintDuplex {
@@ -1053,7 +1053,7 @@ impl PrintDuplex {
     pub const TwoSidedShortEdge: PrintDuplex = PrintDuplex(4i32);
     pub const TwoSidedLongEdge: PrintDuplex = PrintDuplex(5i32);
 }
-impl ::std::convert::From<i32> for PrintDuplex {
+impl ::core::convert::From<i32> for PrintDuplex {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1068,7 +1068,7 @@ impl ::windows::runtime::DefaultType for PrintDuplex {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintHolePunch(pub i32);
 impl PrintHolePunch {
@@ -1081,7 +1081,7 @@ impl PrintHolePunch {
     pub const TopEdge: PrintHolePunch = PrintHolePunch(6i32);
     pub const BottomEdge: PrintHolePunch = PrintHolePunch(7i32);
 }
-impl ::std::convert::From<i32> for PrintHolePunch {
+impl ::core::convert::From<i32> for PrintHolePunch {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1097,7 +1097,7 @@ impl ::windows::runtime::DefaultType for PrintHolePunch {
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintManager(pub ::windows::runtime::IInspectable);
 impl PrintManager {
     #[cfg(feature = "Foundation")]
@@ -1105,36 +1105,36 @@ impl PrintManager {
     pub fn PrintTaskRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PrintManager, PrintTaskRequestedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Printing`, `Foundation`*"]
     pub fn RemovePrintTaskRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<PrintManager> {
         Self::IPrintManagerStatic(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintManager>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Printing`, `Foundation`*"]
     pub fn ShowPrintUIAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IPrintManagerStatic(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::IPrintManagerStatic2(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     pub fn IPrintManagerStatic<R, F: FnOnce(&IPrintManagerStatic) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1156,12 +1156,12 @@ unsafe impl ::windows::runtime::Interface for PrintManager {
 impl ::windows::runtime::RuntimeName for PrintManager {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintManager";
 }
-impl ::std::convert::From<PrintManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintManager> for ::windows::runtime::IUnknown {
     fn from(value: PrintManager) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintManager> for ::windows::runtime::IUnknown {
     fn from(value: &PrintManager) -> Self {
         value.0 .0.clone()
     }
@@ -1176,12 +1176,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintManager> for ::windows::runtime::IInspectable {
     fn from(value: PrintManager) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintManager> for ::windows::runtime::IInspectable {
     fn from(value: &PrintManager) -> Self {
         value.0.clone()
     }
@@ -1196,10 +1196,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PrintManager {}
-unsafe impl ::std::marker::Sync for PrintManager {}
+unsafe impl ::core::marker::Send for PrintManager {}
+unsafe impl ::core::marker::Sync for PrintManager {}
 #[doc = "*Required features: `Graphics_Printing`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintMediaSize(pub i32);
 impl PrintMediaSize {
@@ -1377,7 +1377,7 @@ impl PrintMediaSize {
     pub const Roll36Inch: PrintMediaSize = PrintMediaSize(171i32);
     pub const Roll54Inch: PrintMediaSize = PrintMediaSize(172i32);
 }
-impl ::std::convert::From<i32> for PrintMediaSize {
+impl ::core::convert::From<i32> for PrintMediaSize {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1392,7 +1392,7 @@ impl ::windows::runtime::DefaultType for PrintMediaSize {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintMediaType(pub i32);
 impl PrintMediaType {
@@ -1429,7 +1429,7 @@ impl PrintMediaType {
     pub const TShirtTransfer: PrintMediaType = PrintMediaType(30i32);
     pub const None: PrintMediaType = PrintMediaType(31i32);
 }
-impl ::std::convert::From<i32> for PrintMediaType {
+impl ::core::convert::From<i32> for PrintMediaType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1444,7 +1444,7 @@ impl ::windows::runtime::DefaultType for PrintMediaType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintOrientation(pub i32);
 impl PrintOrientation {
@@ -1456,7 +1456,7 @@ impl PrintOrientation {
     pub const Landscape: PrintOrientation = PrintOrientation(5i32);
     pub const LandscapeFlipped: PrintOrientation = PrintOrientation(6i32);
 }
-impl ::std::convert::From<i32> for PrintOrientation {
+impl ::core::convert::From<i32> for PrintOrientation {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1470,7 +1470,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintOrientation {
 impl ::windows::runtime::DefaultType for PrintOrientation {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Graphics_Printing`, `Foundation`*"]
@@ -1483,25 +1483,25 @@ pub struct PrintPageDescription {
 #[cfg(feature = "Foundation")]
 impl PrintPageDescription {}
 #[cfg(feature = "Foundation")]
-impl ::std::default::Default for PrintPageDescription {
+impl ::core::default::Default for PrintPageDescription {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::fmt::Debug for PrintPageDescription {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for PrintPageDescription {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("PrintPageDescription").field("PageSize", &self.PageSize).field("ImageableRect", &self.ImageableRect).field("DpiX", &self.DpiX).field("DpiY", &self.DpiY).finish()
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::cmp::PartialEq for PrintPageDescription {
+impl ::core::cmp::PartialEq for PrintPageDescription {
     fn eq(&self, other: &Self) -> bool {
         self.PageSize == other.PageSize && self.ImageableRect == other.ImageableRect && self.DpiX == other.DpiX && self.DpiY == other.DpiY
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::cmp::Eq for PrintPageDescription {}
+impl ::core::cmp::Eq for PrintPageDescription {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Abi for PrintPageDescription {
     type Abi = Self;
@@ -1516,7 +1516,7 @@ impl ::windows::runtime::DefaultType for PrintPageDescription {
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintPageInfo(pub ::windows::runtime::IInspectable);
 impl PrintPageInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1529,68 +1529,68 @@ impl PrintPageInfo {
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetMediaSize(&self, value: PrintMediaSize) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn MediaSize(&self) -> ::windows::runtime::Result<PrintMediaSize> {
         let this = self;
         unsafe {
-            let mut result__: PrintMediaSize = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintMediaSize>(result__)
+            let mut result__: PrintMediaSize = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintMediaSize>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Printing`, `Foundation`*"]
     pub fn SetPageSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Size>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Printing`, `Foundation`*"]
     pub fn PageSize(&self) -> ::windows::runtime::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::Size = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
+            let mut result__: super::super::Foundation::Size = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetDpiX(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn DpiX(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetDpiY(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn DpiY(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetOrientation(&self, value: PrintOrientation) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Orientation(&self) -> ::windows::runtime::Result<PrintOrientation> {
         let this = self;
         unsafe {
-            let mut result__: PrintOrientation = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOrientation>(result__)
+            let mut result__: PrintOrientation = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintOrientation>(result__)
         }
     }
 }
@@ -1604,12 +1604,12 @@ unsafe impl ::windows::runtime::Interface for PrintPageInfo {
 impl ::windows::runtime::RuntimeName for PrintPageInfo {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageInfo";
 }
-impl ::std::convert::From<PrintPageInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintPageInfo> for ::windows::runtime::IUnknown {
     fn from(value: PrintPageInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintPageInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintPageInfo> for ::windows::runtime::IUnknown {
     fn from(value: &PrintPageInfo) -> Self {
         value.0 .0.clone()
     }
@@ -1624,12 +1624,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintPageInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintPageInfo> for ::windows::runtime::IInspectable {
     fn from(value: PrintPageInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintPageInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintPageInfo> for ::windows::runtime::IInspectable {
     fn from(value: &PrintPageInfo) -> Self {
         value.0.clone()
     }
@@ -1644,41 +1644,41 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PrintPageInfo {}
-unsafe impl ::std::marker::Sync for PrintPageInfo {}
+unsafe impl ::core::marker::Send for PrintPageInfo {}
+unsafe impl ::core::marker::Sync for PrintPageInfo {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintPageRange(pub ::windows::runtime::IInspectable);
 impl PrintPageRange {
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn FirstPageNumber(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn LastPageNumber(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Create(firstpage: i32, lastpage: i32) -> ::windows::runtime::Result<PrintPageRange> {
         Self::IPrintPageRangeFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), firstpage, lastpage, &mut result__).from_abi::<PrintPageRange>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), firstpage, lastpage, &mut result__).from_abi::<PrintPageRange>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn CreateWithSinglePage(page: i32) -> ::windows::runtime::Result<PrintPageRange> {
         Self::IPrintPageRangeFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), page, &mut result__).from_abi::<PrintPageRange>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), page, &mut result__).from_abi::<PrintPageRange>(result__)
         })
     }
     pub fn IPrintPageRangeFactory<R, F: FnOnce(&IPrintPageRangeFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1696,12 +1696,12 @@ unsafe impl ::windows::runtime::Interface for PrintPageRange {
 impl ::windows::runtime::RuntimeName for PrintPageRange {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageRange";
 }
-impl ::std::convert::From<PrintPageRange> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintPageRange> for ::windows::runtime::IUnknown {
     fn from(value: PrintPageRange) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintPageRange> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintPageRange> for ::windows::runtime::IUnknown {
     fn from(value: &PrintPageRange) -> Self {
         value.0 .0.clone()
     }
@@ -1716,12 +1716,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintPageRange> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintPageRange> for ::windows::runtime::IInspectable {
     fn from(value: PrintPageRange) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintPageRange> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintPageRange> for ::windows::runtime::IInspectable {
     fn from(value: &PrintPageRange) -> Self {
         value.0.clone()
     }
@@ -1736,50 +1736,50 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PrintPageRange {}
-unsafe impl ::std::marker::Sync for PrintPageRange {}
+unsafe impl ::core::marker::Send for PrintPageRange {}
+unsafe impl ::core::marker::Sync for PrintPageRange {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintPageRangeOptions(pub ::windows::runtime::IInspectable);
 impl PrintPageRangeOptions {
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetAllowAllPages(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn AllowAllPages(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetAllowCurrentPage(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn AllowCurrentPage(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetAllowCustomSetOfPages(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn AllowCustomSetOfPages(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -1793,12 +1793,12 @@ unsafe impl ::windows::runtime::Interface for PrintPageRangeOptions {
 impl ::windows::runtime::RuntimeName for PrintPageRangeOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageRangeOptions";
 }
-impl ::std::convert::From<PrintPageRangeOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintPageRangeOptions> for ::windows::runtime::IUnknown {
     fn from(value: PrintPageRangeOptions) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintPageRangeOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintPageRangeOptions> for ::windows::runtime::IUnknown {
     fn from(value: &PrintPageRangeOptions) -> Self {
         value.0 .0.clone()
     }
@@ -1813,12 +1813,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintPageRangeOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintPageRangeOptions> for ::windows::runtime::IInspectable {
     fn from(value: PrintPageRangeOptions) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintPageRangeOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintPageRangeOptions> for ::windows::runtime::IInspectable {
     fn from(value: &PrintPageRangeOptions) -> Self {
         value.0.clone()
     }
@@ -1833,10 +1833,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PrintPageRangeOptions {}
-unsafe impl ::std::marker::Sync for PrintPageRangeOptions {}
+unsafe impl ::core::marker::Send for PrintPageRangeOptions {}
+unsafe impl ::core::marker::Sync for PrintPageRangeOptions {}
 #[doc = "*Required features: `Graphics_Printing`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintQuality(pub i32);
 impl PrintQuality {
@@ -1851,7 +1851,7 @@ impl PrintQuality {
     pub const Photographic: PrintQuality = PrintQuality(8i32);
     pub const Text: PrintQuality = PrintQuality(9i32);
 }
-impl ::std::convert::From<i32> for PrintQuality {
+impl ::core::convert::From<i32> for PrintQuality {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1866,7 +1866,7 @@ impl ::windows::runtime::DefaultType for PrintQuality {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintStaple(pub i32);
 impl PrintStaple {
@@ -1884,7 +1884,7 @@ impl PrintStaple {
     pub const StapleDualBottom: PrintStaple = PrintStaple(11i32);
     pub const SaddleStitch: PrintStaple = PrintStaple(12i32);
 }
-impl ::std::convert::From<i32> for PrintStaple {
+impl ::core::convert::From<i32> for PrintStaple {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1900,7 +1900,7 @@ impl ::windows::runtime::DefaultType for PrintStaple {
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTask(pub ::windows::runtime::IInspectable);
 impl PrintTask {
     #[cfg(feature = "ApplicationModel_DataTransfer")]
@@ -1908,24 +1908,24 @@ impl PrintTask {
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::DataTransfer::DataPackagePropertySet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::DataTransfer::DataPackagePropertySet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::DataTransfer::DataPackagePropertySet>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Source(&self) -> ::windows::runtime::Result<IPrintDocumentSource> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPrintDocumentSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPrintDocumentSource>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Options(&self) -> ::windows::runtime::Result<PrintTaskOptions> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTaskOptions>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintTaskOptions>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1933,98 +1933,98 @@ impl PrintTask {
     pub fn Previewing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PrintTask, ::windows::runtime::IInspectable>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Printing`, `Foundation`*"]
     pub fn RemovePreviewing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Printing`, `Foundation`*"]
     pub fn Submitting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PrintTask, ::windows::runtime::IInspectable>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Printing`, `Foundation`*"]
     pub fn RemoveSubmitting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Printing`, `Foundation`*"]
     pub fn Progressing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskProgressingEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Printing`, `Foundation`*"]
     pub fn RemoveProgressing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Printing`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskCompletedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Printing`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetIsPrinterTargetEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskTargetDeviceSupport>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn IsPrinterTargetEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskTargetDeviceSupport>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetIs3DManufacturingTargetEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskTargetDeviceSupport>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Is3DManufacturingTargetEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskTargetDeviceSupport>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetIsPreviewEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTask2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn IsPreviewEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IPrintTask2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -2038,12 +2038,12 @@ unsafe impl ::windows::runtime::Interface for PrintTask {
 impl ::windows::runtime::RuntimeName for PrintTask {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTask";
 }
-impl ::std::convert::From<PrintTask> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintTask> for ::windows::runtime::IUnknown {
     fn from(value: PrintTask) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintTask> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintTask> for ::windows::runtime::IUnknown {
     fn from(value: &PrintTask) -> Self {
         value.0 .0.clone()
     }
@@ -2058,12 +2058,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintTask> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintTask> for ::windows::runtime::IInspectable {
     fn from(value: PrintTask) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintTask> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintTask> for ::windows::runtime::IInspectable {
     fn from(value: &PrintTask) -> Self {
         value.0.clone()
     }
@@ -2078,19 +2078,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PrintTask {}
-unsafe impl ::std::marker::Sync for PrintTask {}
+unsafe impl ::core::marker::Send for PrintTask {}
+unsafe impl ::core::marker::Sync for PrintTask {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTaskCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl PrintTaskCompletedEventArgs {
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Completion(&self) -> ::windows::runtime::Result<PrintTaskCompletion> {
         let this = self;
         unsafe {
-            let mut result__: PrintTaskCompletion = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTaskCompletion>(result__)
+            let mut result__: PrintTaskCompletion = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintTaskCompletion>(result__)
         }
     }
 }
@@ -2104,12 +2104,12 @@ unsafe impl ::windows::runtime::Interface for PrintTaskCompletedEventArgs {
 impl ::windows::runtime::RuntimeName for PrintTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskCompletedEventArgs";
 }
-impl ::std::convert::From<PrintTaskCompletedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintTaskCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PrintTaskCompletedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintTaskCompletedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintTaskCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PrintTaskCompletedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -2124,12 +2124,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintTaskCompletedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintTaskCompletedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: PrintTaskCompletedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintTaskCompletedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintTaskCompletedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &PrintTaskCompletedEventArgs) -> Self {
         value.0.clone()
     }
@@ -2144,10 +2144,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PrintTaskCompletedEventArgs {}
-unsafe impl ::std::marker::Sync for PrintTaskCompletedEventArgs {}
+unsafe impl ::core::marker::Send for PrintTaskCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintTaskCompletedEventArgs {}
 #[doc = "*Required features: `Graphics_Printing`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintTaskCompletion(pub i32);
 impl PrintTaskCompletion {
@@ -2156,7 +2156,7 @@ impl PrintTaskCompletion {
     pub const Failed: PrintTaskCompletion = PrintTaskCompletion(2i32);
     pub const Submitted: PrintTaskCompletion = PrintTaskCompletion(3i32);
 }
-impl ::std::convert::From<i32> for PrintTaskCompletion {
+impl ::core::convert::From<i32> for PrintTaskCompletion {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2172,7 +2172,7 @@ impl ::windows::runtime::DefaultType for PrintTaskCompletion {
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTaskOptions(pub ::windows::runtime::IInspectable);
 impl PrintTaskOptions {
     #[cfg(feature = "Foundation")]
@@ -2180,167 +2180,167 @@ impl PrintTaskOptions {
     pub fn GetPageDescription(&self, jobpagenumber: u32) -> ::windows::runtime::Result<PrintPageDescription> {
         let this = self;
         unsafe {
-            let mut result__: PrintPageDescription = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), jobpagenumber, &mut result__).from_abi::<PrintPageDescription>(result__)
+            let mut result__: PrintPageDescription = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), jobpagenumber, &mut result__).from_abi::<PrintPageDescription>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetMediaSize(&self, value: PrintMediaSize) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn MediaSize(&self) -> ::windows::runtime::Result<PrintMediaSize> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__: PrintMediaSize = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintMediaSize>(result__)
+            let mut result__: PrintMediaSize = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintMediaSize>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetMediaType(&self, value: PrintMediaType) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn MediaType(&self) -> ::windows::runtime::Result<PrintMediaType> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__: PrintMediaType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintMediaType>(result__)
+            let mut result__: PrintMediaType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintMediaType>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetOrientation(&self, value: PrintOrientation) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Orientation(&self) -> ::windows::runtime::Result<PrintOrientation> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__: PrintOrientation = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOrientation>(result__)
+            let mut result__: PrintOrientation = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintOrientation>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetPrintQuality(&self, value: PrintQuality) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn PrintQuality(&self) -> ::windows::runtime::Result<PrintQuality> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__: PrintQuality = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintQuality>(result__)
+            let mut result__: PrintQuality = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintQuality>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetColorMode(&self, value: PrintColorMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn ColorMode(&self) -> ::windows::runtime::Result<PrintColorMode> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__: PrintColorMode = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintColorMode>(result__)
+            let mut result__: PrintColorMode = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintColorMode>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetDuplex(&self, value: PrintDuplex) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Duplex(&self) -> ::windows::runtime::Result<PrintDuplex> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__: PrintDuplex = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintDuplex>(result__)
+            let mut result__: PrintDuplex = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintDuplex>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetCollation(&self, value: PrintCollation) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Collation(&self) -> ::windows::runtime::Result<PrintCollation> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__: PrintCollation = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintCollation>(result__)
+            let mut result__: PrintCollation = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintCollation>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetStaple(&self, value: PrintStaple) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Staple(&self) -> ::windows::runtime::Result<PrintStaple> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__: PrintStaple = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintStaple>(result__)
+            let mut result__: PrintStaple = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintStaple>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetHolePunch(&self, value: PrintHolePunch) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn HolePunch(&self) -> ::windows::runtime::Result<PrintHolePunch> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__: PrintHolePunch = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintHolePunch>(result__)
+            let mut result__: PrintHolePunch = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintHolePunch>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetBinding(&self, value: PrintBinding) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Binding(&self) -> ::windows::runtime::Result<PrintBinding> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__: PrintBinding = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintBinding>(result__)
+            let mut result__: PrintBinding = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintBinding>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn MinCopies(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn MaxCopies(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetNumberOfCopies(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn NumberOfCopies(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2348,21 +2348,21 @@ impl PrintTaskOptions {
     pub fn DisplayedOptions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionsCoreUIConfiguration>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetBordering(&self, value: PrintBordering) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Bordering(&self) -> ::windows::runtime::Result<PrintBordering> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptions>(self)?;
         unsafe {
-            let mut result__: PrintBordering = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintBordering>(result__)
+            let mut result__: PrintBordering = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintBordering>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2370,16 +2370,16 @@ impl PrintTaskOptions {
     pub fn GetPagePrintTicket<'a, Param0: ::windows::runtime::IntoParam<'a, PrintPageInfo>>(&self, printpageinfo: Param0) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptions>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), printpageinfo.into_param().abi(), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), printpageinfo.into_param().abi(), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn PageRangeOptions(&self) -> ::windows::runtime::Result<PrintPageRangeOptions> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptions2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintPageRangeOptions>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintPageRangeOptions>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2387,8 +2387,8 @@ impl PrintTaskOptions {
     pub fn CustomPageRanges(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<PrintPageRange>> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptions2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<PrintPageRange>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<PrintPageRange>>(result__)
         }
     }
 }
@@ -2402,12 +2402,12 @@ unsafe impl ::windows::runtime::Interface for PrintTaskOptions {
 impl ::windows::runtime::RuntimeName for PrintTaskOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskOptions";
 }
-impl ::std::convert::From<PrintTaskOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintTaskOptions> for ::windows::runtime::IUnknown {
     fn from(value: PrintTaskOptions) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintTaskOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintTaskOptions> for ::windows::runtime::IUnknown {
     fn from(value: &PrintTaskOptions) -> Self {
         value.0 .0.clone()
     }
@@ -2422,12 +2422,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintTaskOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintTaskOptions> for ::windows::runtime::IInspectable {
     fn from(value: PrintTaskOptions) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintTaskOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintTaskOptions> for ::windows::runtime::IInspectable {
     fn from(value: &PrintTaskOptions) -> Self {
         value.0.clone()
     }
@@ -2442,33 +2442,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<PrintTaskOptions> for IPrintTaskOptionsCore {
+impl ::core::convert::From<PrintTaskOptions> for IPrintTaskOptionsCore {
     fn from(value: PrintTaskOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&PrintTaskOptions> for IPrintTaskOptionsCore {
+impl ::core::convert::From<&PrintTaskOptions> for IPrintTaskOptionsCore {
     fn from(value: &PrintTaskOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintTaskOptionsCore> for PrintTaskOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintTaskOptionsCore> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintTaskOptionsCore> for &PrintTaskOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintTaskOptionsCore> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::TryFrom<PrintTaskOptions> for IPrintTaskOptionsCoreProperties {
+impl ::core::convert::TryFrom<PrintTaskOptions> for IPrintTaskOptionsCoreProperties {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PrintTaskOptions) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PrintTaskOptions> for IPrintTaskOptionsCoreProperties {
+impl ::core::convert::TryFrom<&PrintTaskOptions> for IPrintTaskOptionsCoreProperties {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PrintTaskOptions) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2481,16 +2481,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintTaskOptionsCoreProperties> for 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintTaskOptionsCoreProperties> for &PrintTaskOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintTaskOptionsCoreProperties> {
-        ::std::convert::TryInto::<IPrintTaskOptionsCoreProperties>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPrintTaskOptionsCoreProperties>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PrintTaskOptions> for IPrintTaskOptionsCoreUIConfiguration {
+impl ::core::convert::TryFrom<PrintTaskOptions> for IPrintTaskOptionsCoreUIConfiguration {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PrintTaskOptions) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PrintTaskOptions> for IPrintTaskOptionsCoreUIConfiguration {
+impl ::core::convert::TryFrom<&PrintTaskOptions> for IPrintTaskOptionsCoreUIConfiguration {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PrintTaskOptions) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2503,22 +2503,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintTaskOptionsCoreUIConfiguration>
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintTaskOptionsCoreUIConfiguration> for &PrintTaskOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintTaskOptionsCoreUIConfiguration> {
-        ::std::convert::TryInto::<IPrintTaskOptionsCoreUIConfiguration>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPrintTaskOptionsCoreUIConfiguration>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for PrintTaskOptions {}
-unsafe impl ::std::marker::Sync for PrintTaskOptions {}
+unsafe impl ::core::marker::Send for PrintTaskOptions {}
+unsafe impl ::core::marker::Sync for PrintTaskOptions {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTaskProgressingEventArgs(pub ::windows::runtime::IInspectable);
 impl PrintTaskProgressingEventArgs {
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn DocumentPageCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -2532,12 +2532,12 @@ unsafe impl ::windows::runtime::Interface for PrintTaskProgressingEventArgs {
 impl ::windows::runtime::RuntimeName for PrintTaskProgressingEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskProgressingEventArgs";
 }
-impl ::std::convert::From<PrintTaskProgressingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintTaskProgressingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PrintTaskProgressingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintTaskProgressingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintTaskProgressingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PrintTaskProgressingEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -2552,12 +2552,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintTaskProgressingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintTaskProgressingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: PrintTaskProgressingEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintTaskProgressingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintTaskProgressingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &PrintTaskProgressingEventArgs) -> Self {
         value.0.clone()
     }
@@ -2572,11 +2572,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PrintTaskProgressingEventArgs {}
-unsafe impl ::std::marker::Sync for PrintTaskProgressingEventArgs {}
+unsafe impl ::core::marker::Send for PrintTaskProgressingEventArgs {}
+unsafe impl ::core::marker::Sync for PrintTaskProgressingEventArgs {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTaskRequest(pub ::windows::runtime::IInspectable);
 impl PrintTaskRequest {
     #[cfg(feature = "Foundation")]
@@ -2584,24 +2584,24 @@ impl PrintTaskRequest {
     pub fn Deadline(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn CreatePrintTask<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, PrintTaskSourceRequestedHandler>>(&self, title: Param0, handler: Param1) -> ::windows::runtime::Result<PrintTask> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), title.into_param().abi(), handler.into_param().abi(), &mut result__).from_abi::<PrintTask>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), title.into_param().abi(), handler.into_param().abi(), &mut result__).from_abi::<PrintTask>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<PrintTaskRequestedDeferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTaskRequestedDeferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintTaskRequestedDeferral>(result__)
         }
     }
 }
@@ -2615,12 +2615,12 @@ unsafe impl ::windows::runtime::Interface for PrintTaskRequest {
 impl ::windows::runtime::RuntimeName for PrintTaskRequest {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequest";
 }
-impl ::std::convert::From<PrintTaskRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintTaskRequest> for ::windows::runtime::IUnknown {
     fn from(value: PrintTaskRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintTaskRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintTaskRequest> for ::windows::runtime::IUnknown {
     fn from(value: &PrintTaskRequest) -> Self {
         value.0 .0.clone()
     }
@@ -2635,12 +2635,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintTaskRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintTaskRequest> for ::windows::runtime::IInspectable {
     fn from(value: PrintTaskRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintTaskRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintTaskRequest> for ::windows::runtime::IInspectable {
     fn from(value: &PrintTaskRequest) -> Self {
         value.0.clone()
     }
@@ -2655,17 +2655,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PrintTaskRequest {}
-unsafe impl ::std::marker::Sync for PrintTaskRequest {}
+unsafe impl ::core::marker::Send for PrintTaskRequest {}
+unsafe impl ::core::marker::Sync for PrintTaskRequest {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTaskRequestedDeferral(pub ::windows::runtime::IInspectable);
 impl PrintTaskRequestedDeferral {
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintTaskRequestedDeferral {
@@ -2678,12 +2678,12 @@ unsafe impl ::windows::runtime::Interface for PrintTaskRequestedDeferral {
 impl ::windows::runtime::RuntimeName for PrintTaskRequestedDeferral {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequestedDeferral";
 }
-impl ::std::convert::From<PrintTaskRequestedDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintTaskRequestedDeferral> for ::windows::runtime::IUnknown {
     fn from(value: PrintTaskRequestedDeferral) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintTaskRequestedDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintTaskRequestedDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &PrintTaskRequestedDeferral) -> Self {
         value.0 .0.clone()
     }
@@ -2698,12 +2698,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintTaskRequestedDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintTaskRequestedDeferral> for ::windows::runtime::IInspectable {
     fn from(value: PrintTaskRequestedDeferral) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintTaskRequestedDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintTaskRequestedDeferral> for ::windows::runtime::IInspectable {
     fn from(value: &PrintTaskRequestedDeferral) -> Self {
         value.0.clone()
     }
@@ -2718,19 +2718,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PrintTaskRequestedDeferral {}
-unsafe impl ::std::marker::Sync for PrintTaskRequestedDeferral {}
+unsafe impl ::core::marker::Send for PrintTaskRequestedDeferral {}
+unsafe impl ::core::marker::Sync for PrintTaskRequestedDeferral {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTaskRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl PrintTaskRequestedEventArgs {
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<PrintTaskRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTaskRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintTaskRequest>(result__)
         }
     }
 }
@@ -2744,12 +2744,12 @@ unsafe impl ::windows::runtime::Interface for PrintTaskRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for PrintTaskRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequestedEventArgs";
 }
-impl ::std::convert::From<PrintTaskRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintTaskRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PrintTaskRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintTaskRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintTaskRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PrintTaskRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -2764,12 +2764,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintTaskRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintTaskRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: PrintTaskRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintTaskRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintTaskRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &PrintTaskRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -2784,11 +2784,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PrintTaskRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for PrintTaskRequestedEventArgs {}
+unsafe impl ::core::marker::Send for PrintTaskRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for PrintTaskRequestedEventArgs {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTaskSourceRequestedArgs(pub ::windows::runtime::IInspectable);
 impl PrintTaskSourceRequestedArgs {
     #[cfg(feature = "Foundation")]
@@ -2796,21 +2796,21 @@ impl PrintTaskSourceRequestedArgs {
     pub fn Deadline(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn SetSource<'a, Param0: ::windows::runtime::IntoParam<'a, IPrintDocumentSource>>(&self, source: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), source.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), source.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<PrintTaskSourceRequestedDeferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTaskSourceRequestedDeferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintTaskSourceRequestedDeferral>(result__)
         }
     }
 }
@@ -2824,12 +2824,12 @@ unsafe impl ::windows::runtime::Interface for PrintTaskSourceRequestedArgs {
 impl ::windows::runtime::RuntimeName for PrintTaskSourceRequestedArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskSourceRequestedArgs";
 }
-impl ::std::convert::From<PrintTaskSourceRequestedArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintTaskSourceRequestedArgs> for ::windows::runtime::IUnknown {
     fn from(value: PrintTaskSourceRequestedArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintTaskSourceRequestedArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintTaskSourceRequestedArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PrintTaskSourceRequestedArgs) -> Self {
         value.0 .0.clone()
     }
@@ -2844,12 +2844,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintTaskSourceRequestedArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintTaskSourceRequestedArgs> for ::windows::runtime::IInspectable {
     fn from(value: PrintTaskSourceRequestedArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintTaskSourceRequestedArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintTaskSourceRequestedArgs> for ::windows::runtime::IInspectable {
     fn from(value: &PrintTaskSourceRequestedArgs) -> Self {
         value.0.clone()
     }
@@ -2864,17 +2864,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PrintTaskSourceRequestedArgs {}
-unsafe impl ::std::marker::Sync for PrintTaskSourceRequestedArgs {}
+unsafe impl ::core::marker::Send for PrintTaskSourceRequestedArgs {}
+unsafe impl ::core::marker::Sync for PrintTaskSourceRequestedArgs {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTaskSourceRequestedDeferral(pub ::windows::runtime::IInspectable);
 impl PrintTaskSourceRequestedDeferral {
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintTaskSourceRequestedDeferral {
@@ -2887,12 +2887,12 @@ unsafe impl ::windows::runtime::Interface for PrintTaskSourceRequestedDeferral {
 impl ::windows::runtime::RuntimeName for PrintTaskSourceRequestedDeferral {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskSourceRequestedDeferral";
 }
-impl ::std::convert::From<PrintTaskSourceRequestedDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PrintTaskSourceRequestedDeferral> for ::windows::runtime::IUnknown {
     fn from(value: PrintTaskSourceRequestedDeferral) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PrintTaskSourceRequestedDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PrintTaskSourceRequestedDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &PrintTaskSourceRequestedDeferral) -> Self {
         value.0 .0.clone()
     }
@@ -2907,12 +2907,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PrintTaskSourceRequestedDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PrintTaskSourceRequestedDeferral> for ::windows::runtime::IInspectable {
     fn from(value: PrintTaskSourceRequestedDeferral) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PrintTaskSourceRequestedDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PrintTaskSourceRequestedDeferral> for ::windows::runtime::IInspectable {
     fn from(value: &PrintTaskSourceRequestedDeferral) -> Self {
         value.0.clone()
     }
@@ -2927,25 +2927,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PrintTaskSourceRequestedDeferral {}
-unsafe impl ::std::marker::Sync for PrintTaskSourceRequestedDeferral {}
+unsafe impl ::core::marker::Send for PrintTaskSourceRequestedDeferral {}
+unsafe impl ::core::marker::Sync for PrintTaskSourceRequestedDeferral {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTaskSourceRequestedHandler(::windows::runtime::IUnknown);
 impl PrintTaskSourceRequestedHandler {
-    pub fn new<F: FnMut(&::std::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
         let com = PrintTaskSourceRequestedHandler_box::<F> {
             vtable: &PrintTaskSourceRequestedHandler_box::<F>::VTABLE,
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, PrintTaskSourceRequestedArgs>>(&self, args: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), args.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this), args.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintTaskSourceRequestedHandler {
@@ -2964,19 +2964,19 @@ pub struct PrintTaskSourceRequestedHandler_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, args: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(C)]
-struct PrintTaskSourceRequestedHandler_box<F: FnMut(&::std::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::runtime::Result<()> + 'static> {
+struct PrintTaskSourceRequestedHandler_box<F: FnMut(&::core::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::runtime::Result<()> + 'static> {
     vtable: *const PrintTaskSourceRequestedHandler_abi,
     invoke: F,
     count: ::windows::runtime::RefCount,
 }
-impl<F: FnMut(&::std::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::runtime::Result<()> + 'static> PrintTaskSourceRequestedHandler_box<F> {
+impl<F: FnMut(&::core::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::runtime::Result<()> + 'static> PrintTaskSourceRequestedHandler_box<F> {
     const VTABLE: PrintTaskSourceRequestedHandler_abi = PrintTaskSourceRequestedHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         *interface = if iid == &<PrintTaskSourceRequestedHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
-            ::std::ptr::null_mut()
+            ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
             ::windows::runtime::HRESULT(0x8000_4002)
@@ -3008,106 +3008,106 @@ impl StandardPrintTaskOptions {
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn MediaSize() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn MediaType() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Orientation() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn PrintQuality() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn ColorMode() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Duplex() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Collation() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Staple() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn HolePunch() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Binding() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Copies() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn NUp() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn InputBin() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Bordering() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic2(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn CustomPageRanges() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardPrintTaskOptionsStatic3(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     pub fn IStandardPrintTaskOptionsStatic<R, F: FnOnce(&IStandardPrintTaskOptionsStatic) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {

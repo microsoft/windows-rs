@@ -1,52 +1,52 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HidBooleanControl(pub ::windows::runtime::IInspectable);
 impl HidBooleanControl {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn UsagePage(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn UsageId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn IsActive(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn SetIsActive(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn ControlDescription(&self) -> ::windows::runtime::Result<HidBooleanControlDescription> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HidBooleanControlDescription>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HidBooleanControlDescription>(result__)
         }
     }
 }
@@ -60,12 +60,12 @@ unsafe impl ::windows::runtime::Interface for HidBooleanControl {
 impl ::windows::runtime::RuntimeName for HidBooleanControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControl";
 }
-impl ::std::convert::From<HidBooleanControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HidBooleanControl> for ::windows::runtime::IUnknown {
     fn from(value: HidBooleanControl) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HidBooleanControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HidBooleanControl> for ::windows::runtime::IUnknown {
     fn from(value: &HidBooleanControl) -> Self {
         value.0 .0.clone()
     }
@@ -80,12 +80,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HidBooleanControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HidBooleanControl> for ::windows::runtime::IInspectable {
     fn from(value: HidBooleanControl) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HidBooleanControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HidBooleanControl> for ::windows::runtime::IInspectable {
     fn from(value: &HidBooleanControl) -> Self {
         value.0.clone()
     }
@@ -100,51 +100,51 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HidBooleanControl {}
-unsafe impl ::std::marker::Sync for HidBooleanControl {}
+unsafe impl ::core::marker::Send for HidBooleanControl {}
+unsafe impl ::core::marker::Sync for HidBooleanControl {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HidBooleanControlDescription(pub ::windows::runtime::IInspectable);
 impl HidBooleanControlDescription {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn ReportId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn ReportType(&self) -> ::windows::runtime::Result<HidReportType> {
         let this = self;
         unsafe {
-            let mut result__: HidReportType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HidReportType>(result__)
+            let mut result__: HidReportType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HidReportType>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn UsagePage(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn UsageId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -152,16 +152,16 @@ impl HidBooleanControlDescription {
     pub fn ParentCollections(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<HidCollection>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<HidCollection>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<HidCollection>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn IsAbsolute(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IHidBooleanControlDescription2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -175,12 +175,12 @@ unsafe impl ::windows::runtime::Interface for HidBooleanControlDescription {
 impl ::windows::runtime::RuntimeName for HidBooleanControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription";
 }
-impl ::std::convert::From<HidBooleanControlDescription> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HidBooleanControlDescription> for ::windows::runtime::IUnknown {
     fn from(value: HidBooleanControlDescription) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HidBooleanControlDescription> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HidBooleanControlDescription> for ::windows::runtime::IUnknown {
     fn from(value: &HidBooleanControlDescription) -> Self {
         value.0 .0.clone()
     }
@@ -195,12 +195,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HidBooleanControlDescription> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HidBooleanControlDescription> for ::windows::runtime::IInspectable {
     fn from(value: HidBooleanControlDescription) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HidBooleanControlDescription> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HidBooleanControlDescription> for ::windows::runtime::IInspectable {
     fn from(value: &HidBooleanControlDescription) -> Self {
         value.0.clone()
     }
@@ -215,43 +215,43 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HidBooleanControlDescription {}
-unsafe impl ::std::marker::Sync for HidBooleanControlDescription {}
+unsafe impl ::core::marker::Send for HidBooleanControlDescription {}
+unsafe impl ::core::marker::Sync for HidBooleanControlDescription {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HidCollection(pub ::windows::runtime::IInspectable);
 impl HidCollection {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<HidCollectionType> {
         let this = self;
         unsafe {
-            let mut result__: HidCollectionType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HidCollectionType>(result__)
+            let mut result__: HidCollectionType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HidCollectionType>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn UsagePage(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn UsageId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -265,12 +265,12 @@ unsafe impl ::windows::runtime::Interface for HidCollection {
 impl ::windows::runtime::RuntimeName for HidCollection {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidCollection";
 }
-impl ::std::convert::From<HidCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HidCollection> for ::windows::runtime::IUnknown {
     fn from(value: HidCollection) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HidCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HidCollection> for ::windows::runtime::IUnknown {
     fn from(value: &HidCollection) -> Self {
         value.0 .0.clone()
     }
@@ -285,12 +285,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HidCollection> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HidCollection> for ::windows::runtime::IInspectable {
     fn from(value: HidCollection) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HidCollection> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HidCollection> for ::windows::runtime::IInspectable {
     fn from(value: &HidCollection) -> Self {
         value.0.clone()
     }
@@ -305,10 +305,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HidCollection {}
-unsafe impl ::std::marker::Sync for HidCollection {}
+unsafe impl ::core::marker::Send for HidCollection {}
+unsafe impl ::core::marker::Sync for HidCollection {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HidCollectionType(pub i32);
 impl HidCollectionType {
@@ -321,7 +321,7 @@ impl HidCollectionType {
     pub const UsageModifier: HidCollectionType = HidCollectionType(6i32);
     pub const Other: HidCollectionType = HidCollectionType(7i32);
 }
-impl ::std::convert::From<i32> for HidCollectionType {
+impl ::core::convert::From<i32> for HidCollectionType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -337,47 +337,47 @@ impl ::windows::runtime::DefaultType for HidCollectionType {
 }
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HidDevice(pub ::windows::runtime::IInspectable);
 impl HidDevice {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn VendorId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn ProductId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Version(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn UsagePage(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn UsageId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -385,8 +385,8 @@ impl HidDevice {
     pub fn GetInputReportAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<HidInputReport>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<HidInputReport>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<HidInputReport>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -394,8 +394,8 @@ impl HidDevice {
     pub fn GetInputReportByIdAsync(&self, reportid: u16) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<HidInputReport>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), reportid, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<HidInputReport>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), reportid, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<HidInputReport>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -403,8 +403,8 @@ impl HidDevice {
     pub fn GetFeatureReportAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<HidFeatureReport>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<HidFeatureReport>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<HidFeatureReport>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -412,40 +412,40 @@ impl HidDevice {
     pub fn GetFeatureReportByIdAsync(&self, reportid: u16) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<HidFeatureReport>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), reportid, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<HidFeatureReport>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), reportid, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<HidFeatureReport>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn CreateOutputReport(&self) -> ::windows::runtime::Result<HidOutputReport> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HidOutputReport>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HidOutputReport>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn CreateOutputReportById(&self, reportid: u16) -> ::windows::runtime::Result<HidOutputReport> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), reportid, &mut result__).from_abi::<HidOutputReport>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), reportid, &mut result__).from_abi::<HidOutputReport>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn CreateFeatureReport(&self) -> ::windows::runtime::Result<HidFeatureReport> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HidFeatureReport>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HidFeatureReport>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn CreateFeatureReportById(&self, reportid: u16) -> ::windows::runtime::Result<HidFeatureReport> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), reportid, &mut result__).from_abi::<HidFeatureReport>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), reportid, &mut result__).from_abi::<HidFeatureReport>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -453,8 +453,8 @@ impl HidDevice {
     pub fn SendOutputReportAsync<'a, Param0: ::windows::runtime::IntoParam<'a, HidOutputReport>>(&self, outputreport: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), outputreport.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), outputreport.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -462,8 +462,8 @@ impl HidDevice {
     pub fn SendFeatureReportAsync<'a, Param0: ::windows::runtime::IntoParam<'a, HidFeatureReport>>(&self, featurereport: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), featurereport.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), featurereport.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -471,8 +471,8 @@ impl HidDevice {
     pub fn GetBooleanControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), reporttype, usagepage, usageid, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), reporttype, usagepage, usageid, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -480,8 +480,8 @@ impl HidDevice {
     pub fn GetNumericControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), reporttype, usagepage, usageid, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), reporttype, usagepage, usageid, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -489,42 +489,42 @@ impl HidDevice {
     pub fn InputReportReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>>>(&self, reporthandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), reporthandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), reporthandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`, `Foundation`*"]
     pub fn RemoveInputReportReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn GetDeviceSelector(usagepage: u16, usageid: u16) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IHidDeviceStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn GetDeviceSelectorVidPid(usagepage: u16, usageid: u16, vendorid: u16, productid: u16) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IHidDeviceStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), usagepage, usageid, vendorid, productid, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), usagepage, usageid, vendorid, productid, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`, `Foundation`, `Storage`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0, accessmode: super::super::Storage::FileAccessMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<HidDevice>> {
         Self::IHidDeviceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), accessmode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<HidDevice>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), accessmode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<HidDevice>>(result__)
         })
     }
     pub fn IHidDeviceStatics<R, F: FnOnce(&IHidDeviceStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -542,12 +542,12 @@ unsafe impl ::windows::runtime::Interface for HidDevice {
 impl ::windows::runtime::RuntimeName for HidDevice {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidDevice";
 }
-impl ::std::convert::From<HidDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HidDevice> for ::windows::runtime::IUnknown {
     fn from(value: HidDevice) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HidDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HidDevice> for ::windows::runtime::IUnknown {
     fn from(value: &HidDevice) -> Self {
         value.0 .0.clone()
     }
@@ -562,12 +562,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HidDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HidDevice> for ::windows::runtime::IInspectable {
     fn from(value: HidDevice) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HidDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HidDevice> for ::windows::runtime::IInspectable {
     fn from(value: &HidDevice) -> Self {
         value.0.clone()
     }
@@ -583,14 +583,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<HidDevice> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<HidDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: HidDevice) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&HidDevice> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&HidDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &HidDevice) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -605,22 +605,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &HidDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for HidDevice {}
-unsafe impl ::std::marker::Sync for HidDevice {}
+unsafe impl ::core::marker::Send for HidDevice {}
+unsafe impl ::core::marker::Sync for HidDevice {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HidFeatureReport(pub ::windows::runtime::IInspectable);
 impl HidFeatureReport {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -628,46 +628,46 @@ impl HidFeatureReport {
     pub fn Data(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`, `Storage_Streams`*"]
     pub fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows::runtime::Result<HidBooleanControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<HidBooleanControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<HidBooleanControl>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn GetBooleanControlByDescription<'a, Param0: ::windows::runtime::IntoParam<'a, HidBooleanControlDescription>>(&self, controldescription: Param0) -> ::windows::runtime::Result<HidBooleanControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), controldescription.into_param().abi(), &mut result__).from_abi::<HidBooleanControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), controldescription.into_param().abi(), &mut result__).from_abi::<HidBooleanControl>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::runtime::Result<HidNumericControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<HidNumericControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<HidNumericControl>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn GetNumericControlByDescription<'a, Param0: ::windows::runtime::IntoParam<'a, HidNumericControlDescription>>(&self, controldescription: Param0) -> ::windows::runtime::Result<HidNumericControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), controldescription.into_param().abi(), &mut result__).from_abi::<HidNumericControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), controldescription.into_param().abi(), &mut result__).from_abi::<HidNumericControl>(result__)
         }
     }
 }
@@ -681,12 +681,12 @@ unsafe impl ::windows::runtime::Interface for HidFeatureReport {
 impl ::windows::runtime::RuntimeName for HidFeatureReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidFeatureReport";
 }
-impl ::std::convert::From<HidFeatureReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HidFeatureReport> for ::windows::runtime::IUnknown {
     fn from(value: HidFeatureReport) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HidFeatureReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HidFeatureReport> for ::windows::runtime::IUnknown {
     fn from(value: &HidFeatureReport) -> Self {
         value.0 .0.clone()
     }
@@ -701,12 +701,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HidFeatureReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HidFeatureReport> for ::windows::runtime::IInspectable {
     fn from(value: HidFeatureReport) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HidFeatureReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HidFeatureReport> for ::windows::runtime::IInspectable {
     fn from(value: &HidFeatureReport) -> Self {
         value.0.clone()
     }
@@ -721,19 +721,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HidFeatureReport {}
-unsafe impl ::std::marker::Sync for HidFeatureReport {}
+unsafe impl ::core::marker::Send for HidFeatureReport {}
+unsafe impl ::core::marker::Sync for HidFeatureReport {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HidInputReport(pub ::windows::runtime::IInspectable);
 impl HidInputReport {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -741,8 +741,8 @@ impl HidInputReport {
     pub fn Data(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -750,8 +750,8 @@ impl HidInputReport {
     pub fn ActivatedBooleanControls(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControl>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<HidBooleanControl>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<HidBooleanControl>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -759,40 +759,40 @@ impl HidInputReport {
     pub fn TransitionedBooleanControls(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControl>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<HidBooleanControl>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<HidBooleanControl>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows::runtime::Result<HidBooleanControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<HidBooleanControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<HidBooleanControl>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn GetBooleanControlByDescription<'a, Param0: ::windows::runtime::IntoParam<'a, HidBooleanControlDescription>>(&self, controldescription: Param0) -> ::windows::runtime::Result<HidBooleanControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), controldescription.into_param().abi(), &mut result__).from_abi::<HidBooleanControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), controldescription.into_param().abi(), &mut result__).from_abi::<HidBooleanControl>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::runtime::Result<HidNumericControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<HidNumericControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<HidNumericControl>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn GetNumericControlByDescription<'a, Param0: ::windows::runtime::IntoParam<'a, HidNumericControlDescription>>(&self, controldescription: Param0) -> ::windows::runtime::Result<HidNumericControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), controldescription.into_param().abi(), &mut result__).from_abi::<HidNumericControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), controldescription.into_param().abi(), &mut result__).from_abi::<HidNumericControl>(result__)
         }
     }
 }
@@ -806,12 +806,12 @@ unsafe impl ::windows::runtime::Interface for HidInputReport {
 impl ::windows::runtime::RuntimeName for HidInputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReport";
 }
-impl ::std::convert::From<HidInputReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HidInputReport> for ::windows::runtime::IUnknown {
     fn from(value: HidInputReport) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HidInputReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HidInputReport> for ::windows::runtime::IUnknown {
     fn from(value: &HidInputReport) -> Self {
         value.0 .0.clone()
     }
@@ -826,12 +826,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HidInputReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HidInputReport> for ::windows::runtime::IInspectable {
     fn from(value: HidInputReport) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HidInputReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HidInputReport> for ::windows::runtime::IInspectable {
     fn from(value: &HidInputReport) -> Self {
         value.0.clone()
     }
@@ -846,19 +846,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HidInputReport {}
-unsafe impl ::std::marker::Sync for HidInputReport {}
+unsafe impl ::core::marker::Send for HidInputReport {}
+unsafe impl ::core::marker::Sync for HidInputReport {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HidInputReportReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl HidInputReportReceivedEventArgs {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Report(&self) -> ::windows::runtime::Result<HidInputReport> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HidInputReport>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HidInputReport>(result__)
         }
     }
 }
@@ -872,12 +872,12 @@ unsafe impl ::windows::runtime::Interface for HidInputReportReceivedEventArgs {
 impl ::windows::runtime::RuntimeName for HidInputReportReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs";
 }
-impl ::std::convert::From<HidInputReportReceivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HidInputReportReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: HidInputReportReceivedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HidInputReportReceivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HidInputReportReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &HidInputReportReceivedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -892,12 +892,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HidInputReportReceivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HidInputReportReceivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: HidInputReportReceivedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HidInputReportReceivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HidInputReportReceivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &HidInputReportReceivedEventArgs) -> Self {
         value.0.clone()
     }
@@ -912,77 +912,77 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HidInputReportReceivedEventArgs {}
-unsafe impl ::std::marker::Sync for HidInputReportReceivedEventArgs {}
+unsafe impl ::core::marker::Send for HidInputReportReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for HidInputReportReceivedEventArgs {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HidNumericControl(pub ::windows::runtime::IInspectable);
 impl HidNumericControl {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn IsGrouped(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn UsagePage(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn UsageId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__: i64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            let mut result__: i64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn SetValue(&self, value: i64) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn ScaledValue(&self) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__: i64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            let mut result__: i64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn SetScaledValue(&self, value: i64) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn ControlDescription(&self) -> ::windows::runtime::Result<HidNumericControlDescription> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HidNumericControlDescription>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HidNumericControlDescription>(result__)
         }
     }
 }
@@ -996,12 +996,12 @@ unsafe impl ::windows::runtime::Interface for HidNumericControl {
 impl ::windows::runtime::RuntimeName for HidNumericControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControl";
 }
-impl ::std::convert::From<HidNumericControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HidNumericControl> for ::windows::runtime::IUnknown {
     fn from(value: HidNumericControl) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HidNumericControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HidNumericControl> for ::windows::runtime::IUnknown {
     fn from(value: &HidNumericControl) -> Self {
         value.0 .0.clone()
     }
@@ -1016,12 +1016,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HidNumericControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HidNumericControl> for ::windows::runtime::IInspectable {
     fn from(value: HidNumericControl) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HidNumericControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HidNumericControl> for ::windows::runtime::IInspectable {
     fn from(value: &HidNumericControl) -> Self {
         value.0.clone()
     }
@@ -1036,131 +1036,131 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HidNumericControl {}
-unsafe impl ::std::marker::Sync for HidNumericControl {}
+unsafe impl ::core::marker::Send for HidNumericControl {}
+unsafe impl ::core::marker::Sync for HidNumericControl {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HidNumericControlDescription(pub ::windows::runtime::IInspectable);
 impl HidNumericControlDescription {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn ReportId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn ReportType(&self) -> ::windows::runtime::Result<HidReportType> {
         let this = self;
         unsafe {
-            let mut result__: HidReportType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HidReportType>(result__)
+            let mut result__: HidReportType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HidReportType>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn ReportSize(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn ReportCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn UsagePage(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn UsageId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn LogicalMinimum(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn LogicalMaximum(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn PhysicalMinimum(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn PhysicalMaximum(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn UnitExponent(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Unit(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn IsAbsolute(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn HasNull(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1168,8 +1168,8 @@ impl HidNumericControlDescription {
     pub fn ParentCollections(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<HidCollection>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<HidCollection>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<HidCollection>>(result__)
         }
     }
 }
@@ -1183,12 +1183,12 @@ unsafe impl ::windows::runtime::Interface for HidNumericControlDescription {
 impl ::windows::runtime::RuntimeName for HidNumericControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription";
 }
-impl ::std::convert::From<HidNumericControlDescription> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HidNumericControlDescription> for ::windows::runtime::IUnknown {
     fn from(value: HidNumericControlDescription) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HidNumericControlDescription> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HidNumericControlDescription> for ::windows::runtime::IUnknown {
     fn from(value: &HidNumericControlDescription) -> Self {
         value.0 .0.clone()
     }
@@ -1203,12 +1203,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HidNumericControlDescription> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HidNumericControlDescription> for ::windows::runtime::IInspectable {
     fn from(value: HidNumericControlDescription) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HidNumericControlDescription> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HidNumericControlDescription> for ::windows::runtime::IInspectable {
     fn from(value: &HidNumericControlDescription) -> Self {
         value.0.clone()
     }
@@ -1223,19 +1223,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HidNumericControlDescription {}
-unsafe impl ::std::marker::Sync for HidNumericControlDescription {}
+unsafe impl ::core::marker::Send for HidNumericControlDescription {}
+unsafe impl ::core::marker::Sync for HidNumericControlDescription {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HidOutputReport(pub ::windows::runtime::IInspectable);
 impl HidOutputReport {
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1243,46 +1243,46 @@ impl HidOutputReport {
     pub fn Data(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`, `Storage_Streams`*"]
     pub fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows::runtime::Result<HidBooleanControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<HidBooleanControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<HidBooleanControl>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn GetBooleanControlByDescription<'a, Param0: ::windows::runtime::IntoParam<'a, HidBooleanControlDescription>>(&self, controldescription: Param0) -> ::windows::runtime::Result<HidBooleanControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), controldescription.into_param().abi(), &mut result__).from_abi::<HidBooleanControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), controldescription.into_param().abi(), &mut result__).from_abi::<HidBooleanControl>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::runtime::Result<HidNumericControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<HidNumericControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<HidNumericControl>(result__)
         }
     }
     #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
     pub fn GetNumericControlByDescription<'a, Param0: ::windows::runtime::IntoParam<'a, HidNumericControlDescription>>(&self, controldescription: Param0) -> ::windows::runtime::Result<HidNumericControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), controldescription.into_param().abi(), &mut result__).from_abi::<HidNumericControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), controldescription.into_param().abi(), &mut result__).from_abi::<HidNumericControl>(result__)
         }
     }
 }
@@ -1296,12 +1296,12 @@ unsafe impl ::windows::runtime::Interface for HidOutputReport {
 impl ::windows::runtime::RuntimeName for HidOutputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidOutputReport";
 }
-impl ::std::convert::From<HidOutputReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HidOutputReport> for ::windows::runtime::IUnknown {
     fn from(value: HidOutputReport) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HidOutputReport> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HidOutputReport> for ::windows::runtime::IUnknown {
     fn from(value: &HidOutputReport) -> Self {
         value.0 .0.clone()
     }
@@ -1316,12 +1316,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HidOutputReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HidOutputReport> for ::windows::runtime::IInspectable {
     fn from(value: HidOutputReport) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HidOutputReport> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HidOutputReport> for ::windows::runtime::IInspectable {
     fn from(value: &HidOutputReport) -> Self {
         value.0.clone()
     }
@@ -1336,10 +1336,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HidOutputReport {}
-unsafe impl ::std::marker::Sync for HidOutputReport {}
+unsafe impl ::core::marker::Send for HidOutputReport {}
+unsafe impl ::core::marker::Sync for HidOutputReport {}
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HidReportType(pub i32);
 impl HidReportType {
@@ -1347,7 +1347,7 @@ impl HidReportType {
     pub const Output: HidReportType = HidReportType(1i32);
     pub const Feature: HidReportType = HidReportType(2i32);
 }
-impl ::std::convert::From<i32> for HidReportType {
+impl ::core::convert::From<i32> for HidReportType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1509,9 +1509,9 @@ pub struct IHidDeviceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, usagepage: u16, usageid: u16, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, usagepage: u16, usageid: u16, vendorid: u16, productid: u16, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, accessmode: super::super::Storage::FileAccessMode, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, usagepage: u16, usageid: u16, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, usagepage: u16, usageid: u16, vendorid: u16, productid: u16, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, accessmode: super::super::Storage::FileAccessMode, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]

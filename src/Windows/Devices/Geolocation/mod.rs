@@ -2,7 +2,7 @@
 #[cfg(feature = "Devices_Geolocation_Geofencing")]
 pub mod Geofencing;
 #[doc = "*Required features: `Devices_Geolocation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AltitudeReferenceSystem(pub i32);
 impl AltitudeReferenceSystem {
@@ -12,7 +12,7 @@ impl AltitudeReferenceSystem {
     pub const Geoid: AltitudeReferenceSystem = AltitudeReferenceSystem(3i32);
     pub const Surface: AltitudeReferenceSystem = AltitudeReferenceSystem(4i32);
 }
-impl ::std::convert::From<i32> for AltitudeReferenceSystem {
+impl ::core::convert::From<i32> for AltitudeReferenceSystem {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -26,7 +26,7 @@ unsafe impl ::windows::runtime::RuntimeType for AltitudeReferenceSystem {
 impl ::windows::runtime::DefaultType for AltitudeReferenceSystem {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Devices_Geolocation`*"]
 pub struct BasicGeoposition {
@@ -35,22 +35,22 @@ pub struct BasicGeoposition {
     pub Altitude: f64,
 }
 impl BasicGeoposition {}
-impl ::std::default::Default for BasicGeoposition {
+impl ::core::default::Default for BasicGeoposition {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for BasicGeoposition {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BasicGeoposition {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BasicGeoposition").field("Latitude", &self.Latitude).field("Longitude", &self.Longitude).field("Altitude", &self.Altitude).finish()
     }
 }
-impl ::std::cmp::PartialEq for BasicGeoposition {
+impl ::core::cmp::PartialEq for BasicGeoposition {
     fn eq(&self, other: &Self) -> bool {
         self.Latitude == other.Latitude && self.Longitude == other.Longitude && self.Altitude == other.Altitude
     }
 }
-impl ::std::cmp::Eq for BasicGeoposition {}
+impl ::core::cmp::Eq for BasicGeoposition {}
 unsafe impl ::windows::runtime::Abi for BasicGeoposition {
     type Abi = Self;
 }
@@ -62,39 +62,39 @@ impl ::windows::runtime::DefaultType for BasicGeoposition {
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CivicAddress(pub ::windows::runtime::IInspectable);
 impl CivicAddress {
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Country(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn State(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn City(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn PostalCode(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -102,8 +102,8 @@ impl CivicAddress {
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
 }
@@ -117,12 +117,12 @@ unsafe impl ::windows::runtime::Interface for CivicAddress {
 impl ::windows::runtime::RuntimeName for CivicAddress {
     const NAME: &'static str = "Windows.Devices.Geolocation.CivicAddress";
 }
-impl ::std::convert::From<CivicAddress> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CivicAddress> for ::windows::runtime::IUnknown {
     fn from(value: CivicAddress) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CivicAddress> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CivicAddress> for ::windows::runtime::IUnknown {
     fn from(value: &CivicAddress) -> Self {
         value.0 .0.clone()
     }
@@ -137,12 +137,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CivicAddress> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CivicAddress> for ::windows::runtime::IInspectable {
     fn from(value: CivicAddress) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CivicAddress> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CivicAddress> for ::windows::runtime::IInspectable {
     fn from(value: &CivicAddress) -> Self {
         value.0.clone()
     }
@@ -157,120 +157,120 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CivicAddress {}
-unsafe impl ::std::marker::Sync for CivicAddress {}
+unsafe impl ::core::marker::Send for CivicAddress {}
+unsafe impl ::core::marker::Sync for CivicAddress {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GeoboundingBox(pub ::windows::runtime::IInspectable);
 impl GeoboundingBox {
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn NorthwestCorner(&self) -> ::windows::runtime::Result<BasicGeoposition> {
         let this = self;
         unsafe {
-            let mut result__: BasicGeoposition = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BasicGeoposition>(result__)
+            let mut result__: BasicGeoposition = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BasicGeoposition>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn SoutheastCorner(&self) -> ::windows::runtime::Result<BasicGeoposition> {
         let this = self;
         unsafe {
-            let mut result__: BasicGeoposition = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BasicGeoposition>(result__)
+            let mut result__: BasicGeoposition = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BasicGeoposition>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Center(&self) -> ::windows::runtime::Result<BasicGeoposition> {
         let this = self;
         unsafe {
-            let mut result__: BasicGeoposition = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BasicGeoposition>(result__)
+            let mut result__: BasicGeoposition = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BasicGeoposition>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn MinAltitude(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn MaxAltitude(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn GeoshapeType(&self) -> ::windows::runtime::Result<GeoshapeType> {
         let this = &::windows::runtime::Interface::cast::<IGeoshape>(self)?;
         unsafe {
-            let mut result__: GeoshapeType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeoshapeType>(result__)
+            let mut result__: GeoshapeType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GeoshapeType>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn SpatialReferenceId(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IGeoshape>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn AltitudeReferenceSystem(&self) -> ::windows::runtime::Result<AltitudeReferenceSystem> {
         let this = &::windows::runtime::Interface::cast::<IGeoshape>(self)?;
         unsafe {
-            let mut result__: AltitudeReferenceSystem = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AltitudeReferenceSystem>(result__)
+            let mut result__: AltitudeReferenceSystem = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AltitudeReferenceSystem>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, BasicGeoposition>, Param1: ::windows::runtime::IntoParam<'a, BasicGeoposition>>(northwestcorner: Param0, southeastcorner: Param1) -> ::windows::runtime::Result<GeoboundingBox> {
         Self::IGeoboundingBoxFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), northwestcorner.into_param().abi(), southeastcorner.into_param().abi(), &mut result__).from_abi::<GeoboundingBox>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), northwestcorner.into_param().abi(), southeastcorner.into_param().abi(), &mut result__).from_abi::<GeoboundingBox>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn CreateWithAltitudeReference<'a, Param0: ::windows::runtime::IntoParam<'a, BasicGeoposition>, Param1: ::windows::runtime::IntoParam<'a, BasicGeoposition>>(northwestcorner: Param0, southeastcorner: Param1, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::runtime::Result<GeoboundingBox> {
         Self::IGeoboundingBoxFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), northwestcorner.into_param().abi(), southeastcorner.into_param().abi(), altitudereferencesystem, &mut result__).from_abi::<GeoboundingBox>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), northwestcorner.into_param().abi(), southeastcorner.into_param().abi(), altitudereferencesystem, &mut result__).from_abi::<GeoboundingBox>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn CreateWithAltitudeReferenceAndSpatialReference<'a, Param0: ::windows::runtime::IntoParam<'a, BasicGeoposition>, Param1: ::windows::runtime::IntoParam<'a, BasicGeoposition>>(northwestcorner: Param0, southeastcorner: Param1, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::runtime::Result<GeoboundingBox> {
         Self::IGeoboundingBoxFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), northwestcorner.into_param().abi(), southeastcorner.into_param().abi(), altitudereferencesystem, spatialreferenceid, &mut result__).from_abi::<GeoboundingBox>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), northwestcorner.into_param().abi(), southeastcorner.into_param().abi(), altitudereferencesystem, spatialreferenceid, &mut result__).from_abi::<GeoboundingBox>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation_Collections`*"]
     pub fn TryCompute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>>(positions: Param0) -> ::windows::runtime::Result<GeoboundingBox> {
         Self::IGeoboundingBoxStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), positions.into_param().abi(), &mut result__).from_abi::<GeoboundingBox>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), positions.into_param().abi(), &mut result__).from_abi::<GeoboundingBox>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation_Collections`*"]
     pub fn TryComputeWithAltitudeReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>>(positions: Param0, altituderefsystem: AltitudeReferenceSystem) -> ::windows::runtime::Result<GeoboundingBox> {
         Self::IGeoboundingBoxStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), positions.into_param().abi(), altituderefsystem, &mut result__).from_abi::<GeoboundingBox>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), positions.into_param().abi(), altituderefsystem, &mut result__).from_abi::<GeoboundingBox>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation_Collections`*"]
     pub fn TryComputeWithAltitudeReferenceAndSpatialReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>>(positions: Param0, altituderefsystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::runtime::Result<GeoboundingBox> {
         Self::IGeoboundingBoxStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), positions.into_param().abi(), altituderefsystem, spatialreferenceid, &mut result__).from_abi::<GeoboundingBox>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), positions.into_param().abi(), altituderefsystem, spatialreferenceid, &mut result__).from_abi::<GeoboundingBox>(result__)
         })
     }
     pub fn IGeoboundingBoxFactory<R, F: FnOnce(&IGeoboundingBoxFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -292,12 +292,12 @@ unsafe impl ::windows::runtime::Interface for GeoboundingBox {
 impl ::windows::runtime::RuntimeName for GeoboundingBox {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeoboundingBox";
 }
-impl ::std::convert::From<GeoboundingBox> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GeoboundingBox> for ::windows::runtime::IUnknown {
     fn from(value: GeoboundingBox) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GeoboundingBox> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GeoboundingBox> for ::windows::runtime::IUnknown {
     fn from(value: &GeoboundingBox) -> Self {
         value.0 .0.clone()
     }
@@ -312,12 +312,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GeoboundingBox> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GeoboundingBox> for ::windows::runtime::IInspectable {
     fn from(value: GeoboundingBox) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GeoboundingBox> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GeoboundingBox> for ::windows::runtime::IInspectable {
     fn from(value: &GeoboundingBox) -> Self {
         value.0.clone()
     }
@@ -332,13 +332,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<GeoboundingBox> for IGeoshape {
+impl ::core::convert::TryFrom<GeoboundingBox> for IGeoshape {
     type Error = ::windows::runtime::Error;
     fn try_from(value: GeoboundingBox) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&GeoboundingBox> for IGeoshape {
+impl ::core::convert::TryFrom<&GeoboundingBox> for IGeoshape {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &GeoboundingBox) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -351,75 +351,75 @@ impl<'a> ::windows::runtime::IntoParam<'a, IGeoshape> for GeoboundingBox {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IGeoshape> for &GeoboundingBox {
     fn into_param(self) -> ::windows::runtime::Param<'a, IGeoshape> {
-        ::std::convert::TryInto::<IGeoshape>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IGeoshape>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for GeoboundingBox {}
-unsafe impl ::std::marker::Sync for GeoboundingBox {}
+unsafe impl ::core::marker::Send for GeoboundingBox {}
+unsafe impl ::core::marker::Sync for GeoboundingBox {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Geocircle(pub ::windows::runtime::IInspectable);
 impl Geocircle {
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Center(&self) -> ::windows::runtime::Result<BasicGeoposition> {
         let this = self;
         unsafe {
-            let mut result__: BasicGeoposition = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BasicGeoposition>(result__)
+            let mut result__: BasicGeoposition = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BasicGeoposition>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Radius(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn GeoshapeType(&self) -> ::windows::runtime::Result<GeoshapeType> {
         let this = &::windows::runtime::Interface::cast::<IGeoshape>(self)?;
         unsafe {
-            let mut result__: GeoshapeType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeoshapeType>(result__)
+            let mut result__: GeoshapeType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GeoshapeType>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn SpatialReferenceId(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IGeoshape>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn AltitudeReferenceSystem(&self) -> ::windows::runtime::Result<AltitudeReferenceSystem> {
         let this = &::windows::runtime::Interface::cast::<IGeoshape>(self)?;
         unsafe {
-            let mut result__: AltitudeReferenceSystem = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AltitudeReferenceSystem>(result__)
+            let mut result__: AltitudeReferenceSystem = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AltitudeReferenceSystem>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, BasicGeoposition>>(position: Param0, radius: f64) -> ::windows::runtime::Result<Geocircle> {
         Self::IGeocircleFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), position.into_param().abi(), radius, &mut result__).from_abi::<Geocircle>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), position.into_param().abi(), radius, &mut result__).from_abi::<Geocircle>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn CreateWithAltitudeReferenceSystem<'a, Param0: ::windows::runtime::IntoParam<'a, BasicGeoposition>>(position: Param0, radius: f64, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::runtime::Result<Geocircle> {
         Self::IGeocircleFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), position.into_param().abi(), radius, altitudereferencesystem, &mut result__).from_abi::<Geocircle>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), position.into_param().abi(), radius, altitudereferencesystem, &mut result__).from_abi::<Geocircle>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId<'a, Param0: ::windows::runtime::IntoParam<'a, BasicGeoposition>>(position: Param0, radius: f64, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::runtime::Result<Geocircle> {
         Self::IGeocircleFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), position.into_param().abi(), radius, altitudereferencesystem, spatialreferenceid, &mut result__).from_abi::<Geocircle>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), position.into_param().abi(), radius, altitudereferencesystem, spatialreferenceid, &mut result__).from_abi::<Geocircle>(result__)
         })
     }
     pub fn IGeocircleFactory<R, F: FnOnce(&IGeocircleFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -437,12 +437,12 @@ unsafe impl ::windows::runtime::Interface for Geocircle {
 impl ::windows::runtime::RuntimeName for Geocircle {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocircle";
 }
-impl ::std::convert::From<Geocircle> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Geocircle> for ::windows::runtime::IUnknown {
     fn from(value: Geocircle) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&Geocircle> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Geocircle> for ::windows::runtime::IUnknown {
     fn from(value: &Geocircle) -> Self {
         value.0 .0.clone()
     }
@@ -457,12 +457,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<Geocircle> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Geocircle> for ::windows::runtime::IInspectable {
     fn from(value: Geocircle) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&Geocircle> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Geocircle> for ::windows::runtime::IInspectable {
     fn from(value: &Geocircle) -> Self {
         value.0.clone()
     }
@@ -477,13 +477,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<Geocircle> for IGeoshape {
+impl ::core::convert::TryFrom<Geocircle> for IGeoshape {
     type Error = ::windows::runtime::Error;
     fn try_from(value: Geocircle) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&Geocircle> for IGeoshape {
+impl ::core::convert::TryFrom<&Geocircle> for IGeoshape {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &Geocircle) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -496,14 +496,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, IGeoshape> for Geocircle {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IGeoshape> for &Geocircle {
     fn into_param(self) -> ::windows::runtime::Param<'a, IGeoshape> {
-        ::std::convert::TryInto::<IGeoshape>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IGeoshape>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for Geocircle {}
-unsafe impl ::std::marker::Sync for Geocircle {}
+unsafe impl ::core::marker::Send for Geocircle {}
+unsafe impl ::core::marker::Sync for Geocircle {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Geocoordinate(pub ::windows::runtime::IInspectable);
 impl Geocoordinate {
     #[cfg(feature = "deprecated")]
@@ -511,8 +511,8 @@ impl Geocoordinate {
     pub fn Latitude(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -520,8 +520,8 @@ impl Geocoordinate {
     pub fn Longitude(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -530,16 +530,16 @@ impl Geocoordinate {
     pub fn Altitude(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Accuracy(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -547,8 +547,8 @@ impl Geocoordinate {
     pub fn AltitudeAccuracy(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -556,8 +556,8 @@ impl Geocoordinate {
     pub fn Heading(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -565,8 +565,8 @@ impl Geocoordinate {
     pub fn Speed(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -574,32 +574,32 @@ impl Geocoordinate {
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Point(&self) -> ::windows::runtime::Result<Geopoint> {
         let this = &::windows::runtime::Interface::cast::<IGeocoordinateWithPoint>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Geopoint>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn PositionSource(&self) -> ::windows::runtime::Result<PositionSource> {
         let this = &::windows::runtime::Interface::cast::<IGeocoordinateWithPositionData>(self)?;
         unsafe {
-            let mut result__: PositionSource = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PositionSource>(result__)
+            let mut result__: PositionSource = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PositionSource>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn SatelliteData(&self) -> ::windows::runtime::Result<GeocoordinateSatelliteData> {
         let this = &::windows::runtime::Interface::cast::<IGeocoordinateWithPositionData>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeocoordinateSatelliteData>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GeocoordinateSatelliteData>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -607,16 +607,16 @@ impl Geocoordinate {
     pub fn PositionSourceTimestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = &::windows::runtime::Interface::cast::<IGeocoordinateWithPositionSourceTimestamp>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn IsRemoteSource(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IGeocoordinateWithRemoteSource>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -630,12 +630,12 @@ unsafe impl ::windows::runtime::Interface for Geocoordinate {
 impl ::windows::runtime::RuntimeName for Geocoordinate {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocoordinate";
 }
-impl ::std::convert::From<Geocoordinate> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Geocoordinate> for ::windows::runtime::IUnknown {
     fn from(value: Geocoordinate) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&Geocoordinate> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Geocoordinate> for ::windows::runtime::IUnknown {
     fn from(value: &Geocoordinate) -> Self {
         value.0 .0.clone()
     }
@@ -650,12 +650,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<Geocoordinate> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Geocoordinate> for ::windows::runtime::IInspectable {
     fn from(value: Geocoordinate) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&Geocoordinate> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Geocoordinate> for ::windows::runtime::IInspectable {
     fn from(value: &Geocoordinate) -> Self {
         value.0.clone()
     }
@@ -670,11 +670,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for Geocoordinate {}
-unsafe impl ::std::marker::Sync for Geocoordinate {}
+unsafe impl ::core::marker::Send for Geocoordinate {}
+unsafe impl ::core::marker::Sync for Geocoordinate {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GeocoordinateSatelliteData(pub ::windows::runtime::IInspectable);
 impl GeocoordinateSatelliteData {
     #[cfg(feature = "Foundation")]
@@ -682,8 +682,8 @@ impl GeocoordinateSatelliteData {
     pub fn PositionDilutionOfPrecision(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -691,8 +691,8 @@ impl GeocoordinateSatelliteData {
     pub fn HorizontalDilutionOfPrecision(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -700,8 +700,8 @@ impl GeocoordinateSatelliteData {
     pub fn VerticalDilutionOfPrecision(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -709,8 +709,8 @@ impl GeocoordinateSatelliteData {
     pub fn GeometricDilutionOfPrecision(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows::runtime::Interface::cast::<IGeocoordinateSatelliteData2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -718,8 +718,8 @@ impl GeocoordinateSatelliteData {
     pub fn TimeDilutionOfPrecision(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows::runtime::Interface::cast::<IGeocoordinateSatelliteData2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
 }
@@ -733,12 +733,12 @@ unsafe impl ::windows::runtime::Interface for GeocoordinateSatelliteData {
 impl ::windows::runtime::RuntimeName for GeocoordinateSatelliteData {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeocoordinateSatelliteData";
 }
-impl ::std::convert::From<GeocoordinateSatelliteData> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GeocoordinateSatelliteData> for ::windows::runtime::IUnknown {
     fn from(value: GeocoordinateSatelliteData) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GeocoordinateSatelliteData> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GeocoordinateSatelliteData> for ::windows::runtime::IUnknown {
     fn from(value: &GeocoordinateSatelliteData) -> Self {
         value.0 .0.clone()
     }
@@ -753,12 +753,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GeocoordinateSatelliteData> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GeocoordinateSatelliteData> for ::windows::runtime::IInspectable {
     fn from(value: GeocoordinateSatelliteData) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GeocoordinateSatelliteData> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GeocoordinateSatelliteData> for ::windows::runtime::IInspectable {
     fn from(value: &GeocoordinateSatelliteData) -> Self {
         value.0.clone()
     }
@@ -773,10 +773,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GeocoordinateSatelliteData {}
-unsafe impl ::std::marker::Sync for GeocoordinateSatelliteData {}
+unsafe impl ::core::marker::Send for GeocoordinateSatelliteData {}
+unsafe impl ::core::marker::Sync for GeocoordinateSatelliteData {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GeolocationAccessStatus(pub i32);
 impl GeolocationAccessStatus {
@@ -784,7 +784,7 @@ impl GeolocationAccessStatus {
     pub const Allowed: GeolocationAccessStatus = GeolocationAccessStatus(1i32);
     pub const Denied: GeolocationAccessStatus = GeolocationAccessStatus(2i32);
 }
-impl ::std::convert::From<i32> for GeolocationAccessStatus {
+impl ::core::convert::From<i32> for GeolocationAccessStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -800,7 +800,7 @@ impl ::windows::runtime::DefaultType for GeolocationAccessStatus {
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Geolocator(pub ::windows::runtime::IInspectable);
 impl Geolocator {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -814,47 +814,47 @@ impl Geolocator {
     pub fn DesiredAccuracy(&self) -> ::windows::runtime::Result<PositionAccuracy> {
         let this = self;
         unsafe {
-            let mut result__: PositionAccuracy = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PositionAccuracy>(result__)
+            let mut result__: PositionAccuracy = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PositionAccuracy>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn SetDesiredAccuracy(&self, value: PositionAccuracy) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn MovementThreshold(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn SetMovementThreshold(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn ReportInterval(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn SetReportInterval(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn LocationStatus(&self) -> ::windows::runtime::Result<PositionStatus> {
         let this = self;
         unsafe {
-            let mut result__: PositionStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PositionStatus>(result__)
+            let mut result__: PositionStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PositionStatus>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -862,8 +862,8 @@ impl Geolocator {
     pub fn GetGeopositionAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Geoposition>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Geoposition>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Geoposition>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -871,8 +871,8 @@ impl Geolocator {
     pub fn GetGeopositionAsyncWithAgeAndTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, maximumage: Param0, timeout: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Geoposition>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), maximumage.into_param().abi(), timeout.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Geoposition>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), maximumage.into_param().abi(), timeout.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Geoposition>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -880,93 +880,93 @@ impl Geolocator {
     pub fn PositionChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<Geolocator, PositionChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation`*"]
     pub fn RemovePositionChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation`*"]
     pub fn StatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<Geolocator, StatusChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation`*"]
     pub fn RemoveStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation`*"]
     pub fn DesiredAccuracyInMeters(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<u32>> {
         let this = &::windows::runtime::Interface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation`*"]
     pub fn SetDesiredAccuracyInMeters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation`*"]
     pub fn RequestAccessAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<GeolocationAccessStatus>> {
         Self::IGeolocatorStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<GeolocationAccessStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<GeolocationAccessStatus>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetGeopositionHistoryAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(starttime: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>> {
         Self::IGeolocatorStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), starttime.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), starttime.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetGeopositionHistoryWithDurationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(starttime: Param0, duration: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>> {
         Self::IGeolocatorStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), starttime.into_param().abi(), duration.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), starttime.into_param().abi(), duration.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn AllowFallbackToConsentlessPositions(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IGeolocator2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn IsDefaultGeopositionRecommended() -> ::windows::runtime::Result<bool> {
         Self::IGeolocatorStatics2(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation`*"]
     pub fn SetDefaultGeoposition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<BasicGeoposition>>>(value: Param0) -> ::windows::runtime::Result<()> {
-        Self::IGeolocatorStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() })
+        Self::IGeolocatorStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation`*"]
     pub fn DefaultGeoposition() -> ::windows::runtime::Result<super::super::Foundation::IReference<BasicGeoposition>> {
         Self::IGeolocatorStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<BasicGeoposition>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<BasicGeoposition>>(result__)
         })
     }
     pub fn IGeolocatorStatics<R, F: FnOnce(&IGeolocatorStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -988,12 +988,12 @@ unsafe impl ::windows::runtime::Interface for Geolocator {
 impl ::windows::runtime::RuntimeName for Geolocator {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geolocator";
 }
-impl ::std::convert::From<Geolocator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Geolocator> for ::windows::runtime::IUnknown {
     fn from(value: Geolocator) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&Geolocator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Geolocator> for ::windows::runtime::IUnknown {
     fn from(value: &Geolocator) -> Self {
         value.0 .0.clone()
     }
@@ -1008,12 +1008,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<Geolocator> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Geolocator> for ::windows::runtime::IInspectable {
     fn from(value: Geolocator) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&Geolocator> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Geolocator> for ::windows::runtime::IInspectable {
     fn from(value: &Geolocator) -> Self {
         value.0.clone()
     }
@@ -1028,11 +1028,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for Geolocator {}
-unsafe impl ::std::marker::Sync for Geolocator {}
+unsafe impl ::core::marker::Send for Geolocator {}
+unsafe impl ::core::marker::Sync for Geolocator {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Geopath(pub ::windows::runtime::IInspectable);
 impl Geopath {
     #[cfg(feature = "Foundation_Collections")]
@@ -1040,56 +1040,56 @@ impl Geopath {
     pub fn Positions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<BasicGeoposition>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<BasicGeoposition>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<BasicGeoposition>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn GeoshapeType(&self) -> ::windows::runtime::Result<GeoshapeType> {
         let this = &::windows::runtime::Interface::cast::<IGeoshape>(self)?;
         unsafe {
-            let mut result__: GeoshapeType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeoshapeType>(result__)
+            let mut result__: GeoshapeType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GeoshapeType>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn SpatialReferenceId(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IGeoshape>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn AltitudeReferenceSystem(&self) -> ::windows::runtime::Result<AltitudeReferenceSystem> {
         let this = &::windows::runtime::Interface::cast::<IGeoshape>(self)?;
         unsafe {
-            let mut result__: AltitudeReferenceSystem = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AltitudeReferenceSystem>(result__)
+            let mut result__: AltitudeReferenceSystem = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AltitudeReferenceSystem>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation_Collections`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>>(positions: Param0) -> ::windows::runtime::Result<Geopath> {
         Self::IGeopathFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), positions.into_param().abi(), &mut result__).from_abi::<Geopath>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), positions.into_param().abi(), &mut result__).from_abi::<Geopath>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation_Collections`*"]
     pub fn CreateWithAltitudeReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>>(positions: Param0, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::runtime::Result<Geopath> {
         Self::IGeopathFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), positions.into_param().abi(), altitudereferencesystem, &mut result__).from_abi::<Geopath>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), positions.into_param().abi(), altitudereferencesystem, &mut result__).from_abi::<Geopath>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation_Collections`*"]
     pub fn CreateWithAltitudeReferenceAndSpatialReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<BasicGeoposition>>>(positions: Param0, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::runtime::Result<Geopath> {
         Self::IGeopathFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), positions.into_param().abi(), altitudereferencesystem, spatialreferenceid, &mut result__).from_abi::<Geopath>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), positions.into_param().abi(), altitudereferencesystem, spatialreferenceid, &mut result__).from_abi::<Geopath>(result__)
         })
     }
     pub fn IGeopathFactory<R, F: FnOnce(&IGeopathFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1107,12 +1107,12 @@ unsafe impl ::windows::runtime::Interface for Geopath {
 impl ::windows::runtime::RuntimeName for Geopath {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopath";
 }
-impl ::std::convert::From<Geopath> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Geopath> for ::windows::runtime::IUnknown {
     fn from(value: Geopath) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&Geopath> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Geopath> for ::windows::runtime::IUnknown {
     fn from(value: &Geopath) -> Self {
         value.0 .0.clone()
     }
@@ -1127,12 +1127,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<Geopath> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Geopath> for ::windows::runtime::IInspectable {
     fn from(value: Geopath) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&Geopath> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Geopath> for ::windows::runtime::IInspectable {
     fn from(value: &Geopath) -> Self {
         value.0.clone()
     }
@@ -1147,13 +1147,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<Geopath> for IGeoshape {
+impl ::core::convert::TryFrom<Geopath> for IGeoshape {
     type Error = ::windows::runtime::Error;
     fn try_from(value: Geopath) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&Geopath> for IGeoshape {
+impl ::core::convert::TryFrom<&Geopath> for IGeoshape {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &Geopath) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -1166,67 +1166,67 @@ impl<'a> ::windows::runtime::IntoParam<'a, IGeoshape> for Geopath {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IGeoshape> for &Geopath {
     fn into_param(self) -> ::windows::runtime::Param<'a, IGeoshape> {
-        ::std::convert::TryInto::<IGeoshape>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IGeoshape>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for Geopath {}
-unsafe impl ::std::marker::Sync for Geopath {}
+unsafe impl ::core::marker::Send for Geopath {}
+unsafe impl ::core::marker::Sync for Geopath {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Geopoint(pub ::windows::runtime::IInspectable);
 impl Geopoint {
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<BasicGeoposition> {
         let this = self;
         unsafe {
-            let mut result__: BasicGeoposition = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BasicGeoposition>(result__)
+            let mut result__: BasicGeoposition = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BasicGeoposition>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn GeoshapeType(&self) -> ::windows::runtime::Result<GeoshapeType> {
         let this = &::windows::runtime::Interface::cast::<IGeoshape>(self)?;
         unsafe {
-            let mut result__: GeoshapeType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeoshapeType>(result__)
+            let mut result__: GeoshapeType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GeoshapeType>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn SpatialReferenceId(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IGeoshape>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn AltitudeReferenceSystem(&self) -> ::windows::runtime::Result<AltitudeReferenceSystem> {
         let this = &::windows::runtime::Interface::cast::<IGeoshape>(self)?;
         unsafe {
-            let mut result__: AltitudeReferenceSystem = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AltitudeReferenceSystem>(result__)
+            let mut result__: AltitudeReferenceSystem = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AltitudeReferenceSystem>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, BasicGeoposition>>(position: Param0) -> ::windows::runtime::Result<Geopoint> {
         Self::IGeopointFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), position.into_param().abi(), &mut result__).from_abi::<Geopoint>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), position.into_param().abi(), &mut result__).from_abi::<Geopoint>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn CreateWithAltitudeReferenceSystem<'a, Param0: ::windows::runtime::IntoParam<'a, BasicGeoposition>>(position: Param0, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::runtime::Result<Geopoint> {
         Self::IGeopointFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), position.into_param().abi(), altitudereferencesystem, &mut result__).from_abi::<Geopoint>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), position.into_param().abi(), altitudereferencesystem, &mut result__).from_abi::<Geopoint>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId<'a, Param0: ::windows::runtime::IntoParam<'a, BasicGeoposition>>(position: Param0, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::runtime::Result<Geopoint> {
         Self::IGeopointFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), position.into_param().abi(), altitudereferencesystem, spatialreferenceid, &mut result__).from_abi::<Geopoint>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), position.into_param().abi(), altitudereferencesystem, spatialreferenceid, &mut result__).from_abi::<Geopoint>(result__)
         })
     }
     pub fn IGeopointFactory<R, F: FnOnce(&IGeopointFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1244,12 +1244,12 @@ unsafe impl ::windows::runtime::Interface for Geopoint {
 impl ::windows::runtime::RuntimeName for Geopoint {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopoint";
 }
-impl ::std::convert::From<Geopoint> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Geopoint> for ::windows::runtime::IUnknown {
     fn from(value: Geopoint) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&Geopoint> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Geopoint> for ::windows::runtime::IUnknown {
     fn from(value: &Geopoint) -> Self {
         value.0 .0.clone()
     }
@@ -1264,12 +1264,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<Geopoint> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Geopoint> for ::windows::runtime::IInspectable {
     fn from(value: Geopoint) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&Geopoint> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Geopoint> for ::windows::runtime::IInspectable {
     fn from(value: &Geopoint) -> Self {
         value.0.clone()
     }
@@ -1284,13 +1284,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<Geopoint> for IGeoshape {
+impl ::core::convert::TryFrom<Geopoint> for IGeoshape {
     type Error = ::windows::runtime::Error;
     fn try_from(value: Geopoint) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&Geopoint> for IGeoshape {
+impl ::core::convert::TryFrom<&Geopoint> for IGeoshape {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &Geopoint) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -1303,38 +1303,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, IGeoshape> for Geopoint {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IGeoshape> for &Geopoint {
     fn into_param(self) -> ::windows::runtime::Param<'a, IGeoshape> {
-        ::std::convert::TryInto::<IGeoshape>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IGeoshape>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for Geopoint {}
-unsafe impl ::std::marker::Sync for Geopoint {}
+unsafe impl ::core::marker::Send for Geopoint {}
+unsafe impl ::core::marker::Sync for Geopoint {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Geoposition(pub ::windows::runtime::IInspectable);
 impl Geoposition {
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Coordinate(&self) -> ::windows::runtime::Result<Geocoordinate> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Geocoordinate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Geocoordinate>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn CivicAddress(&self) -> ::windows::runtime::Result<CivicAddress> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CivicAddress>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CivicAddress>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn VenueData(&self) -> ::windows::runtime::Result<VenueData> {
         let this = &::windows::runtime::Interface::cast::<IGeoposition2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VenueData>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VenueData>(result__)
         }
     }
 }
@@ -1348,12 +1348,12 @@ unsafe impl ::windows::runtime::Interface for Geoposition {
 impl ::windows::runtime::RuntimeName for Geoposition {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geoposition";
 }
-impl ::std::convert::From<Geoposition> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Geoposition> for ::windows::runtime::IUnknown {
     fn from(value: Geoposition) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&Geoposition> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Geoposition> for ::windows::runtime::IUnknown {
     fn from(value: &Geoposition) -> Self {
         value.0 .0.clone()
     }
@@ -1368,12 +1368,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<Geoposition> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Geoposition> for ::windows::runtime::IInspectable {
     fn from(value: Geoposition) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&Geoposition> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Geoposition> for ::windows::runtime::IInspectable {
     fn from(value: &Geoposition) -> Self {
         value.0.clone()
     }
@@ -1388,10 +1388,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for Geoposition {}
-unsafe impl ::std::marker::Sync for Geoposition {}
+unsafe impl ::core::marker::Send for Geoposition {}
+unsafe impl ::core::marker::Sync for Geoposition {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GeoshapeType(pub i32);
 impl GeoshapeType {
@@ -1400,7 +1400,7 @@ impl GeoshapeType {
     pub const Geopath: GeoshapeType = GeoshapeType(2i32);
     pub const GeoboundingBox: GeoshapeType = GeoshapeType(3i32);
 }
-impl ::std::convert::From<i32> for GeoshapeType {
+impl ::core::convert::From<i32> for GeoshapeType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1416,23 +1416,23 @@ impl ::windows::runtime::DefaultType for GeoshapeType {
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Geovisit(pub ::windows::runtime::IInspectable);
 impl Geovisit {
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<Geoposition> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Geoposition>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Geoposition>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn StateChange(&self) -> ::windows::runtime::Result<VisitStateChange> {
         let this = self;
         unsafe {
-            let mut result__: VisitStateChange = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VisitStateChange>(result__)
+            let mut result__: VisitStateChange = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VisitStateChange>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1440,8 +1440,8 @@ impl Geovisit {
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
 }
@@ -1455,12 +1455,12 @@ unsafe impl ::windows::runtime::Interface for Geovisit {
 impl ::windows::runtime::RuntimeName for Geovisit {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geovisit";
 }
-impl ::std::convert::From<Geovisit> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<Geovisit> for ::windows::runtime::IUnknown {
     fn from(value: Geovisit) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&Geovisit> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&Geovisit> for ::windows::runtime::IUnknown {
     fn from(value: &Geovisit) -> Self {
         value.0 .0.clone()
     }
@@ -1475,12 +1475,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<Geovisit> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<Geovisit> for ::windows::runtime::IInspectable {
     fn from(value: Geovisit) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&Geovisit> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&Geovisit> for ::windows::runtime::IInspectable {
     fn from(value: &Geovisit) -> Self {
         value.0.clone()
     }
@@ -1495,11 +1495,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for Geovisit {}
-unsafe impl ::std::marker::Sync for Geovisit {}
+unsafe impl ::core::marker::Send for Geovisit {}
+unsafe impl ::core::marker::Sync for Geovisit {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GeovisitMonitor(pub ::windows::runtime::IInspectable);
 impl GeovisitMonitor {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1513,41 +1513,41 @@ impl GeovisitMonitor {
     pub fn MonitoringScope(&self) -> ::windows::runtime::Result<VisitMonitoringScope> {
         let this = self;
         unsafe {
-            let mut result__: VisitMonitoringScope = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VisitMonitoringScope>(result__)
+            let mut result__: VisitMonitoringScope = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VisitMonitoringScope>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Start(&self, value: VisitMonitoringScope) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation`*"]
     pub fn VisitStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<GeovisitMonitor, GeovisitStateChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation`*"]
     pub fn RemoveVisitStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Geolocation`, `Foundation`*"]
     pub fn GetLastReportAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Geovisit>> {
         Self::IGeovisitMonitorStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Geovisit>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Geovisit>>(result__)
         })
     }
     pub fn IGeovisitMonitorStatics<R, F: FnOnce(&IGeovisitMonitorStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1565,12 +1565,12 @@ unsafe impl ::windows::runtime::Interface for GeovisitMonitor {
 impl ::windows::runtime::RuntimeName for GeovisitMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitMonitor";
 }
-impl ::std::convert::From<GeovisitMonitor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GeovisitMonitor> for ::windows::runtime::IUnknown {
     fn from(value: GeovisitMonitor) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GeovisitMonitor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GeovisitMonitor> for ::windows::runtime::IUnknown {
     fn from(value: &GeovisitMonitor) -> Self {
         value.0 .0.clone()
     }
@@ -1585,12 +1585,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GeovisitMonitor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GeovisitMonitor> for ::windows::runtime::IInspectable {
     fn from(value: GeovisitMonitor) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GeovisitMonitor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GeovisitMonitor> for ::windows::runtime::IInspectable {
     fn from(value: &GeovisitMonitor) -> Self {
         value.0.clone()
     }
@@ -1605,19 +1605,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GeovisitMonitor {}
-unsafe impl ::std::marker::Sync for GeovisitMonitor {}
+unsafe impl ::core::marker::Send for GeovisitMonitor {}
+unsafe impl ::core::marker::Sync for GeovisitMonitor {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GeovisitStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl GeovisitStateChangedEventArgs {
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Visit(&self) -> ::windows::runtime::Result<Geovisit> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Geovisit>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Geovisit>(result__)
         }
     }
 }
@@ -1631,12 +1631,12 @@ unsafe impl ::windows::runtime::Interface for GeovisitStateChangedEventArgs {
 impl ::windows::runtime::RuntimeName for GeovisitStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitStateChangedEventArgs";
 }
-impl ::std::convert::From<GeovisitStateChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GeovisitStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: GeovisitStateChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GeovisitStateChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GeovisitStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &GeovisitStateChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1651,12 +1651,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GeovisitStateChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GeovisitStateChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: GeovisitStateChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GeovisitStateChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GeovisitStateChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &GeovisitStateChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1671,11 +1671,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GeovisitStateChangedEventArgs {}
-unsafe impl ::std::marker::Sync for GeovisitStateChangedEventArgs {}
+unsafe impl ::core::marker::Send for GeovisitStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for GeovisitStateChangedEventArgs {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GeovisitTriggerDetails(pub ::windows::runtime::IInspectable);
 impl GeovisitTriggerDetails {
     #[cfg(feature = "Foundation_Collections")]
@@ -1683,8 +1683,8 @@ impl GeovisitTriggerDetails {
     pub fn ReadReports(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<Geovisit>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<Geovisit>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<Geovisit>>(result__)
         }
     }
 }
@@ -1698,12 +1698,12 @@ unsafe impl ::windows::runtime::Interface for GeovisitTriggerDetails {
 impl ::windows::runtime::RuntimeName for GeovisitTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitTriggerDetails";
 }
-impl ::std::convert::From<GeovisitTriggerDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GeovisitTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: GeovisitTriggerDetails) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GeovisitTriggerDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GeovisitTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &GeovisitTriggerDetails) -> Self {
         value.0 .0.clone()
     }
@@ -1718,12 +1718,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GeovisitTriggerDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GeovisitTriggerDetails> for ::windows::runtime::IInspectable {
     fn from(value: GeovisitTriggerDetails) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GeovisitTriggerDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GeovisitTriggerDetails> for ::windows::runtime::IInspectable {
     fn from(value: &GeovisitTriggerDetails) -> Self {
         value.0.clone()
     }
@@ -1738,8 +1738,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GeovisitTriggerDetails {}
-unsafe impl ::std::marker::Sync for GeovisitTriggerDetails {}
+unsafe impl ::core::marker::Send for GeovisitTriggerDetails {}
+unsafe impl ::core::marker::Sync for GeovisitTriggerDetails {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct ICivicAddress(pub ::windows::runtime::IInspectable);
@@ -1756,10 +1756,10 @@ pub struct ICivicAddress_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
@@ -2253,7 +2253,7 @@ pub struct IGeoposition2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Geolocation`*"]
 pub struct IGeoshape(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeoshape {
@@ -2265,36 +2265,36 @@ impl IGeoshape {
     pub fn GeoshapeType(&self) -> ::windows::runtime::Result<GeoshapeType> {
         let this = self;
         unsafe {
-            let mut result__: GeoshapeType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GeoshapeType>(result__)
+            let mut result__: GeoshapeType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GeoshapeType>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn SpatialReferenceId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn AltitudeReferenceSystem(&self) -> ::windows::runtime::Result<AltitudeReferenceSystem> {
         let this = self;
         unsafe {
-            let mut result__: AltitudeReferenceSystem = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AltitudeReferenceSystem>(result__)
+            let mut result__: AltitudeReferenceSystem = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AltitudeReferenceSystem>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IGeoshape {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{c99ca2af-c729-43c1-8fab-d6dec914df7e}");
 }
-impl ::std::convert::From<IGeoshape> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IGeoshape> for ::windows::runtime::IUnknown {
     fn from(value: IGeoshape) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IGeoshape> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IGeoshape> for ::windows::runtime::IUnknown {
     fn from(value: &IGeoshape) -> Self {
         value.0 .0.clone()
     }
@@ -2309,12 +2309,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IGeoshape> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IGeoshape> for ::windows::runtime::IInspectable {
     fn from(value: IGeoshape) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IGeoshape> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IGeoshape> for ::windows::runtime::IInspectable {
     fn from(value: &IGeoshape) -> Self {
         value.0.clone()
     }
@@ -2495,18 +2495,18 @@ pub struct IVenueData_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Devices_Geolocation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PositionAccuracy(pub i32);
 impl PositionAccuracy {
     pub const Default: PositionAccuracy = PositionAccuracy(0i32);
     pub const High: PositionAccuracy = PositionAccuracy(1i32);
 }
-impl ::std::convert::From<i32> for PositionAccuracy {
+impl ::core::convert::From<i32> for PositionAccuracy {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2522,15 +2522,15 @@ impl ::windows::runtime::DefaultType for PositionAccuracy {
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PositionChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl PositionChangedEventArgs {
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<Geoposition> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Geoposition>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Geoposition>(result__)
         }
     }
 }
@@ -2544,12 +2544,12 @@ unsafe impl ::windows::runtime::Interface for PositionChangedEventArgs {
 impl ::windows::runtime::RuntimeName for PositionChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.PositionChangedEventArgs";
 }
-impl ::std::convert::From<PositionChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PositionChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PositionChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PositionChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PositionChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PositionChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -2564,12 +2564,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PositionChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PositionChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: PositionChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PositionChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PositionChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &PositionChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -2584,10 +2584,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PositionChangedEventArgs {}
-unsafe impl ::std::marker::Sync for PositionChangedEventArgs {}
+unsafe impl ::core::marker::Send for PositionChangedEventArgs {}
+unsafe impl ::core::marker::Sync for PositionChangedEventArgs {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PositionSource(pub i32);
 impl PositionSource {
@@ -2599,7 +2599,7 @@ impl PositionSource {
     pub const Default: PositionSource = PositionSource(5i32);
     pub const Obfuscated: PositionSource = PositionSource(6i32);
 }
-impl ::std::convert::From<i32> for PositionSource {
+impl ::core::convert::From<i32> for PositionSource {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2614,7 +2614,7 @@ impl ::windows::runtime::DefaultType for PositionSource {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PositionStatus(pub i32);
 impl PositionStatus {
@@ -2625,7 +2625,7 @@ impl PositionStatus {
     pub const NotInitialized: PositionStatus = PositionStatus(4i32);
     pub const NotAvailable: PositionStatus = PositionStatus(5i32);
 }
-impl ::std::convert::From<i32> for PositionStatus {
+impl ::core::convert::From<i32> for PositionStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2641,15 +2641,15 @@ impl ::windows::runtime::DefaultType for PositionStatus {
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl StatusChangedEventArgs {
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<PositionStatus> {
         let this = self;
         unsafe {
-            let mut result__: PositionStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PositionStatus>(result__)
+            let mut result__: PositionStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PositionStatus>(result__)
         }
     }
 }
@@ -2663,12 +2663,12 @@ unsafe impl ::windows::runtime::Interface for StatusChangedEventArgs {
 impl ::windows::runtime::RuntimeName for StatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.StatusChangedEventArgs";
 }
-impl ::std::convert::From<StatusChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<StatusChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: StatusChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&StatusChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&StatusChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &StatusChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -2683,12 +2683,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<StatusChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<StatusChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: StatusChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&StatusChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&StatusChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &StatusChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -2703,27 +2703,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for StatusChangedEventArgs {}
-unsafe impl ::std::marker::Sync for StatusChangedEventArgs {}
+unsafe impl ::core::marker::Send for StatusChangedEventArgs {}
+unsafe impl ::core::marker::Sync for StatusChangedEventArgs {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VenueData(pub ::windows::runtime::IInspectable);
 impl VenueData {
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Geolocation`*"]
     pub fn Level(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -2737,12 +2737,12 @@ unsafe impl ::windows::runtime::Interface for VenueData {
 impl ::windows::runtime::RuntimeName for VenueData {
     const NAME: &'static str = "Windows.Devices.Geolocation.VenueData";
 }
-impl ::std::convert::From<VenueData> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<VenueData> for ::windows::runtime::IUnknown {
     fn from(value: VenueData) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&VenueData> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&VenueData> for ::windows::runtime::IUnknown {
     fn from(value: &VenueData) -> Self {
         value.0 .0.clone()
     }
@@ -2757,12 +2757,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<VenueData> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<VenueData> for ::windows::runtime::IInspectable {
     fn from(value: VenueData) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&VenueData> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&VenueData> for ::windows::runtime::IInspectable {
     fn from(value: &VenueData) -> Self {
         value.0.clone()
     }
@@ -2777,17 +2777,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for VenueData {}
-unsafe impl ::std::marker::Sync for VenueData {}
+unsafe impl ::core::marker::Send for VenueData {}
+unsafe impl ::core::marker::Sync for VenueData {}
 #[doc = "*Required features: `Devices_Geolocation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VisitMonitoringScope(pub i32);
 impl VisitMonitoringScope {
     pub const Venue: VisitMonitoringScope = VisitMonitoringScope(0i32);
     pub const City: VisitMonitoringScope = VisitMonitoringScope(1i32);
 }
-impl ::std::convert::From<i32> for VisitMonitoringScope {
+impl ::core::convert::From<i32> for VisitMonitoringScope {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2802,7 +2802,7 @@ impl ::windows::runtime::DefaultType for VisitMonitoringScope {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VisitStateChange(pub i32);
 impl VisitStateChange {
@@ -2811,7 +2811,7 @@ impl VisitStateChange {
     pub const Departed: VisitStateChange = VisitStateChange(2i32);
     pub const OtherMovement: VisitStateChange = VisitStateChange(3i32);
 }
-impl ::std::convert::From<i32> for VisitStateChange {
+impl ::core::convert::From<i32> for VisitStateChange {
     fn from(value: i32) -> Self {
         Self(value)
     }

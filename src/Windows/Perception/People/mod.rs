@@ -1,15 +1,15 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Perception_People`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EyesPose(pub ::windows::runtime::IInspectable);
 impl EyesPose {
     #[doc = "*Required features: `Perception_People`*"]
     pub fn IsCalibrationValid(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -17,31 +17,31 @@ impl EyesPose {
     pub fn Gaze(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::Spatial::SpatialRay>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Spatial::SpatialRay>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Spatial::SpatialRay>>(result__)
         }
     }
     #[doc = "*Required features: `Perception_People`*"]
     pub fn UpdateTimestamp(&self) -> ::windows::runtime::Result<super::PerceptionTimestamp> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::PerceptionTimestamp>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::PerceptionTimestamp>(result__)
         }
     }
     #[doc = "*Required features: `Perception_People`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::IEyesPoseStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Input"))]
     #[doc = "*Required features: `Perception_People`, `Foundation`, `UI_Input`*"]
     pub fn RequestAccessAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>> {
         Self::IEyesPoseStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>>(result__)
         })
     }
     pub fn IEyesPoseStatics<R, F: FnOnce(&IEyesPoseStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -59,12 +59,12 @@ unsafe impl ::windows::runtime::Interface for EyesPose {
 impl ::windows::runtime::RuntimeName for EyesPose {
     const NAME: &'static str = "Windows.Perception.People.EyesPose";
 }
-impl ::std::convert::From<EyesPose> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<EyesPose> for ::windows::runtime::IUnknown {
     fn from(value: EyesPose) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&EyesPose> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&EyesPose> for ::windows::runtime::IUnknown {
     fn from(value: &EyesPose) -> Self {
         value.0 .0.clone()
     }
@@ -79,12 +79,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<EyesPose> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<EyesPose> for ::windows::runtime::IInspectable {
     fn from(value: EyesPose) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&EyesPose> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&EyesPose> for ::windows::runtime::IInspectable {
     fn from(value: &EyesPose) -> Self {
         value.0.clone()
     }
@@ -99,10 +99,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for EyesPose {}
-unsafe impl ::std::marker::Sync for EyesPose {}
+unsafe impl ::core::marker::Send for EyesPose {}
+unsafe impl ::core::marker::Sync for EyesPose {}
 #[doc = "*Required features: `Perception_People`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HandJointKind(pub i32);
 impl HandJointKind {
@@ -133,7 +133,7 @@ impl HandJointKind {
     pub const LittleDistal: HandJointKind = HandJointKind(24i32);
     pub const LittleTip: HandJointKind = HandJointKind(25i32);
 }
-impl ::std::convert::From<i32> for HandJointKind {
+impl ::core::convert::From<i32> for HandJointKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -149,7 +149,7 @@ impl ::windows::runtime::DefaultType for HandJointKind {
 }
 #[doc = "*Required features: `Perception_People`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HandMeshObserver(pub ::windows::runtime::IInspectable);
 impl HandMeshObserver {
     #[cfg(feature = "UI_Input_Spatial")]
@@ -157,61 +157,61 @@ impl HandMeshObserver {
     pub fn Source(&self) -> ::windows::runtime::Result<super::super::UI::Input::Spatial::SpatialInteractionSource> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Input::Spatial::SpatialInteractionSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Input::Spatial::SpatialInteractionSource>(result__)
         }
     }
     #[doc = "*Required features: `Perception_People`*"]
     pub fn TriangleIndexCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Perception_People`*"]
     pub fn VertexCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Perception_People`*"]
     pub fn GetTriangleIndices(&self, indices: &mut [<u16 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), indices.len() as u32, ::std::mem::transmute_copy(&indices)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), indices.len() as u32, ::core::mem::transmute_copy(&indices)).ok() }
     }
     #[doc = "*Required features: `Perception_People`*"]
     pub fn GetVertexStateForPose<'a, Param0: ::windows::runtime::IntoParam<'a, HandPose>>(&self, handpose: Param0) -> ::windows::runtime::Result<HandMeshVertexState> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handpose.into_param().abi(), &mut result__).from_abi::<HandMeshVertexState>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handpose.into_param().abi(), &mut result__).from_abi::<HandMeshVertexState>(result__)
         }
     }
     #[doc = "*Required features: `Perception_People`*"]
     pub fn NeutralPose(&self) -> ::windows::runtime::Result<HandPose> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HandPose>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HandPose>(result__)
         }
     }
     #[doc = "*Required features: `Perception_People`*"]
     pub fn NeutralPoseVersion(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Perception_People`*"]
     pub fn ModelId(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
 }
@@ -225,12 +225,12 @@ unsafe impl ::windows::runtime::Interface for HandMeshObserver {
 impl ::windows::runtime::RuntimeName for HandMeshObserver {
     const NAME: &'static str = "Windows.Perception.People.HandMeshObserver";
 }
-impl ::std::convert::From<HandMeshObserver> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HandMeshObserver> for ::windows::runtime::IUnknown {
     fn from(value: HandMeshObserver) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HandMeshObserver> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HandMeshObserver> for ::windows::runtime::IUnknown {
     fn from(value: &HandMeshObserver) -> Self {
         value.0 .0.clone()
     }
@@ -245,12 +245,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HandMeshObserver> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HandMeshObserver> for ::windows::runtime::IInspectable {
     fn from(value: HandMeshObserver) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HandMeshObserver> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HandMeshObserver> for ::windows::runtime::IInspectable {
     fn from(value: &HandMeshObserver) -> Self {
         value.0.clone()
     }
@@ -265,9 +265,9 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HandMeshObserver {}
-unsafe impl ::std::marker::Sync for HandMeshObserver {}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+unsafe impl ::core::marker::Send for HandMeshObserver {}
+unsafe impl ::core::marker::Sync for HandMeshObserver {}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
 #[doc = "*Required features: `Perception_People`, `Foundation_Numerics`*"]
@@ -278,25 +278,25 @@ pub struct HandMeshVertex {
 #[cfg(feature = "Foundation_Numerics")]
 impl HandMeshVertex {}
 #[cfg(feature = "Foundation_Numerics")]
-impl ::std::default::Default for HandMeshVertex {
+impl ::core::default::Default for HandMeshVertex {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl ::std::fmt::Debug for HandMeshVertex {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HandMeshVertex {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HandMeshVertex").field("Position", &self.Position).field("Normal", &self.Normal).finish()
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl ::std::cmp::PartialEq for HandMeshVertex {
+impl ::core::cmp::PartialEq for HandMeshVertex {
     fn eq(&self, other: &Self) -> bool {
         self.Position == other.Position && self.Normal == other.Normal
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl ::std::cmp::Eq for HandMeshVertex {}
+impl ::core::cmp::Eq for HandMeshVertex {}
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for HandMeshVertex {
     type Abi = Self;
@@ -311,7 +311,7 @@ impl ::windows::runtime::DefaultType for HandMeshVertex {
 }
 #[doc = "*Required features: `Perception_People`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HandMeshVertexState(pub ::windows::runtime::IInspectable);
 impl HandMeshVertexState {
     #[cfg(feature = "Perception_Spatial")]
@@ -319,22 +319,22 @@ impl HandMeshVertexState {
     pub fn CoordinateSystem(&self) -> ::windows::runtime::Result<super::Spatial::SpatialCoordinateSystem> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Spatial::SpatialCoordinateSystem>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Spatial::SpatialCoordinateSystem>(result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
     #[doc = "*Required features: `Perception_People`, `Foundation_Numerics`*"]
     pub fn GetVertices(&self, vertices: &mut [<HandMeshVertex as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), vertices.len() as u32, ::std::mem::transmute_copy(&vertices)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), vertices.len() as u32, ::core::mem::transmute_copy(&vertices)).ok() }
     }
     #[doc = "*Required features: `Perception_People`*"]
     pub fn UpdateTimestamp(&self) -> ::windows::runtime::Result<super::PerceptionTimestamp> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::PerceptionTimestamp>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::PerceptionTimestamp>(result__)
         }
     }
 }
@@ -348,12 +348,12 @@ unsafe impl ::windows::runtime::Interface for HandMeshVertexState {
 impl ::windows::runtime::RuntimeName for HandMeshVertexState {
     const NAME: &'static str = "Windows.Perception.People.HandMeshVertexState";
 }
-impl ::std::convert::From<HandMeshVertexState> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HandMeshVertexState> for ::windows::runtime::IUnknown {
     fn from(value: HandMeshVertexState) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HandMeshVertexState> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HandMeshVertexState> for ::windows::runtime::IUnknown {
     fn from(value: &HandMeshVertexState) -> Self {
         value.0 .0.clone()
     }
@@ -368,12 +368,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HandMeshVertexState> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HandMeshVertexState> for ::windows::runtime::IInspectable {
     fn from(value: HandMeshVertexState) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HandMeshVertexState> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HandMeshVertexState> for ::windows::runtime::IInspectable {
     fn from(value: &HandMeshVertexState) -> Self {
         value.0.clone()
     }
@@ -388,11 +388,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HandMeshVertexState {}
-unsafe impl ::std::marker::Sync for HandMeshVertexState {}
+unsafe impl ::core::marker::Send for HandMeshVertexState {}
+unsafe impl ::core::marker::Sync for HandMeshVertexState {}
 #[doc = "*Required features: `Perception_People`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HandPose(pub ::windows::runtime::IInspectable);
 impl HandPose {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -400,8 +400,8 @@ impl HandPose {
     pub fn TryGetJoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0, joint: HandJointKind, jointpose: &mut JointPose) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), coordinatesystem.into_param().abi(), joint, jointpose, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), joint, jointpose, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -409,8 +409,8 @@ impl HandPose {
     pub fn TryGetJoints<'a, Param0: ::windows::runtime::IntoParam<'a, super::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0, joints: &[<HandJointKind as ::windows::runtime::DefaultType>::DefaultType], jointposes: &mut [<JointPose as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), coordinatesystem.into_param().abi(), joints.len() as u32, ::std::mem::transmute(joints.as_ptr()), jointposes.len() as u32, ::std::mem::transmute_copy(&jointposes), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), joints.len() as u32, ::core::mem::transmute(joints.as_ptr()), jointposes.len() as u32, ::core::mem::transmute_copy(&jointposes), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -418,15 +418,15 @@ impl HandPose {
     pub fn GetRelativeJoint(&self, joint: HandJointKind, referencejoint: HandJointKind) -> ::windows::runtime::Result<JointPose> {
         let this = self;
         unsafe {
-            let mut result__: JointPose = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), joint, referencejoint, &mut result__).from_abi::<JointPose>(result__)
+            let mut result__: JointPose = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), joint, referencejoint, &mut result__).from_abi::<JointPose>(result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
     #[doc = "*Required features: `Perception_People`, `Foundation_Numerics`*"]
     pub fn GetRelativeJoints(&self, joints: &[<HandJointKind as ::windows::runtime::DefaultType>::DefaultType], referencejoints: &[<HandJointKind as ::windows::runtime::DefaultType>::DefaultType], jointposes: &mut [<JointPose as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), joints.len() as u32, ::std::mem::transmute(joints.as_ptr()), referencejoints.len() as u32, ::std::mem::transmute(referencejoints.as_ptr()), jointposes.len() as u32, ::std::mem::transmute_copy(&jointposes)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), joints.len() as u32, ::core::mem::transmute(joints.as_ptr()), referencejoints.len() as u32, ::core::mem::transmute(referencejoints.as_ptr()), jointposes.len() as u32, ::core::mem::transmute_copy(&jointposes)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for HandPose {
@@ -439,12 +439,12 @@ unsafe impl ::windows::runtime::Interface for HandPose {
 impl ::windows::runtime::RuntimeName for HandPose {
     const NAME: &'static str = "Windows.Perception.People.HandPose";
 }
-impl ::std::convert::From<HandPose> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HandPose> for ::windows::runtime::IUnknown {
     fn from(value: HandPose) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HandPose> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HandPose> for ::windows::runtime::IUnknown {
     fn from(value: &HandPose) -> Self {
         value.0 .0.clone()
     }
@@ -459,12 +459,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HandPose> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HandPose> for ::windows::runtime::IInspectable {
     fn from(value: HandPose) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HandPose> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HandPose> for ::windows::runtime::IInspectable {
     fn from(value: &HandPose) -> Self {
         value.0.clone()
     }
@@ -479,11 +479,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HandPose {}
-unsafe impl ::std::marker::Sync for HandPose {}
+unsafe impl ::core::marker::Send for HandPose {}
+unsafe impl ::core::marker::Sync for HandPose {}
 #[doc = "*Required features: `Perception_People`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HeadPose(pub ::windows::runtime::IInspectable);
 impl HeadPose {
     #[cfg(feature = "Foundation_Numerics")]
@@ -491,8 +491,8 @@ impl HeadPose {
     pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::Numerics::Vector3 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
+            let mut result__: super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -500,8 +500,8 @@ impl HeadPose {
     pub fn ForwardDirection(&self) -> ::windows::runtime::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::Numerics::Vector3 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
+            let mut result__: super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -509,8 +509,8 @@ impl HeadPose {
     pub fn UpDirection(&self) -> ::windows::runtime::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::Numerics::Vector3 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
+            let mut result__: super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
 }
@@ -524,12 +524,12 @@ unsafe impl ::windows::runtime::Interface for HeadPose {
 impl ::windows::runtime::RuntimeName for HeadPose {
     const NAME: &'static str = "Windows.Perception.People.HeadPose";
 }
-impl ::std::convert::From<HeadPose> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HeadPose> for ::windows::runtime::IUnknown {
     fn from(value: HeadPose) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HeadPose> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HeadPose> for ::windows::runtime::IUnknown {
     fn from(value: &HeadPose) -> Self {
         value.0 .0.clone()
     }
@@ -544,12 +544,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HeadPose> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HeadPose> for ::windows::runtime::IInspectable {
     fn from(value: HeadPose) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HeadPose> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HeadPose> for ::windows::runtime::IInspectable {
     fn from(value: &HeadPose) -> Self {
         value.0.clone()
     }
@@ -564,8 +564,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HeadPose {}
-unsafe impl ::std::marker::Sync for HeadPose {}
+unsafe impl ::core::marker::Send for HeadPose {}
+unsafe impl ::core::marker::Sync for HeadPose {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IEyesPose(pub ::windows::runtime::IInspectable);
@@ -703,7 +703,7 @@ pub struct IHeadPose_abi(
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
 #[doc = "*Required features: `Perception_People`, `Foundation_Numerics`*"]
@@ -716,25 +716,25 @@ pub struct JointPose {
 #[cfg(feature = "Foundation_Numerics")]
 impl JointPose {}
 #[cfg(feature = "Foundation_Numerics")]
-impl ::std::default::Default for JointPose {
+impl ::core::default::Default for JointPose {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl ::std::fmt::Debug for JointPose {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JointPose {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JointPose").field("Orientation", &self.Orientation).field("Position", &self.Position).field("Radius", &self.Radius).field("Accuracy", &self.Accuracy).finish()
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl ::std::cmp::PartialEq for JointPose {
+impl ::core::cmp::PartialEq for JointPose {
     fn eq(&self, other: &Self) -> bool {
         self.Orientation == other.Orientation && self.Position == other.Position && self.Radius == other.Radius && self.Accuracy == other.Accuracy
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl ::std::cmp::Eq for JointPose {}
+impl ::core::cmp::Eq for JointPose {}
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for JointPose {
     type Abi = Self;
@@ -748,14 +748,14 @@ impl ::windows::runtime::DefaultType for JointPose {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Perception_People`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JointPoseAccuracy(pub i32);
 impl JointPoseAccuracy {
     pub const High: JointPoseAccuracy = JointPoseAccuracy(0i32);
     pub const Approximate: JointPoseAccuracy = JointPoseAccuracy(1i32);
 }
-impl ::std::convert::From<i32> for JointPoseAccuracy {
+impl ::core::convert::From<i32> for JointPoseAccuracy {
     fn from(value: i32) -> Self {
         Self(value)
     }

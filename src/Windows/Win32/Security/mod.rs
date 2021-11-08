@@ -31,7 +31,7 @@ pub mod Tpm;
 pub mod WinTrust;
 #[cfg(feature = "Win32_Security_WinWlx")]
 pub mod WinWlx;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct ACCESS_ALLOWED_ACE {
@@ -40,26 +40,26 @@ pub struct ACCESS_ALLOWED_ACE {
     pub SidStart: u32,
 }
 impl ACCESS_ALLOWED_ACE {}
-impl ::std::default::Default for ACCESS_ALLOWED_ACE {
+impl ::core::default::Default for ACCESS_ALLOWED_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACCESS_ALLOWED_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACCESS_ALLOWED_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACCESS_ALLOWED_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACCESS_ALLOWED_ACE {
+impl ::core::cmp::PartialEq for ACCESS_ALLOWED_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for ACCESS_ALLOWED_ACE {}
+impl ::core::cmp::Eq for ACCESS_ALLOWED_ACE {}
 unsafe impl ::windows::runtime::Abi for ACCESS_ALLOWED_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct ACCESS_ALLOWED_CALLBACK_ACE {
@@ -68,26 +68,26 @@ pub struct ACCESS_ALLOWED_CALLBACK_ACE {
     pub SidStart: u32,
 }
 impl ACCESS_ALLOWED_CALLBACK_ACE {}
-impl ::std::default::Default for ACCESS_ALLOWED_CALLBACK_ACE {
+impl ::core::default::Default for ACCESS_ALLOWED_CALLBACK_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACCESS_ALLOWED_CALLBACK_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACCESS_ALLOWED_CALLBACK_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACCESS_ALLOWED_CALLBACK_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACCESS_ALLOWED_CALLBACK_ACE {
+impl ::core::cmp::PartialEq for ACCESS_ALLOWED_CALLBACK_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for ACCESS_ALLOWED_CALLBACK_ACE {}
+impl ::core::cmp::Eq for ACCESS_ALLOWED_CALLBACK_ACE {}
 unsafe impl ::windows::runtime::Abi for ACCESS_ALLOWED_CALLBACK_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
@@ -99,26 +99,26 @@ pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     pub SidStart: u32,
 }
 impl ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {}
-impl ::std::default::Default for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
+impl ::core::default::Default for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACCESS_ALLOWED_CALLBACK_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
+impl ::core::cmp::PartialEq for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {}
+impl ::core::cmp::Eq for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {}
 unsafe impl ::windows::runtime::Abi for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct ACCESS_ALLOWED_OBJECT_ACE {
@@ -130,26 +130,26 @@ pub struct ACCESS_ALLOWED_OBJECT_ACE {
     pub SidStart: u32,
 }
 impl ACCESS_ALLOWED_OBJECT_ACE {}
-impl ::std::default::Default for ACCESS_ALLOWED_OBJECT_ACE {
+impl ::core::default::Default for ACCESS_ALLOWED_OBJECT_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACCESS_ALLOWED_OBJECT_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACCESS_ALLOWED_OBJECT_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACCESS_ALLOWED_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACCESS_ALLOWED_OBJECT_ACE {
+impl ::core::cmp::PartialEq for ACCESS_ALLOWED_OBJECT_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for ACCESS_ALLOWED_OBJECT_ACE {}
+impl ::core::cmp::Eq for ACCESS_ALLOWED_OBJECT_ACE {}
 unsafe impl ::windows::runtime::Abi for ACCESS_ALLOWED_OBJECT_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct ACCESS_DENIED_ACE {
@@ -158,26 +158,26 @@ pub struct ACCESS_DENIED_ACE {
     pub SidStart: u32,
 }
 impl ACCESS_DENIED_ACE {}
-impl ::std::default::Default for ACCESS_DENIED_ACE {
+impl ::core::default::Default for ACCESS_DENIED_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACCESS_DENIED_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACCESS_DENIED_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACCESS_DENIED_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACCESS_DENIED_ACE {
+impl ::core::cmp::PartialEq for ACCESS_DENIED_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for ACCESS_DENIED_ACE {}
+impl ::core::cmp::Eq for ACCESS_DENIED_ACE {}
 unsafe impl ::windows::runtime::Abi for ACCESS_DENIED_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct ACCESS_DENIED_CALLBACK_ACE {
@@ -186,26 +186,26 @@ pub struct ACCESS_DENIED_CALLBACK_ACE {
     pub SidStart: u32,
 }
 impl ACCESS_DENIED_CALLBACK_ACE {}
-impl ::std::default::Default for ACCESS_DENIED_CALLBACK_ACE {
+impl ::core::default::Default for ACCESS_DENIED_CALLBACK_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACCESS_DENIED_CALLBACK_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACCESS_DENIED_CALLBACK_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACCESS_DENIED_CALLBACK_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACCESS_DENIED_CALLBACK_ACE {
+impl ::core::cmp::PartialEq for ACCESS_DENIED_CALLBACK_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for ACCESS_DENIED_CALLBACK_ACE {}
+impl ::core::cmp::Eq for ACCESS_DENIED_CALLBACK_ACE {}
 unsafe impl ::windows::runtime::Abi for ACCESS_DENIED_CALLBACK_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
@@ -217,26 +217,26 @@ pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     pub SidStart: u32,
 }
 impl ACCESS_DENIED_CALLBACK_OBJECT_ACE {}
-impl ::std::default::Default for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
+impl ::core::default::Default for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACCESS_DENIED_CALLBACK_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
+impl ::core::cmp::PartialEq for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for ACCESS_DENIED_CALLBACK_OBJECT_ACE {}
+impl ::core::cmp::Eq for ACCESS_DENIED_CALLBACK_OBJECT_ACE {}
 unsafe impl ::windows::runtime::Abi for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct ACCESS_DENIED_OBJECT_ACE {
@@ -248,27 +248,27 @@ pub struct ACCESS_DENIED_OBJECT_ACE {
     pub SidStart: u32,
 }
 impl ACCESS_DENIED_OBJECT_ACE {}
-impl ::std::default::Default for ACCESS_DENIED_OBJECT_ACE {
+impl ::core::default::Default for ACCESS_DENIED_OBJECT_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACCESS_DENIED_OBJECT_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACCESS_DENIED_OBJECT_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACCESS_DENIED_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACCESS_DENIED_OBJECT_ACE {
+impl ::core::cmp::PartialEq for ACCESS_DENIED_OBJECT_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for ACCESS_DENIED_OBJECT_ACE {}
+impl ::core::cmp::Eq for ACCESS_DENIED_OBJECT_ACE {}
 unsafe impl ::windows::runtime::Abi for ACCESS_DENIED_OBJECT_ACE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACE_FLAGS(pub u32);
 pub const CONTAINER_INHERIT_ACE: ACE_FLAGS = ACE_FLAGS(2u32);
@@ -285,7 +285,7 @@ pub const INHERIT_NO_PROPAGATE: ACE_FLAGS = ACE_FLAGS(4u32);
 pub const INHERIT_ONLY: ACE_FLAGS = ACE_FLAGS(8u32);
 pub const NO_INHERITANCE: ACE_FLAGS = ACE_FLAGS(0u32);
 pub const INHERIT_ONLY_ACE_: ACE_FLAGS = ACE_FLAGS(8u32);
-impl ::std::convert::From<u32> for ACE_FLAGS {
+impl ::core::convert::From<u32> for ACE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -293,35 +293,35 @@ impl ::std::convert::From<u32> for ACE_FLAGS {
 unsafe impl ::windows::runtime::Abi for ACE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for ACE_FLAGS {
+impl ::core::ops::BitOr for ACE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for ACE_FLAGS {
+impl ::core::ops::BitAnd for ACE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for ACE_FLAGS {
+impl ::core::ops::BitOrAssign for ACE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for ACE_FLAGS {
+impl ::core::ops::BitAndAssign for ACE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for ACE_FLAGS {
+impl ::core::ops::Not for ACE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct ACE_HEADER {
@@ -330,32 +330,32 @@ pub struct ACE_HEADER {
     pub AceSize: u16,
 }
 impl ACE_HEADER {}
-impl ::std::default::Default for ACE_HEADER {
+impl ::core::default::Default for ACE_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACE_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACE_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACE_HEADER").field("AceType", &self.AceType).field("AceFlags", &self.AceFlags).field("AceSize", &self.AceSize).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACE_HEADER {
+impl ::core::cmp::PartialEq for ACE_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.AceType == other.AceType && self.AceFlags == other.AceFlags && self.AceSize == other.AceSize
     }
 }
-impl ::std::cmp::Eq for ACE_HEADER {}
+impl ::core::cmp::Eq for ACE_HEADER {}
 unsafe impl ::windows::runtime::Abi for ACE_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACE_REVISION(pub u32);
 pub const ACL_REVISION: ACE_REVISION = ACE_REVISION(2u32);
 pub const ACL_REVISION_DS: ACE_REVISION = ACE_REVISION(4u32);
-impl ::std::convert::From<u32> for ACE_REVISION {
+impl ::core::convert::From<u32> for ACE_REVISION {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -363,35 +363,35 @@ impl ::std::convert::From<u32> for ACE_REVISION {
 unsafe impl ::windows::runtime::Abi for ACE_REVISION {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for ACE_REVISION {
+impl ::core::ops::BitOr for ACE_REVISION {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for ACE_REVISION {
+impl ::core::ops::BitAnd for ACE_REVISION {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for ACE_REVISION {
+impl ::core::ops::BitOrAssign for ACE_REVISION {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for ACE_REVISION {
+impl ::core::ops::BitAndAssign for ACE_REVISION {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for ACE_REVISION {
+impl ::core::ops::Not for ACE_REVISION {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct ACL {
@@ -402,32 +402,32 @@ pub struct ACL {
     pub Sbz2: u16,
 }
 impl ACL {}
-impl ::std::default::Default for ACL {
+impl ::core::default::Default for ACL {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACL {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACL {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACL").field("AclRevision", &self.AclRevision).field("Sbz1", &self.Sbz1).field("AclSize", &self.AclSize).field("AceCount", &self.AceCount).field("Sbz2", &self.Sbz2).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACL {
+impl ::core::cmp::PartialEq for ACL {
     fn eq(&self, other: &Self) -> bool {
         self.AclRevision == other.AclRevision && self.Sbz1 == other.Sbz1 && self.AclSize == other.AclSize && self.AceCount == other.AceCount && self.Sbz2 == other.Sbz2
     }
 }
-impl ::std::cmp::Eq for ACL {}
+impl ::core::cmp::Eq for ACL {}
 unsafe impl ::windows::runtime::Abi for ACL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACL_INFORMATION_CLASS(pub i32);
 pub const AclRevisionInformation: ACL_INFORMATION_CLASS = ACL_INFORMATION_CLASS(1i32);
 pub const AclSizeInformation: ACL_INFORMATION_CLASS = ACL_INFORMATION_CLASS(2i32);
-impl ::std::convert::From<i32> for ACL_INFORMATION_CLASS {
+impl ::core::convert::From<i32> for ACL_INFORMATION_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -435,33 +435,33 @@ impl ::std::convert::From<i32> for ACL_INFORMATION_CLASS {
 unsafe impl ::windows::runtime::Abi for ACL_INFORMATION_CLASS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct ACL_REVISION_INFORMATION {
     pub AclRevision: u32,
 }
 impl ACL_REVISION_INFORMATION {}
-impl ::std::default::Default for ACL_REVISION_INFORMATION {
+impl ::core::default::Default for ACL_REVISION_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACL_REVISION_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACL_REVISION_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACL_REVISION_INFORMATION").field("AclRevision", &self.AclRevision).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACL_REVISION_INFORMATION {
+impl ::core::cmp::PartialEq for ACL_REVISION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.AclRevision == other.AclRevision
     }
 }
-impl ::std::cmp::Eq for ACL_REVISION_INFORMATION {}
+impl ::core::cmp::Eq for ACL_REVISION_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for ACL_REVISION_INFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct ACL_SIZE_INFORMATION {
@@ -470,32 +470,32 @@ pub struct ACL_SIZE_INFORMATION {
     pub AclBytesFree: u32,
 }
 impl ACL_SIZE_INFORMATION {}
-impl ::std::default::Default for ACL_SIZE_INFORMATION {
+impl ::core::default::Default for ACL_SIZE_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACL_SIZE_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACL_SIZE_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACL_SIZE_INFORMATION").field("AceCount", &self.AceCount).field("AclBytesInUse", &self.AclBytesInUse).field("AclBytesFree", &self.AclBytesFree).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACL_SIZE_INFORMATION {
+impl ::core::cmp::PartialEq for ACL_SIZE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.AceCount == other.AceCount && self.AclBytesInUse == other.AclBytesInUse && self.AclBytesFree == other.AclBytesFree
     }
 }
-impl ::std::cmp::Eq for ACL_SIZE_INFORMATION {}
+impl ::core::cmp::Eq for ACL_SIZE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for ACL_SIZE_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AUDIT_EVENT_TYPE(pub i32);
 pub const AuditEventObjectAccess: AUDIT_EVENT_TYPE = AUDIT_EVENT_TYPE(0i32);
 pub const AuditEventDirectoryServiceAccess: AUDIT_EVENT_TYPE = AUDIT_EVENT_TYPE(1i32);
-impl ::std::convert::From<i32> for AUDIT_EVENT_TYPE {
+impl ::core::convert::From<i32> for AUDIT_EVENT_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -513,15 +513,15 @@ pub unsafe fn AccessCheck<'a, Param1: ::windows::runtime::IntoParam<'a, super::F
         extern "system" {
             fn AccessCheck(psecuritydescriptor: *const SECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AccessCheck(
-            ::std::mem::transmute(psecuritydescriptor),
+        ::core::mem::transmute(AccessCheck(
+            ::core::mem::transmute(psecuritydescriptor),
             clienttoken.into_param().abi(),
-            ::std::mem::transmute(desiredaccess),
-            ::std::mem::transmute(genericmapping),
-            ::std::mem::transmute(privilegeset),
-            ::std::mem::transmute(privilegesetlength),
-            ::std::mem::transmute(grantedaccess),
-            ::std::mem::transmute(accessstatus),
+            ::core::mem::transmute(desiredaccess),
+            ::core::mem::transmute(genericmapping),
+            ::core::mem::transmute(privilegeset),
+            ::core::mem::transmute(privilegesetlength),
+            ::core::mem::transmute(grantedaccess),
+            ::core::mem::transmute(accessstatus),
         ))
     }
     #[cfg(not(windows))]
@@ -532,7 +532,7 @@ pub unsafe fn AccessCheck<'a, Param1: ::windows::runtime::IntoParam<'a, super::F
 #[inline]
 pub unsafe fn AccessCheckAndAuditAlarmA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param7: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
-    handleid: *const ::std::ffi::c_void,
+    handleid: *const ::core::ffi::c_void,
     objecttypename: Param2,
     objectname: Param3,
     securitydescriptor: *const SECURITY_DESCRIPTOR,
@@ -547,20 +547,20 @@ pub unsafe fn AccessCheckAndAuditAlarmA<'a, Param0: ::windows::runtime::IntoPara
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AccessCheckAndAuditAlarmA(subsystemname: super::Foundation::PSTR, handleid: *const ::std::ffi::c_void, objecttypename: super::Foundation::PSTR, objectname: super::Foundation::PSTR, securitydescriptor: *const SECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
+            fn AccessCheckAndAuditAlarmA(subsystemname: super::Foundation::PSTR, handleid: *const ::core::ffi::c_void, objecttypename: super::Foundation::PSTR, objectname: super::Foundation::PSTR, securitydescriptor: *const SECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AccessCheckAndAuditAlarmA(
+        ::core::mem::transmute(AccessCheckAndAuditAlarmA(
             subsystemname.into_param().abi(),
-            ::std::mem::transmute(handleid),
+            ::core::mem::transmute(handleid),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(desiredaccess),
-            ::std::mem::transmute(genericmapping),
+            ::core::mem::transmute(securitydescriptor),
+            ::core::mem::transmute(desiredaccess),
+            ::core::mem::transmute(genericmapping),
             objectcreation.into_param().abi(),
-            ::std::mem::transmute(grantedaccess),
-            ::std::mem::transmute(accessstatus),
-            ::std::mem::transmute(pfgenerateonclose),
+            ::core::mem::transmute(grantedaccess),
+            ::core::mem::transmute(accessstatus),
+            ::core::mem::transmute(pfgenerateonclose),
         ))
     }
     #[cfg(not(windows))]
@@ -571,7 +571,7 @@ pub unsafe fn AccessCheckAndAuditAlarmA<'a, Param0: ::windows::runtime::IntoPara
 #[inline]
 pub unsafe fn AccessCheckAndAuditAlarmW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
-    handleid: *const ::std::ffi::c_void,
+    handleid: *const ::core::ffi::c_void,
     objecttypename: Param2,
     objectname: Param3,
     securitydescriptor: *const SECURITY_DESCRIPTOR,
@@ -586,20 +586,20 @@ pub unsafe fn AccessCheckAndAuditAlarmW<'a, Param0: ::windows::runtime::IntoPara
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AccessCheckAndAuditAlarmW(subsystemname: super::Foundation::PWSTR, handleid: *const ::std::ffi::c_void, objecttypename: super::Foundation::PWSTR, objectname: super::Foundation::PWSTR, securitydescriptor: *const SECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
+            fn AccessCheckAndAuditAlarmW(subsystemname: super::Foundation::PWSTR, handleid: *const ::core::ffi::c_void, objecttypename: super::Foundation::PWSTR, objectname: super::Foundation::PWSTR, securitydescriptor: *const SECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AccessCheckAndAuditAlarmW(
+        ::core::mem::transmute(AccessCheckAndAuditAlarmW(
             subsystemname.into_param().abi(),
-            ::std::mem::transmute(handleid),
+            ::core::mem::transmute(handleid),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(desiredaccess),
-            ::std::mem::transmute(genericmapping),
+            ::core::mem::transmute(securitydescriptor),
+            ::core::mem::transmute(desiredaccess),
+            ::core::mem::transmute(genericmapping),
             objectcreation.into_param().abi(),
-            ::std::mem::transmute(grantedaccess),
-            ::std::mem::transmute(accessstatus),
-            ::std::mem::transmute(pfgenerateonclose),
+            ::core::mem::transmute(grantedaccess),
+            ::core::mem::transmute(accessstatus),
+            ::core::mem::transmute(pfgenerateonclose),
         ))
     }
     #[cfg(not(windows))]
@@ -627,18 +627,18 @@ pub unsafe fn AccessCheckByType<'a, Param1: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn AccessCheckByType(psecuritydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AccessCheckByType(
-            ::std::mem::transmute(psecuritydescriptor),
+        ::core::mem::transmute(AccessCheckByType(
+            ::core::mem::transmute(psecuritydescriptor),
             principalselfsid.into_param().abi(),
             clienttoken.into_param().abi(),
-            ::std::mem::transmute(desiredaccess),
-            ::std::mem::transmute(objecttypelist),
-            ::std::mem::transmute(objecttypelistlength),
-            ::std::mem::transmute(genericmapping),
-            ::std::mem::transmute(privilegeset),
-            ::std::mem::transmute(privilegesetlength),
-            ::std::mem::transmute(grantedaccess),
-            ::std::mem::transmute(accessstatus),
+            ::core::mem::transmute(desiredaccess),
+            ::core::mem::transmute(objecttypelist),
+            ::core::mem::transmute(objecttypelistlength),
+            ::core::mem::transmute(genericmapping),
+            ::core::mem::transmute(privilegeset),
+            ::core::mem::transmute(privilegesetlength),
+            ::core::mem::transmute(grantedaccess),
+            ::core::mem::transmute(accessstatus),
         ))
     }
     #[cfg(not(windows))]
@@ -649,7 +649,7 @@ pub unsafe fn AccessCheckByType<'a, Param1: ::windows::runtime::IntoParam<'a, su
 #[inline]
 pub unsafe fn AccessCheckByTypeAndAuditAlarmA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
-    handleid: *const ::std::ffi::c_void,
+    handleid: *const ::core::ffi::c_void,
     objecttypename: Param2,
     objectname: Param3,
     securitydescriptor: *const SECURITY_DESCRIPTOR,
@@ -671,7 +671,7 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmA<'a, Param0: ::windows::runtime::In
         extern "system" {
             fn AccessCheckByTypeAndAuditAlarmA(
                 subsystemname: super::Foundation::PSTR,
-                handleid: *const ::std::ffi::c_void,
+                handleid: *const ::core::ffi::c_void,
                 objecttypename: super::Foundation::PSTR,
                 objectname: super::Foundation::PSTR,
                 securitydescriptor: *const SECURITY_DESCRIPTOR,
@@ -688,23 +688,23 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmA<'a, Param0: ::windows::runtime::In
                 pfgenerateonclose: *mut i32,
             ) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AccessCheckByTypeAndAuditAlarmA(
+        ::core::mem::transmute(AccessCheckByTypeAndAuditAlarmA(
             subsystemname.into_param().abi(),
-            ::std::mem::transmute(handleid),
+            ::core::mem::transmute(handleid),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::std::mem::transmute(securitydescriptor),
+            ::core::mem::transmute(securitydescriptor),
             principalselfsid.into_param().abi(),
-            ::std::mem::transmute(desiredaccess),
-            ::std::mem::transmute(audittype),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(objecttypelist),
-            ::std::mem::transmute(objecttypelistlength),
-            ::std::mem::transmute(genericmapping),
+            ::core::mem::transmute(desiredaccess),
+            ::core::mem::transmute(audittype),
+            ::core::mem::transmute(flags),
+            ::core::mem::transmute(objecttypelist),
+            ::core::mem::transmute(objecttypelistlength),
+            ::core::mem::transmute(genericmapping),
             objectcreation.into_param().abi(),
-            ::std::mem::transmute(grantedaccess),
-            ::std::mem::transmute(accessstatus),
-            ::std::mem::transmute(pfgenerateonclose),
+            ::core::mem::transmute(grantedaccess),
+            ::core::mem::transmute(accessstatus),
+            ::core::mem::transmute(pfgenerateonclose),
         ))
     }
     #[cfg(not(windows))]
@@ -715,7 +715,7 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmA<'a, Param0: ::windows::runtime::In
 #[inline]
 pub unsafe fn AccessCheckByTypeAndAuditAlarmW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
-    handleid: *const ::std::ffi::c_void,
+    handleid: *const ::core::ffi::c_void,
     objecttypename: Param2,
     objectname: Param3,
     securitydescriptor: *const SECURITY_DESCRIPTOR,
@@ -737,7 +737,7 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmW<'a, Param0: ::windows::runtime::In
         extern "system" {
             fn AccessCheckByTypeAndAuditAlarmW(
                 subsystemname: super::Foundation::PWSTR,
-                handleid: *const ::std::ffi::c_void,
+                handleid: *const ::core::ffi::c_void,
                 objecttypename: super::Foundation::PWSTR,
                 objectname: super::Foundation::PWSTR,
                 securitydescriptor: *const SECURITY_DESCRIPTOR,
@@ -754,23 +754,23 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmW<'a, Param0: ::windows::runtime::In
                 pfgenerateonclose: *mut i32,
             ) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AccessCheckByTypeAndAuditAlarmW(
+        ::core::mem::transmute(AccessCheckByTypeAndAuditAlarmW(
             subsystemname.into_param().abi(),
-            ::std::mem::transmute(handleid),
+            ::core::mem::transmute(handleid),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::std::mem::transmute(securitydescriptor),
+            ::core::mem::transmute(securitydescriptor),
             principalselfsid.into_param().abi(),
-            ::std::mem::transmute(desiredaccess),
-            ::std::mem::transmute(audittype),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(objecttypelist),
-            ::std::mem::transmute(objecttypelistlength),
-            ::std::mem::transmute(genericmapping),
+            ::core::mem::transmute(desiredaccess),
+            ::core::mem::transmute(audittype),
+            ::core::mem::transmute(flags),
+            ::core::mem::transmute(objecttypelist),
+            ::core::mem::transmute(objecttypelistlength),
+            ::core::mem::transmute(genericmapping),
             objectcreation.into_param().abi(),
-            ::std::mem::transmute(grantedaccess),
-            ::std::mem::transmute(accessstatus),
-            ::std::mem::transmute(pfgenerateonclose),
+            ::core::mem::transmute(grantedaccess),
+            ::core::mem::transmute(accessstatus),
+            ::core::mem::transmute(pfgenerateonclose),
         ))
     }
     #[cfg(not(windows))]
@@ -798,18 +798,18 @@ pub unsafe fn AccessCheckByTypeResultList<'a, Param1: ::windows::runtime::IntoPa
         extern "system" {
             fn AccessCheckByTypeResultList(psecuritydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AccessCheckByTypeResultList(
-            ::std::mem::transmute(psecuritydescriptor),
+        ::core::mem::transmute(AccessCheckByTypeResultList(
+            ::core::mem::transmute(psecuritydescriptor),
             principalselfsid.into_param().abi(),
             clienttoken.into_param().abi(),
-            ::std::mem::transmute(desiredaccess),
-            ::std::mem::transmute(objecttypelist),
-            ::std::mem::transmute(objecttypelistlength),
-            ::std::mem::transmute(genericmapping),
-            ::std::mem::transmute(privilegeset),
-            ::std::mem::transmute(privilegesetlength),
-            ::std::mem::transmute(grantedaccesslist),
-            ::std::mem::transmute(accessstatuslist),
+            ::core::mem::transmute(desiredaccess),
+            ::core::mem::transmute(objecttypelist),
+            ::core::mem::transmute(objecttypelistlength),
+            ::core::mem::transmute(genericmapping),
+            ::core::mem::transmute(privilegeset),
+            ::core::mem::transmute(privilegesetlength),
+            ::core::mem::transmute(grantedaccesslist),
+            ::core::mem::transmute(accessstatuslist),
         ))
     }
     #[cfg(not(windows))]
@@ -820,7 +820,7 @@ pub unsafe fn AccessCheckByTypeResultList<'a, Param1: ::windows::runtime::IntoPa
 #[inline]
 pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
-    handleid: *const ::std::ffi::c_void,
+    handleid: *const ::core::ffi::c_void,
     objecttypename: Param2,
     objectname: Param3,
     securitydescriptor: *const SECURITY_DESCRIPTOR,
@@ -842,7 +842,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::r
         extern "system" {
             fn AccessCheckByTypeResultListAndAuditAlarmA(
                 subsystemname: super::Foundation::PSTR,
-                handleid: *const ::std::ffi::c_void,
+                handleid: *const ::core::ffi::c_void,
                 objecttypename: super::Foundation::PSTR,
                 objectname: super::Foundation::PSTR,
                 securitydescriptor: *const SECURITY_DESCRIPTOR,
@@ -859,23 +859,23 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::r
                 pfgenerateonclose: *mut i32,
             ) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AccessCheckByTypeResultListAndAuditAlarmA(
+        ::core::mem::transmute(AccessCheckByTypeResultListAndAuditAlarmA(
             subsystemname.into_param().abi(),
-            ::std::mem::transmute(handleid),
+            ::core::mem::transmute(handleid),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::std::mem::transmute(securitydescriptor),
+            ::core::mem::transmute(securitydescriptor),
             principalselfsid.into_param().abi(),
-            ::std::mem::transmute(desiredaccess),
-            ::std::mem::transmute(audittype),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(objecttypelist),
-            ::std::mem::transmute(objecttypelistlength),
-            ::std::mem::transmute(genericmapping),
+            ::core::mem::transmute(desiredaccess),
+            ::core::mem::transmute(audittype),
+            ::core::mem::transmute(flags),
+            ::core::mem::transmute(objecttypelist),
+            ::core::mem::transmute(objecttypelistlength),
+            ::core::mem::transmute(genericmapping),
             objectcreation.into_param().abi(),
-            ::std::mem::transmute(grantedaccess),
-            ::std::mem::transmute(accessstatuslist),
-            ::std::mem::transmute(pfgenerateonclose),
+            ::core::mem::transmute(grantedaccess),
+            ::core::mem::transmute(accessstatuslist),
+            ::core::mem::transmute(pfgenerateonclose),
         ))
     }
     #[cfg(not(windows))]
@@ -886,7 +886,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::r
 #[inline]
 pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::Foundation::PSID>, Param13: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
-    handleid: *const ::std::ffi::c_void,
+    handleid: *const ::core::ffi::c_void,
     clienttoken: Param2,
     objecttypename: Param3,
     objectname: Param4,
@@ -909,7 +909,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::wi
         extern "system" {
             fn AccessCheckByTypeResultListAndAuditAlarmByHandleA(
                 subsystemname: super::Foundation::PSTR,
-                handleid: *const ::std::ffi::c_void,
+                handleid: *const ::core::ffi::c_void,
                 clienttoken: super::Foundation::HANDLE,
                 objecttypename: super::Foundation::PSTR,
                 objectname: super::Foundation::PSTR,
@@ -927,24 +927,24 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::wi
                 pfgenerateonclose: *mut i32,
             ) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AccessCheckByTypeResultListAndAuditAlarmByHandleA(
+        ::core::mem::transmute(AccessCheckByTypeResultListAndAuditAlarmByHandleA(
             subsystemname.into_param().abi(),
-            ::std::mem::transmute(handleid),
+            ::core::mem::transmute(handleid),
             clienttoken.into_param().abi(),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::std::mem::transmute(securitydescriptor),
+            ::core::mem::transmute(securitydescriptor),
             principalselfsid.into_param().abi(),
-            ::std::mem::transmute(desiredaccess),
-            ::std::mem::transmute(audittype),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(objecttypelist),
-            ::std::mem::transmute(objecttypelistlength),
-            ::std::mem::transmute(genericmapping),
+            ::core::mem::transmute(desiredaccess),
+            ::core::mem::transmute(audittype),
+            ::core::mem::transmute(flags),
+            ::core::mem::transmute(objecttypelist),
+            ::core::mem::transmute(objecttypelistlength),
+            ::core::mem::transmute(genericmapping),
             objectcreation.into_param().abi(),
-            ::std::mem::transmute(grantedaccess),
-            ::std::mem::transmute(accessstatuslist),
-            ::std::mem::transmute(pfgenerateonclose),
+            ::core::mem::transmute(grantedaccess),
+            ::core::mem::transmute(accessstatuslist),
+            ::core::mem::transmute(pfgenerateonclose),
         ))
     }
     #[cfg(not(windows))]
@@ -955,7 +955,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::wi
 #[inline]
 pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::Foundation::PSID>, Param13: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
-    handleid: *const ::std::ffi::c_void,
+    handleid: *const ::core::ffi::c_void,
     clienttoken: Param2,
     objecttypename: Param3,
     objectname: Param4,
@@ -978,7 +978,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::wi
         extern "system" {
             fn AccessCheckByTypeResultListAndAuditAlarmByHandleW(
                 subsystemname: super::Foundation::PWSTR,
-                handleid: *const ::std::ffi::c_void,
+                handleid: *const ::core::ffi::c_void,
                 clienttoken: super::Foundation::HANDLE,
                 objecttypename: super::Foundation::PWSTR,
                 objectname: super::Foundation::PWSTR,
@@ -996,24 +996,24 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::wi
                 pfgenerateonclose: *mut i32,
             ) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AccessCheckByTypeResultListAndAuditAlarmByHandleW(
+        ::core::mem::transmute(AccessCheckByTypeResultListAndAuditAlarmByHandleW(
             subsystemname.into_param().abi(),
-            ::std::mem::transmute(handleid),
+            ::core::mem::transmute(handleid),
             clienttoken.into_param().abi(),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::std::mem::transmute(securitydescriptor),
+            ::core::mem::transmute(securitydescriptor),
             principalselfsid.into_param().abi(),
-            ::std::mem::transmute(desiredaccess),
-            ::std::mem::transmute(audittype),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(objecttypelist),
-            ::std::mem::transmute(objecttypelistlength),
-            ::std::mem::transmute(genericmapping),
+            ::core::mem::transmute(desiredaccess),
+            ::core::mem::transmute(audittype),
+            ::core::mem::transmute(flags),
+            ::core::mem::transmute(objecttypelist),
+            ::core::mem::transmute(objecttypelistlength),
+            ::core::mem::transmute(genericmapping),
             objectcreation.into_param().abi(),
-            ::std::mem::transmute(grantedaccesslist),
-            ::std::mem::transmute(accessstatuslist),
-            ::std::mem::transmute(pfgenerateonclose),
+            ::core::mem::transmute(grantedaccesslist),
+            ::core::mem::transmute(accessstatuslist),
+            ::core::mem::transmute(pfgenerateonclose),
         ))
     }
     #[cfg(not(windows))]
@@ -1024,7 +1024,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::wi
 #[inline]
 pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
-    handleid: *const ::std::ffi::c_void,
+    handleid: *const ::core::ffi::c_void,
     objecttypename: Param2,
     objectname: Param3,
     securitydescriptor: *const SECURITY_DESCRIPTOR,
@@ -1046,7 +1046,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<'a, Param0: ::windows::r
         extern "system" {
             fn AccessCheckByTypeResultListAndAuditAlarmW(
                 subsystemname: super::Foundation::PWSTR,
-                handleid: *const ::std::ffi::c_void,
+                handleid: *const ::core::ffi::c_void,
                 objecttypename: super::Foundation::PWSTR,
                 objectname: super::Foundation::PWSTR,
                 securitydescriptor: *const SECURITY_DESCRIPTOR,
@@ -1063,23 +1063,23 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<'a, Param0: ::windows::r
                 pfgenerateonclose: *mut i32,
             ) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AccessCheckByTypeResultListAndAuditAlarmW(
+        ::core::mem::transmute(AccessCheckByTypeResultListAndAuditAlarmW(
             subsystemname.into_param().abi(),
-            ::std::mem::transmute(handleid),
+            ::core::mem::transmute(handleid),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::std::mem::transmute(securitydescriptor),
+            ::core::mem::transmute(securitydescriptor),
             principalselfsid.into_param().abi(),
-            ::std::mem::transmute(desiredaccess),
-            ::std::mem::transmute(audittype),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(objecttypelist),
-            ::std::mem::transmute(objecttypelistlength),
-            ::std::mem::transmute(genericmapping),
+            ::core::mem::transmute(desiredaccess),
+            ::core::mem::transmute(audittype),
+            ::core::mem::transmute(flags),
+            ::core::mem::transmute(objecttypelist),
+            ::core::mem::transmute(objecttypelistlength),
+            ::core::mem::transmute(genericmapping),
             objectcreation.into_param().abi(),
-            ::std::mem::transmute(grantedaccesslist),
-            ::std::mem::transmute(accessstatuslist),
-            ::std::mem::transmute(pfgenerateonclose),
+            ::core::mem::transmute(grantedaccesslist),
+            ::core::mem::transmute(accessstatuslist),
+            ::core::mem::transmute(pfgenerateonclose),
         ))
     }
     #[cfg(not(windows))]
@@ -1095,7 +1095,7 @@ pub unsafe fn AddAccessAllowedAce<'a, Param3: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn AddAccessAllowedAce(pacl: *mut ACL, dwacerevision: u32, accessmask: u32, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddAccessAllowedAce(::std::mem::transmute(pacl), ::std::mem::transmute(dwacerevision), ::std::mem::transmute(accessmask), psid.into_param().abi()))
+        ::core::mem::transmute(AddAccessAllowedAce(::core::mem::transmute(pacl), ::core::mem::transmute(dwacerevision), ::core::mem::transmute(accessmask), psid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1110,7 +1110,7 @@ pub unsafe fn AddAccessAllowedAceEx<'a, Param4: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn AddAccessAllowedAceEx(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddAccessAllowedAceEx(::std::mem::transmute(pacl), ::std::mem::transmute(dwacerevision), ::std::mem::transmute(aceflags), ::std::mem::transmute(accessmask), psid.into_param().abi()))
+        ::core::mem::transmute(AddAccessAllowedAceEx(::core::mem::transmute(pacl), ::core::mem::transmute(dwacerevision), ::core::mem::transmute(aceflags), ::core::mem::transmute(accessmask), psid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1125,7 +1125,7 @@ pub unsafe fn AddAccessAllowedObjectAce<'a, Param6: ::windows::runtime::IntoPara
         extern "system" {
             fn AddAccessAllowedObjectAce(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: *const ::windows::runtime::GUID, inheritedobjecttypeguid: *const ::windows::runtime::GUID, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddAccessAllowedObjectAce(::std::mem::transmute(pacl), ::std::mem::transmute(dwacerevision), ::std::mem::transmute(aceflags), ::std::mem::transmute(accessmask), ::std::mem::transmute(objecttypeguid), ::std::mem::transmute(inheritedobjecttypeguid), psid.into_param().abi()))
+        ::core::mem::transmute(AddAccessAllowedObjectAce(::core::mem::transmute(pacl), ::core::mem::transmute(dwacerevision), ::core::mem::transmute(aceflags), ::core::mem::transmute(accessmask), ::core::mem::transmute(objecttypeguid), ::core::mem::transmute(inheritedobjecttypeguid), psid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1140,7 +1140,7 @@ pub unsafe fn AddAccessDeniedAce<'a, Param3: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn AddAccessDeniedAce(pacl: *mut ACL, dwacerevision: u32, accessmask: u32, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddAccessDeniedAce(::std::mem::transmute(pacl), ::std::mem::transmute(dwacerevision), ::std::mem::transmute(accessmask), psid.into_param().abi()))
+        ::core::mem::transmute(AddAccessDeniedAce(::core::mem::transmute(pacl), ::core::mem::transmute(dwacerevision), ::core::mem::transmute(accessmask), psid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1155,7 +1155,7 @@ pub unsafe fn AddAccessDeniedAceEx<'a, Param4: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn AddAccessDeniedAceEx(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddAccessDeniedAceEx(::std::mem::transmute(pacl), ::std::mem::transmute(dwacerevision), ::std::mem::transmute(aceflags), ::std::mem::transmute(accessmask), psid.into_param().abi()))
+        ::core::mem::transmute(AddAccessDeniedAceEx(::core::mem::transmute(pacl), ::core::mem::transmute(dwacerevision), ::core::mem::transmute(aceflags), ::core::mem::transmute(accessmask), psid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1170,7 +1170,7 @@ pub unsafe fn AddAccessDeniedObjectAce<'a, Param6: ::windows::runtime::IntoParam
         extern "system" {
             fn AddAccessDeniedObjectAce(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: *const ::windows::runtime::GUID, inheritedobjecttypeguid: *const ::windows::runtime::GUID, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddAccessDeniedObjectAce(::std::mem::transmute(pacl), ::std::mem::transmute(dwacerevision), ::std::mem::transmute(aceflags), ::std::mem::transmute(accessmask), ::std::mem::transmute(objecttypeguid), ::std::mem::transmute(inheritedobjecttypeguid), psid.into_param().abi()))
+        ::core::mem::transmute(AddAccessDeniedObjectAce(::core::mem::transmute(pacl), ::core::mem::transmute(dwacerevision), ::core::mem::transmute(aceflags), ::core::mem::transmute(accessmask), ::core::mem::transmute(objecttypeguid), ::core::mem::transmute(inheritedobjecttypeguid), psid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1178,14 +1178,14 @@ pub unsafe fn AddAccessDeniedObjectAce<'a, Param6: ::windows::runtime::IntoParam
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddAce(pacl: *mut ACL, dwacerevision: u32, dwstartingaceindex: u32, pacelist: *const ::std::ffi::c_void, nacelistlength: u32) -> super::Foundation::BOOL {
+pub unsafe fn AddAce(pacl: *mut ACL, dwacerevision: u32, dwstartingaceindex: u32, pacelist: *const ::core::ffi::c_void, nacelistlength: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AddAce(pacl: *mut ACL, dwacerevision: u32, dwstartingaceindex: u32, pacelist: *const ::std::ffi::c_void, nacelistlength: u32) -> super::Foundation::BOOL;
+            fn AddAce(pacl: *mut ACL, dwacerevision: u32, dwstartingaceindex: u32, pacelist: *const ::core::ffi::c_void, nacelistlength: u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddAce(::std::mem::transmute(pacl), ::std::mem::transmute(dwacerevision), ::std::mem::transmute(dwstartingaceindex), ::std::mem::transmute(pacelist), ::std::mem::transmute(nacelistlength)))
+        ::core::mem::transmute(AddAce(::core::mem::transmute(pacl), ::core::mem::transmute(dwacerevision), ::core::mem::transmute(dwstartingaceindex), ::core::mem::transmute(pacelist), ::core::mem::transmute(nacelistlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1200,7 +1200,7 @@ pub unsafe fn AddAuditAccessAce<'a, Param3: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn AddAuditAccessAce(pacl: *mut ACL, dwacerevision: u32, dwaccessmask: u32, psid: super::Foundation::PSID, bauditsuccess: super::Foundation::BOOL, bauditfailure: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddAuditAccessAce(::std::mem::transmute(pacl), ::std::mem::transmute(dwacerevision), ::std::mem::transmute(dwaccessmask), psid.into_param().abi(), bauditsuccess.into_param().abi(), bauditfailure.into_param().abi()))
+        ::core::mem::transmute(AddAuditAccessAce(::core::mem::transmute(pacl), ::core::mem::transmute(dwacerevision), ::core::mem::transmute(dwaccessmask), psid.into_param().abi(), bauditsuccess.into_param().abi(), bauditfailure.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1215,7 +1215,7 @@ pub unsafe fn AddAuditAccessAceEx<'a, Param4: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn AddAuditAccessAceEx(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, dwaccessmask: u32, psid: super::Foundation::PSID, bauditsuccess: super::Foundation::BOOL, bauditfailure: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddAuditAccessAceEx(::std::mem::transmute(pacl), ::std::mem::transmute(dwacerevision), ::std::mem::transmute(aceflags), ::std::mem::transmute(dwaccessmask), psid.into_param().abi(), bauditsuccess.into_param().abi(), bauditfailure.into_param().abi()))
+        ::core::mem::transmute(AddAuditAccessAceEx(::core::mem::transmute(pacl), ::core::mem::transmute(dwacerevision), ::core::mem::transmute(aceflags), ::core::mem::transmute(dwaccessmask), psid.into_param().abi(), bauditsuccess.into_param().abi(), bauditfailure.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1240,13 +1240,13 @@ pub unsafe fn AddAuditAccessObjectAce<'a, Param6: ::windows::runtime::IntoParam<
         extern "system" {
             fn AddAuditAccessObjectAce(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: *const ::windows::runtime::GUID, inheritedobjecttypeguid: *const ::windows::runtime::GUID, psid: super::Foundation::PSID, bauditsuccess: super::Foundation::BOOL, bauditfailure: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddAuditAccessObjectAce(
-            ::std::mem::transmute(pacl),
-            ::std::mem::transmute(dwacerevision),
-            ::std::mem::transmute(aceflags),
-            ::std::mem::transmute(accessmask),
-            ::std::mem::transmute(objecttypeguid),
-            ::std::mem::transmute(inheritedobjecttypeguid),
+        ::core::mem::transmute(AddAuditAccessObjectAce(
+            ::core::mem::transmute(pacl),
+            ::core::mem::transmute(dwacerevision),
+            ::core::mem::transmute(aceflags),
+            ::core::mem::transmute(accessmask),
+            ::core::mem::transmute(objecttypeguid),
+            ::core::mem::transmute(inheritedobjecttypeguid),
             psid.into_param().abi(),
             bauditsuccess.into_param().abi(),
             bauditfailure.into_param().abi(),
@@ -1265,7 +1265,7 @@ pub unsafe fn AddConditionalAce<'a, Param5: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn AddConditionalAce(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, acetype: u8, accessmask: u32, psid: super::Foundation::PSID, conditionstr: super::Foundation::PWSTR, returnlength: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddConditionalAce(::std::mem::transmute(pacl), ::std::mem::transmute(dwacerevision), ::std::mem::transmute(aceflags), ::std::mem::transmute(acetype), ::std::mem::transmute(accessmask), psid.into_param().abi(), conditionstr.into_param().abi(), ::std::mem::transmute(returnlength)))
+        ::core::mem::transmute(AddConditionalAce(::core::mem::transmute(pacl), ::core::mem::transmute(dwacerevision), ::core::mem::transmute(aceflags), ::core::mem::transmute(acetype), ::core::mem::transmute(accessmask), psid.into_param().abi(), conditionstr.into_param().abi(), ::core::mem::transmute(returnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1280,7 +1280,7 @@ pub unsafe fn AddMandatoryAce<'a, Param4: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn AddMandatoryAce(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, mandatorypolicy: u32, plabelsid: super::Foundation::PSID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddMandatoryAce(::std::mem::transmute(pacl), ::std::mem::transmute(dwacerevision), ::std::mem::transmute(aceflags), ::std::mem::transmute(mandatorypolicy), plabelsid.into_param().abi()))
+        ::core::mem::transmute(AddMandatoryAce(::core::mem::transmute(pacl), ::core::mem::transmute(dwacerevision), ::core::mem::transmute(aceflags), ::core::mem::transmute(mandatorypolicy), plabelsid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1295,7 +1295,7 @@ pub unsafe fn AddResourceAttributeAce<'a, Param4: ::windows::runtime::IntoParam<
         extern "system" {
             fn AddResourceAttributeAce(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, psid: super::Foundation::PSID, pattributeinfo: *const CLAIM_SECURITY_ATTRIBUTES_INFORMATION, preturnlength: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddResourceAttributeAce(::std::mem::transmute(pacl), ::std::mem::transmute(dwacerevision), ::std::mem::transmute(aceflags), ::std::mem::transmute(accessmask), psid.into_param().abi(), ::std::mem::transmute(pattributeinfo), ::std::mem::transmute(preturnlength)))
+        ::core::mem::transmute(AddResourceAttributeAce(::core::mem::transmute(pacl), ::core::mem::transmute(dwacerevision), ::core::mem::transmute(aceflags), ::core::mem::transmute(accessmask), psid.into_param().abi(), ::core::mem::transmute(pattributeinfo), ::core::mem::transmute(preturnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1310,7 +1310,7 @@ pub unsafe fn AddScopedPolicyIDAce<'a, Param4: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn AddScopedPolicyIDAce(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AddScopedPolicyIDAce(::std::mem::transmute(pacl), ::std::mem::transmute(dwacerevision), ::std::mem::transmute(aceflags), ::std::mem::transmute(accessmask), psid.into_param().abi()))
+        ::core::mem::transmute(AddScopedPolicyIDAce(::core::mem::transmute(pacl), ::core::mem::transmute(dwacerevision), ::core::mem::transmute(aceflags), ::core::mem::transmute(accessmask), psid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1325,7 +1325,7 @@ pub unsafe fn AdjustTokenGroups<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn AdjustTokenGroups(tokenhandle: super::Foundation::HANDLE, resettodefault: super::Foundation::BOOL, newstate: *const TOKEN_GROUPS, bufferlength: u32, previousstate: *mut TOKEN_GROUPS, returnlength: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AdjustTokenGroups(tokenhandle.into_param().abi(), resettodefault.into_param().abi(), ::std::mem::transmute(newstate), ::std::mem::transmute(bufferlength), ::std::mem::transmute(previousstate), ::std::mem::transmute(returnlength)))
+        ::core::mem::transmute(AdjustTokenGroups(tokenhandle.into_param().abi(), resettodefault.into_param().abi(), ::core::mem::transmute(newstate), ::core::mem::transmute(bufferlength), ::core::mem::transmute(previousstate), ::core::mem::transmute(returnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1340,7 +1340,7 @@ pub unsafe fn AdjustTokenPrivileges<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn AdjustTokenPrivileges(tokenhandle: super::Foundation::HANDLE, disableallprivileges: super::Foundation::BOOL, newstate: *const TOKEN_PRIVILEGES, bufferlength: u32, previousstate: *mut TOKEN_PRIVILEGES, returnlength: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AdjustTokenPrivileges(tokenhandle.into_param().abi(), disableallprivileges.into_param().abi(), ::std::mem::transmute(newstate), ::std::mem::transmute(bufferlength), ::std::mem::transmute(previousstate), ::std::mem::transmute(returnlength)))
+        ::core::mem::transmute(AdjustTokenPrivileges(tokenhandle.into_param().abi(), disableallprivileges.into_param().abi(), ::core::mem::transmute(newstate), ::core::mem::transmute(bufferlength), ::core::mem::transmute(previousstate), ::core::mem::transmute(returnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1355,18 +1355,18 @@ pub unsafe fn AllocateAndInitializeSid(pidentifierauthority: *const SID_IDENTIFI
         extern "system" {
             fn AllocateAndInitializeSid(pidentifierauthority: *const SID_IDENTIFIER_AUTHORITY, nsubauthoritycount: u8, nsubauthority0: u32, nsubauthority1: u32, nsubauthority2: u32, nsubauthority3: u32, nsubauthority4: u32, nsubauthority5: u32, nsubauthority6: u32, nsubauthority7: u32, psid: *mut super::Foundation::PSID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AllocateAndInitializeSid(
-            ::std::mem::transmute(pidentifierauthority),
-            ::std::mem::transmute(nsubauthoritycount),
-            ::std::mem::transmute(nsubauthority0),
-            ::std::mem::transmute(nsubauthority1),
-            ::std::mem::transmute(nsubauthority2),
-            ::std::mem::transmute(nsubauthority3),
-            ::std::mem::transmute(nsubauthority4),
-            ::std::mem::transmute(nsubauthority5),
-            ::std::mem::transmute(nsubauthority6),
-            ::std::mem::transmute(nsubauthority7),
-            ::std::mem::transmute(psid),
+        ::core::mem::transmute(AllocateAndInitializeSid(
+            ::core::mem::transmute(pidentifierauthority),
+            ::core::mem::transmute(nsubauthoritycount),
+            ::core::mem::transmute(nsubauthority0),
+            ::core::mem::transmute(nsubauthority1),
+            ::core::mem::transmute(nsubauthority2),
+            ::core::mem::transmute(nsubauthority3),
+            ::core::mem::transmute(nsubauthority4),
+            ::core::mem::transmute(nsubauthority5),
+            ::core::mem::transmute(nsubauthority6),
+            ::core::mem::transmute(nsubauthority7),
+            ::core::mem::transmute(psid),
         ))
     }
     #[cfg(not(windows))]
@@ -1382,7 +1382,7 @@ pub unsafe fn AllocateLocallyUniqueId(luid: *mut super::Foundation::LUID) -> sup
         extern "system" {
             fn AllocateLocallyUniqueId(luid: *mut super::Foundation::LUID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AllocateLocallyUniqueId(::std::mem::transmute(luid)))
+        ::core::mem::transmute(AllocateLocallyUniqueId(::core::mem::transmute(luid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1397,7 +1397,7 @@ pub unsafe fn AreAllAccessesGranted(grantedaccess: u32, desiredaccess: u32) -> s
         extern "system" {
             fn AreAllAccessesGranted(grantedaccess: u32, desiredaccess: u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AreAllAccessesGranted(::std::mem::transmute(grantedaccess), ::std::mem::transmute(desiredaccess)))
+        ::core::mem::transmute(AreAllAccessesGranted(::core::mem::transmute(grantedaccess), ::core::mem::transmute(desiredaccess)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1412,12 +1412,12 @@ pub unsafe fn AreAnyAccessesGranted(grantedaccess: u32, desiredaccess: u32) -> s
         extern "system" {
             fn AreAnyAccessesGranted(grantedaccess: u32, desiredaccess: u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(AreAnyAccessesGranted(::std::mem::transmute(grantedaccess), ::std::mem::transmute(desiredaccess)))
+        ::core::mem::transmute(AreAnyAccessesGranted(::core::mem::transmute(grantedaccess), ::core::mem::transmute(desiredaccess)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -1430,24 +1430,24 @@ pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl CLAIM_SECURITY_ATTRIBUTES_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
+impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
+impl ::core::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {}
+impl ::core::cmp::Eq for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
@@ -1456,25 +1456,25 @@ pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
+impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
+impl ::core::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {}
+impl ::core::cmp::Eq for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_FLAGS(pub u32);
 pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(1u32);
@@ -1483,7 +1483,7 @@ pub const CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY: CLAIM_SECURITY_ATTRIBUTE_F
 pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(8u32);
 pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(16u32);
 pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(32u32);
-impl ::std::convert::From<u32> for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
+impl ::core::convert::From<u32> for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1491,35 +1491,35 @@ impl ::std::convert::From<u32> for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
 unsafe impl ::windows::runtime::Abi for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
+impl ::core::ops::BitOr for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
+impl ::core::ops::BitAnd for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
+impl ::core::ops::BitOrAssign for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
+impl ::core::ops::BitAndAssign for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
+impl ::core::ops::Not for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -1530,57 +1530,57 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
 #[cfg(feature = "Win32_Foundation")]
 impl CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
+impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE").field("Version", &self.Version).field("Name", &self.Name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
+impl ::core::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Name == other.Name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {}
+impl ::core::cmp::Eq for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    pub pValue: *mut ::std::ffi::c_void,
+    pub pValue: *mut ::core::ffi::c_void,
     pub ValueLength: u32,
 }
 impl CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
-impl ::std::default::Default for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE").field("pValue", &self.pValue).field("ValueLength", &self.ValueLength).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+impl ::core::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     fn eq(&self, other: &Self) -> bool {
         self.pValue == other.pValue && self.ValueLength == other.ValueLength
     }
 }
-impl ::std::cmp::Eq for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
+impl ::core::cmp::Eq for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
 unsafe impl ::windows::runtime::Abi for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
@@ -1592,21 +1592,21 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     pub Values: CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0,
 }
 impl CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {}
-impl ::std::default::Default for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
+impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
+impl ::core::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {}
+impl ::core::cmp::Eq for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {}
 unsafe impl ::windows::runtime::Abi for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub union CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
@@ -1617,21 +1617,21 @@ pub union CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     pub pOctetString: [u32; 1],
 }
 impl CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {}
-impl ::std::default::Default for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
+impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
+impl ::core::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {}
+impl ::core::cmp::Eq for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {}
 unsafe impl ::windows::runtime::Abi for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -1646,24 +1646,24 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
 #[cfg(feature = "Win32_Foundation")]
 impl CLAIM_SECURITY_ATTRIBUTE_V1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CLAIM_SECURITY_ATTRIBUTE_V1 {
+impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_V1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTE_V1 {
+impl ::core::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTE_V1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CLAIM_SECURITY_ATTRIBUTE_V1 {}
+impl ::core::cmp::Eq for CLAIM_SECURITY_ATTRIBUTE_V1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLAIM_SECURITY_ATTRIBUTE_V1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
@@ -1676,25 +1676,25 @@ pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl CLAIM_SECURITY_ATTRIBUTE_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
+impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
+impl ::core::cmp::PartialEq for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CLAIM_SECURITY_ATTRIBUTE_V1_0 {}
+impl ::core::cmp::Eq for CLAIM_SECURITY_ATTRIBUTE_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(pub u16);
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(1u16);
@@ -1704,7 +1704,7 @@ pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: CLAIM_SECURITY_ATTRIBUTE_V
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_FQBN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(4u16);
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_SID: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(5u16);
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(6u16);
-impl ::std::convert::From<u16> for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {
+impl ::core::convert::From<u16> for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {
     fn from(value: u16) -> Self {
         Self(value)
     }
@@ -1713,14 +1713,14 @@ unsafe impl ::windows::runtime::Abi for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CREATE_RESTRICTED_TOKEN_FLAGS(pub u32);
 pub const DISABLE_MAX_PRIVILEGE: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(1u32);
 pub const SANDBOX_INERT: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(2u32);
 pub const LUA_TOKEN: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(4u32);
 pub const WRITE_RESTRICTED: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(8u32);
-impl ::std::convert::From<u32> for CREATE_RESTRICTED_TOKEN_FLAGS {
+impl ::core::convert::From<u32> for CREATE_RESTRICTED_TOKEN_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1728,29 +1728,29 @@ impl ::std::convert::From<u32> for CREATE_RESTRICTED_TOKEN_FLAGS {
 unsafe impl ::windows::runtime::Abi for CREATE_RESTRICTED_TOKEN_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for CREATE_RESTRICTED_TOKEN_FLAGS {
+impl ::core::ops::BitOr for CREATE_RESTRICTED_TOKEN_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for CREATE_RESTRICTED_TOKEN_FLAGS {
+impl ::core::ops::BitAnd for CREATE_RESTRICTED_TOKEN_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for CREATE_RESTRICTED_TOKEN_FLAGS {
+impl ::core::ops::BitOrAssign for CREATE_RESTRICTED_TOKEN_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for CREATE_RESTRICTED_TOKEN_FLAGS {
+impl ::core::ops::BitAndAssign for CREATE_RESTRICTED_TOKEN_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for CREATE_RESTRICTED_TOKEN_FLAGS {
+impl ::core::ops::Not for CREATE_RESTRICTED_TOKEN_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -1768,7 +1768,7 @@ pub unsafe fn CheckTokenCapability<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn CheckTokenCapability(tokenhandle: super::Foundation::HANDLE, capabilitysidtocheck: super::Foundation::PSID, hascapability: *mut super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CheckTokenCapability(tokenhandle.into_param().abi(), capabilitysidtocheck.into_param().abi(), ::std::mem::transmute(hascapability)))
+        ::core::mem::transmute(CheckTokenCapability(tokenhandle.into_param().abi(), capabilitysidtocheck.into_param().abi(), ::core::mem::transmute(hascapability)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1783,7 +1783,7 @@ pub unsafe fn CheckTokenMembership<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn CheckTokenMembership(tokenhandle: super::Foundation::HANDLE, sidtocheck: super::Foundation::PSID, ismember: *mut super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CheckTokenMembership(tokenhandle.into_param().abi(), sidtocheck.into_param().abi(), ::std::mem::transmute(ismember)))
+        ::core::mem::transmute(CheckTokenMembership(tokenhandle.into_param().abi(), sidtocheck.into_param().abi(), ::core::mem::transmute(ismember)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1798,7 +1798,7 @@ pub unsafe fn CheckTokenMembershipEx<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn CheckTokenMembershipEx(tokenhandle: super::Foundation::HANDLE, sidtocheck: super::Foundation::PSID, flags: u32, ismember: *mut super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CheckTokenMembershipEx(tokenhandle.into_param().abi(), sidtocheck.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(ismember)))
+        ::core::mem::transmute(CheckTokenMembershipEx(tokenhandle.into_param().abi(), sidtocheck.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(ismember)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1813,7 +1813,7 @@ pub unsafe fn ConvertToAutoInheritPrivateObjectSecurity<'a, Param4: ::windows::r
         extern "system" {
             fn ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor: *const SECURITY_DESCRIPTOR, currentsecuritydescriptor: *const SECURITY_DESCRIPTOR, newsecuritydescriptor: *mut *mut SECURITY_DESCRIPTOR, objecttype: *const ::windows::runtime::GUID, isdirectoryobject: super::Foundation::BOOLEAN, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ConvertToAutoInheritPrivateObjectSecurity(::std::mem::transmute(parentdescriptor), ::std::mem::transmute(currentsecuritydescriptor), ::std::mem::transmute(newsecuritydescriptor), ::std::mem::transmute(objecttype), isdirectoryobject.into_param().abi(), ::std::mem::transmute(genericmapping)))
+        ::core::mem::transmute(ConvertToAutoInheritPrivateObjectSecurity(::core::mem::transmute(parentdescriptor), ::core::mem::transmute(currentsecuritydescriptor), ::core::mem::transmute(newsecuritydescriptor), ::core::mem::transmute(objecttype), isdirectoryobject.into_param().abi(), ::core::mem::transmute(genericmapping)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1828,7 +1828,7 @@ pub unsafe fn CopySid<'a, Param2: ::windows::runtime::IntoParam<'a, super::Found
         extern "system" {
             fn CopySid(ndestinationsidlength: u32, pdestinationsid: super::Foundation::PSID, psourcesid: super::Foundation::PSID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CopySid(::std::mem::transmute(ndestinationsidlength), ::std::mem::transmute(pdestinationsid), psourcesid.into_param().abi()))
+        ::core::mem::transmute(CopySid(::core::mem::transmute(ndestinationsidlength), ::core::mem::transmute(pdestinationsid), psourcesid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1843,7 +1843,7 @@ pub unsafe fn CreatePrivateObjectSecurity<'a, Param3: ::windows::runtime::IntoPa
         extern "system" {
             fn CreatePrivateObjectSecurity(parentdescriptor: *const SECURITY_DESCRIPTOR, creatordescriptor: *const SECURITY_DESCRIPTOR, newdescriptor: *mut *mut SECURITY_DESCRIPTOR, isdirectoryobject: super::Foundation::BOOL, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreatePrivateObjectSecurity(::std::mem::transmute(parentdescriptor), ::std::mem::transmute(creatordescriptor), ::std::mem::transmute(newdescriptor), isdirectoryobject.into_param().abi(), token.into_param().abi(), ::std::mem::transmute(genericmapping)))
+        ::core::mem::transmute(CreatePrivateObjectSecurity(::core::mem::transmute(parentdescriptor), ::core::mem::transmute(creatordescriptor), ::core::mem::transmute(newdescriptor), isdirectoryobject.into_param().abi(), token.into_param().abi(), ::core::mem::transmute(genericmapping)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1867,15 +1867,15 @@ pub unsafe fn CreatePrivateObjectSecurityEx<'a, Param4: ::windows::runtime::Into
         extern "system" {
             fn CreatePrivateObjectSecurityEx(parentdescriptor: *const SECURITY_DESCRIPTOR, creatordescriptor: *const SECURITY_DESCRIPTOR, newdescriptor: *mut *mut SECURITY_DESCRIPTOR, objecttype: *const ::windows::runtime::GUID, iscontainerobject: super::Foundation::BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreatePrivateObjectSecurityEx(
-            ::std::mem::transmute(parentdescriptor),
-            ::std::mem::transmute(creatordescriptor),
-            ::std::mem::transmute(newdescriptor),
-            ::std::mem::transmute(objecttype),
+        ::core::mem::transmute(CreatePrivateObjectSecurityEx(
+            ::core::mem::transmute(parentdescriptor),
+            ::core::mem::transmute(creatordescriptor),
+            ::core::mem::transmute(newdescriptor),
+            ::core::mem::transmute(objecttype),
             iscontainerobject.into_param().abi(),
-            ::std::mem::transmute(autoinheritflags),
+            ::core::mem::transmute(autoinheritflags),
             token.into_param().abi(),
-            ::std::mem::transmute(genericmapping),
+            ::core::mem::transmute(genericmapping),
         ))
     }
     #[cfg(not(windows))]
@@ -1901,16 +1901,16 @@ pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance<'a, Param5: ::w
         extern "system" {
             fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor: *const SECURITY_DESCRIPTOR, creatordescriptor: *const SECURITY_DESCRIPTOR, newdescriptor: *mut *mut SECURITY_DESCRIPTOR, objecttypes: *const *const ::windows::runtime::GUID, guidcount: u32, iscontainerobject: super::Foundation::BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreatePrivateObjectSecurityWithMultipleInheritance(
-            ::std::mem::transmute(parentdescriptor),
-            ::std::mem::transmute(creatordescriptor),
-            ::std::mem::transmute(newdescriptor),
-            ::std::mem::transmute(objecttypes),
-            ::std::mem::transmute(guidcount),
+        ::core::mem::transmute(CreatePrivateObjectSecurityWithMultipleInheritance(
+            ::core::mem::transmute(parentdescriptor),
+            ::core::mem::transmute(creatordescriptor),
+            ::core::mem::transmute(newdescriptor),
+            ::core::mem::transmute(objecttypes),
+            ::core::mem::transmute(guidcount),
             iscontainerobject.into_param().abi(),
-            ::std::mem::transmute(autoinheritflags),
+            ::core::mem::transmute(autoinheritflags),
             token.into_param().abi(),
-            ::std::mem::transmute(genericmapping),
+            ::core::mem::transmute(genericmapping),
         ))
     }
     #[cfg(not(windows))]
@@ -1926,16 +1926,16 @@ pub unsafe fn CreateRestrictedToken<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn CreateRestrictedToken(existingtokenhandle: super::Foundation::HANDLE, flags: CREATE_RESTRICTED_TOKEN_FLAGS, disablesidcount: u32, sidstodisable: *const SID_AND_ATTRIBUTES, deleteprivilegecount: u32, privilegestodelete: *const LUID_AND_ATTRIBUTES, restrictedsidcount: u32, sidstorestrict: *const SID_AND_ATTRIBUTES, newtokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateRestrictedToken(
+        ::core::mem::transmute(CreateRestrictedToken(
             existingtokenhandle.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(disablesidcount),
-            ::std::mem::transmute(sidstodisable),
-            ::std::mem::transmute(deleteprivilegecount),
-            ::std::mem::transmute(privilegestodelete),
-            ::std::mem::transmute(restrictedsidcount),
-            ::std::mem::transmute(sidstorestrict),
-            ::std::mem::transmute(newtokenhandle),
+            ::core::mem::transmute(flags),
+            ::core::mem::transmute(disablesidcount),
+            ::core::mem::transmute(sidstodisable),
+            ::core::mem::transmute(deleteprivilegecount),
+            ::core::mem::transmute(privilegestodelete),
+            ::core::mem::transmute(restrictedsidcount),
+            ::core::mem::transmute(sidstorestrict),
+            ::core::mem::transmute(newtokenhandle),
         ))
     }
     #[cfg(not(windows))]
@@ -1951,7 +1951,7 @@ pub unsafe fn CreateWellKnownSid<'a, Param1: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn CreateWellKnownSid(wellknownsidtype: WELL_KNOWN_SID_TYPE, domainsid: super::Foundation::PSID, psid: super::Foundation::PSID, cbsid: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateWellKnownSid(::std::mem::transmute(wellknownsidtype), domainsid.into_param().abi(), ::std::mem::transmute(psid), ::std::mem::transmute(cbsid)))
+        ::core::mem::transmute(CreateWellKnownSid(::core::mem::transmute(wellknownsidtype), domainsid.into_param().abi(), ::core::mem::transmute(psid), ::core::mem::transmute(cbsid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1966,7 +1966,7 @@ pub unsafe fn DeleteAce(pacl: *mut ACL, dwaceindex: u32) -> super::Foundation::B
         extern "system" {
             fn DeleteAce(pacl: *mut ACL, dwaceindex: u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteAce(::std::mem::transmute(pacl), ::std::mem::transmute(dwaceindex)))
+        ::core::mem::transmute(DeleteAce(::core::mem::transmute(pacl), ::core::mem::transmute(dwaceindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1981,7 +1981,7 @@ pub unsafe fn DeriveCapabilitySidsFromName<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn DeriveCapabilitySidsFromName(capname: super::Foundation::PWSTR, capabilitygroupsids: *mut *mut super::Foundation::PSID, capabilitygroupsidcount: *mut u32, capabilitysids: *mut *mut super::Foundation::PSID, capabilitysidcount: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeriveCapabilitySidsFromName(capname.into_param().abi(), ::std::mem::transmute(capabilitygroupsids), ::std::mem::transmute(capabilitygroupsidcount), ::std::mem::transmute(capabilitysids), ::std::mem::transmute(capabilitysidcount)))
+        ::core::mem::transmute(DeriveCapabilitySidsFromName(capname.into_param().abi(), ::core::mem::transmute(capabilitygroupsids), ::core::mem::transmute(capabilitygroupsidcount), ::core::mem::transmute(capabilitysids), ::core::mem::transmute(capabilitysidcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1996,7 +1996,7 @@ pub unsafe fn DestroyPrivateObjectSecurity(objectdescriptor: *const *const SECUR
         extern "system" {
             fn DestroyPrivateObjectSecurity(objectdescriptor: *const *const SECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DestroyPrivateObjectSecurity(::std::mem::transmute(objectdescriptor)))
+        ::core::mem::transmute(DestroyPrivateObjectSecurity(::core::mem::transmute(objectdescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2011,7 +2011,7 @@ pub unsafe fn DuplicateToken<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn DuplicateToken(existingtokenhandle: super::Foundation::HANDLE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, duplicatetokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DuplicateToken(existingtokenhandle.into_param().abi(), ::std::mem::transmute(impersonationlevel), ::std::mem::transmute(duplicatetokenhandle)))
+        ::core::mem::transmute(DuplicateToken(existingtokenhandle.into_param().abi(), ::core::mem::transmute(impersonationlevel), ::core::mem::transmute(duplicatetokenhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2026,13 +2026,13 @@ pub unsafe fn DuplicateTokenEx<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn DuplicateTokenEx(hexistingtoken: super::Foundation::HANDLE, dwdesiredaccess: TOKEN_ACCESS_MASK, lptokenattributes: *const SECURITY_ATTRIBUTES, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokentype: TOKEN_TYPE, phnewtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DuplicateTokenEx(hexistingtoken.into_param().abi(), ::std::mem::transmute(dwdesiredaccess), ::std::mem::transmute(lptokenattributes), ::std::mem::transmute(impersonationlevel), ::std::mem::transmute(tokentype), ::std::mem::transmute(phnewtoken)))
+        ::core::mem::transmute(DuplicateTokenEx(hexistingtoken.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(lptokenattributes), ::core::mem::transmute(impersonationlevel), ::core::mem::transmute(tokentype), ::core::mem::transmute(phnewtoken)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENUM_PERIOD(pub i32);
 pub const ENUM_PERIOD_INVALID: ENUM_PERIOD = ENUM_PERIOD(-1i32);
@@ -2043,7 +2043,7 @@ pub const ENUM_PERIOD_DAYS: ENUM_PERIOD = ENUM_PERIOD(3i32);
 pub const ENUM_PERIOD_WEEKS: ENUM_PERIOD = ENUM_PERIOD(4i32);
 pub const ENUM_PERIOD_MONTHS: ENUM_PERIOD = ENUM_PERIOD(5i32);
 pub const ENUM_PERIOD_YEARS: ENUM_PERIOD = ENUM_PERIOD(6i32);
-impl ::std::convert::From<i32> for ENUM_PERIOD {
+impl ::core::convert::From<i32> for ENUM_PERIOD {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2061,7 +2061,7 @@ pub unsafe fn EqualDomainSid<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn EqualDomainSid(psid1: super::Foundation::PSID, psid2: super::Foundation::PSID, pfequal: *mut super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EqualDomainSid(psid1.into_param().abi(), psid2.into_param().abi(), ::std::mem::transmute(pfequal)))
+        ::core::mem::transmute(EqualDomainSid(psid1.into_param().abi(), psid2.into_param().abi(), ::core::mem::transmute(pfequal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2076,7 +2076,7 @@ pub unsafe fn EqualPrefixSid<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn EqualPrefixSid(psid1: super::Foundation::PSID, psid2: super::Foundation::PSID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EqualPrefixSid(psid1.into_param().abi(), psid2.into_param().abi()))
+        ::core::mem::transmute(EqualPrefixSid(psid1.into_param().abi(), psid2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2091,7 +2091,7 @@ pub unsafe fn EqualSid<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foun
         extern "system" {
             fn EqualSid(psid1: super::Foundation::PSID, psid2: super::Foundation::PSID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EqualSid(psid1.into_param().abi(), psid2.into_param().abi()))
+        ::core::mem::transmute(EqualSid(psid1.into_param().abi(), psid2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2099,14 +2099,14 @@ pub unsafe fn EqualSid<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foun
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFreeAce(pacl: *const ACL, pace: *mut *mut ::std::ffi::c_void) -> super::Foundation::BOOL {
+pub unsafe fn FindFirstFreeAce(pacl: *const ACL, pace: *mut *mut ::core::ffi::c_void) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstFreeAce(pacl: *const ACL, pace: *mut *mut ::std::ffi::c_void) -> super::Foundation::BOOL;
+            fn FindFirstFreeAce(pacl: *const ACL, pace: *mut *mut ::core::ffi::c_void) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindFirstFreeAce(::std::mem::transmute(pacl), ::std::mem::transmute(pace)))
+        ::core::mem::transmute(FindFirstFreeAce(::core::mem::transmute(pacl), ::core::mem::transmute(pace)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2114,19 +2114,19 @@ pub unsafe fn FindFirstFreeAce(pacl: *const ACL, pace: *mut *mut ::std::ffi::c_v
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FreeSid<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PSID>>(psid: Param0) -> *mut ::std::ffi::c_void {
+pub unsafe fn FreeSid<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PSID>>(psid: Param0) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FreeSid(psid: super::Foundation::PSID) -> *mut ::std::ffi::c_void;
+            fn FreeSid(psid: super::Foundation::PSID) -> *mut ::core::ffi::c_void;
         }
-        ::std::mem::transmute(FreeSid(psid.into_param().abi()))
+        ::core::mem::transmute(FreeSid(psid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct GENERIC_MAPPING {
@@ -2136,36 +2136,36 @@ pub struct GENERIC_MAPPING {
     pub GenericAll: u32,
 }
 impl GENERIC_MAPPING {}
-impl ::std::default::Default for GENERIC_MAPPING {
+impl ::core::default::Default for GENERIC_MAPPING {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for GENERIC_MAPPING {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GENERIC_MAPPING {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GENERIC_MAPPING").field("GenericRead", &self.GenericRead).field("GenericWrite", &self.GenericWrite).field("GenericExecute", &self.GenericExecute).field("GenericAll", &self.GenericAll).finish()
     }
 }
-impl ::std::cmp::PartialEq for GENERIC_MAPPING {
+impl ::core::cmp::PartialEq for GENERIC_MAPPING {
     fn eq(&self, other: &Self) -> bool {
         self.GenericRead == other.GenericRead && self.GenericWrite == other.GenericWrite && self.GenericExecute == other.GenericExecute && self.GenericAll == other.GenericAll
     }
 }
-impl ::std::cmp::Eq for GENERIC_MAPPING {}
+impl ::core::cmp::Eq for GENERIC_MAPPING {}
 unsafe impl ::windows::runtime::Abi for GENERIC_MAPPING {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetAce(pacl: *const ACL, dwaceindex: u32, pace: *mut *mut ::std::ffi::c_void) -> super::Foundation::BOOL {
+pub unsafe fn GetAce(pacl: *const ACL, dwaceindex: u32, pace: *mut *mut ::core::ffi::c_void) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetAce(pacl: *const ACL, dwaceindex: u32, pace: *mut *mut ::std::ffi::c_void) -> super::Foundation::BOOL;
+            fn GetAce(pacl: *const ACL, dwaceindex: u32, pace: *mut *mut ::core::ffi::c_void) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetAce(::std::mem::transmute(pacl), ::std::mem::transmute(dwaceindex), ::std::mem::transmute(pace)))
+        ::core::mem::transmute(GetAce(::core::mem::transmute(pacl), ::core::mem::transmute(dwaceindex), ::core::mem::transmute(pace)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2173,14 +2173,14 @@ pub unsafe fn GetAce(pacl: *const ACL, dwaceindex: u32, pace: *mut *mut ::std::f
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetAclInformation(pacl: *const ACL, paclinformation: *mut ::std::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL {
+pub unsafe fn GetAclInformation(pacl: *const ACL, paclinformation: *mut ::core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetAclInformation(pacl: *const ACL, paclinformation: *mut ::std::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL;
+            fn GetAclInformation(pacl: *const ACL, paclinformation: *mut ::core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetAclInformation(::std::mem::transmute(pacl), ::std::mem::transmute(paclinformation), ::std::mem::transmute(naclinformationlength), ::std::mem::transmute(dwaclinformationclass)))
+        ::core::mem::transmute(GetAclInformation(::core::mem::transmute(pacl), ::core::mem::transmute(paclinformation), ::core::mem::transmute(naclinformationlength), ::core::mem::transmute(dwaclinformationclass)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2188,14 +2188,14 @@ pub unsafe fn GetAclInformation(pacl: *const ACL, paclinformation: *mut ::std::f
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetAppContainerAce(acl: *const ACL, startingaceindex: u32, appcontainerace: *mut *mut ::std::ffi::c_void, appcontaineraceindex: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn GetAppContainerAce(acl: *const ACL, startingaceindex: u32, appcontainerace: *mut *mut ::core::ffi::c_void, appcontaineraceindex: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetAppContainerAce(acl: *const ACL, startingaceindex: u32, appcontainerace: *mut *mut ::std::ffi::c_void, appcontaineraceindex: *mut u32) -> super::Foundation::BOOL;
+            fn GetAppContainerAce(acl: *const ACL, startingaceindex: u32, appcontainerace: *mut *mut ::core::ffi::c_void, appcontaineraceindex: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetAppContainerAce(::std::mem::transmute(acl), ::std::mem::transmute(startingaceindex), ::std::mem::transmute(appcontainerace), ::std::mem::transmute(appcontaineraceindex)))
+        ::core::mem::transmute(GetAppContainerAce(::core::mem::transmute(acl), ::core::mem::transmute(startingaceindex), ::core::mem::transmute(appcontainerace), ::core::mem::transmute(appcontaineraceindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2210,7 +2210,7 @@ pub unsafe fn GetCachedSigningLevel<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn GetCachedSigningLevel(file: super::Foundation::HANDLE, flags: *mut u32, signinglevel: *mut u32, thumbprint: *mut u8, thumbprintsize: *mut u32, thumbprintalgorithm: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCachedSigningLevel(file.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(signinglevel), ::std::mem::transmute(thumbprint), ::std::mem::transmute(thumbprintsize), ::std::mem::transmute(thumbprintalgorithm)))
+        ::core::mem::transmute(GetCachedSigningLevel(file.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(signinglevel), ::core::mem::transmute(thumbprint), ::core::mem::transmute(thumbprintsize), ::core::mem::transmute(thumbprintalgorithm)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2225,7 +2225,7 @@ pub unsafe fn GetFileSecurityA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetFileSecurityA(lpfilename: super::Foundation::PSTR, requestedinformation: u32, psecuritydescriptor: *mut SECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileSecurityA(lpfilename.into_param().abi(), ::std::mem::transmute(requestedinformation), ::std::mem::transmute(psecuritydescriptor), ::std::mem::transmute(nlength), ::std::mem::transmute(lpnlengthneeded)))
+        ::core::mem::transmute(GetFileSecurityA(lpfilename.into_param().abi(), ::core::mem::transmute(requestedinformation), ::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(nlength), ::core::mem::transmute(lpnlengthneeded)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2240,7 +2240,7 @@ pub unsafe fn GetFileSecurityW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn GetFileSecurityW(lpfilename: super::Foundation::PWSTR, requestedinformation: u32, psecuritydescriptor: *mut SECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetFileSecurityW(lpfilename.into_param().abi(), ::std::mem::transmute(requestedinformation), ::std::mem::transmute(psecuritydescriptor), ::std::mem::transmute(nlength), ::std::mem::transmute(lpnlengthneeded)))
+        ::core::mem::transmute(GetFileSecurityW(lpfilename.into_param().abi(), ::core::mem::transmute(requestedinformation), ::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(nlength), ::core::mem::transmute(lpnlengthneeded)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2255,7 +2255,7 @@ pub unsafe fn GetKernelObjectSecurity<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn GetKernelObjectSecurity(handle: super::Foundation::HANDLE, requestedinformation: u32, psecuritydescriptor: *mut SECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetKernelObjectSecurity(handle.into_param().abi(), ::std::mem::transmute(requestedinformation), ::std::mem::transmute(psecuritydescriptor), ::std::mem::transmute(nlength), ::std::mem::transmute(lpnlengthneeded)))
+        ::core::mem::transmute(GetKernelObjectSecurity(handle.into_param().abi(), ::core::mem::transmute(requestedinformation), ::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(nlength), ::core::mem::transmute(lpnlengthneeded)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2270,7 +2270,7 @@ pub unsafe fn GetLengthSid<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn GetLengthSid(psid: super::Foundation::PSID) -> u32;
         }
-        ::std::mem::transmute(GetLengthSid(psid.into_param().abi()))
+        ::core::mem::transmute(GetLengthSid(psid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2285,7 +2285,7 @@ pub unsafe fn GetPrivateObjectSecurity(objectdescriptor: *const SECURITY_DESCRIP
         extern "system" {
             fn GetPrivateObjectSecurity(objectdescriptor: *const SECURITY_DESCRIPTOR, securityinformation: u32, resultantdescriptor: *mut SECURITY_DESCRIPTOR, descriptorlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetPrivateObjectSecurity(::std::mem::transmute(objectdescriptor), ::std::mem::transmute(securityinformation), ::std::mem::transmute(resultantdescriptor), ::std::mem::transmute(descriptorlength), ::std::mem::transmute(returnlength)))
+        ::core::mem::transmute(GetPrivateObjectSecurity(::core::mem::transmute(objectdescriptor), ::core::mem::transmute(securityinformation), ::core::mem::transmute(resultantdescriptor), ::core::mem::transmute(descriptorlength), ::core::mem::transmute(returnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2300,7 +2300,7 @@ pub unsafe fn GetSecurityDescriptorControl(psecuritydescriptor: *const SECURITY_
         extern "system" {
             fn GetSecurityDescriptorControl(psecuritydescriptor: *const SECURITY_DESCRIPTOR, pcontrol: *mut u16, lpdwrevision: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetSecurityDescriptorControl(::std::mem::transmute(psecuritydescriptor), ::std::mem::transmute(pcontrol), ::std::mem::transmute(lpdwrevision)))
+        ::core::mem::transmute(GetSecurityDescriptorControl(::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(pcontrol), ::core::mem::transmute(lpdwrevision)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2315,7 +2315,7 @@ pub unsafe fn GetSecurityDescriptorDacl(psecuritydescriptor: *const SECURITY_DES
         extern "system" {
             fn GetSecurityDescriptorDacl(psecuritydescriptor: *const SECURITY_DESCRIPTOR, lpbdaclpresent: *mut i32, pdacl: *mut *mut ACL, lpbdacldefaulted: *mut i32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetSecurityDescriptorDacl(::std::mem::transmute(psecuritydescriptor), ::std::mem::transmute(lpbdaclpresent), ::std::mem::transmute(pdacl), ::std::mem::transmute(lpbdacldefaulted)))
+        ::core::mem::transmute(GetSecurityDescriptorDacl(::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(lpbdaclpresent), ::core::mem::transmute(pdacl), ::core::mem::transmute(lpbdacldefaulted)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2330,7 +2330,7 @@ pub unsafe fn GetSecurityDescriptorGroup(psecuritydescriptor: *const SECURITY_DE
         extern "system" {
             fn GetSecurityDescriptorGroup(psecuritydescriptor: *const SECURITY_DESCRIPTOR, pgroup: *mut super::Foundation::PSID, lpbgroupdefaulted: *mut i32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetSecurityDescriptorGroup(::std::mem::transmute(psecuritydescriptor), ::std::mem::transmute(pgroup), ::std::mem::transmute(lpbgroupdefaulted)))
+        ::core::mem::transmute(GetSecurityDescriptorGroup(::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(pgroup), ::core::mem::transmute(lpbgroupdefaulted)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2345,7 +2345,7 @@ pub unsafe fn GetSecurityDescriptorLength(psecuritydescriptor: *const SECURITY_D
         extern "system" {
             fn GetSecurityDescriptorLength(psecuritydescriptor: *const SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(GetSecurityDescriptorLength(::std::mem::transmute(psecuritydescriptor)))
+        ::core::mem::transmute(GetSecurityDescriptorLength(::core::mem::transmute(psecuritydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2360,7 +2360,7 @@ pub unsafe fn GetSecurityDescriptorOwner(psecuritydescriptor: *const SECURITY_DE
         extern "system" {
             fn GetSecurityDescriptorOwner(psecuritydescriptor: *const SECURITY_DESCRIPTOR, powner: *mut super::Foundation::PSID, lpbownerdefaulted: *mut i32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetSecurityDescriptorOwner(::std::mem::transmute(psecuritydescriptor), ::std::mem::transmute(powner), ::std::mem::transmute(lpbownerdefaulted)))
+        ::core::mem::transmute(GetSecurityDescriptorOwner(::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(powner), ::core::mem::transmute(lpbownerdefaulted)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2375,7 +2375,7 @@ pub unsafe fn GetSecurityDescriptorRMControl(securitydescriptor: *const SECURITY
         extern "system" {
             fn GetSecurityDescriptorRMControl(securitydescriptor: *const SECURITY_DESCRIPTOR, rmcontrol: *mut u8) -> u32;
         }
-        ::std::mem::transmute(GetSecurityDescriptorRMControl(::std::mem::transmute(securitydescriptor), ::std::mem::transmute(rmcontrol)))
+        ::core::mem::transmute(GetSecurityDescriptorRMControl(::core::mem::transmute(securitydescriptor), ::core::mem::transmute(rmcontrol)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2390,7 +2390,7 @@ pub unsafe fn GetSecurityDescriptorSacl(psecuritydescriptor: *const SECURITY_DES
         extern "system" {
             fn GetSecurityDescriptorSacl(psecuritydescriptor: *const SECURITY_DESCRIPTOR, lpbsaclpresent: *mut i32, psacl: *mut *mut ACL, lpbsacldefaulted: *mut i32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetSecurityDescriptorSacl(::std::mem::transmute(psecuritydescriptor), ::std::mem::transmute(lpbsaclpresent), ::std::mem::transmute(psacl), ::std::mem::transmute(lpbsacldefaulted)))
+        ::core::mem::transmute(GetSecurityDescriptorSacl(::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(lpbsaclpresent), ::core::mem::transmute(psacl), ::core::mem::transmute(lpbsacldefaulted)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2405,7 +2405,7 @@ pub unsafe fn GetSidIdentifierAuthority<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn GetSidIdentifierAuthority(psid: super::Foundation::PSID) -> *mut SID_IDENTIFIER_AUTHORITY;
         }
-        ::std::mem::transmute(GetSidIdentifierAuthority(psid.into_param().abi()))
+        ::core::mem::transmute(GetSidIdentifierAuthority(psid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2419,7 +2419,7 @@ pub unsafe fn GetSidLengthRequired(nsubauthoritycount: u8) -> u32 {
         extern "system" {
             fn GetSidLengthRequired(nsubauthoritycount: u8) -> u32;
         }
-        ::std::mem::transmute(GetSidLengthRequired(::std::mem::transmute(nsubauthoritycount)))
+        ::core::mem::transmute(GetSidLengthRequired(::core::mem::transmute(nsubauthoritycount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2434,7 +2434,7 @@ pub unsafe fn GetSidSubAuthority<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn GetSidSubAuthority(psid: super::Foundation::PSID, nsubauthority: u32) -> *mut u32;
         }
-        ::std::mem::transmute(GetSidSubAuthority(psid.into_param().abi(), ::std::mem::transmute(nsubauthority)))
+        ::core::mem::transmute(GetSidSubAuthority(psid.into_param().abi(), ::core::mem::transmute(nsubauthority)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2449,7 +2449,7 @@ pub unsafe fn GetSidSubAuthorityCount<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn GetSidSubAuthorityCount(psid: super::Foundation::PSID) -> *mut u8;
         }
-        ::std::mem::transmute(GetSidSubAuthorityCount(psid.into_param().abi()))
+        ::core::mem::transmute(GetSidSubAuthorityCount(psid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2457,14 +2457,14 @@ pub unsafe fn GetSidSubAuthorityCount<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTokenInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::HANDLE>>(tokenhandle: Param0, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *mut ::std::ffi::c_void, tokeninformationlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL {
+pub unsafe fn GetTokenInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::HANDLE>>(tokenhandle: Param0, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *mut ::core::ffi::c_void, tokeninformationlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetTokenInformation(tokenhandle: super::Foundation::HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *mut ::std::ffi::c_void, tokeninformationlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL;
+            fn GetTokenInformation(tokenhandle: super::Foundation::HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *mut ::core::ffi::c_void, tokeninformationlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetTokenInformation(tokenhandle.into_param().abi(), ::std::mem::transmute(tokeninformationclass), ::std::mem::transmute(tokeninformation), ::std::mem::transmute(tokeninformationlength), ::std::mem::transmute(returnlength)))
+        ::core::mem::transmute(GetTokenInformation(tokenhandle.into_param().abi(), ::core::mem::transmute(tokeninformationclass), ::core::mem::transmute(tokeninformation), ::core::mem::transmute(tokeninformationlength), ::core::mem::transmute(returnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2479,7 +2479,7 @@ pub unsafe fn GetUserObjectSecurity<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn GetUserObjectSecurity(hobj: super::Foundation::HANDLE, psirequested: *const u32, psid: *mut SECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetUserObjectSecurity(hobj.into_param().abi(), ::std::mem::transmute(psirequested), ::std::mem::transmute(psid), ::std::mem::transmute(nlength), ::std::mem::transmute(lpnlengthneeded)))
+        ::core::mem::transmute(GetUserObjectSecurity(hobj.into_param().abi(), ::core::mem::transmute(psirequested), ::core::mem::transmute(psid), ::core::mem::transmute(nlength), ::core::mem::transmute(lpnlengthneeded)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2494,77 +2494,77 @@ pub unsafe fn GetWindowsAccountDomainSid<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn GetWindowsAccountDomainSid(psid: super::Foundation::PSID, pdomainsid: super::Foundation::PSID, cbdomainsid: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetWindowsAccountDomainSid(psid.into_param().abi(), ::std::mem::transmute(pdomainsid), ::std::mem::transmute(cbdomainsid)))
+        ::core::mem::transmute(GetWindowsAccountDomainSid(psid.into_param().abi(), ::core::mem::transmute(pdomainsid), ::core::mem::transmute(cbdomainsid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HDIAGNOSTIC_DATA_QUERY_SESSION(pub isize);
-impl ::std::default::Default for HDIAGNOSTIC_DATA_QUERY_SESSION {
+impl ::core::default::Default for HDIAGNOSTIC_DATA_QUERY_SESSION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HDIAGNOSTIC_DATA_QUERY_SESSION {}
 unsafe impl ::windows::runtime::Abi for HDIAGNOSTIC_DATA_QUERY_SESSION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION(pub isize);
-impl ::std::default::Default for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
+impl ::core::default::Default for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION(pub isize);
-impl ::std::default::Default for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
+impl ::core::default::Default for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HDIAGNOSTIC_EVENT_TAG_DESCRIPTION(pub isize);
-impl ::std::default::Default for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
+impl ::core::default::Default for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HDIAGNOSTIC_RECORD(pub isize);
-impl ::std::default::Default for HDIAGNOSTIC_RECORD {
+impl ::core::default::Default for HDIAGNOSTIC_RECORD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HDIAGNOSTIC_RECORD {}
 unsafe impl ::windows::runtime::Abi for HDIAGNOSTIC_RECORD {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HDIAGNOSTIC_REPORT(pub isize);
-impl ::std::default::Default for HDIAGNOSTIC_REPORT {
+impl ::core::default::Default for HDIAGNOSTIC_REPORT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HDIAGNOSTIC_REPORT {}
@@ -2581,7 +2581,7 @@ pub unsafe fn ImpersonateAnonymousToken<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn ImpersonateAnonymousToken(threadhandle: super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ImpersonateAnonymousToken(threadhandle.into_param().abi()))
+        ::core::mem::transmute(ImpersonateAnonymousToken(threadhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2596,7 +2596,7 @@ pub unsafe fn ImpersonateLoggedOnUser<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn ImpersonateLoggedOnUser(htoken: super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ImpersonateLoggedOnUser(htoken.into_param().abi()))
+        ::core::mem::transmute(ImpersonateLoggedOnUser(htoken.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2611,7 +2611,7 @@ pub unsafe fn ImpersonateSelf(impersonationlevel: SECURITY_IMPERSONATION_LEVEL) 
         extern "system" {
             fn ImpersonateSelf(impersonationlevel: SECURITY_IMPERSONATION_LEVEL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ImpersonateSelf(::std::mem::transmute(impersonationlevel)))
+        ::core::mem::transmute(ImpersonateSelf(::core::mem::transmute(impersonationlevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2626,7 +2626,7 @@ pub unsafe fn InitializeAcl(pacl: *mut ACL, nacllength: u32, dwaclrevision: u32)
         extern "system" {
             fn InitializeAcl(pacl: *mut ACL, nacllength: u32, dwaclrevision: u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InitializeAcl(::std::mem::transmute(pacl), ::std::mem::transmute(nacllength), ::std::mem::transmute(dwaclrevision)))
+        ::core::mem::transmute(InitializeAcl(::core::mem::transmute(pacl), ::core::mem::transmute(nacllength), ::core::mem::transmute(dwaclrevision)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2641,7 +2641,7 @@ pub unsafe fn InitializeSecurityDescriptor(psecuritydescriptor: *mut SECURITY_DE
         extern "system" {
             fn InitializeSecurityDescriptor(psecuritydescriptor: *mut SECURITY_DESCRIPTOR, dwrevision: u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InitializeSecurityDescriptor(::std::mem::transmute(psecuritydescriptor), ::std::mem::transmute(dwrevision)))
+        ::core::mem::transmute(InitializeSecurityDescriptor(::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(dwrevision)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2656,7 +2656,7 @@ pub unsafe fn InitializeSid(sid: super::Foundation::PSID, pidentifierauthority: 
         extern "system" {
             fn InitializeSid(sid: super::Foundation::PSID, pidentifierauthority: *const SID_IDENTIFIER_AUTHORITY, nsubauthoritycount: u8) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InitializeSid(::std::mem::transmute(sid), ::std::mem::transmute(pidentifierauthority), ::std::mem::transmute(nsubauthoritycount)))
+        ::core::mem::transmute(InitializeSid(::core::mem::transmute(sid), ::core::mem::transmute(pidentifierauthority), ::core::mem::transmute(nsubauthoritycount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2671,7 +2671,7 @@ pub unsafe fn IsTokenRestricted<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn IsTokenRestricted(tokenhandle: super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsTokenRestricted(tokenhandle.into_param().abi()))
+        ::core::mem::transmute(IsTokenRestricted(tokenhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2686,7 +2686,7 @@ pub unsafe fn IsValidAcl(pacl: *const ACL) -> super::Foundation::BOOL {
         extern "system" {
             fn IsValidAcl(pacl: *const ACL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsValidAcl(::std::mem::transmute(pacl)))
+        ::core::mem::transmute(IsValidAcl(::core::mem::transmute(pacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2701,7 +2701,7 @@ pub unsafe fn IsValidSecurityDescriptor(psecuritydescriptor: *const SECURITY_DES
         extern "system" {
             fn IsValidSecurityDescriptor(psecuritydescriptor: *const SECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsValidSecurityDescriptor(::std::mem::transmute(psecuritydescriptor)))
+        ::core::mem::transmute(IsValidSecurityDescriptor(::core::mem::transmute(psecuritydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2716,7 +2716,7 @@ pub unsafe fn IsValidSid<'a, Param0: ::windows::runtime::IntoParam<'a, super::Fo
         extern "system" {
             fn IsValidSid(psid: super::Foundation::PSID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsValidSid(psid.into_param().abi()))
+        ::core::mem::transmute(IsValidSid(psid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2731,12 +2731,12 @@ pub unsafe fn IsWellKnownSid<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn IsWellKnownSid(psid: super::Foundation::PSID, wellknownsidtype: WELL_KNOWN_SID_TYPE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsWellKnownSid(psid.into_param().abi(), ::std::mem::transmute(wellknownsidtype)))
+        ::core::mem::transmute(IsWellKnownSid(psid.into_param().abi(), ::core::mem::transmute(wellknownsidtype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -2746,24 +2746,24 @@ pub struct LLFILETIME {
 #[cfg(feature = "Win32_Foundation")]
 impl LLFILETIME {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for LLFILETIME {
+impl ::core::default::Default for LLFILETIME {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for LLFILETIME {
+impl ::core::cmp::PartialEq for LLFILETIME {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for LLFILETIME {}
+impl ::core::cmp::Eq for LLFILETIME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LLFILETIME {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union LLFILETIME_0 {
@@ -2773,25 +2773,25 @@ pub union LLFILETIME_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl LLFILETIME_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for LLFILETIME_0 {
+impl ::core::default::Default for LLFILETIME_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for LLFILETIME_0 {
+impl ::core::cmp::PartialEq for LLFILETIME_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for LLFILETIME_0 {}
+impl ::core::cmp::Eq for LLFILETIME_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LLFILETIME_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LOGON32_LOGON(pub u32);
 pub const LOGON32_LOGON_BATCH: LOGON32_LOGON = LOGON32_LOGON(4u32);
@@ -2801,7 +2801,7 @@ pub const LOGON32_LOGON_NETWORK_CLEARTEXT: LOGON32_LOGON = LOGON32_LOGON(8u32);
 pub const LOGON32_LOGON_NEW_CREDENTIALS: LOGON32_LOGON = LOGON32_LOGON(9u32);
 pub const LOGON32_LOGON_SERVICE: LOGON32_LOGON = LOGON32_LOGON(5u32);
 pub const LOGON32_LOGON_UNLOCK: LOGON32_LOGON = LOGON32_LOGON(7u32);
-impl ::std::convert::From<u32> for LOGON32_LOGON {
+impl ::core::convert::From<u32> for LOGON32_LOGON {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -2809,42 +2809,42 @@ impl ::std::convert::From<u32> for LOGON32_LOGON {
 unsafe impl ::windows::runtime::Abi for LOGON32_LOGON {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for LOGON32_LOGON {
+impl ::core::ops::BitOr for LOGON32_LOGON {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for LOGON32_LOGON {
+impl ::core::ops::BitAnd for LOGON32_LOGON {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for LOGON32_LOGON {
+impl ::core::ops::BitOrAssign for LOGON32_LOGON {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for LOGON32_LOGON {
+impl ::core::ops::BitAndAssign for LOGON32_LOGON {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for LOGON32_LOGON {
+impl ::core::ops::Not for LOGON32_LOGON {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LOGON32_PROVIDER(pub u32);
 pub const LOGON32_PROVIDER_DEFAULT: LOGON32_PROVIDER = LOGON32_PROVIDER(0u32);
 pub const LOGON32_PROVIDER_WINNT50: LOGON32_PROVIDER = LOGON32_PROVIDER(3u32);
 pub const LOGON32_PROVIDER_WINNT40: LOGON32_PROVIDER = LOGON32_PROVIDER(2u32);
-impl ::std::convert::From<u32> for LOGON32_PROVIDER {
+impl ::core::convert::From<u32> for LOGON32_PROVIDER {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -2852,35 +2852,35 @@ impl ::std::convert::From<u32> for LOGON32_PROVIDER {
 unsafe impl ::windows::runtime::Abi for LOGON32_PROVIDER {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for LOGON32_PROVIDER {
+impl ::core::ops::BitOr for LOGON32_PROVIDER {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for LOGON32_PROVIDER {
+impl ::core::ops::BitAnd for LOGON32_PROVIDER {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for LOGON32_PROVIDER {
+impl ::core::ops::BitOrAssign for LOGON32_PROVIDER {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for LOGON32_PROVIDER {
+impl ::core::ops::BitAndAssign for LOGON32_PROVIDER {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for LOGON32_PROVIDER {
+impl ::core::ops::Not for LOGON32_PROVIDER {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -2891,25 +2891,25 @@ pub struct LUID_AND_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl LUID_AND_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for LUID_AND_ATTRIBUTES {
+impl ::core::default::Default for LUID_AND_ATTRIBUTES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for LUID_AND_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LUID_AND_ATTRIBUTES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LUID_AND_ATTRIBUTES").field("Luid", &self.Luid).field("Attributes", &self.Attributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for LUID_AND_ATTRIBUTES {
+impl ::core::cmp::PartialEq for LUID_AND_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
         self.Luid == other.Luid && self.Attributes == other.Attributes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for LUID_AND_ATTRIBUTES {}
+impl ::core::cmp::Eq for LUID_AND_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LUID_AND_ATTRIBUTES {
     type Abi = Self;
@@ -2924,7 +2924,7 @@ pub unsafe fn LogonUserA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Fo
         extern "system" {
             fn LogonUserA(lpszusername: super::Foundation::PSTR, lpszdomain: super::Foundation::PSTR, lpszpassword: super::Foundation::PSTR, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LogonUserA(lpszusername.into_param().abi(), lpszdomain.into_param().abi(), lpszpassword.into_param().abi(), ::std::mem::transmute(dwlogontype), ::std::mem::transmute(dwlogonprovider), ::std::mem::transmute(phtoken)))
+        ::core::mem::transmute(LogonUserA(lpszusername.into_param().abi(), lpszdomain.into_param().abi(), lpszpassword.into_param().abi(), ::core::mem::transmute(dwlogontype), ::core::mem::transmute(dwlogonprovider), ::core::mem::transmute(phtoken)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2940,7 +2940,7 @@ pub unsafe fn LogonUserExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     dwlogonprovider: LOGON32_PROVIDER,
     phtoken: *mut super::Foundation::HANDLE,
     pplogonsid: *mut super::Foundation::PSID,
-    ppprofilebuffer: *mut *mut ::std::ffi::c_void,
+    ppprofilebuffer: *mut *mut ::core::ffi::c_void,
     pdwprofilelength: *mut u32,
     pquotalimits: *mut QUOTA_LIMITS,
 ) -> super::Foundation::BOOL {
@@ -2948,19 +2948,19 @@ pub unsafe fn LogonUserExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LogonUserExA(lpszusername: super::Foundation::PSTR, lpszdomain: super::Foundation::PSTR, lpszpassword: super::Foundation::PSTR, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE, pplogonsid: *mut super::Foundation::PSID, ppprofilebuffer: *mut *mut ::std::ffi::c_void, pdwprofilelength: *mut u32, pquotalimits: *mut QUOTA_LIMITS) -> super::Foundation::BOOL;
+            fn LogonUserExA(lpszusername: super::Foundation::PSTR, lpszdomain: super::Foundation::PSTR, lpszpassword: super::Foundation::PSTR, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE, pplogonsid: *mut super::Foundation::PSID, ppprofilebuffer: *mut *mut ::core::ffi::c_void, pdwprofilelength: *mut u32, pquotalimits: *mut QUOTA_LIMITS) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LogonUserExA(
+        ::core::mem::transmute(LogonUserExA(
             lpszusername.into_param().abi(),
             lpszdomain.into_param().abi(),
             lpszpassword.into_param().abi(),
-            ::std::mem::transmute(dwlogontype),
-            ::std::mem::transmute(dwlogonprovider),
-            ::std::mem::transmute(phtoken),
-            ::std::mem::transmute(pplogonsid),
-            ::std::mem::transmute(ppprofilebuffer),
-            ::std::mem::transmute(pdwprofilelength),
-            ::std::mem::transmute(pquotalimits),
+            ::core::mem::transmute(dwlogontype),
+            ::core::mem::transmute(dwlogonprovider),
+            ::core::mem::transmute(phtoken),
+            ::core::mem::transmute(pplogonsid),
+            ::core::mem::transmute(ppprofilebuffer),
+            ::core::mem::transmute(pdwprofilelength),
+            ::core::mem::transmute(pquotalimits),
         ))
     }
     #[cfg(not(windows))]
@@ -2977,7 +2977,7 @@ pub unsafe fn LogonUserExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     dwlogonprovider: LOGON32_PROVIDER,
     phtoken: *mut super::Foundation::HANDLE,
     pplogonsid: *mut super::Foundation::PSID,
-    ppprofilebuffer: *mut *mut ::std::ffi::c_void,
+    ppprofilebuffer: *mut *mut ::core::ffi::c_void,
     pdwprofilelength: *mut u32,
     pquotalimits: *mut QUOTA_LIMITS,
 ) -> super::Foundation::BOOL {
@@ -2985,19 +2985,19 @@ pub unsafe fn LogonUserExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LogonUserExW(lpszusername: super::Foundation::PWSTR, lpszdomain: super::Foundation::PWSTR, lpszpassword: super::Foundation::PWSTR, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE, pplogonsid: *mut super::Foundation::PSID, ppprofilebuffer: *mut *mut ::std::ffi::c_void, pdwprofilelength: *mut u32, pquotalimits: *mut QUOTA_LIMITS) -> super::Foundation::BOOL;
+            fn LogonUserExW(lpszusername: super::Foundation::PWSTR, lpszdomain: super::Foundation::PWSTR, lpszpassword: super::Foundation::PWSTR, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE, pplogonsid: *mut super::Foundation::PSID, ppprofilebuffer: *mut *mut ::core::ffi::c_void, pdwprofilelength: *mut u32, pquotalimits: *mut QUOTA_LIMITS) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LogonUserExW(
+        ::core::mem::transmute(LogonUserExW(
             lpszusername.into_param().abi(),
             lpszdomain.into_param().abi(),
             lpszpassword.into_param().abi(),
-            ::std::mem::transmute(dwlogontype),
-            ::std::mem::transmute(dwlogonprovider),
-            ::std::mem::transmute(phtoken),
-            ::std::mem::transmute(pplogonsid),
-            ::std::mem::transmute(ppprofilebuffer),
-            ::std::mem::transmute(pdwprofilelength),
-            ::std::mem::transmute(pquotalimits),
+            ::core::mem::transmute(dwlogontype),
+            ::core::mem::transmute(dwlogonprovider),
+            ::core::mem::transmute(phtoken),
+            ::core::mem::transmute(pplogonsid),
+            ::core::mem::transmute(ppprofilebuffer),
+            ::core::mem::transmute(pdwprofilelength),
+            ::core::mem::transmute(pquotalimits),
         ))
     }
     #[cfg(not(windows))]
@@ -3013,7 +3013,7 @@ pub unsafe fn LogonUserW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Fo
         extern "system" {
             fn LogonUserW(lpszusername: super::Foundation::PWSTR, lpszdomain: super::Foundation::PWSTR, lpszpassword: super::Foundation::PWSTR, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LogonUserW(lpszusername.into_param().abi(), lpszdomain.into_param().abi(), lpszpassword.into_param().abi(), ::std::mem::transmute(dwlogontype), ::std::mem::transmute(dwlogonprovider), ::std::mem::transmute(phtoken)))
+        ::core::mem::transmute(LogonUserW(lpszusername.into_param().abi(), lpszdomain.into_param().abi(), lpszpassword.into_param().abi(), ::core::mem::transmute(dwlogontype), ::core::mem::transmute(dwlogonprovider), ::core::mem::transmute(phtoken)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3028,7 +3028,7 @@ pub unsafe fn LookupAccountNameA<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn LookupAccountNameA(lpsystemname: super::Foundation::PSTR, lpaccountname: super::Foundation::PSTR, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: super::Foundation::PSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LookupAccountNameA(lpsystemname.into_param().abi(), lpaccountname.into_param().abi(), ::std::mem::transmute(sid), ::std::mem::transmute(cbsid), ::std::mem::transmute(referenceddomainname), ::std::mem::transmute(cchreferenceddomainname), ::std::mem::transmute(peuse)))
+        ::core::mem::transmute(LookupAccountNameA(lpsystemname.into_param().abi(), lpaccountname.into_param().abi(), ::core::mem::transmute(sid), ::core::mem::transmute(cbsid), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3043,7 +3043,7 @@ pub unsafe fn LookupAccountNameW<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn LookupAccountNameW(lpsystemname: super::Foundation::PWSTR, lpaccountname: super::Foundation::PWSTR, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: super::Foundation::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LookupAccountNameW(lpsystemname.into_param().abi(), lpaccountname.into_param().abi(), ::std::mem::transmute(sid), ::std::mem::transmute(cbsid), ::std::mem::transmute(referenceddomainname), ::std::mem::transmute(cchreferenceddomainname), ::std::mem::transmute(peuse)))
+        ::core::mem::transmute(LookupAccountNameW(lpsystemname.into_param().abi(), lpaccountname.into_param().abi(), ::core::mem::transmute(sid), ::core::mem::transmute(cbsid), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3058,7 +3058,7 @@ pub unsafe fn LookupAccountSidA<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn LookupAccountSidA(lpsystemname: super::Foundation::PSTR, sid: super::Foundation::PSID, name: super::Foundation::PSTR, cchname: *mut u32, referenceddomainname: super::Foundation::PSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LookupAccountSidA(lpsystemname.into_param().abi(), sid.into_param().abi(), ::std::mem::transmute(name), ::std::mem::transmute(cchname), ::std::mem::transmute(referenceddomainname), ::std::mem::transmute(cchreferenceddomainname), ::std::mem::transmute(peuse)))
+        ::core::mem::transmute(LookupAccountSidA(lpsystemname.into_param().abi(), sid.into_param().abi(), ::core::mem::transmute(name), ::core::mem::transmute(cchname), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3073,7 +3073,7 @@ pub unsafe fn LookupAccountSidW<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn LookupAccountSidW(lpsystemname: super::Foundation::PWSTR, sid: super::Foundation::PSID, name: super::Foundation::PWSTR, cchname: *mut u32, referenceddomainname: super::Foundation::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LookupAccountSidW(lpsystemname.into_param().abi(), sid.into_param().abi(), ::std::mem::transmute(name), ::std::mem::transmute(cchname), ::std::mem::transmute(referenceddomainname), ::std::mem::transmute(cchreferenceddomainname), ::std::mem::transmute(peuse)))
+        ::core::mem::transmute(LookupAccountSidW(lpsystemname.into_param().abi(), sid.into_param().abi(), ::core::mem::transmute(name), ::core::mem::transmute(cchname), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3088,7 +3088,7 @@ pub unsafe fn LookupPrivilegeDisplayNameA<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn LookupPrivilegeDisplayNameA(lpsystemname: super::Foundation::PSTR, lpname: super::Foundation::PSTR, lpdisplayname: super::Foundation::PSTR, cchdisplayname: *mut u32, lplanguageid: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LookupPrivilegeDisplayNameA(lpsystemname.into_param().abi(), lpname.into_param().abi(), ::std::mem::transmute(lpdisplayname), ::std::mem::transmute(cchdisplayname), ::std::mem::transmute(lplanguageid)))
+        ::core::mem::transmute(LookupPrivilegeDisplayNameA(lpsystemname.into_param().abi(), lpname.into_param().abi(), ::core::mem::transmute(lpdisplayname), ::core::mem::transmute(cchdisplayname), ::core::mem::transmute(lplanguageid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3103,7 +3103,7 @@ pub unsafe fn LookupPrivilegeDisplayNameW<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn LookupPrivilegeDisplayNameW(lpsystemname: super::Foundation::PWSTR, lpname: super::Foundation::PWSTR, lpdisplayname: super::Foundation::PWSTR, cchdisplayname: *mut u32, lplanguageid: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LookupPrivilegeDisplayNameW(lpsystemname.into_param().abi(), lpname.into_param().abi(), ::std::mem::transmute(lpdisplayname), ::std::mem::transmute(cchdisplayname), ::std::mem::transmute(lplanguageid)))
+        ::core::mem::transmute(LookupPrivilegeDisplayNameW(lpsystemname.into_param().abi(), lpname.into_param().abi(), ::core::mem::transmute(lpdisplayname), ::core::mem::transmute(cchdisplayname), ::core::mem::transmute(lplanguageid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3118,7 +3118,7 @@ pub unsafe fn LookupPrivilegeNameA<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn LookupPrivilegeNameA(lpsystemname: super::Foundation::PSTR, lpluid: *const super::Foundation::LUID, lpname: super::Foundation::PSTR, cchname: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LookupPrivilegeNameA(lpsystemname.into_param().abi(), ::std::mem::transmute(lpluid), ::std::mem::transmute(lpname), ::std::mem::transmute(cchname)))
+        ::core::mem::transmute(LookupPrivilegeNameA(lpsystemname.into_param().abi(), ::core::mem::transmute(lpluid), ::core::mem::transmute(lpname), ::core::mem::transmute(cchname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3133,7 +3133,7 @@ pub unsafe fn LookupPrivilegeNameW<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn LookupPrivilegeNameW(lpsystemname: super::Foundation::PWSTR, lpluid: *const super::Foundation::LUID, lpname: super::Foundation::PWSTR, cchname: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LookupPrivilegeNameW(lpsystemname.into_param().abi(), ::std::mem::transmute(lpluid), ::std::mem::transmute(lpname), ::std::mem::transmute(cchname)))
+        ::core::mem::transmute(LookupPrivilegeNameW(lpsystemname.into_param().abi(), ::core::mem::transmute(lpluid), ::core::mem::transmute(lpname), ::core::mem::transmute(cchname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3148,7 +3148,7 @@ pub unsafe fn LookupPrivilegeValueA<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn LookupPrivilegeValueA(lpsystemname: super::Foundation::PSTR, lpname: super::Foundation::PSTR, lpluid: *mut super::Foundation::LUID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LookupPrivilegeValueA(lpsystemname.into_param().abi(), lpname.into_param().abi(), ::std::mem::transmute(lpluid)))
+        ::core::mem::transmute(LookupPrivilegeValueA(lpsystemname.into_param().abi(), lpname.into_param().abi(), ::core::mem::transmute(lpluid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3163,13 +3163,13 @@ pub unsafe fn LookupPrivilegeValueW<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn LookupPrivilegeValueW(lpsystemname: super::Foundation::PWSTR, lpname: super::Foundation::PWSTR, lpluid: *mut super::Foundation::LUID) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(LookupPrivilegeValueW(lpsystemname.into_param().abi(), lpname.into_param().abi(), ::std::mem::transmute(lpluid)))
+        ::core::mem::transmute(LookupPrivilegeValueW(lpsystemname.into_param().abi(), lpname.into_param().abi(), ::core::mem::transmute(lpluid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MANDATORY_LEVEL(pub i32);
 pub const MandatoryLevelUntrusted: MANDATORY_LEVEL = MANDATORY_LEVEL(0i32);
@@ -3179,7 +3179,7 @@ pub const MandatoryLevelHigh: MANDATORY_LEVEL = MANDATORY_LEVEL(3i32);
 pub const MandatoryLevelSystem: MANDATORY_LEVEL = MANDATORY_LEVEL(4i32);
 pub const MandatoryLevelSecureProcess: MANDATORY_LEVEL = MANDATORY_LEVEL(5i32);
 pub const MandatoryLevelCount: MANDATORY_LEVEL = MANDATORY_LEVEL(6i32);
-impl ::std::convert::From<i32> for MANDATORY_LEVEL {
+impl ::core::convert::From<i32> for MANDATORY_LEVEL {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3197,18 +3197,18 @@ pub unsafe fn MakeAbsoluteSD(pselfrelativesecuritydescriptor: *const SECURITY_DE
         extern "system" {
             fn MakeAbsoluteSD(pselfrelativesecuritydescriptor: *const SECURITY_DESCRIPTOR, pabsolutesecuritydescriptor: *mut SECURITY_DESCRIPTOR, lpdwabsolutesecuritydescriptorsize: *mut u32, pdacl: *mut ACL, lpdwdaclsize: *mut u32, psacl: *mut ACL, lpdwsaclsize: *mut u32, powner: super::Foundation::PSID, lpdwownersize: *mut u32, pprimarygroup: super::Foundation::PSID, lpdwprimarygroupsize: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MakeAbsoluteSD(
-            ::std::mem::transmute(pselfrelativesecuritydescriptor),
-            ::std::mem::transmute(pabsolutesecuritydescriptor),
-            ::std::mem::transmute(lpdwabsolutesecuritydescriptorsize),
-            ::std::mem::transmute(pdacl),
-            ::std::mem::transmute(lpdwdaclsize),
-            ::std::mem::transmute(psacl),
-            ::std::mem::transmute(lpdwsaclsize),
-            ::std::mem::transmute(powner),
-            ::std::mem::transmute(lpdwownersize),
-            ::std::mem::transmute(pprimarygroup),
-            ::std::mem::transmute(lpdwprimarygroupsize),
+        ::core::mem::transmute(MakeAbsoluteSD(
+            ::core::mem::transmute(pselfrelativesecuritydescriptor),
+            ::core::mem::transmute(pabsolutesecuritydescriptor),
+            ::core::mem::transmute(lpdwabsolutesecuritydescriptorsize),
+            ::core::mem::transmute(pdacl),
+            ::core::mem::transmute(lpdwdaclsize),
+            ::core::mem::transmute(psacl),
+            ::core::mem::transmute(lpdwsaclsize),
+            ::core::mem::transmute(powner),
+            ::core::mem::transmute(lpdwownersize),
+            ::core::mem::transmute(pprimarygroup),
+            ::core::mem::transmute(lpdwprimarygroupsize),
         ))
     }
     #[cfg(not(windows))]
@@ -3224,7 +3224,7 @@ pub unsafe fn MakeSelfRelativeSD(pabsolutesecuritydescriptor: *const SECURITY_DE
         extern "system" {
             fn MakeSelfRelativeSD(pabsolutesecuritydescriptor: *const SECURITY_DESCRIPTOR, pselfrelativesecuritydescriptor: *mut SECURITY_DESCRIPTOR, lpdwbufferlength: *mut u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MakeSelfRelativeSD(::std::mem::transmute(pabsolutesecuritydescriptor), ::std::mem::transmute(pselfrelativesecuritydescriptor), ::std::mem::transmute(lpdwbufferlength)))
+        ::core::mem::transmute(MakeSelfRelativeSD(::core::mem::transmute(pabsolutesecuritydescriptor), ::core::mem::transmute(pselfrelativesecuritydescriptor), ::core::mem::transmute(lpdwbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3238,29 +3238,29 @@ pub unsafe fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERI
         extern "system" {
             fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERIC_MAPPING);
         }
-        ::std::mem::transmute(MapGenericMask(::std::mem::transmute(accessmask), ::std::mem::transmute(genericmapping)))
+        ::core::mem::transmute(MapGenericMask(::core::mem::transmute(accessmask), ::core::mem::transmute(genericmapping)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct NCRYPT_DESCRIPTOR_HANDLE(pub isize);
-impl ::std::default::Default for NCRYPT_DESCRIPTOR_HANDLE {
+impl ::core::default::Default for NCRYPT_DESCRIPTOR_HANDLE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for NCRYPT_DESCRIPTOR_HANDLE {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_DESCRIPTOR_HANDLE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct NCRYPT_STREAM_HANDLE(pub isize);
-impl ::std::default::Default for NCRYPT_STREAM_HANDLE {
+impl ::core::default::Default for NCRYPT_STREAM_HANDLE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for NCRYPT_STREAM_HANDLE {}
@@ -3268,7 +3268,7 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_STREAM_HANDLE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OBJECT_SECURITY_INFORMATION(pub u32);
 pub const ATTRIBUTE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(32u32);
@@ -3283,7 +3283,7 @@ pub const SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURI
 pub const SCOPE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(64u32);
 pub const UNPROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(536870912u32);
 pub const UNPROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(268435456u32);
-impl ::std::convert::From<u32> for OBJECT_SECURITY_INFORMATION {
+impl ::core::convert::From<u32> for OBJECT_SECURITY_INFORMATION {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -3291,35 +3291,35 @@ impl ::std::convert::From<u32> for OBJECT_SECURITY_INFORMATION {
 unsafe impl ::windows::runtime::Abi for OBJECT_SECURITY_INFORMATION {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for OBJECT_SECURITY_INFORMATION {
+impl ::core::ops::BitOr for OBJECT_SECURITY_INFORMATION {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for OBJECT_SECURITY_INFORMATION {
+impl ::core::ops::BitAnd for OBJECT_SECURITY_INFORMATION {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for OBJECT_SECURITY_INFORMATION {
+impl ::core::ops::BitOrAssign for OBJECT_SECURITY_INFORMATION {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for OBJECT_SECURITY_INFORMATION {
+impl ::core::ops::BitAndAssign for OBJECT_SECURITY_INFORMATION {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for OBJECT_SECURITY_INFORMATION {
+impl ::core::ops::Not for OBJECT_SECURITY_INFORMATION {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct OBJECT_TYPE_LIST {
@@ -3328,36 +3328,36 @@ pub struct OBJECT_TYPE_LIST {
     pub ObjectType: *mut ::windows::runtime::GUID,
 }
 impl OBJECT_TYPE_LIST {}
-impl ::std::default::Default for OBJECT_TYPE_LIST {
+impl ::core::default::Default for OBJECT_TYPE_LIST {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for OBJECT_TYPE_LIST {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for OBJECT_TYPE_LIST {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("OBJECT_TYPE_LIST").field("Level", &self.Level).field("Sbz", &self.Sbz).field("ObjectType", &self.ObjectType).finish()
     }
 }
-impl ::std::cmp::PartialEq for OBJECT_TYPE_LIST {
+impl ::core::cmp::PartialEq for OBJECT_TYPE_LIST {
     fn eq(&self, other: &Self) -> bool {
         self.Level == other.Level && self.Sbz == other.Sbz && self.ObjectType == other.ObjectType
     }
 }
-impl ::std::cmp::Eq for OBJECT_TYPE_LIST {}
+impl ::core::cmp::Eq for OBJECT_TYPE_LIST {}
 unsafe impl ::windows::runtime::Abi for OBJECT_TYPE_LIST {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectCloseAuditAlarmA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::std::ffi::c_void, generateonclose: Param2) -> super::Foundation::BOOL {
+pub unsafe fn ObjectCloseAuditAlarmA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, generateonclose: Param2) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ObjectCloseAuditAlarmA(subsystemname: super::Foundation::PSTR, handleid: *const ::std::ffi::c_void, generateonclose: super::Foundation::BOOL) -> super::Foundation::BOOL;
+            fn ObjectCloseAuditAlarmA(subsystemname: super::Foundation::PSTR, handleid: *const ::core::ffi::c_void, generateonclose: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ObjectCloseAuditAlarmA(subsystemname.into_param().abi(), ::std::mem::transmute(handleid), generateonclose.into_param().abi()))
+        ::core::mem::transmute(ObjectCloseAuditAlarmA(subsystemname.into_param().abi(), ::core::mem::transmute(handleid), generateonclose.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3365,14 +3365,14 @@ pub unsafe fn ObjectCloseAuditAlarmA<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectCloseAuditAlarmW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::std::ffi::c_void, generateonclose: Param2) -> super::Foundation::BOOL {
+pub unsafe fn ObjectCloseAuditAlarmW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, generateonclose: Param2) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ObjectCloseAuditAlarmW(subsystemname: super::Foundation::PWSTR, handleid: *const ::std::ffi::c_void, generateonclose: super::Foundation::BOOL) -> super::Foundation::BOOL;
+            fn ObjectCloseAuditAlarmW(subsystemname: super::Foundation::PWSTR, handleid: *const ::core::ffi::c_void, generateonclose: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ObjectCloseAuditAlarmW(subsystemname.into_param().abi(), ::std::mem::transmute(handleid), generateonclose.into_param().abi()))
+        ::core::mem::transmute(ObjectCloseAuditAlarmW(subsystemname.into_param().abi(), ::core::mem::transmute(handleid), generateonclose.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3380,14 +3380,14 @@ pub unsafe fn ObjectCloseAuditAlarmW<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectDeleteAuditAlarmA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::std::ffi::c_void, generateonclose: Param2) -> super::Foundation::BOOL {
+pub unsafe fn ObjectDeleteAuditAlarmA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, generateonclose: Param2) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ObjectDeleteAuditAlarmA(subsystemname: super::Foundation::PSTR, handleid: *const ::std::ffi::c_void, generateonclose: super::Foundation::BOOL) -> super::Foundation::BOOL;
+            fn ObjectDeleteAuditAlarmA(subsystemname: super::Foundation::PSTR, handleid: *const ::core::ffi::c_void, generateonclose: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ObjectDeleteAuditAlarmA(subsystemname.into_param().abi(), ::std::mem::transmute(handleid), generateonclose.into_param().abi()))
+        ::core::mem::transmute(ObjectDeleteAuditAlarmA(subsystemname.into_param().abi(), ::core::mem::transmute(handleid), generateonclose.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3395,14 +3395,14 @@ pub unsafe fn ObjectDeleteAuditAlarmA<'a, Param0: ::windows::runtime::IntoParam<
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectDeleteAuditAlarmW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::std::ffi::c_void, generateonclose: Param2) -> super::Foundation::BOOL {
+pub unsafe fn ObjectDeleteAuditAlarmW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, generateonclose: Param2) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ObjectDeleteAuditAlarmW(subsystemname: super::Foundation::PWSTR, handleid: *const ::std::ffi::c_void, generateonclose: super::Foundation::BOOL) -> super::Foundation::BOOL;
+            fn ObjectDeleteAuditAlarmW(subsystemname: super::Foundation::PWSTR, handleid: *const ::core::ffi::c_void, generateonclose: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ObjectDeleteAuditAlarmW(subsystemname.into_param().abi(), ::std::mem::transmute(handleid), generateonclose.into_param().abi()))
+        ::core::mem::transmute(ObjectDeleteAuditAlarmW(subsystemname.into_param().abi(), ::core::mem::transmute(handleid), generateonclose.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3412,7 +3412,7 @@ pub unsafe fn ObjectDeleteAuditAlarmW<'a, Param0: ::windows::runtime::IntoParam<
 #[inline]
 pub unsafe fn ObjectOpenAuditAlarmA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::Foundation::HANDLE>, Param9: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>, Param10: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
-    handleid: *const ::std::ffi::c_void,
+    handleid: *const ::core::ffi::c_void,
     objecttypename: Param2,
     objectname: Param3,
     psecuritydescriptor: *const SECURITY_DESCRIPTOR,
@@ -3428,21 +3428,21 @@ pub unsafe fn ObjectOpenAuditAlarmA<'a, Param0: ::windows::runtime::IntoParam<'a
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ObjectOpenAuditAlarmA(subsystemname: super::Foundation::PSTR, handleid: *const ::std::ffi::c_void, objecttypename: super::Foundation::PSTR, objectname: super::Foundation::PSTR, psecuritydescriptor: *const SECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: super::Foundation::BOOL, accessgranted: super::Foundation::BOOL, generateonclose: *mut i32) -> super::Foundation::BOOL;
+            fn ObjectOpenAuditAlarmA(subsystemname: super::Foundation::PSTR, handleid: *const ::core::ffi::c_void, objecttypename: super::Foundation::PSTR, objectname: super::Foundation::PSTR, psecuritydescriptor: *const SECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: super::Foundation::BOOL, accessgranted: super::Foundation::BOOL, generateonclose: *mut i32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ObjectOpenAuditAlarmA(
+        ::core::mem::transmute(ObjectOpenAuditAlarmA(
             subsystemname.into_param().abi(),
-            ::std::mem::transmute(handleid),
+            ::core::mem::transmute(handleid),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::std::mem::transmute(psecuritydescriptor),
+            ::core::mem::transmute(psecuritydescriptor),
             clienttoken.into_param().abi(),
-            ::std::mem::transmute(desiredaccess),
-            ::std::mem::transmute(grantedaccess),
-            ::std::mem::transmute(privileges),
+            ::core::mem::transmute(desiredaccess),
+            ::core::mem::transmute(grantedaccess),
+            ::core::mem::transmute(privileges),
             objectcreation.into_param().abi(),
             accessgranted.into_param().abi(),
-            ::std::mem::transmute(generateonclose),
+            ::core::mem::transmute(generateonclose),
         ))
     }
     #[cfg(not(windows))]
@@ -3453,7 +3453,7 @@ pub unsafe fn ObjectOpenAuditAlarmA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[inline]
 pub unsafe fn ObjectOpenAuditAlarmW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::Foundation::HANDLE>, Param9: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>, Param10: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
-    handleid: *const ::std::ffi::c_void,
+    handleid: *const ::core::ffi::c_void,
     objecttypename: Param2,
     objectname: Param3,
     psecuritydescriptor: *const SECURITY_DESCRIPTOR,
@@ -3469,21 +3469,21 @@ pub unsafe fn ObjectOpenAuditAlarmW<'a, Param0: ::windows::runtime::IntoParam<'a
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ObjectOpenAuditAlarmW(subsystemname: super::Foundation::PWSTR, handleid: *const ::std::ffi::c_void, objecttypename: super::Foundation::PWSTR, objectname: super::Foundation::PWSTR, psecuritydescriptor: *const SECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: super::Foundation::BOOL, accessgranted: super::Foundation::BOOL, generateonclose: *mut i32) -> super::Foundation::BOOL;
+            fn ObjectOpenAuditAlarmW(subsystemname: super::Foundation::PWSTR, handleid: *const ::core::ffi::c_void, objecttypename: super::Foundation::PWSTR, objectname: super::Foundation::PWSTR, psecuritydescriptor: *const SECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: super::Foundation::BOOL, accessgranted: super::Foundation::BOOL, generateonclose: *mut i32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ObjectOpenAuditAlarmW(
+        ::core::mem::transmute(ObjectOpenAuditAlarmW(
             subsystemname.into_param().abi(),
-            ::std::mem::transmute(handleid),
+            ::core::mem::transmute(handleid),
             objecttypename.into_param().abi(),
             objectname.into_param().abi(),
-            ::std::mem::transmute(psecuritydescriptor),
+            ::core::mem::transmute(psecuritydescriptor),
             clienttoken.into_param().abi(),
-            ::std::mem::transmute(desiredaccess),
-            ::std::mem::transmute(grantedaccess),
-            ::std::mem::transmute(privileges),
+            ::core::mem::transmute(desiredaccess),
+            ::core::mem::transmute(grantedaccess),
+            ::core::mem::transmute(privileges),
             objectcreation.into_param().abi(),
             accessgranted.into_param().abi(),
-            ::std::mem::transmute(generateonclose),
+            ::core::mem::transmute(generateonclose),
         ))
     }
     #[cfg(not(windows))]
@@ -3492,14 +3492,14 @@ pub unsafe fn ObjectOpenAuditAlarmW<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectPrivilegeAuditAlarmA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::HANDLE>, Param5: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::std::ffi::c_void, clienttoken: Param2, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: Param5) -> super::Foundation::BOOL {
+pub unsafe fn ObjectPrivilegeAuditAlarmA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::HANDLE>, Param5: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, clienttoken: Param2, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: Param5) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ObjectPrivilegeAuditAlarmA(subsystemname: super::Foundation::PSTR, handleid: *const ::std::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: super::Foundation::BOOL) -> super::Foundation::BOOL;
+            fn ObjectPrivilegeAuditAlarmA(subsystemname: super::Foundation::PSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ObjectPrivilegeAuditAlarmA(subsystemname.into_param().abi(), ::std::mem::transmute(handleid), clienttoken.into_param().abi(), ::std::mem::transmute(desiredaccess), ::std::mem::transmute(privileges), accessgranted.into_param().abi()))
+        ::core::mem::transmute(ObjectPrivilegeAuditAlarmA(subsystemname.into_param().abi(), ::core::mem::transmute(handleid), clienttoken.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(privileges), accessgranted.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3507,22 +3507,22 @@ pub unsafe fn ObjectPrivilegeAuditAlarmA<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ObjectPrivilegeAuditAlarmW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::HANDLE>, Param5: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::std::ffi::c_void, clienttoken: Param2, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: Param5) -> super::Foundation::BOOL {
+pub unsafe fn ObjectPrivilegeAuditAlarmW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::HANDLE>, Param5: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, clienttoken: Param2, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: Param5) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ObjectPrivilegeAuditAlarmW(subsystemname: super::Foundation::PWSTR, handleid: *const ::std::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: super::Foundation::BOOL) -> super::Foundation::BOOL;
+            fn ObjectPrivilegeAuditAlarmW(subsystemname: super::Foundation::PWSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ObjectPrivilegeAuditAlarmW(subsystemname.into_param().abi(), ::std::mem::transmute(handleid), clienttoken.into_param().abi(), ::std::mem::transmute(desiredaccess), ::std::mem::transmute(privileges), accessgranted.into_param().abi()))
+        ::core::mem::transmute(ObjectPrivilegeAuditAlarmW(subsystemname.into_param().abi(), ::core::mem::transmute(handleid), clienttoken.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(privileges), accessgranted.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = unsafe extern "system" fn(clientrequest: *const *const ::std::ffi::c_void, protocolsubmitbuffer: *const ::std::ffi::c_void, clientbufferbase: *const ::std::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::std::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::Foundation::NTSTATUS;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::Foundation::NTSTATUS;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -3534,25 +3534,25 @@ pub struct PRIVILEGE_SET {
 #[cfg(feature = "Win32_Foundation")]
 impl PRIVILEGE_SET {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for PRIVILEGE_SET {
+impl ::core::default::Default for PRIVILEGE_SET {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for PRIVILEGE_SET {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for PRIVILEGE_SET {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("PRIVILEGE_SET").field("PrivilegeCount", &self.PrivilegeCount).field("Control", &self.Control).field("Privilege", &self.Privilege).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for PRIVILEGE_SET {
+impl ::core::cmp::PartialEq for PRIVILEGE_SET {
     fn eq(&self, other: &Self) -> bool {
         self.PrivilegeCount == other.PrivilegeCount && self.Control == other.Control && self.Privilege == other.Privilege
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for PRIVILEGE_SET {}
+impl ::core::cmp::Eq for PRIVILEGE_SET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRIVILEGE_SET {
     type Abi = Self;
@@ -3567,7 +3567,7 @@ pub unsafe fn PrivilegeCheck<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn PrivilegeCheck(clienttoken: super::Foundation::HANDLE, requiredprivileges: *mut PRIVILEGE_SET, pfresult: *mut i32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PrivilegeCheck(clienttoken.into_param().abi(), ::std::mem::transmute(requiredprivileges), ::std::mem::transmute(pfresult)))
+        ::core::mem::transmute(PrivilegeCheck(clienttoken.into_param().abi(), ::core::mem::transmute(requiredprivileges), ::core::mem::transmute(pfresult)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3582,7 +3582,7 @@ pub unsafe fn PrivilegedServiceAuditAlarmA<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn PrivilegedServiceAuditAlarmA(subsystemname: super::Foundation::PSTR, servicename: super::Foundation::PSTR, clienttoken: super::Foundation::HANDLE, privileges: *const PRIVILEGE_SET, accessgranted: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PrivilegedServiceAuditAlarmA(subsystemname.into_param().abi(), servicename.into_param().abi(), clienttoken.into_param().abi(), ::std::mem::transmute(privileges), accessgranted.into_param().abi()))
+        ::core::mem::transmute(PrivilegedServiceAuditAlarmA(subsystemname.into_param().abi(), servicename.into_param().abi(), clienttoken.into_param().abi(), ::core::mem::transmute(privileges), accessgranted.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3597,12 +3597,12 @@ pub unsafe fn PrivilegedServiceAuditAlarmW<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn PrivilegedServiceAuditAlarmW(subsystemname: super::Foundation::PWSTR, servicename: super::Foundation::PWSTR, clienttoken: super::Foundation::HANDLE, privileges: *const PRIVILEGE_SET, accessgranted: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PrivilegedServiceAuditAlarmW(subsystemname.into_param().abi(), servicename.into_param().abi(), clienttoken.into_param().abi(), ::std::mem::transmute(privileges), accessgranted.into_param().abi()))
+        ::core::mem::transmute(PrivilegedServiceAuditAlarmW(subsystemname.into_param().abi(), servicename.into_param().abi(), clienttoken.into_param().abi(), ::core::mem::transmute(privileges), accessgranted.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct QUOTA_LIMITS {
@@ -3614,13 +3614,13 @@ pub struct QUOTA_LIMITS {
     pub TimeLimit: i64,
 }
 impl QUOTA_LIMITS {}
-impl ::std::default::Default for QUOTA_LIMITS {
+impl ::core::default::Default for QUOTA_LIMITS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QUOTA_LIMITS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QUOTA_LIMITS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QUOTA_LIMITS")
             .field("PagedPoolLimit", &self.PagedPoolLimit)
             .field("NonPagedPoolLimit", &self.NonPagedPoolLimit)
@@ -3631,12 +3631,12 @@ impl ::std::fmt::Debug for QUOTA_LIMITS {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for QUOTA_LIMITS {
+impl ::core::cmp::PartialEq for QUOTA_LIMITS {
     fn eq(&self, other: &Self) -> bool {
         self.PagedPoolLimit == other.PagedPoolLimit && self.NonPagedPoolLimit == other.NonPagedPoolLimit && self.MinimumWorkingSetSize == other.MinimumWorkingSetSize && self.MaximumWorkingSetSize == other.MaximumWorkingSetSize && self.PagefileLimit == other.PagefileLimit && self.TimeLimit == other.TimeLimit
     }
 }
-impl ::std::cmp::Eq for QUOTA_LIMITS {}
+impl ::core::cmp::Eq for QUOTA_LIMITS {}
 unsafe impl ::windows::runtime::Abi for QUOTA_LIMITS {
     type Abi = Self;
 }
@@ -3649,7 +3649,7 @@ pub unsafe fn QuerySecurityAccessMask(securityinformation: u32, desiredaccess: *
         extern "system" {
             fn QuerySecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32);
         }
-        ::std::mem::transmute(QuerySecurityAccessMask(::std::mem::transmute(securityinformation), ::std::mem::transmute(desiredaccess)))
+        ::core::mem::transmute(QuerySecurityAccessMask(::core::mem::transmute(securityinformation), ::core::mem::transmute(desiredaccess)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3664,7 +3664,7 @@ pub unsafe fn RevertToSelf() -> super::Foundation::BOOL {
         extern "system" {
             fn RevertToSelf() -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RevertToSelf())
+        ::core::mem::transmute(RevertToSelf())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3679,72 +3679,72 @@ pub unsafe fn RtlConvertSidToUnicodeString<'a, Param1: ::windows::runtime::IntoP
         extern "system" {
             fn RtlConvertSidToUnicodeString(unicodestring: *mut super::Foundation::UNICODE_STRING, sid: super::Foundation::PSID, allocatedestinationstring: super::Foundation::BOOLEAN) -> super::Foundation::NTSTATUS;
         }
-        RtlConvertSidToUnicodeString(::std::mem::transmute(unicodestring), sid.into_param().abi(), allocatedestinationstring.into_param().abi()).ok()
+        RtlConvertSidToUnicodeString(::core::mem::transmute(unicodestring), sid.into_param().abi(), allocatedestinationstring.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct SAFER_LEVEL_HANDLE(pub isize);
-impl ::std::default::Default for SAFER_LEVEL_HANDLE {
+impl ::core::default::Default for SAFER_LEVEL_HANDLE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for SAFER_LEVEL_HANDLE {}
 unsafe impl ::windows::runtime::Abi for SAFER_LEVEL_HANDLE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct SC_HANDLE(pub isize);
-impl ::std::default::Default for SC_HANDLE {
+impl ::core::default::Default for SC_HANDLE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for SC_HANDLE {}
 unsafe impl ::windows::runtime::Abi for SC_HANDLE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
-    pub lpSecurityDescriptor: *mut ::std::ffi::c_void,
+    pub lpSecurityDescriptor: *mut ::core::ffi::c_void,
     pub bInheritHandle: super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl SECURITY_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SECURITY_ATTRIBUTES {
+impl ::core::default::Default for SECURITY_ATTRIBUTES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SECURITY_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SECURITY_ATTRIBUTES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SECURITY_ATTRIBUTES").field("nLength", &self.nLength).field("lpSecurityDescriptor", &self.lpSecurityDescriptor).field("bInheritHandle", &self.bInheritHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SECURITY_ATTRIBUTES {
+impl ::core::cmp::PartialEq for SECURITY_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
         self.nLength == other.nLength && self.lpSecurityDescriptor == other.lpSecurityDescriptor && self.bInheritHandle == other.bInheritHandle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SECURITY_ATTRIBUTES {}
+impl ::core::cmp::Eq for SECURITY_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SECURITY_ATTRIBUTES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SECURITY_AUTO_INHERIT_FLAGS(pub u32);
 pub const SEF_AVOID_OWNER_CHECK: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(16u32);
@@ -3758,7 +3758,7 @@ pub const SEF_MACL_NO_EXECUTE_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_IN
 pub const SEF_MACL_NO_READ_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(512u32);
 pub const SEF_MACL_NO_WRITE_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(256u32);
 pub const SEF_SACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(2u32);
-impl ::std::convert::From<u32> for SECURITY_AUTO_INHERIT_FLAGS {
+impl ::core::convert::From<u32> for SECURITY_AUTO_INHERIT_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -3766,35 +3766,35 @@ impl ::std::convert::From<u32> for SECURITY_AUTO_INHERIT_FLAGS {
 unsafe impl ::windows::runtime::Abi for SECURITY_AUTO_INHERIT_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SECURITY_AUTO_INHERIT_FLAGS {
+impl ::core::ops::BitOr for SECURITY_AUTO_INHERIT_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SECURITY_AUTO_INHERIT_FLAGS {
+impl ::core::ops::BitAnd for SECURITY_AUTO_INHERIT_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SECURITY_AUTO_INHERIT_FLAGS {
+impl ::core::ops::BitOrAssign for SECURITY_AUTO_INHERIT_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SECURITY_AUTO_INHERIT_FLAGS {
+impl ::core::ops::BitAndAssign for SECURITY_AUTO_INHERIT_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SECURITY_AUTO_INHERIT_FLAGS {
+impl ::core::ops::Not for SECURITY_AUTO_INHERIT_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -3807,30 +3807,30 @@ pub struct SECURITY_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl SECURITY_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SECURITY_CAPABILITIES {
+impl ::core::default::Default for SECURITY_CAPABILITIES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SECURITY_CAPABILITIES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SECURITY_CAPABILITIES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SECURITY_CAPABILITIES").field("AppContainerSid", &self.AppContainerSid).field("Capabilities", &self.Capabilities).field("CapabilityCount", &self.CapabilityCount).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SECURITY_CAPABILITIES {
+impl ::core::cmp::PartialEq for SECURITY_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
         self.AppContainerSid == other.AppContainerSid && self.Capabilities == other.Capabilities && self.CapabilityCount == other.CapabilityCount && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SECURITY_CAPABILITIES {}
+impl ::core::cmp::Eq for SECURITY_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SECURITY_CAPABILITIES {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -3846,38 +3846,38 @@ pub struct SECURITY_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl SECURITY_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SECURITY_DESCRIPTOR {
+impl ::core::default::Default for SECURITY_DESCRIPTOR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SECURITY_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SECURITY_DESCRIPTOR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SECURITY_DESCRIPTOR").field("Revision", &self.Revision).field("Sbz1", &self.Sbz1).field("Control", &self.Control).field("Owner", &self.Owner).field("Group", &self.Group).field("Sacl", &self.Sacl).field("Dacl", &self.Dacl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SECURITY_DESCRIPTOR {
+impl ::core::cmp::PartialEq for SECURITY_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Revision == other.Revision && self.Sbz1 == other.Sbz1 && self.Control == other.Control && self.Owner == other.Owner && self.Group == other.Group && self.Sacl == other.Sacl && self.Dacl == other.Dacl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SECURITY_DESCRIPTOR {}
+impl ::core::cmp::Eq for SECURITY_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SECURITY_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SECURITY_IMPERSONATION_LEVEL(pub i32);
 pub const SecurityAnonymous: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(0i32);
 pub const SecurityIdentification: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(1i32);
 pub const SecurityImpersonation: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(2i32);
 pub const SecurityDelegation: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(3i32);
-impl ::std::convert::From<i32> for SECURITY_IMPERSONATION_LEVEL {
+impl ::core::convert::From<i32> for SECURITY_IMPERSONATION_LEVEL {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3885,7 +3885,7 @@ impl ::std::convert::From<i32> for SECURITY_IMPERSONATION_LEVEL {
 unsafe impl ::windows::runtime::Abi for SECURITY_IMPERSONATION_LEVEL {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -3898,32 +3898,32 @@ pub struct SECURITY_QUALITY_OF_SERVICE {
 #[cfg(feature = "Win32_Foundation")]
 impl SECURITY_QUALITY_OF_SERVICE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SECURITY_QUALITY_OF_SERVICE {
+impl ::core::default::Default for SECURITY_QUALITY_OF_SERVICE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SECURITY_QUALITY_OF_SERVICE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SECURITY_QUALITY_OF_SERVICE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SECURITY_QUALITY_OF_SERVICE").field("Length", &self.Length).field("ImpersonationLevel", &self.ImpersonationLevel).field("ContextTrackingMode", &self.ContextTrackingMode).field("EffectiveOnly", &self.EffectiveOnly).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SECURITY_QUALITY_OF_SERVICE {
+impl ::core::cmp::PartialEq for SECURITY_QUALITY_OF_SERVICE {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.ImpersonationLevel == other.ImpersonationLevel && self.ContextTrackingMode == other.ContextTrackingMode && self.EffectiveOnly == other.EffectiveOnly
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SECURITY_QUALITY_OF_SERVICE {}
+impl ::core::cmp::Eq for SECURITY_QUALITY_OF_SERVICE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SECURITY_QUALITY_OF_SERVICE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-pub type SEC_THREAD_START = unsafe extern "system" fn(lpthreadparameter: *mut ::std::ffi::c_void) -> u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type SEC_THREAD_START = unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct SID {
@@ -3933,26 +3933,26 @@ pub struct SID {
     pub SubAuthority: [u32; 1],
 }
 impl SID {}
-impl ::std::default::Default for SID {
+impl ::core::default::Default for SID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SID {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SID {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SID").field("Revision", &self.Revision).field("SubAuthorityCount", &self.SubAuthorityCount).field("IdentifierAuthority", &self.IdentifierAuthority).field("SubAuthority", &self.SubAuthority).finish()
     }
 }
-impl ::std::cmp::PartialEq for SID {
+impl ::core::cmp::PartialEq for SID {
     fn eq(&self, other: &Self) -> bool {
         self.Revision == other.Revision && self.SubAuthorityCount == other.SubAuthorityCount && self.IdentifierAuthority == other.IdentifierAuthority && self.SubAuthority == other.SubAuthority
     }
 }
-impl ::std::cmp::Eq for SID {}
+impl ::core::cmp::Eq for SID {}
 unsafe impl ::windows::runtime::Abi for SID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -3963,30 +3963,30 @@ pub struct SID_AND_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl SID_AND_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SID_AND_ATTRIBUTES {
+impl ::core::default::Default for SID_AND_ATTRIBUTES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SID_AND_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SID_AND_ATTRIBUTES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SID_AND_ATTRIBUTES").field("Sid", &self.Sid).field("Attributes", &self.Attributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SID_AND_ATTRIBUTES {
+impl ::core::cmp::PartialEq for SID_AND_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
         self.Sid == other.Sid && self.Attributes == other.Attributes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SID_AND_ATTRIBUTES {}
+impl ::core::cmp::Eq for SID_AND_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SID_AND_ATTRIBUTES {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -3998,57 +3998,57 @@ pub struct SID_AND_ATTRIBUTES_HASH {
 #[cfg(feature = "Win32_Foundation")]
 impl SID_AND_ATTRIBUTES_HASH {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SID_AND_ATTRIBUTES_HASH {
+impl ::core::default::Default for SID_AND_ATTRIBUTES_HASH {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SID_AND_ATTRIBUTES_HASH {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SID_AND_ATTRIBUTES_HASH {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SID_AND_ATTRIBUTES_HASH").field("SidCount", &self.SidCount).field("SidAttr", &self.SidAttr).field("Hash", &self.Hash).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SID_AND_ATTRIBUTES_HASH {
+impl ::core::cmp::PartialEq for SID_AND_ATTRIBUTES_HASH {
     fn eq(&self, other: &Self) -> bool {
         self.SidCount == other.SidCount && self.SidAttr == other.SidAttr && self.Hash == other.Hash
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SID_AND_ATTRIBUTES_HASH {}
+impl ::core::cmp::Eq for SID_AND_ATTRIBUTES_HASH {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SID_AND_ATTRIBUTES_HASH {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct SID_IDENTIFIER_AUTHORITY {
     pub Value: [u8; 6],
 }
 impl SID_IDENTIFIER_AUTHORITY {}
-impl ::std::default::Default for SID_IDENTIFIER_AUTHORITY {
+impl ::core::default::Default for SID_IDENTIFIER_AUTHORITY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SID_IDENTIFIER_AUTHORITY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SID_IDENTIFIER_AUTHORITY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SID_IDENTIFIER_AUTHORITY").field("Value", &self.Value).finish()
     }
 }
-impl ::std::cmp::PartialEq for SID_IDENTIFIER_AUTHORITY {
+impl ::core::cmp::PartialEq for SID_IDENTIFIER_AUTHORITY {
     fn eq(&self, other: &Self) -> bool {
         self.Value == other.Value
     }
 }
-impl ::std::cmp::Eq for SID_IDENTIFIER_AUTHORITY {}
+impl ::core::cmp::Eq for SID_IDENTIFIER_AUTHORITY {}
 unsafe impl ::windows::runtime::Abi for SID_IDENTIFIER_AUTHORITY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SID_NAME_USE(pub i32);
 pub const SidTypeUser: SID_NAME_USE = SID_NAME_USE(1i32);
@@ -4062,7 +4062,7 @@ pub const SidTypeUnknown: SID_NAME_USE = SID_NAME_USE(8i32);
 pub const SidTypeComputer: SID_NAME_USE = SID_NAME_USE(9i32);
 pub const SidTypeLabel: SID_NAME_USE = SID_NAME_USE(10i32);
 pub const SidTypeLogonSession: SID_NAME_USE = SID_NAME_USE(11i32);
-impl ::std::convert::From<i32> for SID_NAME_USE {
+impl ::core::convert::From<i32> for SID_NAME_USE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4070,7 +4070,7 @@ impl ::std::convert::From<i32> for SID_NAME_USE {
 unsafe impl ::windows::runtime::Abi for SID_NAME_USE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct SYSTEM_ALARM_ACE {
@@ -4079,26 +4079,26 @@ pub struct SYSTEM_ALARM_ACE {
     pub SidStart: u32,
 }
 impl SYSTEM_ALARM_ACE {}
-impl ::std::default::Default for SYSTEM_ALARM_ACE {
+impl ::core::default::Default for SYSTEM_ALARM_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_ALARM_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_ALARM_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEM_ALARM_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_ALARM_ACE {
+impl ::core::cmp::PartialEq for SYSTEM_ALARM_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for SYSTEM_ALARM_ACE {}
+impl ::core::cmp::Eq for SYSTEM_ALARM_ACE {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_ALARM_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct SYSTEM_ALARM_CALLBACK_ACE {
@@ -4107,26 +4107,26 @@ pub struct SYSTEM_ALARM_CALLBACK_ACE {
     pub SidStart: u32,
 }
 impl SYSTEM_ALARM_CALLBACK_ACE {}
-impl ::std::default::Default for SYSTEM_ALARM_CALLBACK_ACE {
+impl ::core::default::Default for SYSTEM_ALARM_CALLBACK_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_ALARM_CALLBACK_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_ALARM_CALLBACK_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEM_ALARM_CALLBACK_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_ALARM_CALLBACK_ACE {
+impl ::core::cmp::PartialEq for SYSTEM_ALARM_CALLBACK_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for SYSTEM_ALARM_CALLBACK_ACE {}
+impl ::core::cmp::Eq for SYSTEM_ALARM_CALLBACK_ACE {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_ALARM_CALLBACK_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
@@ -4138,26 +4138,26 @@ pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     pub SidStart: u32,
 }
 impl SYSTEM_ALARM_CALLBACK_OBJECT_ACE {}
-impl ::std::default::Default for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
+impl ::core::default::Default for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEM_ALARM_CALLBACK_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
+impl ::core::cmp::PartialEq for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {}
+impl ::core::cmp::Eq for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct SYSTEM_ALARM_OBJECT_ACE {
@@ -4169,26 +4169,26 @@ pub struct SYSTEM_ALARM_OBJECT_ACE {
     pub SidStart: u32,
 }
 impl SYSTEM_ALARM_OBJECT_ACE {}
-impl ::std::default::Default for SYSTEM_ALARM_OBJECT_ACE {
+impl ::core::default::Default for SYSTEM_ALARM_OBJECT_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_ALARM_OBJECT_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_ALARM_OBJECT_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEM_ALARM_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_ALARM_OBJECT_ACE {
+impl ::core::cmp::PartialEq for SYSTEM_ALARM_OBJECT_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for SYSTEM_ALARM_OBJECT_ACE {}
+impl ::core::cmp::Eq for SYSTEM_ALARM_OBJECT_ACE {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_ALARM_OBJECT_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct SYSTEM_AUDIT_ACE {
@@ -4197,26 +4197,26 @@ pub struct SYSTEM_AUDIT_ACE {
     pub SidStart: u32,
 }
 impl SYSTEM_AUDIT_ACE {}
-impl ::std::default::Default for SYSTEM_AUDIT_ACE {
+impl ::core::default::Default for SYSTEM_AUDIT_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_AUDIT_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_AUDIT_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEM_AUDIT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_AUDIT_ACE {
+impl ::core::cmp::PartialEq for SYSTEM_AUDIT_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for SYSTEM_AUDIT_ACE {}
+impl ::core::cmp::Eq for SYSTEM_AUDIT_ACE {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_AUDIT_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct SYSTEM_AUDIT_CALLBACK_ACE {
@@ -4225,26 +4225,26 @@ pub struct SYSTEM_AUDIT_CALLBACK_ACE {
     pub SidStart: u32,
 }
 impl SYSTEM_AUDIT_CALLBACK_ACE {}
-impl ::std::default::Default for SYSTEM_AUDIT_CALLBACK_ACE {
+impl ::core::default::Default for SYSTEM_AUDIT_CALLBACK_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_AUDIT_CALLBACK_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_AUDIT_CALLBACK_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEM_AUDIT_CALLBACK_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_AUDIT_CALLBACK_ACE {
+impl ::core::cmp::PartialEq for SYSTEM_AUDIT_CALLBACK_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for SYSTEM_AUDIT_CALLBACK_ACE {}
+impl ::core::cmp::Eq for SYSTEM_AUDIT_CALLBACK_ACE {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_AUDIT_CALLBACK_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
@@ -4256,26 +4256,26 @@ pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     pub SidStart: u32,
 }
 impl SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {}
-impl ::std::default::Default for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
+impl ::core::default::Default for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEM_AUDIT_CALLBACK_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
+impl ::core::cmp::PartialEq for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {}
+impl ::core::cmp::Eq for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct SYSTEM_AUDIT_OBJECT_ACE {
@@ -4287,32 +4287,32 @@ pub struct SYSTEM_AUDIT_OBJECT_ACE {
     pub SidStart: u32,
 }
 impl SYSTEM_AUDIT_OBJECT_ACE {}
-impl ::std::default::Default for SYSTEM_AUDIT_OBJECT_ACE {
+impl ::core::default::Default for SYSTEM_AUDIT_OBJECT_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_AUDIT_OBJECT_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_AUDIT_OBJECT_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEM_AUDIT_OBJECT_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("Flags", &self.Flags).field("ObjectType", &self.ObjectType).field("InheritedObjectType", &self.InheritedObjectType).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_AUDIT_OBJECT_ACE {
+impl ::core::cmp::PartialEq for SYSTEM_AUDIT_OBJECT_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.Flags == other.Flags && self.ObjectType == other.ObjectType && self.InheritedObjectType == other.InheritedObjectType && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for SYSTEM_AUDIT_OBJECT_ACE {}
+impl ::core::cmp::Eq for SYSTEM_AUDIT_OBJECT_ACE {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_AUDIT_OBJECT_ACE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SYSTEM_AUDIT_OBJECT_ACE_FLAGS(pub u32);
 pub const ACE_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = SYSTEM_AUDIT_OBJECT_ACE_FLAGS(1u32);
 pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = SYSTEM_AUDIT_OBJECT_ACE_FLAGS(2u32);
-impl ::std::convert::From<u32> for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
+impl ::core::convert::From<u32> for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -4320,35 +4320,35 @@ impl ::std::convert::From<u32> for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
 unsafe impl ::windows::runtime::Abi for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
+impl ::core::ops::BitOr for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
+impl ::core::ops::BitAnd for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
+impl ::core::ops::BitOrAssign for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
+impl ::core::ops::BitAndAssign for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
+impl ::core::ops::Not for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct SYSTEM_MANDATORY_LABEL_ACE {
@@ -4357,26 +4357,26 @@ pub struct SYSTEM_MANDATORY_LABEL_ACE {
     pub SidStart: u32,
 }
 impl SYSTEM_MANDATORY_LABEL_ACE {}
-impl ::std::default::Default for SYSTEM_MANDATORY_LABEL_ACE {
+impl ::core::default::Default for SYSTEM_MANDATORY_LABEL_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_MANDATORY_LABEL_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_MANDATORY_LABEL_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEM_MANDATORY_LABEL_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_MANDATORY_LABEL_ACE {
+impl ::core::cmp::PartialEq for SYSTEM_MANDATORY_LABEL_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for SYSTEM_MANDATORY_LABEL_ACE {}
+impl ::core::cmp::Eq for SYSTEM_MANDATORY_LABEL_ACE {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_MANDATORY_LABEL_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct SYSTEM_RESOURCE_ATTRIBUTE_ACE {
@@ -4385,26 +4385,26 @@ pub struct SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     pub SidStart: u32,
 }
 impl SYSTEM_RESOURCE_ATTRIBUTE_ACE {}
-impl ::std::default::Default for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
+impl ::core::default::Default for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEM_RESOURCE_ATTRIBUTE_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
+impl ::core::cmp::PartialEq for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for SYSTEM_RESOURCE_ATTRIBUTE_ACE {}
+impl ::core::cmp::Eq for SYSTEM_RESOURCE_ATTRIBUTE_ACE {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
@@ -4413,36 +4413,36 @@ pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
     pub SidStart: u32,
 }
 impl SYSTEM_SCOPED_POLICY_ID_ACE {}
-impl ::std::default::Default for SYSTEM_SCOPED_POLICY_ID_ACE {
+impl ::core::default::Default for SYSTEM_SCOPED_POLICY_ID_ACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEM_SCOPED_POLICY_ID_ACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEM_SCOPED_POLICY_ID_ACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEM_SCOPED_POLICY_ID_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEM_SCOPED_POLICY_ID_ACE {
+impl ::core::cmp::PartialEq for SYSTEM_SCOPED_POLICY_ID_ACE {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Mask == other.Mask && self.SidStart == other.SidStart
     }
 }
-impl ::std::cmp::Eq for SYSTEM_SCOPED_POLICY_ID_ACE {}
+impl ::core::cmp::Eq for SYSTEM_SCOPED_POLICY_ID_ACE {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_SCOPED_POLICY_ID_ACE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetAclInformation(pacl: *mut ACL, paclinformation: *const ::std::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL {
+pub unsafe fn SetAclInformation(pacl: *mut ACL, paclinformation: *const ::core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetAclInformation(pacl: *mut ACL, paclinformation: *const ::std::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL;
+            fn SetAclInformation(pacl: *mut ACL, paclinformation: *const ::core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetAclInformation(::std::mem::transmute(pacl), ::std::mem::transmute(paclinformation), ::std::mem::transmute(naclinformationlength), ::std::mem::transmute(dwaclinformationclass)))
+        ::core::mem::transmute(SetAclInformation(::core::mem::transmute(pacl), ::core::mem::transmute(paclinformation), ::core::mem::transmute(naclinformationlength), ::core::mem::transmute(dwaclinformationclass)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4457,7 +4457,7 @@ pub unsafe fn SetCachedSigningLevel<'a, Param3: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn SetCachedSigningLevel(sourcefiles: *const super::Foundation::HANDLE, sourcefilecount: u32, flags: u32, targetfile: super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetCachedSigningLevel(::std::mem::transmute(sourcefiles), ::std::mem::transmute(sourcefilecount), ::std::mem::transmute(flags), targetfile.into_param().abi()))
+        ::core::mem::transmute(SetCachedSigningLevel(::core::mem::transmute(sourcefiles), ::core::mem::transmute(sourcefilecount), ::core::mem::transmute(flags), targetfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4472,7 +4472,7 @@ pub unsafe fn SetFileSecurityA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn SetFileSecurityA(lpfilename: super::Foundation::PSTR, securityinformation: u32, psecuritydescriptor: *const SECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileSecurityA(lpfilename.into_param().abi(), ::std::mem::transmute(securityinformation), ::std::mem::transmute(psecuritydescriptor)))
+        ::core::mem::transmute(SetFileSecurityA(lpfilename.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(psecuritydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4487,7 +4487,7 @@ pub unsafe fn SetFileSecurityW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn SetFileSecurityW(lpfilename: super::Foundation::PWSTR, securityinformation: u32, psecuritydescriptor: *const SECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetFileSecurityW(lpfilename.into_param().abi(), ::std::mem::transmute(securityinformation), ::std::mem::transmute(psecuritydescriptor)))
+        ::core::mem::transmute(SetFileSecurityW(lpfilename.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(psecuritydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4502,7 +4502,7 @@ pub unsafe fn SetKernelObjectSecurity<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn SetKernelObjectSecurity(handle: super::Foundation::HANDLE, securityinformation: u32, securitydescriptor: *const SECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetKernelObjectSecurity(handle.into_param().abi(), ::std::mem::transmute(securityinformation), ::std::mem::transmute(securitydescriptor)))
+        ::core::mem::transmute(SetKernelObjectSecurity(handle.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4517,7 +4517,7 @@ pub unsafe fn SetPrivateObjectSecurity<'a, Param4: ::windows::runtime::IntoParam
         extern "system" {
             fn SetPrivateObjectSecurity(securityinformation: u32, modificationdescriptor: *const SECURITY_DESCRIPTOR, objectssecuritydescriptor: *mut *mut SECURITY_DESCRIPTOR, genericmapping: *const GENERIC_MAPPING, token: super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetPrivateObjectSecurity(::std::mem::transmute(securityinformation), ::std::mem::transmute(modificationdescriptor), ::std::mem::transmute(objectssecuritydescriptor), ::std::mem::transmute(genericmapping), token.into_param().abi()))
+        ::core::mem::transmute(SetPrivateObjectSecurity(::core::mem::transmute(securityinformation), ::core::mem::transmute(modificationdescriptor), ::core::mem::transmute(objectssecuritydescriptor), ::core::mem::transmute(genericmapping), token.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4532,7 +4532,7 @@ pub unsafe fn SetPrivateObjectSecurityEx<'a, Param5: ::windows::runtime::IntoPar
         extern "system" {
             fn SetPrivateObjectSecurityEx(securityinformation: u32, modificationdescriptor: *const SECURITY_DESCRIPTOR, objectssecuritydescriptor: *mut *mut SECURITY_DESCRIPTOR, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, genericmapping: *const GENERIC_MAPPING, token: super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetPrivateObjectSecurityEx(::std::mem::transmute(securityinformation), ::std::mem::transmute(modificationdescriptor), ::std::mem::transmute(objectssecuritydescriptor), ::std::mem::transmute(autoinheritflags), ::std::mem::transmute(genericmapping), token.into_param().abi()))
+        ::core::mem::transmute(SetPrivateObjectSecurityEx(::core::mem::transmute(securityinformation), ::core::mem::transmute(modificationdescriptor), ::core::mem::transmute(objectssecuritydescriptor), ::core::mem::transmute(autoinheritflags), ::core::mem::transmute(genericmapping), token.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4546,7 +4546,7 @@ pub unsafe fn SetSecurityAccessMask(securityinformation: u32, desiredaccess: *mu
         extern "system" {
             fn SetSecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32);
         }
-        ::std::mem::transmute(SetSecurityAccessMask(::std::mem::transmute(securityinformation), ::std::mem::transmute(desiredaccess)))
+        ::core::mem::transmute(SetSecurityAccessMask(::core::mem::transmute(securityinformation), ::core::mem::transmute(desiredaccess)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4561,7 +4561,7 @@ pub unsafe fn SetSecurityDescriptorControl(psecuritydescriptor: *const SECURITY_
         extern "system" {
             fn SetSecurityDescriptorControl(psecuritydescriptor: *const SECURITY_DESCRIPTOR, controlbitsofinterest: u16, controlbitstoset: u16) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetSecurityDescriptorControl(::std::mem::transmute(psecuritydescriptor), ::std::mem::transmute(controlbitsofinterest), ::std::mem::transmute(controlbitstoset)))
+        ::core::mem::transmute(SetSecurityDescriptorControl(::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(controlbitsofinterest), ::core::mem::transmute(controlbitstoset)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4576,7 +4576,7 @@ pub unsafe fn SetSecurityDescriptorDacl<'a, Param1: ::windows::runtime::IntoPara
         extern "system" {
             fn SetSecurityDescriptorDacl(psecuritydescriptor: *mut SECURITY_DESCRIPTOR, bdaclpresent: super::Foundation::BOOL, pdacl: *const ACL, bdacldefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetSecurityDescriptorDacl(::std::mem::transmute(psecuritydescriptor), bdaclpresent.into_param().abi(), ::std::mem::transmute(pdacl), bdacldefaulted.into_param().abi()))
+        ::core::mem::transmute(SetSecurityDescriptorDacl(::core::mem::transmute(psecuritydescriptor), bdaclpresent.into_param().abi(), ::core::mem::transmute(pdacl), bdacldefaulted.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4591,7 +4591,7 @@ pub unsafe fn SetSecurityDescriptorGroup<'a, Param1: ::windows::runtime::IntoPar
         extern "system" {
             fn SetSecurityDescriptorGroup(psecuritydescriptor: *mut SECURITY_DESCRIPTOR, pgroup: super::Foundation::PSID, bgroupdefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetSecurityDescriptorGroup(::std::mem::transmute(psecuritydescriptor), pgroup.into_param().abi(), bgroupdefaulted.into_param().abi()))
+        ::core::mem::transmute(SetSecurityDescriptorGroup(::core::mem::transmute(psecuritydescriptor), pgroup.into_param().abi(), bgroupdefaulted.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4606,7 +4606,7 @@ pub unsafe fn SetSecurityDescriptorOwner<'a, Param1: ::windows::runtime::IntoPar
         extern "system" {
             fn SetSecurityDescriptorOwner(psecuritydescriptor: *mut SECURITY_DESCRIPTOR, powner: super::Foundation::PSID, bownerdefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetSecurityDescriptorOwner(::std::mem::transmute(psecuritydescriptor), powner.into_param().abi(), bownerdefaulted.into_param().abi()))
+        ::core::mem::transmute(SetSecurityDescriptorOwner(::core::mem::transmute(psecuritydescriptor), powner.into_param().abi(), bownerdefaulted.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4621,7 +4621,7 @@ pub unsafe fn SetSecurityDescriptorRMControl(securitydescriptor: *mut SECURITY_D
         extern "system" {
             fn SetSecurityDescriptorRMControl(securitydescriptor: *mut SECURITY_DESCRIPTOR, rmcontrol: *const u8) -> u32;
         }
-        ::std::mem::transmute(SetSecurityDescriptorRMControl(::std::mem::transmute(securitydescriptor), ::std::mem::transmute(rmcontrol)))
+        ::core::mem::transmute(SetSecurityDescriptorRMControl(::core::mem::transmute(securitydescriptor), ::core::mem::transmute(rmcontrol)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4636,7 +4636,7 @@ pub unsafe fn SetSecurityDescriptorSacl<'a, Param1: ::windows::runtime::IntoPara
         extern "system" {
             fn SetSecurityDescriptorSacl(psecuritydescriptor: *mut SECURITY_DESCRIPTOR, bsaclpresent: super::Foundation::BOOL, psacl: *const ACL, bsacldefaulted: super::Foundation::BOOL) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetSecurityDescriptorSacl(::std::mem::transmute(psecuritydescriptor), bsaclpresent.into_param().abi(), ::std::mem::transmute(psacl), bsacldefaulted.into_param().abi()))
+        ::core::mem::transmute(SetSecurityDescriptorSacl(::core::mem::transmute(psecuritydescriptor), bsaclpresent.into_param().abi(), ::core::mem::transmute(psacl), bsacldefaulted.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4644,14 +4644,14 @@ pub unsafe fn SetSecurityDescriptorSacl<'a, Param1: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetTokenInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::HANDLE>>(tokenhandle: Param0, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *const ::std::ffi::c_void, tokeninformationlength: u32) -> super::Foundation::BOOL {
+pub unsafe fn SetTokenInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::HANDLE>>(tokenhandle: Param0, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *const ::core::ffi::c_void, tokeninformationlength: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetTokenInformation(tokenhandle: super::Foundation::HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *const ::std::ffi::c_void, tokeninformationlength: u32) -> super::Foundation::BOOL;
+            fn SetTokenInformation(tokenhandle: super::Foundation::HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *const ::core::ffi::c_void, tokeninformationlength: u32) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetTokenInformation(tokenhandle.into_param().abi(), ::std::mem::transmute(tokeninformationclass), ::std::mem::transmute(tokeninformation), ::std::mem::transmute(tokeninformationlength)))
+        ::core::mem::transmute(SetTokenInformation(tokenhandle.into_param().abi(), ::core::mem::transmute(tokeninformationclass), ::core::mem::transmute(tokeninformation), ::core::mem::transmute(tokeninformationlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4666,12 +4666,12 @@ pub unsafe fn SetUserObjectSecurity<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn SetUserObjectSecurity(hobj: super::Foundation::HANDLE, psirequested: *const OBJECT_SECURITY_INFORMATION, psid: *const SECURITY_DESCRIPTOR) -> super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetUserObjectSecurity(hobj.into_param().abi(), ::std::mem::transmute(psirequested), ::std::mem::transmute(psid)))
+        ::core::mem::transmute(SetUserObjectSecurity(hobj.into_param().abi(), ::core::mem::transmute(psirequested), ::core::mem::transmute(psid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -4688,19 +4688,19 @@ pub struct TOKEN_ACCESS_INFORMATION {
     pub PackageSid: super::Foundation::PSID,
     pub CapabilitiesHash: *mut SID_AND_ATTRIBUTES_HASH,
     pub TrustLevelSid: super::Foundation::PSID,
-    pub SecurityAttributes: *mut ::std::ffi::c_void,
+    pub SecurityAttributes: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl TOKEN_ACCESS_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOKEN_ACCESS_INFORMATION {
+impl ::core::default::Default for TOKEN_ACCESS_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOKEN_ACCESS_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_ACCESS_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_ACCESS_INFORMATION")
             .field("SidHash", &self.SidHash)
             .field("RestrictedSidHash", &self.RestrictedSidHash)
@@ -4719,7 +4719,7 @@ impl ::std::fmt::Debug for TOKEN_ACCESS_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOKEN_ACCESS_INFORMATION {
+impl ::core::cmp::PartialEq for TOKEN_ACCESS_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.SidHash == other.SidHash
             && self.RestrictedSidHash == other.RestrictedSidHash
@@ -4737,13 +4737,13 @@ impl ::std::cmp::PartialEq for TOKEN_ACCESS_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOKEN_ACCESS_INFORMATION {}
+impl ::core::cmp::Eq for TOKEN_ACCESS_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_ACCESS_INFORMATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TOKEN_ACCESS_MASK(pub u32);
 pub const TOKEN_DELETE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(65536u32);
@@ -4761,7 +4761,7 @@ pub const TOKEN_ADJUST_GROUPS: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(64u32);
 pub const TOKEN_ADJUST_DEFAULT: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(128u32);
 pub const TOKEN_ADJUST_SESSIONID: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(256u32);
 pub const TOKEN_ALL_ACCESS: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(983295u32);
-impl ::std::convert::From<u32> for TOKEN_ACCESS_MASK {
+impl ::core::convert::From<u32> for TOKEN_ACCESS_MASK {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -4769,35 +4769,35 @@ impl ::std::convert::From<u32> for TOKEN_ACCESS_MASK {
 unsafe impl ::windows::runtime::Abi for TOKEN_ACCESS_MASK {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for TOKEN_ACCESS_MASK {
+impl ::core::ops::BitOr for TOKEN_ACCESS_MASK {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for TOKEN_ACCESS_MASK {
+impl ::core::ops::BitAnd for TOKEN_ACCESS_MASK {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for TOKEN_ACCESS_MASK {
+impl ::core::ops::BitOrAssign for TOKEN_ACCESS_MASK {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for TOKEN_ACCESS_MASK {
+impl ::core::ops::BitAndAssign for TOKEN_ACCESS_MASK {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for TOKEN_ACCESS_MASK {
+impl ::core::ops::Not for TOKEN_ACCESS_MASK {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -4807,56 +4807,56 @@ pub struct TOKEN_APPCONTAINER_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl TOKEN_APPCONTAINER_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOKEN_APPCONTAINER_INFORMATION {
+impl ::core::default::Default for TOKEN_APPCONTAINER_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOKEN_APPCONTAINER_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_APPCONTAINER_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_APPCONTAINER_INFORMATION").field("TokenAppContainer", &self.TokenAppContainer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOKEN_APPCONTAINER_INFORMATION {
+impl ::core::cmp::PartialEq for TOKEN_APPCONTAINER_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.TokenAppContainer == other.TokenAppContainer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOKEN_APPCONTAINER_INFORMATION {}
+impl ::core::cmp::Eq for TOKEN_APPCONTAINER_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_APPCONTAINER_INFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct TOKEN_AUDIT_POLICY {
     pub PerUserPolicy: [u8; 30],
 }
 impl TOKEN_AUDIT_POLICY {}
-impl ::std::default::Default for TOKEN_AUDIT_POLICY {
+impl ::core::default::Default for TOKEN_AUDIT_POLICY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TOKEN_AUDIT_POLICY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_AUDIT_POLICY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_AUDIT_POLICY").field("PerUserPolicy", &self.PerUserPolicy).finish()
     }
 }
-impl ::std::cmp::PartialEq for TOKEN_AUDIT_POLICY {
+impl ::core::cmp::PartialEq for TOKEN_AUDIT_POLICY {
     fn eq(&self, other: &Self) -> bool {
         self.PerUserPolicy == other.PerUserPolicy
     }
 }
-impl ::std::cmp::Eq for TOKEN_AUDIT_POLICY {}
+impl ::core::cmp::Eq for TOKEN_AUDIT_POLICY {}
 unsafe impl ::windows::runtime::Abi for TOKEN_AUDIT_POLICY {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -4869,115 +4869,115 @@ pub struct TOKEN_CONTROL {
 #[cfg(feature = "Win32_Foundation")]
 impl TOKEN_CONTROL {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOKEN_CONTROL {
+impl ::core::default::Default for TOKEN_CONTROL {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOKEN_CONTROL {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_CONTROL {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_CONTROL").field("TokenId", &self.TokenId).field("AuthenticationId", &self.AuthenticationId).field("ModifiedId", &self.ModifiedId).field("TokenSource", &self.TokenSource).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOKEN_CONTROL {
+impl ::core::cmp::PartialEq for TOKEN_CONTROL {
     fn eq(&self, other: &Self) -> bool {
         self.TokenId == other.TokenId && self.AuthenticationId == other.AuthenticationId && self.ModifiedId == other.ModifiedId && self.TokenSource == other.TokenSource
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOKEN_CONTROL {}
+impl ::core::cmp::Eq for TOKEN_CONTROL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_CONTROL {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct TOKEN_DEFAULT_DACL {
     pub DefaultDacl: *mut ACL,
 }
 impl TOKEN_DEFAULT_DACL {}
-impl ::std::default::Default for TOKEN_DEFAULT_DACL {
+impl ::core::default::Default for TOKEN_DEFAULT_DACL {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TOKEN_DEFAULT_DACL {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_DEFAULT_DACL {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_DEFAULT_DACL").field("DefaultDacl", &self.DefaultDacl).finish()
     }
 }
-impl ::std::cmp::PartialEq for TOKEN_DEFAULT_DACL {
+impl ::core::cmp::PartialEq for TOKEN_DEFAULT_DACL {
     fn eq(&self, other: &Self) -> bool {
         self.DefaultDacl == other.DefaultDacl
     }
 }
-impl ::std::cmp::Eq for TOKEN_DEFAULT_DACL {}
+impl ::core::cmp::Eq for TOKEN_DEFAULT_DACL {}
 unsafe impl ::windows::runtime::Abi for TOKEN_DEFAULT_DACL {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct TOKEN_DEVICE_CLAIMS {
-    pub DeviceClaims: *mut ::std::ffi::c_void,
+    pub DeviceClaims: *mut ::core::ffi::c_void,
 }
 impl TOKEN_DEVICE_CLAIMS {}
-impl ::std::default::Default for TOKEN_DEVICE_CLAIMS {
+impl ::core::default::Default for TOKEN_DEVICE_CLAIMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TOKEN_DEVICE_CLAIMS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_DEVICE_CLAIMS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_DEVICE_CLAIMS").field("DeviceClaims", &self.DeviceClaims).finish()
     }
 }
-impl ::std::cmp::PartialEq for TOKEN_DEVICE_CLAIMS {
+impl ::core::cmp::PartialEq for TOKEN_DEVICE_CLAIMS {
     fn eq(&self, other: &Self) -> bool {
         self.DeviceClaims == other.DeviceClaims
     }
 }
-impl ::std::cmp::Eq for TOKEN_DEVICE_CLAIMS {}
+impl ::core::cmp::Eq for TOKEN_DEVICE_CLAIMS {}
 unsafe impl ::windows::runtime::Abi for TOKEN_DEVICE_CLAIMS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct TOKEN_ELEVATION {
     pub TokenIsElevated: u32,
 }
 impl TOKEN_ELEVATION {}
-impl ::std::default::Default for TOKEN_ELEVATION {
+impl ::core::default::Default for TOKEN_ELEVATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TOKEN_ELEVATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_ELEVATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_ELEVATION").field("TokenIsElevated", &self.TokenIsElevated).finish()
     }
 }
-impl ::std::cmp::PartialEq for TOKEN_ELEVATION {
+impl ::core::cmp::PartialEq for TOKEN_ELEVATION {
     fn eq(&self, other: &Self) -> bool {
         self.TokenIsElevated == other.TokenIsElevated
     }
 }
-impl ::std::cmp::Eq for TOKEN_ELEVATION {}
+impl ::core::cmp::Eq for TOKEN_ELEVATION {}
 unsafe impl ::windows::runtime::Abi for TOKEN_ELEVATION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TOKEN_ELEVATION_TYPE(pub i32);
 pub const TokenElevationTypeDefault: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(1i32);
 pub const TokenElevationTypeFull: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(2i32);
 pub const TokenElevationTypeLimited: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(3i32);
-impl ::std::convert::From<i32> for TOKEN_ELEVATION_TYPE {
+impl ::core::convert::From<i32> for TOKEN_ELEVATION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4985,7 +4985,7 @@ impl ::std::convert::From<i32> for TOKEN_ELEVATION_TYPE {
 unsafe impl ::windows::runtime::Abi for TOKEN_ELEVATION_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -4996,30 +4996,30 @@ pub struct TOKEN_GROUPS {
 #[cfg(feature = "Win32_Foundation")]
 impl TOKEN_GROUPS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOKEN_GROUPS {
+impl ::core::default::Default for TOKEN_GROUPS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOKEN_GROUPS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_GROUPS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_GROUPS").field("GroupCount", &self.GroupCount).field("Groups", &self.Groups).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOKEN_GROUPS {
+impl ::core::cmp::PartialEq for TOKEN_GROUPS {
     fn eq(&self, other: &Self) -> bool {
         self.GroupCount == other.GroupCount && self.Groups == other.Groups
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOKEN_GROUPS {}
+impl ::core::cmp::Eq for TOKEN_GROUPS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_GROUPS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -5038,14 +5038,14 @@ pub struct TOKEN_GROUPS_AND_PRIVILEGES {
 #[cfg(feature = "Win32_Foundation")]
 impl TOKEN_GROUPS_AND_PRIVILEGES {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOKEN_GROUPS_AND_PRIVILEGES {
+impl ::core::default::Default for TOKEN_GROUPS_AND_PRIVILEGES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOKEN_GROUPS_AND_PRIVILEGES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_GROUPS_AND_PRIVILEGES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_GROUPS_AND_PRIVILEGES")
             .field("SidCount", &self.SidCount)
             .field("SidLength", &self.SidLength)
@@ -5061,19 +5061,19 @@ impl ::std::fmt::Debug for TOKEN_GROUPS_AND_PRIVILEGES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOKEN_GROUPS_AND_PRIVILEGES {
+impl ::core::cmp::PartialEq for TOKEN_GROUPS_AND_PRIVILEGES {
     fn eq(&self, other: &Self) -> bool {
         self.SidCount == other.SidCount && self.SidLength == other.SidLength && self.Sids == other.Sids && self.RestrictedSidCount == other.RestrictedSidCount && self.RestrictedSidLength == other.RestrictedSidLength && self.RestrictedSids == other.RestrictedSids && self.PrivilegeCount == other.PrivilegeCount && self.PrivilegeLength == other.PrivilegeLength && self.Privileges == other.Privileges && self.AuthenticationId == other.AuthenticationId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOKEN_GROUPS_AND_PRIVILEGES {}
+impl ::core::cmp::Eq for TOKEN_GROUPS_AND_PRIVILEGES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_GROUPS_AND_PRIVILEGES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TOKEN_INFORMATION_CLASS(pub i32);
 pub const TokenUser: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(1i32);
@@ -5124,7 +5124,7 @@ pub const TokenChildProcessFlags: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CL
 pub const TokenIsLessPrivilegedAppContainer: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(46i32);
 pub const TokenIsSandboxed: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(47i32);
 pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(48i32);
-impl ::std::convert::From<i32> for TOKEN_INFORMATION_CLASS {
+impl ::core::convert::From<i32> for TOKEN_INFORMATION_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5132,7 +5132,7 @@ impl ::std::convert::From<i32> for TOKEN_INFORMATION_CLASS {
 unsafe impl ::windows::runtime::Abi for TOKEN_INFORMATION_CLASS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -5142,30 +5142,30 @@ pub struct TOKEN_LINKED_TOKEN {
 #[cfg(feature = "Win32_Foundation")]
 impl TOKEN_LINKED_TOKEN {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOKEN_LINKED_TOKEN {
+impl ::core::default::Default for TOKEN_LINKED_TOKEN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOKEN_LINKED_TOKEN {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_LINKED_TOKEN {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_LINKED_TOKEN").field("LinkedToken", &self.LinkedToken).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOKEN_LINKED_TOKEN {
+impl ::core::cmp::PartialEq for TOKEN_LINKED_TOKEN {
     fn eq(&self, other: &Self) -> bool {
         self.LinkedToken == other.LinkedToken
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOKEN_LINKED_TOKEN {}
+impl ::core::cmp::Eq for TOKEN_LINKED_TOKEN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_LINKED_TOKEN {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -5175,64 +5175,64 @@ pub struct TOKEN_MANDATORY_LABEL {
 #[cfg(feature = "Win32_Foundation")]
 impl TOKEN_MANDATORY_LABEL {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOKEN_MANDATORY_LABEL {
+impl ::core::default::Default for TOKEN_MANDATORY_LABEL {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOKEN_MANDATORY_LABEL {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_MANDATORY_LABEL {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_MANDATORY_LABEL").field("Label", &self.Label).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOKEN_MANDATORY_LABEL {
+impl ::core::cmp::PartialEq for TOKEN_MANDATORY_LABEL {
     fn eq(&self, other: &Self) -> bool {
         self.Label == other.Label
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOKEN_MANDATORY_LABEL {}
+impl ::core::cmp::Eq for TOKEN_MANDATORY_LABEL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_MANDATORY_LABEL {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct TOKEN_MANDATORY_POLICY {
     pub Policy: TOKEN_MANDATORY_POLICY_ID,
 }
 impl TOKEN_MANDATORY_POLICY {}
-impl ::std::default::Default for TOKEN_MANDATORY_POLICY {
+impl ::core::default::Default for TOKEN_MANDATORY_POLICY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TOKEN_MANDATORY_POLICY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_MANDATORY_POLICY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_MANDATORY_POLICY").field("Policy", &self.Policy).finish()
     }
 }
-impl ::std::cmp::PartialEq for TOKEN_MANDATORY_POLICY {
+impl ::core::cmp::PartialEq for TOKEN_MANDATORY_POLICY {
     fn eq(&self, other: &Self) -> bool {
         self.Policy == other.Policy
     }
 }
-impl ::std::cmp::Eq for TOKEN_MANDATORY_POLICY {}
+impl ::core::cmp::Eq for TOKEN_MANDATORY_POLICY {}
 unsafe impl ::windows::runtime::Abi for TOKEN_MANDATORY_POLICY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TOKEN_MANDATORY_POLICY_ID(pub u32);
 pub const TOKEN_MANDATORY_POLICY_OFF: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(0u32);
 pub const TOKEN_MANDATORY_POLICY_NO_WRITE_UP: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(1u32);
 pub const TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(2u32);
 pub const TOKEN_MANDATORY_POLICY_VALID_MASK: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(3u32);
-impl ::std::convert::From<u32> for TOKEN_MANDATORY_POLICY_ID {
+impl ::core::convert::From<u32> for TOKEN_MANDATORY_POLICY_ID {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -5240,35 +5240,35 @@ impl ::std::convert::From<u32> for TOKEN_MANDATORY_POLICY_ID {
 unsafe impl ::windows::runtime::Abi for TOKEN_MANDATORY_POLICY_ID {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for TOKEN_MANDATORY_POLICY_ID {
+impl ::core::ops::BitOr for TOKEN_MANDATORY_POLICY_ID {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for TOKEN_MANDATORY_POLICY_ID {
+impl ::core::ops::BitAnd for TOKEN_MANDATORY_POLICY_ID {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for TOKEN_MANDATORY_POLICY_ID {
+impl ::core::ops::BitOrAssign for TOKEN_MANDATORY_POLICY_ID {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for TOKEN_MANDATORY_POLICY_ID {
+impl ::core::ops::BitAndAssign for TOKEN_MANDATORY_POLICY_ID {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for TOKEN_MANDATORY_POLICY_ID {
+impl ::core::ops::Not for TOKEN_MANDATORY_POLICY_ID {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -5278,30 +5278,30 @@ pub struct TOKEN_ORIGIN {
 #[cfg(feature = "Win32_Foundation")]
 impl TOKEN_ORIGIN {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOKEN_ORIGIN {
+impl ::core::default::Default for TOKEN_ORIGIN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOKEN_ORIGIN {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_ORIGIN {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_ORIGIN").field("OriginatingLogonSession", &self.OriginatingLogonSession).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOKEN_ORIGIN {
+impl ::core::cmp::PartialEq for TOKEN_ORIGIN {
     fn eq(&self, other: &Self) -> bool {
         self.OriginatingLogonSession == other.OriginatingLogonSession
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOKEN_ORIGIN {}
+impl ::core::cmp::Eq for TOKEN_ORIGIN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_ORIGIN {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -5311,30 +5311,30 @@ pub struct TOKEN_OWNER {
 #[cfg(feature = "Win32_Foundation")]
 impl TOKEN_OWNER {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOKEN_OWNER {
+impl ::core::default::Default for TOKEN_OWNER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOKEN_OWNER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_OWNER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_OWNER").field("Owner", &self.Owner).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOKEN_OWNER {
+impl ::core::cmp::PartialEq for TOKEN_OWNER {
     fn eq(&self, other: &Self) -> bool {
         self.Owner == other.Owner
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOKEN_OWNER {}
+impl ::core::cmp::Eq for TOKEN_OWNER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_OWNER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -5344,30 +5344,30 @@ pub struct TOKEN_PRIMARY_GROUP {
 #[cfg(feature = "Win32_Foundation")]
 impl TOKEN_PRIMARY_GROUP {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOKEN_PRIMARY_GROUP {
+impl ::core::default::Default for TOKEN_PRIMARY_GROUP {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOKEN_PRIMARY_GROUP {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_PRIMARY_GROUP {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_PRIMARY_GROUP").field("PrimaryGroup", &self.PrimaryGroup).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOKEN_PRIMARY_GROUP {
+impl ::core::cmp::PartialEq for TOKEN_PRIMARY_GROUP {
     fn eq(&self, other: &Self) -> bool {
         self.PrimaryGroup == other.PrimaryGroup
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOKEN_PRIMARY_GROUP {}
+impl ::core::cmp::Eq for TOKEN_PRIMARY_GROUP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_PRIMARY_GROUP {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -5378,38 +5378,38 @@ pub struct TOKEN_PRIVILEGES {
 #[cfg(feature = "Win32_Foundation")]
 impl TOKEN_PRIVILEGES {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOKEN_PRIVILEGES {
+impl ::core::default::Default for TOKEN_PRIVILEGES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOKEN_PRIVILEGES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_PRIVILEGES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_PRIVILEGES").field("PrivilegeCount", &self.PrivilegeCount).field("Privileges", &self.Privileges).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOKEN_PRIVILEGES {
+impl ::core::cmp::PartialEq for TOKEN_PRIVILEGES {
     fn eq(&self, other: &Self) -> bool {
         self.PrivilegeCount == other.PrivilegeCount && self.Privileges == other.Privileges
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOKEN_PRIVILEGES {}
+impl ::core::cmp::Eq for TOKEN_PRIVILEGES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_PRIVILEGES {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TOKEN_PRIVILEGES_ATTRIBUTES(pub u32);
 pub const SE_PRIVILEGE_ENABLED: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(2u32);
 pub const SE_PRIVILEGE_ENABLED_BY_DEFAULT: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(1u32);
 pub const SE_PRIVILEGE_REMOVED: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(4u32);
 pub const SE_PRIVILEGE_USED_FOR_ACCESS: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(2147483648u32);
-impl ::std::convert::From<u32> for TOKEN_PRIVILEGES_ATTRIBUTES {
+impl ::core::convert::From<u32> for TOKEN_PRIVILEGES_ATTRIBUTES {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -5417,35 +5417,35 @@ impl ::std::convert::From<u32> for TOKEN_PRIVILEGES_ATTRIBUTES {
 unsafe impl ::windows::runtime::Abi for TOKEN_PRIVILEGES_ATTRIBUTES {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for TOKEN_PRIVILEGES_ATTRIBUTES {
+impl ::core::ops::BitOr for TOKEN_PRIVILEGES_ATTRIBUTES {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for TOKEN_PRIVILEGES_ATTRIBUTES {
+impl ::core::ops::BitAnd for TOKEN_PRIVILEGES_ATTRIBUTES {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for TOKEN_PRIVILEGES_ATTRIBUTES {
+impl ::core::ops::BitOrAssign for TOKEN_PRIVILEGES_ATTRIBUTES {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for TOKEN_PRIVILEGES_ATTRIBUTES {
+impl ::core::ops::BitAndAssign for TOKEN_PRIVILEGES_ATTRIBUTES {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for TOKEN_PRIVILEGES_ATTRIBUTES {
+impl ::core::ops::Not for TOKEN_PRIVILEGES_ATTRIBUTES {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -5456,30 +5456,30 @@ pub struct TOKEN_SOURCE {
 #[cfg(feature = "Win32_Foundation")]
 impl TOKEN_SOURCE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOKEN_SOURCE {
+impl ::core::default::Default for TOKEN_SOURCE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOKEN_SOURCE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_SOURCE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_SOURCE").field("SourceName", &self.SourceName).field("SourceIdentifier", &self.SourceIdentifier).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOKEN_SOURCE {
+impl ::core::cmp::PartialEq for TOKEN_SOURCE {
     fn eq(&self, other: &Self) -> bool {
         self.SourceName == other.SourceName && self.SourceIdentifier == other.SourceIdentifier
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOKEN_SOURCE {}
+impl ::core::cmp::Eq for TOKEN_SOURCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_SOURCE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -5498,14 +5498,14 @@ pub struct TOKEN_STATISTICS {
 #[cfg(feature = "Win32_Foundation")]
 impl TOKEN_STATISTICS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOKEN_STATISTICS {
+impl ::core::default::Default for TOKEN_STATISTICS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOKEN_STATISTICS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_STATISTICS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_STATISTICS")
             .field("TokenId", &self.TokenId)
             .field("AuthenticationId", &self.AuthenticationId)
@@ -5521,24 +5521,24 @@ impl ::std::fmt::Debug for TOKEN_STATISTICS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOKEN_STATISTICS {
+impl ::core::cmp::PartialEq for TOKEN_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
         self.TokenId == other.TokenId && self.AuthenticationId == other.AuthenticationId && self.ExpirationTime == other.ExpirationTime && self.TokenType == other.TokenType && self.ImpersonationLevel == other.ImpersonationLevel && self.DynamicCharged == other.DynamicCharged && self.DynamicAvailable == other.DynamicAvailable && self.GroupCount == other.GroupCount && self.PrivilegeCount == other.PrivilegeCount && self.ModifiedId == other.ModifiedId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOKEN_STATISTICS {}
+impl ::core::cmp::Eq for TOKEN_STATISTICS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_STATISTICS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TOKEN_TYPE(pub i32);
 pub const TokenPrimary: TOKEN_TYPE = TOKEN_TYPE(1i32);
 pub const TokenImpersonation: TOKEN_TYPE = TOKEN_TYPE(2i32);
-impl ::std::convert::From<i32> for TOKEN_TYPE {
+impl ::core::convert::From<i32> for TOKEN_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5546,7 +5546,7 @@ impl ::std::convert::From<i32> for TOKEN_TYPE {
 unsafe impl ::windows::runtime::Abi for TOKEN_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
@@ -5556,57 +5556,57 @@ pub struct TOKEN_USER {
 #[cfg(feature = "Win32_Foundation")]
 impl TOKEN_USER {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TOKEN_USER {
+impl ::core::default::Default for TOKEN_USER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TOKEN_USER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_USER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_USER").field("User", &self.User).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TOKEN_USER {
+impl ::core::cmp::PartialEq for TOKEN_USER {
     fn eq(&self, other: &Self) -> bool {
         self.User == other.User
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TOKEN_USER {}
+impl ::core::cmp::Eq for TOKEN_USER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_USER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Security`*"]
 pub struct TOKEN_USER_CLAIMS {
-    pub UserClaims: *mut ::std::ffi::c_void,
+    pub UserClaims: *mut ::core::ffi::c_void,
 }
 impl TOKEN_USER_CLAIMS {}
-impl ::std::default::Default for TOKEN_USER_CLAIMS {
+impl ::core::default::Default for TOKEN_USER_CLAIMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TOKEN_USER_CLAIMS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TOKEN_USER_CLAIMS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TOKEN_USER_CLAIMS").field("UserClaims", &self.UserClaims).finish()
     }
 }
-impl ::std::cmp::PartialEq for TOKEN_USER_CLAIMS {
+impl ::core::cmp::PartialEq for TOKEN_USER_CLAIMS {
     fn eq(&self, other: &Self) -> bool {
         self.UserClaims == other.UserClaims
     }
 }
-impl ::std::cmp::Eq for TOKEN_USER_CLAIMS {}
+impl ::core::cmp::Eq for TOKEN_USER_CLAIMS {}
 unsafe impl ::windows::runtime::Abi for TOKEN_USER_CLAIMS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Security`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WELL_KNOWN_SID_TYPE(pub i32);
 pub const WinNullSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(0i32);
@@ -5729,7 +5729,7 @@ pub const WinAuthenticationKeyPropertyMFASid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_S
 pub const WinAuthenticationKeyPropertyAttestationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(117i32);
 pub const WinAuthenticationFreshKeyAuthSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(118i32);
 pub const WinBuiltinDeviceOwnersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(119i32);
-impl ::std::convert::From<i32> for WELL_KNOWN_SID_TYPE {
+impl ::core::convert::From<i32> for WELL_KNOWN_SID_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }

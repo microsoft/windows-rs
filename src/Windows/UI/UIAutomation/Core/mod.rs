@@ -1,27 +1,27 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 pub struct AutomationAnnotationTypeRegistration {
     pub LocalId: i32,
 }
 impl AutomationAnnotationTypeRegistration {}
-impl ::std::default::Default for AutomationAnnotationTypeRegistration {
+impl ::core::default::Default for AutomationAnnotationTypeRegistration {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AutomationAnnotationTypeRegistration {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AutomationAnnotationTypeRegistration {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AutomationAnnotationTypeRegistration").field("LocalId", &self.LocalId).finish()
     }
 }
-impl ::std::cmp::PartialEq for AutomationAnnotationTypeRegistration {
+impl ::core::cmp::PartialEq for AutomationAnnotationTypeRegistration {
     fn eq(&self, other: &Self) -> bool {
         self.LocalId == other.LocalId
     }
 }
-impl ::std::cmp::Eq for AutomationAnnotationTypeRegistration {}
+impl ::core::cmp::Eq for AutomationAnnotationTypeRegistration {}
 unsafe impl ::windows::runtime::Abi for AutomationAnnotationTypeRegistration {
     type Abi = Self;
 }
@@ -31,29 +31,29 @@ unsafe impl ::windows::runtime::RuntimeType for AutomationAnnotationTypeRegistra
 impl ::windows::runtime::DefaultType for AutomationAnnotationTypeRegistration {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 pub struct AutomationRemoteOperationOperandId {
     pub Value: i32,
 }
 impl AutomationRemoteOperationOperandId {}
-impl ::std::default::Default for AutomationRemoteOperationOperandId {
+impl ::core::default::Default for AutomationRemoteOperationOperandId {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AutomationRemoteOperationOperandId {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AutomationRemoteOperationOperandId {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AutomationRemoteOperationOperandId").field("Value", &self.Value).finish()
     }
 }
-impl ::std::cmp::PartialEq for AutomationRemoteOperationOperandId {
+impl ::core::cmp::PartialEq for AutomationRemoteOperationOperandId {
     fn eq(&self, other: &Self) -> bool {
         self.Value == other.Value
     }
 }
-impl ::std::cmp::Eq for AutomationRemoteOperationOperandId {}
+impl ::core::cmp::Eq for AutomationRemoteOperationOperandId {}
 unsafe impl ::windows::runtime::Abi for AutomationRemoteOperationOperandId {
     type Abi = Self;
 }
@@ -65,47 +65,47 @@ impl ::windows::runtime::DefaultType for AutomationRemoteOperationOperandId {
 }
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AutomationRemoteOperationResult(pub ::windows::runtime::IInspectable);
 impl AutomationRemoteOperationResult {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AutomationRemoteOperationStatus> {
         let this = self;
         unsafe {
-            let mut result__: AutomationRemoteOperationStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationRemoteOperationStatus>(result__)
+            let mut result__: AutomationRemoteOperationStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AutomationRemoteOperationStatus>(result__)
         }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn ErrorLocation(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn HasOperand<'a, Param0: ::windows::runtime::IntoParam<'a, AutomationRemoteOperationOperandId>>(&self, operandid: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), operandid.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), operandid.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn GetOperand<'a, Param0: ::windows::runtime::IntoParam<'a, AutomationRemoteOperationOperandId>>(&self, operandid: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), operandid.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), operandid.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
 }
@@ -119,12 +119,12 @@ unsafe impl ::windows::runtime::Interface for AutomationRemoteOperationResult {
 impl ::windows::runtime::RuntimeName for AutomationRemoteOperationResult {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.AutomationRemoteOperationResult";
 }
-impl ::std::convert::From<AutomationRemoteOperationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AutomationRemoteOperationResult> for ::windows::runtime::IUnknown {
     fn from(value: AutomationRemoteOperationResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AutomationRemoteOperationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AutomationRemoteOperationResult> for ::windows::runtime::IUnknown {
     fn from(value: &AutomationRemoteOperationResult) -> Self {
         value.0 .0.clone()
     }
@@ -139,12 +139,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AutomationRemoteOperationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AutomationRemoteOperationResult> for ::windows::runtime::IInspectable {
     fn from(value: AutomationRemoteOperationResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AutomationRemoteOperationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AutomationRemoteOperationResult> for ::windows::runtime::IInspectable {
     fn from(value: &AutomationRemoteOperationResult) -> Self {
         value.0.clone()
     }
@@ -159,10 +159,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AutomationRemoteOperationResult {}
-unsafe impl ::std::marker::Sync for AutomationRemoteOperationResult {}
+unsafe impl ::core::marker::Send for AutomationRemoteOperationResult {}
+unsafe impl ::core::marker::Sync for AutomationRemoteOperationResult {}
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AutomationRemoteOperationStatus(pub i32);
 impl AutomationRemoteOperationStatus {
@@ -172,7 +172,7 @@ impl AutomationRemoteOperationStatus {
     pub const UnhandledException: AutomationRemoteOperationStatus = AutomationRemoteOperationStatus(3i32);
     pub const ExecutionFailure: AutomationRemoteOperationStatus = AutomationRemoteOperationStatus(4i32);
 }
-impl ::std::convert::From<i32> for AutomationRemoteOperationStatus {
+impl ::core::convert::From<i32> for AutomationRemoteOperationStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -192,13 +192,13 @@ impl CoreAutomationRegistrar {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn RegisterAnnotationType<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(guid: Param0) -> ::windows::runtime::Result<AutomationAnnotationTypeRegistration> {
         Self::ICoreAutomationRegistrarStatics(|this| unsafe {
-            let mut result__: AutomationAnnotationTypeRegistration = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), guid.into_param().abi(), &mut result__).from_abi::<AutomationAnnotationTypeRegistration>(result__)
+            let mut result__: AutomationAnnotationTypeRegistration = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), guid.into_param().abi(), &mut result__).from_abi::<AutomationAnnotationTypeRegistration>(result__)
         })
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn UnregisterAnnotationType<'a, Param0: ::windows::runtime::IntoParam<'a, AutomationAnnotationTypeRegistration>>(registration: Param0) -> ::windows::runtime::Result<()> {
-        Self::ICoreAutomationRegistrarStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), registration.into_param().abi()).ok() })
+        Self::ICoreAutomationRegistrarStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), registration.into_param().abi()).ok() })
     }
     pub fn ICoreAutomationRegistrarStatics<R, F: FnOnce(&ICoreAutomationRegistrarStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<CoreAutomationRegistrar, ICoreAutomationRegistrarStatics> = ::windows::runtime::FactoryCache::new();
@@ -210,7 +210,7 @@ impl ::windows::runtime::RuntimeName for CoreAutomationRegistrar {
 }
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreAutomationRemoteOperation(pub ::windows::runtime::IInspectable);
 impl CoreAutomationRemoteOperation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -224,37 +224,37 @@ impl CoreAutomationRemoteOperation {
     pub fn IsOpcodeSupported(&self, opcode: u32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), opcode, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), opcode, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn ImportElement<'a, Param0: ::windows::runtime::IntoParam<'a, AutomationRemoteOperationOperandId>, Param1: ::windows::runtime::IntoParam<'a, super::AutomationElement>>(&self, operandid: Param0, element: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), operandid.into_param().abi(), element.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), operandid.into_param().abi(), element.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn ImportTextRange<'a, Param0: ::windows::runtime::IntoParam<'a, AutomationRemoteOperationOperandId>, Param1: ::windows::runtime::IntoParam<'a, super::AutomationTextRange>>(&self, operandid: Param0, textrange: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), operandid.into_param().abi(), textrange.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), operandid.into_param().abi(), textrange.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn AddToResults<'a, Param0: ::windows::runtime::IntoParam<'a, AutomationRemoteOperationOperandId>>(&self, operandid: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), operandid.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), operandid.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn Execute(&self, bytecodebuffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<AutomationRemoteOperationResult> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), bytecodebuffer.len() as u32, ::std::mem::transmute(bytecodebuffer.as_ptr()), &mut result__).from_abi::<AutomationRemoteOperationResult>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), bytecodebuffer.len() as u32, ::core::mem::transmute(bytecodebuffer.as_ptr()), &mut result__).from_abi::<AutomationRemoteOperationResult>(result__)
         }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn ImportConnectionBoundObject<'a, Param0: ::windows::runtime::IntoParam<'a, AutomationRemoteOperationOperandId>, Param1: ::windows::runtime::IntoParam<'a, super::AutomationConnectionBoundObject>>(&self, operandid: Param0, connectionboundobject: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICoreAutomationRemoteOperation2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), operandid.into_param().abi(), connectionboundobject.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), operandid.into_param().abi(), connectionboundobject.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreAutomationRemoteOperation {
@@ -267,12 +267,12 @@ unsafe impl ::windows::runtime::Interface for CoreAutomationRemoteOperation {
 impl ::windows::runtime::RuntimeName for CoreAutomationRemoteOperation {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperation";
 }
-impl ::std::convert::From<CoreAutomationRemoteOperation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreAutomationRemoteOperation> for ::windows::runtime::IUnknown {
     fn from(value: CoreAutomationRemoteOperation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreAutomationRemoteOperation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreAutomationRemoteOperation> for ::windows::runtime::IUnknown {
     fn from(value: &CoreAutomationRemoteOperation) -> Self {
         value.0 .0.clone()
     }
@@ -287,12 +287,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreAutomationRemoteOperation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreAutomationRemoteOperation> for ::windows::runtime::IInspectable {
     fn from(value: CoreAutomationRemoteOperation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreAutomationRemoteOperation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreAutomationRemoteOperation> for ::windows::runtime::IInspectable {
     fn from(value: &CoreAutomationRemoteOperation) -> Self {
         value.0.clone()
     }
@@ -307,30 +307,30 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreAutomationRemoteOperation {}
-unsafe impl ::std::marker::Sync for CoreAutomationRemoteOperation {}
+unsafe impl ::core::marker::Send for CoreAutomationRemoteOperation {}
+unsafe impl ::core::marker::Sync for CoreAutomationRemoteOperation {}
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreAutomationRemoteOperationContext(pub ::windows::runtime::IInspectable);
 impl CoreAutomationRemoteOperationContext {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn GetOperand<'a, Param0: ::windows::runtime::IntoParam<'a, AutomationRemoteOperationOperandId>>(&self, id: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn SetOperand<'a, Param0: ::windows::runtime::IntoParam<'a, AutomationRemoteOperationOperandId>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, id: Param0, operand: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), id.into_param().abi(), operand.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), id.into_param().abi(), operand.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn SetOperand2<'a, Param0: ::windows::runtime::IntoParam<'a, AutomationRemoteOperationOperandId>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, id: Param0, operand: Param1, operandinterfaceid: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), id.into_param().abi(), operand.into_param().abi(), operandinterfaceid.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), id.into_param().abi(), operand.into_param().abi(), operandinterfaceid.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreAutomationRemoteOperationContext {
@@ -343,12 +343,12 @@ unsafe impl ::windows::runtime::Interface for CoreAutomationRemoteOperationConte
 impl ::windows::runtime::RuntimeName for CoreAutomationRemoteOperationContext {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperationContext";
 }
-impl ::std::convert::From<CoreAutomationRemoteOperationContext> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreAutomationRemoteOperationContext> for ::windows::runtime::IUnknown {
     fn from(value: CoreAutomationRemoteOperationContext) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreAutomationRemoteOperationContext> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreAutomationRemoteOperationContext> for ::windows::runtime::IUnknown {
     fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
         value.0 .0.clone()
     }
@@ -363,12 +363,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreAutomationRemoteOperationContext> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreAutomationRemoteOperationContext> for ::windows::runtime::IInspectable {
     fn from(value: CoreAutomationRemoteOperationContext) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreAutomationRemoteOperationContext> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreAutomationRemoteOperationContext> for ::windows::runtime::IInspectable {
     fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
         value.0.clone()
     }
@@ -383,8 +383,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreAutomationRemoteOperationContext {}
-unsafe impl ::std::marker::Sync for CoreAutomationRemoteOperationContext {}
+unsafe impl ::core::marker::Send for CoreAutomationRemoteOperationContext {}
+unsafe impl ::core::marker::Sync for CoreAutomationRemoteOperationContext {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IAutomationRemoteOperationResult(pub ::windows::runtime::IInspectable);
@@ -408,7 +408,7 @@ pub struct IAutomationRemoteOperationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operandid: AutomationRemoteOperationOperandId, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 pub struct ICoreAutomationConnectionBoundObjectProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAutomationConnectionBoundObjectProvider {
@@ -420,20 +420,20 @@ impl ICoreAutomationConnectionBoundObjectProvider {
     pub fn IsComThreadingRequired(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ICoreAutomationConnectionBoundObjectProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{0620bb64-9616-5593-be3a-eb8e6daeb3fa}");
 }
-impl ::std::convert::From<ICoreAutomationConnectionBoundObjectProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ICoreAutomationConnectionBoundObjectProvider> for ::windows::runtime::IUnknown {
     fn from(value: ICoreAutomationConnectionBoundObjectProvider) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ICoreAutomationConnectionBoundObjectProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ICoreAutomationConnectionBoundObjectProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ICoreAutomationConnectionBoundObjectProvider) -> Self {
         value.0 .0.clone()
     }
@@ -448,12 +448,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ICoreAutomationConnectionBoundObjectProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ICoreAutomationConnectionBoundObjectProvider> for ::windows::runtime::IInspectable {
     fn from(value: ICoreAutomationConnectionBoundObjectProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ICoreAutomationConnectionBoundObjectProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ICoreAutomationConnectionBoundObjectProvider> for ::windows::runtime::IInspectable {
     fn from(value: &ICoreAutomationConnectionBoundObjectProvider) -> Self {
         value.0.clone()
     }
@@ -559,7 +559,7 @@ pub struct ICoreAutomationRemoteOperationContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: AutomationRemoteOperationOperandId, operand: ::windows::runtime::RawPtr, operandinterfaceid: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 pub struct ICoreAutomationRemoteOperationExtensionProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAutomationRemoteOperationExtensionProvider {
@@ -570,26 +570,26 @@ impl ICoreAutomationRemoteOperationExtensionProvider {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn CallExtension<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, CoreAutomationRemoteOperationContext>>(&self, extensionid: Param0, context: Param1, operandids: &[<AutomationRemoteOperationOperandId as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), extensionid.into_param().abi(), context.into_param().abi(), operandids.len() as u32, ::std::mem::transmute(operandids.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), extensionid.into_param().abi(), context.into_param().abi(), operandids.len() as u32, ::core::mem::transmute(operandids.as_ptr())).ok() }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn IsExtensionSupported<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, extensionid: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), extensionid.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), extensionid.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ICoreAutomationRemoteOperationExtensionProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{88f53e67-dc69-553b-a0aa-70477e724da8}");
 }
-impl ::std::convert::From<ICoreAutomationRemoteOperationExtensionProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ICoreAutomationRemoteOperationExtensionProvider> for ::windows::runtime::IUnknown {
     fn from(value: ICoreAutomationRemoteOperationExtensionProvider) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ICoreAutomationRemoteOperationExtensionProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ICoreAutomationRemoteOperationExtensionProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ICoreAutomationRemoteOperationExtensionProvider) -> Self {
         value.0 .0.clone()
     }
@@ -604,12 +604,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ICoreAutomationRemoteOperationExtensionProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ICoreAutomationRemoteOperationExtensionProvider> for ::windows::runtime::IInspectable {
     fn from(value: ICoreAutomationRemoteOperationExtensionProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ICoreAutomationRemoteOperationExtensionProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ICoreAutomationRemoteOperationExtensionProvider> for ::windows::runtime::IInspectable {
     fn from(value: &ICoreAutomationRemoteOperationExtensionProvider) -> Self {
         value.0.clone()
     }
@@ -682,8 +682,8 @@ pub struct IRemoteAutomationClientSessionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionid: ::windows::runtime::GUID, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionid: ::windows::runtime::GUID, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -701,7 +701,7 @@ pub struct IRemoteAutomationConnectionRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -720,7 +720,7 @@ pub struct IRemoteAutomationDisconnectedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -762,34 +762,34 @@ pub struct IRemoteAutomationWindow_abi(
 );
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RemoteAutomationClientSession(pub ::windows::runtime::IInspectable);
 impl RemoteAutomationClientSession {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_UIAutomation_Core`, `Foundation`*"]
     pub fn CreateWindowAsync<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, remotewindowid: u64, remoteprocessid: u32, parentautomationelement: Param2) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<RemoteAutomationWindow>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), remotewindowid, remoteprocessid, parentautomationelement.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<RemoteAutomationWindow>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), remotewindowid, remoteprocessid, parentautomationelement.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<RemoteAutomationWindow>>(result__)
         }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn SessionId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -797,43 +797,43 @@ impl RemoteAutomationClientSession {
     pub fn ConnectionRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationConnectionRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_UIAutomation_Core`, `Foundation`*"]
     pub fn RemoveConnectionRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_UIAutomation_Core`, `Foundation`*"]
     pub fn Disconnected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationDisconnectedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_UIAutomation_Core`, `Foundation`*"]
     pub fn RemoveDisconnected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(name: Param0) -> ::windows::runtime::Result<RemoteAutomationClientSession> {
         Self::IRemoteAutomationClientSessionFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<RemoteAutomationClientSession>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<RemoteAutomationClientSession>(result__)
         })
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn CreateInstance2<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(name: Param0, sessionid: Param1) -> ::windows::runtime::Result<RemoteAutomationClientSession> {
         Self::IRemoteAutomationClientSessionFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), name.into_param().abi(), sessionid.into_param().abi(), &mut result__).from_abi::<RemoteAutomationClientSession>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), name.into_param().abi(), sessionid.into_param().abi(), &mut result__).from_abi::<RemoteAutomationClientSession>(result__)
         })
     }
     pub fn IRemoteAutomationClientSessionFactory<R, F: FnOnce(&IRemoteAutomationClientSessionFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -851,12 +851,12 @@ unsafe impl ::windows::runtime::Interface for RemoteAutomationClientSession {
 impl ::windows::runtime::RuntimeName for RemoteAutomationClientSession {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationClientSession";
 }
-impl ::std::convert::From<RemoteAutomationClientSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RemoteAutomationClientSession> for ::windows::runtime::IUnknown {
     fn from(value: RemoteAutomationClientSession) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&RemoteAutomationClientSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RemoteAutomationClientSession> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteAutomationClientSession) -> Self {
         value.0 .0.clone()
     }
@@ -871,12 +871,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<RemoteAutomationClientSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RemoteAutomationClientSession> for ::windows::runtime::IInspectable {
     fn from(value: RemoteAutomationClientSession) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&RemoteAutomationClientSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RemoteAutomationClientSession> for ::windows::runtime::IInspectable {
     fn from(value: &RemoteAutomationClientSession) -> Self {
         value.0.clone()
     }
@@ -891,27 +891,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for RemoteAutomationClientSession {}
-unsafe impl ::std::marker::Sync for RemoteAutomationClientSession {}
+unsafe impl ::core::marker::Send for RemoteAutomationClientSession {}
+unsafe impl ::core::marker::Sync for RemoteAutomationClientSession {}
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RemoteAutomationConnectionRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteAutomationConnectionRequestedEventArgs {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn LocalPipeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn RemoteProcessId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -925,12 +925,12 @@ unsafe impl ::windows::runtime::Interface for RemoteAutomationConnectionRequeste
 impl ::windows::runtime::RuntimeName for RemoteAutomationConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationConnectionRequestedEventArgs";
 }
-impl ::std::convert::From<RemoteAutomationConnectionRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RemoteAutomationConnectionRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteAutomationConnectionRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&RemoteAutomationConnectionRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RemoteAutomationConnectionRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteAutomationConnectionRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -945,12 +945,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<RemoteAutomationConnectionRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RemoteAutomationConnectionRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: RemoteAutomationConnectionRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&RemoteAutomationConnectionRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RemoteAutomationConnectionRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &RemoteAutomationConnectionRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -965,19 +965,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for RemoteAutomationConnectionRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for RemoteAutomationConnectionRequestedEventArgs {}
+unsafe impl ::core::marker::Send for RemoteAutomationConnectionRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteAutomationConnectionRequestedEventArgs {}
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RemoteAutomationDisconnectedEventArgs(pub ::windows::runtime::IInspectable);
 impl RemoteAutomationDisconnectedEventArgs {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn LocalPipeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -991,12 +991,12 @@ unsafe impl ::windows::runtime::Interface for RemoteAutomationDisconnectedEventA
 impl ::windows::runtime::RuntimeName for RemoteAutomationDisconnectedEventArgs {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationDisconnectedEventArgs";
 }
-impl ::std::convert::From<RemoteAutomationDisconnectedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RemoteAutomationDisconnectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: RemoteAutomationDisconnectedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&RemoteAutomationDisconnectedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RemoteAutomationDisconnectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteAutomationDisconnectedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1011,12 +1011,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<RemoteAutomationDisconnectedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RemoteAutomationDisconnectedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: RemoteAutomationDisconnectedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&RemoteAutomationDisconnectedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RemoteAutomationDisconnectedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &RemoteAutomationDisconnectedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1031,14 +1031,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for RemoteAutomationDisconnectedEventArgs {}
-unsafe impl ::std::marker::Sync for RemoteAutomationDisconnectedEventArgs {}
+unsafe impl ::core::marker::Send for RemoteAutomationDisconnectedEventArgs {}
+unsafe impl ::core::marker::Sync for RemoteAutomationDisconnectedEventArgs {}
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 pub struct RemoteAutomationServer {}
 impl RemoteAutomationServer {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn ReportSession<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(sessionid: Param0) -> ::windows::runtime::Result<()> {
-        Self::IRemoteAutomationServerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), sessionid.into_param().abi()).ok() })
+        Self::IRemoteAutomationServerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), sessionid.into_param().abi()).ok() })
     }
     pub fn IRemoteAutomationServerStatics<R, F: FnOnce(&IRemoteAutomationServerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<RemoteAutomationServer, IRemoteAutomationServerStatics> = ::windows::runtime::FactoryCache::new();
@@ -1050,15 +1050,15 @@ impl ::windows::runtime::RuntimeName for RemoteAutomationServer {
 }
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RemoteAutomationWindow(pub ::windows::runtime::IInspectable);
 impl RemoteAutomationWindow {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
     pub fn AutomationProvider(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1066,8 +1066,8 @@ impl RemoteAutomationWindow {
     pub fn UnregisterAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -1081,12 +1081,12 @@ unsafe impl ::windows::runtime::Interface for RemoteAutomationWindow {
 impl ::windows::runtime::RuntimeName for RemoteAutomationWindow {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationWindow";
 }
-impl ::std::convert::From<RemoteAutomationWindow> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RemoteAutomationWindow> for ::windows::runtime::IUnknown {
     fn from(value: RemoteAutomationWindow) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&RemoteAutomationWindow> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RemoteAutomationWindow> for ::windows::runtime::IUnknown {
     fn from(value: &RemoteAutomationWindow) -> Self {
         value.0 .0.clone()
     }
@@ -1101,12 +1101,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<RemoteAutomationWindow> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RemoteAutomationWindow> for ::windows::runtime::IInspectable {
     fn from(value: RemoteAutomationWindow) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&RemoteAutomationWindow> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RemoteAutomationWindow> for ::windows::runtime::IInspectable {
     fn from(value: &RemoteAutomationWindow) -> Self {
         value.0.clone()
     }
@@ -1121,5 +1121,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for RemoteAutomationWindow {}
-unsafe impl ::std::marker::Sync for RemoteAutomationWindow {}
+unsafe impl ::core::marker::Send for RemoteAutomationWindow {}
+unsafe impl ::core::marker::Sync for RemoteAutomationWindow {}

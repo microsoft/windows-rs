@@ -5,47 +5,47 @@ pub mod Core;
 pub mod Provider;
 #[doc = "*Required features: `Security_Authentication_Identity`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EnterpriseKeyCredentialRegistrationInfo(pub ::windows::runtime::IInspectable);
 impl EnterpriseKeyCredentialRegistrationInfo {
     #[doc = "*Required features: `Security_Authentication_Identity`*"]
     pub fn TenantId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Security_Authentication_Identity`*"]
     pub fn TenantName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Security_Authentication_Identity`*"]
     pub fn Subject(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Security_Authentication_Identity`*"]
     pub fn KeyId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Security_Authentication_Identity`*"]
     pub fn KeyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -59,12 +59,12 @@ unsafe impl ::windows::runtime::Interface for EnterpriseKeyCredentialRegistratio
 impl ::windows::runtime::RuntimeName for EnterpriseKeyCredentialRegistrationInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo";
 }
-impl ::std::convert::From<EnterpriseKeyCredentialRegistrationInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<EnterpriseKeyCredentialRegistrationInfo> for ::windows::runtime::IUnknown {
     fn from(value: EnterpriseKeyCredentialRegistrationInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&EnterpriseKeyCredentialRegistrationInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationInfo> for ::windows::runtime::IUnknown {
     fn from(value: &EnterpriseKeyCredentialRegistrationInfo) -> Self {
         value.0 .0.clone()
     }
@@ -79,12 +79,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<EnterpriseKeyCredentialRegistrationInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<EnterpriseKeyCredentialRegistrationInfo> for ::windows::runtime::IInspectable {
     fn from(value: EnterpriseKeyCredentialRegistrationInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&EnterpriseKeyCredentialRegistrationInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationInfo> for ::windows::runtime::IInspectable {
     fn from(value: &EnterpriseKeyCredentialRegistrationInfo) -> Self {
         value.0.clone()
     }
@@ -99,11 +99,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for EnterpriseKeyCredentialRegistrationInfo {}
-unsafe impl ::std::marker::Sync for EnterpriseKeyCredentialRegistrationInfo {}
+unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationInfo {}
+unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationInfo {}
 #[doc = "*Required features: `Security_Authentication_Identity`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EnterpriseKeyCredentialRegistrationManager(pub ::windows::runtime::IInspectable);
 impl EnterpriseKeyCredentialRegistrationManager {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -111,15 +111,15 @@ impl EnterpriseKeyCredentialRegistrationManager {
     pub fn GetRegistrationsAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>>(result__)
         }
     }
     #[doc = "*Required features: `Security_Authentication_Identity`*"]
     pub fn Current() -> ::windows::runtime::Result<EnterpriseKeyCredentialRegistrationManager> {
         Self::IEnterpriseKeyCredentialRegistrationManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EnterpriseKeyCredentialRegistrationManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EnterpriseKeyCredentialRegistrationManager>(result__)
         })
     }
     pub fn IEnterpriseKeyCredentialRegistrationManagerStatics<R, F: FnOnce(&IEnterpriseKeyCredentialRegistrationManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -137,12 +137,12 @@ unsafe impl ::windows::runtime::Interface for EnterpriseKeyCredentialRegistratio
 impl ::windows::runtime::RuntimeName for EnterpriseKeyCredentialRegistrationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationManager";
 }
-impl ::std::convert::From<EnterpriseKeyCredentialRegistrationManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<EnterpriseKeyCredentialRegistrationManager> for ::windows::runtime::IUnknown {
     fn from(value: EnterpriseKeyCredentialRegistrationManager) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&EnterpriseKeyCredentialRegistrationManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationManager> for ::windows::runtime::IUnknown {
     fn from(value: &EnterpriseKeyCredentialRegistrationManager) -> Self {
         value.0 .0.clone()
     }
@@ -157,12 +157,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<EnterpriseKeyCredentialRegistrationManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<EnterpriseKeyCredentialRegistrationManager> for ::windows::runtime::IInspectable {
     fn from(value: EnterpriseKeyCredentialRegistrationManager) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&EnterpriseKeyCredentialRegistrationManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&EnterpriseKeyCredentialRegistrationManager> for ::windows::runtime::IInspectable {
     fn from(value: &EnterpriseKeyCredentialRegistrationManager) -> Self {
         value.0.clone()
     }
@@ -177,8 +177,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for EnterpriseKeyCredentialRegistrationManager {}
-unsafe impl ::std::marker::Sync for EnterpriseKeyCredentialRegistrationManager {}
+unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationManager {}
+unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationManager {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo(pub ::windows::runtime::IInspectable);
@@ -195,11 +195,11 @@ pub struct IEnterpriseKeyCredentialRegistrationInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]

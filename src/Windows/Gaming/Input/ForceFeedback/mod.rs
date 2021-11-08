@@ -1,59 +1,59 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ConditionForceEffect(pub ::windows::runtime::IInspectable);
 impl ConditionForceEffect {
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn Gain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn SetGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn State(&self) -> ::windows::runtime::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
-            let mut result__: ForceFeedbackEffectState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
+            let mut result__: ForceFeedbackEffectState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<ConditionForceEffectKind> {
         let this = &::windows::runtime::Interface::cast::<IConditionForceEffect>(self)?;
         unsafe {
-            let mut result__: ConditionForceEffectKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ConditionForceEffectKind>(result__)
+            let mut result__: ConditionForceEffectKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConditionForceEffectKind>(result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`, `Foundation_Numerics`*"]
     pub fn SetParameters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, direction: Param0, positivecoefficient: f32, negativecoefficient: f32, maxpositivemagnitude: f32, maxnegativemagnitude: f32, deadzone: f32, bias: f32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IConditionForceEffect>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), direction.into_param().abi(), positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), direction.into_param().abi(), positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn CreateInstance(effectkind: ConditionForceEffectKind) -> ::windows::runtime::Result<ConditionForceEffect> {
         Self::IConditionForceEffectFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), effectkind, &mut result__).from_abi::<ConditionForceEffect>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), effectkind, &mut result__).from_abi::<ConditionForceEffect>(result__)
         })
     }
     pub fn IConditionForceEffectFactory<R, F: FnOnce(&IConditionForceEffectFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -71,12 +71,12 @@ unsafe impl ::windows::runtime::Interface for ConditionForceEffect {
 impl ::windows::runtime::RuntimeName for ConditionForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConditionForceEffect";
 }
-impl ::std::convert::From<ConditionForceEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ConditionForceEffect> for ::windows::runtime::IUnknown {
     fn from(value: ConditionForceEffect) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ConditionForceEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ConditionForceEffect> for ::windows::runtime::IUnknown {
     fn from(value: &ConditionForceEffect) -> Self {
         value.0 .0.clone()
     }
@@ -91,12 +91,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ConditionForceEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ConditionForceEffect> for ::windows::runtime::IInspectable {
     fn from(value: ConditionForceEffect) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ConditionForceEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ConditionForceEffect> for ::windows::runtime::IInspectable {
     fn from(value: &ConditionForceEffect) -> Self {
         value.0.clone()
     }
@@ -111,30 +111,30 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<ConditionForceEffect> for IForceFeedbackEffect {
+impl ::core::convert::From<ConditionForceEffect> for IForceFeedbackEffect {
     fn from(value: ConditionForceEffect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&ConditionForceEffect> for IForceFeedbackEffect {
+impl ::core::convert::From<&ConditionForceEffect> for IForceFeedbackEffect {
     fn from(value: &ConditionForceEffect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for ConditionForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for &ConditionForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::std::marker::Send for ConditionForceEffect {}
-unsafe impl ::std::marker::Sync for ConditionForceEffect {}
+unsafe impl ::core::marker::Send for ConditionForceEffect {}
+unsafe impl ::core::marker::Sync for ConditionForceEffect {}
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ConditionForceEffectKind(pub i32);
 impl ConditionForceEffectKind {
@@ -143,7 +143,7 @@ impl ConditionForceEffectKind {
     pub const Inertia: ConditionForceEffectKind = ConditionForceEffectKind(2i32);
     pub const Friction: ConditionForceEffectKind = ConditionForceEffectKind(3i32);
 }
-impl ::std::convert::From<i32> for ConditionForceEffectKind {
+impl ::core::convert::From<i32> for ConditionForceEffectKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -159,7 +159,7 @@ impl ::windows::runtime::DefaultType for ConditionForceEffectKind {
 }
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ConstantForceEffect(pub ::windows::runtime::IInspectable);
 impl ConstantForceEffect {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -173,38 +173,38 @@ impl ConstantForceEffect {
     pub fn Gain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn SetGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn State(&self) -> ::windows::runtime::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
-            let mut result__: ForceFeedbackEffectState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
+            let mut result__: ForceFeedbackEffectState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`, `Foundation`, `Foundation_Numerics`*"]
     pub fn SetParameters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, vector: Param0, duration: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IConstantForceEffect>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), vector.into_param().abi(), duration.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), vector.into_param().abi(), duration.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`, `Foundation`, `Foundation_Numerics`*"]
@@ -221,7 +221,7 @@ impl ConstantForceEffect {
         repeatcount: u32,
     ) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IConstantForceEffect>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), vector.into_param().abi(), attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), vector.into_param().abi(), attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ConstantForceEffect {
@@ -234,12 +234,12 @@ unsafe impl ::windows::runtime::Interface for ConstantForceEffect {
 impl ::windows::runtime::RuntimeName for ConstantForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConstantForceEffect";
 }
-impl ::std::convert::From<ConstantForceEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ConstantForceEffect> for ::windows::runtime::IUnknown {
     fn from(value: ConstantForceEffect) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ConstantForceEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ConstantForceEffect> for ::windows::runtime::IUnknown {
     fn from(value: &ConstantForceEffect) -> Self {
         value.0 .0.clone()
     }
@@ -254,12 +254,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ConstantForceEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ConstantForceEffect> for ::windows::runtime::IInspectable {
     fn from(value: ConstantForceEffect) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ConstantForceEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ConstantForceEffect> for ::windows::runtime::IInspectable {
     fn from(value: &ConstantForceEffect) -> Self {
         value.0.clone()
     }
@@ -274,30 +274,30 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<ConstantForceEffect> for IForceFeedbackEffect {
+impl ::core::convert::From<ConstantForceEffect> for IForceFeedbackEffect {
     fn from(value: ConstantForceEffect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&ConstantForceEffect> for IForceFeedbackEffect {
+impl ::core::convert::From<&ConstantForceEffect> for IForceFeedbackEffect {
     fn from(value: &ConstantForceEffect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for ConstantForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for &ConstantForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::std::marker::Send for ConstantForceEffect {}
-unsafe impl ::std::marker::Sync for ConstantForceEffect {}
+unsafe impl ::core::marker::Send for ConstantForceEffect {}
+unsafe impl ::core::marker::Sync for ConstantForceEffect {}
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ForceFeedbackEffectAxes(pub u32);
 impl ForceFeedbackEffectAxes {
@@ -306,7 +306,7 @@ impl ForceFeedbackEffectAxes {
     pub const Y: ForceFeedbackEffectAxes = ForceFeedbackEffectAxes(2u32);
     pub const Z: ForceFeedbackEffectAxes = ForceFeedbackEffectAxes(4u32);
 }
-impl ::std::convert::From<u32> for ForceFeedbackEffectAxes {
+impl ::core::convert::From<u32> for ForceFeedbackEffectAxes {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -320,36 +320,36 @@ unsafe impl ::windows::runtime::RuntimeType for ForceFeedbackEffectAxes {
 impl ::windows::runtime::DefaultType for ForceFeedbackEffectAxes {
     type DefaultType = Self;
 }
-impl ::std::ops::BitOr for ForceFeedbackEffectAxes {
+impl ::core::ops::BitOr for ForceFeedbackEffectAxes {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for ForceFeedbackEffectAxes {
+impl ::core::ops::BitAnd for ForceFeedbackEffectAxes {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for ForceFeedbackEffectAxes {
+impl ::core::ops::BitOrAssign for ForceFeedbackEffectAxes {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for ForceFeedbackEffectAxes {
+impl ::core::ops::BitAndAssign for ForceFeedbackEffectAxes {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for ForceFeedbackEffectAxes {
+impl ::core::ops::Not for ForceFeedbackEffectAxes {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ForceFeedbackEffectState(pub i32);
 impl ForceFeedbackEffectState {
@@ -358,7 +358,7 @@ impl ForceFeedbackEffectState {
     pub const Paused: ForceFeedbackEffectState = ForceFeedbackEffectState(2i32);
     pub const Faulted: ForceFeedbackEffectState = ForceFeedbackEffectState(3i32);
 }
-impl ::std::convert::From<i32> for ForceFeedbackEffectState {
+impl ::core::convert::From<i32> for ForceFeedbackEffectState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -373,7 +373,7 @@ impl ::windows::runtime::DefaultType for ForceFeedbackEffectState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ForceFeedbackLoadEffectResult(pub i32);
 impl ForceFeedbackLoadEffectResult {
@@ -381,7 +381,7 @@ impl ForceFeedbackLoadEffectResult {
     pub const EffectStorageFull: ForceFeedbackLoadEffectResult = ForceFeedbackLoadEffectResult(1i32);
     pub const EffectNotSupported: ForceFeedbackLoadEffectResult = ForceFeedbackLoadEffectResult(2i32);
 }
-impl ::std::convert::From<i32> for ForceFeedbackLoadEffectResult {
+impl ::core::convert::From<i32> for ForceFeedbackLoadEffectResult {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -397,44 +397,44 @@ impl ::windows::runtime::DefaultType for ForceFeedbackLoadEffectResult {
 }
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ForceFeedbackMotor(pub ::windows::runtime::IInspectable);
 impl ForceFeedbackMotor {
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn AreEffectsPaused(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn MasterGain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn SetMasterGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn SupportedAxes(&self) -> ::windows::runtime::Result<ForceFeedbackEffectAxes> {
         let this = self;
         unsafe {
-            let mut result__: ForceFeedbackEffectAxes = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectAxes>(result__)
+            let mut result__: ForceFeedbackEffectAxes = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectAxes>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -442,32 +442,32 @@ impl ForceFeedbackMotor {
     pub fn LoadEffectAsync<'a, Param0: ::windows::runtime::IntoParam<'a, IForceFeedbackEffect>>(&self, effect: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), effect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), effect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn PauseAllEffects(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn ResumeAllEffects(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn StopAllEffects(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`, `Foundation`*"]
     pub fn TryDisableAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -475,8 +475,8 @@ impl ForceFeedbackMotor {
     pub fn TryEnableAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -484,8 +484,8 @@ impl ForceFeedbackMotor {
     pub fn TryResetAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -493,8 +493,8 @@ impl ForceFeedbackMotor {
     pub fn TryUnloadEffectAsync<'a, Param0: ::windows::runtime::IntoParam<'a, IForceFeedbackEffect>>(&self, effect: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), effect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), effect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
 }
@@ -508,12 +508,12 @@ unsafe impl ::windows::runtime::Interface for ForceFeedbackMotor {
 impl ::windows::runtime::RuntimeName for ForceFeedbackMotor {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor";
 }
-impl ::std::convert::From<ForceFeedbackMotor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ForceFeedbackMotor> for ::windows::runtime::IUnknown {
     fn from(value: ForceFeedbackMotor) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ForceFeedbackMotor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ForceFeedbackMotor> for ::windows::runtime::IUnknown {
     fn from(value: &ForceFeedbackMotor) -> Self {
         value.0 .0.clone()
     }
@@ -528,12 +528,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ForceFeedbackMotor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ForceFeedbackMotor> for ::windows::runtime::IInspectable {
     fn from(value: ForceFeedbackMotor) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ForceFeedbackMotor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ForceFeedbackMotor> for ::windows::runtime::IInspectable {
     fn from(value: &ForceFeedbackMotor) -> Self {
         value.0.clone()
     }
@@ -548,8 +548,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ForceFeedbackMotor {}
-unsafe impl ::std::marker::Sync for ForceFeedbackMotor {}
+unsafe impl ::core::marker::Send for ForceFeedbackMotor {}
+unsafe impl ::core::marker::Sync for ForceFeedbackMotor {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IConditionForceEffect(pub ::windows::runtime::IInspectable);
@@ -611,7 +611,7 @@ pub struct IConstantForceEffect_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 pub struct IForceFeedbackEffect(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IForceFeedbackEffect {
@@ -623,43 +623,43 @@ impl IForceFeedbackEffect {
     pub fn Gain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn SetGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn State(&self) -> ::windows::runtime::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
-            let mut result__: ForceFeedbackEffectState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
+            let mut result__: ForceFeedbackEffectState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IForceFeedbackEffect {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a17fba0c-2ae4-48c2-8063-eabd0777cb89}");
 }
-impl ::std::convert::From<IForceFeedbackEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IForceFeedbackEffect> for ::windows::runtime::IUnknown {
     fn from(value: IForceFeedbackEffect) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IForceFeedbackEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IForceFeedbackEffect> for ::windows::runtime::IUnknown {
     fn from(value: &IForceFeedbackEffect) -> Self {
         value.0 .0.clone()
     }
@@ -674,12 +674,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IForceFeedbackEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IForceFeedbackEffect> for ::windows::runtime::IInspectable {
     fn from(value: IForceFeedbackEffect) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IForceFeedbackEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IForceFeedbackEffect> for ::windows::runtime::IInspectable {
     fn from(value: &IForceFeedbackEffect) -> Self {
         value.0.clone()
     }
@@ -835,53 +835,53 @@ pub struct IRampForceEffect_abi(
 );
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PeriodicForceEffect(pub ::windows::runtime::IInspectable);
 impl PeriodicForceEffect {
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn Gain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn SetGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn State(&self) -> ::windows::runtime::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
-            let mut result__: ForceFeedbackEffectState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
+            let mut result__: ForceFeedbackEffectState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<PeriodicForceEffectKind> {
         let this = &::windows::runtime::Interface::cast::<IPeriodicForceEffect>(self)?;
         unsafe {
-            let mut result__: PeriodicForceEffectKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PeriodicForceEffectKind>(result__)
+            let mut result__: PeriodicForceEffectKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PeriodicForceEffectKind>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`, `Foundation`, `Foundation_Numerics`*"]
     pub fn SetParameters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, vector: Param0, frequency: f32, phase: f32, bias: f32, duration: Param4) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPeriodicForceEffect>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), vector.into_param().abi(), frequency, phase, bias, duration.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), vector.into_param().abi(), frequency, phase, bias, duration.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`, `Foundation`, `Foundation_Numerics`*"]
@@ -901,13 +901,13 @@ impl PeriodicForceEffect {
         repeatcount: u32,
     ) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPeriodicForceEffect>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), vector.into_param().abi(), frequency, phase, bias, attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), vector.into_param().abi(), frequency, phase, bias, attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn CreateInstance(effectkind: PeriodicForceEffectKind) -> ::windows::runtime::Result<PeriodicForceEffect> {
         Self::IPeriodicForceEffectFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), effectkind, &mut result__).from_abi::<PeriodicForceEffect>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), effectkind, &mut result__).from_abi::<PeriodicForceEffect>(result__)
         })
     }
     pub fn IPeriodicForceEffectFactory<R, F: FnOnce(&IPeriodicForceEffectFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -925,12 +925,12 @@ unsafe impl ::windows::runtime::Interface for PeriodicForceEffect {
 impl ::windows::runtime::RuntimeName for PeriodicForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect";
 }
-impl ::std::convert::From<PeriodicForceEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PeriodicForceEffect> for ::windows::runtime::IUnknown {
     fn from(value: PeriodicForceEffect) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PeriodicForceEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PeriodicForceEffect> for ::windows::runtime::IUnknown {
     fn from(value: &PeriodicForceEffect) -> Self {
         value.0 .0.clone()
     }
@@ -945,12 +945,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PeriodicForceEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PeriodicForceEffect> for ::windows::runtime::IInspectable {
     fn from(value: PeriodicForceEffect) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PeriodicForceEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PeriodicForceEffect> for ::windows::runtime::IInspectable {
     fn from(value: &PeriodicForceEffect) -> Self {
         value.0.clone()
     }
@@ -965,30 +965,30 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<PeriodicForceEffect> for IForceFeedbackEffect {
+impl ::core::convert::From<PeriodicForceEffect> for IForceFeedbackEffect {
     fn from(value: PeriodicForceEffect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&PeriodicForceEffect> for IForceFeedbackEffect {
+impl ::core::convert::From<&PeriodicForceEffect> for IForceFeedbackEffect {
     fn from(value: &PeriodicForceEffect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for PeriodicForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for &PeriodicForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::std::marker::Send for PeriodicForceEffect {}
-unsafe impl ::std::marker::Sync for PeriodicForceEffect {}
+unsafe impl ::core::marker::Send for PeriodicForceEffect {}
+unsafe impl ::core::marker::Sync for PeriodicForceEffect {}
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PeriodicForceEffectKind(pub i32);
 impl PeriodicForceEffectKind {
@@ -998,7 +998,7 @@ impl PeriodicForceEffectKind {
     pub const SawtoothWaveUp: PeriodicForceEffectKind = PeriodicForceEffectKind(3i32);
     pub const SawtoothWaveDown: PeriodicForceEffectKind = PeriodicForceEffectKind(4i32);
 }
-impl ::std::convert::From<i32> for PeriodicForceEffectKind {
+impl ::core::convert::From<i32> for PeriodicForceEffectKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1014,7 +1014,7 @@ impl ::windows::runtime::DefaultType for PeriodicForceEffectKind {
 }
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RampForceEffect(pub ::windows::runtime::IInspectable);
 impl RampForceEffect {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1028,38 +1028,38 @@ impl RampForceEffect {
     pub fn Gain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn SetGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn State(&self) -> ::windows::runtime::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
-            let mut result__: ForceFeedbackEffectState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
+            let mut result__: ForceFeedbackEffectState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`, `Foundation`, `Foundation_Numerics`*"]
     pub fn SetParameters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, startvector: Param0, endvector: Param1, duration: Param2) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IRampForceEffect>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), startvector.into_param().abi(), endvector.into_param().abi(), duration.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), startvector.into_param().abi(), endvector.into_param().abi(), duration.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     #[doc = "*Required features: `Gaming_Input_ForceFeedback`, `Foundation`, `Foundation_Numerics`*"]
@@ -1085,7 +1085,7 @@ impl RampForceEffect {
         repeatcount: u32,
     ) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IRampForceEffect>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), startvector.into_param().abi(), endvector.into_param().abi(), attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), startvector.into_param().abi(), endvector.into_param().abi(), attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for RampForceEffect {
@@ -1098,12 +1098,12 @@ unsafe impl ::windows::runtime::Interface for RampForceEffect {
 impl ::windows::runtime::RuntimeName for RampForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.RampForceEffect";
 }
-impl ::std::convert::From<RampForceEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RampForceEffect> for ::windows::runtime::IUnknown {
     fn from(value: RampForceEffect) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&RampForceEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RampForceEffect> for ::windows::runtime::IUnknown {
     fn from(value: &RampForceEffect) -> Self {
         value.0 .0.clone()
     }
@@ -1118,12 +1118,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<RampForceEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RampForceEffect> for ::windows::runtime::IInspectable {
     fn from(value: RampForceEffect) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&RampForceEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RampForceEffect> for ::windows::runtime::IInspectable {
     fn from(value: &RampForceEffect) -> Self {
         value.0.clone()
     }
@@ -1138,25 +1138,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<RampForceEffect> for IForceFeedbackEffect {
+impl ::core::convert::From<RampForceEffect> for IForceFeedbackEffect {
     fn from(value: RampForceEffect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&RampForceEffect> for IForceFeedbackEffect {
+impl ::core::convert::From<&RampForceEffect> for IForceFeedbackEffect {
     fn from(value: &RampForceEffect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for RampForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for &RampForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::std::marker::Send for RampForceEffect {}
-unsafe impl ::std::marker::Sync for RampForceEffect {}
+unsafe impl ::core::marker::Send for RampForceEffect {}
+unsafe impl ::core::marker::Sync for RampForceEffect {}

@@ -2,7 +2,7 @@
 #[cfg(feature = "Media_Core_Preview")]
 pub mod Preview;
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioDecoderDegradation(pub i32);
 impl AudioDecoderDegradation {
@@ -11,7 +11,7 @@ impl AudioDecoderDegradation {
     pub const DownmixTo6Channels: AudioDecoderDegradation = AudioDecoderDegradation(2i32);
     pub const DownmixTo8Channels: AudioDecoderDegradation = AudioDecoderDegradation(3i32);
 }
-impl ::std::convert::From<i32> for AudioDecoderDegradation {
+impl ::core::convert::From<i32> for AudioDecoderDegradation {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -26,7 +26,7 @@ impl ::windows::runtime::DefaultType for AudioDecoderDegradation {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioDecoderDegradationReason(pub i32);
 impl AudioDecoderDegradationReason {
@@ -34,7 +34,7 @@ impl AudioDecoderDegradationReason {
     pub const LicensingRequirement: AudioDecoderDegradationReason = AudioDecoderDegradationReason(1i32);
     pub const SpatialAudioNotSupported: AudioDecoderDegradationReason = AudioDecoderDegradationReason(2i32);
 }
-impl ::std::convert::From<i32> for AudioDecoderDegradationReason {
+impl ::core::convert::From<i32> for AudioDecoderDegradationReason {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -50,7 +50,7 @@ impl ::windows::runtime::DefaultType for AudioDecoderDegradationReason {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AudioStreamDescriptor(pub ::windows::runtime::IInspectable);
 impl AudioStreamDescriptor {
     #[cfg(feature = "Media_MediaProperties")]
@@ -58,101 +58,101 @@ impl AudioStreamDescriptor {
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsSelected(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
     #[doc = "*Required features: `Media_Core`, `Media_MediaProperties`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::MediaProperties::AudioEncodingProperties>>(encodingproperties: Param0) -> ::windows::runtime::Result<AudioStreamDescriptor> {
         Self::IAudioStreamDescriptorFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), encodingproperties.into_param().abi(), &mut result__).from_abi::<AudioStreamDescriptor>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), encodingproperties.into_param().abi(), &mut result__).from_abi::<AudioStreamDescriptor>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetLeadingEncoderPadding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioStreamDescriptor2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn LeadingEncoderPadding(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<u32>> {
         let this = &::windows::runtime::Interface::cast::<IAudioStreamDescriptor2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetTrailingEncoderPadding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioStreamDescriptor2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn TrailingEncoderPadding(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<u32>> {
         let this = &::windows::runtime::Interface::cast::<IAudioStreamDescriptor2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLabel<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Copy(&self) -> ::windows::runtime::Result<AudioStreamDescriptor> {
         let this = &::windows::runtime::Interface::cast::<IAudioStreamDescriptor3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioStreamDescriptor>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AudioStreamDescriptor>(result__)
         }
     }
     pub fn IAudioStreamDescriptorFactory<R, F: FnOnce(&IAudioStreamDescriptorFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -170,12 +170,12 @@ unsafe impl ::windows::runtime::Interface for AudioStreamDescriptor {
 impl ::windows::runtime::RuntimeName for AudioStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.AudioStreamDescriptor";
 }
-impl ::std::convert::From<AudioStreamDescriptor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AudioStreamDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: AudioStreamDescriptor) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AudioStreamDescriptor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AudioStreamDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: &AudioStreamDescriptor) -> Self {
         value.0 .0.clone()
     }
@@ -190,12 +190,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AudioStreamDescriptor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AudioStreamDescriptor> for ::windows::runtime::IInspectable {
     fn from(value: AudioStreamDescriptor) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AudioStreamDescriptor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AudioStreamDescriptor> for ::windows::runtime::IInspectable {
     fn from(value: &AudioStreamDescriptor) -> Self {
         value.0.clone()
     }
@@ -210,13 +210,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<AudioStreamDescriptor> for IMediaStreamDescriptor {
+impl ::core::convert::TryFrom<AudioStreamDescriptor> for IMediaStreamDescriptor {
     type Error = ::windows::runtime::Error;
     fn try_from(value: AudioStreamDescriptor) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&AudioStreamDescriptor> for IMediaStreamDescriptor {
+impl ::core::convert::TryFrom<&AudioStreamDescriptor> for IMediaStreamDescriptor {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &AudioStreamDescriptor) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -229,16 +229,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor> for AudioStre
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor> for &AudioStreamDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaStreamDescriptor> {
-        ::std::convert::TryInto::<IMediaStreamDescriptor>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IMediaStreamDescriptor>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<AudioStreamDescriptor> for IMediaStreamDescriptor2 {
+impl ::core::convert::TryFrom<AudioStreamDescriptor> for IMediaStreamDescriptor2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: AudioStreamDescriptor) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&AudioStreamDescriptor> for IMediaStreamDescriptor2 {
+impl ::core::convert::TryFrom<&AudioStreamDescriptor> for IMediaStreamDescriptor2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &AudioStreamDescriptor) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -251,51 +251,51 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor2> for AudioStr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor2> for &AudioStreamDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaStreamDescriptor2> {
-        ::std::convert::TryInto::<IMediaStreamDescriptor2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IMediaStreamDescriptor2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for AudioStreamDescriptor {}
-unsafe impl ::std::marker::Sync for AudioStreamDescriptor {}
+unsafe impl ::core::marker::Send for AudioStreamDescriptor {}
+unsafe impl ::core::marker::Sync for AudioStreamDescriptor {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AudioTrack(pub ::windows::runtime::IInspectable);
 impl AudioTrack {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn TrackKind(&self) -> ::windows::runtime::Result<MediaTrackKind> {
         let this = self;
         unsafe {
-            let mut result__: MediaTrackKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaTrackKind>(result__)
+            let mut result__: MediaTrackKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaTrackKind>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLabel<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -303,23 +303,23 @@ impl AudioTrack {
     pub fn OpenFailed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AudioTrack, AudioTrackOpenFailedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IAudioTrack>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveOpenFailed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioTrack>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_MediaProperties")]
     #[doc = "*Required features: `Media_Core`, `Media_MediaProperties`*"]
     pub fn GetEncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IAudioTrack>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
     #[cfg(feature = "Media_Playback")]
@@ -327,24 +327,24 @@ impl AudioTrack {
     pub fn PlaybackItem(&self) -> ::windows::runtime::Result<super::Playback::MediaPlaybackItem> {
         let this = &::windows::runtime::Interface::cast::<IAudioTrack>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Playback::MediaPlaybackItem>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Playback::MediaPlaybackItem>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IAudioTrack>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SupportInfo(&self) -> ::windows::runtime::Result<AudioTrackSupportInfo> {
         let this = &::windows::runtime::Interface::cast::<IAudioTrack>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioTrackSupportInfo>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AudioTrackSupportInfo>(result__)
         }
     }
 }
@@ -358,12 +358,12 @@ unsafe impl ::windows::runtime::Interface for AudioTrack {
 impl ::windows::runtime::RuntimeName for AudioTrack {
     const NAME: &'static str = "Windows.Media.Core.AudioTrack";
 }
-impl ::std::convert::From<AudioTrack> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AudioTrack> for ::windows::runtime::IUnknown {
     fn from(value: AudioTrack) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AudioTrack> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AudioTrack> for ::windows::runtime::IUnknown {
     fn from(value: &AudioTrack) -> Self {
         value.0 .0.clone()
     }
@@ -378,12 +378,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AudioTrack> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AudioTrack> for ::windows::runtime::IInspectable {
     fn from(value: AudioTrack) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AudioTrack> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AudioTrack> for ::windows::runtime::IInspectable {
     fn from(value: &AudioTrack) -> Self {
         value.0.clone()
     }
@@ -398,39 +398,39 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<AudioTrack> for IMediaTrack {
+impl ::core::convert::From<AudioTrack> for IMediaTrack {
     fn from(value: AudioTrack) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&AudioTrack> for IMediaTrack {
+impl ::core::convert::From<&AudioTrack> for IMediaTrack {
     fn from(value: &AudioTrack) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaTrack> for AudioTrack {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaTrack> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaTrack> for &AudioTrack {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaTrack> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::std::marker::Send for AudioTrack {}
-unsafe impl ::std::marker::Sync for AudioTrack {}
+unsafe impl ::core::marker::Send for AudioTrack {}
+unsafe impl ::core::marker::Sync for AudioTrack {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AudioTrackOpenFailedEventArgs(pub ::windows::runtime::IInspectable);
 impl AudioTrackOpenFailedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
 }
@@ -444,12 +444,12 @@ unsafe impl ::windows::runtime::Interface for AudioTrackOpenFailedEventArgs {
 impl ::windows::runtime::RuntimeName for AudioTrackOpenFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.AudioTrackOpenFailedEventArgs";
 }
-impl ::std::convert::From<AudioTrackOpenFailedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AudioTrackOpenFailedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: AudioTrackOpenFailedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AudioTrackOpenFailedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AudioTrackOpenFailedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &AudioTrackOpenFailedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -464,12 +464,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AudioTrackOpenFailedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AudioTrackOpenFailedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: AudioTrackOpenFailedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AudioTrackOpenFailedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AudioTrackOpenFailedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &AudioTrackOpenFailedEventArgs) -> Self {
         value.0.clone()
     }
@@ -484,43 +484,43 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AudioTrackOpenFailedEventArgs {}
-unsafe impl ::std::marker::Sync for AudioTrackOpenFailedEventArgs {}
+unsafe impl ::core::marker::Send for AudioTrackOpenFailedEventArgs {}
+unsafe impl ::core::marker::Sync for AudioTrackOpenFailedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AudioTrackSupportInfo(pub ::windows::runtime::IInspectable);
 impl AudioTrackSupportInfo {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn DecoderStatus(&self) -> ::windows::runtime::Result<MediaDecoderStatus> {
         let this = self;
         unsafe {
-            let mut result__: MediaDecoderStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaDecoderStatus>(result__)
+            let mut result__: MediaDecoderStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaDecoderStatus>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Degradation(&self) -> ::windows::runtime::Result<AudioDecoderDegradation> {
         let this = self;
         unsafe {
-            let mut result__: AudioDecoderDegradation = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioDecoderDegradation>(result__)
+            let mut result__: AudioDecoderDegradation = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AudioDecoderDegradation>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn DegradationReason(&self) -> ::windows::runtime::Result<AudioDecoderDegradationReason> {
         let this = self;
         unsafe {
-            let mut result__: AudioDecoderDegradationReason = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioDecoderDegradationReason>(result__)
+            let mut result__: AudioDecoderDegradationReason = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AudioDecoderDegradationReason>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn MediaSourceStatus(&self) -> ::windows::runtime::Result<MediaSourceStatus> {
         let this = self;
         unsafe {
-            let mut result__: MediaSourceStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaSourceStatus>(result__)
+            let mut result__: MediaSourceStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaSourceStatus>(result__)
         }
     }
 }
@@ -534,12 +534,12 @@ unsafe impl ::windows::runtime::Interface for AudioTrackSupportInfo {
 impl ::windows::runtime::RuntimeName for AudioTrackSupportInfo {
     const NAME: &'static str = "Windows.Media.Core.AudioTrackSupportInfo";
 }
-impl ::std::convert::From<AudioTrackSupportInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AudioTrackSupportInfo> for ::windows::runtime::IUnknown {
     fn from(value: AudioTrackSupportInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AudioTrackSupportInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AudioTrackSupportInfo> for ::windows::runtime::IUnknown {
     fn from(value: &AudioTrackSupportInfo) -> Self {
         value.0 .0.clone()
     }
@@ -554,12 +554,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AudioTrackSupportInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AudioTrackSupportInfo> for ::windows::runtime::IInspectable {
     fn from(value: AudioTrackSupportInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AudioTrackSupportInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AudioTrackSupportInfo> for ::windows::runtime::IInspectable {
     fn from(value: &AudioTrackSupportInfo) -> Self {
         value.0.clone()
     }
@@ -574,11 +574,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AudioTrackSupportInfo {}
-unsafe impl ::std::marker::Sync for AudioTrackSupportInfo {}
+unsafe impl ::core::marker::Send for AudioTrackSupportInfo {}
+unsafe impl ::core::marker::Sync for AudioTrackSupportInfo {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ChapterCue(pub ::windows::runtime::IInspectable);
 impl ChapterCue {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -592,56 +592,56 @@ impl ChapterCue {
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -655,12 +655,12 @@ unsafe impl ::windows::runtime::Interface for ChapterCue {
 impl ::windows::runtime::RuntimeName for ChapterCue {
     const NAME: &'static str = "Windows.Media.Core.ChapterCue";
 }
-impl ::std::convert::From<ChapterCue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ChapterCue> for ::windows::runtime::IUnknown {
     fn from(value: ChapterCue) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ChapterCue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ChapterCue> for ::windows::runtime::IUnknown {
     fn from(value: &ChapterCue) -> Self {
         value.0 .0.clone()
     }
@@ -675,12 +675,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ChapterCue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ChapterCue> for ::windows::runtime::IInspectable {
     fn from(value: ChapterCue) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ChapterCue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ChapterCue> for ::windows::runtime::IInspectable {
     fn from(value: &ChapterCue) -> Self {
         value.0.clone()
     }
@@ -695,13 +695,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<ChapterCue> for IMediaCue {
+impl ::core::convert::TryFrom<ChapterCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ChapterCue) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&ChapterCue> for IMediaCue {
+impl ::core::convert::TryFrom<&ChapterCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &ChapterCue) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -714,20 +714,20 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaCue> for ChapterCue {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaCue> for &ChapterCue {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaCue> {
-        ::std::convert::TryInto::<IMediaCue>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IMediaCue>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for ChapterCue {}
-unsafe impl ::std::marker::Sync for ChapterCue {}
+unsafe impl ::core::marker::Send for ChapterCue {}
+unsafe impl ::core::marker::Sync for ChapterCue {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CodecCategory(pub i32);
 impl CodecCategory {
     pub const Encoder: CodecCategory = CodecCategory(0i32);
     pub const Decoder: CodecCategory = CodecCategory(1i32);
 }
-impl ::std::convert::From<i32> for CodecCategory {
+impl ::core::convert::From<i32> for CodecCategory {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -743,23 +743,23 @@ impl ::windows::runtime::DefaultType for CodecCategory {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CodecInfo(pub ::windows::runtime::IInspectable);
 impl CodecInfo {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<CodecKind> {
         let this = self;
         unsafe {
-            let mut result__: CodecKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CodecKind>(result__)
+            let mut result__: CodecKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CodecKind>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Category(&self) -> ::windows::runtime::Result<CodecCategory> {
         let this = self;
         unsafe {
-            let mut result__: CodecCategory = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CodecCategory>(result__)
+            let mut result__: CodecCategory = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CodecCategory>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -767,24 +767,24 @@ impl CodecInfo {
     pub fn Subtypes(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsTrusted(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -798,12 +798,12 @@ unsafe impl ::windows::runtime::Interface for CodecInfo {
 impl ::windows::runtime::RuntimeName for CodecInfo {
     const NAME: &'static str = "Windows.Media.Core.CodecInfo";
 }
-impl ::std::convert::From<CodecInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CodecInfo> for ::windows::runtime::IUnknown {
     fn from(value: CodecInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CodecInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CodecInfo> for ::windows::runtime::IUnknown {
     fn from(value: &CodecInfo) -> Self {
         value.0 .0.clone()
     }
@@ -818,12 +818,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CodecInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CodecInfo> for ::windows::runtime::IInspectable {
     fn from(value: CodecInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CodecInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CodecInfo> for ::windows::runtime::IInspectable {
     fn from(value: &CodecInfo) -> Self {
         value.0.clone()
     }
@@ -838,17 +838,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CodecInfo {}
-unsafe impl ::std::marker::Sync for CodecInfo {}
+unsafe impl ::core::marker::Send for CodecInfo {}
+unsafe impl ::core::marker::Sync for CodecInfo {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CodecKind(pub i32);
 impl CodecKind {
     pub const Audio: CodecKind = CodecKind(0i32);
     pub const Video: CodecKind = CodecKind(1i32);
 }
-impl ::std::convert::From<i32> for CodecKind {
+impl ::core::convert::From<i32> for CodecKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -864,7 +864,7 @@ impl ::windows::runtime::DefaultType for CodecKind {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CodecQuery(pub ::windows::runtime::IInspectable);
 impl CodecQuery {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -879,8 +879,8 @@ impl CodecQuery {
     pub fn FindAllAsync<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, kind: CodecKind, category: CodecCategory, subtype: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), kind, category, subtype.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), kind, category, subtype.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>>(result__)
         }
     }
 }
@@ -894,12 +894,12 @@ unsafe impl ::windows::runtime::Interface for CodecQuery {
 impl ::windows::runtime::RuntimeName for CodecQuery {
     const NAME: &'static str = "Windows.Media.Core.CodecQuery";
 }
-impl ::std::convert::From<CodecQuery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CodecQuery> for ::windows::runtime::IUnknown {
     fn from(value: CodecQuery) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CodecQuery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CodecQuery> for ::windows::runtime::IUnknown {
     fn from(value: &CodecQuery) -> Self {
         value.0 .0.clone()
     }
@@ -914,12 +914,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CodecQuery> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CodecQuery> for ::windows::runtime::IInspectable {
     fn from(value: CodecQuery) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CodecQuery> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CodecQuery> for ::windows::runtime::IInspectable {
     fn from(value: &CodecQuery) -> Self {
         value.0.clone()
     }
@@ -934,366 +934,366 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CodecQuery {}
-unsafe impl ::std::marker::Sync for CodecQuery {}
+unsafe impl ::core::marker::Send for CodecQuery {}
+unsafe impl ::core::marker::Sync for CodecQuery {}
 #[doc = "*Required features: `Media_Core`*"]
 pub struct CodecSubtypes {}
 impl CodecSubtypes {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatDV25() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatDV50() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatDvc() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatDvh1() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatDvhD() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatDvsd() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatDvsl() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatH263() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatH264() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatH265() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatH264ES() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatHevc() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatHevcES() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatM4S2() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatMjpg() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatMP43() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatMP4S() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatMP4V() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatMpeg2() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatVP80() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatVP90() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatMpg1() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatMss1() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatMss2() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatWmv1() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatWmv2() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).31)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatWmv3() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormatWvc1() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).33)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn VideoFormat420O() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).34)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatAac() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).35)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatAdts() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).36)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatAlac() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).37)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatAmrNB() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).38)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatAmrWB() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).39)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatAmrWP() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).40)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatDolbyAC3() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).41)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatDolbyAC3Spdif() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).42)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatDolbyDDPlus() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).43)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatDrm() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).44)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatDts() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).45)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).45)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatFlac() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).46)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).46)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatFloat() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).47)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).47)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatMP3() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).48)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).48)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatMPeg() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).49)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).49)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatMsp1() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).50)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).50)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatOpus() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).51)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).51)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatPcm() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).52)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).52)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatWmaSpdif() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).53)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).53)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatWMAudioLossless() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).54)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).54)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatWMAudioV8() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).55)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).55)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AudioFormatWMAudioV9() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICodecSubtypesStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).56)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).56)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     pub fn ICodecSubtypesStatics<R, F: FnOnce(&ICodecSubtypesStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1306,7 +1306,7 @@ impl ::windows::runtime::RuntimeName for CodecSubtypes {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DataCue(pub ::windows::runtime::IInspectable);
 impl DataCue {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1320,58 +1320,58 @@ impl DataCue {
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1379,8 +1379,8 @@ impl DataCue {
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::PropertySet> {
         let this = &::windows::runtime::Interface::cast::<IDataCue2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::PropertySet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::PropertySet>(result__)
         }
     }
 }
@@ -1394,12 +1394,12 @@ unsafe impl ::windows::runtime::Interface for DataCue {
 impl ::windows::runtime::RuntimeName for DataCue {
     const NAME: &'static str = "Windows.Media.Core.DataCue";
 }
-impl ::std::convert::From<DataCue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DataCue> for ::windows::runtime::IUnknown {
     fn from(value: DataCue) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DataCue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DataCue> for ::windows::runtime::IUnknown {
     fn from(value: &DataCue) -> Self {
         value.0 .0.clone()
     }
@@ -1414,12 +1414,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DataCue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DataCue> for ::windows::runtime::IInspectable {
     fn from(value: DataCue) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DataCue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DataCue> for ::windows::runtime::IInspectable {
     fn from(value: &DataCue) -> Self {
         value.0.clone()
     }
@@ -1434,13 +1434,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<DataCue> for IMediaCue {
+impl ::core::convert::TryFrom<DataCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DataCue) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&DataCue> for IMediaCue {
+impl ::core::convert::TryFrom<&DataCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &DataCue) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -1453,22 +1453,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaCue> for DataCue {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaCue> for &DataCue {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaCue> {
-        ::std::convert::TryInto::<IMediaCue>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IMediaCue>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for DataCue {}
-unsafe impl ::std::marker::Sync for DataCue {}
+unsafe impl ::core::marker::Send for DataCue {}
+unsafe impl ::core::marker::Sync for DataCue {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FaceDetectedEventArgs(pub ::windows::runtime::IInspectable);
 impl FaceDetectedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn ResultFrame(&self) -> ::windows::runtime::Result<FaceDetectionEffectFrame> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FaceDetectionEffectFrame>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FaceDetectionEffectFrame>(result__)
         }
     }
 }
@@ -1482,12 +1482,12 @@ unsafe impl ::windows::runtime::Interface for FaceDetectedEventArgs {
 impl ::windows::runtime::RuntimeName for FaceDetectedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.FaceDetectedEventArgs";
 }
-impl ::std::convert::From<FaceDetectedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<FaceDetectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: FaceDetectedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&FaceDetectedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&FaceDetectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &FaceDetectedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1502,12 +1502,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<FaceDetectedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<FaceDetectedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: FaceDetectedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&FaceDetectedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&FaceDetectedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &FaceDetectedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1522,39 +1522,39 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for FaceDetectedEventArgs {}
-unsafe impl ::std::marker::Sync for FaceDetectedEventArgs {}
+unsafe impl ::core::marker::Send for FaceDetectedEventArgs {}
+unsafe impl ::core::marker::Sync for FaceDetectedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FaceDetectionEffect(pub ::windows::runtime::IInspectable);
 impl FaceDetectionEffect {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Enabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetDesiredDetectionInterval<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn DesiredDetectionInterval(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1562,21 +1562,21 @@ impl FaceDetectionEffect {
     pub fn FaceDetected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<FaceDetectionEffect, FaceDetectedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveFaceDetected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Core`, `Foundation_Collections`*"]
     pub fn SetProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, configuration: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaExtension>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), configuration.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), configuration.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for FaceDetectionEffect {
@@ -1589,12 +1589,12 @@ unsafe impl ::windows::runtime::Interface for FaceDetectionEffect {
 impl ::windows::runtime::RuntimeName for FaceDetectionEffect {
     const NAME: &'static str = "Windows.Media.Core.FaceDetectionEffect";
 }
-impl ::std::convert::From<FaceDetectionEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<FaceDetectionEffect> for ::windows::runtime::IUnknown {
     fn from(value: FaceDetectionEffect) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&FaceDetectionEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&FaceDetectionEffect> for ::windows::runtime::IUnknown {
     fn from(value: &FaceDetectionEffect) -> Self {
         value.0 .0.clone()
     }
@@ -1609,12 +1609,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<FaceDetectionEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<FaceDetectionEffect> for ::windows::runtime::IInspectable {
     fn from(value: FaceDetectionEffect) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&FaceDetectionEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&FaceDetectionEffect> for ::windows::runtime::IInspectable {
     fn from(value: &FaceDetectionEffect) -> Self {
         value.0.clone()
     }
@@ -1629,13 +1629,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<FaceDetectionEffect> for super::IMediaExtension {
+impl ::core::convert::TryFrom<FaceDetectionEffect> for super::IMediaExtension {
     type Error = ::windows::runtime::Error;
     fn try_from(value: FaceDetectionEffect) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&FaceDetectionEffect> for super::IMediaExtension {
+impl ::core::convert::TryFrom<&FaceDetectionEffect> for super::IMediaExtension {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &FaceDetectionEffect) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -1648,15 +1648,15 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaExtension> for FaceDetec
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaExtension> for &FaceDetectionEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaExtension> {
-        ::std::convert::TryInto::<super::IMediaExtension>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaExtension>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for FaceDetectionEffect {}
-unsafe impl ::std::marker::Sync for FaceDetectionEffect {}
+unsafe impl ::core::marker::Send for FaceDetectionEffect {}
+unsafe impl ::core::marker::Sync for FaceDetectionEffect {}
 #[cfg(feature = "Media_Effects")]
 #[doc = "*Required features: `Media_Core`, `Media_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FaceDetectionEffectDefinition(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Media_Effects")]
 impl FaceDetectionEffectDefinition {
@@ -1672,8 +1672,8 @@ impl FaceDetectionEffectDefinition {
     pub fn ActivatableClassId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
@@ -1681,34 +1681,34 @@ impl FaceDetectionEffectDefinition {
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetDetectionMode(&self, value: FaceDetectionMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IFaceDetectionEffectDefinition>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn DetectionMode(&self) -> ::windows::runtime::Result<FaceDetectionMode> {
         let this = &::windows::runtime::Interface::cast::<IFaceDetectionEffectDefinition>(self)?;
         unsafe {
-            let mut result__: FaceDetectionMode = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FaceDetectionMode>(result__)
+            let mut result__: FaceDetectionMode = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FaceDetectionMode>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetSynchronousDetectionEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IFaceDetectionEffectDefinition>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SynchronousDetectionEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IFaceDetectionEffectDefinition>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -1726,13 +1726,13 @@ impl ::windows::runtime::RuntimeName for FaceDetectionEffectDefinition {
     const NAME: &'static str = "Windows.Media.Core.FaceDetectionEffectDefinition";
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<FaceDetectionEffectDefinition> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<FaceDetectionEffectDefinition> for ::windows::runtime::IUnknown {
     fn from(value: FaceDetectionEffectDefinition) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<&FaceDetectionEffectDefinition> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&FaceDetectionEffectDefinition> for ::windows::runtime::IUnknown {
     fn from(value: &FaceDetectionEffectDefinition) -> Self {
         value.0 .0.clone()
     }
@@ -1750,13 +1750,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<FaceDetectionEffectDefinition> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<FaceDetectionEffectDefinition> for ::windows::runtime::IInspectable {
     fn from(value: FaceDetectionEffectDefinition) -> Self {
         value.0
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<&FaceDetectionEffectDefinition> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&FaceDetectionEffectDefinition> for ::windows::runtime::IInspectable {
     fn from(value: &FaceDetectionEffectDefinition) -> Self {
         value.0.clone()
     }
@@ -1774,36 +1774,36 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<FaceDetectionEffectDefinition> for super::Effects::IVideoEffectDefinition {
+impl ::core::convert::From<FaceDetectionEffectDefinition> for super::Effects::IVideoEffectDefinition {
     fn from(value: FaceDetectionEffectDefinition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<&FaceDetectionEffectDefinition> for super::Effects::IVideoEffectDefinition {
+impl ::core::convert::From<&FaceDetectionEffectDefinition> for super::Effects::IVideoEffectDefinition {
     fn from(value: &FaceDetectionEffectDefinition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IVideoEffectDefinition> for FaceDetectionEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Effects::IVideoEffectDefinition> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IVideoEffectDefinition> for &FaceDetectionEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Effects::IVideoEffectDefinition> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Media_Effects")]
-unsafe impl ::std::marker::Send for FaceDetectionEffectDefinition {}
+unsafe impl ::core::marker::Send for FaceDetectionEffectDefinition {}
 #[cfg(feature = "Media_Effects")]
-unsafe impl ::std::marker::Sync for FaceDetectionEffectDefinition {}
+unsafe impl ::core::marker::Sync for FaceDetectionEffectDefinition {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FaceDetectionEffectFrame(pub ::windows::runtime::IInspectable);
 impl FaceDetectionEffectFrame {
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_FaceAnalysis"))]
@@ -1811,88 +1811,88 @@ impl FaceDetectionEffectFrame {
     pub fn DetectedFaces(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::FaceAnalysis::DetectedFace>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::FaceAnalysis::DetectedFace>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::FaceAnalysis::DetectedFace>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsReadOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetRelativeTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RelativeTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetSystemRelativeTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SystemRelativeTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetIsDiscontinuous(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsDiscontinuous(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1900,8 +1900,8 @@ impl FaceDetectionEffectFrame {
     pub fn ExtendedProperties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
 }
@@ -1915,12 +1915,12 @@ unsafe impl ::windows::runtime::Interface for FaceDetectionEffectFrame {
 impl ::windows::runtime::RuntimeName for FaceDetectionEffectFrame {
     const NAME: &'static str = "Windows.Media.Core.FaceDetectionEffectFrame";
 }
-impl ::std::convert::From<FaceDetectionEffectFrame> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<FaceDetectionEffectFrame> for ::windows::runtime::IUnknown {
     fn from(value: FaceDetectionEffectFrame) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&FaceDetectionEffectFrame> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&FaceDetectionEffectFrame> for ::windows::runtime::IUnknown {
     fn from(value: &FaceDetectionEffectFrame) -> Self {
         value.0 .0.clone()
     }
@@ -1935,12 +1935,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<FaceDetectionEffectFrame> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<FaceDetectionEffectFrame> for ::windows::runtime::IInspectable {
     fn from(value: FaceDetectionEffectFrame) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&FaceDetectionEffectFrame> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&FaceDetectionEffectFrame> for ::windows::runtime::IInspectable {
     fn from(value: &FaceDetectionEffectFrame) -> Self {
         value.0.clone()
     }
@@ -1956,14 +1956,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<FaceDetectionEffectFrame> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<FaceDetectionEffectFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: FaceDetectionEffectFrame) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&FaceDetectionEffectFrame> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&FaceDetectionEffectFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &FaceDetectionEffectFrame) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -1978,16 +1978,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &FaceDetectionEffectFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<FaceDetectionEffectFrame> for super::IMediaFrame {
+impl ::core::convert::TryFrom<FaceDetectionEffectFrame> for super::IMediaFrame {
     type Error = ::windows::runtime::Error;
     fn try_from(value: FaceDetectionEffectFrame) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&FaceDetectionEffectFrame> for super::IMediaFrame {
+impl ::core::convert::TryFrom<&FaceDetectionEffectFrame> for super::IMediaFrame {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &FaceDetectionEffectFrame) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2000,13 +2000,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaFrame> for FaceDetection
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaFrame> for &FaceDetectionEffectFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaFrame> {
-        ::std::convert::TryInto::<super::IMediaFrame>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaFrame>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for FaceDetectionEffectFrame {}
-unsafe impl ::std::marker::Sync for FaceDetectionEffectFrame {}
+unsafe impl ::core::marker::Send for FaceDetectionEffectFrame {}
+unsafe impl ::core::marker::Sync for FaceDetectionEffectFrame {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FaceDetectionMode(pub i32);
 impl FaceDetectionMode {
@@ -2014,7 +2014,7 @@ impl FaceDetectionMode {
     pub const Balanced: FaceDetectionMode = FaceDetectionMode(1i32);
     pub const HighQuality: FaceDetectionMode = FaceDetectionMode(2i32);
 }
-impl ::std::convert::From<i32> for FaceDetectionMode {
+impl ::core::convert::From<i32> for FaceDetectionMode {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2030,20 +2030,20 @@ impl ::windows::runtime::DefaultType for FaceDetectionMode {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HighDynamicRangeControl(pub ::windows::runtime::IInspectable);
 impl HighDynamicRangeControl {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Enabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -2057,12 +2057,12 @@ unsafe impl ::windows::runtime::Interface for HighDynamicRangeControl {
 impl ::windows::runtime::RuntimeName for HighDynamicRangeControl {
     const NAME: &'static str = "Windows.Media.Core.HighDynamicRangeControl";
 }
-impl ::std::convert::From<HighDynamicRangeControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HighDynamicRangeControl> for ::windows::runtime::IUnknown {
     fn from(value: HighDynamicRangeControl) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HighDynamicRangeControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HighDynamicRangeControl> for ::windows::runtime::IUnknown {
     fn from(value: &HighDynamicRangeControl) -> Self {
         value.0 .0.clone()
     }
@@ -2077,12 +2077,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HighDynamicRangeControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HighDynamicRangeControl> for ::windows::runtime::IInspectable {
     fn from(value: HighDynamicRangeControl) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HighDynamicRangeControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HighDynamicRangeControl> for ::windows::runtime::IInspectable {
     fn from(value: &HighDynamicRangeControl) -> Self {
         value.0.clone()
     }
@@ -2097,19 +2097,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HighDynamicRangeControl {}
-unsafe impl ::std::marker::Sync for HighDynamicRangeControl {}
+unsafe impl ::core::marker::Send for HighDynamicRangeControl {}
+unsafe impl ::core::marker::Sync for HighDynamicRangeControl {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HighDynamicRangeOutput(pub ::windows::runtime::IInspectable);
 impl HighDynamicRangeOutput {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Certainty(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Devices_Core"))]
@@ -2117,8 +2117,8 @@ impl HighDynamicRangeOutput {
     pub fn FrameControllers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::Devices::Core::FrameController>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::Devices::Core::FrameController>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::Devices::Core::FrameController>>(result__)
         }
     }
 }
@@ -2132,12 +2132,12 @@ unsafe impl ::windows::runtime::Interface for HighDynamicRangeOutput {
 impl ::windows::runtime::RuntimeName for HighDynamicRangeOutput {
     const NAME: &'static str = "Windows.Media.Core.HighDynamicRangeOutput";
 }
-impl ::std::convert::From<HighDynamicRangeOutput> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HighDynamicRangeOutput> for ::windows::runtime::IUnknown {
     fn from(value: HighDynamicRangeOutput) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HighDynamicRangeOutput> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HighDynamicRangeOutput> for ::windows::runtime::IUnknown {
     fn from(value: &HighDynamicRangeOutput) -> Self {
         value.0 .0.clone()
     }
@@ -2152,12 +2152,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HighDynamicRangeOutput> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HighDynamicRangeOutput> for ::windows::runtime::IInspectable {
     fn from(value: HighDynamicRangeOutput) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HighDynamicRangeOutput> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HighDynamicRangeOutput> for ::windows::runtime::IInspectable {
     fn from(value: &HighDynamicRangeOutput) -> Self {
         value.0.clone()
     }
@@ -2172,8 +2172,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HighDynamicRangeOutput {}
-unsafe impl ::std::marker::Sync for HighDynamicRangeOutput {}
+unsafe impl ::core::marker::Send for HighDynamicRangeOutput {}
+unsafe impl ::core::marker::Sync for HighDynamicRangeOutput {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IAudioStreamDescriptor(pub ::windows::runtime::IInspectable);
@@ -2279,7 +2279,7 @@ pub struct IAudioTrack_abi(
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
     #[cfg(feature = "Media_Playback")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Media_Playback"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -2337,8 +2337,8 @@ pub struct IChapterCue_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -2360,7 +2360,7 @@ pub struct ICodecInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CodecCategory) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -2379,7 +2379,7 @@ pub struct ICodecQuery_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kind: CodecKind, category: CodecCategory, subtype: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kind: CodecKind, category: CodecCategory, subtype: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
@@ -2398,57 +2398,57 @@ pub struct ICodecSubtypesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -2722,8 +2722,8 @@ pub struct IMediaBinder_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -2751,9 +2751,9 @@ pub struct IMediaBindingEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, contenttype: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, contenttype: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, contenttype: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, contenttype: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
@@ -2797,7 +2797,7 @@ pub struct IMediaBindingEventArgs3_abi(
     #[cfg(not(feature = "Networking_BackgroundTransfer"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaCue(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCue {
@@ -2809,55 +2809,55 @@ impl IMediaCue {
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IMediaCue {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{c7d15e5d-59dc-431f-a0ee-27744323b36d}");
 }
-impl ::std::convert::From<IMediaCue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IMediaCue> for ::windows::runtime::IUnknown {
     fn from(value: IMediaCue) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IMediaCue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IMediaCue> for ::windows::runtime::IUnknown {
     fn from(value: &IMediaCue) -> Self {
         value.0 .0.clone()
     }
@@ -2872,12 +2872,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IMediaCue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IMediaCue> for ::windows::runtime::IInspectable {
     fn from(value: IMediaCue) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IMediaCue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IMediaCue> for ::windows::runtime::IInspectable {
     fn from(value: &IMediaCue) -> Self {
         value.0.clone()
     }
@@ -2909,8 +2909,8 @@ pub struct IMediaCue_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -2931,7 +2931,7 @@ pub struct IMediaCueEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSource {
@@ -2942,12 +2942,12 @@ impl IMediaSource {}
 unsafe impl ::windows::runtime::RuntimeType for IMediaSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e7bfb599-a09d-4c21-bcdf-20af4f86b3d9}");
 }
-impl ::std::convert::From<IMediaSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IMediaSource> for ::windows::runtime::IUnknown {
     fn from(value: IMediaSource) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IMediaSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IMediaSource> for ::windows::runtime::IUnknown {
     fn from(value: &IMediaSource) -> Self {
         value.0 .0.clone()
     }
@@ -2962,12 +2962,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IMediaSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IMediaSource> for ::windows::runtime::IInspectable {
     fn from(value: IMediaSource) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IMediaSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IMediaSource> for ::windows::runtime::IInspectable {
     fn from(value: &IMediaSource) -> Self {
         value.0.clone()
     }
@@ -3208,9 +3208,9 @@ pub struct IMediaSourceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mediasource: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Storage")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, file: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage"))] usize,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, contenttype: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, contenttype: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, contenttype: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, contenttype: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
@@ -3272,7 +3272,7 @@ pub struct IMediaSourceStatics4_abi(
     #[cfg(not(feature = "Networking_BackgroundTransfer"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaStreamDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamDescriptor {
@@ -3284,46 +3284,46 @@ impl IMediaStreamDescriptor {
     pub fn IsSelected(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IMediaStreamDescriptor {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{80f16e6e-92f7-451e-97d2-afd80742da70}");
 }
-impl ::std::convert::From<IMediaStreamDescriptor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IMediaStreamDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: IMediaStreamDescriptor) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IMediaStreamDescriptor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IMediaStreamDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: &IMediaStreamDescriptor) -> Self {
         value.0 .0.clone()
     }
@@ -3338,12 +3338,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IMediaStreamDescriptor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IMediaStreamDescriptor> for ::windows::runtime::IInspectable {
     fn from(value: IMediaStreamDescriptor) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IMediaStreamDescriptor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IMediaStreamDescriptor> for ::windows::runtime::IInspectable {
     fn from(value: &IMediaStreamDescriptor) -> Self {
         value.0.clone()
     }
@@ -3368,13 +3368,13 @@ pub struct IMediaStreamDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaStreamDescriptor2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamDescriptor2 {
@@ -3386,59 +3386,59 @@ impl IMediaStreamDescriptor2 {
     pub fn IsSelected(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLabel<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IMediaStreamDescriptor2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{5073010f-e8b2-4071-b00b-ebf337a76b58}");
 }
-impl ::std::convert::From<IMediaStreamDescriptor2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IMediaStreamDescriptor2> for ::windows::runtime::IUnknown {
     fn from(value: IMediaStreamDescriptor2) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IMediaStreamDescriptor2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IMediaStreamDescriptor2> for ::windows::runtime::IUnknown {
     fn from(value: &IMediaStreamDescriptor2) -> Self {
         value.0 .0.clone()
     }
@@ -3453,12 +3453,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IMediaStreamDescriptor2> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IMediaStreamDescriptor2> for ::windows::runtime::IInspectable {
     fn from(value: IMediaStreamDescriptor2) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IMediaStreamDescriptor2> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IMediaStreamDescriptor2> for ::windows::runtime::IInspectable {
     fn from(value: &IMediaStreamDescriptor2) -> Self {
         value.0.clone()
     }
@@ -3473,13 +3473,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<IMediaStreamDescriptor2> for IMediaStreamDescriptor {
+impl ::core::convert::TryFrom<IMediaStreamDescriptor2> for IMediaStreamDescriptor {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IMediaStreamDescriptor2) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&IMediaStreamDescriptor2> for IMediaStreamDescriptor {
+impl ::core::convert::TryFrom<&IMediaStreamDescriptor2> for IMediaStreamDescriptor {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &IMediaStreamDescriptor2) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3492,7 +3492,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor> for IMediaStr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor> for &IMediaStreamDescriptor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaStreamDescriptor> {
-        ::std::convert::TryInto::<IMediaStreamDescriptor>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IMediaStreamDescriptor>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[repr(C)]
@@ -3504,8 +3504,8 @@ pub struct IMediaStreamDescriptor2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -4001,7 +4001,7 @@ pub struct IMediaStreamSourceSwitchStreamsRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaTrack(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaTrack {
@@ -4013,49 +4013,49 @@ impl IMediaTrack {
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn TrackKind(&self) -> ::windows::runtime::Result<MediaTrackKind> {
         let this = self;
         unsafe {
-            let mut result__: MediaTrackKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaTrackKind>(result__)
+            let mut result__: MediaTrackKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaTrackKind>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLabel<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IMediaTrack {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{03e1fafc-c931-491a-b46b-c10ee8c256b7}");
 }
-impl ::std::convert::From<IMediaTrack> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IMediaTrack> for ::windows::runtime::IUnknown {
     fn from(value: IMediaTrack) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IMediaTrack> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IMediaTrack> for ::windows::runtime::IUnknown {
     fn from(value: &IMediaTrack) -> Self {
         value.0 .0.clone()
     }
@@ -4070,12 +4070,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IMediaTrack> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IMediaTrack> for ::windows::runtime::IInspectable {
     fn from(value: IMediaTrack) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IMediaTrack> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IMediaTrack> for ::windows::runtime::IInspectable {
     fn from(value: &IMediaTrack) -> Self {
         value.0.clone()
     }
@@ -4099,11 +4099,11 @@ pub struct IMediaTrack_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MediaTrackKind) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -4230,7 +4230,7 @@ pub struct IMseStreamSource_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mimetype: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mimetype: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, buffer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, status: MseEndOfStreamStatus) -> ::windows::runtime::HRESULT,
 );
@@ -4271,7 +4271,7 @@ pub struct IMseStreamSourceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contenttype: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contenttype: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -4356,7 +4356,7 @@ pub struct ISceneAnalyzedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct ISingleSelectMediaTrackList(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISingleSelectMediaTrackList {
@@ -4369,39 +4369,39 @@ impl ISingleSelectMediaTrackList {
     pub fn SelectedIndexChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveSelectedIndexChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetSelectedIndex(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SelectedIndex(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ISingleSelectMediaTrackList {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{77206f1f-c34f-494f-8077-2bad9ff4ecf1}");
 }
-impl ::std::convert::From<ISingleSelectMediaTrackList> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISingleSelectMediaTrackList> for ::windows::runtime::IUnknown {
     fn from(value: ISingleSelectMediaTrackList) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ISingleSelectMediaTrackList> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISingleSelectMediaTrackList> for ::windows::runtime::IUnknown {
     fn from(value: &ISingleSelectMediaTrackList) -> Self {
         value.0 .0.clone()
     }
@@ -4416,12 +4416,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ISingleSelectMediaTrackList> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ISingleSelectMediaTrackList> for ::windows::runtime::IInspectable {
     fn from(value: ISingleSelectMediaTrackList) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ISingleSelectMediaTrackList> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ISingleSelectMediaTrackList> for ::windows::runtime::IInspectable {
     fn from(value: &ISingleSelectMediaTrackList) -> Self {
         value.0.clone()
     }
@@ -4468,8 +4468,8 @@ pub struct ISpeechCue_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -4551,7 +4551,7 @@ pub struct ITimedMetadataTrack_abi(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TimedMetadataKind) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cue: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cue: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
@@ -4573,7 +4573,7 @@ pub struct ITimedMetadataTrack2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Media_Playback")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Media_Playback"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -4610,7 +4610,7 @@ pub struct ITimedMetadataTrackFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, language: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, kind: TimedMetadataKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, language: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, kind: TimedMetadataKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -4631,7 +4631,7 @@ pub struct ITimedMetadataTrackFailedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct ITimedMetadataTrackProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataTrackProvider {
@@ -4644,20 +4644,20 @@ impl ITimedMetadataTrackProvider {
     pub fn TimedMetadataTracks(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ITimedMetadataTrackProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{3b7f2024-f74e-4ade-93c5-219da05b6856}");
 }
-impl ::std::convert::From<ITimedMetadataTrackProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ITimedMetadataTrackProvider> for ::windows::runtime::IUnknown {
     fn from(value: ITimedMetadataTrackProvider) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ITimedMetadataTrackProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ITimedMetadataTrackProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ITimedMetadataTrackProvider) -> Self {
         value.0 .0.clone()
     }
@@ -4672,12 +4672,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ITimedMetadataTrackProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ITimedMetadataTrackProvider> for ::windows::runtime::IInspectable {
     fn from(value: ITimedMetadataTrackProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ITimedMetadataTrackProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ITimedMetadataTrackProvider> for ::windows::runtime::IInspectable {
     fn from(value: &ITimedMetadataTrackProvider) -> Self {
         value.0.clone()
     }
@@ -4768,8 +4768,8 @@ pub struct ITimedTextLine_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
@@ -4789,8 +4789,8 @@ pub struct ITimedTextRegion_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TimedTextPoint) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: TimedTextPoint) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TimedTextSize) -> ::windows::runtime::HRESULT,
@@ -4832,8 +4832,8 @@ pub struct ITimedTextRuby_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TimedTextRubyPosition) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: TimedTextRubyPosition) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TimedTextRubyAlign) -> ::windows::runtime::HRESULT,
@@ -4902,9 +4902,9 @@ pub struct ITimedTextSourceStatics_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, defaultlanguage: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, defaultlanguage: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, defaultlanguage: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, defaultlanguage: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -4927,9 +4927,9 @@ pub struct ITimedTextSourceStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, indexuri: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, indexstream: ::windows::runtime::RawPtr, defaultlanguage: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, indexstream: ::windows::runtime::RawPtr, defaultlanguage: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, indexuri: ::windows::runtime::RawPtr, defaultlanguage: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, indexuri: ::windows::runtime::RawPtr, defaultlanguage: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -4948,10 +4948,10 @@ pub struct ITimedTextStyle_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TimedTextDouble) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: TimedTextDouble) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TimedTextWeight) -> ::windows::runtime::HRESULT,
@@ -5173,7 +5173,7 @@ pub struct IVideoTrack_abi(
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
     #[cfg(feature = "Media_Playback")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Media_Playback"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -5215,7 +5215,7 @@ pub struct IVideoTrackSupportInfo_abi(
 );
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ImageCue(pub ::windows::runtime::IInspectable);
 impl ImageCue {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5229,84 +5229,84 @@ impl ImageCue {
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<TimedTextPoint> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextPoint = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextPoint>(result__)
+            let mut result__: TimedTextPoint = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextPoint>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, TimedTextPoint>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Extent(&self) -> ::windows::runtime::Result<TimedTextSize> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextSize = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextSize>(result__)
+            let mut result__: TimedTextSize = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextSize>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetExtent<'a, Param0: ::windows::runtime::IntoParam<'a, TimedTextSize>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `Media_Core`, `Graphics_Imaging`*"]
     pub fn SetSoftwareBitmap<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `Media_Core`, `Graphics_Imaging`*"]
     pub fn SoftwareBitmap(&self) -> ::windows::runtime::Result<super::super::Graphics::Imaging::SoftwareBitmap> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::SoftwareBitmap>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::SoftwareBitmap>(result__)
         }
     }
 }
@@ -5320,12 +5320,12 @@ unsafe impl ::windows::runtime::Interface for ImageCue {
 impl ::windows::runtime::RuntimeName for ImageCue {
     const NAME: &'static str = "Windows.Media.Core.ImageCue";
 }
-impl ::std::convert::From<ImageCue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ImageCue> for ::windows::runtime::IUnknown {
     fn from(value: ImageCue) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ImageCue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ImageCue> for ::windows::runtime::IUnknown {
     fn from(value: &ImageCue) -> Self {
         value.0 .0.clone()
     }
@@ -5340,12 +5340,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ImageCue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ImageCue> for ::windows::runtime::IInspectable {
     fn from(value: ImageCue) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ImageCue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ImageCue> for ::windows::runtime::IInspectable {
     fn from(value: &ImageCue) -> Self {
         value.0.clone()
     }
@@ -5360,13 +5360,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<ImageCue> for IMediaCue {
+impl ::core::convert::TryFrom<ImageCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ImageCue) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&ImageCue> for IMediaCue {
+impl ::core::convert::TryFrom<&ImageCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &ImageCue) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5379,22 +5379,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaCue> for ImageCue {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaCue> for &ImageCue {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaCue> {
-        ::std::convert::TryInto::<IMediaCue>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IMediaCue>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for ImageCue {}
-unsafe impl ::std::marker::Sync for ImageCue {}
+unsafe impl ::core::marker::Send for ImageCue {}
+unsafe impl ::core::marker::Sync for ImageCue {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InitializeMediaStreamSourceRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl InitializeMediaStreamSourceRequestedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Source(&self) -> ::windows::runtime::Result<MediaStreamSource> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSource>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -5402,8 +5402,8 @@ impl InitializeMediaStreamSourceRequestedEventArgs {
     pub fn RandomAccessStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -5411,8 +5411,8 @@ impl InitializeMediaStreamSourceRequestedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -5426,12 +5426,12 @@ unsafe impl ::windows::runtime::Interface for InitializeMediaStreamSourceRequest
 impl ::windows::runtime::RuntimeName for InitializeMediaStreamSourceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.InitializeMediaStreamSourceRequestedEventArgs";
 }
-impl ::std::convert::From<InitializeMediaStreamSourceRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InitializeMediaStreamSourceRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: InitializeMediaStreamSourceRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&InitializeMediaStreamSourceRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InitializeMediaStreamSourceRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &InitializeMediaStreamSourceRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -5446,12 +5446,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<InitializeMediaStreamSourceRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InitializeMediaStreamSourceRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: InitializeMediaStreamSourceRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&InitializeMediaStreamSourceRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InitializeMediaStreamSourceRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &InitializeMediaStreamSourceRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -5466,8 +5466,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for InitializeMediaStreamSourceRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for InitializeMediaStreamSourceRequestedEventArgs {}
+unsafe impl ::core::marker::Send for InitializeMediaStreamSourceRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for InitializeMediaStreamSourceRequestedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 pub struct LowLightFusion {}
 impl LowLightFusion {
@@ -5475,23 +5475,23 @@ impl LowLightFusion {
     #[doc = "*Required features: `Media_Core`, `Foundation_Collections`, `Graphics_Imaging`*"]
     pub fn SupportedBitmapPixelFormats() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
         Self::ILowLightFusionStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn MaxSupportedFrameCount() -> ::windows::runtime::Result<i32> {
         Self::ILowLightFusionStatics(|this| unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
     #[doc = "*Required features: `Media_Core`, `Foundation`, `Foundation_Collections`, `Graphics_Imaging`*"]
     pub fn FuseAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Graphics::Imaging::SoftwareBitmap>>>(frameset: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<LowLightFusionResult, f64>> {
         Self::ILowLightFusionStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), frameset.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<LowLightFusionResult, f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), frameset.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<LowLightFusionResult, f64>>(result__)
         })
     }
     pub fn ILowLightFusionStatics<R, F: FnOnce(&ILowLightFusionStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -5504,22 +5504,22 @@ impl ::windows::runtime::RuntimeName for LowLightFusion {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LowLightFusionResult(pub ::windows::runtime::IInspectable);
 impl LowLightFusionResult {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     #[doc = "*Required features: `Media_Core`, `Graphics_Imaging`*"]
     pub fn Frame(&self) -> ::windows::runtime::Result<super::super::Graphics::Imaging::SoftwareBitmap> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::SoftwareBitmap>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::SoftwareBitmap>(result__)
         }
     }
 }
@@ -5533,12 +5533,12 @@ unsafe impl ::windows::runtime::Interface for LowLightFusionResult {
 impl ::windows::runtime::RuntimeName for LowLightFusionResult {
     const NAME: &'static str = "Windows.Media.Core.LowLightFusionResult";
 }
-impl ::std::convert::From<LowLightFusionResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<LowLightFusionResult> for ::windows::runtime::IUnknown {
     fn from(value: LowLightFusionResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&LowLightFusionResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&LowLightFusionResult> for ::windows::runtime::IUnknown {
     fn from(value: &LowLightFusionResult) -> Self {
         value.0 .0.clone()
     }
@@ -5553,12 +5553,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<LowLightFusionResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<LowLightFusionResult> for ::windows::runtime::IInspectable {
     fn from(value: LowLightFusionResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&LowLightFusionResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&LowLightFusionResult> for ::windows::runtime::IInspectable {
     fn from(value: &LowLightFusionResult) -> Self {
         value.0.clone()
     }
@@ -5574,14 +5574,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<LowLightFusionResult> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<LowLightFusionResult> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: LowLightFusionResult) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&LowLightFusionResult> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&LowLightFusionResult> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &LowLightFusionResult) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5596,14 +5596,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &LowLightFusionResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for LowLightFusionResult {}
-unsafe impl ::std::marker::Sync for LowLightFusionResult {}
+unsafe impl ::core::marker::Send for LowLightFusionResult {}
+unsafe impl ::core::marker::Sync for LowLightFusionResult {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaBinder(pub ::windows::runtime::IInspectable);
 impl MediaBinder {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5618,35 +5618,35 @@ impl MediaBinder {
     pub fn Binding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaBinder, MediaBindingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveBinding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Token(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetToken<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Source(&self) -> ::windows::runtime::Result<MediaSource> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaSource>(result__)
         }
     }
 }
@@ -5660,12 +5660,12 @@ unsafe impl ::windows::runtime::Interface for MediaBinder {
 impl ::windows::runtime::RuntimeName for MediaBinder {
     const NAME: &'static str = "Windows.Media.Core.MediaBinder";
 }
-impl ::std::convert::From<MediaBinder> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaBinder> for ::windows::runtime::IUnknown {
     fn from(value: MediaBinder) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaBinder> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaBinder> for ::windows::runtime::IUnknown {
     fn from(value: &MediaBinder) -> Self {
         value.0 .0.clone()
     }
@@ -5680,12 +5680,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaBinder> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaBinder> for ::windows::runtime::IInspectable {
     fn from(value: MediaBinder) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaBinder> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaBinder> for ::windows::runtime::IInspectable {
     fn from(value: &MediaBinder) -> Self {
         value.0.clone()
     }
@@ -5700,11 +5700,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaBinder {}
-unsafe impl ::std::marker::Sync for MediaBinder {}
+unsafe impl ::core::marker::Send for MediaBinder {}
+unsafe impl ::core::marker::Sync for MediaBinder {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaBindingEventArgs(pub ::windows::runtime::IInspectable);
 impl MediaBindingEventArgs {
     #[cfg(feature = "Foundation")]
@@ -5712,22 +5712,22 @@ impl MediaBindingEventArgs {
     pub fn Canceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaBindingEventArgs, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveCanceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn MediaBinder(&self) -> ::windows::runtime::Result<MediaBinder> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaBinder>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaBinder>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -5735,45 +5735,45 @@ impl MediaBindingEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), uri.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), uri.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn SetStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, stream: Param0, contenttype: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), stream.into_param().abi(), contenttype.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), stream.into_param().abi(), contenttype.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn SetStreamReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, stream: Param0, contenttype: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), stream.into_param().abi(), contenttype.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), stream.into_param().abi(), contenttype.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Streaming_Adaptive")]
     #[doc = "*Required features: `Media_Core`, `Media_Streaming_Adaptive`*"]
     pub fn SetAdaptiveMediaSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streaming::Adaptive::AdaptiveMediaSource>>(&self, mediasource: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaBindingEventArgs2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), mediasource.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), mediasource.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage")]
     #[doc = "*Required features: `Media_Core`, `Storage`*"]
     pub fn SetStorageFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, file: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaBindingEventArgs2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), file.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), file.into_param().abi()).ok() }
     }
     #[cfg(feature = "Networking_BackgroundTransfer")]
     #[doc = "*Required features: `Media_Core`, `Networking_BackgroundTransfer`*"]
     pub fn SetDownloadOperation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Networking::BackgroundTransfer::DownloadOperation>>(&self, downloadoperation: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaBindingEventArgs3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), downloadoperation.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), downloadoperation.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaBindingEventArgs {
@@ -5786,12 +5786,12 @@ unsafe impl ::windows::runtime::Interface for MediaBindingEventArgs {
 impl ::windows::runtime::RuntimeName for MediaBindingEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaBindingEventArgs";
 }
-impl ::std::convert::From<MediaBindingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaBindingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MediaBindingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaBindingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaBindingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MediaBindingEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -5806,12 +5806,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaBindingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaBindingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: MediaBindingEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaBindingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaBindingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &MediaBindingEventArgs) -> Self {
         value.0.clone()
     }
@@ -5826,19 +5826,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaBindingEventArgs {}
-unsafe impl ::std::marker::Sync for MediaBindingEventArgs {}
+unsafe impl ::core::marker::Send for MediaBindingEventArgs {}
+unsafe impl ::core::marker::Sync for MediaBindingEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaCueEventArgs(pub ::windows::runtime::IInspectable);
 impl MediaCueEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Cue(&self) -> ::windows::runtime::Result<IMediaCue> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IMediaCue>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IMediaCue>(result__)
         }
     }
 }
@@ -5852,12 +5852,12 @@ unsafe impl ::windows::runtime::Interface for MediaCueEventArgs {
 impl ::windows::runtime::RuntimeName for MediaCueEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaCueEventArgs";
 }
-impl ::std::convert::From<MediaCueEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaCueEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MediaCueEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaCueEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaCueEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MediaCueEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -5872,12 +5872,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaCueEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaCueEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: MediaCueEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaCueEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaCueEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &MediaCueEventArgs) -> Self {
         value.0.clone()
     }
@@ -5892,10 +5892,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaCueEventArgs {}
-unsafe impl ::std::marker::Sync for MediaCueEventArgs {}
+unsafe impl ::core::marker::Send for MediaCueEventArgs {}
+unsafe impl ::core::marker::Sync for MediaCueEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaDecoderStatus(pub i32);
 impl MediaDecoderStatus {
@@ -5904,7 +5904,7 @@ impl MediaDecoderStatus {
     pub const UnsupportedEncoderProperties: MediaDecoderStatus = MediaDecoderStatus(2i32);
     pub const Degraded: MediaDecoderStatus = MediaDecoderStatus(3i32);
 }
-impl ::std::convert::From<i32> for MediaDecoderStatus {
+impl ::core::convert::From<i32> for MediaDecoderStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5920,7 +5920,7 @@ impl ::windows::runtime::DefaultType for MediaDecoderStatus {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaSource(pub ::windows::runtime::IInspectable);
 impl MediaSource {
     #[cfg(feature = "Foundation")]
@@ -5928,23 +5928,23 @@ impl MediaSource {
     pub fn OpenOperationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaSource, MediaSourceOpenOperationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveOpenOperationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Core`, `Foundation_Collections`*"]
     pub fn CustomProperties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -5952,16 +5952,16 @@ impl MediaSource {
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsOpen(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -5969,8 +5969,8 @@ impl MediaSource {
     pub fn ExternalTimedTextSources(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IObservableVector<TimedTextSource>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IObservableVector<TimedTextSource>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IObservableVector<TimedTextSource>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -5978,75 +5978,75 @@ impl MediaSource {
     pub fn ExternalTimedMetadataTracks(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IObservableVector<TimedMetadataTrack>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IObservableVector<TimedMetadataTrack>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IObservableVector<TimedMetadataTrack>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Media_Streaming_Adaptive")]
     #[doc = "*Required features: `Media_Core`, `Media_Streaming_Adaptive`*"]
     pub fn CreateFromAdaptiveMediaSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streaming::Adaptive::AdaptiveMediaSource>>(mediasource: Param0) -> ::windows::runtime::Result<MediaSource> {
         Self::IMediaSourceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), mediasource.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), mediasource.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn CreateFromMediaStreamSource<'a, Param0: ::windows::runtime::IntoParam<'a, MediaStreamSource>>(mediasource: Param0) -> ::windows::runtime::Result<MediaSource> {
         Self::IMediaSourceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), mediasource.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), mediasource.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn CreateFromMseStreamSource<'a, Param0: ::windows::runtime::IntoParam<'a, MseStreamSource>>(mediasource: Param0) -> ::windows::runtime::Result<MediaSource> {
         Self::IMediaSourceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), mediasource.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), mediasource.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn CreateFromIMediaSource<'a, Param0: ::windows::runtime::IntoParam<'a, IMediaSource>>(mediasource: Param0) -> ::windows::runtime::Result<MediaSource> {
         Self::IMediaSourceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), mediasource.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), mediasource.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
         })
     }
     #[cfg(feature = "Storage")]
     #[doc = "*Required features: `Media_Core`, `Storage`*"]
     pub fn CreateFromStorageFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::runtime::Result<MediaSource> {
         Self::IMediaSourceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn CreateFromStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(stream: Param0, contenttype: Param1) -> ::windows::runtime::Result<MediaSource> {
         Self::IMediaSourceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), stream.into_param().abi(), contenttype.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), stream.into_param().abi(), contenttype.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn CreateFromStreamReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(stream: Param0, contenttype: Param1) -> ::windows::runtime::Result<MediaSource> {
         Self::IMediaSourceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), stream.into_param().abi(), contenttype.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), stream.into_param().abi(), contenttype.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn CreateFromUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(uri: Param0) -> ::windows::runtime::Result<MediaSource> {
         Self::IMediaSourceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
@@ -6054,34 +6054,34 @@ impl MediaSource {
     pub fn StateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaSource, MediaSourceStateChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IMediaSource3>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaSource3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn State(&self) -> ::windows::runtime::Result<MediaSourceState> {
         let this = &::windows::runtime::Interface::cast::<IMediaSource3>(self)?;
         unsafe {
-            let mut result__: MediaSourceState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaSourceState>(result__)
+            let mut result__: MediaSourceState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaSourceState>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaSource3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn CreateFromMediaBinder<'a, Param0: ::windows::runtime::IntoParam<'a, MediaBinder>>(binder: Param0) -> ::windows::runtime::Result<MediaSource> {
         Self::IMediaSourceStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), binder.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), binder.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
         })
     }
     #[cfg(feature = "Media_Streaming_Adaptive")]
@@ -6089,24 +6089,24 @@ impl MediaSource {
     pub fn AdaptiveMediaSource(&self) -> ::windows::runtime::Result<super::Streaming::Adaptive::AdaptiveMediaSource> {
         let this = &::windows::runtime::Interface::cast::<IMediaSource4>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Streaming::Adaptive::AdaptiveMediaSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Streaming::Adaptive::AdaptiveMediaSource>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn MediaStreamSource(&self) -> ::windows::runtime::Result<MediaStreamSource> {
         let this = &::windows::runtime::Interface::cast::<IMediaSource4>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSource>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn MseStreamSource(&self) -> ::windows::runtime::Result<MseStreamSource> {
         let this = &::windows::runtime::Interface::cast::<IMediaSource4>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MseStreamSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MseStreamSource>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -6114,8 +6114,8 @@ impl MediaSource {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<IMediaSource4>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -6123,16 +6123,16 @@ impl MediaSource {
     pub fn OpenAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IMediaSource4>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Media_Capture_Frames")]
     #[doc = "*Required features: `Media_Core`, `Media_Capture_Frames`*"]
     pub fn CreateFromMediaFrameSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::Capture::Frames::MediaFrameSource>>(framesource: Param0) -> ::windows::runtime::Result<MediaSource> {
         Self::IMediaSourceStatics3(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), framesource.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), framesource.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
         })
     }
     #[cfg(feature = "Networking_BackgroundTransfer")]
@@ -6140,16 +6140,16 @@ impl MediaSource {
     pub fn DownloadOperation(&self) -> ::windows::runtime::Result<super::super::Networking::BackgroundTransfer::DownloadOperation> {
         let this = &::windows::runtime::Interface::cast::<IMediaSource5>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Networking::BackgroundTransfer::DownloadOperation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Networking::BackgroundTransfer::DownloadOperation>(result__)
         }
     }
     #[cfg(feature = "Networking_BackgroundTransfer")]
     #[doc = "*Required features: `Media_Core`, `Networking_BackgroundTransfer`*"]
     pub fn CreateFromDownloadOperation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Networking::BackgroundTransfer::DownloadOperation>>(downloadoperation: Param0) -> ::windows::runtime::Result<MediaSource> {
         Self::IMediaSourceStatics4(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), downloadoperation.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), downloadoperation.into_param().abi(), &mut result__).from_abi::<MediaSource>(result__)
         })
     }
     pub fn IMediaSourceStatics<R, F: FnOnce(&IMediaSourceStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -6179,12 +6179,12 @@ unsafe impl ::windows::runtime::Interface for MediaSource {
 impl ::windows::runtime::RuntimeName for MediaSource {
     const NAME: &'static str = "Windows.Media.Core.MediaSource";
 }
-impl ::std::convert::From<MediaSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaSource> for ::windows::runtime::IUnknown {
     fn from(value: MediaSource) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaSource> for ::windows::runtime::IUnknown {
     fn from(value: &MediaSource) -> Self {
         value.0 .0.clone()
     }
@@ -6199,12 +6199,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaSource> for ::windows::runtime::IInspectable {
     fn from(value: MediaSource) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaSource> for ::windows::runtime::IInspectable {
     fn from(value: &MediaSource) -> Self {
         value.0.clone()
     }
@@ -6220,14 +6220,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<MediaSource> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<MediaSource> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MediaSource) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&MediaSource> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&MediaSource> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &MediaSource) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6242,18 +6242,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &MediaSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Media_Playback")]
-impl ::std::convert::TryFrom<MediaSource> for super::Playback::IMediaPlaybackSource {
+impl ::core::convert::TryFrom<MediaSource> for super::Playback::IMediaPlaybackSource {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MediaSource) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Media_Playback")]
-impl ::std::convert::TryFrom<&MediaSource> for super::Playback::IMediaPlaybackSource {
+impl ::core::convert::TryFrom<&MediaSource> for super::Playback::IMediaPlaybackSource {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &MediaSource) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6268,14 +6268,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Playback::IMediaPlaybackSource
 #[cfg(feature = "Media_Playback")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Playback::IMediaPlaybackSource> for &MediaSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Playback::IMediaPlaybackSource> {
-        ::std::convert::TryInto::<super::Playback::IMediaPlaybackSource>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::Playback::IMediaPlaybackSource>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for MediaSource {}
-unsafe impl ::std::marker::Sync for MediaSource {}
+unsafe impl ::core::marker::Send for MediaSource {}
+unsafe impl ::core::marker::Sync for MediaSource {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaSourceAppServiceConnection(pub ::windows::runtime::IInspectable);
 impl MediaSourceAppServiceConnection {
     #[cfg(feature = "Foundation")]
@@ -6283,27 +6283,27 @@ impl MediaSourceAppServiceConnection {
     pub fn InitializeMediaStreamSourceRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaSourceAppServiceConnection, InitializeMediaStreamSourceRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveInitializeMediaStreamSourceRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "ApplicationModel_AppService")]
     #[doc = "*Required features: `Media_Core`, `ApplicationModel_AppService`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::AppService::AppServiceConnection>>(appserviceconnection: Param0) -> ::windows::runtime::Result<MediaSourceAppServiceConnection> {
         Self::IMediaSourceAppServiceConnectionFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), appserviceconnection.into_param().abi(), &mut result__).from_abi::<MediaSourceAppServiceConnection>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), appserviceconnection.into_param().abi(), &mut result__).from_abi::<MediaSourceAppServiceConnection>(result__)
         })
     }
     pub fn IMediaSourceAppServiceConnectionFactory<R, F: FnOnce(&IMediaSourceAppServiceConnectionFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -6321,12 +6321,12 @@ unsafe impl ::windows::runtime::Interface for MediaSourceAppServiceConnection {
 impl ::windows::runtime::RuntimeName for MediaSourceAppServiceConnection {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceAppServiceConnection";
 }
-impl ::std::convert::From<MediaSourceAppServiceConnection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaSourceAppServiceConnection> for ::windows::runtime::IUnknown {
     fn from(value: MediaSourceAppServiceConnection) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaSourceAppServiceConnection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaSourceAppServiceConnection> for ::windows::runtime::IUnknown {
     fn from(value: &MediaSourceAppServiceConnection) -> Self {
         value.0 .0.clone()
     }
@@ -6341,12 +6341,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaSourceAppServiceConnection> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaSourceAppServiceConnection> for ::windows::runtime::IInspectable {
     fn from(value: MediaSourceAppServiceConnection) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaSourceAppServiceConnection> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaSourceAppServiceConnection> for ::windows::runtime::IInspectable {
     fn from(value: &MediaSourceAppServiceConnection) -> Self {
         value.0.clone()
     }
@@ -6363,15 +6363,15 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaSourceError(pub ::windows::runtime::IInspectable);
 impl MediaSourceError {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
 }
@@ -6385,12 +6385,12 @@ unsafe impl ::windows::runtime::Interface for MediaSourceError {
 impl ::windows::runtime::RuntimeName for MediaSourceError {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceError";
 }
-impl ::std::convert::From<MediaSourceError> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaSourceError> for ::windows::runtime::IUnknown {
     fn from(value: MediaSourceError) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaSourceError> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaSourceError> for ::windows::runtime::IUnknown {
     fn from(value: &MediaSourceError) -> Self {
         value.0 .0.clone()
     }
@@ -6405,12 +6405,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaSourceError> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaSourceError> for ::windows::runtime::IInspectable {
     fn from(value: MediaSourceError) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaSourceError> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaSourceError> for ::windows::runtime::IInspectable {
     fn from(value: &MediaSourceError) -> Self {
         value.0.clone()
     }
@@ -6425,19 +6425,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaSourceError {}
-unsafe impl ::std::marker::Sync for MediaSourceError {}
+unsafe impl ::core::marker::Send for MediaSourceError {}
+unsafe impl ::core::marker::Sync for MediaSourceError {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaSourceOpenOperationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 impl MediaSourceOpenOperationCompletedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Error(&self) -> ::windows::runtime::Result<MediaSourceError> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaSourceError>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaSourceError>(result__)
         }
     }
 }
@@ -6451,12 +6451,12 @@ unsafe impl ::windows::runtime::Interface for MediaSourceOpenOperationCompletedE
 impl ::windows::runtime::RuntimeName for MediaSourceOpenOperationCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceOpenOperationCompletedEventArgs";
 }
-impl ::std::convert::From<MediaSourceOpenOperationCompletedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaSourceOpenOperationCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MediaSourceOpenOperationCompletedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaSourceOpenOperationCompletedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaSourceOpenOperationCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MediaSourceOpenOperationCompletedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -6471,12 +6471,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaSourceOpenOperationCompletedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaSourceOpenOperationCompletedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: MediaSourceOpenOperationCompletedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaSourceOpenOperationCompletedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaSourceOpenOperationCompletedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &MediaSourceOpenOperationCompletedEventArgs) -> Self {
         value.0.clone()
     }
@@ -6491,10 +6491,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaSourceOpenOperationCompletedEventArgs {}
-unsafe impl ::std::marker::Sync for MediaSourceOpenOperationCompletedEventArgs {}
+unsafe impl ::core::marker::Send for MediaSourceOpenOperationCompletedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaSourceOpenOperationCompletedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaSourceState(pub i32);
 impl MediaSourceState {
@@ -6504,7 +6504,7 @@ impl MediaSourceState {
     pub const Failed: MediaSourceState = MediaSourceState(3i32);
     pub const Closed: MediaSourceState = MediaSourceState(4i32);
 }
-impl ::std::convert::From<i32> for MediaSourceState {
+impl ::core::convert::From<i32> for MediaSourceState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6520,23 +6520,23 @@ impl ::windows::runtime::DefaultType for MediaSourceState {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaSourceStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl MediaSourceStateChangedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn OldState(&self) -> ::windows::runtime::Result<MediaSourceState> {
         let this = self;
         unsafe {
-            let mut result__: MediaSourceState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaSourceState>(result__)
+            let mut result__: MediaSourceState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaSourceState>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn NewState(&self) -> ::windows::runtime::Result<MediaSourceState> {
         let this = self;
         unsafe {
-            let mut result__: MediaSourceState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaSourceState>(result__)
+            let mut result__: MediaSourceState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaSourceState>(result__)
         }
     }
 }
@@ -6550,12 +6550,12 @@ unsafe impl ::windows::runtime::Interface for MediaSourceStateChangedEventArgs {
 impl ::windows::runtime::RuntimeName for MediaSourceStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceStateChangedEventArgs";
 }
-impl ::std::convert::From<MediaSourceStateChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaSourceStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MediaSourceStateChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaSourceStateChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaSourceStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MediaSourceStateChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -6570,12 +6570,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaSourceStateChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaSourceStateChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: MediaSourceStateChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaSourceStateChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaSourceStateChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &MediaSourceStateChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -6590,17 +6590,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaSourceStateChangedEventArgs {}
-unsafe impl ::std::marker::Sync for MediaSourceStateChangedEventArgs {}
+unsafe impl ::core::marker::Send for MediaSourceStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaSourceStateChangedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaSourceStatus(pub i32);
 impl MediaSourceStatus {
     pub const FullySupported: MediaSourceStatus = MediaSourceStatus(0i32);
     pub const Unknown: MediaSourceStatus = MediaSourceStatus(1i32);
 }
-impl ::std::convert::From<i32> for MediaSourceStatus {
+impl ::core::convert::From<i32> for MediaSourceStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6616,7 +6616,7 @@ impl ::windows::runtime::DefaultType for MediaSourceStatus {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSample(pub ::windows::runtime::IInspectable);
 impl MediaStreamSample {
     #[cfg(feature = "Foundation")]
@@ -6624,23 +6624,23 @@ impl MediaStreamSample {
     pub fn Processed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaStreamSample, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveProcessed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn Buffer(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::Buffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::Buffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::Buffer>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -6648,8 +6648,8 @@ impl MediaStreamSample {
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -6657,88 +6657,88 @@ impl MediaStreamSample {
     pub fn ExtendedProperties(&self) -> ::windows::runtime::Result<MediaStreamSamplePropertySet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSamplePropertySet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSamplePropertySet>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Protection(&self) -> ::windows::runtime::Result<MediaStreamSampleProtectionProperties> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSampleProtectionProperties>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSampleProtectionProperties>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetDecodeTimestamp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn DecodeTimestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetKeyFrame(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn KeyFrame(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetDiscontinuous(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Discontinuous(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Media_Core`, `Foundation`, `Storage_Streams`*"]
     pub fn CreateFromBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(buffer: Param0, timestamp: Param1) -> ::windows::runtime::Result<MediaStreamSample> {
         Self::IMediaStreamSampleStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), buffer.into_param().abi(), timestamp.into_param().abi(), &mut result__).from_abi::<MediaStreamSample>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buffer.into_param().abi(), timestamp.into_param().abi(), &mut result__).from_abi::<MediaStreamSample>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Media_Core`, `Foundation`, `Storage_Streams`*"]
     pub fn CreateFromStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(stream: Param0, count: u32, timestamp: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<MediaStreamSample>> {
         Self::IMediaStreamSampleStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), stream.into_param().abi(), count, timestamp.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MediaStreamSample>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), stream.into_param().abi(), count, timestamp.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MediaStreamSample>>(result__)
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -6746,16 +6746,16 @@ impl MediaStreamSample {
     pub fn Direct3D11Surface(&self) -> ::windows::runtime::Result<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamSample2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
     #[doc = "*Required features: `Media_Core`, `Foundation`, `Graphics_DirectX_Direct3D11`*"]
     pub fn CreateFromDirect3D11Surface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(surface: Param0, timestamp: Param1) -> ::windows::runtime::Result<MediaStreamSample> {
         Self::IMediaStreamSampleStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), surface.into_param().abi(), timestamp.into_param().abi(), &mut result__).from_abi::<MediaStreamSample>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), surface.into_param().abi(), timestamp.into_param().abi(), &mut result__).from_abi::<MediaStreamSample>(result__)
         })
     }
     pub fn IMediaStreamSampleStatics<R, F: FnOnce(&IMediaStreamSampleStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -6777,12 +6777,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSample {
 impl ::windows::runtime::RuntimeName for MediaStreamSample {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSample";
 }
-impl ::std::convert::From<MediaStreamSample> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSample> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSample) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSample> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSample> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSample) -> Self {
         value.0 .0.clone()
     }
@@ -6797,12 +6797,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSample> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSample> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSample) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSample> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSample> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSample) -> Self {
         value.0.clone()
     }
@@ -6817,12 +6817,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSample {}
-unsafe impl ::std::marker::Sync for MediaStreamSample {}
+unsafe impl ::core::marker::Send for MediaStreamSample {}
+unsafe impl ::core::marker::Sync for MediaStreamSample {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Media_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSamplePropertySet(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl MediaStreamSamplePropertySet {
@@ -6831,8 +6831,8 @@ impl MediaStreamSamplePropertySet {
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, key: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -6840,8 +6840,8 @@ impl MediaStreamSamplePropertySet {
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -6849,8 +6849,8 @@ impl MediaStreamSamplePropertySet {
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -6858,8 +6858,8 @@ impl MediaStreamSamplePropertySet {
     pub fn GetView(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -6867,29 +6867,29 @@ impl MediaStreamSamplePropertySet {
     pub fn Insert<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, key: Param0, value: Param1) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), key.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), key.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Core`, `Foundation_Collections`*"]
     pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, key: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), key.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), key.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Core`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Core`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>>>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>>>(result__)
         }
     }
 }
@@ -6907,13 +6907,13 @@ impl ::windows::runtime::RuntimeName for MediaStreamSamplePropertySet {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSamplePropertySet";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<MediaStreamSamplePropertySet> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSamplePropertySet> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSamplePropertySet) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&MediaStreamSamplePropertySet> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSamplePropertySet> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSamplePropertySet) -> Self {
         value.0 .0.clone()
     }
@@ -6931,13 +6931,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<MediaStreamSamplePropertySet> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSamplePropertySet> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSamplePropertySet) -> Self {
         value.0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&MediaStreamSamplePropertySet> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSamplePropertySet> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSamplePropertySet) -> Self {
         value.0.clone()
     }
@@ -6955,38 +6955,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<MediaStreamSamplePropertySet> for super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable> {
+impl ::core::convert::From<MediaStreamSamplePropertySet> for super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable> {
     fn from(value: MediaStreamSamplePropertySet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&MediaStreamSamplePropertySet> for super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable> {
+impl ::core::convert::From<&MediaStreamSamplePropertySet> for super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable> {
     fn from(value: &MediaStreamSamplePropertySet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> for MediaStreamSamplePropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> for &MediaStreamSamplePropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::TryFrom<MediaStreamSamplePropertySet> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
+impl ::core::convert::TryFrom<MediaStreamSamplePropertySet> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MediaStreamSamplePropertySet) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::TryFrom<&MediaStreamSamplePropertySet> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
+impl ::core::convert::TryFrom<&MediaStreamSamplePropertySet> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &MediaStreamSamplePropertySet) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7001,23 +7001,23 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>>> for &MediaStreamSamplePropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>>> {
-        ::std::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>>>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>>>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-unsafe impl ::std::marker::Send for MediaStreamSamplePropertySet {}
+unsafe impl ::core::marker::Send for MediaStreamSamplePropertySet {}
 #[cfg(feature = "Foundation_Collections")]
-unsafe impl ::std::marker::Sync for MediaStreamSamplePropertySet {}
+unsafe impl ::core::marker::Sync for MediaStreamSamplePropertySet {}
 #[cfg(all(feature = "Foundation_Collections"))]
-impl ::std::iter::IntoIterator for MediaStreamSamplePropertySet {
+impl ::core::iter::IntoIterator for MediaStreamSamplePropertySet {
     type Item = super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>;
     type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        ::std::iter::IntoIterator::into_iter(&self)
+        ::core::iter::IntoIterator::into_iter(&self)
     }
 }
 #[cfg(all(feature = "Foundation_Collections"))]
-impl ::std::iter::IntoIterator for &MediaStreamSamplePropertySet {
+impl ::core::iter::IntoIterator for &MediaStreamSamplePropertySet {
     type Item = super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>;
     type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
@@ -7026,38 +7026,38 @@ impl ::std::iter::IntoIterator for &MediaStreamSamplePropertySet {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSampleProtectionProperties(pub ::windows::runtime::IInspectable);
 impl MediaStreamSampleProtectionProperties {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetKeyIdentifier(&self, value: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn GetKeyIdentifier(&self, value: &mut ::windows::runtime::Array<u8>) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetInitializationVector(&self, value: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn GetInitializationVector(&self, value: &mut ::windows::runtime::Array<u8>) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetSubSampleMapping(&self, value: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn GetSubSampleMapping(&self, value: &mut ::windows::runtime::Array<u8>) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaStreamSampleProtectionProperties {
@@ -7070,12 +7070,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSampleProtectionPropert
 impl ::windows::runtime::RuntimeName for MediaStreamSampleProtectionProperties {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSampleProtectionProperties";
 }
-impl ::std::convert::From<MediaStreamSampleProtectionProperties> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSampleProtectionProperties> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSampleProtectionProperties) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSampleProtectionProperties> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSampleProtectionProperties> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSampleProtectionProperties) -> Self {
         value.0 .0.clone()
     }
@@ -7090,12 +7090,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSampleProtectionProperties> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSampleProtectionProperties> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSampleProtectionProperties) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSampleProtectionProperties> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSampleProtectionProperties> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSampleProtectionProperties) -> Self {
         value.0.clone()
     }
@@ -7110,11 +7110,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSampleProtectionProperties {}
-unsafe impl ::std::marker::Sync for MediaStreamSampleProtectionProperties {}
+unsafe impl ::core::marker::Send for MediaStreamSampleProtectionProperties {}
+unsafe impl ::core::marker::Sync for MediaStreamSampleProtectionProperties {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSource(pub ::windows::runtime::IInspectable);
 impl MediaStreamSource {
     #[cfg(feature = "Foundation")]
@@ -7122,157 +7122,157 @@ impl MediaStreamSource {
     pub fn Closed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceClosedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveClosed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Starting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceStartingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Paused<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaStreamSource, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemovePaused<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SampleRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSampleRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveSampleRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SwitchStreamsRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSwitchStreamsRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveSwitchStreamsRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn NotifyError(&self, errorstatus: MediaStreamSourceErrorStatus) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), errorstatus).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), errorstatus).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AddStreamDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor>>(&self, descriptor: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), descriptor.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), descriptor.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Protection")]
     #[doc = "*Required features: `Media_Core`, `Media_Protection`*"]
     pub fn SetMediaProtectionManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::Protection::MediaProtectionManager>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Protection")]
     #[doc = "*Required features: `Media_Core`, `Media_Protection`*"]
     pub fn MediaProtectionManager(&self) -> ::windows::runtime::Result<super::Protection::MediaProtectionManager> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Protection::MediaProtectionManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Protection::MediaProtectionManager>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetCanSeek(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn CanSeek(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetBufferTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn BufferTime(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetBufferedRange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, startoffset: Param0, endoffset: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), startoffset.into_param().abi(), endoffset.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), startoffset.into_param().abi(), endoffset.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_FileProperties")]
     #[doc = "*Required features: `Media_Core`, `Storage_FileProperties`*"]
     pub fn MusicProperties(&self) -> ::windows::runtime::Result<super::super::Storage::FileProperties::MusicProperties> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::FileProperties::MusicProperties>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::FileProperties::MusicProperties>(result__)
         }
     }
     #[cfg(feature = "Storage_FileProperties")]
@@ -7280,42 +7280,42 @@ impl MediaStreamSource {
     pub fn VideoProperties(&self) -> ::windows::runtime::Result<super::super::Storage::FileProperties::VideoProperties> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::FileProperties::VideoProperties>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::FileProperties::VideoProperties>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn SetThumbnail<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn Thumbnail(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AddProtectionKey<'a, Param0: ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor>>(&self, streamdescriptor: Param0, keyidentifier: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], licensedata: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), streamdescriptor.into_param().abi(), keyidentifier.len() as u32, ::std::mem::transmute(keyidentifier.as_ptr()), licensedata.len() as u32, ::std::mem::transmute(licensedata.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).31)(::core::mem::transmute_copy(this), streamdescriptor.into_param().abi(), keyidentifier.len() as u32, ::core::mem::transmute(keyidentifier.as_ptr()), licensedata.len() as u32, ::core::mem::transmute(licensedata.as_ptr())).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn CreateFromDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor>>(descriptor: Param0) -> ::windows::runtime::Result<MediaStreamSource> {
         Self::IMediaStreamSourceFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), descriptor.into_param().abi(), &mut result__).from_abi::<MediaStreamSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), descriptor.into_param().abi(), &mut result__).from_abi::<MediaStreamSource>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn CreateFromDescriptors<'a, Param0: ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor>, Param1: ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor>>(descriptor: Param0, descriptor2: Param1) -> ::windows::runtime::Result<MediaStreamSource> {
         Self::IMediaStreamSourceFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), descriptor.into_param().abi(), descriptor2.into_param().abi(), &mut result__).from_abi::<MediaStreamSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), descriptor.into_param().abi(), descriptor2.into_param().abi(), &mut result__).from_abi::<MediaStreamSource>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
@@ -7323,42 +7323,42 @@ impl MediaStreamSource {
     pub fn SampleRendered<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSampleRenderedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamSource2>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveSampleRendered<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamSource2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetMaxSupportedPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<f64>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamSource3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn MaxSupportedPlaybackRate(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamSource3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetIsLive(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamSource4>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsLive(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamSource4>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     pub fn IMediaStreamSourceFactory<R, F: FnOnce(&IMediaStreamSourceFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -7376,12 +7376,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSource {
 impl ::windows::runtime::RuntimeName for MediaStreamSource {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSource";
 }
-impl ::std::convert::From<MediaStreamSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSource> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSource) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSource> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSource) -> Self {
         value.0 .0.clone()
     }
@@ -7396,12 +7396,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSource> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSource) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSource> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSource) -> Self {
         value.0.clone()
     }
@@ -7416,13 +7416,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<MediaStreamSource> for IMediaSource {
+impl ::core::convert::TryFrom<MediaStreamSource> for IMediaSource {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MediaStreamSource) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&MediaStreamSource> for IMediaSource {
+impl ::core::convert::TryFrom<&MediaStreamSource> for IMediaSource {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &MediaStreamSource) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7435,22 +7435,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaSource> for MediaStreamSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaSource> for &MediaStreamSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaSource> {
-        ::std::convert::TryInto::<IMediaSource>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IMediaSource>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSource {}
-unsafe impl ::std::marker::Sync for MediaStreamSource {}
+unsafe impl ::core::marker::Send for MediaStreamSource {}
+unsafe impl ::core::marker::Sync for MediaStreamSource {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSourceClosedEventArgs(pub ::windows::runtime::IInspectable);
 impl MediaStreamSourceClosedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<MediaStreamSourceClosedRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceClosedRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceClosedRequest>(result__)
         }
     }
 }
@@ -7464,12 +7464,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceClosedEventArgs {
 impl ::windows::runtime::RuntimeName for MediaStreamSourceClosedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceClosedEventArgs";
 }
-impl ::std::convert::From<MediaStreamSourceClosedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSourceClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSourceClosedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceClosedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSourceClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSourceClosedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -7484,12 +7484,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSourceClosedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSourceClosedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSourceClosedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceClosedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSourceClosedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSourceClosedEventArgs) -> Self {
         value.0.clone()
     }
@@ -7504,10 +7504,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSourceClosedEventArgs {}
-unsafe impl ::std::marker::Sync for MediaStreamSourceClosedEventArgs {}
+unsafe impl ::core::marker::Send for MediaStreamSourceClosedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaStreamSourceClosedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaStreamSourceClosedReason(pub i32);
 impl MediaStreamSourceClosedReason {
@@ -7519,7 +7519,7 @@ impl MediaStreamSourceClosedReason {
     pub const UnsupportedEncodingFormat: MediaStreamSourceClosedReason = MediaStreamSourceClosedReason(5i32);
     pub const MissingSampleRequestedEventHandler: MediaStreamSourceClosedReason = MediaStreamSourceClosedReason(6i32);
 }
-impl ::std::convert::From<i32> for MediaStreamSourceClosedReason {
+impl ::core::convert::From<i32> for MediaStreamSourceClosedReason {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -7535,15 +7535,15 @@ impl ::windows::runtime::DefaultType for MediaStreamSourceClosedReason {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSourceClosedRequest(pub ::windows::runtime::IInspectable);
 impl MediaStreamSourceClosedRequest {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<MediaStreamSourceClosedReason> {
         let this = self;
         unsafe {
-            let mut result__: MediaStreamSourceClosedReason = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceClosedReason>(result__)
+            let mut result__: MediaStreamSourceClosedReason = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceClosedReason>(result__)
         }
     }
 }
@@ -7557,12 +7557,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceClosedRequest {
 impl ::windows::runtime::RuntimeName for MediaStreamSourceClosedRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceClosedRequest";
 }
-impl ::std::convert::From<MediaStreamSourceClosedRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSourceClosedRequest> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSourceClosedRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceClosedRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSourceClosedRequest> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSourceClosedRequest) -> Self {
         value.0 .0.clone()
     }
@@ -7577,12 +7577,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSourceClosedRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSourceClosedRequest> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSourceClosedRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceClosedRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSourceClosedRequest> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSourceClosedRequest) -> Self {
         value.0.clone()
     }
@@ -7597,10 +7597,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSourceClosedRequest {}
-unsafe impl ::std::marker::Sync for MediaStreamSourceClosedRequest {}
+unsafe impl ::core::marker::Send for MediaStreamSourceClosedRequest {}
+unsafe impl ::core::marker::Sync for MediaStreamSourceClosedRequest {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaStreamSourceErrorStatus(pub i32);
 impl MediaStreamSourceErrorStatus {
@@ -7613,7 +7613,7 @@ impl MediaStreamSourceErrorStatus {
     pub const DecodeError: MediaStreamSourceErrorStatus = MediaStreamSourceErrorStatus(6i32);
     pub const UnsupportedMediaFormat: MediaStreamSourceErrorStatus = MediaStreamSourceErrorStatus(7i32);
 }
-impl ::std::convert::From<i32> for MediaStreamSourceErrorStatus {
+impl ::core::convert::From<i32> for MediaStreamSourceErrorStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -7629,7 +7629,7 @@ impl ::windows::runtime::DefaultType for MediaStreamSourceErrorStatus {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSourceSampleRenderedEventArgs(pub ::windows::runtime::IInspectable);
 impl MediaStreamSourceSampleRenderedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -7637,8 +7637,8 @@ impl MediaStreamSourceSampleRenderedEventArgs {
     pub fn SampleLag(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -7652,12 +7652,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceSampleRenderedEve
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSampleRenderedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRenderedEventArgs";
 }
-impl ::std::convert::From<MediaStreamSourceSampleRenderedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSourceSampleRenderedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSourceSampleRenderedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceSampleRenderedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSourceSampleRenderedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSourceSampleRenderedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -7672,12 +7672,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSourceSampleRenderedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSourceSampleRenderedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSourceSampleRenderedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceSampleRenderedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSourceSampleRenderedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSourceSampleRenderedEventArgs) -> Self {
         value.0.clone()
     }
@@ -7692,46 +7692,46 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSourceSampleRenderedEventArgs {}
-unsafe impl ::std::marker::Sync for MediaStreamSourceSampleRenderedEventArgs {}
+unsafe impl ::core::marker::Send for MediaStreamSourceSampleRenderedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaStreamSourceSampleRenderedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSourceSampleRequest(pub ::windows::runtime::IInspectable);
 impl MediaStreamSourceSampleRequest {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn StreamDescriptor(&self) -> ::windows::runtime::Result<IMediaStreamDescriptor> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IMediaStreamDescriptor>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IMediaStreamDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<MediaStreamSourceSampleRequestDeferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceSampleRequestDeferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceSampleRequestDeferral>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetSample<'a, Param0: ::windows::runtime::IntoParam<'a, MediaStreamSample>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Sample(&self) -> ::windows::runtime::Result<MediaStreamSample> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSample>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSample>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn ReportSampleProgress(&self, progress: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), progress).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), progress).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceSampleRequest {
@@ -7744,12 +7744,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceSampleRequest {
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSampleRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRequest";
 }
-impl ::std::convert::From<MediaStreamSourceSampleRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSourceSampleRequest> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSourceSampleRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceSampleRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSourceSampleRequest> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSourceSampleRequest) -> Self {
         value.0 .0.clone()
     }
@@ -7764,12 +7764,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSourceSampleRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSourceSampleRequest> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSourceSampleRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceSampleRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSourceSampleRequest> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSourceSampleRequest) -> Self {
         value.0.clone()
     }
@@ -7784,17 +7784,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSourceSampleRequest {}
-unsafe impl ::std::marker::Sync for MediaStreamSourceSampleRequest {}
+unsafe impl ::core::marker::Send for MediaStreamSourceSampleRequest {}
+unsafe impl ::core::marker::Sync for MediaStreamSourceSampleRequest {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSourceSampleRequestDeferral(pub ::windows::runtime::IInspectable);
 impl MediaStreamSourceSampleRequestDeferral {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceSampleRequestDeferral {
@@ -7807,12 +7807,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceSampleRequestDefe
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSampleRequestDeferral {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRequestDeferral";
 }
-impl ::std::convert::From<MediaStreamSourceSampleRequestDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSourceSampleRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSourceSampleRequestDeferral) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceSampleRequestDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSourceSampleRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSourceSampleRequestDeferral) -> Self {
         value.0 .0.clone()
     }
@@ -7827,12 +7827,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSourceSampleRequestDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSourceSampleRequestDeferral> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSourceSampleRequestDeferral) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceSampleRequestDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSourceSampleRequestDeferral> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSourceSampleRequestDeferral) -> Self {
         value.0.clone()
     }
@@ -7847,19 +7847,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSourceSampleRequestDeferral {}
-unsafe impl ::std::marker::Sync for MediaStreamSourceSampleRequestDeferral {}
+unsafe impl ::core::marker::Send for MediaStreamSourceSampleRequestDeferral {}
+unsafe impl ::core::marker::Sync for MediaStreamSourceSampleRequestDeferral {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSourceSampleRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl MediaStreamSourceSampleRequestedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<MediaStreamSourceSampleRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceSampleRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceSampleRequest>(result__)
         }
     }
 }
@@ -7873,12 +7873,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceSampleRequestedEv
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSampleRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRequestedEventArgs";
 }
-impl ::std::convert::From<MediaStreamSourceSampleRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSourceSampleRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSourceSampleRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceSampleRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSourceSampleRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSourceSampleRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -7893,12 +7893,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSourceSampleRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSourceSampleRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSourceSampleRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceSampleRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSourceSampleRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSourceSampleRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -7913,19 +7913,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSourceSampleRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for MediaStreamSourceSampleRequestedEventArgs {}
+unsafe impl ::core::marker::Send for MediaStreamSourceSampleRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaStreamSourceSampleRequestedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSourceStartingEventArgs(pub ::windows::runtime::IInspectable);
 impl MediaStreamSourceStartingEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<MediaStreamSourceStartingRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceStartingRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceStartingRequest>(result__)
         }
     }
 }
@@ -7939,12 +7939,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceStartingEventArgs
 impl ::windows::runtime::RuntimeName for MediaStreamSourceStartingEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceStartingEventArgs";
 }
-impl ::std::convert::From<MediaStreamSourceStartingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSourceStartingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSourceStartingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceStartingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSourceStartingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSourceStartingEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -7959,12 +7959,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSourceStartingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSourceStartingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSourceStartingEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceStartingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSourceStartingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSourceStartingEventArgs) -> Self {
         value.0.clone()
     }
@@ -7979,11 +7979,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSourceStartingEventArgs {}
-unsafe impl ::std::marker::Sync for MediaStreamSourceStartingEventArgs {}
+unsafe impl ::core::marker::Send for MediaStreamSourceStartingEventArgs {}
+unsafe impl ::core::marker::Sync for MediaStreamSourceStartingEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSourceStartingRequest(pub ::windows::runtime::IInspectable);
 impl MediaStreamSourceStartingRequest {
     #[cfg(feature = "Foundation")]
@@ -7991,23 +7991,23 @@ impl MediaStreamSourceStartingRequest {
     pub fn StartPosition(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<MediaStreamSourceStartingRequestDeferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceStartingRequestDeferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceStartingRequestDeferral>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetActualStartPosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, position: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), position.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), position.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceStartingRequest {
@@ -8020,12 +8020,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceStartingRequest {
 impl ::windows::runtime::RuntimeName for MediaStreamSourceStartingRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceStartingRequest";
 }
-impl ::std::convert::From<MediaStreamSourceStartingRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSourceStartingRequest> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSourceStartingRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceStartingRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSourceStartingRequest> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSourceStartingRequest) -> Self {
         value.0 .0.clone()
     }
@@ -8040,12 +8040,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSourceStartingRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSourceStartingRequest> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSourceStartingRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceStartingRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSourceStartingRequest> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSourceStartingRequest) -> Self {
         value.0.clone()
     }
@@ -8060,17 +8060,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSourceStartingRequest {}
-unsafe impl ::std::marker::Sync for MediaStreamSourceStartingRequest {}
+unsafe impl ::core::marker::Send for MediaStreamSourceStartingRequest {}
+unsafe impl ::core::marker::Sync for MediaStreamSourceStartingRequest {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSourceStartingRequestDeferral(pub ::windows::runtime::IInspectable);
 impl MediaStreamSourceStartingRequestDeferral {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceStartingRequestDeferral {
@@ -8083,12 +8083,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceStartingRequestDe
 impl ::windows::runtime::RuntimeName for MediaStreamSourceStartingRequestDeferral {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceStartingRequestDeferral";
 }
-impl ::std::convert::From<MediaStreamSourceStartingRequestDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSourceStartingRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSourceStartingRequestDeferral) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceStartingRequestDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSourceStartingRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSourceStartingRequestDeferral) -> Self {
         value.0 .0.clone()
     }
@@ -8103,12 +8103,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSourceStartingRequestDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSourceStartingRequestDeferral> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSourceStartingRequestDeferral) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceStartingRequestDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSourceStartingRequestDeferral> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSourceStartingRequestDeferral) -> Self {
         value.0.clone()
     }
@@ -8123,35 +8123,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSourceStartingRequestDeferral {}
-unsafe impl ::std::marker::Sync for MediaStreamSourceStartingRequestDeferral {}
+unsafe impl ::core::marker::Send for MediaStreamSourceStartingRequestDeferral {}
+unsafe impl ::core::marker::Sync for MediaStreamSourceStartingRequestDeferral {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSourceSwitchStreamsRequest(pub ::windows::runtime::IInspectable);
 impl MediaStreamSourceSwitchStreamsRequest {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn OldStreamDescriptor(&self) -> ::windows::runtime::Result<IMediaStreamDescriptor> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IMediaStreamDescriptor>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IMediaStreamDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn NewStreamDescriptor(&self) -> ::windows::runtime::Result<IMediaStreamDescriptor> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IMediaStreamDescriptor>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IMediaStreamDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<MediaStreamSourceSwitchStreamsRequestDeferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceSwitchStreamsRequestDeferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceSwitchStreamsRequestDeferral>(result__)
         }
     }
 }
@@ -8165,12 +8165,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceSwitchStreamsRequ
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSwitchStreamsRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSwitchStreamsRequest";
 }
-impl ::std::convert::From<MediaStreamSourceSwitchStreamsRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSourceSwitchStreamsRequest> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSourceSwitchStreamsRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceSwitchStreamsRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSourceSwitchStreamsRequest> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSourceSwitchStreamsRequest) -> Self {
         value.0 .0.clone()
     }
@@ -8185,12 +8185,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSourceSwitchStreamsRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSourceSwitchStreamsRequest> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSourceSwitchStreamsRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceSwitchStreamsRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSourceSwitchStreamsRequest> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSourceSwitchStreamsRequest) -> Self {
         value.0.clone()
     }
@@ -8205,17 +8205,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSourceSwitchStreamsRequest {}
-unsafe impl ::std::marker::Sync for MediaStreamSourceSwitchStreamsRequest {}
+unsafe impl ::core::marker::Send for MediaStreamSourceSwitchStreamsRequest {}
+unsafe impl ::core::marker::Sync for MediaStreamSourceSwitchStreamsRequest {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSourceSwitchStreamsRequestDeferral(pub ::windows::runtime::IInspectable);
 impl MediaStreamSourceSwitchStreamsRequestDeferral {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaStreamSourceSwitchStreamsRequestDeferral {
@@ -8228,12 +8228,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceSwitchStreamsRequ
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSwitchStreamsRequestDeferral {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestDeferral";
 }
-impl ::std::convert::From<MediaStreamSourceSwitchStreamsRequestDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSourceSwitchStreamsRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSourceSwitchStreamsRequestDeferral) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceSwitchStreamsRequestDeferral> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSourceSwitchStreamsRequestDeferral> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSourceSwitchStreamsRequestDeferral) -> Self {
         value.0 .0.clone()
     }
@@ -8248,12 +8248,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSourceSwitchStreamsRequestDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSourceSwitchStreamsRequestDeferral> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSourceSwitchStreamsRequestDeferral) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceSwitchStreamsRequestDeferral> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSourceSwitchStreamsRequestDeferral> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSourceSwitchStreamsRequestDeferral) -> Self {
         value.0.clone()
     }
@@ -8268,19 +8268,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSourceSwitchStreamsRequestDeferral {}
-unsafe impl ::std::marker::Sync for MediaStreamSourceSwitchStreamsRequestDeferral {}
+unsafe impl ::core::marker::Send for MediaStreamSourceSwitchStreamsRequestDeferral {}
+unsafe impl ::core::marker::Sync for MediaStreamSourceSwitchStreamsRequestDeferral {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaStreamSourceSwitchStreamsRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl MediaStreamSourceSwitchStreamsRequestedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<MediaStreamSourceSwitchStreamsRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceSwitchStreamsRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaStreamSourceSwitchStreamsRequest>(result__)
         }
     }
 }
@@ -8294,12 +8294,12 @@ unsafe impl ::windows::runtime::Interface for MediaStreamSourceSwitchStreamsRequ
 impl ::windows::runtime::RuntimeName for MediaStreamSourceSwitchStreamsRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestedEventArgs";
 }
-impl ::std::convert::From<MediaStreamSourceSwitchStreamsRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaStreamSourceSwitchStreamsRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MediaStreamSourceSwitchStreamsRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceSwitchStreamsRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaStreamSourceSwitchStreamsRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MediaStreamSourceSwitchStreamsRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -8314,12 +8314,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaStreamSourceSwitchStreamsRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaStreamSourceSwitchStreamsRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: MediaStreamSourceSwitchStreamsRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaStreamSourceSwitchStreamsRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaStreamSourceSwitchStreamsRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &MediaStreamSourceSwitchStreamsRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -8334,10 +8334,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaStreamSourceSwitchStreamsRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for MediaStreamSourceSwitchStreamsRequestedEventArgs {}
+unsafe impl ::core::marker::Send for MediaStreamSourceSwitchStreamsRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for MediaStreamSourceSwitchStreamsRequestedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaTrackKind(pub i32);
 impl MediaTrackKind {
@@ -8345,7 +8345,7 @@ impl MediaTrackKind {
     pub const Video: MediaTrackKind = MediaTrackKind(1i32);
     pub const TimedMetadata: MediaTrackKind = MediaTrackKind(2i32);
 }
-impl ::std::convert::From<i32> for MediaTrackKind {
+impl ::core::convert::From<i32> for MediaTrackKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8360,14 +8360,14 @@ impl ::windows::runtime::DefaultType for MediaTrackKind {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MseAppendMode(pub i32);
 impl MseAppendMode {
     pub const Segments: MseAppendMode = MseAppendMode(0i32);
     pub const Sequence: MseAppendMode = MseAppendMode(1i32);
 }
-impl ::std::convert::From<i32> for MseAppendMode {
+impl ::core::convert::From<i32> for MseAppendMode {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8382,7 +8382,7 @@ impl ::windows::runtime::DefaultType for MseAppendMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MseEndOfStreamStatus(pub i32);
 impl MseEndOfStreamStatus {
@@ -8391,7 +8391,7 @@ impl MseEndOfStreamStatus {
     pub const DecodeError: MseEndOfStreamStatus = MseEndOfStreamStatus(2i32);
     pub const UnknownError: MseEndOfStreamStatus = MseEndOfStreamStatus(3i32);
 }
-impl ::std::convert::From<i32> for MseEndOfStreamStatus {
+impl ::core::convert::From<i32> for MseEndOfStreamStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8406,7 +8406,7 @@ impl ::windows::runtime::DefaultType for MseEndOfStreamStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MseReadyState(pub i32);
 impl MseReadyState {
@@ -8414,7 +8414,7 @@ impl MseReadyState {
     pub const Open: MseReadyState = MseReadyState(1i32);
     pub const Ended: MseReadyState = MseReadyState(2i32);
 }
-impl ::std::convert::From<i32> for MseReadyState {
+impl ::core::convert::From<i32> for MseReadyState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8430,7 +8430,7 @@ impl ::windows::runtime::DefaultType for MseReadyState {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MseSourceBuffer(pub ::windows::runtime::IInspectable);
 impl MseSourceBuffer {
     #[cfg(feature = "Foundation")]
@@ -8438,95 +8438,95 @@ impl MseSourceBuffer {
     pub fn UpdateStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveUpdateStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Updated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn UpdateEnded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveUpdateEnded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn ErrorOccurred<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveErrorOccurred<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Aborted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveAborted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Mode(&self) -> ::windows::runtime::Result<MseAppendMode> {
         let this = self;
         unsafe {
-            let mut result__: MseAppendMode = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MseAppendMode>(result__)
+            let mut result__: MseAppendMode = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MseAppendMode>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetMode(&self, value: MseAppendMode) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsUpdating(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -8534,8 +8534,8 @@ impl MseSourceBuffer {
     pub fn Buffered(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<MseTimeRange>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MseTimeRange>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MseTimeRange>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -8543,74 +8543,74 @@ impl MseSourceBuffer {
     pub fn TimestampOffset(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetTimestampOffset<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn AppendWindowStart(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetAppendWindowStart<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn AppendWindowEnd(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetAppendWindowEnd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn AppendBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), buffer.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), buffer.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn AppendStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, stream: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), stream.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), stream.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn AppendStreamMaxSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, stream: Param0, maxsize: u64) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), stream.into_param().abi(), maxsize).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), stream.into_param().abi(), maxsize).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Abort(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, start: Param0, end: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), start.into_param().abi(), end.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), start.into_param().abi(), end.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for MseSourceBuffer {
@@ -8623,12 +8623,12 @@ unsafe impl ::windows::runtime::Interface for MseSourceBuffer {
 impl ::windows::runtime::RuntimeName for MseSourceBuffer {
     const NAME: &'static str = "Windows.Media.Core.MseSourceBuffer";
 }
-impl ::std::convert::From<MseSourceBuffer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MseSourceBuffer> for ::windows::runtime::IUnknown {
     fn from(value: MseSourceBuffer) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MseSourceBuffer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MseSourceBuffer> for ::windows::runtime::IUnknown {
     fn from(value: &MseSourceBuffer) -> Self {
         value.0 .0.clone()
     }
@@ -8643,12 +8643,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MseSourceBuffer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MseSourceBuffer> for ::windows::runtime::IInspectable {
     fn from(value: MseSourceBuffer) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MseSourceBuffer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MseSourceBuffer> for ::windows::runtime::IInspectable {
     fn from(value: &MseSourceBuffer) -> Self {
         value.0.clone()
     }
@@ -8663,11 +8663,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MseSourceBuffer {}
-unsafe impl ::std::marker::Sync for MseSourceBuffer {}
+unsafe impl ::core::marker::Send for MseSourceBuffer {}
+unsafe impl ::core::marker::Sync for MseSourceBuffer {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MseSourceBufferList(pub ::windows::runtime::IInspectable);
 impl MseSourceBufferList {
     #[cfg(feature = "Foundation")]
@@ -8675,38 +8675,38 @@ impl MseSourceBufferList {
     pub fn SourceBufferAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MseSourceBufferList, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveSourceBufferAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SourceBufferRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MseSourceBufferList, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveSourceBufferRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Core`, `Foundation_Collections`*"]
     pub fn Buffers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<MseSourceBuffer>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MseSourceBuffer>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MseSourceBuffer>>(result__)
         }
     }
 }
@@ -8720,12 +8720,12 @@ unsafe impl ::windows::runtime::Interface for MseSourceBufferList {
 impl ::windows::runtime::RuntimeName for MseSourceBufferList {
     const NAME: &'static str = "Windows.Media.Core.MseSourceBufferList";
 }
-impl ::std::convert::From<MseSourceBufferList> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MseSourceBufferList> for ::windows::runtime::IUnknown {
     fn from(value: MseSourceBufferList) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MseSourceBufferList> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MseSourceBufferList> for ::windows::runtime::IUnknown {
     fn from(value: &MseSourceBufferList) -> Self {
         value.0 .0.clone()
     }
@@ -8740,12 +8740,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MseSourceBufferList> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MseSourceBufferList> for ::windows::runtime::IInspectable {
     fn from(value: MseSourceBufferList) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MseSourceBufferList> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MseSourceBufferList> for ::windows::runtime::IInspectable {
     fn from(value: &MseSourceBufferList) -> Self {
         value.0.clone()
     }
@@ -8760,11 +8760,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MseSourceBufferList {}
-unsafe impl ::std::marker::Sync for MseSourceBufferList {}
+unsafe impl ::core::marker::Send for MseSourceBufferList {}
+unsafe impl ::core::marker::Sync for MseSourceBufferList {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MseStreamSource(pub ::windows::runtime::IInspectable);
 impl MseStreamSource {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -8779,68 +8779,68 @@ impl MseStreamSource {
     pub fn Opened<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveOpened<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Ended<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveEnded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Closed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveClosed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SourceBuffers(&self) -> ::windows::runtime::Result<MseSourceBufferList> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MseSourceBufferList>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MseSourceBufferList>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn ActiveSourceBuffers(&self) -> ::windows::runtime::Result<MseSourceBufferList> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MseSourceBufferList>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MseSourceBufferList>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn ReadyState(&self) -> ::windows::runtime::Result<MseReadyState> {
         let this = self;
         unsafe {
-            let mut result__: MseReadyState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MseReadyState>(result__)
+            let mut result__: MseReadyState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MseReadyState>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -8848,39 +8848,39 @@ impl MseStreamSource {
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AddSourceBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, mimetype: Param0) -> ::windows::runtime::Result<MseSourceBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), mimetype.into_param().abi(), &mut result__).from_abi::<MseSourceBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), mimetype.into_param().abi(), &mut result__).from_abi::<MseSourceBuffer>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn RemoveSourceBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, MseSourceBuffer>>(&self, buffer: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), buffer.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), buffer.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn EndOfStream(&self, status: MseEndOfStreamStatus) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), status).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), status).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsContentTypeSupported<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(contenttype: Param0) -> ::windows::runtime::Result<bool> {
         Self::IMseStreamSourceStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), contenttype.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), contenttype.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
@@ -8888,15 +8888,15 @@ impl MseStreamSource {
     pub fn LiveSeekableRange(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<MseTimeRange>> {
         let this = &::windows::runtime::Interface::cast::<IMseStreamSource2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<MseTimeRange>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<MseTimeRange>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetLiveSeekableRange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<MseTimeRange>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMseStreamSource2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     pub fn IMseStreamSourceStatics<R, F: FnOnce(&IMseStreamSourceStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<MseStreamSource, IMseStreamSourceStatics> = ::windows::runtime::FactoryCache::new();
@@ -8913,12 +8913,12 @@ unsafe impl ::windows::runtime::Interface for MseStreamSource {
 impl ::windows::runtime::RuntimeName for MseStreamSource {
     const NAME: &'static str = "Windows.Media.Core.MseStreamSource";
 }
-impl ::std::convert::From<MseStreamSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MseStreamSource> for ::windows::runtime::IUnknown {
     fn from(value: MseStreamSource) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MseStreamSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MseStreamSource> for ::windows::runtime::IUnknown {
     fn from(value: &MseStreamSource) -> Self {
         value.0 .0.clone()
     }
@@ -8933,12 +8933,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MseStreamSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MseStreamSource> for ::windows::runtime::IInspectable {
     fn from(value: MseStreamSource) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MseStreamSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MseStreamSource> for ::windows::runtime::IInspectable {
     fn from(value: &MseStreamSource) -> Self {
         value.0.clone()
     }
@@ -8953,13 +8953,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<MseStreamSource> for IMediaSource {
+impl ::core::convert::TryFrom<MseStreamSource> for IMediaSource {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MseStreamSource) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&MseStreamSource> for IMediaSource {
+impl ::core::convert::TryFrom<&MseStreamSource> for IMediaSource {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &MseStreamSource) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -8972,12 +8972,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaSource> for MseStreamSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaSource> for &MseStreamSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaSource> {
-        ::std::convert::TryInto::<IMediaSource>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IMediaSource>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for MseStreamSource {}
-unsafe impl ::std::marker::Sync for MseStreamSource {}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+unsafe impl ::core::marker::Send for MseStreamSource {}
+unsafe impl ::core::marker::Sync for MseStreamSource {}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Media_Core`, `Foundation`*"]
@@ -8988,25 +8988,25 @@ pub struct MseTimeRange {
 #[cfg(feature = "Foundation")]
 impl MseTimeRange {}
 #[cfg(feature = "Foundation")]
-impl ::std::default::Default for MseTimeRange {
+impl ::core::default::Default for MseTimeRange {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::fmt::Debug for MseTimeRange {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MseTimeRange {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MseTimeRange").field("Start", &self.Start).field("End", &self.End).finish()
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::cmp::PartialEq for MseTimeRange {
+impl ::core::cmp::PartialEq for MseTimeRange {
     fn eq(&self, other: &Self) -> bool {
         self.Start == other.Start && self.End == other.End
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::cmp::Eq for MseTimeRange {}
+impl ::core::cmp::Eq for MseTimeRange {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Abi for MseTimeRange {
     type Abi = Self;
@@ -9021,30 +9021,30 @@ impl ::windows::runtime::DefaultType for MseTimeRange {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SceneAnalysisEffect(pub ::windows::runtime::IInspectable);
 impl SceneAnalysisEffect {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn HighDynamicRangeAnalyzer(&self) -> ::windows::runtime::Result<HighDynamicRangeControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HighDynamicRangeControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HighDynamicRangeControl>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetDesiredAnalysisInterval<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn DesiredAnalysisInterval(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -9052,21 +9052,21 @@ impl SceneAnalysisEffect {
     pub fn SceneAnalyzed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SceneAnalysisEffect, SceneAnalyzedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveSceneAnalyzed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Core`, `Foundation_Collections`*"]
     pub fn SetProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, configuration: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaExtension>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), configuration.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), configuration.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for SceneAnalysisEffect {
@@ -9079,12 +9079,12 @@ unsafe impl ::windows::runtime::Interface for SceneAnalysisEffect {
 impl ::windows::runtime::RuntimeName for SceneAnalysisEffect {
     const NAME: &'static str = "Windows.Media.Core.SceneAnalysisEffect";
 }
-impl ::std::convert::From<SceneAnalysisEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SceneAnalysisEffect> for ::windows::runtime::IUnknown {
     fn from(value: SceneAnalysisEffect) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SceneAnalysisEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SceneAnalysisEffect> for ::windows::runtime::IUnknown {
     fn from(value: &SceneAnalysisEffect) -> Self {
         value.0 .0.clone()
     }
@@ -9099,12 +9099,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SceneAnalysisEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SceneAnalysisEffect> for ::windows::runtime::IInspectable {
     fn from(value: SceneAnalysisEffect) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SceneAnalysisEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SceneAnalysisEffect> for ::windows::runtime::IInspectable {
     fn from(value: &SceneAnalysisEffect) -> Self {
         value.0.clone()
     }
@@ -9119,13 +9119,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<SceneAnalysisEffect> for super::IMediaExtension {
+impl ::core::convert::TryFrom<SceneAnalysisEffect> for super::IMediaExtension {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SceneAnalysisEffect) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&SceneAnalysisEffect> for super::IMediaExtension {
+impl ::core::convert::TryFrom<&SceneAnalysisEffect> for super::IMediaExtension {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &SceneAnalysisEffect) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9138,15 +9138,15 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaExtension> for SceneAnal
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaExtension> for &SceneAnalysisEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaExtension> {
-        ::std::convert::TryInto::<super::IMediaExtension>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaExtension>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for SceneAnalysisEffect {}
-unsafe impl ::std::marker::Sync for SceneAnalysisEffect {}
+unsafe impl ::core::marker::Send for SceneAnalysisEffect {}
+unsafe impl ::core::marker::Sync for SceneAnalysisEffect {}
 #[cfg(feature = "Media_Effects")]
 #[doc = "*Required features: `Media_Core`, `Media_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SceneAnalysisEffectDefinition(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Media_Effects")]
 impl SceneAnalysisEffectDefinition {
@@ -9162,8 +9162,8 @@ impl SceneAnalysisEffectDefinition {
     pub fn ActivatableClassId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
@@ -9171,8 +9171,8 @@ impl SceneAnalysisEffectDefinition {
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
 }
@@ -9190,13 +9190,13 @@ impl ::windows::runtime::RuntimeName for SceneAnalysisEffectDefinition {
     const NAME: &'static str = "Windows.Media.Core.SceneAnalysisEffectDefinition";
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<SceneAnalysisEffectDefinition> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SceneAnalysisEffectDefinition> for ::windows::runtime::IUnknown {
     fn from(value: SceneAnalysisEffectDefinition) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<&SceneAnalysisEffectDefinition> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SceneAnalysisEffectDefinition> for ::windows::runtime::IUnknown {
     fn from(value: &SceneAnalysisEffectDefinition) -> Self {
         value.0 .0.clone()
     }
@@ -9214,13 +9214,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<SceneAnalysisEffectDefinition> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SceneAnalysisEffectDefinition> for ::windows::runtime::IInspectable {
     fn from(value: SceneAnalysisEffectDefinition) -> Self {
         value.0
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<&SceneAnalysisEffectDefinition> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SceneAnalysisEffectDefinition> for ::windows::runtime::IInspectable {
     fn from(value: &SceneAnalysisEffectDefinition) -> Self {
         value.0.clone()
     }
@@ -9238,36 +9238,36 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<SceneAnalysisEffectDefinition> for super::Effects::IVideoEffectDefinition {
+impl ::core::convert::From<SceneAnalysisEffectDefinition> for super::Effects::IVideoEffectDefinition {
     fn from(value: SceneAnalysisEffectDefinition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<&SceneAnalysisEffectDefinition> for super::Effects::IVideoEffectDefinition {
+impl ::core::convert::From<&SceneAnalysisEffectDefinition> for super::Effects::IVideoEffectDefinition {
     fn from(value: &SceneAnalysisEffectDefinition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IVideoEffectDefinition> for SceneAnalysisEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Effects::IVideoEffectDefinition> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IVideoEffectDefinition> for &SceneAnalysisEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Effects::IVideoEffectDefinition> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Media_Effects")]
-unsafe impl ::std::marker::Send for SceneAnalysisEffectDefinition {}
+unsafe impl ::core::marker::Send for SceneAnalysisEffectDefinition {}
 #[cfg(feature = "Media_Effects")]
-unsafe impl ::std::marker::Sync for SceneAnalysisEffectDefinition {}
+unsafe impl ::core::marker::Sync for SceneAnalysisEffectDefinition {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SceneAnalysisEffectFrame(pub ::windows::runtime::IInspectable);
 impl SceneAnalysisEffectFrame {
     #[cfg(feature = "Media_Capture")]
@@ -9275,96 +9275,96 @@ impl SceneAnalysisEffectFrame {
     pub fn FrameControlValues(&self) -> ::windows::runtime::Result<super::Capture::CapturedFrameControlValues> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Capture::CapturedFrameControlValues>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Capture::CapturedFrameControlValues>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn HighDynamicRange(&self) -> ::windows::runtime::Result<HighDynamicRangeOutput> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HighDynamicRangeOutput>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HighDynamicRangeOutput>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsReadOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetRelativeTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RelativeTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetSystemRelativeTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SystemRelativeTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetIsDiscontinuous(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsDiscontinuous(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -9372,16 +9372,16 @@ impl SceneAnalysisEffectFrame {
     pub fn ExtendedProperties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AnalysisRecommendation(&self) -> ::windows::runtime::Result<SceneAnalysisRecommendation> {
         let this = &::windows::runtime::Interface::cast::<ISceneAnalysisEffectFrame2>(self)?;
         unsafe {
-            let mut result__: SceneAnalysisRecommendation = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SceneAnalysisRecommendation>(result__)
+            let mut result__: SceneAnalysisRecommendation = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SceneAnalysisRecommendation>(result__)
         }
     }
 }
@@ -9395,12 +9395,12 @@ unsafe impl ::windows::runtime::Interface for SceneAnalysisEffectFrame {
 impl ::windows::runtime::RuntimeName for SceneAnalysisEffectFrame {
     const NAME: &'static str = "Windows.Media.Core.SceneAnalysisEffectFrame";
 }
-impl ::std::convert::From<SceneAnalysisEffectFrame> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SceneAnalysisEffectFrame> for ::windows::runtime::IUnknown {
     fn from(value: SceneAnalysisEffectFrame) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SceneAnalysisEffectFrame> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SceneAnalysisEffectFrame> for ::windows::runtime::IUnknown {
     fn from(value: &SceneAnalysisEffectFrame) -> Self {
         value.0 .0.clone()
     }
@@ -9415,12 +9415,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SceneAnalysisEffectFrame> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SceneAnalysisEffectFrame> for ::windows::runtime::IInspectable {
     fn from(value: SceneAnalysisEffectFrame) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SceneAnalysisEffectFrame> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SceneAnalysisEffectFrame> for ::windows::runtime::IInspectable {
     fn from(value: &SceneAnalysisEffectFrame) -> Self {
         value.0.clone()
     }
@@ -9436,14 +9436,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<SceneAnalysisEffectFrame> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<SceneAnalysisEffectFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SceneAnalysisEffectFrame) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&SceneAnalysisEffectFrame> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&SceneAnalysisEffectFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &SceneAnalysisEffectFrame) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9458,16 +9458,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &SceneAnalysisEffectFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<SceneAnalysisEffectFrame> for super::IMediaFrame {
+impl ::core::convert::TryFrom<SceneAnalysisEffectFrame> for super::IMediaFrame {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SceneAnalysisEffectFrame) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&SceneAnalysisEffectFrame> for super::IMediaFrame {
+impl ::core::convert::TryFrom<&SceneAnalysisEffectFrame> for super::IMediaFrame {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &SceneAnalysisEffectFrame) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9480,13 +9480,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaFrame> for SceneAnalysis
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaFrame> for &SceneAnalysisEffectFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaFrame> {
-        ::std::convert::TryInto::<super::IMediaFrame>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaFrame>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for SceneAnalysisEffectFrame {}
-unsafe impl ::std::marker::Sync for SceneAnalysisEffectFrame {}
+unsafe impl ::core::marker::Send for SceneAnalysisEffectFrame {}
+unsafe impl ::core::marker::Sync for SceneAnalysisEffectFrame {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SceneAnalysisRecommendation(pub i32);
 impl SceneAnalysisRecommendation {
@@ -9494,7 +9494,7 @@ impl SceneAnalysisRecommendation {
     pub const Hdr: SceneAnalysisRecommendation = SceneAnalysisRecommendation(1i32);
     pub const LowLight: SceneAnalysisRecommendation = SceneAnalysisRecommendation(2i32);
 }
-impl ::std::convert::From<i32> for SceneAnalysisRecommendation {
+impl ::core::convert::From<i32> for SceneAnalysisRecommendation {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -9510,15 +9510,15 @@ impl ::windows::runtime::DefaultType for SceneAnalysisRecommendation {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SceneAnalyzedEventArgs(pub ::windows::runtime::IInspectable);
 impl SceneAnalyzedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn ResultFrame(&self) -> ::windows::runtime::Result<SceneAnalysisEffectFrame> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SceneAnalysisEffectFrame>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SceneAnalysisEffectFrame>(result__)
         }
     }
 }
@@ -9532,12 +9532,12 @@ unsafe impl ::windows::runtime::Interface for SceneAnalyzedEventArgs {
 impl ::windows::runtime::RuntimeName for SceneAnalyzedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.SceneAnalyzedEventArgs";
 }
-impl ::std::convert::From<SceneAnalyzedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SceneAnalyzedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SceneAnalyzedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SceneAnalyzedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SceneAnalyzedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SceneAnalyzedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -9552,12 +9552,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SceneAnalyzedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SceneAnalyzedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: SceneAnalyzedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SceneAnalyzedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SceneAnalyzedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &SceneAnalyzedEventArgs) -> Self {
         value.0.clone()
     }
@@ -9572,11 +9572,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SceneAnalyzedEventArgs {}
-unsafe impl ::std::marker::Sync for SceneAnalyzedEventArgs {}
+unsafe impl ::core::marker::Send for SceneAnalyzedEventArgs {}
+unsafe impl ::core::marker::Sync for SceneAnalyzedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SpeechCue(pub ::windows::runtime::IInspectable);
 impl SpeechCue {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -9590,87 +9590,87 @@ impl SpeechCue {
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn StartPositionInInput(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetStartPositionInInput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn EndPositionInInput(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetEndPositionInInput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for SpeechCue {
@@ -9683,12 +9683,12 @@ unsafe impl ::windows::runtime::Interface for SpeechCue {
 impl ::windows::runtime::RuntimeName for SpeechCue {
     const NAME: &'static str = "Windows.Media.Core.SpeechCue";
 }
-impl ::std::convert::From<SpeechCue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SpeechCue> for ::windows::runtime::IUnknown {
     fn from(value: SpeechCue) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SpeechCue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SpeechCue> for ::windows::runtime::IUnknown {
     fn from(value: &SpeechCue) -> Self {
         value.0 .0.clone()
     }
@@ -9703,12 +9703,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SpeechCue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SpeechCue> for ::windows::runtime::IInspectable {
     fn from(value: SpeechCue) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SpeechCue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SpeechCue> for ::windows::runtime::IInspectable {
     fn from(value: &SpeechCue) -> Self {
         value.0.clone()
     }
@@ -9723,13 +9723,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<SpeechCue> for IMediaCue {
+impl ::core::convert::TryFrom<SpeechCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: SpeechCue) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&SpeechCue> for IMediaCue {
+impl ::core::convert::TryFrom<&SpeechCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &SpeechCue) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9742,13 +9742,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaCue> for SpeechCue {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaCue> for &SpeechCue {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaCue> {
-        ::std::convert::TryInto::<IMediaCue>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IMediaCue>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for SpeechCue {}
-unsafe impl ::std::marker::Sync for SpeechCue {}
+unsafe impl ::core::marker::Send for SpeechCue {}
+unsafe impl ::core::marker::Sync for SpeechCue {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedMetadataKind(pub i32);
 impl TimedMetadataKind {
@@ -9761,7 +9761,7 @@ impl TimedMetadataKind {
     pub const ImageSubtitle: TimedMetadataKind = TimedMetadataKind(6i32);
     pub const Speech: TimedMetadataKind = TimedMetadataKind(7i32);
 }
-impl ::std::convert::From<i32> for TimedMetadataKind {
+impl ::core::convert::From<i32> for TimedMetadataKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -9777,54 +9777,54 @@ impl ::windows::runtime::DefaultType for TimedMetadataKind {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimedMetadataStreamDescriptor(pub ::windows::runtime::IInspectable);
 impl TimedMetadataStreamDescriptor {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsSelected(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLabel<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
@@ -9832,24 +9832,24 @@ impl TimedMetadataStreamDescriptor {
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::TimedMetadataEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<ITimedMetadataStreamDescriptor>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::TimedMetadataEncodingProperties>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::TimedMetadataEncodingProperties>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Copy(&self) -> ::windows::runtime::Result<TimedMetadataStreamDescriptor> {
         let this = &::windows::runtime::Interface::cast::<ITimedMetadataStreamDescriptor>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedMetadataStreamDescriptor>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedMetadataStreamDescriptor>(result__)
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
     #[doc = "*Required features: `Media_Core`, `Media_MediaProperties`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::MediaProperties::TimedMetadataEncodingProperties>>(encodingproperties: Param0) -> ::windows::runtime::Result<TimedMetadataStreamDescriptor> {
         Self::ITimedMetadataStreamDescriptorFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), encodingproperties.into_param().abi(), &mut result__).from_abi::<TimedMetadataStreamDescriptor>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), encodingproperties.into_param().abi(), &mut result__).from_abi::<TimedMetadataStreamDescriptor>(result__)
         })
     }
     pub fn ITimedMetadataStreamDescriptorFactory<R, F: FnOnce(&ITimedMetadataStreamDescriptorFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -9867,12 +9867,12 @@ unsafe impl ::windows::runtime::Interface for TimedMetadataStreamDescriptor {
 impl ::windows::runtime::RuntimeName for TimedMetadataStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataStreamDescriptor";
 }
-impl ::std::convert::From<TimedMetadataStreamDescriptor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TimedMetadataStreamDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: TimedMetadataStreamDescriptor) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TimedMetadataStreamDescriptor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TimedMetadataStreamDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: &TimedMetadataStreamDescriptor) -> Self {
         value.0 .0.clone()
     }
@@ -9887,12 +9887,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TimedMetadataStreamDescriptor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TimedMetadataStreamDescriptor> for ::windows::runtime::IInspectable {
     fn from(value: TimedMetadataStreamDescriptor) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TimedMetadataStreamDescriptor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TimedMetadataStreamDescriptor> for ::windows::runtime::IInspectable {
     fn from(value: &TimedMetadataStreamDescriptor) -> Self {
         value.0.clone()
     }
@@ -9907,33 +9907,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<TimedMetadataStreamDescriptor> for IMediaStreamDescriptor {
+impl ::core::convert::From<TimedMetadataStreamDescriptor> for IMediaStreamDescriptor {
     fn from(value: TimedMetadataStreamDescriptor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&TimedMetadataStreamDescriptor> for IMediaStreamDescriptor {
+impl ::core::convert::From<&TimedMetadataStreamDescriptor> for IMediaStreamDescriptor {
     fn from(value: &TimedMetadataStreamDescriptor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor> for TimedMetadataStreamDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaStreamDescriptor> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor> for &TimedMetadataStreamDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaStreamDescriptor> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::TryFrom<TimedMetadataStreamDescriptor> for IMediaStreamDescriptor2 {
+impl ::core::convert::TryFrom<TimedMetadataStreamDescriptor> for IMediaStreamDescriptor2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: TimedMetadataStreamDescriptor) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&TimedMetadataStreamDescriptor> for IMediaStreamDescriptor2 {
+impl ::core::convert::TryFrom<&TimedMetadataStreamDescriptor> for IMediaStreamDescriptor2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &TimedMetadataStreamDescriptor) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -9946,14 +9946,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor2> for TimedMet
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor2> for &TimedMetadataStreamDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaStreamDescriptor2> {
-        ::std::convert::TryInto::<IMediaStreamDescriptor2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IMediaStreamDescriptor2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for TimedMetadataStreamDescriptor {}
-unsafe impl ::std::marker::Sync for TimedMetadataStreamDescriptor {}
+unsafe impl ::core::marker::Send for TimedMetadataStreamDescriptor {}
+unsafe impl ::core::marker::Sync for TimedMetadataStreamDescriptor {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimedMetadataTrack(pub ::windows::runtime::IInspectable);
 impl TimedMetadataTrack {
     #[cfg(feature = "Foundation")]
@@ -9961,53 +9961,53 @@ impl TimedMetadataTrack {
     pub fn CueEntered<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<TimedMetadataTrack, MediaCueEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveCueEntered<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn CueExited<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<TimedMetadataTrack, MediaCueEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveCueExited<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn TrackFailed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<TimedMetadataTrack, TimedMetadataTrackFailedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveTrackFailed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Core`, `Foundation_Collections`*"]
     pub fn Cues(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<IMediaCue>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<IMediaCue>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<IMediaCue>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -10015,78 +10015,78 @@ impl TimedMetadataTrack {
     pub fn ActiveCues(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<IMediaCue>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<IMediaCue>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<IMediaCue>>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn TimedMetadataKind(&self) -> ::windows::runtime::Result<TimedMetadataKind> {
         let this = self;
         unsafe {
-            let mut result__: TimedMetadataKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedMetadataKind>(result__)
+            let mut result__: TimedMetadataKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedMetadataKind>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn DispatchType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn AddCue<'a, Param0: ::windows::runtime::IntoParam<'a, IMediaCue>>(&self, cue: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), cue.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), cue.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn RemoveCue<'a, Param0: ::windows::runtime::IntoParam<'a, IMediaCue>>(&self, cue: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), cue.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), cue.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaTrack>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaTrack>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn TrackKind(&self) -> ::windows::runtime::Result<MediaTrackKind> {
         let this = &::windows::runtime::Interface::cast::<IMediaTrack>(self)?;
         unsafe {
-            let mut result__: MediaTrackKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaTrackKind>(result__)
+            let mut result__: MediaTrackKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaTrackKind>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLabel<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaTrack>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaTrack>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(id: Param0, language: Param1, kind: TimedMetadataKind) -> ::windows::runtime::Result<TimedMetadataTrack> {
         Self::ITimedMetadataTrackFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), id.into_param().abi(), language.into_param().abi(), kind, &mut result__).from_abi::<TimedMetadataTrack>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), id.into_param().abi(), language.into_param().abi(), kind, &mut result__).from_abi::<TimedMetadataTrack>(result__)
         })
     }
     #[cfg(feature = "Media_Playback")]
@@ -10094,16 +10094,16 @@ impl TimedMetadataTrack {
     pub fn PlaybackItem(&self) -> ::windows::runtime::Result<super::Playback::MediaPlaybackItem> {
         let this = &::windows::runtime::Interface::cast::<ITimedMetadataTrack2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Playback::MediaPlaybackItem>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Playback::MediaPlaybackItem>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITimedMetadataTrack2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     pub fn ITimedMetadataTrackFactory<R, F: FnOnce(&ITimedMetadataTrackFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -10121,12 +10121,12 @@ unsafe impl ::windows::runtime::Interface for TimedMetadataTrack {
 impl ::windows::runtime::RuntimeName for TimedMetadataTrack {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataTrack";
 }
-impl ::std::convert::From<TimedMetadataTrack> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TimedMetadataTrack> for ::windows::runtime::IUnknown {
     fn from(value: TimedMetadataTrack) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TimedMetadataTrack> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TimedMetadataTrack> for ::windows::runtime::IUnknown {
     fn from(value: &TimedMetadataTrack) -> Self {
         value.0 .0.clone()
     }
@@ -10141,12 +10141,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TimedMetadataTrack> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TimedMetadataTrack> for ::windows::runtime::IInspectable {
     fn from(value: TimedMetadataTrack) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TimedMetadataTrack> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TimedMetadataTrack> for ::windows::runtime::IInspectable {
     fn from(value: &TimedMetadataTrack) -> Self {
         value.0.clone()
     }
@@ -10161,13 +10161,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<TimedMetadataTrack> for IMediaTrack {
+impl ::core::convert::TryFrom<TimedMetadataTrack> for IMediaTrack {
     type Error = ::windows::runtime::Error;
     fn try_from(value: TimedMetadataTrack) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&TimedMetadataTrack> for IMediaTrack {
+impl ::core::convert::TryFrom<&TimedMetadataTrack> for IMediaTrack {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &TimedMetadataTrack) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -10180,30 +10180,30 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaTrack> for TimedMetadataTrack {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaTrack> for &TimedMetadataTrack {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaTrack> {
-        ::std::convert::TryInto::<IMediaTrack>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IMediaTrack>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for TimedMetadataTrack {}
-unsafe impl ::std::marker::Sync for TimedMetadataTrack {}
+unsafe impl ::core::marker::Send for TimedMetadataTrack {}
+unsafe impl ::core::marker::Sync for TimedMetadataTrack {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimedMetadataTrackError(pub ::windows::runtime::IInspectable);
 impl TimedMetadataTrackError {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn ErrorCode(&self) -> ::windows::runtime::Result<TimedMetadataTrackErrorCode> {
         let this = self;
         unsafe {
-            let mut result__: TimedMetadataTrackErrorCode = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedMetadataTrackErrorCode>(result__)
+            let mut result__: TimedMetadataTrackErrorCode = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedMetadataTrackErrorCode>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
 }
@@ -10217,12 +10217,12 @@ unsafe impl ::windows::runtime::Interface for TimedMetadataTrackError {
 impl ::windows::runtime::RuntimeName for TimedMetadataTrackError {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataTrackError";
 }
-impl ::std::convert::From<TimedMetadataTrackError> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TimedMetadataTrackError> for ::windows::runtime::IUnknown {
     fn from(value: TimedMetadataTrackError) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TimedMetadataTrackError> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TimedMetadataTrackError> for ::windows::runtime::IUnknown {
     fn from(value: &TimedMetadataTrackError) -> Self {
         value.0 .0.clone()
     }
@@ -10237,12 +10237,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TimedMetadataTrackError> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TimedMetadataTrackError> for ::windows::runtime::IInspectable {
     fn from(value: TimedMetadataTrackError) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TimedMetadataTrackError> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TimedMetadataTrackError> for ::windows::runtime::IInspectable {
     fn from(value: &TimedMetadataTrackError) -> Self {
         value.0.clone()
     }
@@ -10257,10 +10257,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TimedMetadataTrackError {}
-unsafe impl ::std::marker::Sync for TimedMetadataTrackError {}
+unsafe impl ::core::marker::Send for TimedMetadataTrackError {}
+unsafe impl ::core::marker::Sync for TimedMetadataTrackError {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedMetadataTrackErrorCode(pub i32);
 impl TimedMetadataTrackErrorCode {
@@ -10269,7 +10269,7 @@ impl TimedMetadataTrackErrorCode {
     pub const NetworkError: TimedMetadataTrackErrorCode = TimedMetadataTrackErrorCode(2i32);
     pub const InternalError: TimedMetadataTrackErrorCode = TimedMetadataTrackErrorCode(3i32);
 }
-impl ::std::convert::From<i32> for TimedMetadataTrackErrorCode {
+impl ::core::convert::From<i32> for TimedMetadataTrackErrorCode {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -10285,15 +10285,15 @@ impl ::windows::runtime::DefaultType for TimedMetadataTrackErrorCode {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimedMetadataTrackFailedEventArgs(pub ::windows::runtime::IInspectable);
 impl TimedMetadataTrackFailedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Error(&self) -> ::windows::runtime::Result<TimedMetadataTrackError> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedMetadataTrackError>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedMetadataTrackError>(result__)
         }
     }
 }
@@ -10307,12 +10307,12 @@ unsafe impl ::windows::runtime::Interface for TimedMetadataTrackFailedEventArgs 
 impl ::windows::runtime::RuntimeName for TimedMetadataTrackFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataTrackFailedEventArgs";
 }
-impl ::std::convert::From<TimedMetadataTrackFailedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TimedMetadataTrackFailedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: TimedMetadataTrackFailedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TimedMetadataTrackFailedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TimedMetadataTrackFailedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &TimedMetadataTrackFailedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -10327,12 +10327,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TimedMetadataTrackFailedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TimedMetadataTrackFailedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: TimedMetadataTrackFailedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TimedMetadataTrackFailedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TimedMetadataTrackFailedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &TimedMetadataTrackFailedEventArgs) -> Self {
         value.0.clone()
     }
@@ -10347,53 +10347,53 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TimedMetadataTrackFailedEventArgs {}
-unsafe impl ::std::marker::Sync for TimedMetadataTrackFailedEventArgs {}
+unsafe impl ::core::marker::Send for TimedMetadataTrackFailedEventArgs {}
+unsafe impl ::core::marker::Sync for TimedMetadataTrackFailedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimedTextBouten(pub ::windows::runtime::IInspectable);
 impl TimedTextBouten {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<TimedTextBoutenType> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextBoutenType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextBoutenType>(result__)
+            let mut result__: TimedTextBoutenType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextBoutenType>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetType(&self, value: TimedTextBoutenType) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Media_Core`, `UI`*"]
     pub fn Color(&self) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__: super::super::UI::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Media_Core`, `UI`*"]
     pub fn SetColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<TimedTextBoutenPosition> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextBoutenPosition = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextBoutenPosition>(result__)
+            let mut result__: TimedTextBoutenPosition = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextBoutenPosition>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetPosition(&self, value: TimedTextBoutenPosition) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for TimedTextBouten {
@@ -10406,12 +10406,12 @@ unsafe impl ::windows::runtime::Interface for TimedTextBouten {
 impl ::windows::runtime::RuntimeName for TimedTextBouten {
     const NAME: &'static str = "Windows.Media.Core.TimedTextBouten";
 }
-impl ::std::convert::From<TimedTextBouten> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TimedTextBouten> for ::windows::runtime::IUnknown {
     fn from(value: TimedTextBouten) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TimedTextBouten> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TimedTextBouten> for ::windows::runtime::IUnknown {
     fn from(value: &TimedTextBouten) -> Self {
         value.0 .0.clone()
     }
@@ -10426,12 +10426,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TimedTextBouten> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TimedTextBouten> for ::windows::runtime::IInspectable {
     fn from(value: TimedTextBouten) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TimedTextBouten> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TimedTextBouten> for ::windows::runtime::IInspectable {
     fn from(value: &TimedTextBouten) -> Self {
         value.0.clone()
     }
@@ -10446,10 +10446,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TimedTextBouten {}
-unsafe impl ::std::marker::Sync for TimedTextBouten {}
+unsafe impl ::core::marker::Send for TimedTextBouten {}
+unsafe impl ::core::marker::Sync for TimedTextBouten {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedTextBoutenPosition(pub i32);
 impl TimedTextBoutenPosition {
@@ -10457,7 +10457,7 @@ impl TimedTextBoutenPosition {
     pub const After: TimedTextBoutenPosition = TimedTextBoutenPosition(1i32);
     pub const Outside: TimedTextBoutenPosition = TimedTextBoutenPosition(2i32);
 }
-impl ::std::convert::From<i32> for TimedTextBoutenPosition {
+impl ::core::convert::From<i32> for TimedTextBoutenPosition {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -10472,7 +10472,7 @@ impl ::windows::runtime::DefaultType for TimedTextBoutenPosition {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedTextBoutenType(pub i32);
 impl TimedTextBoutenType {
@@ -10485,7 +10485,7 @@ impl TimedTextBoutenType {
     pub const FilledSesame: TimedTextBoutenType = TimedTextBoutenType(6i32);
     pub const OpenSesame: TimedTextBoutenType = TimedTextBoutenType(7i32);
 }
-impl ::std::convert::From<i32> for TimedTextBoutenType {
+impl ::core::convert::From<i32> for TimedTextBoutenType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -10501,7 +10501,7 @@ impl ::windows::runtime::DefaultType for TimedTextBoutenType {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimedTextCue(pub ::windows::runtime::IInspectable);
 impl TimedTextCue {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -10515,78 +10515,78 @@ impl TimedTextCue {
     pub fn CueRegion(&self) -> ::windows::runtime::Result<TimedTextRegion> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextRegion>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextRegion>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetCueRegion<'a, Param0: ::windows::runtime::IntoParam<'a, TimedTextRegion>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn CueStyle(&self) -> ::windows::runtime::Result<TimedTextStyle> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextStyle>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextStyle>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetCueStyle<'a, Param0: ::windows::runtime::IntoParam<'a, TimedTextStyle>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Core`, `Foundation_Collections`*"]
     pub fn Lines(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<TimedTextLine>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<TimedTextLine>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<TimedTextLine>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaCue>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -10600,12 +10600,12 @@ unsafe impl ::windows::runtime::Interface for TimedTextCue {
 impl ::windows::runtime::RuntimeName for TimedTextCue {
     const NAME: &'static str = "Windows.Media.Core.TimedTextCue";
 }
-impl ::std::convert::From<TimedTextCue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TimedTextCue> for ::windows::runtime::IUnknown {
     fn from(value: TimedTextCue) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TimedTextCue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TimedTextCue> for ::windows::runtime::IUnknown {
     fn from(value: &TimedTextCue) -> Self {
         value.0 .0.clone()
     }
@@ -10620,12 +10620,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TimedTextCue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TimedTextCue> for ::windows::runtime::IInspectable {
     fn from(value: TimedTextCue) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TimedTextCue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TimedTextCue> for ::windows::runtime::IInspectable {
     fn from(value: &TimedTextCue) -> Self {
         value.0.clone()
     }
@@ -10640,13 +10640,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<TimedTextCue> for IMediaCue {
+impl ::core::convert::TryFrom<TimedTextCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: TimedTextCue) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&TimedTextCue> for IMediaCue {
+impl ::core::convert::TryFrom<&TimedTextCue> for IMediaCue {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &TimedTextCue) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -10659,13 +10659,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaCue> for TimedTextCue {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaCue> for &TimedTextCue {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaCue> {
-        ::std::convert::TryInto::<IMediaCue>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IMediaCue>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for TimedTextCue {}
-unsafe impl ::std::marker::Sync for TimedTextCue {}
+unsafe impl ::core::marker::Send for TimedTextCue {}
+unsafe impl ::core::marker::Sync for TimedTextCue {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedTextDisplayAlignment(pub i32);
 impl TimedTextDisplayAlignment {
@@ -10673,7 +10673,7 @@ impl TimedTextDisplayAlignment {
     pub const After: TimedTextDisplayAlignment = TimedTextDisplayAlignment(1i32);
     pub const Center: TimedTextDisplayAlignment = TimedTextDisplayAlignment(2i32);
 }
-impl ::std::convert::From<i32> for TimedTextDisplayAlignment {
+impl ::core::convert::From<i32> for TimedTextDisplayAlignment {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -10687,7 +10687,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedTextDisplayAlignment {
 impl ::windows::runtime::DefaultType for TimedTextDisplayAlignment {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct TimedTextDouble {
@@ -10695,22 +10695,22 @@ pub struct TimedTextDouble {
     pub Unit: TimedTextUnit,
 }
 impl TimedTextDouble {}
-impl ::std::default::Default for TimedTextDouble {
+impl ::core::default::Default for TimedTextDouble {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TimedTextDouble {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TimedTextDouble {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TimedTextDouble").field("Value", &self.Value).field("Unit", &self.Unit).finish()
     }
 }
-impl ::std::cmp::PartialEq for TimedTextDouble {
+impl ::core::cmp::PartialEq for TimedTextDouble {
     fn eq(&self, other: &Self) -> bool {
         self.Value == other.Value && self.Unit == other.Unit
     }
 }
-impl ::std::cmp::Eq for TimedTextDouble {}
+impl ::core::cmp::Eq for TimedTextDouble {}
 unsafe impl ::windows::runtime::Abi for TimedTextDouble {
     type Abi = Self;
 }
@@ -10721,14 +10721,14 @@ impl ::windows::runtime::DefaultType for TimedTextDouble {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedTextFlowDirection(pub i32);
 impl TimedTextFlowDirection {
     pub const LeftToRight: TimedTextFlowDirection = TimedTextFlowDirection(0i32);
     pub const RightToLeft: TimedTextFlowDirection = TimedTextFlowDirection(1i32);
 }
-impl ::std::convert::From<i32> for TimedTextFlowDirection {
+impl ::core::convert::From<i32> for TimedTextFlowDirection {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -10743,7 +10743,7 @@ impl ::windows::runtime::DefaultType for TimedTextFlowDirection {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedTextFontStyle(pub i32);
 impl TimedTextFontStyle {
@@ -10751,7 +10751,7 @@ impl TimedTextFontStyle {
     pub const Oblique: TimedTextFontStyle = TimedTextFontStyle(1i32);
     pub const Italic: TimedTextFontStyle = TimedTextFontStyle(2i32);
 }
-impl ::std::convert::From<i32> for TimedTextFontStyle {
+impl ::core::convert::From<i32> for TimedTextFontStyle {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -10767,7 +10767,7 @@ impl ::windows::runtime::DefaultType for TimedTextFontStyle {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimedTextLine(pub ::windows::runtime::IInspectable);
 impl TimedTextLine {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -10781,22 +10781,22 @@ impl TimedTextLine {
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Core`, `Foundation_Collections`*"]
     pub fn Subformats(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<TimedTextSubformat>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<TimedTextSubformat>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<TimedTextSubformat>>(result__)
         }
     }
 }
@@ -10810,12 +10810,12 @@ unsafe impl ::windows::runtime::Interface for TimedTextLine {
 impl ::windows::runtime::RuntimeName for TimedTextLine {
     const NAME: &'static str = "Windows.Media.Core.TimedTextLine";
 }
-impl ::std::convert::From<TimedTextLine> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TimedTextLine> for ::windows::runtime::IUnknown {
     fn from(value: TimedTextLine) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TimedTextLine> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TimedTextLine> for ::windows::runtime::IUnknown {
     fn from(value: &TimedTextLine) -> Self {
         value.0 .0.clone()
     }
@@ -10830,12 +10830,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TimedTextLine> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TimedTextLine> for ::windows::runtime::IInspectable {
     fn from(value: TimedTextLine) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TimedTextLine> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TimedTextLine> for ::windows::runtime::IInspectable {
     fn from(value: &TimedTextLine) -> Self {
         value.0.clone()
     }
@@ -10850,10 +10850,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TimedTextLine {}
-unsafe impl ::std::marker::Sync for TimedTextLine {}
+unsafe impl ::core::marker::Send for TimedTextLine {}
+unsafe impl ::core::marker::Sync for TimedTextLine {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedTextLineAlignment(pub i32);
 impl TimedTextLineAlignment {
@@ -10861,7 +10861,7 @@ impl TimedTextLineAlignment {
     pub const End: TimedTextLineAlignment = TimedTextLineAlignment(1i32);
     pub const Center: TimedTextLineAlignment = TimedTextLineAlignment(2i32);
 }
-impl ::std::convert::From<i32> for TimedTextLineAlignment {
+impl ::core::convert::From<i32> for TimedTextLineAlignment {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -10875,7 +10875,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedTextLineAlignment {
 impl ::windows::runtime::DefaultType for TimedTextLineAlignment {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct TimedTextPadding {
@@ -10886,22 +10886,22 @@ pub struct TimedTextPadding {
     pub Unit: TimedTextUnit,
 }
 impl TimedTextPadding {}
-impl ::std::default::Default for TimedTextPadding {
+impl ::core::default::Default for TimedTextPadding {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TimedTextPadding {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TimedTextPadding {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TimedTextPadding").field("Before", &self.Before).field("After", &self.After).field("Start", &self.Start).field("End", &self.End).field("Unit", &self.Unit).finish()
     }
 }
-impl ::std::cmp::PartialEq for TimedTextPadding {
+impl ::core::cmp::PartialEq for TimedTextPadding {
     fn eq(&self, other: &Self) -> bool {
         self.Before == other.Before && self.After == other.After && self.Start == other.Start && self.End == other.End && self.Unit == other.Unit
     }
 }
-impl ::std::cmp::Eq for TimedTextPadding {}
+impl ::core::cmp::Eq for TimedTextPadding {}
 unsafe impl ::windows::runtime::Abi for TimedTextPadding {
     type Abi = Self;
 }
@@ -10911,7 +10911,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedTextPadding {
 impl ::windows::runtime::DefaultType for TimedTextPadding {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct TimedTextPoint {
@@ -10920,22 +10920,22 @@ pub struct TimedTextPoint {
     pub Unit: TimedTextUnit,
 }
 impl TimedTextPoint {}
-impl ::std::default::Default for TimedTextPoint {
+impl ::core::default::Default for TimedTextPoint {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TimedTextPoint {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TimedTextPoint {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TimedTextPoint").field("X", &self.X).field("Y", &self.Y).field("Unit", &self.Unit).finish()
     }
 }
-impl ::std::cmp::PartialEq for TimedTextPoint {
+impl ::core::cmp::PartialEq for TimedTextPoint {
     fn eq(&self, other: &Self) -> bool {
         self.X == other.X && self.Y == other.Y && self.Unit == other.Unit
     }
 }
-impl ::std::cmp::Eq for TimedTextPoint {}
+impl ::core::cmp::Eq for TimedTextPoint {}
 unsafe impl ::windows::runtime::Abi for TimedTextPoint {
     type Abi = Self;
 }
@@ -10947,7 +10947,7 @@ impl ::windows::runtime::DefaultType for TimedTextPoint {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimedTextRegion(pub ::windows::runtime::IInspectable);
 impl TimedTextRegion {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -10961,159 +10961,159 @@ impl TimedTextRegion {
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<TimedTextPoint> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextPoint = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextPoint>(result__)
+            let mut result__: TimedTextPoint = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextPoint>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, TimedTextPoint>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Extent(&self) -> ::windows::runtime::Result<TimedTextSize> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextSize = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextSize>(result__)
+            let mut result__: TimedTextSize = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextSize>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetExtent<'a, Param0: ::windows::runtime::IntoParam<'a, TimedTextSize>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Media_Core`, `UI`*"]
     pub fn Background(&self) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__: super::super::UI::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Media_Core`, `UI`*"]
     pub fn SetBackground<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn WritingMode(&self) -> ::windows::runtime::Result<TimedTextWritingMode> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextWritingMode = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextWritingMode>(result__)
+            let mut result__: TimedTextWritingMode = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextWritingMode>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetWritingMode(&self, value: TimedTextWritingMode) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn DisplayAlignment(&self) -> ::windows::runtime::Result<TimedTextDisplayAlignment> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextDisplayAlignment = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextDisplayAlignment>(result__)
+            let mut result__: TimedTextDisplayAlignment = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextDisplayAlignment>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetDisplayAlignment(&self, value: TimedTextDisplayAlignment) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn LineHeight(&self) -> ::windows::runtime::Result<TimedTextDouble> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextDouble = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextDouble>(result__)
+            let mut result__: TimedTextDouble = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextDouble>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLineHeight<'a, Param0: ::windows::runtime::IntoParam<'a, TimedTextDouble>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsOverflowClipped(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetIsOverflowClipped(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Padding(&self) -> ::windows::runtime::Result<TimedTextPadding> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextPadding = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextPadding>(result__)
+            let mut result__: TimedTextPadding = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextPadding>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetPadding<'a, Param0: ::windows::runtime::IntoParam<'a, TimedTextPadding>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn TextWrapping(&self) -> ::windows::runtime::Result<TimedTextWrapping> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextWrapping = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextWrapping>(result__)
+            let mut result__: TimedTextWrapping = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextWrapping>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetTextWrapping(&self, value: TimedTextWrapping) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn ZIndex(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn ScrollMode(&self) -> ::windows::runtime::Result<TimedTextScrollMode> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextScrollMode = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextScrollMode>(result__)
+            let mut result__: TimedTextScrollMode = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextScrollMode>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetScrollMode(&self, value: TimedTextScrollMode) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for TimedTextRegion {
@@ -11126,12 +11126,12 @@ unsafe impl ::windows::runtime::Interface for TimedTextRegion {
 impl ::windows::runtime::RuntimeName for TimedTextRegion {
     const NAME: &'static str = "Windows.Media.Core.TimedTextRegion";
 }
-impl ::std::convert::From<TimedTextRegion> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TimedTextRegion> for ::windows::runtime::IUnknown {
     fn from(value: TimedTextRegion) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TimedTextRegion> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TimedTextRegion> for ::windows::runtime::IUnknown {
     fn from(value: &TimedTextRegion) -> Self {
         value.0 .0.clone()
     }
@@ -11146,12 +11146,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TimedTextRegion> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TimedTextRegion> for ::windows::runtime::IInspectable {
     fn from(value: TimedTextRegion) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TimedTextRegion> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TimedTextRegion> for ::windows::runtime::IInspectable {
     fn from(value: &TimedTextRegion) -> Self {
         value.0.clone()
     }
@@ -11166,64 +11166,64 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TimedTextRegion {}
-unsafe impl ::std::marker::Sync for TimedTextRegion {}
+unsafe impl ::core::marker::Send for TimedTextRegion {}
+unsafe impl ::core::marker::Sync for TimedTextRegion {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimedTextRuby(pub ::windows::runtime::IInspectable);
 impl TimedTextRuby {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<TimedTextRubyPosition> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextRubyPosition = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextRubyPosition>(result__)
+            let mut result__: TimedTextRubyPosition = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextRubyPosition>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetPosition(&self, value: TimedTextRubyPosition) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Align(&self) -> ::windows::runtime::Result<TimedTextRubyAlign> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextRubyAlign = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextRubyAlign>(result__)
+            let mut result__: TimedTextRubyAlign = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextRubyAlign>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetAlign(&self, value: TimedTextRubyAlign) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Reserve(&self) -> ::windows::runtime::Result<TimedTextRubyReserve> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextRubyReserve = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextRubyReserve>(result__)
+            let mut result__: TimedTextRubyReserve = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextRubyReserve>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetReserve(&self, value: TimedTextRubyReserve) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for TimedTextRuby {
@@ -11236,12 +11236,12 @@ unsafe impl ::windows::runtime::Interface for TimedTextRuby {
 impl ::windows::runtime::RuntimeName for TimedTextRuby {
     const NAME: &'static str = "Windows.Media.Core.TimedTextRuby";
 }
-impl ::std::convert::From<TimedTextRuby> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TimedTextRuby> for ::windows::runtime::IUnknown {
     fn from(value: TimedTextRuby) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TimedTextRuby> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TimedTextRuby> for ::windows::runtime::IUnknown {
     fn from(value: &TimedTextRuby) -> Self {
         value.0 .0.clone()
     }
@@ -11256,12 +11256,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TimedTextRuby> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TimedTextRuby> for ::windows::runtime::IInspectable {
     fn from(value: TimedTextRuby) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TimedTextRuby> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TimedTextRuby> for ::windows::runtime::IInspectable {
     fn from(value: &TimedTextRuby) -> Self {
         value.0.clone()
     }
@@ -11276,10 +11276,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TimedTextRuby {}
-unsafe impl ::std::marker::Sync for TimedTextRuby {}
+unsafe impl ::core::marker::Send for TimedTextRuby {}
+unsafe impl ::core::marker::Sync for TimedTextRuby {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedTextRubyAlign(pub i32);
 impl TimedTextRubyAlign {
@@ -11290,7 +11290,7 @@ impl TimedTextRubyAlign {
     pub const SpaceBetween: TimedTextRubyAlign = TimedTextRubyAlign(4i32);
     pub const WithBase: TimedTextRubyAlign = TimedTextRubyAlign(5i32);
 }
-impl ::std::convert::From<i32> for TimedTextRubyAlign {
+impl ::core::convert::From<i32> for TimedTextRubyAlign {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -11305,7 +11305,7 @@ impl ::windows::runtime::DefaultType for TimedTextRubyAlign {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedTextRubyPosition(pub i32);
 impl TimedTextRubyPosition {
@@ -11313,7 +11313,7 @@ impl TimedTextRubyPosition {
     pub const After: TimedTextRubyPosition = TimedTextRubyPosition(1i32);
     pub const Outside: TimedTextRubyPosition = TimedTextRubyPosition(2i32);
 }
-impl ::std::convert::From<i32> for TimedTextRubyPosition {
+impl ::core::convert::From<i32> for TimedTextRubyPosition {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -11328,7 +11328,7 @@ impl ::windows::runtime::DefaultType for TimedTextRubyPosition {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedTextRubyReserve(pub i32);
 impl TimedTextRubyReserve {
@@ -11338,7 +11338,7 @@ impl TimedTextRubyReserve {
     pub const Both: TimedTextRubyReserve = TimedTextRubyReserve(3i32);
     pub const Outside: TimedTextRubyReserve = TimedTextRubyReserve(4i32);
 }
-impl ::std::convert::From<i32> for TimedTextRubyReserve {
+impl ::core::convert::From<i32> for TimedTextRubyReserve {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -11353,14 +11353,14 @@ impl ::windows::runtime::DefaultType for TimedTextRubyReserve {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedTextScrollMode(pub i32);
 impl TimedTextScrollMode {
     pub const Popon: TimedTextScrollMode = TimedTextScrollMode(0i32);
     pub const Rollup: TimedTextScrollMode = TimedTextScrollMode(1i32);
 }
-impl ::std::convert::From<i32> for TimedTextScrollMode {
+impl ::core::convert::From<i32> for TimedTextScrollMode {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -11374,7 +11374,7 @@ unsafe impl ::windows::runtime::RuntimeType for TimedTextScrollMode {
 impl ::windows::runtime::DefaultType for TimedTextScrollMode {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct TimedTextSize {
@@ -11383,22 +11383,22 @@ pub struct TimedTextSize {
     pub Unit: TimedTextUnit,
 }
 impl TimedTextSize {}
-impl ::std::default::Default for TimedTextSize {
+impl ::core::default::Default for TimedTextSize {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TimedTextSize {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TimedTextSize {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TimedTextSize").field("Height", &self.Height).field("Width", &self.Width).field("Unit", &self.Unit).finish()
     }
 }
-impl ::std::cmp::PartialEq for TimedTextSize {
+impl ::core::cmp::PartialEq for TimedTextSize {
     fn eq(&self, other: &Self) -> bool {
         self.Height == other.Height && self.Width == other.Width && self.Unit == other.Unit
     }
 }
-impl ::std::cmp::Eq for TimedTextSize {}
+impl ::core::cmp::Eq for TimedTextSize {}
 unsafe impl ::windows::runtime::Abi for TimedTextSize {
     type Abi = Self;
 }
@@ -11410,7 +11410,7 @@ impl ::windows::runtime::DefaultType for TimedTextSize {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimedTextSource(pub ::windows::runtime::IInspectable);
 impl TimedTextSource {
     #[cfg(feature = "Foundation")]
@@ -11418,78 +11418,78 @@ impl TimedTextSource {
     pub fn Resolved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<TimedTextSource, TimedTextSourceResolveResultEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveResolved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn CreateFromStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(stream: Param0) -> ::windows::runtime::Result<TimedTextSource> {
         Self::ITimedTextSourceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), stream.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), stream.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn CreateFromUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(uri: Param0) -> ::windows::runtime::Result<TimedTextSource> {
         Self::ITimedTextSourceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn CreateFromStreamWithLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(stream: Param0, defaultlanguage: Param1) -> ::windows::runtime::Result<TimedTextSource> {
         Self::ITimedTextSourceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), stream.into_param().abi(), defaultlanguage.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), stream.into_param().abi(), defaultlanguage.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn CreateFromUriWithLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(uri: Param0, defaultlanguage: Param1) -> ::windows::runtime::Result<TimedTextSource> {
         Self::ITimedTextSourceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), uri.into_param().abi(), defaultlanguage.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), uri.into_param().abi(), defaultlanguage.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn CreateFromStreamWithIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(stream: Param0, indexstream: Param1) -> ::windows::runtime::Result<TimedTextSource> {
         Self::ITimedTextSourceStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), stream.into_param().abi(), indexstream.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), stream.into_param().abi(), indexstream.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn CreateFromUriWithIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(uri: Param0, indexuri: Param1) -> ::windows::runtime::Result<TimedTextSource> {
         Self::ITimedTextSourceStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), uri.into_param().abi(), indexuri.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), uri.into_param().abi(), indexuri.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Media_Core`, `Storage_Streams`*"]
     pub fn CreateFromStreamWithIndexAndLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(stream: Param0, indexstream: Param1, defaultlanguage: Param2) -> ::windows::runtime::Result<TimedTextSource> {
         Self::ITimedTextSourceStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), stream.into_param().abi(), indexstream.into_param().abi(), defaultlanguage.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), stream.into_param().abi(), indexstream.into_param().abi(), defaultlanguage.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn CreateFromUriWithIndexAndLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(uri: Param0, indexuri: Param1, defaultlanguage: Param2) -> ::windows::runtime::Result<TimedTextSource> {
         Self::ITimedTextSourceStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), uri.into_param().abi(), indexuri.into_param().abi(), defaultlanguage.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), uri.into_param().abi(), indexuri.into_param().abi(), defaultlanguage.into_param().abi(), &mut result__).from_abi::<TimedTextSource>(result__)
         })
     }
     pub fn ITimedTextSourceStatics<R, F: FnOnce(&ITimedTextSourceStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -11511,12 +11511,12 @@ unsafe impl ::windows::runtime::Interface for TimedTextSource {
 impl ::windows::runtime::RuntimeName for TimedTextSource {
     const NAME: &'static str = "Windows.Media.Core.TimedTextSource";
 }
-impl ::std::convert::From<TimedTextSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TimedTextSource> for ::windows::runtime::IUnknown {
     fn from(value: TimedTextSource) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TimedTextSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TimedTextSource> for ::windows::runtime::IUnknown {
     fn from(value: &TimedTextSource) -> Self {
         value.0 .0.clone()
     }
@@ -11531,12 +11531,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TimedTextSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TimedTextSource> for ::windows::runtime::IInspectable {
     fn from(value: TimedTextSource) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TimedTextSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TimedTextSource> for ::windows::runtime::IInspectable {
     fn from(value: &TimedTextSource) -> Self {
         value.0.clone()
     }
@@ -11551,19 +11551,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TimedTextSource {}
-unsafe impl ::std::marker::Sync for TimedTextSource {}
+unsafe impl ::core::marker::Send for TimedTextSource {}
+unsafe impl ::core::marker::Sync for TimedTextSource {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimedTextSourceResolveResultEventArgs(pub ::windows::runtime::IInspectable);
 impl TimedTextSourceResolveResultEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Error(&self) -> ::windows::runtime::Result<TimedMetadataTrackError> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedMetadataTrackError>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedMetadataTrackError>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -11571,8 +11571,8 @@ impl TimedTextSourceResolveResultEventArgs {
     pub fn Tracks(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>(result__)
         }
     }
 }
@@ -11586,12 +11586,12 @@ unsafe impl ::windows::runtime::Interface for TimedTextSourceResolveResultEventA
 impl ::windows::runtime::RuntimeName for TimedTextSourceResolveResultEventArgs {
     const NAME: &'static str = "Windows.Media.Core.TimedTextSourceResolveResultEventArgs";
 }
-impl ::std::convert::From<TimedTextSourceResolveResultEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TimedTextSourceResolveResultEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: TimedTextSourceResolveResultEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TimedTextSourceResolveResultEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TimedTextSourceResolveResultEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &TimedTextSourceResolveResultEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -11606,12 +11606,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TimedTextSourceResolveResultEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TimedTextSourceResolveResultEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: TimedTextSourceResolveResultEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TimedTextSourceResolveResultEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TimedTextSourceResolveResultEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &TimedTextSourceResolveResultEventArgs) -> Self {
         value.0.clone()
     }
@@ -11626,11 +11626,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TimedTextSourceResolveResultEventArgs {}
-unsafe impl ::std::marker::Sync for TimedTextSourceResolveResultEventArgs {}
+unsafe impl ::core::marker::Send for TimedTextSourceResolveResultEventArgs {}
+unsafe impl ::core::marker::Sync for TimedTextSourceResolveResultEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimedTextStyle(pub ::windows::runtime::IInspectable);
 impl TimedTextStyle {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -11644,257 +11644,257 @@ impl TimedTextStyle {
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetFontFamily<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn FontSize(&self) -> ::windows::runtime::Result<TimedTextDouble> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextDouble = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextDouble>(result__)
+            let mut result__: TimedTextDouble = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextDouble>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetFontSize<'a, Param0: ::windows::runtime::IntoParam<'a, TimedTextDouble>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<TimedTextWeight> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextWeight = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextWeight>(result__)
+            let mut result__: TimedTextWeight = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextWeight>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetFontWeight(&self, value: TimedTextWeight) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Media_Core`, `UI`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__: super::super::UI::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Media_Core`, `UI`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Media_Core`, `UI`*"]
     pub fn Background(&self) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__: super::super::UI::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Media_Core`, `UI`*"]
     pub fn SetBackground<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsBackgroundAlwaysShown(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetIsBackgroundAlwaysShown(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn FlowDirection(&self) -> ::windows::runtime::Result<TimedTextFlowDirection> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextFlowDirection = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextFlowDirection>(result__)
+            let mut result__: TimedTextFlowDirection = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextFlowDirection>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetFlowDirection(&self, value: TimedTextFlowDirection) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn LineAlignment(&self) -> ::windows::runtime::Result<TimedTextLineAlignment> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextLineAlignment = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextLineAlignment>(result__)
+            let mut result__: TimedTextLineAlignment = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextLineAlignment>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLineAlignment(&self, value: TimedTextLineAlignment) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Media_Core`, `UI`*"]
     pub fn OutlineColor(&self) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__: super::super::UI::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Media_Core`, `UI`*"]
     pub fn SetOutlineColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn OutlineThickness(&self) -> ::windows::runtime::Result<TimedTextDouble> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextDouble = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextDouble>(result__)
+            let mut result__: TimedTextDouble = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextDouble>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetOutlineThickness<'a, Param0: ::windows::runtime::IntoParam<'a, TimedTextDouble>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn OutlineRadius(&self) -> ::windows::runtime::Result<TimedTextDouble> {
         let this = self;
         unsafe {
-            let mut result__: TimedTextDouble = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextDouble>(result__)
+            let mut result__: TimedTextDouble = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextDouble>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetOutlineRadius<'a, Param0: ::windows::runtime::IntoParam<'a, TimedTextDouble>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<TimedTextFontStyle> {
         let this = &::windows::runtime::Interface::cast::<ITimedTextStyle2>(self)?;
         unsafe {
-            let mut result__: TimedTextFontStyle = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextFontStyle>(result__)
+            let mut result__: TimedTextFontStyle = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextFontStyle>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetFontStyle(&self, value: TimedTextFontStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITimedTextStyle2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsUnderlineEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITimedTextStyle2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetIsUnderlineEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITimedTextStyle2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsLineThroughEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITimedTextStyle2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetIsLineThroughEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITimedTextStyle2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsOverlineEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITimedTextStyle2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetIsOverlineEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITimedTextStyle2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Ruby(&self) -> ::windows::runtime::Result<TimedTextRuby> {
         let this = &::windows::runtime::Interface::cast::<ITimedTextStyle3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextRuby>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextRuby>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Bouten(&self) -> ::windows::runtime::Result<TimedTextBouten> {
         let this = &::windows::runtime::Interface::cast::<ITimedTextStyle3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextBouten>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextBouten>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsTextCombined(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITimedTextStyle3>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetIsTextCombined(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITimedTextStyle3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn FontAngleInDegrees(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITimedTextStyle3>(self)?;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetFontAngleInDegrees(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITimedTextStyle3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for TimedTextStyle {
@@ -11907,12 +11907,12 @@ unsafe impl ::windows::runtime::Interface for TimedTextStyle {
 impl ::windows::runtime::RuntimeName for TimedTextStyle {
     const NAME: &'static str = "Windows.Media.Core.TimedTextStyle";
 }
-impl ::std::convert::From<TimedTextStyle> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TimedTextStyle> for ::windows::runtime::IUnknown {
     fn from(value: TimedTextStyle) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TimedTextStyle> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TimedTextStyle> for ::windows::runtime::IUnknown {
     fn from(value: &TimedTextStyle) -> Self {
         value.0 .0.clone()
     }
@@ -11927,12 +11927,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TimedTextStyle> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TimedTextStyle> for ::windows::runtime::IInspectable {
     fn from(value: TimedTextStyle) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TimedTextStyle> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TimedTextStyle> for ::windows::runtime::IInspectable {
     fn from(value: &TimedTextStyle) -> Self {
         value.0.clone()
     }
@@ -11947,11 +11947,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TimedTextStyle {}
-unsafe impl ::std::marker::Sync for TimedTextStyle {}
+unsafe impl ::core::marker::Send for TimedTextStyle {}
+unsafe impl ::core::marker::Sync for TimedTextStyle {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimedTextSubformat(pub ::windows::runtime::IInspectable);
 impl TimedTextSubformat {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -11965,40 +11965,40 @@ impl TimedTextSubformat {
     pub fn StartIndex(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetStartIndex(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Length(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLength(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SubformatStyle(&self) -> ::windows::runtime::Result<TimedTextStyle> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextStyle>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TimedTextStyle>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetSubformatStyle<'a, Param0: ::windows::runtime::IntoParam<'a, TimedTextStyle>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for TimedTextSubformat {
@@ -12011,12 +12011,12 @@ unsafe impl ::windows::runtime::Interface for TimedTextSubformat {
 impl ::windows::runtime::RuntimeName for TimedTextSubformat {
     const NAME: &'static str = "Windows.Media.Core.TimedTextSubformat";
 }
-impl ::std::convert::From<TimedTextSubformat> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TimedTextSubformat> for ::windows::runtime::IUnknown {
     fn from(value: TimedTextSubformat) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TimedTextSubformat> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TimedTextSubformat> for ::windows::runtime::IUnknown {
     fn from(value: &TimedTextSubformat) -> Self {
         value.0 .0.clone()
     }
@@ -12031,12 +12031,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TimedTextSubformat> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TimedTextSubformat> for ::windows::runtime::IInspectable {
     fn from(value: TimedTextSubformat) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TimedTextSubformat> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TimedTextSubformat> for ::windows::runtime::IInspectable {
     fn from(value: &TimedTextSubformat) -> Self {
         value.0.clone()
     }
@@ -12051,17 +12051,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TimedTextSubformat {}
-unsafe impl ::std::marker::Sync for TimedTextSubformat {}
+unsafe impl ::core::marker::Send for TimedTextSubformat {}
+unsafe impl ::core::marker::Sync for TimedTextSubformat {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedTextUnit(pub i32);
 impl TimedTextUnit {
     pub const Pixels: TimedTextUnit = TimedTextUnit(0i32);
     pub const Percentage: TimedTextUnit = TimedTextUnit(1i32);
 }
-impl ::std::convert::From<i32> for TimedTextUnit {
+impl ::core::convert::From<i32> for TimedTextUnit {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12076,14 +12076,14 @@ impl ::windows::runtime::DefaultType for TimedTextUnit {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedTextWeight(pub i32);
 impl TimedTextWeight {
     pub const Normal: TimedTextWeight = TimedTextWeight(400i32);
     pub const Bold: TimedTextWeight = TimedTextWeight(700i32);
 }
-impl ::std::convert::From<i32> for TimedTextWeight {
+impl ::core::convert::From<i32> for TimedTextWeight {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12098,14 +12098,14 @@ impl ::windows::runtime::DefaultType for TimedTextWeight {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedTextWrapping(pub i32);
 impl TimedTextWrapping {
     pub const NoWrap: TimedTextWrapping = TimedTextWrapping(0i32);
     pub const Wrap: TimedTextWrapping = TimedTextWrapping(1i32);
 }
-impl ::std::convert::From<i32> for TimedTextWrapping {
+impl ::core::convert::From<i32> for TimedTextWrapping {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12120,7 +12120,7 @@ impl ::windows::runtime::DefaultType for TimedTextWrapping {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TimedTextWritingMode(pub i32);
 impl TimedTextWritingMode {
@@ -12132,7 +12132,7 @@ impl TimedTextWritingMode {
     pub const RightLeft: TimedTextWritingMode = TimedTextWritingMode(5i32);
     pub const TopBottom: TimedTextWritingMode = TimedTextWritingMode(6i32);
 }
-impl ::std::convert::From<i32> for TimedTextWritingMode {
+impl ::core::convert::From<i32> for TimedTextWritingMode {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12148,20 +12148,20 @@ impl ::windows::runtime::DefaultType for TimedTextWritingMode {
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VideoStabilizationEffect(pub ::windows::runtime::IInspectable);
 impl VideoStabilizationEffect {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Enabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -12169,30 +12169,30 @@ impl VideoStabilizationEffect {
     pub fn EnabledChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<VideoStabilizationEffect, VideoStabilizationEffectEnabledChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveEnabledChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_Devices", feature = "Media_MediaProperties"))]
     #[doc = "*Required features: `Media_Core`, `Media_Capture`, `Media_Devices`, `Media_MediaProperties`*"]
     pub fn GetRecommendedStreamConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::Devices::VideoDeviceController>, Param1: ::windows::runtime::IntoParam<'a, super::MediaProperties::VideoEncodingProperties>>(&self, controller: Param0, desiredproperties: Param1) -> ::windows::runtime::Result<super::Capture::VideoStreamConfiguration> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), controller.into_param().abi(), desiredproperties.into_param().abi(), &mut result__).from_abi::<super::Capture::VideoStreamConfiguration>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), controller.into_param().abi(), desiredproperties.into_param().abi(), &mut result__).from_abi::<super::Capture::VideoStreamConfiguration>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Core`, `Foundation_Collections`*"]
     pub fn SetProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, configuration: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaExtension>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), configuration.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), configuration.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for VideoStabilizationEffect {
@@ -12205,12 +12205,12 @@ unsafe impl ::windows::runtime::Interface for VideoStabilizationEffect {
 impl ::windows::runtime::RuntimeName for VideoStabilizationEffect {
     const NAME: &'static str = "Windows.Media.Core.VideoStabilizationEffect";
 }
-impl ::std::convert::From<VideoStabilizationEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<VideoStabilizationEffect> for ::windows::runtime::IUnknown {
     fn from(value: VideoStabilizationEffect) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&VideoStabilizationEffect> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&VideoStabilizationEffect> for ::windows::runtime::IUnknown {
     fn from(value: &VideoStabilizationEffect) -> Self {
         value.0 .0.clone()
     }
@@ -12225,12 +12225,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<VideoStabilizationEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<VideoStabilizationEffect> for ::windows::runtime::IInspectable {
     fn from(value: VideoStabilizationEffect) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&VideoStabilizationEffect> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&VideoStabilizationEffect> for ::windows::runtime::IInspectable {
     fn from(value: &VideoStabilizationEffect) -> Self {
         value.0.clone()
     }
@@ -12245,13 +12245,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<VideoStabilizationEffect> for super::IMediaExtension {
+impl ::core::convert::TryFrom<VideoStabilizationEffect> for super::IMediaExtension {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VideoStabilizationEffect) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&VideoStabilizationEffect> for super::IMediaExtension {
+impl ::core::convert::TryFrom<&VideoStabilizationEffect> for super::IMediaExtension {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &VideoStabilizationEffect) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -12264,15 +12264,15 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaExtension> for VideoStab
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaExtension> for &VideoStabilizationEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaExtension> {
-        ::std::convert::TryInto::<super::IMediaExtension>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaExtension>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for VideoStabilizationEffect {}
-unsafe impl ::std::marker::Sync for VideoStabilizationEffect {}
+unsafe impl ::core::marker::Send for VideoStabilizationEffect {}
+unsafe impl ::core::marker::Sync for VideoStabilizationEffect {}
 #[cfg(feature = "Media_Effects")]
 #[doc = "*Required features: `Media_Core`, `Media_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VideoStabilizationEffectDefinition(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Media_Effects")]
 impl VideoStabilizationEffectDefinition {
@@ -12288,8 +12288,8 @@ impl VideoStabilizationEffectDefinition {
     pub fn ActivatableClassId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
@@ -12297,8 +12297,8 @@ impl VideoStabilizationEffectDefinition {
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
 }
@@ -12316,13 +12316,13 @@ impl ::windows::runtime::RuntimeName for VideoStabilizationEffectDefinition {
     const NAME: &'static str = "Windows.Media.Core.VideoStabilizationEffectDefinition";
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<VideoStabilizationEffectDefinition> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<VideoStabilizationEffectDefinition> for ::windows::runtime::IUnknown {
     fn from(value: VideoStabilizationEffectDefinition) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<&VideoStabilizationEffectDefinition> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&VideoStabilizationEffectDefinition> for ::windows::runtime::IUnknown {
     fn from(value: &VideoStabilizationEffectDefinition) -> Self {
         value.0 .0.clone()
     }
@@ -12340,13 +12340,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<VideoStabilizationEffectDefinition> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<VideoStabilizationEffectDefinition> for ::windows::runtime::IInspectable {
     fn from(value: VideoStabilizationEffectDefinition) -> Self {
         value.0
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<&VideoStabilizationEffectDefinition> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&VideoStabilizationEffectDefinition> for ::windows::runtime::IInspectable {
     fn from(value: &VideoStabilizationEffectDefinition) -> Self {
         value.0.clone()
     }
@@ -12364,44 +12364,44 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<VideoStabilizationEffectDefinition> for super::Effects::IVideoEffectDefinition {
+impl ::core::convert::From<VideoStabilizationEffectDefinition> for super::Effects::IVideoEffectDefinition {
     fn from(value: VideoStabilizationEffectDefinition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::std::convert::From<&VideoStabilizationEffectDefinition> for super::Effects::IVideoEffectDefinition {
+impl ::core::convert::From<&VideoStabilizationEffectDefinition> for super::Effects::IVideoEffectDefinition {
     fn from(value: &VideoStabilizationEffectDefinition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IVideoEffectDefinition> for VideoStabilizationEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Effects::IVideoEffectDefinition> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IVideoEffectDefinition> for &VideoStabilizationEffectDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Effects::IVideoEffectDefinition> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Media_Effects")]
-unsafe impl ::std::marker::Send for VideoStabilizationEffectDefinition {}
+unsafe impl ::core::marker::Send for VideoStabilizationEffectDefinition {}
 #[cfg(feature = "Media_Effects")]
-unsafe impl ::std::marker::Sync for VideoStabilizationEffectDefinition {}
+unsafe impl ::core::marker::Sync for VideoStabilizationEffectDefinition {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VideoStabilizationEffectEnabledChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl VideoStabilizationEffectEnabledChangedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<VideoStabilizationEffectEnabledChangedReason> {
         let this = self;
         unsafe {
-            let mut result__: VideoStabilizationEffectEnabledChangedReason = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VideoStabilizationEffectEnabledChangedReason>(result__)
+            let mut result__: VideoStabilizationEffectEnabledChangedReason = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VideoStabilizationEffectEnabledChangedReason>(result__)
         }
     }
 }
@@ -12415,12 +12415,12 @@ unsafe impl ::windows::runtime::Interface for VideoStabilizationEffectEnabledCha
 impl ::windows::runtime::RuntimeName for VideoStabilizationEffectEnabledChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.VideoStabilizationEffectEnabledChangedEventArgs";
 }
-impl ::std::convert::From<VideoStabilizationEffectEnabledChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<VideoStabilizationEffectEnabledChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: VideoStabilizationEffectEnabledChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&VideoStabilizationEffectEnabledChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&VideoStabilizationEffectEnabledChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &VideoStabilizationEffectEnabledChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -12435,12 +12435,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<VideoStabilizationEffectEnabledChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<VideoStabilizationEffectEnabledChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: VideoStabilizationEffectEnabledChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&VideoStabilizationEffectEnabledChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&VideoStabilizationEffectEnabledChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &VideoStabilizationEffectEnabledChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -12455,10 +12455,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for VideoStabilizationEffectEnabledChangedEventArgs {}
-unsafe impl ::std::marker::Sync for VideoStabilizationEffectEnabledChangedEventArgs {}
+unsafe impl ::core::marker::Send for VideoStabilizationEffectEnabledChangedEventArgs {}
+unsafe impl ::core::marker::Sync for VideoStabilizationEffectEnabledChangedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VideoStabilizationEffectEnabledChangedReason(pub i32);
 impl VideoStabilizationEffectEnabledChangedReason {
@@ -12466,7 +12466,7 @@ impl VideoStabilizationEffectEnabledChangedReason {
     pub const PixelRateTooHigh: VideoStabilizationEffectEnabledChangedReason = VideoStabilizationEffectEnabledChangedReason(1i32);
     pub const RunningSlowly: VideoStabilizationEffectEnabledChangedReason = VideoStabilizationEffectEnabledChangedReason(2i32);
 }
-impl ::std::convert::From<i32> for VideoStabilizationEffectEnabledChangedReason {
+impl ::core::convert::From<i32> for VideoStabilizationEffectEnabledChangedReason {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12482,7 +12482,7 @@ impl ::windows::runtime::DefaultType for VideoStabilizationEffectEnabledChangedR
 }
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VideoStreamDescriptor(pub ::windows::runtime::IInspectable);
 impl VideoStreamDescriptor {
     #[cfg(feature = "Media_MediaProperties")]
@@ -12490,71 +12490,71 @@ impl VideoStreamDescriptor {
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::VideoEncodingProperties> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::VideoEncodingProperties>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::VideoEncodingProperties>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn IsSelected(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
     #[doc = "*Required features: `Media_Core`, `Media_MediaProperties`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::MediaProperties::VideoEncodingProperties>>(encodingproperties: Param0) -> ::windows::runtime::Result<VideoStreamDescriptor> {
         Self::IVideoStreamDescriptorFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), encodingproperties.into_param().abi(), &mut result__).from_abi::<VideoStreamDescriptor>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), encodingproperties.into_param().abi(), &mut result__).from_abi::<VideoStreamDescriptor>(result__)
         })
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLabel<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaStreamDescriptor2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Copy(&self) -> ::windows::runtime::Result<VideoStreamDescriptor> {
         let this = &::windows::runtime::Interface::cast::<IVideoStreamDescriptor2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VideoStreamDescriptor>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VideoStreamDescriptor>(result__)
         }
     }
     pub fn IVideoStreamDescriptorFactory<R, F: FnOnce(&IVideoStreamDescriptorFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -12572,12 +12572,12 @@ unsafe impl ::windows::runtime::Interface for VideoStreamDescriptor {
 impl ::windows::runtime::RuntimeName for VideoStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.VideoStreamDescriptor";
 }
-impl ::std::convert::From<VideoStreamDescriptor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<VideoStreamDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: VideoStreamDescriptor) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&VideoStreamDescriptor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&VideoStreamDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: &VideoStreamDescriptor) -> Self {
         value.0 .0.clone()
     }
@@ -12592,12 +12592,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<VideoStreamDescriptor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<VideoStreamDescriptor> for ::windows::runtime::IInspectable {
     fn from(value: VideoStreamDescriptor) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&VideoStreamDescriptor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&VideoStreamDescriptor> for ::windows::runtime::IInspectable {
     fn from(value: &VideoStreamDescriptor) -> Self {
         value.0.clone()
     }
@@ -12612,13 +12612,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<VideoStreamDescriptor> for IMediaStreamDescriptor {
+impl ::core::convert::TryFrom<VideoStreamDescriptor> for IMediaStreamDescriptor {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VideoStreamDescriptor) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&VideoStreamDescriptor> for IMediaStreamDescriptor {
+impl ::core::convert::TryFrom<&VideoStreamDescriptor> for IMediaStreamDescriptor {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &VideoStreamDescriptor) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -12631,16 +12631,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor> for VideoStre
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor> for &VideoStreamDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaStreamDescriptor> {
-        ::std::convert::TryInto::<IMediaStreamDescriptor>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IMediaStreamDescriptor>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<VideoStreamDescriptor> for IMediaStreamDescriptor2 {
+impl ::core::convert::TryFrom<VideoStreamDescriptor> for IMediaStreamDescriptor2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VideoStreamDescriptor) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&VideoStreamDescriptor> for IMediaStreamDescriptor2 {
+impl ::core::convert::TryFrom<&VideoStreamDescriptor> for IMediaStreamDescriptor2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &VideoStreamDescriptor) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -12653,51 +12653,51 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor2> for VideoStr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaStreamDescriptor2> for &VideoStreamDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaStreamDescriptor2> {
-        ::std::convert::TryInto::<IMediaStreamDescriptor2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IMediaStreamDescriptor2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for VideoStreamDescriptor {}
-unsafe impl ::std::marker::Sync for VideoStreamDescriptor {}
+unsafe impl ::core::marker::Send for VideoStreamDescriptor {}
+unsafe impl ::core::marker::Sync for VideoStreamDescriptor {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VideoTrack(pub ::windows::runtime::IInspectable);
 impl VideoTrack {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn TrackKind(&self) -> ::windows::runtime::Result<MediaTrackKind> {
         let this = self;
         unsafe {
-            let mut result__: MediaTrackKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaTrackKind>(result__)
+            let mut result__: MediaTrackKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaTrackKind>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SetLabel<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -12705,23 +12705,23 @@ impl VideoTrack {
     pub fn OpenFailed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<VideoTrack, VideoTrackOpenFailedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IVideoTrack>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Core`, `Foundation`*"]
     pub fn RemoveOpenFailed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IVideoTrack>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_MediaProperties")]
     #[doc = "*Required features: `Media_Core`, `Media_MediaProperties`*"]
     pub fn GetEncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::VideoEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IVideoTrack>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::VideoEncodingProperties>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::VideoEncodingProperties>(result__)
         }
     }
     #[cfg(feature = "Media_Playback")]
@@ -12729,24 +12729,24 @@ impl VideoTrack {
     pub fn PlaybackItem(&self) -> ::windows::runtime::Result<super::Playback::MediaPlaybackItem> {
         let this = &::windows::runtime::Interface::cast::<IVideoTrack>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Playback::MediaPlaybackItem>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Playback::MediaPlaybackItem>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IVideoTrack>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn SupportInfo(&self) -> ::windows::runtime::Result<VideoTrackSupportInfo> {
         let this = &::windows::runtime::Interface::cast::<IVideoTrack>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VideoTrackSupportInfo>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VideoTrackSupportInfo>(result__)
         }
     }
 }
@@ -12760,12 +12760,12 @@ unsafe impl ::windows::runtime::Interface for VideoTrack {
 impl ::windows::runtime::RuntimeName for VideoTrack {
     const NAME: &'static str = "Windows.Media.Core.VideoTrack";
 }
-impl ::std::convert::From<VideoTrack> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<VideoTrack> for ::windows::runtime::IUnknown {
     fn from(value: VideoTrack) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&VideoTrack> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&VideoTrack> for ::windows::runtime::IUnknown {
     fn from(value: &VideoTrack) -> Self {
         value.0 .0.clone()
     }
@@ -12780,12 +12780,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<VideoTrack> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<VideoTrack> for ::windows::runtime::IInspectable {
     fn from(value: VideoTrack) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&VideoTrack> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&VideoTrack> for ::windows::runtime::IInspectable {
     fn from(value: &VideoTrack) -> Self {
         value.0.clone()
     }
@@ -12800,39 +12800,39 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<VideoTrack> for IMediaTrack {
+impl ::core::convert::From<VideoTrack> for IMediaTrack {
     fn from(value: VideoTrack) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&VideoTrack> for IMediaTrack {
+impl ::core::convert::From<&VideoTrack> for IMediaTrack {
     fn from(value: &VideoTrack) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaTrack> for VideoTrack {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaTrack> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaTrack> for &VideoTrack {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaTrack> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::std::marker::Send for VideoTrack {}
-unsafe impl ::std::marker::Sync for VideoTrack {}
+unsafe impl ::core::marker::Send for VideoTrack {}
+unsafe impl ::core::marker::Sync for VideoTrack {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VideoTrackOpenFailedEventArgs(pub ::windows::runtime::IInspectable);
 impl VideoTrackOpenFailedEventArgs {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
 }
@@ -12846,12 +12846,12 @@ unsafe impl ::windows::runtime::Interface for VideoTrackOpenFailedEventArgs {
 impl ::windows::runtime::RuntimeName for VideoTrackOpenFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.VideoTrackOpenFailedEventArgs";
 }
-impl ::std::convert::From<VideoTrackOpenFailedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<VideoTrackOpenFailedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: VideoTrackOpenFailedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&VideoTrackOpenFailedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&VideoTrackOpenFailedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &VideoTrackOpenFailedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -12866,12 +12866,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<VideoTrackOpenFailedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<VideoTrackOpenFailedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: VideoTrackOpenFailedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&VideoTrackOpenFailedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&VideoTrackOpenFailedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &VideoTrackOpenFailedEventArgs) -> Self {
         value.0.clone()
     }
@@ -12886,27 +12886,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for VideoTrackOpenFailedEventArgs {}
-unsafe impl ::std::marker::Sync for VideoTrackOpenFailedEventArgs {}
+unsafe impl ::core::marker::Send for VideoTrackOpenFailedEventArgs {}
+unsafe impl ::core::marker::Sync for VideoTrackOpenFailedEventArgs {}
 #[doc = "*Required features: `Media_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VideoTrackSupportInfo(pub ::windows::runtime::IInspectable);
 impl VideoTrackSupportInfo {
     #[doc = "*Required features: `Media_Core`*"]
     pub fn DecoderStatus(&self) -> ::windows::runtime::Result<MediaDecoderStatus> {
         let this = self;
         unsafe {
-            let mut result__: MediaDecoderStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaDecoderStatus>(result__)
+            let mut result__: MediaDecoderStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaDecoderStatus>(result__)
         }
     }
     #[doc = "*Required features: `Media_Core`*"]
     pub fn MediaSourceStatus(&self) -> ::windows::runtime::Result<MediaSourceStatus> {
         let this = self;
         unsafe {
-            let mut result__: MediaSourceStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaSourceStatus>(result__)
+            let mut result__: MediaSourceStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaSourceStatus>(result__)
         }
     }
 }
@@ -12920,12 +12920,12 @@ unsafe impl ::windows::runtime::Interface for VideoTrackSupportInfo {
 impl ::windows::runtime::RuntimeName for VideoTrackSupportInfo {
     const NAME: &'static str = "Windows.Media.Core.VideoTrackSupportInfo";
 }
-impl ::std::convert::From<VideoTrackSupportInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<VideoTrackSupportInfo> for ::windows::runtime::IUnknown {
     fn from(value: VideoTrackSupportInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&VideoTrackSupportInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&VideoTrackSupportInfo> for ::windows::runtime::IUnknown {
     fn from(value: &VideoTrackSupportInfo) -> Self {
         value.0 .0.clone()
     }
@@ -12940,12 +12940,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<VideoTrackSupportInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<VideoTrackSupportInfo> for ::windows::runtime::IInspectable {
     fn from(value: VideoTrackSupportInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&VideoTrackSupportInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&VideoTrackSupportInfo> for ::windows::runtime::IInspectable {
     fn from(value: &VideoTrackSupportInfo) -> Self {
         value.0.clone()
     }
@@ -12960,5 +12960,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for VideoTrackSupportInfo {}
-unsafe impl ::std::marker::Sync for VideoTrackSupportInfo {}
+unsafe impl ::core::marker::Send for VideoTrackSupportInfo {}
+unsafe impl ::core::marker::Sync for VideoTrackSupportInfo {}

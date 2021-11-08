@@ -22,8 +22,8 @@ pub struct IIndexedResourceCandidate_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, qualifiername: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, qualifiername: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -41,8 +41,8 @@ pub struct IIndexedResourceQualifier_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -105,15 +105,15 @@ pub struct IResourceIndexerFactory2_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IndexedResourceCandidate(pub ::windows::runtime::IInspectable);
 impl IndexedResourceCandidate {
     #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<IndexedResourceType> {
         let this = self;
         unsafe {
-            let mut result__: IndexedResourceType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IndexedResourceType>(result__)
+            let mut result__: IndexedResourceType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IndexedResourceType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -121,8 +121,8 @@ impl IndexedResourceCandidate {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -130,8 +130,8 @@ impl IndexedResourceCandidate {
     pub fn Metadata(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -139,24 +139,24 @@ impl IndexedResourceCandidate {
     pub fn Qualifiers(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<IndexedResourceQualifier>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IndexedResourceQualifier>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IndexedResourceQualifier>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
     pub fn ValueAsString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
     pub fn GetQualifierValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, qualifiername: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), qualifiername.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), qualifiername.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -170,12 +170,12 @@ unsafe impl ::windows::runtime::Interface for IndexedResourceCandidate {
 impl ::windows::runtime::RuntimeName for IndexedResourceCandidate {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IndexedResourceCandidate";
 }
-impl ::std::convert::From<IndexedResourceCandidate> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IndexedResourceCandidate> for ::windows::runtime::IUnknown {
     fn from(value: IndexedResourceCandidate) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IndexedResourceCandidate> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IndexedResourceCandidate> for ::windows::runtime::IUnknown {
     fn from(value: &IndexedResourceCandidate) -> Self {
         value.0 .0.clone()
     }
@@ -190,12 +190,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IndexedResourceCandidate> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IndexedResourceCandidate> for ::windows::runtime::IInspectable {
     fn from(value: IndexedResourceCandidate) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IndexedResourceCandidate> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IndexedResourceCandidate> for ::windows::runtime::IInspectable {
     fn from(value: &IndexedResourceCandidate) -> Self {
         value.0.clone()
     }
@@ -210,27 +210,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for IndexedResourceCandidate {}
-unsafe impl ::std::marker::Sync for IndexedResourceCandidate {}
+unsafe impl ::core::marker::Send for IndexedResourceCandidate {}
+unsafe impl ::core::marker::Sync for IndexedResourceCandidate {}
 #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IndexedResourceQualifier(pub ::windows::runtime::IInspectable);
 impl IndexedResourceQualifier {
     #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
     pub fn QualifierName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
     pub fn QualifierValue(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -244,12 +244,12 @@ unsafe impl ::windows::runtime::Interface for IndexedResourceQualifier {
 impl ::windows::runtime::RuntimeName for IndexedResourceQualifier {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IndexedResourceQualifier";
 }
-impl ::std::convert::From<IndexedResourceQualifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IndexedResourceQualifier> for ::windows::runtime::IUnknown {
     fn from(value: IndexedResourceQualifier) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IndexedResourceQualifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IndexedResourceQualifier> for ::windows::runtime::IUnknown {
     fn from(value: &IndexedResourceQualifier) -> Self {
         value.0 .0.clone()
     }
@@ -264,12 +264,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IndexedResourceQualifier> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IndexedResourceQualifier> for ::windows::runtime::IInspectable {
     fn from(value: IndexedResourceQualifier) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IndexedResourceQualifier> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IndexedResourceQualifier> for ::windows::runtime::IInspectable {
     fn from(value: &IndexedResourceQualifier) -> Self {
         value.0.clone()
     }
@@ -284,10 +284,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for IndexedResourceQualifier {}
-unsafe impl ::std::marker::Sync for IndexedResourceQualifier {}
+unsafe impl ::core::marker::Send for IndexedResourceQualifier {}
+unsafe impl ::core::marker::Sync for IndexedResourceQualifier {}
 #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IndexedResourceType(pub i32);
 impl IndexedResourceType {
@@ -295,7 +295,7 @@ impl IndexedResourceType {
     pub const Path: IndexedResourceType = IndexedResourceType(1i32);
     pub const EmbeddedData: IndexedResourceType = IndexedResourceType(2i32);
 }
-impl ::std::convert::From<i32> for IndexedResourceType {
+impl ::core::convert::From<i32> for IndexedResourceType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -311,7 +311,7 @@ impl ::windows::runtime::DefaultType for IndexedResourceType {
 }
 #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ResourceIndexer(pub ::windows::runtime::IInspectable);
 impl ResourceIndexer {
     #[cfg(feature = "deprecated")]
@@ -320,8 +320,8 @@ impl ResourceIndexer {
     pub fn IndexFilePath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, filepath: Param0) -> ::windows::runtime::Result<IndexedResourceCandidate> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), filepath.into_param().abi(), &mut result__).from_abi::<IndexedResourceCandidate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), filepath.into_param().abi(), &mut result__).from_abi::<IndexedResourceCandidate>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -330,8 +330,8 @@ impl ResourceIndexer {
     pub fn IndexFileContentsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, file: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -339,8 +339,8 @@ impl ResourceIndexer {
     #[doc = "*Required features: `ApplicationModel_Resources_Management`, `Foundation`*"]
     pub fn CreateResourceIndexer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(projectroot: Param0) -> ::windows::runtime::Result<ResourceIndexer> {
         Self::IResourceIndexerFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), projectroot.into_param().abi(), &mut result__).from_abi::<ResourceIndexer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), projectroot.into_param().abi(), &mut result__).from_abi::<ResourceIndexer>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
@@ -348,8 +348,8 @@ impl ResourceIndexer {
     #[doc = "*Required features: `ApplicationModel_Resources_Management`, `Foundation`*"]
     pub fn CreateResourceIndexerWithExtension<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(projectroot: Param0, extensiondllpath: Param1) -> ::windows::runtime::Result<ResourceIndexer> {
         Self::IResourceIndexerFactory2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), projectroot.into_param().abi(), extensiondllpath.into_param().abi(), &mut result__).from_abi::<ResourceIndexer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), projectroot.into_param().abi(), extensiondllpath.into_param().abi(), &mut result__).from_abi::<ResourceIndexer>(result__)
         })
     }
     pub fn IResourceIndexerFactory<R, F: FnOnce(&IResourceIndexerFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -371,12 +371,12 @@ unsafe impl ::windows::runtime::Interface for ResourceIndexer {
 impl ::windows::runtime::RuntimeName for ResourceIndexer {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.ResourceIndexer";
 }
-impl ::std::convert::From<ResourceIndexer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ResourceIndexer> for ::windows::runtime::IUnknown {
     fn from(value: ResourceIndexer) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ResourceIndexer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ResourceIndexer> for ::windows::runtime::IUnknown {
     fn from(value: &ResourceIndexer) -> Self {
         value.0 .0.clone()
     }
@@ -391,12 +391,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ResourceIndexer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ResourceIndexer> for ::windows::runtime::IInspectable {
     fn from(value: ResourceIndexer) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ResourceIndexer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ResourceIndexer> for ::windows::runtime::IInspectable {
     fn from(value: &ResourceIndexer) -> Self {
         value.0.clone()
     }
@@ -411,8 +411,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ResourceIndexer {}
-unsafe impl ::std::marker::Sync for ResourceIndexer {}
+unsafe impl ::core::marker::Send for ResourceIndexer {}
+unsafe impl ::core::marker::Sync for ResourceIndexer {}
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct ResourceIndexerContract(pub u8);

@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Graphics_Display_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HdmiDisplayColorSpace(pub i32);
 impl HdmiDisplayColorSpace {
@@ -9,7 +9,7 @@ impl HdmiDisplayColorSpace {
     pub const BT2020: HdmiDisplayColorSpace = HdmiDisplayColorSpace(2i32);
     pub const BT709: HdmiDisplayColorSpace = HdmiDisplayColorSpace(3i32);
 }
-impl ::std::convert::From<i32> for HdmiDisplayColorSpace {
+impl ::core::convert::From<i32> for HdmiDisplayColorSpace {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -23,7 +23,7 @@ unsafe impl ::windows::runtime::RuntimeType for HdmiDisplayColorSpace {
 impl ::windows::runtime::DefaultType for HdmiDisplayColorSpace {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Graphics_Display_Core`*"]
 pub struct HdmiDisplayHdr2086Metadata {
@@ -41,13 +41,13 @@ pub struct HdmiDisplayHdr2086Metadata {
     pub MaxFrameAverageLightLevel: u16,
 }
 impl HdmiDisplayHdr2086Metadata {}
-impl ::std::default::Default for HdmiDisplayHdr2086Metadata {
+impl ::core::default::Default for HdmiDisplayHdr2086Metadata {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HdmiDisplayHdr2086Metadata {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HdmiDisplayHdr2086Metadata {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HdmiDisplayHdr2086Metadata")
             .field("RedPrimaryX", &self.RedPrimaryX)
             .field("RedPrimaryY", &self.RedPrimaryY)
@@ -64,7 +64,7 @@ impl ::std::fmt::Debug for HdmiDisplayHdr2086Metadata {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for HdmiDisplayHdr2086Metadata {
+impl ::core::cmp::PartialEq for HdmiDisplayHdr2086Metadata {
     fn eq(&self, other: &Self) -> bool {
         self.RedPrimaryX == other.RedPrimaryX
             && self.RedPrimaryY == other.RedPrimaryY
@@ -80,7 +80,7 @@ impl ::std::cmp::PartialEq for HdmiDisplayHdr2086Metadata {
             && self.MaxFrameAverageLightLevel == other.MaxFrameAverageLightLevel
     }
 }
-impl ::std::cmp::Eq for HdmiDisplayHdr2086Metadata {}
+impl ::core::cmp::Eq for HdmiDisplayHdr2086Metadata {}
 unsafe impl ::windows::runtime::Abi for HdmiDisplayHdr2086Metadata {
     type Abi = Self;
 }
@@ -91,7 +91,7 @@ impl ::windows::runtime::DefaultType for HdmiDisplayHdr2086Metadata {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Display_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HdmiDisplayHdrOption(pub i32);
 impl HdmiDisplayHdrOption {
@@ -100,7 +100,7 @@ impl HdmiDisplayHdrOption {
     pub const Eotf2084: HdmiDisplayHdrOption = HdmiDisplayHdrOption(2i32);
     pub const DolbyVisionLowLatency: HdmiDisplayHdrOption = HdmiDisplayHdrOption(3i32);
 }
-impl ::std::convert::From<i32> for HdmiDisplayHdrOption {
+impl ::core::convert::From<i32> for HdmiDisplayHdrOption {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -116,7 +116,7 @@ impl ::windows::runtime::DefaultType for HdmiDisplayHdrOption {
 }
 #[doc = "*Required features: `Graphics_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HdmiDisplayInformation(pub ::windows::runtime::IInspectable);
 impl HdmiDisplayInformation {
     #[cfg(feature = "Foundation_Collections")]
@@ -124,16 +124,16 @@ impl HdmiDisplayInformation {
     pub fn GetSupportedDisplayModes(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<HdmiDisplayMode>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<HdmiDisplayMode>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<HdmiDisplayMode>>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn GetCurrentDisplayMode(&self) -> ::windows::runtime::Result<HdmiDisplayMode> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HdmiDisplayMode>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HdmiDisplayMode>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -141,8 +141,8 @@ impl HdmiDisplayInformation {
     pub fn SetDefaultDisplayModeAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -150,8 +150,8 @@ impl HdmiDisplayInformation {
     pub fn RequestSetCurrentDisplayModeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, HdmiDisplayMode>>(&self, mode: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), mode.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), mode.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -159,8 +159,8 @@ impl HdmiDisplayInformation {
     pub fn RequestSetCurrentDisplayModeWithHdrAsync<'a, Param0: ::windows::runtime::IntoParam<'a, HdmiDisplayMode>>(&self, mode: Param0, hdroption: HdmiDisplayHdrOption) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), mode.into_param().abi(), hdroption, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), mode.into_param().abi(), hdroption, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -168,8 +168,8 @@ impl HdmiDisplayInformation {
     pub fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync<'a, Param0: ::windows::runtime::IntoParam<'a, HdmiDisplayMode>, Param2: ::windows::runtime::IntoParam<'a, HdmiDisplayHdr2086Metadata>>(&self, mode: Param0, hdroption: HdmiDisplayHdrOption, hdrmetadata: Param2) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), mode.into_param().abi(), hdroption, hdrmetadata.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), mode.into_param().abi(), hdroption, hdrmetadata.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -177,21 +177,21 @@ impl HdmiDisplayInformation {
     pub fn DisplayModesChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<HdmiDisplayInformation, ::windows::runtime::IInspectable>>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_Display_Core`, `Foundation`*"]
     pub fn RemoveDisplayModesChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<HdmiDisplayInformation> {
         Self::IHdmiDisplayInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HdmiDisplayInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HdmiDisplayInformation>(result__)
         })
     }
     pub fn IHdmiDisplayInformationStatics<R, F: FnOnce(&IHdmiDisplayInformationStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -209,12 +209,12 @@ unsafe impl ::windows::runtime::Interface for HdmiDisplayInformation {
 impl ::windows::runtime::RuntimeName for HdmiDisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayInformation";
 }
-impl ::std::convert::From<HdmiDisplayInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HdmiDisplayInformation> for ::windows::runtime::IUnknown {
     fn from(value: HdmiDisplayInformation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HdmiDisplayInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HdmiDisplayInformation> for ::windows::runtime::IUnknown {
     fn from(value: &HdmiDisplayInformation) -> Self {
         value.0 .0.clone()
     }
@@ -229,12 +229,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HdmiDisplayInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HdmiDisplayInformation> for ::windows::runtime::IInspectable {
     fn from(value: HdmiDisplayInformation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HdmiDisplayInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HdmiDisplayInformation> for ::windows::runtime::IInspectable {
     fn from(value: &HdmiDisplayInformation) -> Self {
         value.0.clone()
     }
@@ -249,107 +249,107 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HdmiDisplayInformation {}
-unsafe impl ::std::marker::Sync for HdmiDisplayInformation {}
+unsafe impl ::core::marker::Send for HdmiDisplayInformation {}
+unsafe impl ::core::marker::Sync for HdmiDisplayInformation {}
 #[doc = "*Required features: `Graphics_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HdmiDisplayMode(pub ::windows::runtime::IInspectable);
 impl HdmiDisplayMode {
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn ResolutionWidthInRawPixels(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn ResolutionHeightInRawPixels(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn RefreshRate(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn StereoEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn BitsPerPixel(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, HdmiDisplayMode>>(&self, mode: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), mode.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), mode.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn ColorSpace(&self) -> ::windows::runtime::Result<HdmiDisplayColorSpace> {
         let this = self;
         unsafe {
-            let mut result__: HdmiDisplayColorSpace = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HdmiDisplayColorSpace>(result__)
+            let mut result__: HdmiDisplayColorSpace = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HdmiDisplayColorSpace>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn PixelEncoding(&self) -> ::windows::runtime::Result<HdmiDisplayPixelEncoding> {
         let this = self;
         unsafe {
-            let mut result__: HdmiDisplayPixelEncoding = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HdmiDisplayPixelEncoding>(result__)
+            let mut result__: HdmiDisplayPixelEncoding = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HdmiDisplayPixelEncoding>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn IsSdrLuminanceSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn IsSmpte2084Supported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn Is2086MetadataSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Graphics_Display_Core`*"]
     pub fn IsDolbyVisionLowLatencySupported(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IHdmiDisplayMode2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -363,12 +363,12 @@ unsafe impl ::windows::runtime::Interface for HdmiDisplayMode {
 impl ::windows::runtime::RuntimeName for HdmiDisplayMode {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayMode";
 }
-impl ::std::convert::From<HdmiDisplayMode> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HdmiDisplayMode> for ::windows::runtime::IUnknown {
     fn from(value: HdmiDisplayMode) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HdmiDisplayMode> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HdmiDisplayMode> for ::windows::runtime::IUnknown {
     fn from(value: &HdmiDisplayMode) -> Self {
         value.0 .0.clone()
     }
@@ -383,12 +383,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HdmiDisplayMode> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HdmiDisplayMode> for ::windows::runtime::IInspectable {
     fn from(value: HdmiDisplayMode) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HdmiDisplayMode> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HdmiDisplayMode> for ::windows::runtime::IInspectable {
     fn from(value: &HdmiDisplayMode) -> Self {
         value.0.clone()
     }
@@ -403,10 +403,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for HdmiDisplayMode {}
-unsafe impl ::std::marker::Sync for HdmiDisplayMode {}
+unsafe impl ::core::marker::Send for HdmiDisplayMode {}
+unsafe impl ::core::marker::Sync for HdmiDisplayMode {}
 #[doc = "*Required features: `Graphics_Display_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HdmiDisplayPixelEncoding(pub i32);
 impl HdmiDisplayPixelEncoding {
@@ -415,7 +415,7 @@ impl HdmiDisplayPixelEncoding {
     pub const Ycc422: HdmiDisplayPixelEncoding = HdmiDisplayPixelEncoding(2i32);
     pub const Ycc420: HdmiDisplayPixelEncoding = HdmiDisplayPixelEncoding(3i32);
 }
-impl ::std::convert::From<i32> for HdmiDisplayPixelEncoding {
+impl ::core::convert::From<i32> for HdmiDisplayPixelEncoding {
     fn from(value: i32) -> Self {
         Self(value)
     }

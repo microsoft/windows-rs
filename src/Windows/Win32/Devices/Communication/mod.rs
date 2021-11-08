@@ -9,7 +9,7 @@ pub unsafe fn BuildCommDCBA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn BuildCommDCBA(lpdef: super::super::Foundation::PSTR, lpdcb: *mut DCB) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BuildCommDCBA(lpdef.into_param().abi(), ::std::mem::transmute(lpdcb)))
+        ::core::mem::transmute(BuildCommDCBA(lpdef.into_param().abi(), ::core::mem::transmute(lpdcb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -24,7 +24,7 @@ pub unsafe fn BuildCommDCBAndTimeoutsA<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn BuildCommDCBAndTimeoutsA(lpdef: super::super::Foundation::PSTR, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BuildCommDCBAndTimeoutsA(lpdef.into_param().abi(), ::std::mem::transmute(lpdcb), ::std::mem::transmute(lpcommtimeouts)))
+        ::core::mem::transmute(BuildCommDCBAndTimeoutsA(lpdef.into_param().abi(), ::core::mem::transmute(lpdcb), ::core::mem::transmute(lpcommtimeouts)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -39,7 +39,7 @@ pub unsafe fn BuildCommDCBAndTimeoutsW<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn BuildCommDCBAndTimeoutsW(lpdef: super::super::Foundation::PWSTR, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BuildCommDCBAndTimeoutsW(lpdef.into_param().abi(), ::std::mem::transmute(lpdcb), ::std::mem::transmute(lpcommtimeouts)))
+        ::core::mem::transmute(BuildCommDCBAndTimeoutsW(lpdef.into_param().abi(), ::core::mem::transmute(lpdcb), ::core::mem::transmute(lpcommtimeouts)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -54,13 +54,13 @@ pub unsafe fn BuildCommDCBW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn BuildCommDCBW(lpdef: super::super::Foundation::PWSTR, lpdcb: *mut DCB) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BuildCommDCBW(lpdef.into_param().abi(), ::std::mem::transmute(lpdcb)))
+        ::core::mem::transmute(BuildCommDCBW(lpdef.into_param().abi(), ::core::mem::transmute(lpdcb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLEAR_COMM_ERROR_FLAGS(pub u32);
 pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(16u32);
@@ -68,7 +68,7 @@ pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(8u32);
 pub const CE_OVERRUN: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(2u32);
 pub const CE_RXOVER: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(1u32);
 pub const CE_RXPARITY: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(4u32);
-impl ::std::convert::From<u32> for CLEAR_COMM_ERROR_FLAGS {
+impl ::core::convert::From<u32> for CLEAR_COMM_ERROR_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -76,35 +76,35 @@ impl ::std::convert::From<u32> for CLEAR_COMM_ERROR_FLAGS {
 unsafe impl ::windows::runtime::Abi for CLEAR_COMM_ERROR_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for CLEAR_COMM_ERROR_FLAGS {
+impl ::core::ops::BitOr for CLEAR_COMM_ERROR_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for CLEAR_COMM_ERROR_FLAGS {
+impl ::core::ops::BitAnd for CLEAR_COMM_ERROR_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for CLEAR_COMM_ERROR_FLAGS {
+impl ::core::ops::BitOrAssign for CLEAR_COMM_ERROR_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for CLEAR_COMM_ERROR_FLAGS {
+impl ::core::ops::BitAndAssign for CLEAR_COMM_ERROR_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for CLEAR_COMM_ERROR_FLAGS {
+impl ::core::ops::Not for CLEAR_COMM_ERROR_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Communication`, `Win32_Foundation`*"]
@@ -121,14 +121,14 @@ pub struct COMMCONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl COMMCONFIG {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for COMMCONFIG {
+impl ::core::default::Default for COMMCONFIG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for COMMCONFIG {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for COMMCONFIG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("COMMCONFIG")
             .field("dwSize", &self.dwSize)
             .field("wVersion", &self.wVersion)
@@ -142,18 +142,18 @@ impl ::std::fmt::Debug for COMMCONFIG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for COMMCONFIG {
+impl ::core::cmp::PartialEq for COMMCONFIG {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.wVersion == other.wVersion && self.wReserved == other.wReserved && self.dcb == other.dcb && self.dwProviderSubType == other.dwProviderSubType && self.dwProviderOffset == other.dwProviderOffset && self.dwProviderSize == other.dwProviderSize && self.wcProviderData == other.wcProviderData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for COMMCONFIG {}
+impl ::core::cmp::Eq for COMMCONFIG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COMMCONFIG {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
 pub struct COMMPROP {
@@ -177,13 +177,13 @@ pub struct COMMPROP {
     pub wcProvChar: [u16; 1],
 }
 impl COMMPROP {}
-impl ::std::default::Default for COMMPROP {
+impl ::core::default::Default for COMMPROP {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for COMMPROP {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for COMMPROP {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("COMMPROP")
             .field("wPacketLength", &self.wPacketLength)
             .field("wPacketVersion", &self.wPacketVersion)
@@ -206,7 +206,7 @@ impl ::std::fmt::Debug for COMMPROP {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for COMMPROP {
+impl ::core::cmp::PartialEq for COMMPROP {
     fn eq(&self, other: &Self) -> bool {
         self.wPacketLength == other.wPacketLength
             && self.wPacketVersion == other.wPacketVersion
@@ -228,12 +228,12 @@ impl ::std::cmp::PartialEq for COMMPROP {
             && self.wcProvChar == other.wcProvChar
     }
 }
-impl ::std::cmp::Eq for COMMPROP {}
+impl ::core::cmp::Eq for COMMPROP {}
 unsafe impl ::windows::runtime::Abi for COMMPROP {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMMPROP_STOP_PARITY(pub u16);
 pub const STOPBITS_10: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(1u16);
@@ -244,7 +244,7 @@ pub const PARITY_ODD: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(512u16);
 pub const PARITY_EVEN: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(1024u16);
 pub const PARITY_MARK: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(2048u16);
 pub const PARITY_SPACE: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(4096u16);
-impl ::std::convert::From<u16> for COMMPROP_STOP_PARITY {
+impl ::core::convert::From<u16> for COMMPROP_STOP_PARITY {
     fn from(value: u16) -> Self {
         Self(value)
     }
@@ -252,35 +252,35 @@ impl ::std::convert::From<u16> for COMMPROP_STOP_PARITY {
 unsafe impl ::windows::runtime::Abi for COMMPROP_STOP_PARITY {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for COMMPROP_STOP_PARITY {
+impl ::core::ops::BitOr for COMMPROP_STOP_PARITY {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for COMMPROP_STOP_PARITY {
+impl ::core::ops::BitAnd for COMMPROP_STOP_PARITY {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for COMMPROP_STOP_PARITY {
+impl ::core::ops::BitOrAssign for COMMPROP_STOP_PARITY {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for COMMPROP_STOP_PARITY {
+impl ::core::ops::BitAndAssign for COMMPROP_STOP_PARITY {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for COMMPROP_STOP_PARITY {
+impl ::core::ops::Not for COMMPROP_STOP_PARITY {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
 pub struct COMMTIMEOUTS {
@@ -291,13 +291,13 @@ pub struct COMMTIMEOUTS {
     pub WriteTotalTimeoutConstant: u32,
 }
 impl COMMTIMEOUTS {}
-impl ::std::default::Default for COMMTIMEOUTS {
+impl ::core::default::Default for COMMTIMEOUTS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for COMMTIMEOUTS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for COMMTIMEOUTS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("COMMTIMEOUTS")
             .field("ReadIntervalTimeout", &self.ReadIntervalTimeout)
             .field("ReadTotalTimeoutMultiplier", &self.ReadTotalTimeoutMultiplier)
@@ -307,17 +307,17 @@ impl ::std::fmt::Debug for COMMTIMEOUTS {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for COMMTIMEOUTS {
+impl ::core::cmp::PartialEq for COMMTIMEOUTS {
     fn eq(&self, other: &Self) -> bool {
         self.ReadIntervalTimeout == other.ReadIntervalTimeout && self.ReadTotalTimeoutMultiplier == other.ReadTotalTimeoutMultiplier && self.ReadTotalTimeoutConstant == other.ReadTotalTimeoutConstant && self.WriteTotalTimeoutMultiplier == other.WriteTotalTimeoutMultiplier && self.WriteTotalTimeoutConstant == other.WriteTotalTimeoutConstant
     }
 }
-impl ::std::cmp::Eq for COMMTIMEOUTS {}
+impl ::core::cmp::Eq for COMMTIMEOUTS {}
 unsafe impl ::windows::runtime::Abi for COMMTIMEOUTS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMM_EVENT_MASK(pub u32);
 pub const EV_BREAK: COMM_EVENT_MASK = COMM_EVENT_MASK(64u32);
@@ -333,7 +333,7 @@ pub const EV_RX80FULL: COMM_EVENT_MASK = COMM_EVENT_MASK(1024u32);
 pub const EV_RXCHAR: COMM_EVENT_MASK = COMM_EVENT_MASK(1u32);
 pub const EV_RXFLAG: COMM_EVENT_MASK = COMM_EVENT_MASK(2u32);
 pub const EV_TXEMPTY: COMM_EVENT_MASK = COMM_EVENT_MASK(4u32);
-impl ::std::convert::From<u32> for COMM_EVENT_MASK {
+impl ::core::convert::From<u32> for COMM_EVENT_MASK {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -341,35 +341,35 @@ impl ::std::convert::From<u32> for COMM_EVENT_MASK {
 unsafe impl ::windows::runtime::Abi for COMM_EVENT_MASK {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for COMM_EVENT_MASK {
+impl ::core::ops::BitOr for COMM_EVENT_MASK {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for COMM_EVENT_MASK {
+impl ::core::ops::BitAnd for COMM_EVENT_MASK {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for COMM_EVENT_MASK {
+impl ::core::ops::BitOrAssign for COMM_EVENT_MASK {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for COMM_EVENT_MASK {
+impl ::core::ops::BitAndAssign for COMM_EVENT_MASK {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for COMM_EVENT_MASK {
+impl ::core::ops::Not for COMM_EVENT_MASK {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
 pub struct COMSTAT {
@@ -378,22 +378,22 @@ pub struct COMSTAT {
     pub cbOutQue: u32,
 }
 impl COMSTAT {}
-impl ::std::default::Default for COMSTAT {
+impl ::core::default::Default for COMSTAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for COMSTAT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for COMSTAT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("COMSTAT").field("_bitfield", &self._bitfield).field("cbInQue", &self.cbInQue).field("cbOutQue", &self.cbOutQue).finish()
     }
 }
-impl ::std::cmp::PartialEq for COMSTAT {
+impl ::core::cmp::PartialEq for COMSTAT {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield && self.cbInQue == other.cbInQue && self.cbOutQue == other.cbOutQue
     }
 }
-impl ::std::cmp::Eq for COMSTAT {}
+impl ::core::cmp::Eq for COMSTAT {}
 unsafe impl ::windows::runtime::Abi for COMSTAT {
     type Abi = Self;
 }
@@ -407,7 +407,7 @@ pub unsafe fn ClearCommBreak<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn ClearCommBreak(hfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ClearCommBreak(hfile.into_param().abi()))
+        ::core::mem::transmute(ClearCommBreak(hfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -422,7 +422,7 @@ pub unsafe fn ClearCommError<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn ClearCommError(hfile: super::super::Foundation::HANDLE, lperrors: *mut CLEAR_COMM_ERROR_FLAGS, lpstat: *mut COMSTAT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ClearCommError(hfile.into_param().abi(), ::std::mem::transmute(lperrors), ::std::mem::transmute(lpstat)))
+        ::core::mem::transmute(ClearCommError(hfile.into_param().abi(), ::core::mem::transmute(lperrors), ::core::mem::transmute(lpstat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -437,7 +437,7 @@ pub unsafe fn CommConfigDialogA<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn CommConfigDialogA(lpszname: super::super::Foundation::PSTR, hwnd: super::super::Foundation::HWND, lpcc: *mut COMMCONFIG) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CommConfigDialogA(lpszname.into_param().abi(), hwnd.into_param().abi(), ::std::mem::transmute(lpcc)))
+        ::core::mem::transmute(CommConfigDialogA(lpszname.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(lpcc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -452,12 +452,12 @@ pub unsafe fn CommConfigDialogW<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn CommConfigDialogW(lpszname: super::super::Foundation::PWSTR, hwnd: super::super::Foundation::HWND, lpcc: *mut COMMCONFIG) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CommConfigDialogW(lpszname.into_param().abi(), hwnd.into_param().abi(), ::std::mem::transmute(lpcc)))
+        ::core::mem::transmute(CommConfigDialogW(lpszname.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(lpcc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Communication`, `Win32_Foundation`*"]
@@ -481,14 +481,14 @@ pub struct DCB {
 #[cfg(feature = "Win32_Foundation")]
 impl DCB {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DCB {
+impl ::core::default::Default for DCB {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DCB {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DCB {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DCB")
             .field("DCBlength", &self.DCBlength)
             .field("BaudRate", &self.BaudRate)
@@ -509,7 +509,7 @@ impl ::std::fmt::Debug for DCB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DCB {
+impl ::core::cmp::PartialEq for DCB {
     fn eq(&self, other: &Self) -> bool {
         self.DCBlength == other.DCBlength
             && self.BaudRate == other.BaudRate
@@ -529,13 +529,13 @@ impl ::std::cmp::PartialEq for DCB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DCB {}
+impl ::core::cmp::Eq for DCB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DCB {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ESCAPE_COMM_FUNCTION(pub u32);
 pub const CLRBREAK: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(9u32);
@@ -546,7 +546,7 @@ pub const SETDTR: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(5u32);
 pub const SETRTS: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(3u32);
 pub const SETXOFF: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(1u32);
 pub const SETXON: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(2u32);
-impl ::std::convert::From<u32> for ESCAPE_COMM_FUNCTION {
+impl ::core::convert::From<u32> for ESCAPE_COMM_FUNCTION {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -554,29 +554,29 @@ impl ::std::convert::From<u32> for ESCAPE_COMM_FUNCTION {
 unsafe impl ::windows::runtime::Abi for ESCAPE_COMM_FUNCTION {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for ESCAPE_COMM_FUNCTION {
+impl ::core::ops::BitOr for ESCAPE_COMM_FUNCTION {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for ESCAPE_COMM_FUNCTION {
+impl ::core::ops::BitAnd for ESCAPE_COMM_FUNCTION {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for ESCAPE_COMM_FUNCTION {
+impl ::core::ops::BitOrAssign for ESCAPE_COMM_FUNCTION {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for ESCAPE_COMM_FUNCTION {
+impl ::core::ops::BitAndAssign for ESCAPE_COMM_FUNCTION {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for ESCAPE_COMM_FUNCTION {
+impl ::core::ops::Not for ESCAPE_COMM_FUNCTION {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -592,7 +592,7 @@ pub unsafe fn EscapeCommFunction<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn EscapeCommFunction(hfile: super::super::Foundation::HANDLE, dwfunc: ESCAPE_COMM_FUNCTION) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EscapeCommFunction(hfile.into_param().abi(), ::std::mem::transmute(dwfunc)))
+        ::core::mem::transmute(EscapeCommFunction(hfile.into_param().abi(), ::core::mem::transmute(dwfunc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -607,7 +607,7 @@ pub unsafe fn GetCommConfig<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn GetCommConfig(hcommdev: super::super::Foundation::HANDLE, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCommConfig(hcommdev.into_param().abi(), ::std::mem::transmute(lpcc), ::std::mem::transmute(lpdwsize)))
+        ::core::mem::transmute(GetCommConfig(hcommdev.into_param().abi(), ::core::mem::transmute(lpcc), ::core::mem::transmute(lpdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -622,7 +622,7 @@ pub unsafe fn GetCommMask<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn GetCommMask(hfile: super::super::Foundation::HANDLE, lpevtmask: *mut COMM_EVENT_MASK) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCommMask(hfile.into_param().abi(), ::std::mem::transmute(lpevtmask)))
+        ::core::mem::transmute(GetCommMask(hfile.into_param().abi(), ::core::mem::transmute(lpevtmask)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -637,7 +637,7 @@ pub unsafe fn GetCommModemStatus<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn GetCommModemStatus(hfile: super::super::Foundation::HANDLE, lpmodemstat: *mut MODEM_STATUS_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCommModemStatus(hfile.into_param().abi(), ::std::mem::transmute(lpmodemstat)))
+        ::core::mem::transmute(GetCommModemStatus(hfile.into_param().abi(), ::core::mem::transmute(lpmodemstat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -651,7 +651,7 @@ pub unsafe fn GetCommPorts(lpportnumbers: *mut u32, uportnumberscount: u32, pupo
         extern "system" {
             fn GetCommPorts(lpportnumbers: *mut u32, uportnumberscount: u32, puportnumbersfound: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetCommPorts(::std::mem::transmute(lpportnumbers), ::std::mem::transmute(uportnumberscount), ::std::mem::transmute(puportnumbersfound)))
+        ::core::mem::transmute(GetCommPorts(::core::mem::transmute(lpportnumbers), ::core::mem::transmute(uportnumberscount), ::core::mem::transmute(puportnumbersfound)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -666,7 +666,7 @@ pub unsafe fn GetCommProperties<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn GetCommProperties(hfile: super::super::Foundation::HANDLE, lpcommprop: *mut COMMPROP) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCommProperties(hfile.into_param().abi(), ::std::mem::transmute(lpcommprop)))
+        ::core::mem::transmute(GetCommProperties(hfile.into_param().abi(), ::core::mem::transmute(lpcommprop)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -681,7 +681,7 @@ pub unsafe fn GetCommState<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn GetCommState(hfile: super::super::Foundation::HANDLE, lpdcb: *mut DCB) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCommState(hfile.into_param().abi(), ::std::mem::transmute(lpdcb)))
+        ::core::mem::transmute(GetCommState(hfile.into_param().abi(), ::core::mem::transmute(lpdcb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -696,7 +696,7 @@ pub unsafe fn GetCommTimeouts<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn GetCommTimeouts(hfile: super::super::Foundation::HANDLE, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCommTimeouts(hfile.into_param().abi(), ::std::mem::transmute(lpcommtimeouts)))
+        ::core::mem::transmute(GetCommTimeouts(hfile.into_param().abi(), ::core::mem::transmute(lpcommtimeouts)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -711,7 +711,7 @@ pub unsafe fn GetDefaultCommConfigA<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn GetDefaultCommConfigA(lpszname: super::super::Foundation::PSTR, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetDefaultCommConfigA(lpszname.into_param().abi(), ::std::mem::transmute(lpcc), ::std::mem::transmute(lpdwsize)))
+        ::core::mem::transmute(GetDefaultCommConfigA(lpszname.into_param().abi(), ::core::mem::transmute(lpcc), ::core::mem::transmute(lpdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -726,7 +726,7 @@ pub unsafe fn GetDefaultCommConfigW<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn GetDefaultCommConfigW(lpszname: super::super::Foundation::PWSTR, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetDefaultCommConfigW(lpszname.into_param().abi(), ::std::mem::transmute(lpcc), ::std::mem::transmute(lpdwsize)))
+        ::core::mem::transmute(GetDefaultCommConfigW(lpszname.into_param().abi(), ::core::mem::transmute(lpcc), ::core::mem::transmute(lpdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -913,7 +913,7 @@ pub const MDM_X75_DATA_BTX: u32 = 4u32;
 pub const MDM_X75_DATA_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
 pub const MDM_X75_DATA_T_70: u32 = 3u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
 pub struct MODEMDEVCAPS {
@@ -939,13 +939,13 @@ pub struct MODEMDEVCAPS {
     pub abVariablePortion: [u8; 1],
 }
 impl MODEMDEVCAPS {}
-impl ::std::default::Default for MODEMDEVCAPS {
+impl ::core::default::Default for MODEMDEVCAPS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MODEMDEVCAPS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MODEMDEVCAPS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MODEMDEVCAPS")
             .field("dwActualSize", &self.dwActualSize)
             .field("dwRequiredSize", &self.dwRequiredSize)
@@ -970,7 +970,7 @@ impl ::std::fmt::Debug for MODEMDEVCAPS {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for MODEMDEVCAPS {
+impl ::core::cmp::PartialEq for MODEMDEVCAPS {
     fn eq(&self, other: &Self) -> bool {
         self.dwActualSize == other.dwActualSize
             && self.dwRequiredSize == other.dwRequiredSize
@@ -994,18 +994,18 @@ impl ::std::cmp::PartialEq for MODEMDEVCAPS {
             && self.abVariablePortion == other.abVariablePortion
     }
 }
-impl ::std::cmp::Eq for MODEMDEVCAPS {}
+impl ::core::cmp::Eq for MODEMDEVCAPS {}
 unsafe impl ::windows::runtime::Abi for MODEMDEVCAPS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MODEMDEVCAPS_DIAL_OPTIONS(pub u32);
 pub const DIALOPTION_BILLING: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(64u32);
 pub const DIALOPTION_DIALTONE: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(256u32);
 pub const DIALOPTION_QUIET: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(128u32);
-impl ::std::convert::From<u32> for MODEMDEVCAPS_DIAL_OPTIONS {
+impl ::core::convert::From<u32> for MODEMDEVCAPS_DIAL_OPTIONS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1013,43 +1013,43 @@ impl ::std::convert::From<u32> for MODEMDEVCAPS_DIAL_OPTIONS {
 unsafe impl ::windows::runtime::Abi for MODEMDEVCAPS_DIAL_OPTIONS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MODEMDEVCAPS_DIAL_OPTIONS {
+impl ::core::ops::BitOr for MODEMDEVCAPS_DIAL_OPTIONS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MODEMDEVCAPS_DIAL_OPTIONS {
+impl ::core::ops::BitAnd for MODEMDEVCAPS_DIAL_OPTIONS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MODEMDEVCAPS_DIAL_OPTIONS {
+impl ::core::ops::BitOrAssign for MODEMDEVCAPS_DIAL_OPTIONS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MODEMDEVCAPS_DIAL_OPTIONS {
+impl ::core::ops::BitAndAssign for MODEMDEVCAPS_DIAL_OPTIONS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MODEMDEVCAPS_DIAL_OPTIONS {
+impl ::core::ops::Not for MODEMDEVCAPS_DIAL_OPTIONS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MODEMDEVCAPS_SPEAKER_MODE(pub u32);
 pub const MDMSPKRFLAG_CALLSETUP: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(8u32);
 pub const MDMSPKRFLAG_DIAL: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(2u32);
 pub const MDMSPKRFLAG_OFF: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(1u32);
 pub const MDMSPKRFLAG_ON: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(4u32);
-impl ::std::convert::From<u32> for MODEMDEVCAPS_SPEAKER_MODE {
+impl ::core::convert::From<u32> for MODEMDEVCAPS_SPEAKER_MODE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1057,42 +1057,42 @@ impl ::std::convert::From<u32> for MODEMDEVCAPS_SPEAKER_MODE {
 unsafe impl ::windows::runtime::Abi for MODEMDEVCAPS_SPEAKER_MODE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MODEMDEVCAPS_SPEAKER_MODE {
+impl ::core::ops::BitOr for MODEMDEVCAPS_SPEAKER_MODE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MODEMDEVCAPS_SPEAKER_MODE {
+impl ::core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_MODE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_MODE {
+impl ::core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_MODE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_MODE {
+impl ::core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_MODE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MODEMDEVCAPS_SPEAKER_MODE {
+impl ::core::ops::Not for MODEMDEVCAPS_SPEAKER_MODE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MODEMDEVCAPS_SPEAKER_VOLUME(pub u32);
 pub const MDMVOLFLAG_HIGH: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(4u32);
 pub const MDMVOLFLAG_LOW: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(1u32);
 pub const MDMVOLFLAG_MEDIUM: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(2u32);
-impl ::std::convert::From<u32> for MODEMDEVCAPS_SPEAKER_VOLUME {
+impl ::core::convert::From<u32> for MODEMDEVCAPS_SPEAKER_VOLUME {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1100,35 +1100,35 @@ impl ::std::convert::From<u32> for MODEMDEVCAPS_SPEAKER_VOLUME {
 unsafe impl ::windows::runtime::Abi for MODEMDEVCAPS_SPEAKER_VOLUME {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MODEMDEVCAPS_SPEAKER_VOLUME {
+impl ::core::ops::BitOr for MODEMDEVCAPS_SPEAKER_VOLUME {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MODEMDEVCAPS_SPEAKER_VOLUME {
+impl ::core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_VOLUME {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
+impl ::core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
+impl ::core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MODEMDEVCAPS_SPEAKER_VOLUME {
+impl ::core::ops::Not for MODEMDEVCAPS_SPEAKER_VOLUME {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
 pub struct MODEMSETTINGS {
@@ -1146,13 +1146,13 @@ pub struct MODEMSETTINGS {
     pub abVariablePortion: [u8; 1],
 }
 impl MODEMSETTINGS {}
-impl ::std::default::Default for MODEMSETTINGS {
+impl ::core::default::Default for MODEMSETTINGS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MODEMSETTINGS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MODEMSETTINGS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MODEMSETTINGS")
             .field("dwActualSize", &self.dwActualSize)
             .field("dwRequiredSize", &self.dwRequiredSize)
@@ -1169,7 +1169,7 @@ impl ::std::fmt::Debug for MODEMSETTINGS {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for MODEMSETTINGS {
+impl ::core::cmp::PartialEq for MODEMSETTINGS {
     fn eq(&self, other: &Self) -> bool {
         self.dwActualSize == other.dwActualSize
             && self.dwRequiredSize == other.dwRequiredSize
@@ -1185,19 +1185,19 @@ impl ::std::cmp::PartialEq for MODEMSETTINGS {
             && self.abVariablePortion == other.abVariablePortion
     }
 }
-impl ::std::cmp::Eq for MODEMSETTINGS {}
+impl ::core::cmp::Eq for MODEMSETTINGS {}
 unsafe impl ::windows::runtime::Abi for MODEMSETTINGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MODEMSETTINGS_SPEAKER_MODE(pub u32);
 pub const MDMSPKR_CALLSETUP: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(8u32);
 pub const MDMSPKR_DIAL: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(2u32);
 pub const MDMSPKR_OFF: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(1u32);
 pub const MDMSPKR_ON: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(4u32);
-impl ::std::convert::From<u32> for MODEMSETTINGS_SPEAKER_MODE {
+impl ::core::convert::From<u32> for MODEMSETTINGS_SPEAKER_MODE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1205,42 +1205,42 @@ impl ::std::convert::From<u32> for MODEMSETTINGS_SPEAKER_MODE {
 unsafe impl ::windows::runtime::Abi for MODEMSETTINGS_SPEAKER_MODE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MODEMSETTINGS_SPEAKER_MODE {
+impl ::core::ops::BitOr for MODEMSETTINGS_SPEAKER_MODE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MODEMSETTINGS_SPEAKER_MODE {
+impl ::core::ops::BitAnd for MODEMSETTINGS_SPEAKER_MODE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MODEMSETTINGS_SPEAKER_MODE {
+impl ::core::ops::BitOrAssign for MODEMSETTINGS_SPEAKER_MODE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MODEMSETTINGS_SPEAKER_MODE {
+impl ::core::ops::BitAndAssign for MODEMSETTINGS_SPEAKER_MODE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MODEMSETTINGS_SPEAKER_MODE {
+impl ::core::ops::Not for MODEMSETTINGS_SPEAKER_MODE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MODEM_SPEAKER_VOLUME(pub u32);
 pub const MDMVOL_HIGH: MODEM_SPEAKER_VOLUME = MODEM_SPEAKER_VOLUME(2u32);
 pub const MDMVOL_LOW: MODEM_SPEAKER_VOLUME = MODEM_SPEAKER_VOLUME(0u32);
 pub const MDMVOL_MEDIUM: MODEM_SPEAKER_VOLUME = MODEM_SPEAKER_VOLUME(1u32);
-impl ::std::convert::From<u32> for MODEM_SPEAKER_VOLUME {
+impl ::core::convert::From<u32> for MODEM_SPEAKER_VOLUME {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1248,43 +1248,43 @@ impl ::std::convert::From<u32> for MODEM_SPEAKER_VOLUME {
 unsafe impl ::windows::runtime::Abi for MODEM_SPEAKER_VOLUME {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MODEM_SPEAKER_VOLUME {
+impl ::core::ops::BitOr for MODEM_SPEAKER_VOLUME {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MODEM_SPEAKER_VOLUME {
+impl ::core::ops::BitAnd for MODEM_SPEAKER_VOLUME {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MODEM_SPEAKER_VOLUME {
+impl ::core::ops::BitOrAssign for MODEM_SPEAKER_VOLUME {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MODEM_SPEAKER_VOLUME {
+impl ::core::ops::BitAndAssign for MODEM_SPEAKER_VOLUME {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MODEM_SPEAKER_VOLUME {
+impl ::core::ops::Not for MODEM_SPEAKER_VOLUME {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MODEM_STATUS_FLAGS(pub u32);
 pub const MS_CTS_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(16u32);
 pub const MS_DSR_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(32u32);
 pub const MS_RING_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(64u32);
 pub const MS_RLSD_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(128u32);
-impl ::std::convert::From<u32> for MODEM_STATUS_FLAGS {
+impl ::core::convert::From<u32> for MODEM_STATUS_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1292,29 +1292,29 @@ impl ::std::convert::From<u32> for MODEM_STATUS_FLAGS {
 unsafe impl ::windows::runtime::Abi for MODEM_STATUS_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MODEM_STATUS_FLAGS {
+impl ::core::ops::BitOr for MODEM_STATUS_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MODEM_STATUS_FLAGS {
+impl ::core::ops::BitAnd for MODEM_STATUS_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MODEM_STATUS_FLAGS {
+impl ::core::ops::BitOrAssign for MODEM_STATUS_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MODEM_STATUS_FLAGS {
+impl ::core::ops::BitAndAssign for MODEM_STATUS_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MODEM_STATUS_FLAGS {
+impl ::core::ops::Not for MODEM_STATUS_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -1330,20 +1330,20 @@ pub unsafe fn OpenCommPort(uportnumber: u32, dwdesiredaccess: u32, dwflagsandatt
         extern "system" {
             fn OpenCommPort(uportnumber: u32, dwdesiredaccess: u32, dwflagsandattributes: u32) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(OpenCommPort(::std::mem::transmute(uportnumber), ::std::mem::transmute(dwdesiredaccess), ::std::mem::transmute(dwflagsandattributes)))
+        ::core::mem::transmute(OpenCommPort(::core::mem::transmute(uportnumber), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwflagsandattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PURGE_COMM_FLAGS(pub u32);
 pub const PURGE_RXABORT: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(2u32);
 pub const PURGE_RXCLEAR: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(8u32);
 pub const PURGE_TXABORT: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(1u32);
 pub const PURGE_TXCLEAR: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(4u32);
-impl ::std::convert::From<u32> for PURGE_COMM_FLAGS {
+impl ::core::convert::From<u32> for PURGE_COMM_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1351,29 +1351,29 @@ impl ::std::convert::From<u32> for PURGE_COMM_FLAGS {
 unsafe impl ::windows::runtime::Abi for PURGE_COMM_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for PURGE_COMM_FLAGS {
+impl ::core::ops::BitOr for PURGE_COMM_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for PURGE_COMM_FLAGS {
+impl ::core::ops::BitAnd for PURGE_COMM_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for PURGE_COMM_FLAGS {
+impl ::core::ops::BitOrAssign for PURGE_COMM_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for PURGE_COMM_FLAGS {
+impl ::core::ops::BitAndAssign for PURGE_COMM_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for PURGE_COMM_FLAGS {
+impl ::core::ops::Not for PURGE_COMM_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -1389,7 +1389,7 @@ pub unsafe fn PurgeComm<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn PurgeComm(hfile: super::super::Foundation::HANDLE, dwflags: PURGE_COMM_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PurgeComm(hfile.into_param().abi(), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(PurgeComm(hfile.into_param().abi(), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1405,7 +1405,7 @@ pub unsafe fn SetCommBreak<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn SetCommBreak(hfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetCommBreak(hfile.into_param().abi()))
+        ::core::mem::transmute(SetCommBreak(hfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1420,7 +1420,7 @@ pub unsafe fn SetCommConfig<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn SetCommConfig(hcommdev: super::super::Foundation::HANDLE, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetCommConfig(hcommdev.into_param().abi(), ::std::mem::transmute(lpcc), ::std::mem::transmute(dwsize)))
+        ::core::mem::transmute(SetCommConfig(hcommdev.into_param().abi(), ::core::mem::transmute(lpcc), ::core::mem::transmute(dwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1435,7 +1435,7 @@ pub unsafe fn SetCommMask<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn SetCommMask(hfile: super::super::Foundation::HANDLE, dwevtmask: COMM_EVENT_MASK) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetCommMask(hfile.into_param().abi(), ::std::mem::transmute(dwevtmask)))
+        ::core::mem::transmute(SetCommMask(hfile.into_param().abi(), ::core::mem::transmute(dwevtmask)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1450,7 +1450,7 @@ pub unsafe fn SetCommState<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn SetCommState(hfile: super::super::Foundation::HANDLE, lpdcb: *const DCB) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetCommState(hfile.into_param().abi(), ::std::mem::transmute(lpdcb)))
+        ::core::mem::transmute(SetCommState(hfile.into_param().abi(), ::core::mem::transmute(lpdcb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1465,7 +1465,7 @@ pub unsafe fn SetCommTimeouts<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn SetCommTimeouts(hfile: super::super::Foundation::HANDLE, lpcommtimeouts: *const COMMTIMEOUTS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetCommTimeouts(hfile.into_param().abi(), ::std::mem::transmute(lpcommtimeouts)))
+        ::core::mem::transmute(SetCommTimeouts(hfile.into_param().abi(), ::core::mem::transmute(lpcommtimeouts)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1480,7 +1480,7 @@ pub unsafe fn SetDefaultCommConfigA<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn SetDefaultCommConfigA(lpszname: super::super::Foundation::PSTR, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetDefaultCommConfigA(lpszname.into_param().abi(), ::std::mem::transmute(lpcc), ::std::mem::transmute(dwsize)))
+        ::core::mem::transmute(SetDefaultCommConfigA(lpszname.into_param().abi(), ::core::mem::transmute(lpcc), ::core::mem::transmute(dwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1495,7 +1495,7 @@ pub unsafe fn SetDefaultCommConfigW<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn SetDefaultCommConfigW(lpszname: super::super::Foundation::PWSTR, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetDefaultCommConfigW(lpszname.into_param().abi(), ::std::mem::transmute(lpcc), ::std::mem::transmute(dwsize)))
+        ::core::mem::transmute(SetDefaultCommConfigW(lpszname.into_param().abi(), ::core::mem::transmute(lpcc), ::core::mem::transmute(dwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1510,7 +1510,7 @@ pub unsafe fn SetupComm<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn SetupComm(hfile: super::super::Foundation::HANDLE, dwinqueue: u32, dwoutqueue: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetupComm(hfile.into_param().abi(), ::std::mem::transmute(dwinqueue), ::std::mem::transmute(dwoutqueue)))
+        ::core::mem::transmute(SetupComm(hfile.into_param().abi(), ::core::mem::transmute(dwinqueue), ::core::mem::transmute(dwoutqueue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1525,7 +1525,7 @@ pub unsafe fn TransmitCommChar<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn TransmitCommChar(hfile: super::super::Foundation::HANDLE, cchar: super::super::Foundation::CHAR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TransmitCommChar(hfile.into_param().abi(), cchar.into_param().abi()))
+        ::core::mem::transmute(TransmitCommChar(hfile.into_param().abi(), cchar.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1540,7 +1540,7 @@ pub unsafe fn WaitCommEvent<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn WaitCommEvent(hfile: super::super::Foundation::HANDLE, lpevtmask: *mut COMM_EVENT_MASK, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WaitCommEvent(hfile.into_param().abi(), ::std::mem::transmute(lpevtmask), ::std::mem::transmute(lpoverlapped)))
+        ::core::mem::transmute(WaitCommEvent(hfile.into_param().abi(), ::core::mem::transmute(lpevtmask), ::core::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

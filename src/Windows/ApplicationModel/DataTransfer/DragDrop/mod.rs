@@ -2,7 +2,7 @@
 #[cfg(feature = "ApplicationModel_DataTransfer_DragDrop_Core")]
 pub mod Core;
 #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DragDropModifiers(pub u32);
 impl DragDropModifiers {
@@ -14,7 +14,7 @@ impl DragDropModifiers {
     pub const MiddleButton: DragDropModifiers = DragDropModifiers(16u32);
     pub const RightButton: DragDropModifiers = DragDropModifiers(32u32);
 }
-impl ::std::convert::From<u32> for DragDropModifiers {
+impl ::core::convert::From<u32> for DragDropModifiers {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -28,29 +28,29 @@ unsafe impl ::windows::runtime::RuntimeType for DragDropModifiers {
 impl ::windows::runtime::DefaultType for DragDropModifiers {
     type DefaultType = Self;
 }
-impl ::std::ops::BitOr for DragDropModifiers {
+impl ::core::ops::BitOr for DragDropModifiers {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for DragDropModifiers {
+impl ::core::ops::BitAnd for DragDropModifiers {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for DragDropModifiers {
+impl ::core::ops::BitOrAssign for DragDropModifiers {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for DragDropModifiers {
+impl ::core::ops::BitAndAssign for DragDropModifiers {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for DragDropModifiers {
+impl ::core::ops::Not for DragDropModifiers {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())

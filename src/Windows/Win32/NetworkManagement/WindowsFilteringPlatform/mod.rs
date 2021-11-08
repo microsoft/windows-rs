@@ -1,11 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ARP_HARDWARE_TYPE(pub i32);
 pub const ARP_HW_ENET: ARP_HARDWARE_TYPE = ARP_HARDWARE_TYPE(1i32);
 pub const ARP_HW_802: ARP_HARDWARE_TYPE = ARP_HARDWARE_TYPE(6i32);
-impl ::std::convert::From<i32> for ARP_HARDWARE_TYPE {
+impl ::core::convert::From<i32> for ARP_HARDWARE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -13,7 +13,7 @@ impl ::std::convert::From<i32> for ARP_HARDWARE_TYPE {
 unsafe impl ::windows::runtime::Abi for ARP_HARDWARE_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ARP_HEADER {
@@ -25,13 +25,13 @@ pub struct ARP_HEADER {
     pub SenderHardwareAddress: [u8; 1],
 }
 impl ARP_HEADER {}
-impl ::std::default::Default for ARP_HEADER {
+impl ::core::default::Default for ARP_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ARP_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ARP_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ARP_HEADER")
             .field("HardwareAddressSpace", &self.HardwareAddressSpace)
             .field("ProtocolAddressSpace", &self.ProtocolAddressSpace)
@@ -42,22 +42,22 @@ impl ::std::fmt::Debug for ARP_HEADER {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for ARP_HEADER {
+impl ::core::cmp::PartialEq for ARP_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.HardwareAddressSpace == other.HardwareAddressSpace && self.ProtocolAddressSpace == other.ProtocolAddressSpace && self.HardwareAddressLength == other.HardwareAddressLength && self.ProtocolAddressLength == other.ProtocolAddressLength && self.Opcode == other.Opcode && self.SenderHardwareAddress == other.SenderHardwareAddress
     }
 }
-impl ::std::cmp::Eq for ARP_HEADER {}
+impl ::core::cmp::Eq for ARP_HEADER {}
 unsafe impl ::windows::runtime::Abi for ARP_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ARP_OPCODE(pub i32);
 pub const ARP_REQUEST: ARP_OPCODE = ARP_OPCODE(1i32);
 pub const ARP_RESPONSE: ARP_OPCODE = ARP_OPCODE(2i32);
-impl ::std::convert::From<i32> for ARP_OPCODE {
+impl ::core::convert::From<i32> for ARP_OPCODE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -70,13 +70,13 @@ pub const BYTE_ORDER: u32 = 1234u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const DL_ADDRESS_LENGTH_MAXIMUM: u32 = 32u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DL_ADDRESS_TYPE(pub i32);
 pub const DlUnicast: DL_ADDRESS_TYPE = DL_ADDRESS_TYPE(0i32);
 pub const DlMulticast: DL_ADDRESS_TYPE = DL_ADDRESS_TYPE(1i32);
 pub const DlBroadcast: DL_ADDRESS_TYPE = DL_ADDRESS_TYPE(2i32);
-impl ::std::convert::From<i32> for DL_ADDRESS_TYPE {
+impl ::core::convert::From<i32> for DL_ADDRESS_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -84,49 +84,49 @@ impl ::std::convert::From<i32> for DL_ADDRESS_TYPE {
 unsafe impl ::windows::runtime::Abi for DL_ADDRESS_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union DL_EI48 {
     pub Byte: [u8; 3],
 }
 impl DL_EI48 {}
-impl ::std::default::Default for DL_EI48 {
+impl ::core::default::Default for DL_EI48 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DL_EI48 {
+impl ::core::cmp::PartialEq for DL_EI48 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DL_EI48 {}
+impl ::core::cmp::Eq for DL_EI48 {}
 unsafe impl ::windows::runtime::Abi for DL_EI48 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union DL_EI64 {
     pub Byte: [u8; 5],
 }
 impl DL_EI64 {}
-impl ::std::default::Default for DL_EI64 {
+impl ::core::default::Default for DL_EI64 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DL_EI64 {
+impl ::core::cmp::PartialEq for DL_EI64 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DL_EI64 {}
+impl ::core::cmp::Eq for DL_EI64 {}
 unsafe impl ::windows::runtime::Abi for DL_EI64 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union DL_EUI48 {
@@ -134,21 +134,21 @@ pub union DL_EUI48 {
     pub Anonymous: DL_EUI48_0,
 }
 impl DL_EUI48 {}
-impl ::std::default::Default for DL_EUI48 {
+impl ::core::default::Default for DL_EUI48 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DL_EUI48 {
+impl ::core::cmp::PartialEq for DL_EUI48 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DL_EUI48 {}
+impl ::core::cmp::Eq for DL_EUI48 {}
 unsafe impl ::windows::runtime::Abi for DL_EUI48 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct DL_EUI48_0 {
@@ -156,21 +156,21 @@ pub struct DL_EUI48_0 {
     pub Ei48: DL_EI48,
 }
 impl DL_EUI48_0 {}
-impl ::std::default::Default for DL_EUI48_0 {
+impl ::core::default::Default for DL_EUI48_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DL_EUI48_0 {
+impl ::core::cmp::PartialEq for DL_EUI48_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DL_EUI48_0 {}
+impl ::core::cmp::Eq for DL_EUI48_0 {}
 unsafe impl ::windows::runtime::Abi for DL_EUI48_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union DL_EUI64 {
@@ -179,21 +179,21 @@ pub union DL_EUI64 {
     pub Anonymous: DL_EUI64_0,
 }
 impl DL_EUI64 {}
-impl ::std::default::Default for DL_EUI64 {
+impl ::core::default::Default for DL_EUI64 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DL_EUI64 {
+impl ::core::cmp::PartialEq for DL_EUI64 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DL_EUI64 {}
+impl ::core::cmp::Eq for DL_EUI64 {}
 unsafe impl ::windows::runtime::Abi for DL_EUI64 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct DL_EUI64_0 {
@@ -201,21 +201,21 @@ pub struct DL_EUI64_0 {
     pub Anonymous: DL_EUI64_0_0,
 }
 impl DL_EUI64_0 {}
-impl ::std::default::Default for DL_EUI64_0 {
+impl ::core::default::Default for DL_EUI64_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DL_EUI64_0 {
+impl ::core::cmp::PartialEq for DL_EUI64_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DL_EUI64_0 {}
+impl ::core::cmp::Eq for DL_EUI64_0 {}
 unsafe impl ::windows::runtime::Abi for DL_EUI64_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union DL_EUI64_0_0 {
@@ -223,21 +223,21 @@ pub union DL_EUI64_0_0 {
     pub Anonymous: DL_EUI64_0_0_0,
 }
 impl DL_EUI64_0_0 {}
-impl ::std::default::Default for DL_EUI64_0_0 {
+impl ::core::default::Default for DL_EUI64_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DL_EUI64_0_0 {
+impl ::core::cmp::PartialEq for DL_EUI64_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DL_EUI64_0_0 {}
+impl ::core::cmp::Eq for DL_EUI64_0_0 {}
 unsafe impl ::windows::runtime::Abi for DL_EUI64_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct DL_EUI64_0_0_0 {
@@ -246,23 +246,23 @@ pub struct DL_EUI64_0_0_0 {
     pub Ei48: DL_EI48,
 }
 impl DL_EUI64_0_0_0 {}
-impl ::std::default::Default for DL_EUI64_0_0_0 {
+impl ::core::default::Default for DL_EUI64_0_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DL_EUI64_0_0_0 {
+impl ::core::cmp::PartialEq for DL_EUI64_0_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DL_EUI64_0_0_0 {}
+impl ::core::cmp::Eq for DL_EUI64_0_0_0 {}
 unsafe impl ::windows::runtime::Abi for DL_EUI64_0_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const DL_HEADER_LENGTH_MAXIMUM: u32 = 64u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union DL_OUI {
@@ -270,47 +270,47 @@ pub union DL_OUI {
     pub Anonymous: DL_OUI_0,
 }
 impl DL_OUI {}
-impl ::std::default::Default for DL_OUI {
+impl ::core::default::Default for DL_OUI {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DL_OUI {
+impl ::core::cmp::PartialEq for DL_OUI {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DL_OUI {}
+impl ::core::cmp::Eq for DL_OUI {}
 unsafe impl ::windows::runtime::Abi for DL_OUI {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct DL_OUI_0 {
     pub _bitfield: u8,
 }
 impl DL_OUI_0 {}
-impl ::std::default::Default for DL_OUI_0 {
+impl ::core::default::Default for DL_OUI_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DL_OUI_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DL_OUI_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::std::cmp::PartialEq for DL_OUI_0 {
+impl ::core::cmp::PartialEq for DL_OUI_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::std::cmp::Eq for DL_OUI_0 {}
+impl ::core::cmp::Eq for DL_OUI_0 {}
 unsafe impl ::windows::runtime::Abi for DL_OUI_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -321,24 +321,24 @@ pub struct DL_TEREDO_ADDRESS {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl DL_TEREDO_ADDRESS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for DL_TEREDO_ADDRESS {
+impl ::core::default::Default for DL_TEREDO_ADDRESS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for DL_TEREDO_ADDRESS {
+impl ::core::cmp::PartialEq for DL_TEREDO_ADDRESS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for DL_TEREDO_ADDRESS {}
+impl ::core::cmp::Eq for DL_TEREDO_ADDRESS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for DL_TEREDO_ADDRESS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union DL_TEREDO_ADDRESS_0 {
@@ -348,24 +348,24 @@ pub union DL_TEREDO_ADDRESS_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl DL_TEREDO_ADDRESS_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for DL_TEREDO_ADDRESS_0 {
+impl ::core::default::Default for DL_TEREDO_ADDRESS_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for DL_TEREDO_ADDRESS_0 {
+impl ::core::cmp::PartialEq for DL_TEREDO_ADDRESS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for DL_TEREDO_ADDRESS_0 {}
+impl ::core::cmp::Eq for DL_TEREDO_ADDRESS_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for DL_TEREDO_ADDRESS_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct DL_TEREDO_ADDRESS_0_0 {
@@ -376,24 +376,24 @@ pub struct DL_TEREDO_ADDRESS_0_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl DL_TEREDO_ADDRESS_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for DL_TEREDO_ADDRESS_0_0 {
+impl ::core::default::Default for DL_TEREDO_ADDRESS_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for DL_TEREDO_ADDRESS_0_0 {
+impl ::core::cmp::PartialEq for DL_TEREDO_ADDRESS_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for DL_TEREDO_ADDRESS_0_0 {}
+impl ::core::cmp::Eq for DL_TEREDO_ADDRESS_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for DL_TEREDO_ADDRESS_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -404,24 +404,24 @@ pub struct DL_TEREDO_ADDRESS_PRV {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl DL_TEREDO_ADDRESS_PRV {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for DL_TEREDO_ADDRESS_PRV {
+impl ::core::default::Default for DL_TEREDO_ADDRESS_PRV {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for DL_TEREDO_ADDRESS_PRV {
+impl ::core::cmp::PartialEq for DL_TEREDO_ADDRESS_PRV {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for DL_TEREDO_ADDRESS_PRV {}
+impl ::core::cmp::Eq for DL_TEREDO_ADDRESS_PRV {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for DL_TEREDO_ADDRESS_PRV {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union DL_TEREDO_ADDRESS_PRV_0 {
@@ -431,24 +431,24 @@ pub union DL_TEREDO_ADDRESS_PRV_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl DL_TEREDO_ADDRESS_PRV_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for DL_TEREDO_ADDRESS_PRV_0 {
+impl ::core::default::Default for DL_TEREDO_ADDRESS_PRV_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for DL_TEREDO_ADDRESS_PRV_0 {
+impl ::core::cmp::PartialEq for DL_TEREDO_ADDRESS_PRV_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for DL_TEREDO_ADDRESS_PRV_0 {}
+impl ::core::cmp::Eq for DL_TEREDO_ADDRESS_PRV_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for DL_TEREDO_ADDRESS_PRV_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct DL_TEREDO_ADDRESS_PRV_0_0 {
@@ -463,24 +463,24 @@ pub struct DL_TEREDO_ADDRESS_PRV_0_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl DL_TEREDO_ADDRESS_PRV_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for DL_TEREDO_ADDRESS_PRV_0_0 {
+impl ::core::default::Default for DL_TEREDO_ADDRESS_PRV_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for DL_TEREDO_ADDRESS_PRV_0_0 {
+impl ::core::cmp::PartialEq for DL_TEREDO_ADDRESS_PRV_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for DL_TEREDO_ADDRESS_PRV_0_0 {}
+impl ::core::cmp::Eq for DL_TEREDO_ADDRESS_PRV_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for DL_TEREDO_ADDRESS_PRV_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Kernel"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`, `Win32_System_Kernel`*"]
@@ -492,24 +492,24 @@ pub struct DL_TUNNEL_ADDRESS {
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Kernel"))]
 impl DL_TUNNEL_ADDRESS {}
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Kernel"))]
-impl ::std::default::Default for DL_TUNNEL_ADDRESS {
+impl ::core::default::Default for DL_TUNNEL_ADDRESS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Kernel"))]
-impl ::std::cmp::PartialEq for DL_TUNNEL_ADDRESS {
+impl ::core::cmp::PartialEq for DL_TUNNEL_ADDRESS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Kernel"))]
-impl ::std::cmp::Eq for DL_TUNNEL_ADDRESS {}
+impl ::core::cmp::Eq for DL_TUNNEL_ADDRESS {}
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::runtime::Abi for DL_TUNNEL_ADDRESS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ETHERNET_HEADER {
@@ -518,21 +518,21 @@ pub struct ETHERNET_HEADER {
     pub Anonymous: ETHERNET_HEADER_0,
 }
 impl ETHERNET_HEADER {}
-impl ::std::default::Default for ETHERNET_HEADER {
+impl ::core::default::Default for ETHERNET_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ETHERNET_HEADER {
+impl ::core::cmp::PartialEq for ETHERNET_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ETHERNET_HEADER {}
+impl ::core::cmp::Eq for ETHERNET_HEADER {}
 unsafe impl ::windows::runtime::Abi for ETHERNET_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union ETHERNET_HEADER_0 {
@@ -540,17 +540,17 @@ pub union ETHERNET_HEADER_0 {
     pub Length: u16,
 }
 impl ETHERNET_HEADER_0 {}
-impl ::std::default::Default for ETHERNET_HEADER_0 {
+impl ::core::default::Default for ETHERNET_HEADER_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ETHERNET_HEADER_0 {
+impl ::core::cmp::PartialEq for ETHERNET_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ETHERNET_HEADER_0 {}
+impl ::core::cmp::Eq for ETHERNET_HEADER_0 {}
 unsafe impl ::windows::runtime::Abi for ETHERNET_HEADER_0 {
     type Abi = Self;
 }
@@ -575,12 +575,12 @@ pub const ETH_LENGTH_OF_VLAN_HEADER: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const EXT_LEN_UNIT: u32 = 8u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FALLBACK_INDEX(pub i32);
 pub const FallbackIndexTcpFastopen: FALLBACK_INDEX = FALLBACK_INDEX(0i32);
 pub const FallbackIndexMax: FALLBACK_INDEX = FALLBACK_INDEX(1i32);
-impl ::std::convert::From<i32> for FALLBACK_INDEX {
+impl ::core::convert::From<i32> for FALLBACK_INDEX {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -588,7 +588,7 @@ impl ::std::convert::From<i32> for FALLBACK_INDEX {
 unsafe impl ::windows::runtime::Abi for FALLBACK_INDEX {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_ACTION0 {
@@ -596,21 +596,21 @@ pub struct FWPM_ACTION0 {
     pub Anonymous: FWPM_ACTION0_0,
 }
 impl FWPM_ACTION0 {}
-impl ::std::default::Default for FWPM_ACTION0 {
+impl ::core::default::Default for FWPM_ACTION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for FWPM_ACTION0 {
+impl ::core::cmp::PartialEq for FWPM_ACTION0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for FWPM_ACTION0 {}
+impl ::core::cmp::Eq for FWPM_ACTION0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_ACTION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union FWPM_ACTION0_0 {
@@ -618,17 +618,17 @@ pub union FWPM_ACTION0_0 {
     pub calloutKey: ::windows::runtime::GUID,
 }
 impl FWPM_ACTION0_0 {}
-impl ::std::default::Default for FWPM_ACTION0_0 {
+impl ::core::default::Default for FWPM_ACTION0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for FWPM_ACTION0_0 {
+impl ::core::cmp::PartialEq for FWPM_ACTION0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for FWPM_ACTION0_0 {}
+impl ::core::cmp::Eq for FWPM_ACTION0_0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_ACTION0_0 {
     type Abi = Self;
 }
@@ -655,13 +655,13 @@ pub const FWPM_ACTRL_SUBSCRIBE: u32 = 512u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_WRITE: u32 = 1024u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_APPC_NETWORK_CAPABILITY_TYPE(pub i32);
 pub const FWPM_APPC_NETWORK_CAPABILITY_INTERNET_CLIENT: FWPM_APPC_NETWORK_CAPABILITY_TYPE = FWPM_APPC_NETWORK_CAPABILITY_TYPE(0i32);
 pub const FWPM_APPC_NETWORK_CAPABILITY_INTERNET_CLIENT_SERVER: FWPM_APPC_NETWORK_CAPABILITY_TYPE = FWPM_APPC_NETWORK_CAPABILITY_TYPE(1i32);
 pub const FWPM_APPC_NETWORK_CAPABILITY_INTERNET_PRIVATE_NETWORK: FWPM_APPC_NETWORK_CAPABILITY_TYPE = FWPM_APPC_NETWORK_CAPABILITY_TYPE(2i32);
-impl ::std::convert::From<i32> for FWPM_APPC_NETWORK_CAPABILITY_TYPE {
+impl ::core::convert::From<i32> for FWPM_APPC_NETWORK_CAPABILITY_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -671,7 +671,7 @@ unsafe impl ::windows::runtime::Abi for FWPM_APPC_NETWORK_CAPABILITY_TYPE {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_AUTO_WEIGHT_BITS: u32 = 60u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -687,14 +687,14 @@ pub struct FWPM_CALLOUT0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_CALLOUT0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_CALLOUT0 {
+impl ::core::default::Default for FWPM_CALLOUT0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_CALLOUT0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_CALLOUT0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_CALLOUT0")
             .field("calloutKey", &self.calloutKey)
             .field("displayData", &self.displayData)
@@ -707,13 +707,13 @@ impl ::std::fmt::Debug for FWPM_CALLOUT0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_CALLOUT0 {
+impl ::core::cmp::PartialEq for FWPM_CALLOUT0 {
     fn eq(&self, other: &Self) -> bool {
         self.calloutKey == other.calloutKey && self.displayData == other.displayData && self.flags == other.flags && self.providerKey == other.providerKey && self.providerData == other.providerData && self.applicableLayer == other.applicableLayer && self.calloutId == other.calloutId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_CALLOUT0 {}
+impl ::core::cmp::Eq for FWPM_CALLOUT0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_CALLOUT0 {
     type Abi = Self;
@@ -722,7 +722,7 @@ pub const FWPM_CALLOUT_BUILT_IN_RESERVED_1: ::windows::runtime::GUID = ::windows
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4019610038, 31838, 18685, [161, 48, 150, 103, 140, 234, 204, 65]);
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(410164346, 12130, 19424, [150, 111, 151, 75, 33, 184, 109, 241]);
 pub const FWPM_CALLOUT_BUILT_IN_RESERVED_4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1816115201, 56063, 16617, [145, 230, 247, 255, 126, 82, 247, 217]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_CALLOUT_CHANGE0 {
@@ -731,30 +731,30 @@ pub struct FWPM_CALLOUT_CHANGE0 {
     pub calloutId: u32,
 }
 impl FWPM_CALLOUT_CHANGE0 {}
-impl ::std::default::Default for FWPM_CALLOUT_CHANGE0 {
+impl ::core::default::Default for FWPM_CALLOUT_CHANGE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_CALLOUT_CHANGE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_CALLOUT_CHANGE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_CALLOUT_CHANGE0").field("changeType", &self.changeType).field("calloutKey", &self.calloutKey).field("calloutId", &self.calloutId).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_CALLOUT_CHANGE0 {
+impl ::core::cmp::PartialEq for FWPM_CALLOUT_CHANGE0 {
     fn eq(&self, other: &Self) -> bool {
         self.changeType == other.changeType && self.calloutKey == other.calloutKey && self.calloutId == other.calloutId
     }
 }
-impl ::std::cmp::Eq for FWPM_CALLOUT_CHANGE0 {}
+impl ::core::cmp::Eq for FWPM_CALLOUT_CHANGE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_CALLOUT_CHANGE0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-pub type FWPM_CALLOUT_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, change: *const FWPM_CALLOUT_CHANGE0);
+pub type FWPM_CALLOUT_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_CALLOUT_CHANGE0);
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_LISTEN_V4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(860383925, 27998, 20069, [160, 11, 167, 175, 237, 11, 169, 161]);
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_RESOURCE_ASSIGNMENT_V4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(127602704, 61893, 20429, [174, 5, 218, 65, 16, 122, 189, 11]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_CALLOUT_ENUM_TEMPLATE0 {
@@ -762,22 +762,22 @@ pub struct FWPM_CALLOUT_ENUM_TEMPLATE0 {
     pub layerKey: ::windows::runtime::GUID,
 }
 impl FWPM_CALLOUT_ENUM_TEMPLATE0 {}
-impl ::std::default::Default for FWPM_CALLOUT_ENUM_TEMPLATE0 {
+impl ::core::default::Default for FWPM_CALLOUT_ENUM_TEMPLATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_CALLOUT_ENUM_TEMPLATE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_CALLOUT_ENUM_TEMPLATE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_CALLOUT_ENUM_TEMPLATE0").field("providerKey", &self.providerKey).field("layerKey", &self.layerKey).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_CALLOUT_ENUM_TEMPLATE0 {
+impl ::core::cmp::PartialEq for FWPM_CALLOUT_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
         self.providerKey == other.providerKey && self.layerKey == other.layerKey
     }
 }
-impl ::std::cmp::Eq for FWPM_CALLOUT_ENUM_TEMPLATE0 {}
+impl ::core::cmp::Eq for FWPM_CALLOUT_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_CALLOUT_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
@@ -818,7 +818,7 @@ pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_CONNECT_LAYER_V4: ::windows::runtime::GU
 pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_CONNECT_LAYER_V6: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2565158716, 47236, 18703, [182, 95, 47, 106, 74, 87, 81, 149]);
 pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_RECV_ACCEPT_LAYER_V4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(760606728, 3073, 20370, [178, 110, 160, 138, 148, 86, 155, 141]);
 pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_RECV_ACCEPT_LAYER_V6: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1661044023, 62081, 19908, [131, 211, 141, 236, 24, 183, 173, 226]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_CALLOUT_SUBSCRIPTION0 {
@@ -827,22 +827,22 @@ pub struct FWPM_CALLOUT_SUBSCRIPTION0 {
     pub sessionKey: ::windows::runtime::GUID,
 }
 impl FWPM_CALLOUT_SUBSCRIPTION0 {}
-impl ::std::default::Default for FWPM_CALLOUT_SUBSCRIPTION0 {
+impl ::core::default::Default for FWPM_CALLOUT_SUBSCRIPTION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_CALLOUT_SUBSCRIPTION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_CALLOUT_SUBSCRIPTION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_CALLOUT_SUBSCRIPTION0").field("enumTemplate", &self.enumTemplate).field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_CALLOUT_SUBSCRIPTION0 {
+impl ::core::cmp::PartialEq for FWPM_CALLOUT_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
         self.enumTemplate == other.enumTemplate && self.flags == other.flags && self.sessionKey == other.sessionKey
     }
 }
-impl ::std::cmp::Eq for FWPM_CALLOUT_SUBSCRIPTION0 {}
+impl ::core::cmp::Eq for FWPM_CALLOUT_SUBSCRIPTION0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_CALLOUT_SUBSCRIPTION0 {
     type Abi = Self;
 }
@@ -859,13 +859,13 @@ pub const FWPM_CALLOUT_TEREDO_ALE_RESOURCE_ASSIGNMENT_V6: ::windows::runtime::GU
 pub const FWPM_CALLOUT_WFP_TRANSPORT_LAYER_V4_SILENT_DROP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3986720262, 9364, 19832, [137, 188, 103, 131, 124, 3, 185, 105]);
 pub const FWPM_CALLOUT_WFP_TRANSPORT_LAYER_V6_SILENT_DROP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2257833076, 41077, 16726, [180, 118, 146, 134, 238, 206, 129, 78]);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_CHANGE_TYPE(pub i32);
 pub const FWPM_CHANGE_ADD: FWPM_CHANGE_TYPE = FWPM_CHANGE_TYPE(1i32);
 pub const FWPM_CHANGE_DELETE: FWPM_CHANGE_TYPE = FWPM_CHANGE_TYPE(2i32);
 pub const FWPM_CHANGE_TYPE_MAX: FWPM_CHANGE_TYPE = FWPM_CHANGE_TYPE(3i32);
-impl ::std::convert::From<i32> for FWPM_CHANGE_TYPE {
+impl ::core::convert::From<i32> for FWPM_CHANGE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -873,7 +873,7 @@ impl ::std::convert::From<i32> for FWPM_CHANGE_TYPE {
 unsafe impl ::windows::runtime::Abi for FWPM_CHANGE_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -884,24 +884,24 @@ pub struct FWPM_CLASSIFY_OPTION0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_CLASSIFY_OPTION0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_CLASSIFY_OPTION0 {
+impl ::core::default::Default for FWPM_CLASSIFY_OPTION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_CLASSIFY_OPTION0 {
+impl ::core::cmp::PartialEq for FWPM_CLASSIFY_OPTION0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_CLASSIFY_OPTION0 {}
+impl ::core::cmp::Eq for FWPM_CLASSIFY_OPTION0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_CLASSIFY_OPTION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -912,25 +912,25 @@ pub struct FWPM_CLASSIFY_OPTIONS0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_CLASSIFY_OPTIONS0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_CLASSIFY_OPTIONS0 {
+impl ::core::default::Default for FWPM_CLASSIFY_OPTIONS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for FWPM_CLASSIFY_OPTIONS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_CLASSIFY_OPTIONS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_CLASSIFY_OPTIONS0").field("numOptions", &self.numOptions).field("options", &self.options).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_CLASSIFY_OPTIONS0 {
+impl ::core::cmp::PartialEq for FWPM_CLASSIFY_OPTIONS0 {
     fn eq(&self, other: &Self) -> bool {
         self.numOptions == other.numOptions && self.options == other.options
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_CLASSIFY_OPTIONS0 {}
+impl ::core::cmp::Eq for FWPM_CLASSIFY_OPTIONS0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_CLASSIFY_OPTIONS0 {
     type Abi = Self;
@@ -1071,7 +1071,7 @@ pub const FWPM_CONDITION_VSWITCH_SOURCE_INTERFACE_ID: ::windows::runtime::GUID =
 pub const FWPM_CONDITION_VSWITCH_SOURCE_INTERFACE_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3870310562, 60847, 19510, [144, 139, 242, 245, 138, 228, 56, 7]);
 pub const FWPM_CONDITION_VSWITCH_SOURCE_VM_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2620038850, 40902, 17084, [189, 216, 64, 109, 77, 160, 190, 100]);
 pub const FWPM_CONDITION_VSWITCH_TENANT_NETWORK_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3691283516, 31206, 20036, [160, 37, 101, 185, 187, 15, 159, 148]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -1094,24 +1094,24 @@ pub struct FWPM_CONNECTION0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_CONNECTION0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_CONNECTION0 {
+impl ::core::default::Default for FWPM_CONNECTION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_CONNECTION0 {
+impl ::core::cmp::PartialEq for FWPM_CONNECTION0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_CONNECTION0 {}
+impl ::core::cmp::Eq for FWPM_CONNECTION0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_CONNECTION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union FWPM_CONNECTION0_0 {
@@ -1121,24 +1121,24 @@ pub union FWPM_CONNECTION0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_CONNECTION0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_CONNECTION0_0 {
+impl ::core::default::Default for FWPM_CONNECTION0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_CONNECTION0_0 {
+impl ::core::cmp::PartialEq for FWPM_CONNECTION0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_CONNECTION0_0 {}
+impl ::core::cmp::Eq for FWPM_CONNECTION0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_CONNECTION0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union FWPM_CONNECTION0_1 {
@@ -1148,29 +1148,29 @@ pub union FWPM_CONNECTION0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_CONNECTION0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_CONNECTION0_1 {
+impl ::core::default::Default for FWPM_CONNECTION0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_CONNECTION0_1 {
+impl ::core::cmp::PartialEq for FWPM_CONNECTION0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_CONNECTION0_1 {}
+impl ::core::cmp::Eq for FWPM_CONNECTION0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_CONNECTION0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type FWPM_CONNECTION_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, eventtype: FWPM_CONNECTION_EVENT_TYPE, connection: *const FWPM_CONNECTION0);
+pub type FWPM_CONNECTION_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, eventtype: FWPM_CONNECTION_EVENT_TYPE, connection: *const FWPM_CONNECTION0);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_CONNECTION_ENUM_TEMPLATE0 {
@@ -1178,33 +1178,33 @@ pub struct FWPM_CONNECTION_ENUM_TEMPLATE0 {
     pub flags: u32,
 }
 impl FWPM_CONNECTION_ENUM_TEMPLATE0 {}
-impl ::std::default::Default for FWPM_CONNECTION_ENUM_TEMPLATE0 {
+impl ::core::default::Default for FWPM_CONNECTION_ENUM_TEMPLATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_CONNECTION_ENUM_TEMPLATE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_CONNECTION_ENUM_TEMPLATE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_CONNECTION_ENUM_TEMPLATE0").field("connectionId", &self.connectionId).field("flags", &self.flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_CONNECTION_ENUM_TEMPLATE0 {
+impl ::core::cmp::PartialEq for FWPM_CONNECTION_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
         self.connectionId == other.connectionId && self.flags == other.flags
     }
 }
-impl ::std::cmp::Eq for FWPM_CONNECTION_ENUM_TEMPLATE0 {}
+impl ::core::cmp::Eq for FWPM_CONNECTION_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_CONNECTION_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_CONNECTION_EVENT_TYPE(pub i32);
 pub const FWPM_CONNECTION_EVENT_ADD: FWPM_CONNECTION_EVENT_TYPE = FWPM_CONNECTION_EVENT_TYPE(0i32);
 pub const FWPM_CONNECTION_EVENT_DELETE: FWPM_CONNECTION_EVENT_TYPE = FWPM_CONNECTION_EVENT_TYPE(1i32);
 pub const FWPM_CONNECTION_EVENT_MAX: FWPM_CONNECTION_EVENT_TYPE = FWPM_CONNECTION_EVENT_TYPE(2i32);
-impl ::std::convert::From<i32> for FWPM_CONNECTION_EVENT_TYPE {
+impl ::core::convert::From<i32> for FWPM_CONNECTION_EVENT_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1212,7 +1212,7 @@ impl ::std::convert::From<i32> for FWPM_CONNECTION_EVENT_TYPE {
 unsafe impl ::windows::runtime::Abi for FWPM_CONNECTION_EVENT_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_CONNECTION_SUBSCRIPTION0 {
@@ -1221,26 +1221,26 @@ pub struct FWPM_CONNECTION_SUBSCRIPTION0 {
     pub sessionKey: ::windows::runtime::GUID,
 }
 impl FWPM_CONNECTION_SUBSCRIPTION0 {}
-impl ::std::default::Default for FWPM_CONNECTION_SUBSCRIPTION0 {
+impl ::core::default::Default for FWPM_CONNECTION_SUBSCRIPTION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_CONNECTION_SUBSCRIPTION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_CONNECTION_SUBSCRIPTION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_CONNECTION_SUBSCRIPTION0").field("enumTemplate", &self.enumTemplate).field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_CONNECTION_SUBSCRIPTION0 {
+impl ::core::cmp::PartialEq for FWPM_CONNECTION_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
         self.enumTemplate == other.enumTemplate && self.flags == other.flags && self.sessionKey == other.sessionKey
     }
 }
-impl ::std::cmp::Eq for FWPM_CONNECTION_SUBSCRIPTION0 {}
+impl ::core::cmp::Eq for FWPM_CONNECTION_SUBSCRIPTION0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_CONNECTION_SUBSCRIPTION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -1251,33 +1251,33 @@ pub struct FWPM_DISPLAY_DATA0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_DISPLAY_DATA0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_DISPLAY_DATA0 {
+impl ::core::default::Default for FWPM_DISPLAY_DATA0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_DISPLAY_DATA0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_DISPLAY_DATA0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_DISPLAY_DATA0").field("name", &self.name).field("description", &self.description).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_DISPLAY_DATA0 {
+impl ::core::cmp::PartialEq for FWPM_DISPLAY_DATA0 {
     fn eq(&self, other: &Self) -> bool {
         self.name == other.name && self.description == other.description
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_DISPLAY_DATA0 {}
+impl ::core::cmp::Eq for FWPM_DISPLAY_DATA0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_DISPLAY_DATA0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-pub type FWPM_DYNAMIC_KEYWORD_CALLBACK0 = unsafe extern "system" fn(notification: *mut ::std::ffi::c_void, context: *mut ::std::ffi::c_void);
+pub type FWPM_DYNAMIC_KEYWORD_CALLBACK0 = unsafe extern "system" fn(notification: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_ENGINE_OPTION(pub i32);
 pub const FWPM_ENGINE_COLLECT_NET_EVENTS: FWPM_ENGINE_OPTION = FWPM_ENGINE_OPTION(0i32);
@@ -1287,7 +1287,7 @@ pub const FWPM_ENGINE_MONITOR_IPSEC_CONNECTIONS: FWPM_ENGINE_OPTION = FWPM_ENGIN
 pub const FWPM_ENGINE_PACKET_QUEUING: FWPM_ENGINE_OPTION = FWPM_ENGINE_OPTION(4i32);
 pub const FWPM_ENGINE_TXN_WATCHDOG_TIMEOUT_IN_MSEC: FWPM_ENGINE_OPTION = FWPM_ENGINE_OPTION(5i32);
 pub const FWPM_ENGINE_OPTION_MAX: FWPM_ENGINE_OPTION = FWPM_ENGINE_OPTION(6i32);
-impl ::std::convert::From<i32> for FWPM_ENGINE_OPTION {
+impl ::core::convert::From<i32> for FWPM_ENGINE_OPTION {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1303,7 +1303,7 @@ pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_FORWARD: u32 = 2u32;
 pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_INBOUND: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_NONE: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_FIELD0 {
@@ -1312,34 +1312,34 @@ pub struct FWPM_FIELD0 {
     pub dataType: FWP_DATA_TYPE,
 }
 impl FWPM_FIELD0 {}
-impl ::std::default::Default for FWPM_FIELD0 {
+impl ::core::default::Default for FWPM_FIELD0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_FIELD0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_FIELD0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_FIELD0").field("fieldKey", &self.fieldKey).field("r#type", &self.r#type).field("dataType", &self.dataType).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_FIELD0 {
+impl ::core::cmp::PartialEq for FWPM_FIELD0 {
     fn eq(&self, other: &Self) -> bool {
         self.fieldKey == other.fieldKey && self.r#type == other.r#type && self.dataType == other.dataType
     }
 }
-impl ::std::cmp::Eq for FWPM_FIELD0 {}
+impl ::core::cmp::Eq for FWPM_FIELD0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_FIELD0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_FIELD_TYPE(pub i32);
 pub const FWPM_FIELD_RAW_DATA: FWPM_FIELD_TYPE = FWPM_FIELD_TYPE(0i32);
 pub const FWPM_FIELD_IP_ADDRESS: FWPM_FIELD_TYPE = FWPM_FIELD_TYPE(1i32);
 pub const FWPM_FIELD_FLAGS: FWPM_FIELD_TYPE = FWPM_FIELD_TYPE(2i32);
 pub const FWPM_FIELD_TYPE_MAX: FWPM_FIELD_TYPE = FWPM_FIELD_TYPE(3i32);
-impl ::std::convert::From<i32> for FWPM_FIELD_TYPE {
+impl ::core::convert::From<i32> for FWPM_FIELD_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1347,7 +1347,7 @@ impl ::std::convert::From<i32> for FWPM_FIELD_TYPE {
 unsafe impl ::windows::runtime::Abi for FWPM_FIELD_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -1371,24 +1371,24 @@ pub struct FWPM_FILTER0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_FILTER0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_FILTER0 {
+impl ::core::default::Default for FWPM_FILTER0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_FILTER0 {
+impl ::core::cmp::PartialEq for FWPM_FILTER0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_FILTER0 {}
+impl ::core::cmp::Eq for FWPM_FILTER0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_FILTER0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_FILTER0_0 {
@@ -1398,24 +1398,24 @@ pub union FWPM_FILTER0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_FILTER0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_FILTER0_0 {
+impl ::core::default::Default for FWPM_FILTER0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_FILTER0_0 {
+impl ::core::cmp::PartialEq for FWPM_FILTER0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_FILTER0_0 {}
+impl ::core::cmp::Eq for FWPM_FILTER0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_FILTER0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_FILTER_CHANGE0 {
@@ -1424,28 +1424,28 @@ pub struct FWPM_FILTER_CHANGE0 {
     pub filterId: u64,
 }
 impl FWPM_FILTER_CHANGE0 {}
-impl ::std::default::Default for FWPM_FILTER_CHANGE0 {
+impl ::core::default::Default for FWPM_FILTER_CHANGE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_FILTER_CHANGE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_FILTER_CHANGE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_FILTER_CHANGE0").field("changeType", &self.changeType).field("filterKey", &self.filterKey).field("filterId", &self.filterId).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_FILTER_CHANGE0 {
+impl ::core::cmp::PartialEq for FWPM_FILTER_CHANGE0 {
     fn eq(&self, other: &Self) -> bool {
         self.changeType == other.changeType && self.filterKey == other.filterKey && self.filterId == other.filterId
     }
 }
-impl ::std::cmp::Eq for FWPM_FILTER_CHANGE0 {}
+impl ::core::cmp::Eq for FWPM_FILTER_CHANGE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_FILTER_CHANGE0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-pub type FWPM_FILTER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, change: *const FWPM_FILTER_CHANGE0);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type FWPM_FILTER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_FILTER_CHANGE0);
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -1457,24 +1457,24 @@ pub struct FWPM_FILTER_CONDITION0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_FILTER_CONDITION0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_FILTER_CONDITION0 {
+impl ::core::default::Default for FWPM_FILTER_CONDITION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_FILTER_CONDITION0 {
+impl ::core::cmp::PartialEq for FWPM_FILTER_CONDITION0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_FILTER_CONDITION0 {}
+impl ::core::cmp::Eq for FWPM_FILTER_CONDITION0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_FILTER_CONDITION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -1492,14 +1492,14 @@ pub struct FWPM_FILTER_ENUM_TEMPLATE0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_FILTER_ENUM_TEMPLATE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_FILTER_ENUM_TEMPLATE0 {
+impl ::core::default::Default for FWPM_FILTER_ENUM_TEMPLATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for FWPM_FILTER_ENUM_TEMPLATE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_FILTER_ENUM_TEMPLATE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_FILTER_ENUM_TEMPLATE0")
             .field("providerKey", &self.providerKey)
             .field("layerKey", &self.layerKey)
@@ -1514,19 +1514,19 @@ impl ::std::fmt::Debug for FWPM_FILTER_ENUM_TEMPLATE0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_FILTER_ENUM_TEMPLATE0 {
+impl ::core::cmp::PartialEq for FWPM_FILTER_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
         self.providerKey == other.providerKey && self.layerKey == other.layerKey && self.enumType == other.enumType && self.flags == other.flags && self.providerContextTemplate == other.providerContextTemplate && self.numFilterConditions == other.numFilterConditions && self.filterCondition == other.filterCondition && self.actionMask == other.actionMask && self.calloutKey == other.calloutKey
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_FILTER_ENUM_TEMPLATE0 {}
+impl ::core::cmp::Eq for FWPM_FILTER_ENUM_TEMPLATE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_FILTER_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_FILTER_FLAGS(pub u32);
 pub const FWPM_FILTER_FLAG_NONE: FWPM_FILTER_FLAGS = FWPM_FILTER_FLAGS(0u32);
@@ -1537,7 +1537,7 @@ pub const FWPM_FILTER_FLAG_CLEAR_ACTION_RIGHT: FWPM_FILTER_FLAGS = FWPM_FILTER_F
 pub const FWPM_FILTER_FLAG_PERMIT_IF_CALLOUT_UNREGISTERED: FWPM_FILTER_FLAGS = FWPM_FILTER_FLAGS(16u32);
 pub const FWPM_FILTER_FLAG_DISABLED: FWPM_FILTER_FLAGS = FWPM_FILTER_FLAGS(32u32);
 pub const FWPM_FILTER_FLAG_INDEXED: FWPM_FILTER_FLAGS = FWPM_FILTER_FLAGS(64u32);
-impl ::std::convert::From<u32> for FWPM_FILTER_FLAGS {
+impl ::core::convert::From<u32> for FWPM_FILTER_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1545,29 +1545,29 @@ impl ::std::convert::From<u32> for FWPM_FILTER_FLAGS {
 unsafe impl ::windows::runtime::Abi for FWPM_FILTER_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FWPM_FILTER_FLAGS {
+impl ::core::ops::BitOr for FWPM_FILTER_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FWPM_FILTER_FLAGS {
+impl ::core::ops::BitAnd for FWPM_FILTER_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FWPM_FILTER_FLAGS {
+impl ::core::ops::BitOrAssign for FWPM_FILTER_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FWPM_FILTER_FLAGS {
+impl ::core::ops::BitAndAssign for FWPM_FILTER_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FWPM_FILTER_FLAGS {
+impl ::core::ops::Not for FWPM_FILTER_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -1587,7 +1587,7 @@ pub const FWPM_FILTER_FLAG_RESERVED1: u32 = 8192u32;
 pub const FWPM_FILTER_FLAG_SILENT_MODE: u32 = 1024u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_SYSTEMOS_ONLY: u32 = 256u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -1599,25 +1599,25 @@ pub struct FWPM_FILTER_SUBSCRIPTION0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_FILTER_SUBSCRIPTION0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_FILTER_SUBSCRIPTION0 {
+impl ::core::default::Default for FWPM_FILTER_SUBSCRIPTION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for FWPM_FILTER_SUBSCRIPTION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_FILTER_SUBSCRIPTION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_FILTER_SUBSCRIPTION0").field("enumTemplate", &self.enumTemplate).field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_FILTER_SUBSCRIPTION0 {
+impl ::core::cmp::PartialEq for FWPM_FILTER_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
         self.enumTemplate == other.enumTemplate && self.flags == other.flags && self.sessionKey == other.sessionKey
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_FILTER_SUBSCRIPTION0 {}
+impl ::core::cmp::Eq for FWPM_FILTER_SUBSCRIPTION0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_FILTER_SUBSCRIPTION0 {
     type Abi = Self;
@@ -1625,7 +1625,7 @@ unsafe impl ::windows::runtime::Abi for FWPM_FILTER_SUBSCRIPTION0 {
 pub const FWPM_KEYING_MODULE_AUTHIP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(300145376, 56614, 17808, [133, 125, 171, 75, 40, 209, 160, 149]);
 pub const FWPM_KEYING_MODULE_IKE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2847668103, 33448, 17851, [164, 0, 93, 126, 89, 82, 199, 169]);
 pub const FWPM_KEYING_MODULE_IKEV2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(68653772, 36615, 16797, [163, 148, 113, 105, 104, 203, 22, 71]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -1641,25 +1641,25 @@ pub struct FWPM_LAYER0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_LAYER0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_LAYER0 {
+impl ::core::default::Default for FWPM_LAYER0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_LAYER0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_LAYER0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_LAYER0").field("layerKey", &self.layerKey).field("displayData", &self.displayData).field("flags", &self.flags).field("numFields", &self.numFields).field("field", &self.field).field("defaultSubLayerKey", &self.defaultSubLayerKey).field("layerId", &self.layerId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_LAYER0 {
+impl ::core::cmp::PartialEq for FWPM_LAYER0 {
     fn eq(&self, other: &Self) -> bool {
         self.layerKey == other.layerKey && self.displayData == other.displayData && self.flags == other.flags && self.numFields == other.numFields && self.field == other.field && self.defaultSubLayerKey == other.defaultSubLayerKey && self.layerId == other.layerId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_LAYER0 {}
+impl ::core::cmp::Eq for FWPM_LAYER0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_LAYER0 {
     type Abi = Self;
@@ -1699,29 +1699,29 @@ pub const FWPM_LAYER_DATAGRAM_DATA_V6_DISCARD: ::windows::runtime::GUID = ::wind
 pub const FWPM_LAYER_EGRESS_VSWITCH_ETHERNET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2261283504, 30458, 19321, [147, 164, 7, 80, 83, 10, 226, 146]);
 pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3106099382, 37360, 18102, [189, 196, 135, 29, 253, 74, 124, 152]);
 pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V6: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(455995171, 6273, 16573, [130, 244, 66, 84, 230, 49, 65, 203]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_LAYER_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
 impl FWPM_LAYER_ENUM_TEMPLATE0 {}
-impl ::std::default::Default for FWPM_LAYER_ENUM_TEMPLATE0 {
+impl ::core::default::Default for FWPM_LAYER_ENUM_TEMPLATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_LAYER_ENUM_TEMPLATE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_LAYER_ENUM_TEMPLATE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_LAYER_ENUM_TEMPLATE0").field("reserved", &self.reserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_LAYER_ENUM_TEMPLATE0 {
+impl ::core::cmp::PartialEq for FWPM_LAYER_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
         self.reserved == other.reserved
     }
 }
-impl ::std::cmp::Eq for FWPM_LAYER_ENUM_TEMPLATE0 {}
+impl ::core::cmp::Eq for FWPM_LAYER_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_LAYER_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
@@ -1787,7 +1787,7 @@ pub const FWPM_LAYER_RPC_EP_ADD: ::windows::runtime::GUID = ::windows::runtime::
 pub const FWPM_LAYER_RPC_PROXY_CONN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2493822219, 47708, 20263, [144, 122, 34, 159, 172, 12, 42, 122]);
 pub const FWPM_LAYER_RPC_PROXY_IF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4171466261, 57644, 16812, [152, 223, 18, 26, 217, 129, 170, 222]);
 pub const FWPM_LAYER_RPC_UM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1973984730, 38372, 16627, [173, 199, 118, 136, 169, 200, 71, 225]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_LAYER_STATISTICS0 {
@@ -1798,22 +1798,22 @@ pub struct FWPM_LAYER_STATISTICS0 {
     pub numCacheEntries: u32,
 }
 impl FWPM_LAYER_STATISTICS0 {}
-impl ::std::default::Default for FWPM_LAYER_STATISTICS0 {
+impl ::core::default::Default for FWPM_LAYER_STATISTICS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_LAYER_STATISTICS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_LAYER_STATISTICS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_LAYER_STATISTICS0").field("layerId", &self.layerId).field("classifyPermitCount", &self.classifyPermitCount).field("classifyBlockCount", &self.classifyBlockCount).field("classifyVetoCount", &self.classifyVetoCount).field("numCacheEntries", &self.numCacheEntries).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_LAYER_STATISTICS0 {
+impl ::core::cmp::PartialEq for FWPM_LAYER_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
         self.layerId == other.layerId && self.classifyPermitCount == other.classifyPermitCount && self.classifyBlockCount == other.classifyBlockCount && self.classifyVetoCount == other.classifyVetoCount && self.numCacheEntries == other.numCacheEntries
     }
 }
-impl ::std::cmp::Eq for FWPM_LAYER_STATISTICS0 {}
+impl ::core::cmp::Eq for FWPM_LAYER_STATISTICS0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_LAYER_STATISTICS0 {
     type Abi = Self;
 }
@@ -1823,7 +1823,7 @@ pub const FWPM_LAYER_STREAM_V4: ::windows::runtime::GUID = ::windows::runtime::G
 pub const FWPM_LAYER_STREAM_V4_DISCARD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(633651906, 9727, 17234, [130, 249, 197, 74, 74, 71, 38, 220]);
 pub const FWPM_LAYER_STREAM_V6: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1204360058, 32452, 18099, [182, 228, 72, 233, 38, 177, 237, 164]);
 pub const FWPM_LAYER_STREAM_V6_DISCARD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(279289799, 46632, 19521, [158, 184, 207, 55, 213, 81, 3, 207]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -1835,24 +1835,24 @@ pub struct FWPM_NET_EVENT0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT0 {
+impl ::core::default::Default for FWPM_NET_EVENT0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT0_0 {
@@ -1866,24 +1866,24 @@ pub union FWPM_NET_EVENT0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT0_0 {
+impl ::core::default::Default for FWPM_NET_EVENT0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT0_0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT0_0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -1895,24 +1895,24 @@ pub struct FWPM_NET_EVENT1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT1 {
+impl ::core::default::Default for FWPM_NET_EVENT1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT1 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT1 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT1_0 {
@@ -1926,24 +1926,24 @@ pub union FWPM_NET_EVENT1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT1_0 {
+impl ::core::default::Default for FWPM_NET_EVENT1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT1_0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT1_0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -1955,24 +1955,24 @@ pub struct FWPM_NET_EVENT2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT2 {
+impl ::core::default::Default for FWPM_NET_EVENT2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT2 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT2 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT2_0 {
@@ -1990,24 +1990,24 @@ pub union FWPM_NET_EVENT2_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT2_0 {
+impl ::core::default::Default for FWPM_NET_EVENT2_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT2_0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT2_0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT2_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -2019,24 +2019,24 @@ pub struct FWPM_NET_EVENT3 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT3 {
+impl ::core::default::Default for FWPM_NET_EVENT3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT3 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT3 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT3 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT3_0 {
@@ -2054,24 +2054,24 @@ pub union FWPM_NET_EVENT3_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT3_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT3_0 {
+impl ::core::default::Default for FWPM_NET_EVENT3_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT3_0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT3_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT3_0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT3_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT3_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -2083,24 +2083,24 @@ pub struct FWPM_NET_EVENT4_ {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT4_ {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT4_ {
+impl ::core::default::Default for FWPM_NET_EVENT4_ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT4_ {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT4_ {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT4_ {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT4_ {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT4_ {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT4__0 {
@@ -2118,24 +2118,24 @@ pub union FWPM_NET_EVENT4__0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT4__0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT4__0 {
+impl ::core::default::Default for FWPM_NET_EVENT4__0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT4__0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT4__0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT4__0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT4__0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT4__0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -2147,24 +2147,24 @@ pub struct FWPM_NET_EVENT5_ {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT5_ {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT5_ {
+impl ::core::default::Default for FWPM_NET_EVENT5_ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT5_ {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT5_ {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT5_ {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT5_ {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT5_ {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT5__0 {
@@ -2183,39 +2183,39 @@ pub union FWPM_NET_EVENT5__0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT5__0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT5__0 {
+impl ::core::default::Default for FWPM_NET_EVENT5__0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT5__0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT5__0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT5__0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT5__0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT5__0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type FWPM_NET_EVENT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, event: *const FWPM_NET_EVENT1);
+pub type FWPM_NET_EVENT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT1);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type FWPM_NET_EVENT_CALLBACK1 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, event: *const FWPM_NET_EVENT2);
+pub type FWPM_NET_EVENT_CALLBACK1 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT2);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type FWPM_NET_EVENT_CALLBACK2 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, event: *const FWPM_NET_EVENT3);
+pub type FWPM_NET_EVENT_CALLBACK2 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT3);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type FWPM_NET_EVENT_CALLBACK3 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, event: *const FWPM_NET_EVENT4_);
+pub type FWPM_NET_EVENT_CALLBACK3 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT4_);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type FWPM_NET_EVENT_CALLBACK4 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, event: *const FWPM_NET_EVENT5_);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type FWPM_NET_EVENT_CALLBACK4 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT5_);
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -2227,30 +2227,30 @@ pub struct FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_NET_EVENT_CAPABILITY_ALLOW0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
+impl ::core::default::Default for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_CAPABILITY_ALLOW0").field("networkCapabilityId", &self.networkCapabilityId).field("filterId", &self.filterId).field("isLoopback", &self.isLoopback).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
     fn eq(&self, other: &Self) -> bool {
         self.networkCapabilityId == other.networkCapabilityId && self.filterId == other.filterId && self.isLoopback == other.isLoopback
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -2262,30 +2262,30 @@ pub struct FWPM_NET_EVENT_CAPABILITY_DROP0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_NET_EVENT_CAPABILITY_DROP0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_NET_EVENT_CAPABILITY_DROP0 {
+impl ::core::default::Default for FWPM_NET_EVENT_CAPABILITY_DROP0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_NET_EVENT_CAPABILITY_DROP0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_CAPABILITY_DROP0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_CAPABILITY_DROP0").field("networkCapabilityId", &self.networkCapabilityId).field("filterId", &self.filterId).field("isLoopback", &self.isLoopback).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_CAPABILITY_DROP0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CAPABILITY_DROP0 {
     fn eq(&self, other: &Self) -> bool {
         self.networkCapabilityId == other.networkCapabilityId && self.filterId == other.filterId && self.isLoopback == other.isLoopback
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_CAPABILITY_DROP0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_CAPABILITY_DROP0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_CAPABILITY_DROP0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -2301,14 +2301,14 @@ pub struct FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_NET_EVENT_CLASSIFY_ALLOW0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
+impl ::core::default::Default for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_CLASSIFY_ALLOW0")
             .field("filterId", &self.filterId)
             .field("layerId", &self.layerId)
@@ -2321,18 +2321,18 @@ impl ::std::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     fn eq(&self, other: &Self) -> bool {
         self.filterId == other.filterId && self.layerId == other.layerId && self.reauthReason == other.reauthReason && self.originalProfile == other.originalProfile && self.currentProfile == other.currentProfile && self.msFwpDirection == other.msFwpDirection && self.isLoopback == other.isLoopback
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP0 {
@@ -2340,26 +2340,26 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP0 {
     pub layerId: u16,
 }
 impl FWPM_NET_EVENT_CLASSIFY_DROP0 {}
-impl ::std::default::Default for FWPM_NET_EVENT_CLASSIFY_DROP0 {
+impl ::core::default::Default for FWPM_NET_EVENT_CLASSIFY_DROP0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_CLASSIFY_DROP0").field("filterId", &self.filterId).field("layerId", &self.layerId).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_DROP0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_DROP0 {
     fn eq(&self, other: &Self) -> bool {
         self.filterId == other.filterId && self.layerId == other.layerId
     }
 }
-impl ::std::cmp::Eq for FWPM_NET_EVENT_CLASSIFY_DROP0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_CLASSIFY_DROP0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_CLASSIFY_DROP0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -2375,14 +2375,14 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP1 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_NET_EVENT_CLASSIFY_DROP1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_NET_EVENT_CLASSIFY_DROP1 {
+impl ::core::default::Default for FWPM_NET_EVENT_CLASSIFY_DROP1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_CLASSIFY_DROP1")
             .field("filterId", &self.filterId)
             .field("layerId", &self.layerId)
@@ -2395,18 +2395,18 @@ impl ::std::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_DROP1 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_DROP1 {
     fn eq(&self, other: &Self) -> bool {
         self.filterId == other.filterId && self.layerId == other.layerId && self.reauthReason == other.reauthReason && self.originalProfile == other.originalProfile && self.currentProfile == other.currentProfile && self.msFwpDirection == other.msFwpDirection && self.isLoopback == other.isLoopback
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_CLASSIFY_DROP1 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_CLASSIFY_DROP1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_CLASSIFY_DROP1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -2425,14 +2425,14 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP2 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_NET_EVENT_CLASSIFY_DROP2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_NET_EVENT_CLASSIFY_DROP2 {
+impl ::core::default::Default for FWPM_NET_EVENT_CLASSIFY_DROP2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_CLASSIFY_DROP2")
             .field("filterId", &self.filterId)
             .field("layerId", &self.layerId)
@@ -2448,18 +2448,18 @@ impl ::std::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_DROP2 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_DROP2 {
     fn eq(&self, other: &Self) -> bool {
         self.filterId == other.filterId && self.layerId == other.layerId && self.reauthReason == other.reauthReason && self.originalProfile == other.originalProfile && self.currentProfile == other.currentProfile && self.msFwpDirection == other.msFwpDirection && self.isLoopback == other.isLoopback && self.vSwitchId == other.vSwitchId && self.vSwitchSourcePort == other.vSwitchSourcePort && self.vSwitchDestinationPort == other.vSwitchDestinationPort
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_CLASSIFY_DROP2 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_CLASSIFY_DROP2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_CLASSIFY_DROP2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -2487,14 +2487,14 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
+impl ::core::default::Default for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_CLASSIFY_DROP_MAC0")
             .field("localMacAddr", &self.localMacAddr)
             .field("remoteMacAddr", &self.remoteMacAddr)
@@ -2519,7 +2519,7 @@ impl ::std::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     fn eq(&self, other: &Self) -> bool {
         self.localMacAddr == other.localMacAddr
             && self.remoteMacAddr == other.remoteMacAddr
@@ -2543,12 +2543,12 @@ impl ::std::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -2561,25 +2561,25 @@ pub struct FWPM_NET_EVENT_ENUM_TEMPLATE0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_ENUM_TEMPLATE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
+impl ::core::default::Default for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_ENUM_TEMPLATE0").field("startTime", &self.startTime).field("endTime", &self.endTime).field("numFilterConditions", &self.numFilterConditions).field("filterCondition", &self.filterCondition).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
         self.startTime == other.startTime && self.endTime == other.endTime && self.numFilterConditions == other.numFilterConditions && self.filterCondition == other.filterCondition
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_ENUM_TEMPLATE0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_ENUM_TEMPLATE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     type Abi = Self;
@@ -2612,7 +2612,7 @@ pub const FWPM_NET_EVENT_FLAG_REMOTE_PORT_SET: u32 = 16u32;
 pub const FWPM_NET_EVENT_FLAG_SCOPE_ID_SET: u32 = 128u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_USER_ID_SET: u32 = 64u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -2632,24 +2632,24 @@ pub struct FWPM_NET_EVENT_HEADER0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER0 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER0_0 {
@@ -2659,24 +2659,24 @@ pub union FWPM_NET_EVENT_HEADER0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER0_0 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER0_0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER0_0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER0_1 {
@@ -2686,24 +2686,24 @@ pub union FWPM_NET_EVENT_HEADER0_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER0_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER0_1 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER0_1 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER0_1 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER0_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -2724,24 +2724,24 @@ pub struct FWPM_NET_EVENT_HEADER1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER1 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER1 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER1 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER1_0 {
@@ -2751,24 +2751,24 @@ pub union FWPM_NET_EVENT_HEADER1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER1_0 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER1_0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER1_1 {
@@ -2778,24 +2778,24 @@ pub union FWPM_NET_EVENT_HEADER1_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER1_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER1_1 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER1_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_1 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER1_1 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER1_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER1_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER1_2 {
@@ -2804,24 +2804,24 @@ pub union FWPM_NET_EVENT_HEADER1_2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER1_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER1_2 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER1_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_2 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER1_2 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER1_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER1_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_HEADER1_2_0 {
@@ -2831,24 +2831,24 @@ pub struct FWPM_NET_EVENT_HEADER1_2_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER1_2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER1_2_0 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER1_2_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_2_0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER1_2_0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER1_2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER1_2_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER1_2_0_0 {
@@ -2857,24 +2857,24 @@ pub union FWPM_NET_EVENT_HEADER1_2_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER1_2_0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER1_2_0_0 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER1_2_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_2_0_0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_2_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER1_2_0_0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER1_2_0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER1_2_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
@@ -2891,14 +2891,14 @@ pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER1_2_0_0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct")
             .field("reserved2", &self.reserved2)
             .field("reserved3", &self.reserved3)
@@ -2913,18 +2913,18 @@ impl ::std::fmt::Debug for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.reserved2 == other.reserved2 && self.reserved3 == other.reserved3 && self.reserved4 == other.reserved4 && self.reserved5 == other.reserved5 && self.reserved6 == other.reserved6 && self.reserved7 == other.reserved7 && self.reserved8 == other.reserved8 && self.reserved9 == other.reserved9 && self.reserved10 == other.reserved10
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER1_2_0_0_0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER1_2_0_0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -2946,24 +2946,24 @@ pub struct FWPM_NET_EVENT_HEADER2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER2 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER2 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER2 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER2_0 {
@@ -2973,24 +2973,24 @@ pub union FWPM_NET_EVENT_HEADER2_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER2_0 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER2_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER2_0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER2_0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER2_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER2_1 {
@@ -3000,24 +3000,24 @@ pub union FWPM_NET_EVENT_HEADER2_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER2_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER2_1 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER2_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER2_1 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER2_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER2_1 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER2_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER2_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -3042,24 +3042,24 @@ pub struct FWPM_NET_EVENT_HEADER3 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER3 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER3 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER3 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER3 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER3_0 {
@@ -3069,24 +3069,24 @@ pub union FWPM_NET_EVENT_HEADER3_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER3_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER3_0 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER3_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER3_0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER3_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER3_0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER3_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER3_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER3_1 {
@@ -3096,24 +3096,24 @@ pub union FWPM_NET_EVENT_HEADER3_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER3_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_HEADER3_1 {
+impl ::core::default::Default for FWPM_NET_EVENT_HEADER3_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER3_1 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER3_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER3_1 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_HEADER3_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER3_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
@@ -3128,13 +3128,13 @@ pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     pub qmFilterId: u64,
 }
 impl FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {}
-impl ::std::default::Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_IKEEXT_EM_FAILURE0")
             .field("failureErrorCode", &self.failureErrorCode)
             .field("failurePoint", &self.failurePoint)
@@ -3148,16 +3148,16 @@ impl ::std::fmt::Debug for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     fn eq(&self, other: &Self) -> bool {
         self.failureErrorCode == other.failureErrorCode && self.failurePoint == other.failurePoint && self.flags == other.flags && self.emState == other.emState && self.saRole == other.saRole && self.emAuthMethod == other.emAuthMethod && self.endCertHash == other.endCertHash && self.mmId == other.mmId && self.qmFilterId == other.qmFilterId
     }
 }
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -3182,14 +3182,14 @@ pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_IKEEXT_EM_FAILURE1")
             .field("failureErrorCode", &self.failureErrorCode)
             .field("failurePoint", &self.failurePoint)
@@ -3211,7 +3211,7 @@ impl ::std::fmt::Debug for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     fn eq(&self, other: &Self) -> bool {
         self.failureErrorCode == other.failureErrorCode
             && self.failurePoint == other.failurePoint
@@ -3232,7 +3232,7 @@ impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     type Abi = Self;
@@ -3241,7 +3241,7 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
@@ -3257,13 +3257,13 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     pub mmFilterId: u64,
 }
 impl FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {}
-impl ::std::default::Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_IKEEXT_MM_FAILURE0")
             .field("failureErrorCode", &self.failureErrorCode)
             .field("failurePoint", &self.failurePoint)
@@ -3278,16 +3278,16 @@ impl ::std::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     fn eq(&self, other: &Self) -> bool {
         self.failureErrorCode == other.failureErrorCode && self.failurePoint == other.failurePoint && self.flags == other.flags && self.keyingModuleType == other.keyingModuleType && self.mmState == other.mmState && self.saRole == other.saRole && self.mmAuthMethod == other.mmAuthMethod && self.endCertHash == other.endCertHash && self.mmId == other.mmId && self.mmFilterId == other.mmFilterId
     }
 }
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -3312,14 +3312,14 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_IKEEXT_MM_FAILURE1")
             .field("failureErrorCode", &self.failureErrorCode)
             .field("failurePoint", &self.failurePoint)
@@ -3341,7 +3341,7 @@ impl ::std::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     fn eq(&self, other: &Self) -> bool {
         self.failureErrorCode == other.failureErrorCode
             && self.failurePoint == other.failurePoint
@@ -3362,12 +3362,12 @@ impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -3393,14 +3393,14 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_")
             .field("failureErrorCode", &self.failureErrorCode)
             .field("failurePoint", &self.failurePoint)
@@ -3423,7 +3423,7 @@ impl ::std::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     fn eq(&self, other: &Self) -> bool {
         self.failureErrorCode == other.failureErrorCode
             && self.failurePoint == other.failurePoint
@@ -3445,7 +3445,7 @@ impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     type Abi = Self;
@@ -3454,7 +3454,7 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_BENIGN: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_MULTIPLE: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -3472,24 +3472,24 @@ pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
@@ -3498,24 +3498,24 @@ pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
@@ -3524,24 +3524,24 @@ pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -3561,24 +3561,24 @@ pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
@@ -3587,24 +3587,24 @@ pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
@@ -3613,24 +3613,24 @@ pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
+impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
@@ -3641,21 +3641,21 @@ pub struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     pub direction: FWP_DIRECTION,
 }
 impl FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {}
-impl ::std::default::Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
+impl ::core::default::Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
@@ -3663,21 +3663,21 @@ pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
     pub publicHostV6Addr: [u8; 16],
 }
 impl FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {}
-impl ::std::default::Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
+impl ::core::default::Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
@@ -3685,21 +3685,21 @@ pub union FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
     pub internalHostV6Addr: [u8; 16],
 }
 impl FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {}
-impl ::std::default::Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
+impl ::core::default::Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {}
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
@@ -3710,22 +3710,22 @@ pub struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
     pub layerId: u16,
 }
 impl FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {}
-impl ::std::default::Default for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
+impl ::core::default::Default for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_IPSEC_KERNEL_DROP0").field("failureStatus", &self.failureStatus).field("direction", &self.direction).field("spi", &self.spi).field("filterId", &self.filterId).field("layerId", &self.layerId).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
     fn eq(&self, other: &Self) -> bool {
         self.failureStatus == other.failureStatus && self.direction == other.direction && self.spi == other.spi && self.filterId == other.filterId && self.layerId == other.layerId
     }
 }
-impl ::std::cmp::Eq for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
     type Abi = Self;
 }
@@ -3741,33 +3741,33 @@ pub const FWPM_NET_EVENT_KEYWORD_INBOUND_BCAST: u32 = 2u32;
 pub const FWPM_NET_EVENT_KEYWORD_INBOUND_MCAST: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_KEYWORD_PORT_SCANNING_DROP: u32 = 32u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
     pub spi: u32,
 }
 impl FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {}
-impl ::std::default::Default for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
+impl ::core::default::Default for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_").field("spi", &self.spi).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
     fn eq(&self, other: &Self) -> bool {
         self.spi == other.spi
     }
 }
-impl ::std::cmp::Eq for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {}
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_ {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -3779,31 +3779,31 @@ pub struct FWPM_NET_EVENT_SUBSCRIPTION0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_SUBSCRIPTION0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_NET_EVENT_SUBSCRIPTION0 {
+impl ::core::default::Default for FWPM_NET_EVENT_SUBSCRIPTION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for FWPM_NET_EVENT_SUBSCRIPTION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_NET_EVENT_SUBSCRIPTION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_NET_EVENT_SUBSCRIPTION0").field("enumTemplate", &self.enumTemplate).field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_NET_EVENT_SUBSCRIPTION0 {
+impl ::core::cmp::PartialEq for FWPM_NET_EVENT_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
         self.enumTemplate == other.enumTemplate && self.flags == other.flags && self.sessionKey == other.sessionKey
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_NET_EVENT_SUBSCRIPTION0 {}
+impl ::core::cmp::Eq for FWPM_NET_EVENT_SUBSCRIPTION0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_SUBSCRIPTION0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_NET_EVENT_TYPE(pub i32);
 pub const FWPM_NET_EVENT_TYPE_IKEEXT_MM_FAILURE: FWPM_NET_EVENT_TYPE = FWPM_NET_EVENT_TYPE(0i32);
@@ -3818,7 +3818,7 @@ pub const FWPM_NET_EVENT_TYPE_CAPABILITY_ALLOW: FWPM_NET_EVENT_TYPE = FWPM_NET_E
 pub const FWPM_NET_EVENT_TYPE_CLASSIFY_DROP_MAC: FWPM_NET_EVENT_TYPE = FWPM_NET_EVENT_TYPE(9i32);
 pub const FWPM_NET_EVENT_TYPE_LPM_PACKET_ARRIVAL: FWPM_NET_EVENT_TYPE = FWPM_NET_EVENT_TYPE(10i32);
 pub const FWPM_NET_EVENT_TYPE_MAX: FWPM_NET_EVENT_TYPE = FWPM_NET_EVENT_TYPE(11i32);
-impl ::std::convert::From<i32> for FWPM_NET_EVENT_TYPE {
+impl ::core::convert::From<i32> for FWPM_NET_EVENT_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3826,7 +3826,7 @@ impl ::std::convert::From<i32> for FWPM_NET_EVENT_TYPE {
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -3840,30 +3840,30 @@ pub struct FWPM_PROVIDER0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_PROVIDER0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_PROVIDER0 {
+impl ::core::default::Default for FWPM_PROVIDER0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_PROVIDER0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_PROVIDER0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_PROVIDER0").field("providerKey", &self.providerKey).field("displayData", &self.displayData).field("flags", &self.flags).field("providerData", &self.providerData).field("serviceName", &self.serviceName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_PROVIDER0 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER0 {
     fn eq(&self, other: &Self) -> bool {
         self.providerKey == other.providerKey && self.displayData == other.displayData && self.flags == other.flags && self.providerData == other.providerData && self.serviceName == other.serviceName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_PROVIDER0 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_PROVIDER_CHANGE0 {
@@ -3871,28 +3871,28 @@ pub struct FWPM_PROVIDER_CHANGE0 {
     pub providerKey: ::windows::runtime::GUID,
 }
 impl FWPM_PROVIDER_CHANGE0 {}
-impl ::std::default::Default for FWPM_PROVIDER_CHANGE0 {
+impl ::core::default::Default for FWPM_PROVIDER_CHANGE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_PROVIDER_CHANGE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_PROVIDER_CHANGE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_PROVIDER_CHANGE0").field("changeType", &self.changeType).field("providerKey", &self.providerKey).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_PROVIDER_CHANGE0 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_CHANGE0 {
     fn eq(&self, other: &Self) -> bool {
         self.changeType == other.changeType && self.providerKey == other.providerKey
     }
 }
-impl ::std::cmp::Eq for FWPM_PROVIDER_CHANGE0 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_CHANGE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CHANGE0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-pub type FWPM_PROVIDER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, change: *const FWPM_PROVIDER_CHANGE0);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type FWPM_PROVIDER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_PROVIDER_CHANGE0);
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -3909,24 +3909,24 @@ pub struct FWPM_PROVIDER_CONTEXT0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_PROVIDER_CONTEXT0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_PROVIDER_CONTEXT0 {
+impl ::core::default::Default for FWPM_PROVIDER_CONTEXT0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_PROVIDER_CONTEXT0 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_PROVIDER_CONTEXT0 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_PROVIDER_CONTEXT0_0 {
@@ -3943,24 +3943,24 @@ pub union FWPM_PROVIDER_CONTEXT0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_PROVIDER_CONTEXT0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_PROVIDER_CONTEXT0_0 {
+impl ::core::default::Default for FWPM_PROVIDER_CONTEXT0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_PROVIDER_CONTEXT0_0 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_PROVIDER_CONTEXT0_0 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -3977,24 +3977,24 @@ pub struct FWPM_PROVIDER_CONTEXT1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_PROVIDER_CONTEXT1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_PROVIDER_CONTEXT1 {
+impl ::core::default::Default for FWPM_PROVIDER_CONTEXT1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_PROVIDER_CONTEXT1 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_PROVIDER_CONTEXT1 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_PROVIDER_CONTEXT1_0 {
@@ -4014,24 +4014,24 @@ pub union FWPM_PROVIDER_CONTEXT1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_PROVIDER_CONTEXT1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_PROVIDER_CONTEXT1_0 {
+impl ::core::default::Default for FWPM_PROVIDER_CONTEXT1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_PROVIDER_CONTEXT1_0 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_PROVIDER_CONTEXT1_0 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -4048,24 +4048,24 @@ pub struct FWPM_PROVIDER_CONTEXT2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_PROVIDER_CONTEXT2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_PROVIDER_CONTEXT2 {
+impl ::core::default::Default for FWPM_PROVIDER_CONTEXT2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_PROVIDER_CONTEXT2 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_PROVIDER_CONTEXT2 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_PROVIDER_CONTEXT2_0 {
@@ -4086,24 +4086,24 @@ pub union FWPM_PROVIDER_CONTEXT2_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_PROVIDER_CONTEXT2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_PROVIDER_CONTEXT2_0 {
+impl ::core::default::Default for FWPM_PROVIDER_CONTEXT2_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_PROVIDER_CONTEXT2_0 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_PROVIDER_CONTEXT2_0 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT2_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -4120,24 +4120,24 @@ pub struct FWPM_PROVIDER_CONTEXT3_ {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_PROVIDER_CONTEXT3_ {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_PROVIDER_CONTEXT3_ {
+impl ::core::default::Default for FWPM_PROVIDER_CONTEXT3_ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_PROVIDER_CONTEXT3_ {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT3_ {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_PROVIDER_CONTEXT3_ {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT3_ {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT3_ {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_PROVIDER_CONTEXT3__0 {
@@ -4158,24 +4158,24 @@ pub union FWPM_PROVIDER_CONTEXT3__0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_PROVIDER_CONTEXT3__0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_PROVIDER_CONTEXT3__0 {
+impl ::core::default::Default for FWPM_PROVIDER_CONTEXT3__0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_PROVIDER_CONTEXT3__0 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT3__0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_PROVIDER_CONTEXT3__0 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT3__0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT3__0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_PROVIDER_CONTEXT_CHANGE0 {
@@ -4184,28 +4184,28 @@ pub struct FWPM_PROVIDER_CONTEXT_CHANGE0 {
     pub providerContextId: u64,
 }
 impl FWPM_PROVIDER_CONTEXT_CHANGE0 {}
-impl ::std::default::Default for FWPM_PROVIDER_CONTEXT_CHANGE0 {
+impl ::core::default::Default for FWPM_PROVIDER_CONTEXT_CHANGE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_PROVIDER_CONTEXT_CHANGE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_PROVIDER_CONTEXT_CHANGE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_PROVIDER_CONTEXT_CHANGE0").field("changeType", &self.changeType).field("providerContextKey", &self.providerContextKey).field("providerContextId", &self.providerContextId).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_PROVIDER_CONTEXT_CHANGE0 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT_CHANGE0 {
     fn eq(&self, other: &Self) -> bool {
         self.changeType == other.changeType && self.providerContextKey == other.providerContextKey && self.providerContextId == other.providerContextId
     }
 }
-impl ::std::cmp::Eq for FWPM_PROVIDER_CONTEXT_CHANGE0 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT_CHANGE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT_CHANGE0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-pub type FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, change: *const FWPM_PROVIDER_CONTEXT_CHANGE0);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_PROVIDER_CONTEXT_CHANGE0);
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
@@ -4213,22 +4213,22 @@ pub struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
     pub providerContextType: FWPM_PROVIDER_CONTEXT_TYPE,
 }
 impl FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {}
-impl ::std::default::Default for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
+impl ::core::default::Default for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0").field("providerKey", &self.providerKey).field("providerContextType", &self.providerContextType).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
         self.providerKey == other.providerKey && self.providerContextType == other.providerContextType
     }
 }
-impl ::std::cmp::Eq for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
@@ -4238,7 +4238,7 @@ pub const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: u32 = 2u32;
 pub const FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT: u32 = 1u32;
 pub const FWPM_PROVIDER_CONTEXT_SECURE_SOCKET_AUTHIP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2992547840, 3330, 18157, [146, 189, 127, 168, 75, 183, 62, 157]);
 pub const FWPM_PROVIDER_CONTEXT_SECURE_SOCKET_IPSEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2351776068, 63712, 17088, [148, 206, 124, 207, 198, 59, 47, 155]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
@@ -4247,27 +4247,27 @@ pub struct FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
     pub sessionKey: ::windows::runtime::GUID,
 }
 impl FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {}
-impl ::std::default::Default for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
+impl ::core::default::Default for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0").field("enumTemplate", &self.enumTemplate).field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
         self.enumTemplate == other.enumTemplate && self.flags == other.flags && self.sessionKey == other.sessionKey
     }
 }
-impl ::std::cmp::Eq for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_PROVIDER_CONTEXT_TYPE(pub i32);
 pub const FWPM_IPSEC_KEYING_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = FWPM_PROVIDER_CONTEXT_TYPE(0i32);
@@ -4284,7 +4284,7 @@ pub const FWPM_IPSEC_IKEV2_MM_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = FWPM_PROVIDE
 pub const FWPM_IPSEC_DOSP_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = FWPM_PROVIDER_CONTEXT_TYPE(11i32);
 pub const FWPM_IPSEC_IKEV2_QM_TRANSPORT_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = FWPM_PROVIDER_CONTEXT_TYPE(12i32);
 pub const FWPM_PROVIDER_CONTEXT_TYPE_MAX: FWPM_PROVIDER_CONTEXT_TYPE = FWPM_PROVIDER_CONTEXT_TYPE(13i32);
-impl ::std::convert::From<i32> for FWPM_PROVIDER_CONTEXT_TYPE {
+impl ::core::convert::From<i32> for FWPM_PROVIDER_CONTEXT_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4292,29 +4292,29 @@ impl ::std::convert::From<i32> for FWPM_PROVIDER_CONTEXT_TYPE {
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_PROVIDER_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
 impl FWPM_PROVIDER_ENUM_TEMPLATE0 {}
-impl ::std::default::Default for FWPM_PROVIDER_ENUM_TEMPLATE0 {
+impl ::core::default::Default for FWPM_PROVIDER_ENUM_TEMPLATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_PROVIDER_ENUM_TEMPLATE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_PROVIDER_ENUM_TEMPLATE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_PROVIDER_ENUM_TEMPLATE0").field("reserved", &self.reserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_PROVIDER_ENUM_TEMPLATE0 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
         self.reserved == other.reserved
     }
 }
-impl ::std::cmp::Eq for FWPM_PROVIDER_ENUM_TEMPLATE0 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
@@ -4328,7 +4328,7 @@ pub const FWPM_PROVIDER_MPSSVC_EDP: ::windows::runtime::GUID = ::windows::runtim
 pub const FWPM_PROVIDER_MPSSVC_TENANT_RESTRICTIONS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3497103353, 17626, 20304, [157, 194, 201, 99, 164, 36, 118, 19]);
 pub const FWPM_PROVIDER_MPSSVC_WF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3737917130, 16179, 17222, [190, 30, 143, 180, 174, 15, 61, 98]);
 pub const FWPM_PROVIDER_MPSSVC_WSH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1259681589, 4169, 17536, [170, 180, 209, 185, 189, 192, 55, 16]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_PROVIDER_SUBSCRIPTION0 {
@@ -4337,29 +4337,29 @@ pub struct FWPM_PROVIDER_SUBSCRIPTION0 {
     pub sessionKey: ::windows::runtime::GUID,
 }
 impl FWPM_PROVIDER_SUBSCRIPTION0 {}
-impl ::std::default::Default for FWPM_PROVIDER_SUBSCRIPTION0 {
+impl ::core::default::Default for FWPM_PROVIDER_SUBSCRIPTION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_PROVIDER_SUBSCRIPTION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_PROVIDER_SUBSCRIPTION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_PROVIDER_SUBSCRIPTION0").field("enumTemplate", &self.enumTemplate).field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_PROVIDER_SUBSCRIPTION0 {
+impl ::core::cmp::PartialEq for FWPM_PROVIDER_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
         self.enumTemplate == other.enumTemplate && self.flags == other.flags && self.sessionKey == other.sessionKey
     }
 }
-impl ::std::cmp::Eq for FWPM_PROVIDER_SUBSCRIPTION0 {}
+impl ::core::cmp::Eq for FWPM_PROVIDER_SUBSCRIPTION0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_SUBSCRIPTION0 {
     type Abi = Self;
 }
 pub const FWPM_PROVIDER_TCP_CHIMNEY_OFFLOAD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2305466782, 39476, 19403, [174, 121, 190, 185, 18, 124, 132, 185]);
 pub const FWPM_PROVIDER_TCP_TEMPLATES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1993329968, 13204, 17197, [190, 211, 68, 26, 229, 14, 99, 195]);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_SERVICE_STATE(pub i32);
 pub const FWPM_SERVICE_STOPPED: FWPM_SERVICE_STATE = FWPM_SERVICE_STATE(0i32);
@@ -4367,7 +4367,7 @@ pub const FWPM_SERVICE_START_PENDING: FWPM_SERVICE_STATE = FWPM_SERVICE_STATE(1i
 pub const FWPM_SERVICE_STOP_PENDING: FWPM_SERVICE_STATE = FWPM_SERVICE_STATE(2i32);
 pub const FWPM_SERVICE_RUNNING: FWPM_SERVICE_STATE = FWPM_SERVICE_STATE(3i32);
 pub const FWPM_SERVICE_STATE_MAX: FWPM_SERVICE_STATE = FWPM_SERVICE_STATE(4i32);
-impl ::std::convert::From<i32> for FWPM_SERVICE_STATE {
+impl ::core::convert::From<i32> for FWPM_SERVICE_STATE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4375,7 +4375,7 @@ impl ::std::convert::From<i32> for FWPM_SERVICE_STATE {
 unsafe impl ::windows::runtime::Abi for FWPM_SERVICE_STATE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -4392,14 +4392,14 @@ pub struct FWPM_SESSION0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_SESSION0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWPM_SESSION0 {
+impl ::core::default::Default for FWPM_SESSION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for FWPM_SESSION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_SESSION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_SESSION0")
             .field("sessionKey", &self.sessionKey)
             .field("displayData", &self.displayData)
@@ -4413,40 +4413,40 @@ impl ::std::fmt::Debug for FWPM_SESSION0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWPM_SESSION0 {
+impl ::core::cmp::PartialEq for FWPM_SESSION0 {
     fn eq(&self, other: &Self) -> bool {
         self.sessionKey == other.sessionKey && self.displayData == other.displayData && self.flags == other.flags && self.txnWaitTimeoutInMSec == other.txnWaitTimeoutInMSec && self.processId == other.processId && self.sid == other.sid && self.username == other.username && self.kernelMode == other.kernelMode
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWPM_SESSION0 {}
+impl ::core::cmp::Eq for FWPM_SESSION0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_SESSION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_SESSION_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
 impl FWPM_SESSION_ENUM_TEMPLATE0 {}
-impl ::std::default::Default for FWPM_SESSION_ENUM_TEMPLATE0 {
+impl ::core::default::Default for FWPM_SESSION_ENUM_TEMPLATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_SESSION_ENUM_TEMPLATE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_SESSION_ENUM_TEMPLATE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_SESSION_ENUM_TEMPLATE0").field("reserved", &self.reserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_SESSION_ENUM_TEMPLATE0 {
+impl ::core::cmp::PartialEq for FWPM_SESSION_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
         self.reserved == other.reserved
     }
 }
-impl ::std::cmp::Eq for FWPM_SESSION_ENUM_TEMPLATE0 {}
+impl ::core::cmp::Eq for FWPM_SESSION_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_SESSION_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
@@ -4454,7 +4454,7 @@ unsafe impl ::windows::runtime::Abi for FWPM_SESSION_ENUM_TEMPLATE0 {
 pub const FWPM_SESSION_FLAG_DYNAMIC: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_SESSION_FLAG_RESERVED: u32 = 268435456u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_STATISTICS0 {
@@ -4496,13 +4496,13 @@ pub struct FWPM_STATISTICS0 {
     pub reauthReasonProxyHandleChanged: u64,
 }
 impl FWPM_STATISTICS0 {}
-impl ::std::default::Default for FWPM_STATISTICS0 {
+impl ::core::default::Default for FWPM_STATISTICS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_STATISTICS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_STATISTICS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_STATISTICS0")
             .field("numLayerStatistics", &self.numLayerStatistics)
             .field("layerStatistics", &self.layerStatistics)
@@ -4543,7 +4543,7 @@ impl ::std::fmt::Debug for FWPM_STATISTICS0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_STATISTICS0 {
+impl ::core::cmp::PartialEq for FWPM_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
         self.numLayerStatistics == other.numLayerStatistics
             && self.layerStatistics == other.layerStatistics
@@ -4583,11 +4583,11 @@ impl ::std::cmp::PartialEq for FWPM_STATISTICS0 {
             && self.reauthReasonProxyHandleChanged == other.reauthReasonProxyHandleChanged
     }
 }
-impl ::std::cmp::Eq for FWPM_STATISTICS0 {}
+impl ::core::cmp::Eq for FWPM_STATISTICS0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_STATISTICS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -4602,30 +4602,30 @@ pub struct FWPM_SUBLAYER0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_SUBLAYER0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_SUBLAYER0 {
+impl ::core::default::Default for FWPM_SUBLAYER0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_SUBLAYER0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_SUBLAYER0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_SUBLAYER0").field("subLayerKey", &self.subLayerKey).field("displayData", &self.displayData).field("flags", &self.flags).field("providerKey", &self.providerKey).field("providerData", &self.providerData).field("weight", &self.weight).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_SUBLAYER0 {
+impl ::core::cmp::PartialEq for FWPM_SUBLAYER0 {
     fn eq(&self, other: &Self) -> bool {
         self.subLayerKey == other.subLayerKey && self.displayData == other.displayData && self.flags == other.flags && self.providerKey == other.providerKey && self.providerData == other.providerData && self.weight == other.weight
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_SUBLAYER0 {}
+impl ::core::cmp::Eq for FWPM_SUBLAYER0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_SUBLAYER0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_SUBLAYER_CHANGE0 {
@@ -4633,50 +4633,50 @@ pub struct FWPM_SUBLAYER_CHANGE0 {
     pub subLayerKey: ::windows::runtime::GUID,
 }
 impl FWPM_SUBLAYER_CHANGE0 {}
-impl ::std::default::Default for FWPM_SUBLAYER_CHANGE0 {
+impl ::core::default::Default for FWPM_SUBLAYER_CHANGE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_SUBLAYER_CHANGE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_SUBLAYER_CHANGE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_SUBLAYER_CHANGE0").field("changeType", &self.changeType).field("subLayerKey", &self.subLayerKey).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_SUBLAYER_CHANGE0 {
+impl ::core::cmp::PartialEq for FWPM_SUBLAYER_CHANGE0 {
     fn eq(&self, other: &Self) -> bool {
         self.changeType == other.changeType && self.subLayerKey == other.subLayerKey
     }
 }
-impl ::std::cmp::Eq for FWPM_SUBLAYER_CHANGE0 {}
+impl ::core::cmp::Eq for FWPM_SUBLAYER_CHANGE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_SUBLAYER_CHANGE0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-pub type FWPM_SUBLAYER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, change: *const FWPM_SUBLAYER_CHANGE0);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type FWPM_SUBLAYER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_SUBLAYER_CHANGE0);
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_SUBLAYER_ENUM_TEMPLATE0 {
     pub providerKey: *mut ::windows::runtime::GUID,
 }
 impl FWPM_SUBLAYER_ENUM_TEMPLATE0 {}
-impl ::std::default::Default for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
+impl ::core::default::Default for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_SUBLAYER_ENUM_TEMPLATE0").field("providerKey", &self.providerKey).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
+impl ::core::cmp::PartialEq for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
         self.providerKey == other.providerKey
     }
 }
-impl ::std::cmp::Eq for FWPM_SUBLAYER_ENUM_TEMPLATE0 {}
+impl ::core::cmp::Eq for FWPM_SUBLAYER_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
@@ -4695,7 +4695,7 @@ pub const FWPM_SUBLAYER_MPSSVC_WF: ::windows::runtime::GUID = ::windows::runtime
 pub const FWPM_SUBLAYER_MPSSVC_WSH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3016610881, 44944, 16826, [167, 69, 124, 96, 8, 255, 35, 0]);
 pub const FWPM_SUBLAYER_RPC_AUDIT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1972143348, 64328, 19945, [154, 235, 62, 217, 85, 26, 177, 253]);
 pub const FWPM_SUBLAYER_SECURE_SOCKET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(363228695, 16188, 20347, [170, 108, 129, 42, 166, 19, 221, 130]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_SUBLAYER_SUBSCRIPTION0 {
@@ -4704,22 +4704,22 @@ pub struct FWPM_SUBLAYER_SUBSCRIPTION0 {
     pub sessionKey: ::windows::runtime::GUID,
 }
 impl FWPM_SUBLAYER_SUBSCRIPTION0 {}
-impl ::std::default::Default for FWPM_SUBLAYER_SUBSCRIPTION0 {
+impl ::core::default::Default for FWPM_SUBLAYER_SUBSCRIPTION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_SUBLAYER_SUBSCRIPTION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_SUBLAYER_SUBSCRIPTION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_SUBLAYER_SUBSCRIPTION0").field("enumTemplate", &self.enumTemplate).field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_SUBLAYER_SUBSCRIPTION0 {
+impl ::core::cmp::PartialEq for FWPM_SUBLAYER_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
         self.enumTemplate == other.enumTemplate && self.flags == other.flags && self.sessionKey == other.sessionKey
     }
 }
-impl ::std::cmp::Eq for FWPM_SUBLAYER_SUBSCRIPTION0 {}
+impl ::core::cmp::Eq for FWPM_SUBLAYER_SUBSCRIPTION0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_SUBLAYER_SUBSCRIPTION0 {
     type Abi = Self;
 }
@@ -4728,12 +4728,12 @@ pub const FWPM_SUBLAYER_TCP_TEMPLATES: ::windows::runtime::GUID = ::windows::run
 pub const FWPM_SUBLAYER_TEREDO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3127499878, 20854, 18809, [156, 137, 38, 167, 180, 106, 131, 39]);
 pub const FWPM_SUBLAYER_UNIVERSAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4005481475, 52948, 17280, [129, 154, 39, 52, 57, 123, 43, 116]);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_SUBSCRIPTION_FLAGS(pub u32);
 pub const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_ADD: FWPM_SUBSCRIPTION_FLAGS = FWPM_SUBSCRIPTION_FLAGS(1u32);
 pub const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_DELETE: FWPM_SUBSCRIPTION_FLAGS = FWPM_SUBSCRIPTION_FLAGS(2u32);
-impl ::std::convert::From<u32> for FWPM_SUBSCRIPTION_FLAGS {
+impl ::core::convert::From<u32> for FWPM_SUBSCRIPTION_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -4741,35 +4741,35 @@ impl ::std::convert::From<u32> for FWPM_SUBSCRIPTION_FLAGS {
 unsafe impl ::windows::runtime::Abi for FWPM_SUBSCRIPTION_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FWPM_SUBSCRIPTION_FLAGS {
+impl ::core::ops::BitOr for FWPM_SUBSCRIPTION_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FWPM_SUBSCRIPTION_FLAGS {
+impl ::core::ops::BitAnd for FWPM_SUBSCRIPTION_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FWPM_SUBSCRIPTION_FLAGS {
+impl ::core::ops::BitOrAssign for FWPM_SUBSCRIPTION_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FWPM_SUBSCRIPTION_FLAGS {
+impl ::core::ops::BitAndAssign for FWPM_SUBSCRIPTION_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FWPM_SUBSCRIPTION_FLAGS {
+impl ::core::ops::Not for FWPM_SUBSCRIPTION_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_SYSTEM_PORTS0 {
@@ -4777,26 +4777,26 @@ pub struct FWPM_SYSTEM_PORTS0 {
     pub types: *mut FWPM_SYSTEM_PORTS_BY_TYPE0,
 }
 impl FWPM_SYSTEM_PORTS0 {}
-impl ::std::default::Default for FWPM_SYSTEM_PORTS0 {
+impl ::core::default::Default for FWPM_SYSTEM_PORTS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_SYSTEM_PORTS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_SYSTEM_PORTS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_SYSTEM_PORTS0").field("numTypes", &self.numTypes).field("types", &self.types).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_SYSTEM_PORTS0 {
+impl ::core::cmp::PartialEq for FWPM_SYSTEM_PORTS0 {
     fn eq(&self, other: &Self) -> bool {
         self.numTypes == other.numTypes && self.types == other.types
     }
 }
-impl ::std::cmp::Eq for FWPM_SYSTEM_PORTS0 {}
+impl ::core::cmp::Eq for FWPM_SYSTEM_PORTS0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_SYSTEM_PORTS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_SYSTEM_PORTS_BY_TYPE0 {
@@ -4805,29 +4805,29 @@ pub struct FWPM_SYSTEM_PORTS_BY_TYPE0 {
     pub ports: *mut u16,
 }
 impl FWPM_SYSTEM_PORTS_BY_TYPE0 {}
-impl ::std::default::Default for FWPM_SYSTEM_PORTS_BY_TYPE0 {
+impl ::core::default::Default for FWPM_SYSTEM_PORTS_BY_TYPE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_SYSTEM_PORTS_BY_TYPE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_SYSTEM_PORTS_BY_TYPE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_SYSTEM_PORTS_BY_TYPE0").field("r#type", &self.r#type).field("numPorts", &self.numPorts).field("ports", &self.ports).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_SYSTEM_PORTS_BY_TYPE0 {
+impl ::core::cmp::PartialEq for FWPM_SYSTEM_PORTS_BY_TYPE0 {
     fn eq(&self, other: &Self) -> bool {
         self.r#type == other.r#type && self.numPorts == other.numPorts && self.ports == other.ports
     }
 }
-impl ::std::cmp::Eq for FWPM_SYSTEM_PORTS_BY_TYPE0 {}
+impl ::core::cmp::Eq for FWPM_SYSTEM_PORTS_BY_TYPE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_SYSTEM_PORTS_BY_TYPE0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-pub type FWPM_SYSTEM_PORTS_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, sysports: *const FWPM_SYSTEM_PORTS0);
+pub type FWPM_SYSTEM_PORTS_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, sysports: *const FWPM_SYSTEM_PORTS0);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_SYSTEM_PORT_TYPE(pub i32);
 pub const FWPM_SYSTEM_PORT_RPC_EPMAP: FWPM_SYSTEM_PORT_TYPE = FWPM_SYSTEM_PORT_TYPE(0i32);
@@ -4835,7 +4835,7 @@ pub const FWPM_SYSTEM_PORT_TEREDO: FWPM_SYSTEM_PORT_TYPE = FWPM_SYSTEM_PORT_TYPE
 pub const FWPM_SYSTEM_PORT_IPHTTPS_IN: FWPM_SYSTEM_PORT_TYPE = FWPM_SYSTEM_PORT_TYPE(2i32);
 pub const FWPM_SYSTEM_PORT_IPHTTPS_OUT: FWPM_SYSTEM_PORT_TYPE = FWPM_SYSTEM_PORT_TYPE(3i32);
 pub const FWPM_SYSTEM_PORT_TYPE_MAX: FWPM_SYSTEM_PORT_TYPE = FWPM_SYSTEM_PORT_TYPE(4i32);
-impl ::std::convert::From<i32> for FWPM_SYSTEM_PORT_TYPE {
+impl ::core::convert::From<i32> for FWPM_SYSTEM_PORT_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4851,7 +4851,7 @@ pub const FWPM_TUNNEL_FLAG_POINT_TO_POINT: u32 = 1u32;
 pub const FWPM_TUNNEL_FLAG_RESERVED0: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_TXN_READ_ONLY: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -4863,24 +4863,24 @@ pub struct FWPM_VSWITCH_EVENT0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_VSWITCH_EVENT0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_VSWITCH_EVENT0 {
+impl ::core::default::Default for FWPM_VSWITCH_EVENT0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_VSWITCH_EVENT0 {
+impl ::core::cmp::PartialEq for FWPM_VSWITCH_EVENT0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_VSWITCH_EVENT0 {}
+impl ::core::cmp::Eq for FWPM_VSWITCH_EVENT0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_VSWITCH_EVENT0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union FWPM_VSWITCH_EVENT0_0 {
@@ -4890,24 +4890,24 @@ pub union FWPM_VSWITCH_EVENT0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_VSWITCH_EVENT0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_VSWITCH_EVENT0_0 {
+impl ::core::default::Default for FWPM_VSWITCH_EVENT0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_VSWITCH_EVENT0_0 {
+impl ::core::cmp::PartialEq for FWPM_VSWITCH_EVENT0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_VSWITCH_EVENT0_0 {}
+impl ::core::cmp::Eq for FWPM_VSWITCH_EVENT0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_VSWITCH_EVENT0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_VSWITCH_EVENT0_0_0 {
@@ -4917,30 +4917,30 @@ pub struct FWPM_VSWITCH_EVENT0_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_VSWITCH_EVENT0_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_VSWITCH_EVENT0_0_0 {
+impl ::core::default::Default for FWPM_VSWITCH_EVENT0_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_VSWITCH_EVENT0_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_VSWITCH_EVENT0_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_positionInfo_e__Struct").field("numvSwitchFilterExtensions", &self.numvSwitchFilterExtensions).field("vSwitchFilterExtensions", &self.vSwitchFilterExtensions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_VSWITCH_EVENT0_0_0 {
+impl ::core::cmp::PartialEq for FWPM_VSWITCH_EVENT0_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.numvSwitchFilterExtensions == other.numvSwitchFilterExtensions && self.vSwitchFilterExtensions == other.vSwitchFilterExtensions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_VSWITCH_EVENT0_0_0 {}
+impl ::core::cmp::Eq for FWPM_VSWITCH_EVENT0_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_VSWITCH_EVENT0_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_VSWITCH_EVENT0_0_1 {
@@ -4951,33 +4951,33 @@ pub struct FWPM_VSWITCH_EVENT0_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl FWPM_VSWITCH_EVENT0_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FWPM_VSWITCH_EVENT0_0_1 {
+impl ::core::default::Default for FWPM_VSWITCH_EVENT0_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FWPM_VSWITCH_EVENT0_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_VSWITCH_EVENT0_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_reorderInfo_e__Struct").field("inRequiredPosition", &self.inRequiredPosition).field("numvSwitchFilterExtensions", &self.numvSwitchFilterExtensions).field("vSwitchFilterExtensions", &self.vSwitchFilterExtensions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FWPM_VSWITCH_EVENT0_0_1 {
+impl ::core::cmp::PartialEq for FWPM_VSWITCH_EVENT0_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.inRequiredPosition == other.inRequiredPosition && self.numvSwitchFilterExtensions == other.numvSwitchFilterExtensions && self.vSwitchFilterExtensions == other.vSwitchFilterExtensions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FWPM_VSWITCH_EVENT0_0_1 {}
+impl ::core::cmp::Eq for FWPM_VSWITCH_EVENT0_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_VSWITCH_EVENT0_0_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type FWPM_VSWITCH_EVENT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, vswitchevent: *const FWPM_VSWITCH_EVENT0) -> u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type FWPM_VSWITCH_EVENT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, vswitchevent: *const FWPM_VSWITCH_EVENT0) -> u32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
@@ -4985,27 +4985,27 @@ pub struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
     pub sessionKey: ::windows::runtime::GUID,
 }
 impl FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {}
-impl ::std::default::Default for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
+impl ::core::default::Default for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWPM_VSWITCH_EVENT_SUBSCRIPTION0").field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
+impl ::core::cmp::PartialEq for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
         self.flags == other.flags && self.sessionKey == other.sessionKey
     }
 }
-impl ::std::cmp::Eq for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {}
+impl ::core::cmp::Eq for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWPM_VSWITCH_EVENT_TYPE(pub i32);
 pub const FWPM_VSWITCH_EVENT_FILTER_ADD_TO_INCOMPLETE_LAYER: FWPM_VSWITCH_EVENT_TYPE = FWPM_VSWITCH_EVENT_TYPE(0i32);
@@ -5014,7 +5014,7 @@ pub const FWPM_VSWITCH_EVENT_ENABLED_FOR_INSPECTION: FWPM_VSWITCH_EVENT_TYPE = F
 pub const FWPM_VSWITCH_EVENT_DISABLED_FOR_INSPECTION: FWPM_VSWITCH_EVENT_TYPE = FWPM_VSWITCH_EVENT_TYPE(3i32);
 pub const FWPM_VSWITCH_EVENT_FILTER_ENGINE_REORDER: FWPM_VSWITCH_EVENT_TYPE = FWPM_VSWITCH_EVENT_TYPE(4i32);
 pub const FWPM_VSWITCH_EVENT_MAX: FWPM_VSWITCH_EVENT_TYPE = FWPM_VSWITCH_EVENT_TYPE(5i32);
-impl ::std::convert::From<i32> for FWPM_VSWITCH_EVENT_TYPE {
+impl ::core::convert::From<i32> for FWPM_VSWITCH_EVENT_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5171,14 +5171,14 @@ pub const FWP_ACTION_NONE_NO_MATCH: u32 = 8u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_ACTRL_MATCH_FILTER: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_AF(pub i32);
 pub const FWP_AF_INET: FWP_AF = FWP_AF(0i32);
 pub const FWP_AF_INET6: FWP_AF = FWP_AF(1i32);
 pub const FWP_AF_ETHER: FWP_AF = FWP_AF(2i32);
 pub const FWP_AF_NONE: FWP_AF = FWP_AF(3i32);
-impl ::std::convert::From<i32> for FWP_AF {
+impl ::core::convert::From<i32> for FWP_AF {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5188,61 +5188,61 @@ unsafe impl ::windows::runtime::Abi for FWP_AF {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_BYTEMAP_ARRAY64_SIZE: u32 = 8u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWP_BYTE_ARRAY16 {
     pub byteArray16: [u8; 16],
 }
 impl FWP_BYTE_ARRAY16 {}
-impl ::std::default::Default for FWP_BYTE_ARRAY16 {
+impl ::core::default::Default for FWP_BYTE_ARRAY16 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWP_BYTE_ARRAY16 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWP_BYTE_ARRAY16 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWP_BYTE_ARRAY16").field("byteArray16", &self.byteArray16).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWP_BYTE_ARRAY16 {
+impl ::core::cmp::PartialEq for FWP_BYTE_ARRAY16 {
     fn eq(&self, other: &Self) -> bool {
         self.byteArray16 == other.byteArray16
     }
 }
-impl ::std::cmp::Eq for FWP_BYTE_ARRAY16 {}
+impl ::core::cmp::Eq for FWP_BYTE_ARRAY16 {}
 unsafe impl ::windows::runtime::Abi for FWP_BYTE_ARRAY16 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWP_BYTE_ARRAY6 {
     pub byteArray6: [u8; 6],
 }
 impl FWP_BYTE_ARRAY6 {}
-impl ::std::default::Default for FWP_BYTE_ARRAY6 {
+impl ::core::default::Default for FWP_BYTE_ARRAY6 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWP_BYTE_ARRAY6 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWP_BYTE_ARRAY6 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWP_BYTE_ARRAY6").field("byteArray6", &self.byteArray6).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWP_BYTE_ARRAY6 {
+impl ::core::cmp::PartialEq for FWP_BYTE_ARRAY6 {
     fn eq(&self, other: &Self) -> bool {
         self.byteArray6 == other.byteArray6
     }
 }
-impl ::std::cmp::Eq for FWP_BYTE_ARRAY6 {}
+impl ::core::cmp::Eq for FWP_BYTE_ARRAY6 {}
 unsafe impl ::windows::runtime::Abi for FWP_BYTE_ARRAY6 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_BYTE_ARRAY6_SIZE: u32 = 6u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWP_BYTE_BLOB {
@@ -5250,22 +5250,22 @@ pub struct FWP_BYTE_BLOB {
     pub data: *mut u8,
 }
 impl FWP_BYTE_BLOB {}
-impl ::std::default::Default for FWP_BYTE_BLOB {
+impl ::core::default::Default for FWP_BYTE_BLOB {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWP_BYTE_BLOB {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWP_BYTE_BLOB {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWP_BYTE_BLOB").field("size", &self.size).field("data", &self.data).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWP_BYTE_BLOB {
+impl ::core::cmp::PartialEq for FWP_BYTE_BLOB {
     fn eq(&self, other: &Self) -> bool {
         self.size == other.size && self.data == other.data
     }
 }
-impl ::std::cmp::Eq for FWP_BYTE_BLOB {}
+impl ::core::cmp::Eq for FWP_BYTE_BLOB {}
 unsafe impl ::windows::runtime::Abi for FWP_BYTE_BLOB {
     type Abi = Self;
 }
@@ -5292,7 +5292,7 @@ pub const FWP_CALLOUT_FLAG_RESERVED1: u32 = 32u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_RESERVED2: u32 = 1024u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_CLASSIFY_OPTION_TYPE(pub i32);
 pub const FWP_CLASSIFY_OPTION_MULTICAST_STATE: FWP_CLASSIFY_OPTION_TYPE = FWP_CLASSIFY_OPTION_TYPE(0i32);
@@ -5304,7 +5304,7 @@ pub const FWP_CLASSIFY_OPTION_SECURE_SOCKET_AUTHIP_MM_POLICY_KEY: FWP_CLASSIFY_O
 pub const FWP_CLASSIFY_OPTION_SECURE_SOCKET_AUTHIP_QM_POLICY_KEY: FWP_CLASSIFY_OPTION_TYPE = FWP_CLASSIFY_OPTION_TYPE(6i32);
 pub const FWP_CLASSIFY_OPTION_LOCAL_ONLY_MAPPING: FWP_CLASSIFY_OPTION_TYPE = FWP_CLASSIFY_OPTION_TYPE(7i32);
 pub const FWP_CLASSIFY_OPTION_MAX: FWP_CLASSIFY_OPTION_TYPE = FWP_CLASSIFY_OPTION_TYPE(8i32);
-impl ::std::convert::From<i32> for FWP_CLASSIFY_OPTION_TYPE {
+impl ::core::convert::From<i32> for FWP_CLASSIFY_OPTION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5404,7 +5404,7 @@ pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_ALLOW_EDGE_TRAFFIC: u32 = 2u32;
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_DENY_EDGE_TRAFFIC: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_IS_SYSTEM_PORT_RPC: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -5415,24 +5415,24 @@ pub struct FWP_CONDITION_VALUE0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWP_CONDITION_VALUE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWP_CONDITION_VALUE0 {
+impl ::core::default::Default for FWP_CONDITION_VALUE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWP_CONDITION_VALUE0 {
+impl ::core::cmp::PartialEq for FWP_CONDITION_VALUE0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWP_CONDITION_VALUE0 {}
+impl ::core::cmp::Eq for FWP_CONDITION_VALUE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWP_CONDITION_VALUE0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWP_CONDITION_VALUE0_0 {
@@ -5461,25 +5461,25 @@ pub union FWP_CONDITION_VALUE0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWP_CONDITION_VALUE0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWP_CONDITION_VALUE0_0 {
+impl ::core::default::Default for FWP_CONDITION_VALUE0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWP_CONDITION_VALUE0_0 {
+impl ::core::cmp::PartialEq for FWP_CONDITION_VALUE0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWP_CONDITION_VALUE0_0 {}
+impl ::core::cmp::Eq for FWP_CONDITION_VALUE0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWP_CONDITION_VALUE0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_DATA_TYPE(pub i32);
 pub const FWP_EMPTY: FWP_DATA_TYPE = FWP_DATA_TYPE(0i32);
@@ -5506,7 +5506,7 @@ pub const FWP_V4_ADDR_MASK: FWP_DATA_TYPE = FWP_DATA_TYPE(256i32);
 pub const FWP_V6_ADDR_MASK: FWP_DATA_TYPE = FWP_DATA_TYPE(257i32);
 pub const FWP_RANGE_TYPE: FWP_DATA_TYPE = FWP_DATA_TYPE(258i32);
 pub const FWP_DATA_TYPE_MAX: FWP_DATA_TYPE = FWP_DATA_TYPE(259i32);
-impl ::std::convert::From<i32> for FWP_DATA_TYPE {
+impl ::core::convert::From<i32> for FWP_DATA_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5515,13 +5515,13 @@ unsafe impl ::windows::runtime::Abi for FWP_DATA_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_DIRECTION(pub i32);
 pub const FWP_DIRECTION_OUTBOUND: FWP_DIRECTION = FWP_DIRECTION(0i32);
 pub const FWP_DIRECTION_INBOUND: FWP_DIRECTION = FWP_DIRECTION(1i32);
 pub const FWP_DIRECTION_MAX: FWP_DIRECTION = FWP_DIRECTION(2i32);
-impl ::std::convert::From<i32> for FWP_DIRECTION {
+impl ::core::convert::From<i32> for FWP_DIRECTION {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5530,13 +5530,13 @@ unsafe impl ::windows::runtime::Abi for FWP_DIRECTION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_ETHER_ENCAP_METHOD(pub i32);
 pub const FWP_ETHER_ENCAP_METHOD_ETHER_V2: FWP_ETHER_ENCAP_METHOD = FWP_ETHER_ENCAP_METHOD(0i32);
 pub const FWP_ETHER_ENCAP_METHOD_SNAP: FWP_ETHER_ENCAP_METHOD = FWP_ETHER_ENCAP_METHOD(1i32);
 pub const FWP_ETHER_ENCAP_METHOD_SNAP_W_OUI_ZERO: FWP_ETHER_ENCAP_METHOD = FWP_ETHER_ENCAP_METHOD(3i32);
-impl ::std::convert::From<i32> for FWP_ETHER_ENCAP_METHOD {
+impl ::core::convert::From<i32> for FWP_ETHER_ENCAP_METHOD {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5557,13 +5557,13 @@ pub const FWP_FILTER_ENUM_FLAG_RESERVED1: u32 = 32u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_FILTER_ENUM_FLAG_SORTED: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_FILTER_ENUM_TYPE(pub i32);
 pub const FWP_FILTER_ENUM_FULLY_CONTAINED: FWP_FILTER_ENUM_TYPE = FWP_FILTER_ENUM_TYPE(0i32);
 pub const FWP_FILTER_ENUM_OVERLAPPING: FWP_FILTER_ENUM_TYPE = FWP_FILTER_ENUM_TYPE(1i32);
 pub const FWP_FILTER_ENUM_TYPE_MAX: FWP_FILTER_ENUM_TYPE = FWP_FILTER_ENUM_TYPE(2i32);
-impl ::std::convert::From<i32> for FWP_FILTER_ENUM_TYPE {
+impl ::core::convert::From<i32> for FWP_FILTER_ENUM_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5572,14 +5572,14 @@ unsafe impl ::windows::runtime::Abi for FWP_FILTER_ENUM_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_IP_VERSION(pub i32);
 pub const FWP_IP_VERSION_V4: FWP_IP_VERSION = FWP_IP_VERSION(0i32);
 pub const FWP_IP_VERSION_V6: FWP_IP_VERSION = FWP_IP_VERSION(1i32);
 pub const FWP_IP_VERSION_NONE: FWP_IP_VERSION = FWP_IP_VERSION(2i32);
 pub const FWP_IP_VERSION_MAX: FWP_IP_VERSION = FWP_IP_VERSION(3i32);
-impl ::std::convert::From<i32> for FWP_IP_VERSION {
+impl ::core::convert::From<i32> for FWP_IP_VERSION {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5588,7 +5588,7 @@ unsafe impl ::windows::runtime::Abi for FWP_IP_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_MATCH_TYPE(pub i32);
 pub const FWP_MATCH_EQUAL: FWP_MATCH_TYPE = FWP_MATCH_TYPE(0i32);
@@ -5605,7 +5605,7 @@ pub const FWP_MATCH_NOT_EQUAL: FWP_MATCH_TYPE = FWP_MATCH_TYPE(10i32);
 pub const FWP_MATCH_PREFIX: FWP_MATCH_TYPE = FWP_MATCH_TYPE(11i32);
 pub const FWP_MATCH_NOT_PREFIX: FWP_MATCH_TYPE = FWP_MATCH_TYPE(12i32);
 pub const FWP_MATCH_TYPE_MAX: FWP_MATCH_TYPE = FWP_MATCH_TYPE(13i32);
-impl ::std::convert::From<i32> for FWP_MATCH_TYPE {
+impl ::core::convert::From<i32> for FWP_MATCH_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5627,7 +5627,7 @@ pub const FWP_OPTION_VALUE_DISABLE_LOOSE_SOURCE: u32 = 0u32;
 pub const FWP_OPTION_VALUE_ENABLE_LOCAL_ONLY_MAPPING: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_ENABLE_LOOSE_SOURCE: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -5638,24 +5638,24 @@ pub struct FWP_RANGE0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWP_RANGE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWP_RANGE0 {
+impl ::core::default::Default for FWP_RANGE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWP_RANGE0 {
+impl ::core::cmp::PartialEq for FWP_RANGE0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWP_RANGE0 {}
+impl ::core::cmp::Eq for FWP_RANGE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWP_RANGE0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -5668,30 +5668,30 @@ pub struct FWP_TOKEN_INFORMATION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWP_TOKEN_INFORMATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWP_TOKEN_INFORMATION {
+impl ::core::default::Default for FWP_TOKEN_INFORMATION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for FWP_TOKEN_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWP_TOKEN_INFORMATION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWP_TOKEN_INFORMATION").field("sidCount", &self.sidCount).field("sids", &self.sids).field("restrictedSidCount", &self.restrictedSidCount).field("restrictedSids", &self.restrictedSids).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWP_TOKEN_INFORMATION {
+impl ::core::cmp::PartialEq for FWP_TOKEN_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.sidCount == other.sidCount && self.sids == other.sids && self.restrictedSidCount == other.restrictedSidCount && self.restrictedSids == other.restrictedSids
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWP_TOKEN_INFORMATION {}
+impl ::core::cmp::Eq for FWP_TOKEN_INFORMATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWP_TOKEN_INFORMATION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWP_V4_ADDR_AND_MASK {
@@ -5699,26 +5699,26 @@ pub struct FWP_V4_ADDR_AND_MASK {
     pub mask: u32,
 }
 impl FWP_V4_ADDR_AND_MASK {}
-impl ::std::default::Default for FWP_V4_ADDR_AND_MASK {
+impl ::core::default::Default for FWP_V4_ADDR_AND_MASK {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWP_V4_ADDR_AND_MASK {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWP_V4_ADDR_AND_MASK {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWP_V4_ADDR_AND_MASK").field("addr", &self.addr).field("mask", &self.mask).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWP_V4_ADDR_AND_MASK {
+impl ::core::cmp::PartialEq for FWP_V4_ADDR_AND_MASK {
     fn eq(&self, other: &Self) -> bool {
         self.addr == other.addr && self.mask == other.mask
     }
 }
-impl ::std::cmp::Eq for FWP_V4_ADDR_AND_MASK {}
+impl ::core::cmp::Eq for FWP_V4_ADDR_AND_MASK {}
 unsafe impl ::windows::runtime::Abi for FWP_V4_ADDR_AND_MASK {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct FWP_V6_ADDR_AND_MASK {
@@ -5726,28 +5726,28 @@ pub struct FWP_V6_ADDR_AND_MASK {
     pub prefixLength: u8,
 }
 impl FWP_V6_ADDR_AND_MASK {}
-impl ::std::default::Default for FWP_V6_ADDR_AND_MASK {
+impl ::core::default::Default for FWP_V6_ADDR_AND_MASK {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FWP_V6_ADDR_AND_MASK {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FWP_V6_ADDR_AND_MASK {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FWP_V6_ADDR_AND_MASK").field("addr", &self.addr).field("prefixLength", &self.prefixLength).finish()
     }
 }
-impl ::std::cmp::PartialEq for FWP_V6_ADDR_AND_MASK {
+impl ::core::cmp::PartialEq for FWP_V6_ADDR_AND_MASK {
     fn eq(&self, other: &Self) -> bool {
         self.addr == other.addr && self.prefixLength == other.prefixLength
     }
 }
-impl ::std::cmp::Eq for FWP_V6_ADDR_AND_MASK {}
+impl ::core::cmp::Eq for FWP_V6_ADDR_AND_MASK {}
 unsafe impl ::windows::runtime::Abi for FWP_V6_ADDR_AND_MASK {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_V6_ADDR_SIZE: u32 = 16u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -5758,24 +5758,24 @@ pub struct FWP_VALUE0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWP_VALUE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWP_VALUE0 {
+impl ::core::default::Default for FWP_VALUE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWP_VALUE0 {
+impl ::core::cmp::PartialEq for FWP_VALUE0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWP_VALUE0 {}
+impl ::core::cmp::Eq for FWP_VALUE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWP_VALUE0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWP_VALUE0_0 {
@@ -5801,32 +5801,32 @@ pub union FWP_VALUE0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWP_VALUE0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for FWP_VALUE0_0 {
+impl ::core::default::Default for FWP_VALUE0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for FWP_VALUE0_0 {
+impl ::core::cmp::PartialEq for FWP_VALUE0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for FWP_VALUE0_0 {}
+impl ::core::cmp::Eq for FWP_VALUE0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWP_VALUE0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FWP_VSWITCH_NETWORK_TYPE(pub i32);
 pub const FWP_VSWITCH_NETWORK_TYPE_UNKNOWN: FWP_VSWITCH_NETWORK_TYPE = FWP_VSWITCH_NETWORK_TYPE(0i32);
 pub const FWP_VSWITCH_NETWORK_TYPE_PRIVATE: FWP_VSWITCH_NETWORK_TYPE = FWP_VSWITCH_NETWORK_TYPE(1i32);
 pub const FWP_VSWITCH_NETWORK_TYPE_INTERNAL: FWP_VSWITCH_NETWORK_TYPE = FWP_VSWITCH_NETWORK_TYPE(2i32);
 pub const FWP_VSWITCH_NETWORK_TYPE_EXTERNAL: FWP_VSWITCH_NETWORK_TYPE = FWP_VSWITCH_NETWORK_TYPE(3i32);
-impl ::std::convert::From<i32> for FWP_VSWITCH_NETWORK_TYPE {
+impl ::core::convert::From<i32> for FWP_VSWITCH_NETWORK_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5844,7 +5844,7 @@ pub unsafe fn FwpmCalloutAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn FwpmCalloutAdd0(enginehandle: super::super::Foundation::HANDLE, callout: *const FWPM_CALLOUT0, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmCalloutAdd0(enginehandle.into_param().abi(), ::std::mem::transmute(callout), ::std::mem::transmute(sd), ::std::mem::transmute(id)))
+        ::core::mem::transmute(FwpmCalloutAdd0(enginehandle.into_param().abi(), ::core::mem::transmute(callout), ::core::mem::transmute(sd), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5859,7 +5859,7 @@ pub unsafe fn FwpmCalloutCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn FwpmCalloutCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_CALLOUT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmCalloutCreateEnumHandle0(enginehandle.into_param().abi(), ::std::mem::transmute(enumtemplate), ::std::mem::transmute(enumhandle)))
+        ::core::mem::transmute(FwpmCalloutCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate), ::core::mem::transmute(enumhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5874,7 +5874,7 @@ pub unsafe fn FwpmCalloutDeleteById0<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn FwpmCalloutDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u32) -> u32;
         }
-        ::std::mem::transmute(FwpmCalloutDeleteById0(enginehandle.into_param().abi(), ::std::mem::transmute(id)))
+        ::core::mem::transmute(FwpmCalloutDeleteById0(enginehandle.into_param().abi(), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5889,7 +5889,7 @@ pub unsafe fn FwpmCalloutDeleteByKey0<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn FwpmCalloutDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID) -> u32;
         }
-        ::std::mem::transmute(FwpmCalloutDeleteByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key)))
+        ::core::mem::transmute(FwpmCalloutDeleteByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5904,7 +5904,7 @@ pub unsafe fn FwpmCalloutDestroyEnumHandle0<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn FwpmCalloutDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmCalloutDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
+        ::core::mem::transmute(FwpmCalloutDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5919,7 +5919,7 @@ pub unsafe fn FwpmCalloutEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn FwpmCalloutEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_CALLOUT0, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmCalloutEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmCalloutEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5934,7 +5934,7 @@ pub unsafe fn FwpmCalloutGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn FwpmCalloutGetById0(enginehandle: super::super::Foundation::HANDLE, id: u32, callout: *mut *mut FWPM_CALLOUT0) -> u32;
         }
-        ::std::mem::transmute(FwpmCalloutGetById0(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(callout)))
+        ::core::mem::transmute(FwpmCalloutGetById0(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(callout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5949,7 +5949,7 @@ pub unsafe fn FwpmCalloutGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn FwpmCalloutGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, callout: *mut *mut FWPM_CALLOUT0) -> u32;
         }
-        ::std::mem::transmute(FwpmCalloutGetByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(callout)))
+        ::core::mem::transmute(FwpmCalloutGetByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(callout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5964,7 +5964,16 @@ pub unsafe fn FwpmCalloutGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::I
         extern "system" {
             fn FwpmCalloutGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmCalloutGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl), ::std::mem::transmute(securitydescriptor)))
+        ::core::mem::transmute(FwpmCalloutGetSecurityInfoByKey0(
+            enginehandle.into_param().abi(),
+            ::core::mem::transmute(key),
+            ::core::mem::transmute(securityinfo),
+            ::core::mem::transmute(sidowner),
+            ::core::mem::transmute(sidgroup),
+            ::core::mem::transmute(dacl),
+            ::core::mem::transmute(sacl),
+            ::core::mem::transmute(securitydescriptor),
+        ))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5979,7 +5988,7 @@ pub unsafe fn FwpmCalloutSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::I
         extern "system" {
             fn FwpmCalloutSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
         }
-        ::std::mem::transmute(FwpmCalloutSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl)))
+        ::core::mem::transmute(FwpmCalloutSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5987,14 +5996,14 @@ pub unsafe fn FwpmCalloutSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::I
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmCalloutSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_CALLOUT_CHANGE_CALLBACK0>, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmCalloutSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_CALLOUT_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmCalloutSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmCalloutSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmCalloutSubscribeChanges0(enginehandle.into_param().abi(), ::std::mem::transmute(subscription), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(changehandle)))
+        ::core::mem::transmute(FwpmCalloutSubscribeChanges0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(changehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6009,7 +6018,7 @@ pub unsafe fn FwpmCalloutSubscriptionsGet0<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn FwpmCalloutSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_CALLOUT_SUBSCRIPTION0, numentries: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmCalloutSubscriptionsGet0(enginehandle.into_param().abi(), ::std::mem::transmute(entries), ::std::mem::transmute(numentries)))
+        ::core::mem::transmute(FwpmCalloutSubscriptionsGet0(enginehandle.into_param().abi(), ::core::mem::transmute(entries), ::core::mem::transmute(numentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6024,7 +6033,7 @@ pub unsafe fn FwpmCalloutUnsubscribeChanges0<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn FwpmCalloutUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmCalloutUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi()))
+        ::core::mem::transmute(FwpmCalloutUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6039,7 +6048,7 @@ pub unsafe fn FwpmConnectionCreateEnumHandle0<'a, Param0: ::windows::runtime::In
         extern "system" {
             fn FwpmConnectionCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_CONNECTION_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmConnectionCreateEnumHandle0(enginehandle.into_param().abi(), ::std::mem::transmute(enumtemplate), ::std::mem::transmute(enumhandle)))
+        ::core::mem::transmute(FwpmConnectionCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate), ::core::mem::transmute(enumhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6054,7 +6063,7 @@ pub unsafe fn FwpmConnectionDestroyEnumHandle0<'a, Param0: ::windows::runtime::I
         extern "system" {
             fn FwpmConnectionDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmConnectionDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
+        ::core::mem::transmute(FwpmConnectionDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6069,7 +6078,7 @@ pub unsafe fn FwpmConnectionEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn FwpmConnectionEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_CONNECTION0, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmConnectionEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmConnectionEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6084,7 +6093,7 @@ pub unsafe fn FwpmConnectionGetById0<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn FwpmConnectionGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, connection: *mut *mut FWPM_CONNECTION0) -> u32;
         }
-        ::std::mem::transmute(FwpmConnectionGetById0(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(connection)))
+        ::core::mem::transmute(FwpmConnectionGetById0(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(connection)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6099,7 +6108,7 @@ pub unsafe fn FwpmConnectionGetSecurityInfo0<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn FwpmConnectionGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmConnectionGetSecurityInfo0(enginehandle.into_param().abi(), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl), ::std::mem::transmute(securitydescriptor)))
+        ::core::mem::transmute(FwpmConnectionGetSecurityInfo0(enginehandle.into_param().abi(), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6114,7 +6123,7 @@ pub unsafe fn FwpmConnectionSetSecurityInfo0<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn FwpmConnectionSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
         }
-        ::std::mem::transmute(FwpmConnectionSetSecurityInfo0(enginehandle.into_param().abi(), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl)))
+        ::core::mem::transmute(FwpmConnectionSetSecurityInfo0(enginehandle.into_param().abi(), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6122,14 +6131,14 @@ pub unsafe fn FwpmConnectionSetSecurityInfo0<'a, Param0: ::windows::runtime::Int
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmConnectionSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_CONNECTION_CALLBACK0>, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmConnectionSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_CONNECTION_CALLBACK0>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmConnectionSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmConnectionSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmConnectionSubscribe0(enginehandle.into_param().abi(), ::std::mem::transmute(subscription), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(eventshandle)))
+        ::core::mem::transmute(FwpmConnectionSubscribe0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(eventshandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6144,7 +6153,7 @@ pub unsafe fn FwpmConnectionUnsubscribe0<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn FwpmConnectionUnsubscribe0(enginehandle: super::super::Foundation::HANDLE, eventshandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmConnectionUnsubscribe0(enginehandle.into_param().abi(), eventshandle.into_param().abi()))
+        ::core::mem::transmute(FwpmConnectionUnsubscribe0(enginehandle.into_param().abi(), eventshandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6152,14 +6161,14 @@ pub unsafe fn FwpmConnectionUnsubscribe0<'a, Param0: ::windows::runtime::IntoPar
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: ::std::option::Option<FWPM_DYNAMIC_KEYWORD_CALLBACK0>, context: *const ::std::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: ::core::option::Option<FWPM_DYNAMIC_KEYWORD_CALLBACK0>, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmDynamicKeywordSubscribe0(::std::mem::transmute(flags), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(subscriptionhandle)))
+        ::core::mem::transmute(FwpmDynamicKeywordSubscribe0(::core::mem::transmute(flags), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(subscriptionhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6174,7 +6183,7 @@ pub unsafe fn FwpmDynamicKeywordUnsubscribe0<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn FwpmDynamicKeywordUnsubscribe0(subscriptionhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmDynamicKeywordUnsubscribe0(subscriptionhandle.into_param().abi()))
+        ::core::mem::transmute(FwpmDynamicKeywordUnsubscribe0(subscriptionhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6189,7 +6198,7 @@ pub unsafe fn FwpmEngineClose0<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn FwpmEngineClose0(enginehandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmEngineClose0(enginehandle.into_param().abi()))
+        ::core::mem::transmute(FwpmEngineClose0(enginehandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6204,7 +6213,7 @@ pub unsafe fn FwpmEngineGetOption0<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn FwpmEngineGetOption0(enginehandle: super::super::Foundation::HANDLE, option: FWPM_ENGINE_OPTION, value: *mut *mut FWP_VALUE0) -> u32;
         }
-        ::std::mem::transmute(FwpmEngineGetOption0(enginehandle.into_param().abi(), ::std::mem::transmute(option), ::std::mem::transmute(value)))
+        ::core::mem::transmute(FwpmEngineGetOption0(enginehandle.into_param().abi(), ::core::mem::transmute(option), ::core::mem::transmute(value)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6219,7 +6228,7 @@ pub unsafe fn FwpmEngineGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn FwpmEngineGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmEngineGetSecurityInfo0(enginehandle.into_param().abi(), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl), ::std::mem::transmute(securitydescriptor)))
+        ::core::mem::transmute(FwpmEngineGetSecurityInfo0(enginehandle.into_param().abi(), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6234,7 +6243,7 @@ pub unsafe fn FwpmEngineOpen0<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn FwpmEngineOpen0(servername: super::super::Foundation::PWSTR, authnservice: u32, authidentity: *const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W, session: *const FWPM_SESSION0, enginehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmEngineOpen0(servername.into_param().abi(), ::std::mem::transmute(authnservice), ::std::mem::transmute(authidentity), ::std::mem::transmute(session), ::std::mem::transmute(enginehandle)))
+        ::core::mem::transmute(FwpmEngineOpen0(servername.into_param().abi(), ::core::mem::transmute(authnservice), ::core::mem::transmute(authidentity), ::core::mem::transmute(session), ::core::mem::transmute(enginehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6249,7 +6258,7 @@ pub unsafe fn FwpmEngineSetOption0<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn FwpmEngineSetOption0(enginehandle: super::super::Foundation::HANDLE, option: FWPM_ENGINE_OPTION, newvalue: *const FWP_VALUE0) -> u32;
         }
-        ::std::mem::transmute(FwpmEngineSetOption0(enginehandle.into_param().abi(), ::std::mem::transmute(option), ::std::mem::transmute(newvalue)))
+        ::core::mem::transmute(FwpmEngineSetOption0(enginehandle.into_param().abi(), ::core::mem::transmute(option), ::core::mem::transmute(newvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6264,7 +6273,7 @@ pub unsafe fn FwpmEngineSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn FwpmEngineSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
         }
-        ::std::mem::transmute(FwpmEngineSetSecurityInfo0(enginehandle.into_param().abi(), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl)))
+        ::core::mem::transmute(FwpmEngineSetSecurityInfo0(enginehandle.into_param().abi(), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6279,7 +6288,7 @@ pub unsafe fn FwpmFilterAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn FwpmFilterAdd0(enginehandle: super::super::Foundation::HANDLE, filter: *const FWPM_FILTER0, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32;
         }
-        ::std::mem::transmute(FwpmFilterAdd0(enginehandle.into_param().abi(), ::std::mem::transmute(filter), ::std::mem::transmute(sd), ::std::mem::transmute(id)))
+        ::core::mem::transmute(FwpmFilterAdd0(enginehandle.into_param().abi(), ::core::mem::transmute(filter), ::core::mem::transmute(sd), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6294,7 +6303,7 @@ pub unsafe fn FwpmFilterCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn FwpmFilterCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_FILTER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmFilterCreateEnumHandle0(enginehandle.into_param().abi(), ::std::mem::transmute(enumtemplate), ::std::mem::transmute(enumhandle)))
+        ::core::mem::transmute(FwpmFilterCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate), ::core::mem::transmute(enumhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6309,7 +6318,7 @@ pub unsafe fn FwpmFilterDeleteById0<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn FwpmFilterDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32;
         }
-        ::std::mem::transmute(FwpmFilterDeleteById0(enginehandle.into_param().abi(), ::std::mem::transmute(id)))
+        ::core::mem::transmute(FwpmFilterDeleteById0(enginehandle.into_param().abi(), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6324,7 +6333,7 @@ pub unsafe fn FwpmFilterDeleteByKey0<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn FwpmFilterDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID) -> u32;
         }
-        ::std::mem::transmute(FwpmFilterDeleteByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key)))
+        ::core::mem::transmute(FwpmFilterDeleteByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6339,7 +6348,7 @@ pub unsafe fn FwpmFilterDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn FwpmFilterDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmFilterDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
+        ::core::mem::transmute(FwpmFilterDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6354,7 +6363,7 @@ pub unsafe fn FwpmFilterEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn FwpmFilterEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_FILTER0, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmFilterEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmFilterEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6369,7 +6378,7 @@ pub unsafe fn FwpmFilterGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn FwpmFilterGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, filter: *mut *mut FWPM_FILTER0) -> u32;
         }
-        ::std::mem::transmute(FwpmFilterGetById0(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(filter)))
+        ::core::mem::transmute(FwpmFilterGetById0(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(filter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6384,7 +6393,7 @@ pub unsafe fn FwpmFilterGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn FwpmFilterGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, filter: *mut *mut FWPM_FILTER0) -> u32;
         }
-        ::std::mem::transmute(FwpmFilterGetByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(filter)))
+        ::core::mem::transmute(FwpmFilterGetByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(filter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6399,7 +6408,16 @@ pub unsafe fn FwpmFilterGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::In
         extern "system" {
             fn FwpmFilterGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmFilterGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl), ::std::mem::transmute(securitydescriptor)))
+        ::core::mem::transmute(FwpmFilterGetSecurityInfoByKey0(
+            enginehandle.into_param().abi(),
+            ::core::mem::transmute(key),
+            ::core::mem::transmute(securityinfo),
+            ::core::mem::transmute(sidowner),
+            ::core::mem::transmute(sidgroup),
+            ::core::mem::transmute(dacl),
+            ::core::mem::transmute(sacl),
+            ::core::mem::transmute(securitydescriptor),
+        ))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6414,7 +6432,7 @@ pub unsafe fn FwpmFilterSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::In
         extern "system" {
             fn FwpmFilterSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
         }
-        ::std::mem::transmute(FwpmFilterSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl)))
+        ::core::mem::transmute(FwpmFilterSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6422,14 +6440,14 @@ pub unsafe fn FwpmFilterSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::In
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmFilterSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_FILTER_CHANGE_CALLBACK0>, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmFilterSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_FILTER_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmFilterSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmFilterSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmFilterSubscribeChanges0(enginehandle.into_param().abi(), ::std::mem::transmute(subscription), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(changehandle)))
+        ::core::mem::transmute(FwpmFilterSubscribeChanges0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(changehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6444,7 +6462,7 @@ pub unsafe fn FwpmFilterSubscriptionsGet0<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn FwpmFilterSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_FILTER_SUBSCRIPTION0, numentries: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmFilterSubscriptionsGet0(enginehandle.into_param().abi(), ::std::mem::transmute(entries), ::std::mem::transmute(numentries)))
+        ::core::mem::transmute(FwpmFilterSubscriptionsGet0(enginehandle.into_param().abi(), ::core::mem::transmute(entries), ::core::mem::transmute(numentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6459,21 +6477,21 @@ pub unsafe fn FwpmFilterUnsubscribeChanges0<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn FwpmFilterUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmFilterUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi()))
+        ::core::mem::transmute(FwpmFilterUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[inline]
-pub unsafe fn FwpmFreeMemory0(p: *mut *mut ::std::ffi::c_void) {
+pub unsafe fn FwpmFreeMemory0(p: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmFreeMemory0(p: *mut *mut ::std::ffi::c_void);
+            fn FwpmFreeMemory0(p: *mut *mut ::core::ffi::c_void);
         }
-        ::std::mem::transmute(FwpmFreeMemory0(::std::mem::transmute(p)))
+        ::core::mem::transmute(FwpmFreeMemory0(::core::mem::transmute(p)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6488,7 +6506,7 @@ pub unsafe fn FwpmGetAppIdFromFileName0<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn FwpmGetAppIdFromFileName0(filename: super::super::Foundation::PWSTR, appid: *mut *mut FWP_BYTE_BLOB) -> u32;
         }
-        ::std::mem::transmute(FwpmGetAppIdFromFileName0(filename.into_param().abi(), ::std::mem::transmute(appid)))
+        ::core::mem::transmute(FwpmGetAppIdFromFileName0(filename.into_param().abi(), ::core::mem::transmute(appid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6503,7 +6521,7 @@ pub unsafe fn FwpmIPsecTunnelAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn FwpmIPsecTunnelAdd0(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT0, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT0, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmIPsecTunnelAdd0(enginehandle.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(mainmodepolicy), ::std::mem::transmute(tunnelpolicy), ::std::mem::transmute(numfilterconditions), ::std::mem::transmute(filterconditions), ::std::mem::transmute(sd)))
+        ::core::mem::transmute(FwpmIPsecTunnelAdd0(enginehandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(mainmodepolicy), ::core::mem::transmute(tunnelpolicy), ::core::mem::transmute(numfilterconditions), ::core::mem::transmute(filterconditions), ::core::mem::transmute(sd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6518,15 +6536,15 @@ pub unsafe fn FwpmIPsecTunnelAdd1<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn FwpmIPsecTunnelAdd1(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT1, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT1, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows::runtime::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmIPsecTunnelAdd1(
+        ::core::mem::transmute(FwpmIPsecTunnelAdd1(
             enginehandle.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(mainmodepolicy),
-            ::std::mem::transmute(tunnelpolicy),
-            ::std::mem::transmute(numfilterconditions),
-            ::std::mem::transmute(filterconditions),
-            ::std::mem::transmute(keymodkey),
-            ::std::mem::transmute(sd),
+            ::core::mem::transmute(flags),
+            ::core::mem::transmute(mainmodepolicy),
+            ::core::mem::transmute(tunnelpolicy),
+            ::core::mem::transmute(numfilterconditions),
+            ::core::mem::transmute(filterconditions),
+            ::core::mem::transmute(keymodkey),
+            ::core::mem::transmute(sd),
         ))
     }
     #[cfg(not(windows))]
@@ -6542,15 +6560,15 @@ pub unsafe fn FwpmIPsecTunnelAdd2<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn FwpmIPsecTunnelAdd2(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT2, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT2, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows::runtime::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmIPsecTunnelAdd2(
+        ::core::mem::transmute(FwpmIPsecTunnelAdd2(
             enginehandle.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(mainmodepolicy),
-            ::std::mem::transmute(tunnelpolicy),
-            ::std::mem::transmute(numfilterconditions),
-            ::std::mem::transmute(filterconditions),
-            ::std::mem::transmute(keymodkey),
-            ::std::mem::transmute(sd),
+            ::core::mem::transmute(flags),
+            ::core::mem::transmute(mainmodepolicy),
+            ::core::mem::transmute(tunnelpolicy),
+            ::core::mem::transmute(numfilterconditions),
+            ::core::mem::transmute(filterconditions),
+            ::core::mem::transmute(keymodkey),
+            ::core::mem::transmute(sd),
         ))
     }
     #[cfg(not(windows))]
@@ -6566,15 +6584,15 @@ pub unsafe fn FwpmIPsecTunnelAdd3<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn FwpmIPsecTunnelAdd3(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT3_, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT3_, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows::runtime::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmIPsecTunnelAdd3(
+        ::core::mem::transmute(FwpmIPsecTunnelAdd3(
             enginehandle.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(mainmodepolicy),
-            ::std::mem::transmute(tunnelpolicy),
-            ::std::mem::transmute(numfilterconditions),
-            ::std::mem::transmute(filterconditions),
-            ::std::mem::transmute(keymodkey),
-            ::std::mem::transmute(sd),
+            ::core::mem::transmute(flags),
+            ::core::mem::transmute(mainmodepolicy),
+            ::core::mem::transmute(tunnelpolicy),
+            ::core::mem::transmute(numfilterconditions),
+            ::core::mem::transmute(filterconditions),
+            ::core::mem::transmute(keymodkey),
+            ::core::mem::transmute(sd),
         ))
     }
     #[cfg(not(windows))]
@@ -6590,7 +6608,7 @@ pub unsafe fn FwpmIPsecTunnelDeleteByKey0<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn FwpmIPsecTunnelDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID) -> u32;
         }
-        ::std::mem::transmute(FwpmIPsecTunnelDeleteByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key)))
+        ::core::mem::transmute(FwpmIPsecTunnelDeleteByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6605,7 +6623,7 @@ pub unsafe fn FwpmLayerCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn FwpmLayerCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_LAYER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmLayerCreateEnumHandle0(enginehandle.into_param().abi(), ::std::mem::transmute(enumtemplate), ::std::mem::transmute(enumhandle)))
+        ::core::mem::transmute(FwpmLayerCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate), ::core::mem::transmute(enumhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6620,7 +6638,7 @@ pub unsafe fn FwpmLayerDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn FwpmLayerDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmLayerDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
+        ::core::mem::transmute(FwpmLayerDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6635,7 +6653,7 @@ pub unsafe fn FwpmLayerEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn FwpmLayerEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_LAYER0, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmLayerEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmLayerEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6650,7 +6668,7 @@ pub unsafe fn FwpmLayerGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn FwpmLayerGetById0(enginehandle: super::super::Foundation::HANDLE, id: u16, layer: *mut *mut FWPM_LAYER0) -> u32;
         }
-        ::std::mem::transmute(FwpmLayerGetById0(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(layer)))
+        ::core::mem::transmute(FwpmLayerGetById0(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(layer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6665,7 +6683,7 @@ pub unsafe fn FwpmLayerGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn FwpmLayerGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, layer: *mut *mut FWPM_LAYER0) -> u32;
         }
-        ::std::mem::transmute(FwpmLayerGetByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(layer)))
+        ::core::mem::transmute(FwpmLayerGetByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(layer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6680,7 +6698,16 @@ pub unsafe fn FwpmLayerGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn FwpmLayerGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmLayerGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl), ::std::mem::transmute(securitydescriptor)))
+        ::core::mem::transmute(FwpmLayerGetSecurityInfoByKey0(
+            enginehandle.into_param().abi(),
+            ::core::mem::transmute(key),
+            ::core::mem::transmute(securityinfo),
+            ::core::mem::transmute(sidowner),
+            ::core::mem::transmute(sidgroup),
+            ::core::mem::transmute(dacl),
+            ::core::mem::transmute(sacl),
+            ::core::mem::transmute(securitydescriptor),
+        ))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6695,7 +6722,7 @@ pub unsafe fn FwpmLayerSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn FwpmLayerSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
         }
-        ::std::mem::transmute(FwpmLayerSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl)))
+        ::core::mem::transmute(FwpmLayerSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6710,7 +6737,7 @@ pub unsafe fn FwpmNetEventCreateEnumHandle0<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn FwpmNetEventCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_NET_EVENT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventCreateEnumHandle0(enginehandle.into_param().abi(), ::std::mem::transmute(enumtemplate), ::std::mem::transmute(enumhandle)))
+        ::core::mem::transmute(FwpmNetEventCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate), ::core::mem::transmute(enumhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6725,7 +6752,7 @@ pub unsafe fn FwpmNetEventDestroyEnumHandle0<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn FwpmNetEventDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
+        ::core::mem::transmute(FwpmNetEventDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6740,7 +6767,7 @@ pub unsafe fn FwpmNetEventEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn FwpmNetEventEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT0, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmNetEventEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6755,7 +6782,7 @@ pub unsafe fn FwpmNetEventEnum1<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn FwpmNetEventEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT1, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmNetEventEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6770,7 +6797,7 @@ pub unsafe fn FwpmNetEventEnum2<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn FwpmNetEventEnum2(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT2, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventEnum2(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmNetEventEnum2(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6785,7 +6812,7 @@ pub unsafe fn FwpmNetEventEnum3<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn FwpmNetEventEnum3(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT3, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventEnum3(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmNetEventEnum3(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6800,7 +6827,7 @@ pub unsafe fn FwpmNetEventEnum4<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn FwpmNetEventEnum4(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT4_, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventEnum4(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmNetEventEnum4(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6815,7 +6842,7 @@ pub unsafe fn FwpmNetEventEnum5<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn FwpmNetEventEnum5(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT5_, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventEnum5(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmNetEventEnum5(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6823,14 +6850,14 @@ pub unsafe fn FwpmNetEventEnum5<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_NET_EVENT_CALLBACK0>, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmNetEventSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK0>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmNetEventSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmNetEventSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventSubscribe0(enginehandle.into_param().abi(), ::std::mem::transmute(subscription), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(eventshandle)))
+        ::core::mem::transmute(FwpmNetEventSubscribe0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(eventshandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6838,14 +6865,14 @@ pub unsafe fn FwpmNetEventSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_NET_EVENT_CALLBACK1>, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmNetEventSubscribe1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK1>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmNetEventSubscribe1(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmNetEventSubscribe1(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventSubscribe1(enginehandle.into_param().abi(), ::std::mem::transmute(subscription), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(eventshandle)))
+        ::core::mem::transmute(FwpmNetEventSubscribe1(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(eventshandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6853,14 +6880,14 @@ pub unsafe fn FwpmNetEventSubscribe1<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_NET_EVENT_CALLBACK2>, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmNetEventSubscribe2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK2>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmNetEventSubscribe2(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmNetEventSubscribe2(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventSubscribe2(enginehandle.into_param().abi(), ::std::mem::transmute(subscription), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(eventshandle)))
+        ::core::mem::transmute(FwpmNetEventSubscribe2(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(eventshandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6868,14 +6895,14 @@ pub unsafe fn FwpmNetEventSubscribe2<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe3<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_NET_EVENT_CALLBACK3>, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmNetEventSubscribe3<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK3>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmNetEventSubscribe3(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmNetEventSubscribe3(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventSubscribe3(enginehandle.into_param().abi(), ::std::mem::transmute(subscription), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(eventshandle)))
+        ::core::mem::transmute(FwpmNetEventSubscribe3(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(eventshandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6883,14 +6910,14 @@ pub unsafe fn FwpmNetEventSubscribe3<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_NET_EVENT_CALLBACK4>, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmNetEventSubscribe4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_NET_EVENT_CALLBACK4>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmNetEventSubscribe4(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmNetEventSubscribe4(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventSubscribe4(enginehandle.into_param().abi(), ::std::mem::transmute(subscription), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(eventshandle)))
+        ::core::mem::transmute(FwpmNetEventSubscribe4(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(eventshandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6905,7 +6932,7 @@ pub unsafe fn FwpmNetEventSubscriptionsGet0<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn FwpmNetEventSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_NET_EVENT_SUBSCRIPTION0, numentries: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventSubscriptionsGet0(enginehandle.into_param().abi(), ::std::mem::transmute(entries), ::std::mem::transmute(numentries)))
+        ::core::mem::transmute(FwpmNetEventSubscriptionsGet0(enginehandle.into_param().abi(), ::core::mem::transmute(entries), ::core::mem::transmute(numentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6920,7 +6947,7 @@ pub unsafe fn FwpmNetEventUnsubscribe0<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn FwpmNetEventUnsubscribe0(enginehandle: super::super::Foundation::HANDLE, eventshandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventUnsubscribe0(enginehandle.into_param().abi(), eventshandle.into_param().abi()))
+        ::core::mem::transmute(FwpmNetEventUnsubscribe0(enginehandle.into_param().abi(), eventshandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6935,7 +6962,7 @@ pub unsafe fn FwpmNetEventsGetSecurityInfo0<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn FwpmNetEventsGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventsGetSecurityInfo0(enginehandle.into_param().abi(), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl), ::std::mem::transmute(securitydescriptor)))
+        ::core::mem::transmute(FwpmNetEventsGetSecurityInfo0(enginehandle.into_param().abi(), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6950,7 +6977,7 @@ pub unsafe fn FwpmNetEventsSetSecurityInfo0<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn FwpmNetEventsSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
         }
-        ::std::mem::transmute(FwpmNetEventsSetSecurityInfo0(enginehandle.into_param().abi(), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl)))
+        ::core::mem::transmute(FwpmNetEventsSetSecurityInfo0(enginehandle.into_param().abi(), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6965,7 +6992,7 @@ pub unsafe fn FwpmProviderAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn FwpmProviderAdd0(enginehandle: super::super::Foundation::HANDLE, provider: *const FWPM_PROVIDER0, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderAdd0(enginehandle.into_param().abi(), ::std::mem::transmute(provider), ::std::mem::transmute(sd)))
+        ::core::mem::transmute(FwpmProviderAdd0(enginehandle.into_param().abi(), ::core::mem::transmute(provider), ::core::mem::transmute(sd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6980,7 +7007,7 @@ pub unsafe fn FwpmProviderContextAdd0<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn FwpmProviderContextAdd0(enginehandle: super::super::Foundation::HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT0, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextAdd0(enginehandle.into_param().abi(), ::std::mem::transmute(providercontext), ::std::mem::transmute(sd), ::std::mem::transmute(id)))
+        ::core::mem::transmute(FwpmProviderContextAdd0(enginehandle.into_param().abi(), ::core::mem::transmute(providercontext), ::core::mem::transmute(sd), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6995,7 +7022,7 @@ pub unsafe fn FwpmProviderContextAdd1<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn FwpmProviderContextAdd1(enginehandle: super::super::Foundation::HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT1, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextAdd1(enginehandle.into_param().abi(), ::std::mem::transmute(providercontext), ::std::mem::transmute(sd), ::std::mem::transmute(id)))
+        ::core::mem::transmute(FwpmProviderContextAdd1(enginehandle.into_param().abi(), ::core::mem::transmute(providercontext), ::core::mem::transmute(sd), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7010,7 +7037,7 @@ pub unsafe fn FwpmProviderContextAdd2<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn FwpmProviderContextAdd2(enginehandle: super::super::Foundation::HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT2, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextAdd2(enginehandle.into_param().abi(), ::std::mem::transmute(providercontext), ::std::mem::transmute(sd), ::std::mem::transmute(id)))
+        ::core::mem::transmute(FwpmProviderContextAdd2(enginehandle.into_param().abi(), ::core::mem::transmute(providercontext), ::core::mem::transmute(sd), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7025,7 +7052,7 @@ pub unsafe fn FwpmProviderContextAdd3<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn FwpmProviderContextAdd3(enginehandle: super::super::Foundation::HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT3_, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextAdd3(enginehandle.into_param().abi(), ::std::mem::transmute(providercontext), ::std::mem::transmute(sd), ::std::mem::transmute(id)))
+        ::core::mem::transmute(FwpmProviderContextAdd3(enginehandle.into_param().abi(), ::core::mem::transmute(providercontext), ::core::mem::transmute(sd), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7040,7 +7067,7 @@ pub unsafe fn FwpmProviderContextCreateEnumHandle0<'a, Param0: ::windows::runtim
         extern "system" {
             fn FwpmProviderContextCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextCreateEnumHandle0(enginehandle.into_param().abi(), ::std::mem::transmute(enumtemplate), ::std::mem::transmute(enumhandle)))
+        ::core::mem::transmute(FwpmProviderContextCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate), ::core::mem::transmute(enumhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7055,7 +7082,7 @@ pub unsafe fn FwpmProviderContextDeleteById0<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn FwpmProviderContextDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextDeleteById0(enginehandle.into_param().abi(), ::std::mem::transmute(id)))
+        ::core::mem::transmute(FwpmProviderContextDeleteById0(enginehandle.into_param().abi(), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7070,7 +7097,7 @@ pub unsafe fn FwpmProviderContextDeleteByKey0<'a, Param0: ::windows::runtime::In
         extern "system" {
             fn FwpmProviderContextDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextDeleteByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key)))
+        ::core::mem::transmute(FwpmProviderContextDeleteByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7085,7 +7112,7 @@ pub unsafe fn FwpmProviderContextDestroyEnumHandle0<'a, Param0: ::windows::runti
         extern "system" {
             fn FwpmProviderContextDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
+        ::core::mem::transmute(FwpmProviderContextDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7100,7 +7127,7 @@ pub unsafe fn FwpmProviderContextEnum0<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn FwpmProviderContextEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT0, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmProviderContextEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7115,7 +7142,7 @@ pub unsafe fn FwpmProviderContextEnum1<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn FwpmProviderContextEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT1, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmProviderContextEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7130,7 +7157,7 @@ pub unsafe fn FwpmProviderContextEnum2<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn FwpmProviderContextEnum2(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT2, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextEnum2(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmProviderContextEnum2(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7145,7 +7172,7 @@ pub unsafe fn FwpmProviderContextEnum3<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn FwpmProviderContextEnum3(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT3_, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextEnum3(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmProviderContextEnum3(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7160,7 +7187,7 @@ pub unsafe fn FwpmProviderContextGetById0<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn FwpmProviderContextGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextGetById0(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(providercontext)))
+        ::core::mem::transmute(FwpmProviderContextGetById0(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(providercontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7175,7 +7202,7 @@ pub unsafe fn FwpmProviderContextGetById1<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn FwpmProviderContextGetById1(enginehandle: super::super::Foundation::HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextGetById1(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(providercontext)))
+        ::core::mem::transmute(FwpmProviderContextGetById1(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(providercontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7190,7 +7217,7 @@ pub unsafe fn FwpmProviderContextGetById2<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn FwpmProviderContextGetById2(enginehandle: super::super::Foundation::HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextGetById2(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(providercontext)))
+        ::core::mem::transmute(FwpmProviderContextGetById2(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(providercontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7205,7 +7232,7 @@ pub unsafe fn FwpmProviderContextGetById3<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn FwpmProviderContextGetById3(enginehandle: super::super::Foundation::HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3_) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextGetById3(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(providercontext)))
+        ::core::mem::transmute(FwpmProviderContextGetById3(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(providercontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7220,7 +7247,7 @@ pub unsafe fn FwpmProviderContextGetByKey0<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn FwpmProviderContextGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextGetByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(providercontext)))
+        ::core::mem::transmute(FwpmProviderContextGetByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(providercontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7235,7 +7262,7 @@ pub unsafe fn FwpmProviderContextGetByKey1<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn FwpmProviderContextGetByKey1(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextGetByKey1(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(providercontext)))
+        ::core::mem::transmute(FwpmProviderContextGetByKey1(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(providercontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7250,7 +7277,7 @@ pub unsafe fn FwpmProviderContextGetByKey2<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn FwpmProviderContextGetByKey2(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextGetByKey2(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(providercontext)))
+        ::core::mem::transmute(FwpmProviderContextGetByKey2(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(providercontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7265,7 +7292,7 @@ pub unsafe fn FwpmProviderContextGetByKey3<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn FwpmProviderContextGetByKey3(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3_) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextGetByKey3(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(providercontext)))
+        ::core::mem::transmute(FwpmProviderContextGetByKey3(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(providercontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7280,15 +7307,15 @@ pub unsafe fn FwpmProviderContextGetSecurityInfoByKey0<'a, Param0: ::windows::ru
         extern "system" {
             fn FwpmProviderContextGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextGetSecurityInfoByKey0(
+        ::core::mem::transmute(FwpmProviderContextGetSecurityInfoByKey0(
             enginehandle.into_param().abi(),
-            ::std::mem::transmute(key),
-            ::std::mem::transmute(securityinfo),
-            ::std::mem::transmute(sidowner),
-            ::std::mem::transmute(sidgroup),
-            ::std::mem::transmute(dacl),
-            ::std::mem::transmute(sacl),
-            ::std::mem::transmute(securitydescriptor),
+            ::core::mem::transmute(key),
+            ::core::mem::transmute(securityinfo),
+            ::core::mem::transmute(sidowner),
+            ::core::mem::transmute(sidgroup),
+            ::core::mem::transmute(dacl),
+            ::core::mem::transmute(sacl),
+            ::core::mem::transmute(securitydescriptor),
         ))
     }
     #[cfg(not(windows))]
@@ -7304,7 +7331,7 @@ pub unsafe fn FwpmProviderContextSetSecurityInfoByKey0<'a, Param0: ::windows::ru
         extern "system" {
             fn FwpmProviderContextSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl)))
+        ::core::mem::transmute(FwpmProviderContextSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7312,14 +7339,14 @@ pub unsafe fn FwpmProviderContextSetSecurityInfoByKey0<'a, Param0: ::windows::ru
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmProviderContextSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0>, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmProviderContextSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmProviderContextSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmProviderContextSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextSubscribeChanges0(enginehandle.into_param().abi(), ::std::mem::transmute(subscription), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(changehandle)))
+        ::core::mem::transmute(FwpmProviderContextSubscribeChanges0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(changehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7334,7 +7361,7 @@ pub unsafe fn FwpmProviderContextSubscriptionsGet0<'a, Param0: ::windows::runtim
         extern "system" {
             fn FwpmProviderContextSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, numentries: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextSubscriptionsGet0(enginehandle.into_param().abi(), ::std::mem::transmute(entries), ::std::mem::transmute(numentries)))
+        ::core::mem::transmute(FwpmProviderContextSubscriptionsGet0(enginehandle.into_param().abi(), ::core::mem::transmute(entries), ::core::mem::transmute(numentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7349,7 +7376,7 @@ pub unsafe fn FwpmProviderContextUnsubscribeChanges0<'a, Param0: ::windows::runt
         extern "system" {
             fn FwpmProviderContextUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderContextUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi()))
+        ::core::mem::transmute(FwpmProviderContextUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7364,7 +7391,7 @@ pub unsafe fn FwpmProviderCreateEnumHandle0<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn FwpmProviderCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_PROVIDER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderCreateEnumHandle0(enginehandle.into_param().abi(), ::std::mem::transmute(enumtemplate), ::std::mem::transmute(enumhandle)))
+        ::core::mem::transmute(FwpmProviderCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate), ::core::mem::transmute(enumhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7379,7 +7406,7 @@ pub unsafe fn FwpmProviderDeleteByKey0<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn FwpmProviderDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderDeleteByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key)))
+        ::core::mem::transmute(FwpmProviderDeleteByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7394,7 +7421,7 @@ pub unsafe fn FwpmProviderDestroyEnumHandle0<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn FwpmProviderDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
+        ::core::mem::transmute(FwpmProviderDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7409,7 +7436,7 @@ pub unsafe fn FwpmProviderEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn FwpmProviderEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER0, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmProviderEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7424,7 +7451,7 @@ pub unsafe fn FwpmProviderGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn FwpmProviderGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, provider: *mut *mut FWPM_PROVIDER0) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderGetByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(provider)))
+        ::core::mem::transmute(FwpmProviderGetByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(provider)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7439,7 +7466,16 @@ pub unsafe fn FwpmProviderGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::
         extern "system" {
             fn FwpmProviderGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl), ::std::mem::transmute(securitydescriptor)))
+        ::core::mem::transmute(FwpmProviderGetSecurityInfoByKey0(
+            enginehandle.into_param().abi(),
+            ::core::mem::transmute(key),
+            ::core::mem::transmute(securityinfo),
+            ::core::mem::transmute(sidowner),
+            ::core::mem::transmute(sidgroup),
+            ::core::mem::transmute(dacl),
+            ::core::mem::transmute(sacl),
+            ::core::mem::transmute(securitydescriptor),
+        ))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7454,7 +7490,7 @@ pub unsafe fn FwpmProviderSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::
         extern "system" {
             fn FwpmProviderSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl)))
+        ::core::mem::transmute(FwpmProviderSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7462,14 +7498,14 @@ pub unsafe fn FwpmProviderSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmProviderSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_PROVIDER_CHANGE_CALLBACK0>, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmProviderSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_PROVIDER_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmProviderSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmProviderSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderSubscribeChanges0(enginehandle.into_param().abi(), ::std::mem::transmute(subscription), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(changehandle)))
+        ::core::mem::transmute(FwpmProviderSubscribeChanges0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(changehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7484,7 +7520,7 @@ pub unsafe fn FwpmProviderSubscriptionsGet0<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn FwpmProviderSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_PROVIDER_SUBSCRIPTION0, numentries: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderSubscriptionsGet0(enginehandle.into_param().abi(), ::std::mem::transmute(entries), ::std::mem::transmute(numentries)))
+        ::core::mem::transmute(FwpmProviderSubscriptionsGet0(enginehandle.into_param().abi(), ::core::mem::transmute(entries), ::core::mem::transmute(numentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7499,7 +7535,7 @@ pub unsafe fn FwpmProviderUnsubscribeChanges0<'a, Param0: ::windows::runtime::In
         extern "system" {
             fn FwpmProviderUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmProviderUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi()))
+        ::core::mem::transmute(FwpmProviderUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7514,7 +7550,7 @@ pub unsafe fn FwpmSessionCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn FwpmSessionCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_SESSION_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmSessionCreateEnumHandle0(enginehandle.into_param().abi(), ::std::mem::transmute(enumtemplate), ::std::mem::transmute(enumhandle)))
+        ::core::mem::transmute(FwpmSessionCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate), ::core::mem::transmute(enumhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7529,7 +7565,7 @@ pub unsafe fn FwpmSessionDestroyEnumHandle0<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn FwpmSessionDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmSessionDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
+        ::core::mem::transmute(FwpmSessionDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7544,7 +7580,7 @@ pub unsafe fn FwpmSessionEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn FwpmSessionEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_SESSION0, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmSessionEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmSessionEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7559,7 +7595,7 @@ pub unsafe fn FwpmSubLayerAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn FwpmSubLayerAdd0(enginehandle: super::super::Foundation::HANDLE, sublayer: *const FWPM_SUBLAYER0, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmSubLayerAdd0(enginehandle.into_param().abi(), ::std::mem::transmute(sublayer), ::std::mem::transmute(sd)))
+        ::core::mem::transmute(FwpmSubLayerAdd0(enginehandle.into_param().abi(), ::core::mem::transmute(sublayer), ::core::mem::transmute(sd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7574,7 +7610,7 @@ pub unsafe fn FwpmSubLayerCreateEnumHandle0<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn FwpmSubLayerCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_SUBLAYER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmSubLayerCreateEnumHandle0(enginehandle.into_param().abi(), ::std::mem::transmute(enumtemplate), ::std::mem::transmute(enumhandle)))
+        ::core::mem::transmute(FwpmSubLayerCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate), ::core::mem::transmute(enumhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7589,7 +7625,7 @@ pub unsafe fn FwpmSubLayerDeleteByKey0<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn FwpmSubLayerDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID) -> u32;
         }
-        ::std::mem::transmute(FwpmSubLayerDeleteByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key)))
+        ::core::mem::transmute(FwpmSubLayerDeleteByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7604,7 +7640,7 @@ pub unsafe fn FwpmSubLayerDestroyEnumHandle0<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn FwpmSubLayerDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmSubLayerDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
+        ::core::mem::transmute(FwpmSubLayerDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7619,7 +7655,7 @@ pub unsafe fn FwpmSubLayerEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn FwpmSubLayerEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_SUBLAYER0, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmSubLayerEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(FwpmSubLayerEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7634,7 +7670,7 @@ pub unsafe fn FwpmSubLayerGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn FwpmSubLayerGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, sublayer: *mut *mut FWPM_SUBLAYER0) -> u32;
         }
-        ::std::mem::transmute(FwpmSubLayerGetByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(sublayer)))
+        ::core::mem::transmute(FwpmSubLayerGetByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(sublayer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7649,7 +7685,16 @@ pub unsafe fn FwpmSubLayerGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::
         extern "system" {
             fn FwpmSubLayerGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmSubLayerGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl), ::std::mem::transmute(securitydescriptor)))
+        ::core::mem::transmute(FwpmSubLayerGetSecurityInfoByKey0(
+            enginehandle.into_param().abi(),
+            ::core::mem::transmute(key),
+            ::core::mem::transmute(securityinfo),
+            ::core::mem::transmute(sidowner),
+            ::core::mem::transmute(sidgroup),
+            ::core::mem::transmute(dacl),
+            ::core::mem::transmute(sacl),
+            ::core::mem::transmute(securitydescriptor),
+        ))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7664,7 +7709,7 @@ pub unsafe fn FwpmSubLayerSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::
         extern "system" {
             fn FwpmSubLayerSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
         }
-        ::std::mem::transmute(FwpmSubLayerSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(key), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl)))
+        ::core::mem::transmute(FwpmSubLayerSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7672,14 +7717,14 @@ pub unsafe fn FwpmSubLayerSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmSubLayerSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_SUBLAYER_CHANGE_CALLBACK0>, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmSubLayerSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_SUBLAYER_CHANGE_CALLBACK0>, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmSubLayerSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmSubLayerSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmSubLayerSubscribeChanges0(enginehandle.into_param().abi(), ::std::mem::transmute(subscription), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(changehandle)))
+        ::core::mem::transmute(FwpmSubLayerSubscribeChanges0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(changehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7694,7 +7739,7 @@ pub unsafe fn FwpmSubLayerSubscriptionsGet0<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn FwpmSubLayerSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_SUBLAYER_SUBSCRIPTION0, numentries: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FwpmSubLayerSubscriptionsGet0(enginehandle.into_param().abi(), ::std::mem::transmute(entries), ::std::mem::transmute(numentries)))
+        ::core::mem::transmute(FwpmSubLayerSubscriptionsGet0(enginehandle.into_param().abi(), ::core::mem::transmute(entries), ::core::mem::transmute(numentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7709,7 +7754,7 @@ pub unsafe fn FwpmSubLayerUnsubscribeChanges0<'a, Param0: ::windows::runtime::In
         extern "system" {
             fn FwpmSubLayerUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmSubLayerUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi()))
+        ::core::mem::transmute(FwpmSubLayerUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7724,7 +7769,7 @@ pub unsafe fn FwpmSystemPortsGet0<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn FwpmSystemPortsGet0(enginehandle: super::super::Foundation::HANDLE, sysports: *mut *mut FWPM_SYSTEM_PORTS0) -> u32;
         }
-        ::std::mem::transmute(FwpmSystemPortsGet0(enginehandle.into_param().abi(), ::std::mem::transmute(sysports)))
+        ::core::mem::transmute(FwpmSystemPortsGet0(enginehandle.into_param().abi(), ::core::mem::transmute(sysports)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7732,14 +7777,14 @@ pub unsafe fn FwpmSystemPortsGet0<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmSystemPortsSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, reserved: *mut ::std::ffi::c_void, callback: ::std::option::Option<FWPM_SYSTEM_PORTS_CALLBACK0>, context: *const ::std::ffi::c_void, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmSystemPortsSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, reserved: *mut ::core::ffi::c_void, callback: ::core::option::Option<FWPM_SYSTEM_PORTS_CALLBACK0>, context: *const ::core::ffi::c_void, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmSystemPortsSubscribe0(enginehandle: super::super::Foundation::HANDLE, reserved: *mut ::std::ffi::c_void, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmSystemPortsSubscribe0(enginehandle: super::super::Foundation::HANDLE, reserved: *mut ::core::ffi::c_void, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmSystemPortsSubscribe0(enginehandle.into_param().abi(), ::std::mem::transmute(reserved), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(sysportshandle)))
+        ::core::mem::transmute(FwpmSystemPortsSubscribe0(enginehandle.into_param().abi(), ::core::mem::transmute(reserved), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(sysportshandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7754,7 +7799,7 @@ pub unsafe fn FwpmSystemPortsUnsubscribe0<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn FwpmSystemPortsUnsubscribe0(enginehandle: super::super::Foundation::HANDLE, sysportshandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmSystemPortsUnsubscribe0(enginehandle.into_param().abi(), sysportshandle.into_param().abi()))
+        ::core::mem::transmute(FwpmSystemPortsUnsubscribe0(enginehandle.into_param().abi(), sysportshandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7769,7 +7814,7 @@ pub unsafe fn FwpmTransactionAbort0<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn FwpmTransactionAbort0(enginehandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmTransactionAbort0(enginehandle.into_param().abi()))
+        ::core::mem::transmute(FwpmTransactionAbort0(enginehandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7784,7 +7829,7 @@ pub unsafe fn FwpmTransactionBegin0<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn FwpmTransactionBegin0(enginehandle: super::super::Foundation::HANDLE, flags: u32) -> u32;
         }
-        ::std::mem::transmute(FwpmTransactionBegin0(enginehandle.into_param().abi(), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(FwpmTransactionBegin0(enginehandle.into_param().abi(), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7799,7 +7844,7 @@ pub unsafe fn FwpmTransactionCommit0<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn FwpmTransactionCommit0(enginehandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmTransactionCommit0(enginehandle.into_param().abi()))
+        ::core::mem::transmute(FwpmTransactionCommit0(enginehandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7807,14 +7852,14 @@ pub unsafe fn FwpmTransactionCommit0<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmvSwitchEventSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_VSWITCH_EVENT_CALLBACK0>, context: *const ::std::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmvSwitchEventSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: ::core::option::Option<FWPM_VSWITCH_EVENT_CALLBACK0>, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmvSwitchEventSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmvSwitchEventSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmvSwitchEventSubscribe0(enginehandle.into_param().abi(), ::std::mem::transmute(subscription), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(subscriptionhandle)))
+        ::core::mem::transmute(FwpmvSwitchEventSubscribe0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(subscriptionhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7829,7 +7874,7 @@ pub unsafe fn FwpmvSwitchEventUnsubscribe0<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn FwpmvSwitchEventUnsubscribe0(enginehandle: super::super::Foundation::HANDLE, subscriptionhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(FwpmvSwitchEventUnsubscribe0(enginehandle.into_param().abi(), subscriptionhandle.into_param().abi()))
+        ::core::mem::transmute(FwpmvSwitchEventUnsubscribe0(enginehandle.into_param().abi(), subscriptionhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7844,7 +7889,7 @@ pub unsafe fn FwpmvSwitchEventsGetSecurityInfo0<'a, Param0: ::windows::runtime::
         extern "system" {
             fn FwpmvSwitchEventsGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(FwpmvSwitchEventsGetSecurityInfo0(enginehandle.into_param().abi(), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl), ::std::mem::transmute(securitydescriptor)))
+        ::core::mem::transmute(FwpmvSwitchEventsGetSecurityInfo0(enginehandle.into_param().abi(), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7859,18 +7904,18 @@ pub unsafe fn FwpmvSwitchEventsSetSecurityInfo0<'a, Param0: ::windows::runtime::
         extern "system" {
             fn FwpmvSwitchEventsSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
         }
-        ::std::mem::transmute(FwpmvSwitchEventsSetSecurityInfo0(enginehandle.into_param().abi(), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl)))
+        ::core::mem::transmute(FwpmvSwitchEventsSetSecurityInfo0(enginehandle.into_param().abi(), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ICMP4_TIME_EXCEED_CODE(pub i32);
 pub const ICMP4_TIME_EXCEED_TRANSIT: ICMP4_TIME_EXCEED_CODE = ICMP4_TIME_EXCEED_CODE(0i32);
 pub const ICMP4_TIME_EXCEED_REASSEMBLY: ICMP4_TIME_EXCEED_CODE = ICMP4_TIME_EXCEED_CODE(1i32);
-impl ::std::convert::From<i32> for ICMP4_TIME_EXCEED_CODE {
+impl ::core::convert::From<i32> for ICMP4_TIME_EXCEED_CODE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -7879,7 +7924,7 @@ unsafe impl ::windows::runtime::Abi for ICMP4_TIME_EXCEED_CODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ICMP4_UNREACH_CODE(pub i32);
 pub const ICMP4_UNREACH_NET: ICMP4_UNREACH_CODE = ICMP4_UNREACH_CODE(0i32);
@@ -7896,7 +7941,7 @@ pub const ICMP4_UNREACH_HOST_ADMIN: ICMP4_UNREACH_CODE = ICMP4_UNREACH_CODE(10i3
 pub const ICMP4_UNREACH_NET_TOS: ICMP4_UNREACH_CODE = ICMP4_UNREACH_CODE(11i32);
 pub const ICMP4_UNREACH_HOST_TOS: ICMP4_UNREACH_CODE = ICMP4_UNREACH_CODE(12i32);
 pub const ICMP4_UNREACH_ADMIN: ICMP4_UNREACH_CODE = ICMP4_UNREACH_CODE(13i32);
-impl ::std::convert::From<i32> for ICMP4_UNREACH_CODE {
+impl ::core::convert::From<i32> for ICMP4_UNREACH_CODE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -7924,7 +7969,7 @@ pub const ICMP6_PARAMPROB_OPTION: u32 = 2u32;
 pub const ICMP6_TIME_EXCEED_REASSEMBLY: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_TIME_EXCEED_TRANSIT: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ICMPV4_ADDRESS_MASK_MESSAGE {
@@ -7932,23 +7977,23 @@ pub struct ICMPV4_ADDRESS_MASK_MESSAGE {
     pub AddressMask: u32,
 }
 impl ICMPV4_ADDRESS_MASK_MESSAGE {}
-impl ::std::default::Default for ICMPV4_ADDRESS_MASK_MESSAGE {
+impl ::core::default::Default for ICMPV4_ADDRESS_MASK_MESSAGE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ICMPV4_ADDRESS_MASK_MESSAGE {
+impl ::core::cmp::PartialEq for ICMPV4_ADDRESS_MASK_MESSAGE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ICMPV4_ADDRESS_MASK_MESSAGE {}
+impl ::core::cmp::Eq for ICMPV4_ADDRESS_MASK_MESSAGE {}
 unsafe impl ::windows::runtime::Abi for ICMPV4_ADDRESS_MASK_MESSAGE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMPV4_INVALID_PREFERENCE_LEVEL: u32 = 2147483648u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -7959,66 +8004,66 @@ pub struct ICMPV4_ROUTER_ADVERT_ENTRY {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ICMPV4_ROUTER_ADVERT_ENTRY {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for ICMPV4_ROUTER_ADVERT_ENTRY {
+impl ::core::default::Default for ICMPV4_ROUTER_ADVERT_ENTRY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for ICMPV4_ROUTER_ADVERT_ENTRY {
+impl ::core::cmp::PartialEq for ICMPV4_ROUTER_ADVERT_ENTRY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for ICMPV4_ROUTER_ADVERT_ENTRY {}
+impl ::core::cmp::Eq for ICMPV4_ROUTER_ADVERT_ENTRY {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for ICMPV4_ROUTER_ADVERT_ENTRY {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ICMPV4_ROUTER_ADVERT_HEADER {
     pub RaHeader: ICMP_MESSAGE,
 }
 impl ICMPV4_ROUTER_ADVERT_HEADER {}
-impl ::std::default::Default for ICMPV4_ROUTER_ADVERT_HEADER {
+impl ::core::default::Default for ICMPV4_ROUTER_ADVERT_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ICMPV4_ROUTER_ADVERT_HEADER {
+impl ::core::cmp::PartialEq for ICMPV4_ROUTER_ADVERT_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ICMPV4_ROUTER_ADVERT_HEADER {}
+impl ::core::cmp::Eq for ICMPV4_ROUTER_ADVERT_HEADER {}
 unsafe impl ::windows::runtime::Abi for ICMPV4_ROUTER_ADVERT_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ICMPV4_ROUTER_SOLICIT {
     pub RsHeader: ICMP_MESSAGE,
 }
 impl ICMPV4_ROUTER_SOLICIT {}
-impl ::std::default::Default for ICMPV4_ROUTER_SOLICIT {
+impl ::core::default::Default for ICMPV4_ROUTER_SOLICIT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ICMPV4_ROUTER_SOLICIT {
+impl ::core::cmp::PartialEq for ICMPV4_ROUTER_SOLICIT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ICMPV4_ROUTER_SOLICIT {}
+impl ::core::cmp::Eq for ICMPV4_ROUTER_SOLICIT {}
 unsafe impl ::windows::runtime::Abi for ICMPV4_ROUTER_SOLICIT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ICMPV4_TIMESTAMP_MESSAGE {
@@ -8028,23 +8073,23 @@ pub struct ICMPV4_TIMESTAMP_MESSAGE {
     pub TransmitTimestamp: u32,
 }
 impl ICMPV4_TIMESTAMP_MESSAGE {}
-impl ::std::default::Default for ICMPV4_TIMESTAMP_MESSAGE {
+impl ::core::default::Default for ICMPV4_TIMESTAMP_MESSAGE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ICMPV4_TIMESTAMP_MESSAGE {
+impl ::core::cmp::PartialEq for ICMPV4_TIMESTAMP_MESSAGE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ICMPV4_TIMESTAMP_MESSAGE {}
+impl ::core::cmp::Eq for ICMPV4_TIMESTAMP_MESSAGE {}
 unsafe impl ::windows::runtime::Abi for ICMPV4_TIMESTAMP_MESSAGE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMPV6_ECHO_REQUEST_FLAG_REVERSE: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ICMP_HEADER {
@@ -8053,26 +8098,26 @@ pub struct ICMP_HEADER {
     pub Checksum: u16,
 }
 impl ICMP_HEADER {}
-impl ::std::default::Default for ICMP_HEADER {
+impl ::core::default::Default for ICMP_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ICMP_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ICMP_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ICMP_HEADER").field("Type", &self.Type).field("Code", &self.Code).field("Checksum", &self.Checksum).finish()
     }
 }
-impl ::std::cmp::PartialEq for ICMP_HEADER {
+impl ::core::cmp::PartialEq for ICMP_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Code == other.Code && self.Checksum == other.Checksum
     }
 }
-impl ::std::cmp::Eq for ICMP_HEADER {}
+impl ::core::cmp::Eq for ICMP_HEADER {}
 unsafe impl ::windows::runtime::Abi for ICMP_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct ICMP_MESSAGE {
@@ -8080,21 +8125,21 @@ pub struct ICMP_MESSAGE {
     pub Data: ICMP_MESSAGE_0,
 }
 impl ICMP_MESSAGE {}
-impl ::std::default::Default for ICMP_MESSAGE {
+impl ::core::default::Default for ICMP_MESSAGE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ICMP_MESSAGE {
+impl ::core::cmp::PartialEq for ICMP_MESSAGE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ICMP_MESSAGE {}
+impl ::core::cmp::Eq for ICMP_MESSAGE {}
 unsafe impl ::windows::runtime::Abi for ICMP_MESSAGE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union ICMP_MESSAGE_0 {
@@ -8103,21 +8148,21 @@ pub union ICMP_MESSAGE_0 {
     pub Data8: [u8; 4],
 }
 impl ICMP_MESSAGE_0 {}
-impl ::std::default::Default for ICMP_MESSAGE_0 {
+impl ::core::default::Default for ICMP_MESSAGE_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for ICMP_MESSAGE_0 {
+impl ::core::cmp::PartialEq for ICMP_MESSAGE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for ICMP_MESSAGE_0 {}
+impl ::core::cmp::Eq for ICMP_MESSAGE_0 {}
 unsafe impl ::windows::runtime::Abi for ICMP_MESSAGE_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -8133,24 +8178,24 @@ pub struct IGMPV3_QUERY_HEADER {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMPV3_QUERY_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IGMPV3_QUERY_HEADER {
+impl ::core::default::Default for IGMPV3_QUERY_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IGMPV3_QUERY_HEADER {
+impl ::core::cmp::PartialEq for IGMPV3_QUERY_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IGMPV3_QUERY_HEADER {}
+impl ::core::cmp::Eq for IGMPV3_QUERY_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMPV3_QUERY_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union IGMPV3_QUERY_HEADER_0 {
@@ -8160,24 +8205,24 @@ pub union IGMPV3_QUERY_HEADER_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMPV3_QUERY_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IGMPV3_QUERY_HEADER_0 {
+impl ::core::default::Default for IGMPV3_QUERY_HEADER_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IGMPV3_QUERY_HEADER_0 {
+impl ::core::cmp::PartialEq for IGMPV3_QUERY_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IGMPV3_QUERY_HEADER_0 {}
+impl ::core::cmp::Eq for IGMPV3_QUERY_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMPV3_QUERY_HEADER_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IGMPV3_QUERY_HEADER_0_0 {
@@ -8186,30 +8231,30 @@ pub struct IGMPV3_QUERY_HEADER_0_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMPV3_QUERY_HEADER_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IGMPV3_QUERY_HEADER_0_0 {
+impl ::core::default::Default for IGMPV3_QUERY_HEADER_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::fmt::Debug for IGMPV3_QUERY_HEADER_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IGMPV3_QUERY_HEADER_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IGMPV3_QUERY_HEADER_0_0 {
+impl ::core::cmp::PartialEq for IGMPV3_QUERY_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IGMPV3_QUERY_HEADER_0_0 {}
+impl ::core::cmp::Eq for IGMPV3_QUERY_HEADER_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMPV3_QUERY_HEADER_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union IGMPV3_QUERY_HEADER_1 {
@@ -8219,24 +8264,24 @@ pub union IGMPV3_QUERY_HEADER_1 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMPV3_QUERY_HEADER_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IGMPV3_QUERY_HEADER_1 {
+impl ::core::default::Default for IGMPV3_QUERY_HEADER_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IGMPV3_QUERY_HEADER_1 {
+impl ::core::cmp::PartialEq for IGMPV3_QUERY_HEADER_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IGMPV3_QUERY_HEADER_1 {}
+impl ::core::cmp::Eq for IGMPV3_QUERY_HEADER_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMPV3_QUERY_HEADER_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IGMPV3_QUERY_HEADER_1_0 {
@@ -8245,30 +8290,30 @@ pub struct IGMPV3_QUERY_HEADER_1_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMPV3_QUERY_HEADER_1_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IGMPV3_QUERY_HEADER_1_0 {
+impl ::core::default::Default for IGMPV3_QUERY_HEADER_1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::fmt::Debug for IGMPV3_QUERY_HEADER_1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IGMPV3_QUERY_HEADER_1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IGMPV3_QUERY_HEADER_1_0 {
+impl ::core::cmp::PartialEq for IGMPV3_QUERY_HEADER_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IGMPV3_QUERY_HEADER_1_0 {}
+impl ::core::cmp::Eq for IGMPV3_QUERY_HEADER_1_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMPV3_QUERY_HEADER_1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IGMPV3_REPORT_HEADER {
@@ -8279,26 +8324,26 @@ pub struct IGMPV3_REPORT_HEADER {
     pub RecordCount: u16,
 }
 impl IGMPV3_REPORT_HEADER {}
-impl ::std::default::Default for IGMPV3_REPORT_HEADER {
+impl ::core::default::Default for IGMPV3_REPORT_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IGMPV3_REPORT_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IGMPV3_REPORT_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IGMPV3_REPORT_HEADER").field("Type", &self.Type).field("Reserved", &self.Reserved).field("Checksum", &self.Checksum).field("Reserved2", &self.Reserved2).field("RecordCount", &self.RecordCount).finish()
     }
 }
-impl ::std::cmp::PartialEq for IGMPV3_REPORT_HEADER {
+impl ::core::cmp::PartialEq for IGMPV3_REPORT_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Reserved == other.Reserved && self.Checksum == other.Checksum && self.Reserved2 == other.Reserved2 && self.RecordCount == other.RecordCount
     }
 }
-impl ::std::cmp::Eq for IGMPV3_REPORT_HEADER {}
+impl ::core::cmp::Eq for IGMPV3_REPORT_HEADER {}
 unsafe impl ::windows::runtime::Abi for IGMPV3_REPORT_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -8311,24 +8356,24 @@ pub struct IGMPV3_REPORT_RECORD_HEADER {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMPV3_REPORT_RECORD_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IGMPV3_REPORT_RECORD_HEADER {
+impl ::core::default::Default for IGMPV3_REPORT_RECORD_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IGMPV3_REPORT_RECORD_HEADER {
+impl ::core::cmp::PartialEq for IGMPV3_REPORT_RECORD_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IGMPV3_REPORT_RECORD_HEADER {}
+impl ::core::cmp::Eq for IGMPV3_REPORT_RECORD_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMPV3_REPORT_RECORD_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -8341,24 +8386,24 @@ pub struct IGMP_HEADER {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMP_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IGMP_HEADER {
+impl ::core::default::Default for IGMP_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IGMP_HEADER {
+impl ::core::cmp::PartialEq for IGMP_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IGMP_HEADER {}
+impl ::core::cmp::Eq for IGMP_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMP_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union IGMP_HEADER_0 {
@@ -8368,24 +8413,24 @@ pub union IGMP_HEADER_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMP_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IGMP_HEADER_0 {
+impl ::core::default::Default for IGMP_HEADER_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IGMP_HEADER_0 {
+impl ::core::cmp::PartialEq for IGMP_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IGMP_HEADER_0 {}
+impl ::core::cmp::Eq for IGMP_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMP_HEADER_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IGMP_HEADER_0_0 {
@@ -8394,30 +8439,30 @@ pub struct IGMP_HEADER_0_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMP_HEADER_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IGMP_HEADER_0_0 {
+impl ::core::default::Default for IGMP_HEADER_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::fmt::Debug for IGMP_HEADER_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IGMP_HEADER_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IGMP_HEADER_0_0 {
+impl ::core::cmp::PartialEq for IGMP_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IGMP_HEADER_0_0 {}
+impl ::core::cmp::Eq for IGMP_HEADER_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMP_HEADER_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union IGMP_HEADER_1 {
@@ -8428,19 +8473,19 @@ pub union IGMP_HEADER_1 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMP_HEADER_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IGMP_HEADER_1 {
+impl ::core::default::Default for IGMP_HEADER_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IGMP_HEADER_1 {
+impl ::core::cmp::PartialEq for IGMP_HEADER_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IGMP_HEADER_1 {}
+impl ::core::cmp::Eq for IGMP_HEADER_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMP_HEADER_1 {
     type Abi = Self;
@@ -8448,12 +8493,12 @@ unsafe impl ::windows::runtime::Abi for IGMP_HEADER_1 {
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IGMP_LEAVE_GROUP_TYPE: u32 = 23u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IGMP_MAX_RESP_CODE_TYPE(pub i32);
 pub const IGMP_MAX_RESP_CODE_TYPE_NORMAL: IGMP_MAX_RESP_CODE_TYPE = IGMP_MAX_RESP_CODE_TYPE(0i32);
 pub const IGMP_MAX_RESP_CODE_TYPE_FLOAT: IGMP_MAX_RESP_CODE_TYPE = IGMP_MAX_RESP_CODE_TYPE(1i32);
-impl ::std::convert::From<i32> for IGMP_MAX_RESP_CODE_TYPE {
+impl ::core::convert::From<i32> for IGMP_MAX_RESP_CODE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8470,13 +8515,13 @@ pub const IGMP_VERSION2_REPORT_TYPE: u32 = 22u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IGMP_VERSION3_REPORT_TYPE: u32 = 34u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE(pub i32);
 pub const IKEEXT_IMPERSONATION_NONE: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE(0i32);
 pub const IKEEXT_IMPERSONATION_SOCKET_PRINCIPAL: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE(1i32);
 pub const IKEEXT_IMPERSONATION_MAX: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE(2i32);
-impl ::std::convert::From<i32> for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
+impl ::core::convert::From<i32> for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8484,7 +8529,7 @@ impl ::std::convert::From<i32> for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
 unsafe impl ::windows::runtime::Abi for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -8495,24 +8540,24 @@ pub struct IKEEXT_AUTHENTICATION_METHOD0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_AUTHENTICATION_METHOD0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_AUTHENTICATION_METHOD0 {
+impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD0 {
+impl ::core::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD0 {}
+impl ::core::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_AUTHENTICATION_METHOD0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
@@ -8526,24 +8571,24 @@ pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_AUTHENTICATION_METHOD0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_AUTHENTICATION_METHOD0_0 {
+impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD0_0 {
+impl ::core::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD0_0 {}
+impl ::core::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_AUTHENTICATION_METHOD0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -8554,24 +8599,24 @@ pub struct IKEEXT_AUTHENTICATION_METHOD1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_AUTHENTICATION_METHOD1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_AUTHENTICATION_METHOD1 {
+impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD1 {
+impl ::core::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD1 {}
+impl ::core::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_AUTHENTICATION_METHOD1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IKEEXT_AUTHENTICATION_METHOD1_0 {
@@ -8586,24 +8631,24 @@ pub union IKEEXT_AUTHENTICATION_METHOD1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_AUTHENTICATION_METHOD1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_AUTHENTICATION_METHOD1_0 {
+impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD1_0 {
+impl ::core::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD1_0 {}
+impl ::core::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_AUTHENTICATION_METHOD1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -8614,24 +8659,24 @@ pub struct IKEEXT_AUTHENTICATION_METHOD2 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_AUTHENTICATION_METHOD2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_AUTHENTICATION_METHOD2 {
+impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD2 {
+impl ::core::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD2 {}
+impl ::core::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_AUTHENTICATION_METHOD2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IKEEXT_AUTHENTICATION_METHOD2_0 {
@@ -8647,25 +8692,25 @@ pub union IKEEXT_AUTHENTICATION_METHOD2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_AUTHENTICATION_METHOD2_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_AUTHENTICATION_METHOD2_0 {
+impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD2_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD2_0 {
+impl ::core::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD2_0 {}
+impl ::core::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_AUTHENTICATION_METHOD2_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_AUTHENTICATION_METHOD_TYPE(pub i32);
 pub const IKEEXT_PRESHARED_KEY: IKEEXT_AUTHENTICATION_METHOD_TYPE = IKEEXT_AUTHENTICATION_METHOD_TYPE(0i32);
@@ -8682,7 +8727,7 @@ pub const IKEEXT_SSL_ECDSA_P384: IKEEXT_AUTHENTICATION_METHOD_TYPE = IKEEXT_AUTH
 pub const IKEEXT_EAP: IKEEXT_AUTHENTICATION_METHOD_TYPE = IKEEXT_AUTHENTICATION_METHOD_TYPE(11i32);
 pub const IKEEXT_RESERVED: IKEEXT_AUTHENTICATION_METHOD_TYPE = IKEEXT_AUTHENTICATION_METHOD_TYPE(12i32);
 pub const IKEEXT_AUTHENTICATION_METHOD_TYPE_MAX: IKEEXT_AUTHENTICATION_METHOD_TYPE = IKEEXT_AUTHENTICATION_METHOD_TYPE(13i32);
-impl ::std::convert::From<i32> for IKEEXT_AUTHENTICATION_METHOD_TYPE {
+impl ::core::convert::From<i32> for IKEEXT_AUTHENTICATION_METHOD_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -8690,7 +8735,7 @@ impl ::std::convert::From<i32> for IKEEXT_AUTHENTICATION_METHOD_TYPE {
 unsafe impl ::windows::runtime::Abi for IKEEXT_AUTHENTICATION_METHOD_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0 {
@@ -8701,21 +8746,21 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0 {
     pub flags: IKEEXT_CERT_AUTH,
 }
 impl IKEEXT_CERTIFICATE_AUTHENTICATION0 {}
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION0 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
@@ -8724,21 +8769,21 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
     pub inboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
 impl IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {}
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
@@ -8746,26 +8791,26 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
     pub inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
 impl IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {}
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("inboundRootArraySize", &self.inboundRootArraySize).field("inboundRootArray", &self.inboundRootArray).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.inboundRootArraySize == other.inboundRootArraySize && self.inboundRootArray == other.inboundRootArray
     }
 }
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
@@ -8774,21 +8819,21 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
     pub outboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
 impl IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {}
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
@@ -8796,26 +8841,26 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
     pub outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
 impl IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {}
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("outboundRootArraySize", &self.outboundRootArraySize).field("outboundRootArray", &self.outboundRootArray).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.outboundRootArraySize == other.outboundRootArraySize && self.outboundRootArray == other.outboundRootArray
     }
 }
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1 {
@@ -8827,21 +8872,21 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1 {
     pub localCertLocationUrl: FWP_BYTE_BLOB,
 }
 impl IKEEXT_CERTIFICATE_AUTHENTICATION1 {}
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION1 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION1 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
@@ -8850,21 +8895,21 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
     pub inboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
 impl IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {}
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
@@ -8872,26 +8917,26 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
     pub inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
 impl IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {}
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("inboundRootArraySize", &self.inboundRootArraySize).field("inboundRootArray", &self.inboundRootArray).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.inboundRootArraySize == other.inboundRootArraySize && self.inboundRootArray == other.inboundRootArray
     }
 }
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
@@ -8900,21 +8945,21 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
     pub outboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
 impl IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {}
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
@@ -8922,26 +8967,26 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
     pub outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
 impl IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {}
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("outboundRootArraySize", &self.outboundRootArraySize).field("outboundRootArray", &self.outboundRootArray).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.outboundRootArraySize == other.outboundRootArraySize && self.outboundRootArray == other.outboundRootArray
     }
 }
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -8956,24 +9001,24 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CERTIFICATE_AUTHENTICATION2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
@@ -8984,24 +9029,24 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
@@ -9011,30 +9056,30 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous1_e__Struct").field("inboundRootArraySize", &self.inboundRootArraySize).field("inboundRootCriteria", &self.inboundRootCriteria).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.inboundRootArraySize == other.inboundRootArraySize && self.inboundRootCriteria == other.inboundRootCriteria
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
@@ -9044,30 +9089,30 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous2_e__Struct").field("inboundEnterpriseStoreArraySize", &self.inboundEnterpriseStoreArraySize).field("inboundEnterpriseStoreCriteria", &self.inboundEnterpriseStoreCriteria).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.inboundEnterpriseStoreArraySize == other.inboundEnterpriseStoreArraySize && self.inboundEnterpriseStoreCriteria == other.inboundEnterpriseStoreCriteria
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
@@ -9077,30 +9122,30 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous3_e__Struct").field("inboundRootStoreArraySize", &self.inboundRootStoreArraySize).field("inboundTrustedRootStoreCriteria", &self.inboundTrustedRootStoreCriteria).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.inboundRootStoreArraySize == other.inboundRootStoreArraySize && self.inboundTrustedRootStoreCriteria == other.inboundTrustedRootStoreCriteria
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
@@ -9111,24 +9156,24 @@ pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
@@ -9138,30 +9183,30 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous1_e__Struct").field("outboundRootArraySize", &self.outboundRootArraySize).field("outboundRootCriteria", &self.outboundRootCriteria).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.outboundRootArraySize == other.outboundRootArraySize && self.outboundRootCriteria == other.outboundRootCriteria
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
@@ -9171,30 +9216,30 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous2_e__Struct").field("outboundEnterpriseStoreArraySize", &self.outboundEnterpriseStoreArraySize).field("outboundEnterpriseStoreCriteria", &self.outboundEnterpriseStoreCriteria).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     fn eq(&self, other: &Self) -> bool {
         self.outboundEnterpriseStoreArraySize == other.outboundEnterpriseStoreArraySize && self.outboundEnterpriseStoreCriteria == other.outboundEnterpriseStoreCriteria
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
@@ -9204,30 +9249,30 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous3_e__Struct").field("outboundRootStoreArraySize", &self.outboundRootStoreArraySize).field("outboundTrustedRootStoreCriteria", &self.outboundTrustedRootStoreCriteria).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     fn eq(&self, other: &Self) -> bool {
         self.outboundRootStoreArraySize == other.outboundRootStoreArraySize && self.outboundTrustedRootStoreCriteria == other.outboundTrustedRootStoreCriteria
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL0 {
@@ -9236,26 +9281,26 @@ pub struct IKEEXT_CERTIFICATE_CREDENTIAL0 {
     pub flags: u32,
 }
 impl IKEEXT_CERTIFICATE_CREDENTIAL0 {}
-impl ::std::default::Default for IKEEXT_CERTIFICATE_CREDENTIAL0 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_CREDENTIAL0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_CERTIFICATE_CREDENTIAL0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_CREDENTIAL0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_CERTIFICATE_CREDENTIAL0").field("subjectName", &self.subjectName).field("certHash", &self.certHash).field("flags", &self.flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_CREDENTIAL0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_CREDENTIAL0 {
     fn eq(&self, other: &Self) -> bool {
         self.subjectName == other.subjectName && self.certHash == other.certHash && self.flags == other.flags
     }
 }
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_CREDENTIAL0 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_CREDENTIAL0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_CREDENTIAL0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL1 {
@@ -9265,26 +9310,26 @@ pub struct IKEEXT_CERTIFICATE_CREDENTIAL1 {
     pub certificate: FWP_BYTE_BLOB,
 }
 impl IKEEXT_CERTIFICATE_CREDENTIAL1 {}
-impl ::std::default::Default for IKEEXT_CERTIFICATE_CREDENTIAL1 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_CREDENTIAL1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_CERTIFICATE_CREDENTIAL1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_CREDENTIAL1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_CERTIFICATE_CREDENTIAL1").field("subjectName", &self.subjectName).field("certHash", &self.certHash).field("flags", &self.flags).field("certificate", &self.certificate).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_CREDENTIAL1 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_CREDENTIAL1 {
     fn eq(&self, other: &Self) -> bool {
         self.subjectName == other.subjectName && self.certHash == other.certHash && self.flags == other.flags && self.certificate == other.certificate
     }
 }
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_CREDENTIAL1 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_CREDENTIAL1 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_CREDENTIAL1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -9298,31 +9343,31 @@ pub struct IKEEXT_CERTIFICATE_CRITERIA0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CERTIFICATE_CRITERIA0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CERTIFICATE_CRITERIA0 {
+impl ::core::default::Default for IKEEXT_CERTIFICATE_CRITERIA0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_CERTIFICATE_CRITERIA0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_CRITERIA0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_CERTIFICATE_CRITERIA0").field("certData", &self.certData).field("certHash", &self.certHash).field("eku", &self.eku).field("name", &self.name).field("flags", &self.flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CERTIFICATE_CRITERIA0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_CRITERIA0 {
     fn eq(&self, other: &Self) -> bool {
         self.certData == other.certData && self.certHash == other.certHash && self.eku == other.eku && self.name == other.name && self.flags == other.flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CERTIFICATE_CRITERIA0 {}
+impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_CRITERIA0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_CRITERIA0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_CERT_AUTH(pub u32);
 pub const IKEEXT_CERT_AUTH_FLAG_SSL_ONE_WAY: IKEEXT_CERT_AUTH = IKEEXT_CERT_AUTH(1u32);
@@ -9330,7 +9375,7 @@ pub const IKEEXT_CERT_AUTH_ENABLE_CRL_CHECK_STRONG: IKEEXT_CERT_AUTH = IKEEXT_CE
 pub const IKEEXT_CERT_AUTH_DISABLE_SSL_CERT_VALIDATION: IKEEXT_CERT_AUTH = IKEEXT_CERT_AUTH(8u32);
 pub const IKEEXT_CERT_AUTH_ALLOW_HTTP_CERT_LOOKUP: IKEEXT_CERT_AUTH = IKEEXT_CERT_AUTH(16u32);
 pub const IKEEXT_CERT_AUTH_URL_CONTAINS_BUNDLE: IKEEXT_CERT_AUTH = IKEEXT_CERT_AUTH(32u32);
-impl ::std::convert::From<u32> for IKEEXT_CERT_AUTH {
+impl ::core::convert::From<u32> for IKEEXT_CERT_AUTH {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -9338,29 +9383,29 @@ impl ::std::convert::From<u32> for IKEEXT_CERT_AUTH {
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERT_AUTH {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for IKEEXT_CERT_AUTH {
+impl ::core::ops::BitOr for IKEEXT_CERT_AUTH {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for IKEEXT_CERT_AUTH {
+impl ::core::ops::BitAnd for IKEEXT_CERT_AUTH {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for IKEEXT_CERT_AUTH {
+impl ::core::ops::BitOrAssign for IKEEXT_CERT_AUTH {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for IKEEXT_CERT_AUTH {
+impl ::core::ops::BitAndAssign for IKEEXT_CERT_AUTH {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for IKEEXT_CERT_AUTH {
+impl ::core::ops::Not for IKEEXT_CERT_AUTH {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -9371,7 +9416,7 @@ pub const IKEEXT_CERT_AUTH_FLAG_DISABLE_CRL_CHECK: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_CERT_AUTH_FLAG_DISABLE_REQUEST_PAYLOAD: u32 = 64u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_CERT_CONFIG_TYPE(pub i32);
 pub const IKEEXT_CERT_CONFIG_EXPLICIT_TRUST_LIST: IKEEXT_CERT_CONFIG_TYPE = IKEEXT_CERT_CONFIG_TYPE(0i32);
@@ -9379,7 +9424,7 @@ pub const IKEEXT_CERT_CONFIG_ENTERPRISE_STORE: IKEEXT_CERT_CONFIG_TYPE = IKEEXT_
 pub const IKEEXT_CERT_CONFIG_TRUSTED_ROOT_STORE: IKEEXT_CERT_CONFIG_TYPE = IKEEXT_CERT_CONFIG_TYPE(2i32);
 pub const IKEEXT_CERT_CONFIG_UNSPECIFIED: IKEEXT_CERT_CONFIG_TYPE = IKEEXT_CERT_CONFIG_TYPE(3i32);
 pub const IKEEXT_CERT_CONFIG_TYPE_MAX: IKEEXT_CERT_CONFIG_TYPE = IKEEXT_CERT_CONFIG_TYPE(4i32);
-impl ::std::convert::From<i32> for IKEEXT_CERT_CONFIG_TYPE {
+impl ::core::convert::From<i32> for IKEEXT_CERT_CONFIG_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -9390,7 +9435,7 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_CERT_CONFIG_TYPE {
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_CERT_CREDENTIAL_FLAG_NAP_CERT: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_CERT_CRITERIA_NAME_TYPE(pub i32);
 pub const IKEEXT_CERT_CRITERIA_DNS: IKEEXT_CERT_CRITERIA_NAME_TYPE = IKEEXT_CERT_CRITERIA_NAME_TYPE(0i32);
@@ -9401,7 +9446,7 @@ pub const IKEEXT_CERT_CRITERIA_OU: IKEEXT_CERT_CRITERIA_NAME_TYPE = IKEEXT_CERT_
 pub const IKEEXT_CERT_CRITERIA_O: IKEEXT_CERT_CRITERIA_NAME_TYPE = IKEEXT_CERT_CRITERIA_NAME_TYPE(5i32);
 pub const IKEEXT_CERT_CRITERIA_DC: IKEEXT_CERT_CRITERIA_NAME_TYPE = IKEEXT_CERT_CRITERIA_NAME_TYPE(6i32);
 pub const IKEEXT_CERT_CRITERIA_NAME_TYPE_MAX: IKEEXT_CERT_CRITERIA_NAME_TYPE = IKEEXT_CERT_CRITERIA_NAME_TYPE(7i32);
-impl ::std::convert::From<i32> for IKEEXT_CERT_CRITERIA_NAME_TYPE {
+impl ::core::convert::From<i32> for IKEEXT_CERT_CRITERIA_NAME_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -9409,7 +9454,7 @@ impl ::std::convert::From<i32> for IKEEXT_CERT_CRITERIA_NAME_TYPE {
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERT_CRITERIA_NAME_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -9420,31 +9465,31 @@ pub struct IKEEXT_CERT_EKUS0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CERT_EKUS0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CERT_EKUS0 {
+impl ::core::default::Default for IKEEXT_CERT_EKUS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_CERT_EKUS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERT_EKUS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_CERT_EKUS0").field("numEku", &self.numEku).field("eku", &self.eku).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CERT_EKUS0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERT_EKUS0 {
     fn eq(&self, other: &Self) -> bool {
         self.numEku == other.numEku && self.eku == other.eku
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CERT_EKUS0 {}
+impl ::core::cmp::Eq for IKEEXT_CERT_EKUS0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERT_EKUS0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_CERT_FLAGS(pub u32);
 pub const IKEEXT_CERT_FLAG_ENABLE_ACCOUNT_MAPPING: IKEEXT_CERT_FLAGS = IKEEXT_CERT_FLAGS(1u32);
@@ -9456,7 +9501,7 @@ pub const IKEEXT_CERT_FLAG_PREFER_NAP_CERTIFICATE_OUTBOUND: IKEEXT_CERT_FLAGS = 
 pub const IKEEXT_CERT_FLAG_SELECT_NAP_CERTIFICATE: IKEEXT_CERT_FLAGS = IKEEXT_CERT_FLAGS(64u32);
 pub const IKEEXT_CERT_FLAG_VERIFY_NAP_CERTIFICATE: IKEEXT_CERT_FLAGS = IKEEXT_CERT_FLAGS(128u32);
 pub const IKEEXT_CERT_FLAG_FOLLOW_RENEWAL_CERTIFICATE: IKEEXT_CERT_FLAGS = IKEEXT_CERT_FLAGS(256u32);
-impl ::std::convert::From<u32> for IKEEXT_CERT_FLAGS {
+impl ::core::convert::From<u32> for IKEEXT_CERT_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -9464,29 +9509,29 @@ impl ::std::convert::From<u32> for IKEEXT_CERT_FLAGS {
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERT_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for IKEEXT_CERT_FLAGS {
+impl ::core::ops::BitOr for IKEEXT_CERT_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for IKEEXT_CERT_FLAGS {
+impl ::core::ops::BitAnd for IKEEXT_CERT_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for IKEEXT_CERT_FLAGS {
+impl ::core::ops::BitOrAssign for IKEEXT_CERT_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for IKEEXT_CERT_FLAGS {
+impl ::core::ops::BitAndAssign for IKEEXT_CERT_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for IKEEXT_CERT_FLAGS {
+impl ::core::ops::Not for IKEEXT_CERT_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -9494,7 +9539,7 @@ impl ::std::ops::Not for IKEEXT_CERT_FLAGS {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_CERT_HASH_LEN: u32 = 20u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -9505,30 +9550,30 @@ pub struct IKEEXT_CERT_NAME0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CERT_NAME0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CERT_NAME0 {
+impl ::core::default::Default for IKEEXT_CERT_NAME0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_CERT_NAME0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERT_NAME0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_CERT_NAME0").field("nameType", &self.nameType).field("certName", &self.certName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CERT_NAME0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERT_NAME0 {
     fn eq(&self, other: &Self) -> bool {
         self.nameType == other.nameType && self.certName == other.certName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CERT_NAME0 {}
+impl ::core::cmp::Eq for IKEEXT_CERT_NAME0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERT_NAME0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CERT_ROOT_CONFIG0 {
@@ -9536,26 +9581,26 @@ pub struct IKEEXT_CERT_ROOT_CONFIG0 {
     pub flags: IKEEXT_CERT_FLAGS,
 }
 impl IKEEXT_CERT_ROOT_CONFIG0 {}
-impl ::std::default::Default for IKEEXT_CERT_ROOT_CONFIG0 {
+impl ::core::default::Default for IKEEXT_CERT_ROOT_CONFIG0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_CERT_ROOT_CONFIG0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CERT_ROOT_CONFIG0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_CERT_ROOT_CONFIG0").field("certData", &self.certData).field("flags", &self.flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_CERT_ROOT_CONFIG0 {
+impl ::core::cmp::PartialEq for IKEEXT_CERT_ROOT_CONFIG0 {
     fn eq(&self, other: &Self) -> bool {
         self.certData == other.certData && self.flags == other.flags
     }
 }
-impl ::std::cmp::Eq for IKEEXT_CERT_ROOT_CONFIG0 {}
+impl ::core::cmp::Eq for IKEEXT_CERT_ROOT_CONFIG0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_CERT_ROOT_CONFIG0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_CIPHER_ALGORITHM0 {
@@ -9564,27 +9609,27 @@ pub struct IKEEXT_CIPHER_ALGORITHM0 {
     pub rounds: u32,
 }
 impl IKEEXT_CIPHER_ALGORITHM0 {}
-impl ::std::default::Default for IKEEXT_CIPHER_ALGORITHM0 {
+impl ::core::default::Default for IKEEXT_CIPHER_ALGORITHM0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_CIPHER_ALGORITHM0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CIPHER_ALGORITHM0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_CIPHER_ALGORITHM0").field("algoIdentifier", &self.algoIdentifier).field("keyLen", &self.keyLen).field("rounds", &self.rounds).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_CIPHER_ALGORITHM0 {
+impl ::core::cmp::PartialEq for IKEEXT_CIPHER_ALGORITHM0 {
     fn eq(&self, other: &Self) -> bool {
         self.algoIdentifier == other.algoIdentifier && self.keyLen == other.keyLen && self.rounds == other.rounds
     }
 }
-impl ::std::cmp::Eq for IKEEXT_CIPHER_ALGORITHM0 {}
+impl ::core::cmp::Eq for IKEEXT_CIPHER_ALGORITHM0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_CIPHER_ALGORITHM0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_CIPHER_TYPE(pub i32);
 pub const IKEEXT_CIPHER_DES: IKEEXT_CIPHER_TYPE = IKEEXT_CIPHER_TYPE(0i32);
@@ -9595,7 +9640,7 @@ pub const IKEEXT_CIPHER_AES_256: IKEEXT_CIPHER_TYPE = IKEEXT_CIPHER_TYPE(4i32);
 pub const IKEEXT_CIPHER_AES_GCM_128_16ICV: IKEEXT_CIPHER_TYPE = IKEEXT_CIPHER_TYPE(5i32);
 pub const IKEEXT_CIPHER_AES_GCM_256_16ICV: IKEEXT_CIPHER_TYPE = IKEEXT_CIPHER_TYPE(6i32);
 pub const IKEEXT_CIPHER_TYPE_MAX: IKEEXT_CIPHER_TYPE = IKEEXT_CIPHER_TYPE(7i32);
-impl ::std::convert::From<i32> for IKEEXT_CIPHER_TYPE {
+impl ::core::convert::From<i32> for IKEEXT_CIPHER_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -9603,7 +9648,7 @@ impl ::std::convert::From<i32> for IKEEXT_CIPHER_TYPE {
 unsafe impl ::windows::runtime::Abi for IKEEXT_CIPHER_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_COMMON_STATISTICS0 {
@@ -9614,13 +9659,13 @@ pub struct IKEEXT_COMMON_STATISTICS0 {
     pub currentQueuedWorkitems: u32,
 }
 impl IKEEXT_COMMON_STATISTICS0 {}
-impl ::std::default::Default for IKEEXT_COMMON_STATISTICS0 {
+impl ::core::default::Default for IKEEXT_COMMON_STATISTICS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_COMMON_STATISTICS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_COMMON_STATISTICS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_COMMON_STATISTICS0")
             .field("v4Statistics", &self.v4Statistics)
             .field("v6Statistics", &self.v6Statistics)
@@ -9630,16 +9675,16 @@ impl ::std::fmt::Debug for IKEEXT_COMMON_STATISTICS0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_COMMON_STATISTICS0 {
+impl ::core::cmp::PartialEq for IKEEXT_COMMON_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
         self.v4Statistics == other.v4Statistics && self.v6Statistics == other.v6Statistics && self.totalPacketsReceived == other.totalPacketsReceived && self.totalInvalidPacketsReceived == other.totalInvalidPacketsReceived && self.currentQueuedWorkitems == other.currentQueuedWorkitems
     }
 }
-impl ::std::cmp::Eq for IKEEXT_COMMON_STATISTICS0 {}
+impl ::core::cmp::Eq for IKEEXT_COMMON_STATISTICS0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_COMMON_STATISTICS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_COMMON_STATISTICS1 {
@@ -9650,13 +9695,13 @@ pub struct IKEEXT_COMMON_STATISTICS1 {
     pub currentQueuedWorkitems: u32,
 }
 impl IKEEXT_COMMON_STATISTICS1 {}
-impl ::std::default::Default for IKEEXT_COMMON_STATISTICS1 {
+impl ::core::default::Default for IKEEXT_COMMON_STATISTICS1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_COMMON_STATISTICS1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_COMMON_STATISTICS1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_COMMON_STATISTICS1")
             .field("v4Statistics", &self.v4Statistics)
             .field("v6Statistics", &self.v6Statistics)
@@ -9666,16 +9711,16 @@ impl ::std::fmt::Debug for IKEEXT_COMMON_STATISTICS1 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_COMMON_STATISTICS1 {
+impl ::core::cmp::PartialEq for IKEEXT_COMMON_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
         self.v4Statistics == other.v4Statistics && self.v6Statistics == other.v6Statistics && self.totalPacketsReceived == other.totalPacketsReceived && self.totalInvalidPacketsReceived == other.totalInvalidPacketsReceived && self.currentQueuedWorkitems == other.currentQueuedWorkitems
     }
 }
-impl ::std::cmp::Eq for IKEEXT_COMMON_STATISTICS1 {}
+impl ::core::cmp::Eq for IKEEXT_COMMON_STATISTICS1 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_COMMON_STATISTICS1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_COOKIE_PAIR0 {
@@ -9683,26 +9728,26 @@ pub struct IKEEXT_COOKIE_PAIR0 {
     pub responder: u64,
 }
 impl IKEEXT_COOKIE_PAIR0 {}
-impl ::std::default::Default for IKEEXT_COOKIE_PAIR0 {
+impl ::core::default::Default for IKEEXT_COOKIE_PAIR0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_COOKIE_PAIR0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_COOKIE_PAIR0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_COOKIE_PAIR0").field("initiator", &self.initiator).field("responder", &self.responder).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_COOKIE_PAIR0 {
+impl ::core::cmp::PartialEq for IKEEXT_COOKIE_PAIR0 {
     fn eq(&self, other: &Self) -> bool {
         self.initiator == other.initiator && self.responder == other.responder
     }
 }
-impl ::std::cmp::Eq for IKEEXT_COOKIE_PAIR0 {}
+impl ::core::cmp::Eq for IKEEXT_COOKIE_PAIR0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_COOKIE_PAIR0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -9714,24 +9759,24 @@ pub struct IKEEXT_CREDENTIAL0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CREDENTIAL0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CREDENTIAL0 {
+impl ::core::default::Default for IKEEXT_CREDENTIAL0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CREDENTIAL0 {
+impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CREDENTIAL0 {}
+impl ::core::cmp::Eq for IKEEXT_CREDENTIAL0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIAL0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IKEEXT_CREDENTIAL0_0 {
@@ -9742,24 +9787,24 @@ pub union IKEEXT_CREDENTIAL0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CREDENTIAL0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CREDENTIAL0_0 {
+impl ::core::default::Default for IKEEXT_CREDENTIAL0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CREDENTIAL0_0 {
+impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CREDENTIAL0_0 {}
+impl ::core::cmp::Eq for IKEEXT_CREDENTIAL0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIAL0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -9771,24 +9816,24 @@ pub struct IKEEXT_CREDENTIAL1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CREDENTIAL1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CREDENTIAL1 {
+impl ::core::default::Default for IKEEXT_CREDENTIAL1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CREDENTIAL1 {
+impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CREDENTIAL1 {}
+impl ::core::cmp::Eq for IKEEXT_CREDENTIAL1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIAL1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IKEEXT_CREDENTIAL1_0 {
@@ -9799,24 +9844,24 @@ pub union IKEEXT_CREDENTIAL1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CREDENTIAL1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CREDENTIAL1_0 {
+impl ::core::default::Default for IKEEXT_CREDENTIAL1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CREDENTIAL1_0 {
+impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CREDENTIAL1_0 {}
+impl ::core::cmp::Eq for IKEEXT_CREDENTIAL1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIAL1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -9828,24 +9873,24 @@ pub struct IKEEXT_CREDENTIAL2 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CREDENTIAL2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CREDENTIAL2 {
+impl ::core::default::Default for IKEEXT_CREDENTIAL2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CREDENTIAL2 {
+impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CREDENTIAL2 {}
+impl ::core::cmp::Eq for IKEEXT_CREDENTIAL2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIAL2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IKEEXT_CREDENTIAL2_0 {
@@ -9856,24 +9901,24 @@ pub union IKEEXT_CREDENTIAL2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CREDENTIAL2_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CREDENTIAL2_0 {
+impl ::core::default::Default for IKEEXT_CREDENTIAL2_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CREDENTIAL2_0 {
+impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CREDENTIAL2_0 {}
+impl ::core::cmp::Eq for IKEEXT_CREDENTIAL2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIAL2_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -9884,30 +9929,30 @@ pub struct IKEEXT_CREDENTIALS0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CREDENTIALS0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CREDENTIALS0 {
+impl ::core::default::Default for IKEEXT_CREDENTIALS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_CREDENTIALS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CREDENTIALS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_CREDENTIALS0").field("numCredentials", &self.numCredentials).field("credentials", &self.credentials).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CREDENTIALS0 {
+impl ::core::cmp::PartialEq for IKEEXT_CREDENTIALS0 {
     fn eq(&self, other: &Self) -> bool {
         self.numCredentials == other.numCredentials && self.credentials == other.credentials
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CREDENTIALS0 {}
+impl ::core::cmp::Eq for IKEEXT_CREDENTIALS0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIALS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -9918,30 +9963,30 @@ pub struct IKEEXT_CREDENTIALS1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CREDENTIALS1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CREDENTIALS1 {
+impl ::core::default::Default for IKEEXT_CREDENTIALS1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_CREDENTIALS1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CREDENTIALS1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_CREDENTIALS1").field("numCredentials", &self.numCredentials).field("credentials", &self.credentials).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CREDENTIALS1 {
+impl ::core::cmp::PartialEq for IKEEXT_CREDENTIALS1 {
     fn eq(&self, other: &Self) -> bool {
         self.numCredentials == other.numCredentials && self.credentials == other.credentials
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CREDENTIALS1 {}
+impl ::core::cmp::Eq for IKEEXT_CREDENTIALS1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIALS1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -9952,30 +9997,30 @@ pub struct IKEEXT_CREDENTIALS2 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CREDENTIALS2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CREDENTIALS2 {
+impl ::core::default::Default for IKEEXT_CREDENTIALS2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_CREDENTIALS2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_CREDENTIALS2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_CREDENTIALS2").field("numCredentials", &self.numCredentials).field("credentials", &self.credentials).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CREDENTIALS2 {
+impl ::core::cmp::PartialEq for IKEEXT_CREDENTIALS2 {
     fn eq(&self, other: &Self) -> bool {
         self.numCredentials == other.numCredentials && self.credentials == other.credentials
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CREDENTIALS2 {}
+impl ::core::cmp::Eq for IKEEXT_CREDENTIALS2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIALS2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -9986,24 +10031,24 @@ pub struct IKEEXT_CREDENTIAL_PAIR0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CREDENTIAL_PAIR0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CREDENTIAL_PAIR0 {
+impl ::core::default::Default for IKEEXT_CREDENTIAL_PAIR0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CREDENTIAL_PAIR0 {
+impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL_PAIR0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CREDENTIAL_PAIR0 {}
+impl ::core::cmp::Eq for IKEEXT_CREDENTIAL_PAIR0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIAL_PAIR0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -10014,24 +10059,24 @@ pub struct IKEEXT_CREDENTIAL_PAIR1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CREDENTIAL_PAIR1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CREDENTIAL_PAIR1 {
+impl ::core::default::Default for IKEEXT_CREDENTIAL_PAIR1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CREDENTIAL_PAIR1 {
+impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL_PAIR1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CREDENTIAL_PAIR1 {}
+impl ::core::cmp::Eq for IKEEXT_CREDENTIAL_PAIR1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIAL_PAIR1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -10042,25 +10087,25 @@ pub struct IKEEXT_CREDENTIAL_PAIR2 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_CREDENTIAL_PAIR2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_CREDENTIAL_PAIR2 {
+impl ::core::default::Default for IKEEXT_CREDENTIAL_PAIR2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_CREDENTIAL_PAIR2 {
+impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL_PAIR2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_CREDENTIAL_PAIR2 {}
+impl ::core::cmp::Eq for IKEEXT_CREDENTIAL_PAIR2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIAL_PAIR2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_DH_GROUP(pub i32);
 pub const IKEEXT_DH_GROUP_NONE: IKEEXT_DH_GROUP = IKEEXT_DH_GROUP(0i32);
@@ -10072,7 +10117,7 @@ pub const IKEEXT_DH_ECP_256: IKEEXT_DH_GROUP = IKEEXT_DH_GROUP(4i32);
 pub const IKEEXT_DH_ECP_384: IKEEXT_DH_GROUP = IKEEXT_DH_GROUP(5i32);
 pub const IKEEXT_DH_GROUP_24: IKEEXT_DH_GROUP = IKEEXT_DH_GROUP(6i32);
 pub const IKEEXT_DH_GROUP_MAX: IKEEXT_DH_GROUP = IKEEXT_DH_GROUP(7i32);
-impl ::std::convert::From<i32> for IKEEXT_DH_GROUP {
+impl ::core::convert::From<i32> for IKEEXT_DH_GROUP {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -10080,39 +10125,39 @@ impl ::std::convert::From<i32> for IKEEXT_DH_GROUP {
 unsafe impl ::windows::runtime::Abi for IKEEXT_DH_GROUP {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_EAP_AUTHENTICATION0 {
     pub flags: IKEEXT_EAP_AUTHENTICATION_FLAGS,
 }
 impl IKEEXT_EAP_AUTHENTICATION0 {}
-impl ::std::default::Default for IKEEXT_EAP_AUTHENTICATION0 {
+impl ::core::default::Default for IKEEXT_EAP_AUTHENTICATION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_EAP_AUTHENTICATION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_EAP_AUTHENTICATION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_EAP_AUTHENTICATION0").field("flags", &self.flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_EAP_AUTHENTICATION0 {
+impl ::core::cmp::PartialEq for IKEEXT_EAP_AUTHENTICATION0 {
     fn eq(&self, other: &Self) -> bool {
         self.flags == other.flags
     }
 }
-impl ::std::cmp::Eq for IKEEXT_EAP_AUTHENTICATION0 {}
+impl ::core::cmp::Eq for IKEEXT_EAP_AUTHENTICATION0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_EAP_AUTHENTICATION0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_EAP_AUTHENTICATION_FLAGS(pub u32);
 pub const IKEEXT_EAP_FLAG_LOCAL_AUTH_ONLY: IKEEXT_EAP_AUTHENTICATION_FLAGS = IKEEXT_EAP_AUTHENTICATION_FLAGS(1u32);
 pub const IKEEXT_EAP_FLAG_REMOTE_AUTH_ONLY: IKEEXT_EAP_AUTHENTICATION_FLAGS = IKEEXT_EAP_AUTHENTICATION_FLAGS(2u32);
-impl ::std::convert::From<u32> for IKEEXT_EAP_AUTHENTICATION_FLAGS {
+impl ::core::convert::From<u32> for IKEEXT_EAP_AUTHENTICATION_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -10120,35 +10165,35 @@ impl ::std::convert::From<u32> for IKEEXT_EAP_AUTHENTICATION_FLAGS {
 unsafe impl ::windows::runtime::Abi for IKEEXT_EAP_AUTHENTICATION_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for IKEEXT_EAP_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitOr for IKEEXT_EAP_AUTHENTICATION_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for IKEEXT_EAP_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitAnd for IKEEXT_EAP_AUTHENTICATION_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for IKEEXT_EAP_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitOrAssign for IKEEXT_EAP_AUTHENTICATION_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for IKEEXT_EAP_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitAndAssign for IKEEXT_EAP_AUTHENTICATION_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for IKEEXT_EAP_AUTHENTICATION_FLAGS {
+impl ::core::ops::Not for IKEEXT_EAP_AUTHENTICATION_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -10160,30 +10205,30 @@ pub struct IKEEXT_EM_POLICY0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_EM_POLICY0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_EM_POLICY0 {
+impl ::core::default::Default for IKEEXT_EM_POLICY0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_EM_POLICY0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_EM_POLICY0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_EM_POLICY0").field("numAuthenticationMethods", &self.numAuthenticationMethods).field("authenticationMethods", &self.authenticationMethods).field("initiatorImpersonationType", &self.initiatorImpersonationType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_EM_POLICY0 {
+impl ::core::cmp::PartialEq for IKEEXT_EM_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
         self.numAuthenticationMethods == other.numAuthenticationMethods && self.authenticationMethods == other.authenticationMethods && self.initiatorImpersonationType == other.initiatorImpersonationType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_EM_POLICY0 {}
+impl ::core::cmp::Eq for IKEEXT_EM_POLICY0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_EM_POLICY0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -10195,30 +10240,30 @@ pub struct IKEEXT_EM_POLICY1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_EM_POLICY1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_EM_POLICY1 {
+impl ::core::default::Default for IKEEXT_EM_POLICY1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_EM_POLICY1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_EM_POLICY1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_EM_POLICY1").field("numAuthenticationMethods", &self.numAuthenticationMethods).field("authenticationMethods", &self.authenticationMethods).field("initiatorImpersonationType", &self.initiatorImpersonationType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_EM_POLICY1 {
+impl ::core::cmp::PartialEq for IKEEXT_EM_POLICY1 {
     fn eq(&self, other: &Self) -> bool {
         self.numAuthenticationMethods == other.numAuthenticationMethods && self.authenticationMethods == other.authenticationMethods && self.initiatorImpersonationType == other.initiatorImpersonationType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_EM_POLICY1 {}
+impl ::core::cmp::Eq for IKEEXT_EM_POLICY1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_EM_POLICY1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -10230,31 +10275,31 @@ pub struct IKEEXT_EM_POLICY2 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_EM_POLICY2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_EM_POLICY2 {
+impl ::core::default::Default for IKEEXT_EM_POLICY2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_EM_POLICY2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_EM_POLICY2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_EM_POLICY2").field("numAuthenticationMethods", &self.numAuthenticationMethods).field("authenticationMethods", &self.authenticationMethods).field("initiatorImpersonationType", &self.initiatorImpersonationType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_EM_POLICY2 {
+impl ::core::cmp::PartialEq for IKEEXT_EM_POLICY2 {
     fn eq(&self, other: &Self) -> bool {
         self.numAuthenticationMethods == other.numAuthenticationMethods && self.authenticationMethods == other.authenticationMethods && self.initiatorImpersonationType == other.initiatorImpersonationType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_EM_POLICY2 {}
+impl ::core::cmp::Eq for IKEEXT_EM_POLICY2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_EM_POLICY2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_EM_SA_STATE(pub i32);
 pub const IKEEXT_EM_SA_STATE_NONE: IKEEXT_EM_SA_STATE = IKEEXT_EM_SA_STATE(0i32);
@@ -10264,7 +10309,7 @@ pub const IKEEXT_EM_SA_STATE_AUTH_COMPLETE: IKEEXT_EM_SA_STATE = IKEEXT_EM_SA_ST
 pub const IKEEXT_EM_SA_STATE_FINAL: IKEEXT_EM_SA_STATE = IKEEXT_EM_SA_STATE(4i32);
 pub const IKEEXT_EM_SA_STATE_COMPLETE: IKEEXT_EM_SA_STATE = IKEEXT_EM_SA_STATE(5i32);
 pub const IKEEXT_EM_SA_STATE_MAX: IKEEXT_EM_SA_STATE = IKEEXT_EM_SA_STATE(6i32);
-impl ::std::convert::From<i32> for IKEEXT_EM_SA_STATE {
+impl ::core::convert::From<i32> for IKEEXT_EM_SA_STATE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -10272,34 +10317,34 @@ impl ::std::convert::From<i32> for IKEEXT_EM_SA_STATE {
 unsafe impl ::windows::runtime::Abi for IKEEXT_EM_SA_STATE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_INTEGRITY_ALGORITHM0 {
     pub algoIdentifier: IKEEXT_INTEGRITY_TYPE,
 }
 impl IKEEXT_INTEGRITY_ALGORITHM0 {}
-impl ::std::default::Default for IKEEXT_INTEGRITY_ALGORITHM0 {
+impl ::core::default::Default for IKEEXT_INTEGRITY_ALGORITHM0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_INTEGRITY_ALGORITHM0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_INTEGRITY_ALGORITHM0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_INTEGRITY_ALGORITHM0").field("algoIdentifier", &self.algoIdentifier).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_INTEGRITY_ALGORITHM0 {
+impl ::core::cmp::PartialEq for IKEEXT_INTEGRITY_ALGORITHM0 {
     fn eq(&self, other: &Self) -> bool {
         self.algoIdentifier == other.algoIdentifier
     }
 }
-impl ::std::cmp::Eq for IKEEXT_INTEGRITY_ALGORITHM0 {}
+impl ::core::cmp::Eq for IKEEXT_INTEGRITY_ALGORITHM0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_INTEGRITY_ALGORITHM0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_INTEGRITY_TYPE(pub i32);
 pub const IKEEXT_INTEGRITY_MD5: IKEEXT_INTEGRITY_TYPE = IKEEXT_INTEGRITY_TYPE(0i32);
@@ -10307,7 +10352,7 @@ pub const IKEEXT_INTEGRITY_SHA1: IKEEXT_INTEGRITY_TYPE = IKEEXT_INTEGRITY_TYPE(1
 pub const IKEEXT_INTEGRITY_SHA_256: IKEEXT_INTEGRITY_TYPE = IKEEXT_INTEGRITY_TYPE(2i32);
 pub const IKEEXT_INTEGRITY_SHA_384: IKEEXT_INTEGRITY_TYPE = IKEEXT_INTEGRITY_TYPE(3i32);
 pub const IKEEXT_INTEGRITY_TYPE_MAX: IKEEXT_INTEGRITY_TYPE = IKEEXT_INTEGRITY_TYPE(4i32);
-impl ::std::convert::From<i32> for IKEEXT_INTEGRITY_TYPE {
+impl ::core::convert::From<i32> for IKEEXT_INTEGRITY_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -10315,7 +10360,7 @@ impl ::std::convert::From<i32> for IKEEXT_INTEGRITY_TYPE {
 unsafe impl ::windows::runtime::Abi for IKEEXT_INTEGRITY_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -10329,30 +10374,30 @@ pub struct IKEEXT_IPV6_CGA_AUTHENTICATION0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_IPV6_CGA_AUTHENTICATION0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
+impl ::core::default::Default for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_IPV6_CGA_AUTHENTICATION0").field("keyContainerName", &self.keyContainerName).field("cspName", &self.cspName).field("cspType", &self.cspType).field("cgaModifier", &self.cgaModifier).field("cgaCollisionCount", &self.cgaCollisionCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
+impl ::core::cmp::PartialEq for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     fn eq(&self, other: &Self) -> bool {
         self.keyContainerName == other.keyContainerName && self.cspName == other.cspName && self.cspType == other.cspType && self.cgaModifier == other.cgaModifier && self.cgaCollisionCount == other.cgaCollisionCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_IPV6_CGA_AUTHENTICATION0 {}
+impl ::core::cmp::Eq for IKEEXT_IPV6_CGA_AUTHENTICATION0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
@@ -10360,26 +10405,26 @@ pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
     pub totalSocketSendFailures: u32,
 }
 impl IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {}
-impl ::std::default::Default for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
+impl ::core::default::Default for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0").field("totalSocketReceiveFailures", &self.totalSocketReceiveFailures).field("totalSocketSendFailures", &self.totalSocketSendFailures).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
+impl ::core::cmp::PartialEq for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
         self.totalSocketReceiveFailures == other.totalSocketReceiveFailures && self.totalSocketSendFailures == other.totalSocketSendFailures
     }
 }
-impl ::std::cmp::Eq for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {}
+impl ::core::cmp::Eq for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
@@ -10387,26 +10432,26 @@ pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
     pub totalSocketSendFailures: u32,
 }
 impl IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {}
-impl ::std::default::Default for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
+impl ::core::default::Default for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1").field("totalSocketReceiveFailures", &self.totalSocketReceiveFailures).field("totalSocketSendFailures", &self.totalSocketSendFailures).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
+impl ::core::cmp::PartialEq for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
         self.totalSocketReceiveFailures == other.totalSocketReceiveFailures && self.totalSocketSendFailures == other.totalSocketSendFailures
     }
 }
-impl ::std::cmp::Eq for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {}
+impl ::core::cmp::Eq for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
@@ -10430,13 +10475,13 @@ pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
     pub totalImpersonationMainModes: u32,
 }
 impl IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {}
-impl ::std::default::Default for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
+impl ::core::default::Default for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0")
             .field("currentActiveMainModes", &self.currentActiveMainModes)
             .field("totalMainModesStarted", &self.totalMainModesStarted)
@@ -10459,7 +10504,7 @@ impl ::std::fmt::Debug for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
+impl ::core::cmp::PartialEq for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
         self.currentActiveMainModes == other.currentActiveMainModes
             && self.totalMainModesStarted == other.totalMainModesStarted
@@ -10481,11 +10526,11 @@ impl ::std::cmp::PartialEq for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 
             && self.totalImpersonationMainModes == other.totalImpersonationMainModes
     }
 }
-impl ::std::cmp::Eq for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {}
+impl ::core::cmp::Eq for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
@@ -10509,13 +10554,13 @@ pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
     pub totalImpersonationMainModes: u32,
 }
 impl IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {}
-impl ::std::default::Default for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
+impl ::core::default::Default for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1")
             .field("currentActiveMainModes", &self.currentActiveMainModes)
             .field("totalMainModesStarted", &self.totalMainModesStarted)
@@ -10538,7 +10583,7 @@ impl ::std::fmt::Debug for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
+impl ::core::cmp::PartialEq for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
         self.currentActiveMainModes == other.currentActiveMainModes
             && self.totalMainModesStarted == other.totalMainModesStarted
@@ -10560,37 +10605,37 @@ impl ::std::cmp::PartialEq for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 
             && self.totalImpersonationMainModes == other.totalImpersonationMainModes
     }
 }
-impl ::std::cmp::Eq for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {}
+impl ::core::cmp::Eq for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION0 {
     pub flags: IKEEXT_KERBEROS_AUTHENTICATION_FLAGS,
 }
 impl IKEEXT_KERBEROS_AUTHENTICATION0 {}
-impl ::std::default::Default for IKEEXT_KERBEROS_AUTHENTICATION0 {
+impl ::core::default::Default for IKEEXT_KERBEROS_AUTHENTICATION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_KERBEROS_AUTHENTICATION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_KERBEROS_AUTHENTICATION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_KERBEROS_AUTHENTICATION0").field("flags", &self.flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_KERBEROS_AUTHENTICATION0 {
+impl ::core::cmp::PartialEq for IKEEXT_KERBEROS_AUTHENTICATION0 {
     fn eq(&self, other: &Self) -> bool {
         self.flags == other.flags
     }
 }
-impl ::std::cmp::Eq for IKEEXT_KERBEROS_AUTHENTICATION0 {}
+impl ::core::cmp::Eq for IKEEXT_KERBEROS_AUTHENTICATION0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_KERBEROS_AUTHENTICATION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -10601,36 +10646,36 @@ pub struct IKEEXT_KERBEROS_AUTHENTICATION1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_KERBEROS_AUTHENTICATION1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_KERBEROS_AUTHENTICATION1 {
+impl ::core::default::Default for IKEEXT_KERBEROS_AUTHENTICATION1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_KERBEROS_AUTHENTICATION1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_KERBEROS_AUTHENTICATION1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_KERBEROS_AUTHENTICATION1").field("flags", &self.flags).field("proxyServer", &self.proxyServer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_KERBEROS_AUTHENTICATION1 {
+impl ::core::cmp::PartialEq for IKEEXT_KERBEROS_AUTHENTICATION1 {
     fn eq(&self, other: &Self) -> bool {
         self.flags == other.flags && self.proxyServer == other.proxyServer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_KERBEROS_AUTHENTICATION1 {}
+impl ::core::cmp::Eq for IKEEXT_KERBEROS_AUTHENTICATION1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_KERBEROS_AUTHENTICATION1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION_FLAGS(pub u32);
 pub const IKEEXT_KERB_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION: IKEEXT_KERBEROS_AUTHENTICATION_FLAGS = IKEEXT_KERBEROS_AUTHENTICATION_FLAGS(1u32);
 pub const IKEEXT_KERB_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: IKEEXT_KERBEROS_AUTHENTICATION_FLAGS = IKEEXT_KERBEROS_AUTHENTICATION_FLAGS(2u32);
-impl ::std::convert::From<u32> for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
+impl ::core::convert::From<u32> for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -10638,29 +10683,29 @@ impl ::std::convert::From<u32> for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
 unsafe impl ::windows::runtime::Abi for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitOr for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitAnd for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitOrAssign for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitAndAssign for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
+impl ::core::ops::Not for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -10668,7 +10713,7 @@ impl ::std::ops::Not for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_KERB_AUTH_FORCE_PROXY_ON_INITIATOR: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_KEYMODULE_STATISTICS0 {
@@ -10680,13 +10725,13 @@ pub struct IKEEXT_KEYMODULE_STATISTICS0 {
     pub extendedModeNegotiationTime: u32,
 }
 impl IKEEXT_KEYMODULE_STATISTICS0 {}
-impl ::std::default::Default for IKEEXT_KEYMODULE_STATISTICS0 {
+impl ::core::default::Default for IKEEXT_KEYMODULE_STATISTICS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_KEYMODULE_STATISTICS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_KEYMODULE_STATISTICS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_KEYMODULE_STATISTICS0")
             .field("v4Statistics", &self.v4Statistics)
             .field("v6Statistics", &self.v6Statistics)
@@ -10697,16 +10742,16 @@ impl ::std::fmt::Debug for IKEEXT_KEYMODULE_STATISTICS0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_KEYMODULE_STATISTICS0 {
+impl ::core::cmp::PartialEq for IKEEXT_KEYMODULE_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
         self.v4Statistics == other.v4Statistics && self.v6Statistics == other.v6Statistics && self.errorFrequencyTable == other.errorFrequencyTable && self.mainModeNegotiationTime == other.mainModeNegotiationTime && self.quickModeNegotiationTime == other.quickModeNegotiationTime && self.extendedModeNegotiationTime == other.extendedModeNegotiationTime
     }
 }
-impl ::std::cmp::Eq for IKEEXT_KEYMODULE_STATISTICS0 {}
+impl ::core::cmp::Eq for IKEEXT_KEYMODULE_STATISTICS0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_KEYMODULE_STATISTICS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_KEYMODULE_STATISTICS1 {
@@ -10718,13 +10763,13 @@ pub struct IKEEXT_KEYMODULE_STATISTICS1 {
     pub extendedModeNegotiationTime: u32,
 }
 impl IKEEXT_KEYMODULE_STATISTICS1 {}
-impl ::std::default::Default for IKEEXT_KEYMODULE_STATISTICS1 {
+impl ::core::default::Default for IKEEXT_KEYMODULE_STATISTICS1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_KEYMODULE_STATISTICS1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_KEYMODULE_STATISTICS1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_KEYMODULE_STATISTICS1")
             .field("v4Statistics", &self.v4Statistics)
             .field("v6Statistics", &self.v6Statistics)
@@ -10735,24 +10780,24 @@ impl ::std::fmt::Debug for IKEEXT_KEYMODULE_STATISTICS1 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_KEYMODULE_STATISTICS1 {
+impl ::core::cmp::PartialEq for IKEEXT_KEYMODULE_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
         self.v4Statistics == other.v4Statistics && self.v6Statistics == other.v6Statistics && self.errorFrequencyTable == other.errorFrequencyTable && self.mainModeNegotiationTime == other.mainModeNegotiationTime && self.quickModeNegotiationTime == other.quickModeNegotiationTime && self.extendedModeNegotiationTime == other.extendedModeNegotiationTime
     }
 }
-impl ::std::cmp::Eq for IKEEXT_KEYMODULE_STATISTICS1 {}
+impl ::core::cmp::Eq for IKEEXT_KEYMODULE_STATISTICS1 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_KEYMODULE_STATISTICS1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_KEY_MODULE_TYPE(pub i32);
 pub const IKEEXT_KEY_MODULE_IKE: IKEEXT_KEY_MODULE_TYPE = IKEEXT_KEY_MODULE_TYPE(0i32);
 pub const IKEEXT_KEY_MODULE_AUTHIP: IKEEXT_KEY_MODULE_TYPE = IKEEXT_KEY_MODULE_TYPE(1i32);
 pub const IKEEXT_KEY_MODULE_IKEV2: IKEEXT_KEY_MODULE_TYPE = IKEEXT_KEY_MODULE_TYPE(2i32);
 pub const IKEEXT_KEY_MODULE_MAX: IKEEXT_KEY_MODULE_TYPE = IKEEXT_KEY_MODULE_TYPE(3i32);
-impl ::std::convert::From<i32> for IKEEXT_KEY_MODULE_TYPE {
+impl ::core::convert::From<i32> for IKEEXT_KEY_MODULE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -10761,7 +10806,7 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_KEY_MODULE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_MM_SA_STATE(pub i32);
 pub const IKEEXT_MM_SA_STATE_NONE: IKEEXT_MM_SA_STATE = IKEEXT_MM_SA_STATE(0i32);
@@ -10771,7 +10816,7 @@ pub const IKEEXT_MM_SA_STATE_FINAL: IKEEXT_MM_SA_STATE = IKEEXT_MM_SA_STATE(3i32
 pub const IKEEXT_MM_SA_STATE_FINAL_SENT: IKEEXT_MM_SA_STATE = IKEEXT_MM_SA_STATE(4i32);
 pub const IKEEXT_MM_SA_STATE_COMPLETE: IKEEXT_MM_SA_STATE = IKEEXT_MM_SA_STATE(5i32);
 pub const IKEEXT_MM_SA_STATE_MAX: IKEEXT_MM_SA_STATE = IKEEXT_MM_SA_STATE(6i32);
-impl ::std::convert::From<i32> for IKEEXT_MM_SA_STATE {
+impl ::core::convert::From<i32> for IKEEXT_MM_SA_STATE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -10779,7 +10824,7 @@ impl ::std::convert::From<i32> for IKEEXT_MM_SA_STATE {
 unsafe impl ::windows::runtime::Abi for IKEEXT_MM_SA_STATE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -10789,58 +10834,58 @@ pub struct IKEEXT_NAME_CREDENTIAL0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_NAME_CREDENTIAL0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_NAME_CREDENTIAL0 {
+impl ::core::default::Default for IKEEXT_NAME_CREDENTIAL0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_NAME_CREDENTIAL0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_NAME_CREDENTIAL0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_NAME_CREDENTIAL0").field("principalName", &self.principalName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_NAME_CREDENTIAL0 {
+impl ::core::cmp::PartialEq for IKEEXT_NAME_CREDENTIAL0 {
     fn eq(&self, other: &Self) -> bool {
         self.principalName == other.principalName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_NAME_CREDENTIAL0 {}
+impl ::core::cmp::Eq for IKEEXT_NAME_CREDENTIAL0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_NAME_CREDENTIAL0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_NTLM_V2_AUTHENTICATION0 {
     pub flags: u32,
 }
 impl IKEEXT_NTLM_V2_AUTHENTICATION0 {}
-impl ::std::default::Default for IKEEXT_NTLM_V2_AUTHENTICATION0 {
+impl ::core::default::Default for IKEEXT_NTLM_V2_AUTHENTICATION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_NTLM_V2_AUTHENTICATION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_NTLM_V2_AUTHENTICATION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_NTLM_V2_AUTHENTICATION0").field("flags", &self.flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_NTLM_V2_AUTHENTICATION0 {
+impl ::core::cmp::PartialEq for IKEEXT_NTLM_V2_AUTHENTICATION0 {
     fn eq(&self, other: &Self) -> bool {
         self.flags == other.flags
     }
 }
-impl ::std::cmp::Eq for IKEEXT_NTLM_V2_AUTHENTICATION0 {}
+impl ::core::cmp::Eq for IKEEXT_NTLM_V2_AUTHENTICATION0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_NTLM_V2_AUTHENTICATION0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -10857,14 +10902,14 @@ pub struct IKEEXT_POLICY0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_POLICY0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_POLICY0 {
+impl ::core::default::Default for IKEEXT_POLICY0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_POLICY0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_POLICY0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_POLICY0")
             .field("softExpirationTime", &self.softExpirationTime)
             .field("numAuthenticationMethods", &self.numAuthenticationMethods)
@@ -10878,18 +10923,18 @@ impl ::std::fmt::Debug for IKEEXT_POLICY0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_POLICY0 {
+impl ::core::cmp::PartialEq for IKEEXT_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
         self.softExpirationTime == other.softExpirationTime && self.numAuthenticationMethods == other.numAuthenticationMethods && self.authenticationMethods == other.authenticationMethods && self.initiatorImpersonationType == other.initiatorImpersonationType && self.numIkeProposals == other.numIkeProposals && self.ikeProposals == other.ikeProposals && self.flags == other.flags && self.maxDynamicFilters == other.maxDynamicFilters
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_POLICY0 {}
+impl ::core::cmp::Eq for IKEEXT_POLICY0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_POLICY0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -10907,14 +10952,14 @@ pub struct IKEEXT_POLICY1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_POLICY1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_POLICY1 {
+impl ::core::default::Default for IKEEXT_POLICY1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_POLICY1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_POLICY1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_POLICY1")
             .field("softExpirationTime", &self.softExpirationTime)
             .field("numAuthenticationMethods", &self.numAuthenticationMethods)
@@ -10929,18 +10974,18 @@ impl ::std::fmt::Debug for IKEEXT_POLICY1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_POLICY1 {
+impl ::core::cmp::PartialEq for IKEEXT_POLICY1 {
     fn eq(&self, other: &Self) -> bool {
         self.softExpirationTime == other.softExpirationTime && self.numAuthenticationMethods == other.numAuthenticationMethods && self.authenticationMethods == other.authenticationMethods && self.initiatorImpersonationType == other.initiatorImpersonationType && self.numIkeProposals == other.numIkeProposals && self.ikeProposals == other.ikeProposals && self.flags == other.flags && self.maxDynamicFilters == other.maxDynamicFilters && self.retransmitDurationSecs == other.retransmitDurationSecs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_POLICY1 {}
+impl ::core::cmp::Eq for IKEEXT_POLICY1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_POLICY1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -10958,14 +11003,14 @@ pub struct IKEEXT_POLICY2 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_POLICY2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_POLICY2 {
+impl ::core::default::Default for IKEEXT_POLICY2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IKEEXT_POLICY2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_POLICY2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_POLICY2")
             .field("softExpirationTime", &self.softExpirationTime)
             .field("numAuthenticationMethods", &self.numAuthenticationMethods)
@@ -10980,13 +11025,13 @@ impl ::std::fmt::Debug for IKEEXT_POLICY2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_POLICY2 {
+impl ::core::cmp::PartialEq for IKEEXT_POLICY2 {
     fn eq(&self, other: &Self) -> bool {
         self.softExpirationTime == other.softExpirationTime && self.numAuthenticationMethods == other.numAuthenticationMethods && self.authenticationMethods == other.authenticationMethods && self.initiatorImpersonationType == other.initiatorImpersonationType && self.numIkeProposals == other.numIkeProposals && self.ikeProposals == other.ikeProposals && self.flags == other.flags && self.maxDynamicFilters == other.maxDynamicFilters && self.retransmitDurationSecs == other.retransmitDurationSecs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_POLICY2 {}
+impl ::core::cmp::Eq for IKEEXT_POLICY2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_POLICY2 {
     type Abi = Self;
@@ -10994,14 +11039,14 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_POLICY2 {
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_POLICY_ENABLE_IKEV2_FRAGMENTATION: u32 = 128u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_POLICY_FLAG(pub u32);
 pub const IKEEXT_POLICY_FLAG_DISABLE_DIAGNOSTICS: IKEEXT_POLICY_FLAG = IKEEXT_POLICY_FLAG(1u32);
 pub const IKEEXT_POLICY_FLAG_NO_MACHINE_LUID_VERIFY: IKEEXT_POLICY_FLAG = IKEEXT_POLICY_FLAG(2u32);
 pub const IKEEXT_POLICY_FLAG_NO_IMPERSONATION_LUID_VERIFY: IKEEXT_POLICY_FLAG = IKEEXT_POLICY_FLAG(4u32);
 pub const IKEEXT_POLICY_FLAG_ENABLE_OPTIONAL_DH: IKEEXT_POLICY_FLAG = IKEEXT_POLICY_FLAG(8u32);
-impl ::std::convert::From<u32> for IKEEXT_POLICY_FLAG {
+impl ::core::convert::From<u32> for IKEEXT_POLICY_FLAG {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -11009,29 +11054,29 @@ impl ::std::convert::From<u32> for IKEEXT_POLICY_FLAG {
 unsafe impl ::windows::runtime::Abi for IKEEXT_POLICY_FLAG {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for IKEEXT_POLICY_FLAG {
+impl ::core::ops::BitOr for IKEEXT_POLICY_FLAG {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for IKEEXT_POLICY_FLAG {
+impl ::core::ops::BitAnd for IKEEXT_POLICY_FLAG {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for IKEEXT_POLICY_FLAG {
+impl ::core::ops::BitOrAssign for IKEEXT_POLICY_FLAG {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for IKEEXT_POLICY_FLAG {
+impl ::core::ops::BitAndAssign for IKEEXT_POLICY_FLAG {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for IKEEXT_POLICY_FLAG {
+impl ::core::ops::Not for IKEEXT_POLICY_FLAG {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -11045,33 +11090,33 @@ pub const IKEEXT_POLICY_FLAG_MOBIKE_NOT_SUPPORTED: u32 = 16u32;
 pub const IKEEXT_POLICY_FLAG_SITE_TO_SITE: u32 = 32u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_POLICY_SUPPORT_LOW_POWER_MODE: u32 = 256u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
     pub presharedKey: FWP_BYTE_BLOB,
 }
 impl IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {}
-impl ::std::default::Default for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
+impl ::core::default::Default for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_PRESHARED_KEY_AUTHENTICATION0").field("presharedKey", &self.presharedKey).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
+impl ::core::cmp::PartialEq for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
     fn eq(&self, other: &Self) -> bool {
         self.presharedKey == other.presharedKey
     }
 }
-impl ::std::cmp::Eq for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {}
+impl ::core::cmp::Eq for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
@@ -11079,32 +11124,32 @@ pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
     pub flags: IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS,
 }
 impl IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {}
-impl ::std::default::Default for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
+impl ::core::default::Default for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_PRESHARED_KEY_AUTHENTICATION1").field("presharedKey", &self.presharedKey).field("flags", &self.flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
+impl ::core::cmp::PartialEq for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
     fn eq(&self, other: &Self) -> bool {
         self.presharedKey == other.presharedKey && self.flags == other.flags
     }
 }
-impl ::std::cmp::Eq for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {}
+impl ::core::cmp::Eq for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS(pub u32);
 pub const IKEEXT_PSK_FLAG_LOCAL_AUTH_ONLY: IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS = IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS(1u32);
 pub const IKEEXT_PSK_FLAG_REMOTE_AUTH_ONLY: IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS = IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS(2u32);
-impl ::std::convert::From<u32> for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
+impl ::core::convert::From<u32> for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -11112,35 +11157,35 @@ impl ::std::convert::From<u32> for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
 unsafe impl ::windows::runtime::Abi for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitOr for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitAnd for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitOrAssign for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitAndAssign for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
+impl ::core::ops::Not for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_PROPOSAL0 {
@@ -11151,27 +11196,27 @@ pub struct IKEEXT_PROPOSAL0 {
     pub quickModeLimit: u32,
 }
 impl IKEEXT_PROPOSAL0 {}
-impl ::std::default::Default for IKEEXT_PROPOSAL0 {
+impl ::core::default::Default for IKEEXT_PROPOSAL0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_PROPOSAL0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_PROPOSAL0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_PROPOSAL0").field("cipherAlgorithm", &self.cipherAlgorithm).field("integrityAlgorithm", &self.integrityAlgorithm).field("maxLifetimeSeconds", &self.maxLifetimeSeconds).field("dhGroup", &self.dhGroup).field("quickModeLimit", &self.quickModeLimit).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_PROPOSAL0 {
+impl ::core::cmp::PartialEq for IKEEXT_PROPOSAL0 {
     fn eq(&self, other: &Self) -> bool {
         self.cipherAlgorithm == other.cipherAlgorithm && self.integrityAlgorithm == other.integrityAlgorithm && self.maxLifetimeSeconds == other.maxLifetimeSeconds && self.dhGroup == other.dhGroup && self.quickModeLimit == other.quickModeLimit
     }
 }
-impl ::std::cmp::Eq for IKEEXT_PROPOSAL0 {}
+impl ::core::cmp::Eq for IKEEXT_PROPOSAL0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_PROPOSAL0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_QM_SA_STATE(pub i32);
 pub const IKEEXT_QM_SA_STATE_NONE: IKEEXT_QM_SA_STATE = IKEEXT_QM_SA_STATE(0i32);
@@ -11179,7 +11224,7 @@ pub const IKEEXT_QM_SA_STATE_INITIAL: IKEEXT_QM_SA_STATE = IKEEXT_QM_SA_STATE(1i
 pub const IKEEXT_QM_SA_STATE_FINAL: IKEEXT_QM_SA_STATE = IKEEXT_QM_SA_STATE(2i32);
 pub const IKEEXT_QM_SA_STATE_COMPLETE: IKEEXT_QM_SA_STATE = IKEEXT_QM_SA_STATE(3i32);
 pub const IKEEXT_QM_SA_STATE_MAX: IKEEXT_QM_SA_STATE = IKEEXT_QM_SA_STATE(4i32);
-impl ::std::convert::From<i32> for IKEEXT_QM_SA_STATE {
+impl ::core::convert::From<i32> for IKEEXT_QM_SA_STATE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -11187,38 +11232,38 @@ impl ::std::convert::From<i32> for IKEEXT_QM_SA_STATE {
 unsafe impl ::windows::runtime::Abi for IKEEXT_QM_SA_STATE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_RESERVED_AUTHENTICATION0 {
     pub flags: IKEEXT_RESERVED_AUTHENTICATION_FLAGS,
 }
 impl IKEEXT_RESERVED_AUTHENTICATION0 {}
-impl ::std::default::Default for IKEEXT_RESERVED_AUTHENTICATION0 {
+impl ::core::default::Default for IKEEXT_RESERVED_AUTHENTICATION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_RESERVED_AUTHENTICATION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_RESERVED_AUTHENTICATION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_RESERVED_AUTHENTICATION0").field("flags", &self.flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_RESERVED_AUTHENTICATION0 {
+impl ::core::cmp::PartialEq for IKEEXT_RESERVED_AUTHENTICATION0 {
     fn eq(&self, other: &Self) -> bool {
         self.flags == other.flags
     }
 }
-impl ::std::cmp::Eq for IKEEXT_RESERVED_AUTHENTICATION0 {}
+impl ::core::cmp::Eq for IKEEXT_RESERVED_AUTHENTICATION0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_RESERVED_AUTHENTICATION0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_RESERVED_AUTHENTICATION_FLAGS(pub u32);
 pub const IKEEXT_RESERVED_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION: IKEEXT_RESERVED_AUTHENTICATION_FLAGS = IKEEXT_RESERVED_AUTHENTICATION_FLAGS(1u32);
-impl ::std::convert::From<u32> for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
+impl ::core::convert::From<u32> for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -11226,35 +11271,35 @@ impl ::std::convert::From<u32> for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
 unsafe impl ::windows::runtime::Abi for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitOr for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitAnd for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitOrAssign for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
+impl ::core::ops::BitAndAssign for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
+impl ::core::ops::Not for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -11273,24 +11318,24 @@ pub struct IKEEXT_SA_DETAILS0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_SA_DETAILS0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_SA_DETAILS0 {
+impl ::core::default::Default for IKEEXT_SA_DETAILS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_SA_DETAILS0 {
+impl ::core::cmp::PartialEq for IKEEXT_SA_DETAILS0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_SA_DETAILS0 {}
+impl ::core::cmp::Eq for IKEEXT_SA_DETAILS0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_SA_DETAILS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IKEEXT_SA_DETAILS0_0 {
@@ -11299,24 +11344,24 @@ pub union IKEEXT_SA_DETAILS0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_SA_DETAILS0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_SA_DETAILS0_0 {
+impl ::core::default::Default for IKEEXT_SA_DETAILS0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_SA_DETAILS0_0 {
+impl ::core::cmp::PartialEq for IKEEXT_SA_DETAILS0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_SA_DETAILS0_0 {}
+impl ::core::cmp::Eq for IKEEXT_SA_DETAILS0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_SA_DETAILS0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -11336,24 +11381,24 @@ pub struct IKEEXT_SA_DETAILS1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_SA_DETAILS1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_SA_DETAILS1 {
+impl ::core::default::Default for IKEEXT_SA_DETAILS1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_SA_DETAILS1 {
+impl ::core::cmp::PartialEq for IKEEXT_SA_DETAILS1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_SA_DETAILS1 {}
+impl ::core::cmp::Eq for IKEEXT_SA_DETAILS1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_SA_DETAILS1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IKEEXT_SA_DETAILS1_0 {
@@ -11362,24 +11407,24 @@ pub union IKEEXT_SA_DETAILS1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_SA_DETAILS1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_SA_DETAILS1_0 {
+impl ::core::default::Default for IKEEXT_SA_DETAILS1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_SA_DETAILS1_0 {
+impl ::core::cmp::PartialEq for IKEEXT_SA_DETAILS1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_SA_DETAILS1_0 {}
+impl ::core::cmp::Eq for IKEEXT_SA_DETAILS1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_SA_DETAILS1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -11399,24 +11444,24 @@ pub struct IKEEXT_SA_DETAILS2 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_SA_DETAILS2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_SA_DETAILS2 {
+impl ::core::default::Default for IKEEXT_SA_DETAILS2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_SA_DETAILS2 {
+impl ::core::cmp::PartialEq for IKEEXT_SA_DETAILS2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_SA_DETAILS2 {}
+impl ::core::cmp::Eq for IKEEXT_SA_DETAILS2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_SA_DETAILS2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IKEEXT_SA_DETAILS2_0 {
@@ -11425,24 +11470,24 @@ pub union IKEEXT_SA_DETAILS2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_SA_DETAILS2_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IKEEXT_SA_DETAILS2_0 {
+impl ::core::default::Default for IKEEXT_SA_DETAILS2_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IKEEXT_SA_DETAILS2_0 {
+impl ::core::cmp::PartialEq for IKEEXT_SA_DETAILS2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IKEEXT_SA_DETAILS2_0 {}
+impl ::core::cmp::Eq for IKEEXT_SA_DETAILS2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_SA_DETAILS2_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -11454,31 +11499,31 @@ pub struct IKEEXT_SA_ENUM_TEMPLATE0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IKEEXT_SA_ENUM_TEMPLATE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for IKEEXT_SA_ENUM_TEMPLATE0 {
+impl ::core::default::Default for IKEEXT_SA_ENUM_TEMPLATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for IKEEXT_SA_ENUM_TEMPLATE0 {
+impl ::core::cmp::PartialEq for IKEEXT_SA_ENUM_TEMPLATE0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for IKEEXT_SA_ENUM_TEMPLATE0 {}
+impl ::core::cmp::Eq for IKEEXT_SA_ENUM_TEMPLATE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for IKEEXT_SA_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEEXT_SA_ROLE(pub i32);
 pub const IKEEXT_SA_ROLE_INITIATOR: IKEEXT_SA_ROLE = IKEEXT_SA_ROLE(0i32);
 pub const IKEEXT_SA_ROLE_RESPONDER: IKEEXT_SA_ROLE = IKEEXT_SA_ROLE(1i32);
 pub const IKEEXT_SA_ROLE_MAX: IKEEXT_SA_ROLE = IKEEXT_SA_ROLE(2i32);
-impl ::std::convert::From<i32> for IKEEXT_SA_ROLE {
+impl ::core::convert::From<i32> for IKEEXT_SA_ROLE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -11486,7 +11531,7 @@ impl ::std::convert::From<i32> for IKEEXT_SA_ROLE {
 unsafe impl ::windows::runtime::Abi for IKEEXT_SA_ROLE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_STATISTICS0 {
@@ -11495,26 +11540,26 @@ pub struct IKEEXT_STATISTICS0 {
     pub commonStatistics: IKEEXT_COMMON_STATISTICS0,
 }
 impl IKEEXT_STATISTICS0 {}
-impl ::std::default::Default for IKEEXT_STATISTICS0 {
+impl ::core::default::Default for IKEEXT_STATISTICS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_STATISTICS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_STATISTICS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_STATISTICS0").field("ikeStatistics", &self.ikeStatistics).field("authipStatistics", &self.authipStatistics).field("commonStatistics", &self.commonStatistics).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_STATISTICS0 {
+impl ::core::cmp::PartialEq for IKEEXT_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
         self.ikeStatistics == other.ikeStatistics && self.authipStatistics == other.authipStatistics && self.commonStatistics == other.commonStatistics
     }
 }
-impl ::std::cmp::Eq for IKEEXT_STATISTICS0 {}
+impl ::core::cmp::Eq for IKEEXT_STATISTICS0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_STATISTICS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_STATISTICS1 {
@@ -11524,26 +11569,26 @@ pub struct IKEEXT_STATISTICS1 {
     pub commonStatistics: IKEEXT_COMMON_STATISTICS1,
 }
 impl IKEEXT_STATISTICS1 {}
-impl ::std::default::Default for IKEEXT_STATISTICS1 {
+impl ::core::default::Default for IKEEXT_STATISTICS1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IKEEXT_STATISTICS1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IKEEXT_STATISTICS1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IKEEXT_STATISTICS1").field("ikeStatistics", &self.ikeStatistics).field("authipStatistics", &self.authipStatistics).field("ikeV2Statistics", &self.ikeV2Statistics).field("commonStatistics", &self.commonStatistics).finish()
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_STATISTICS1 {
+impl ::core::cmp::PartialEq for IKEEXT_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
         self.ikeStatistics == other.ikeStatistics && self.authipStatistics == other.authipStatistics && self.ikeV2Statistics == other.ikeV2Statistics && self.commonStatistics == other.commonStatistics
     }
 }
-impl ::std::cmp::Eq for IKEEXT_STATISTICS1 {}
+impl ::core::cmp::Eq for IKEEXT_STATISTICS1 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_STATISTICS1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IKEEXT_TRAFFIC0 {
@@ -11553,21 +11598,21 @@ pub struct IKEEXT_TRAFFIC0 {
     pub authIpFilterId: u64,
 }
 impl IKEEXT_TRAFFIC0 {}
-impl ::std::default::Default for IKEEXT_TRAFFIC0 {
+impl ::core::default::Default for IKEEXT_TRAFFIC0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_TRAFFIC0 {
+impl ::core::cmp::PartialEq for IKEEXT_TRAFFIC0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IKEEXT_TRAFFIC0 {}
+impl ::core::cmp::Eq for IKEEXT_TRAFFIC0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_TRAFFIC0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IKEEXT_TRAFFIC0_0 {
@@ -11575,21 +11620,21 @@ pub union IKEEXT_TRAFFIC0_0 {
     pub localV6Address: [u8; 16],
 }
 impl IKEEXT_TRAFFIC0_0 {}
-impl ::std::default::Default for IKEEXT_TRAFFIC0_0 {
+impl ::core::default::Default for IKEEXT_TRAFFIC0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_TRAFFIC0_0 {
+impl ::core::cmp::PartialEq for IKEEXT_TRAFFIC0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IKEEXT_TRAFFIC0_0 {}
+impl ::core::cmp::Eq for IKEEXT_TRAFFIC0_0 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_TRAFFIC0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IKEEXT_TRAFFIC0_1 {
@@ -11597,17 +11642,17 @@ pub union IKEEXT_TRAFFIC0_1 {
     pub remoteV6Address: [u8; 16],
 }
 impl IKEEXT_TRAFFIC0_1 {}
-impl ::std::default::Default for IKEEXT_TRAFFIC0_1 {
+impl ::core::default::Default for IKEEXT_TRAFFIC0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IKEEXT_TRAFFIC0_1 {
+impl ::core::cmp::PartialEq for IKEEXT_TRAFFIC0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IKEEXT_TRAFFIC0_1 {}
+impl ::core::cmp::Eq for IKEEXT_TRAFFIC0_1 {}
 unsafe impl ::windows::runtime::Abi for IKEEXT_TRAFFIC0_1 {
     type Abi = Self;
 }
@@ -11633,7 +11678,7 @@ pub const IP6OPT_TYPE_FORCEICMP: u32 = 128u32;
 pub const IP6OPT_TYPE_ICMP: u32 = 192u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6OPT_TYPE_SKIP: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_ADDRESS_INFO0 {
@@ -11643,26 +11688,26 @@ pub struct IPSEC_ADDRESS_INFO0 {
     pub v6Addresses: *mut FWP_BYTE_ARRAY16,
 }
 impl IPSEC_ADDRESS_INFO0 {}
-impl ::std::default::Default for IPSEC_ADDRESS_INFO0 {
+impl ::core::default::Default for IPSEC_ADDRESS_INFO0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_ADDRESS_INFO0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_ADDRESS_INFO0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_ADDRESS_INFO0").field("numV4Addresses", &self.numV4Addresses).field("v4Addresses", &self.v4Addresses).field("numV6Addresses", &self.numV6Addresses).field("v6Addresses", &self.v6Addresses).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_ADDRESS_INFO0 {
+impl ::core::cmp::PartialEq for IPSEC_ADDRESS_INFO0 {
     fn eq(&self, other: &Self) -> bool {
         self.numV4Addresses == other.numV4Addresses && self.v4Addresses == other.v4Addresses && self.numV6Addresses == other.numV6Addresses && self.v6Addresses == other.v6Addresses
     }
 }
-impl ::std::cmp::Eq for IPSEC_ADDRESS_INFO0 {}
+impl ::core::cmp::Eq for IPSEC_ADDRESS_INFO0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_ADDRESS_INFO0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
@@ -11677,13 +11722,13 @@ pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
     pub secureReceivesNotMatchingFilters: u32,
 }
 impl IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {}
-impl ::std::default::Default for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
+impl ::core::default::Default for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0")
             .field("invalidSpisOnInbound", &self.invalidSpisOnInbound)
             .field("decryptionFailuresOnInbound", &self.decryptionFailuresOnInbound)
@@ -11697,7 +11742,7 @@ impl ::std::fmt::Debug for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
+impl ::core::cmp::PartialEq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
         self.invalidSpisOnInbound == other.invalidSpisOnInbound
             && self.decryptionFailuresOnInbound == other.decryptionFailuresOnInbound
@@ -11710,11 +11755,11 @@ impl ::std::cmp::PartialEq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
             && self.secureReceivesNotMatchingFilters == other.secureReceivesNotMatchingFilters
     }
 }
-impl ::std::cmp::Eq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {}
+impl ::core::cmp::Eq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
@@ -11730,13 +11775,13 @@ pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
     pub totalDropPacketsInbound: u32,
 }
 impl IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {}
-impl ::std::default::Default for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
+impl ::core::default::Default for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1")
             .field("invalidSpisOnInbound", &self.invalidSpisOnInbound)
             .field("decryptionFailuresOnInbound", &self.decryptionFailuresOnInbound)
@@ -11751,7 +11796,7 @@ impl ::std::fmt::Debug for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
+impl ::core::cmp::PartialEq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
         self.invalidSpisOnInbound == other.invalidSpisOnInbound
             && self.decryptionFailuresOnInbound == other.decryptionFailuresOnInbound
@@ -11765,11 +11810,11 @@ impl ::std::cmp::PartialEq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
             && self.totalDropPacketsInbound == other.totalDropPacketsInbound
     }
 }
-impl ::std::cmp::Eq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {}
+impl ::core::cmp::Eq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_AGGREGATE_SA_STATISTICS0 {
@@ -11782,13 +11827,13 @@ pub struct IPSEC_AGGREGATE_SA_STATISTICS0 {
     pub offloadedSas: u32,
 }
 impl IPSEC_AGGREGATE_SA_STATISTICS0 {}
-impl ::std::default::Default for IPSEC_AGGREGATE_SA_STATISTICS0 {
+impl ::core::default::Default for IPSEC_AGGREGATE_SA_STATISTICS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_AGGREGATE_SA_STATISTICS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_AGGREGATE_SA_STATISTICS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_AGGREGATE_SA_STATISTICS0")
             .field("activeSas", &self.activeSas)
             .field("pendingSaNegotiations", &self.pendingSaNegotiations)
@@ -11800,16 +11845,16 @@ impl ::std::fmt::Debug for IPSEC_AGGREGATE_SA_STATISTICS0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_AGGREGATE_SA_STATISTICS0 {
+impl ::core::cmp::PartialEq for IPSEC_AGGREGATE_SA_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
         self.activeSas == other.activeSas && self.pendingSaNegotiations == other.pendingSaNegotiations && self.totalSasAdded == other.totalSasAdded && self.totalSasDeleted == other.totalSasDeleted && self.successfulRekeys == other.successfulRekeys && self.activeTunnels == other.activeTunnels && self.offloadedSas == other.offloadedSas
     }
 }
-impl ::std::cmp::Eq for IPSEC_AGGREGATE_SA_STATISTICS0 {}
+impl ::core::cmp::Eq for IPSEC_AGGREGATE_SA_STATISTICS0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_AGGREGATE_SA_STATISTICS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_AH_DROP_PACKET_STATISTICS0 {
@@ -11819,13 +11864,13 @@ pub struct IPSEC_AH_DROP_PACKET_STATISTICS0 {
     pub saNotInitializedOnInbound: u32,
 }
 impl IPSEC_AH_DROP_PACKET_STATISTICS0 {}
-impl ::std::default::Default for IPSEC_AH_DROP_PACKET_STATISTICS0 {
+impl ::core::default::Default for IPSEC_AH_DROP_PACKET_STATISTICS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_AH_DROP_PACKET_STATISTICS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_AH_DROP_PACKET_STATISTICS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_AH_DROP_PACKET_STATISTICS0")
             .field("invalidSpisOnInbound", &self.invalidSpisOnInbound)
             .field("authenticationFailuresOnInbound", &self.authenticationFailuresOnInbound)
@@ -11834,16 +11879,16 @@ impl ::std::fmt::Debug for IPSEC_AH_DROP_PACKET_STATISTICS0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_AH_DROP_PACKET_STATISTICS0 {
+impl ::core::cmp::PartialEq for IPSEC_AH_DROP_PACKET_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
         self.invalidSpisOnInbound == other.invalidSpisOnInbound && self.authenticationFailuresOnInbound == other.authenticationFailuresOnInbound && self.replayCheckFailuresOnInbound == other.replayCheckFailuresOnInbound && self.saNotInitializedOnInbound == other.saNotInitializedOnInbound
     }
 }
-impl ::std::cmp::Eq for IPSEC_AH_DROP_PACKET_STATISTICS0 {}
+impl ::core::cmp::Eq for IPSEC_AH_DROP_PACKET_STATISTICS0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_AH_DROP_PACKET_STATISTICS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
@@ -11851,22 +11896,22 @@ pub struct IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
     pub cipherTransform: IPSEC_CIPHER_TRANSFORM0,
 }
 impl IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {}
-impl ::std::default::Default for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
+impl ::core::default::Default for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_AUTH_AND_CIPHER_TRANSFORM0").field("authTransform", &self.authTransform).field("cipherTransform", &self.cipherTransform).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
+impl ::core::cmp::PartialEq for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
     fn eq(&self, other: &Self) -> bool {
         self.authTransform == other.authTransform && self.cipherTransform == other.cipherTransform
     }
 }
-impl ::std::cmp::Eq for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {}
+impl ::core::cmp::Eq for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
     type Abi = Self;
 }
@@ -11884,7 +11929,7 @@ pub const IPSEC_AUTH_CONFIG_HMAC_SHA_1_96: u32 = 1u32;
 pub const IPSEC_AUTH_CONFIG_HMAC_SHA_256_128: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_MAX: u32 = 6u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_AUTH_TRANSFORM0 {
@@ -11892,26 +11937,26 @@ pub struct IPSEC_AUTH_TRANSFORM0 {
     pub cryptoModuleId: *mut ::windows::runtime::GUID,
 }
 impl IPSEC_AUTH_TRANSFORM0 {}
-impl ::std::default::Default for IPSEC_AUTH_TRANSFORM0 {
+impl ::core::default::Default for IPSEC_AUTH_TRANSFORM0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_AUTH_TRANSFORM0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_AUTH_TRANSFORM0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_AUTH_TRANSFORM0").field("authTransformId", &self.authTransformId).field("cryptoModuleId", &self.cryptoModuleId).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_AUTH_TRANSFORM0 {
+impl ::core::cmp::PartialEq for IPSEC_AUTH_TRANSFORM0 {
     fn eq(&self, other: &Self) -> bool {
         self.authTransformId == other.authTransformId && self.cryptoModuleId == other.cryptoModuleId
     }
 }
-impl ::std::cmp::Eq for IPSEC_AUTH_TRANSFORM0 {}
+impl ::core::cmp::Eq for IPSEC_AUTH_TRANSFORM0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_AUTH_TRANSFORM0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_AUTH_TRANSFORM_ID0 {
@@ -11919,27 +11964,27 @@ pub struct IPSEC_AUTH_TRANSFORM_ID0 {
     pub authConfig: u8,
 }
 impl IPSEC_AUTH_TRANSFORM_ID0 {}
-impl ::std::default::Default for IPSEC_AUTH_TRANSFORM_ID0 {
+impl ::core::default::Default for IPSEC_AUTH_TRANSFORM_ID0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_AUTH_TRANSFORM_ID0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_AUTH_TRANSFORM_ID0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_AUTH_TRANSFORM_ID0").field("authType", &self.authType).field("authConfig", &self.authConfig).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_AUTH_TRANSFORM_ID0 {
+impl ::core::cmp::PartialEq for IPSEC_AUTH_TRANSFORM_ID0 {
     fn eq(&self, other: &Self) -> bool {
         self.authType == other.authType && self.authConfig == other.authConfig
     }
 }
-impl ::std::cmp::Eq for IPSEC_AUTH_TRANSFORM_ID0 {}
+impl ::core::cmp::Eq for IPSEC_AUTH_TRANSFORM_ID0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_AUTH_TRANSFORM_ID0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_AUTH_TYPE(pub i32);
 pub const IPSEC_AUTH_MD5: IPSEC_AUTH_TYPE = IPSEC_AUTH_TYPE(0i32);
@@ -11949,7 +11994,7 @@ pub const IPSEC_AUTH_AES_128: IPSEC_AUTH_TYPE = IPSEC_AUTH_TYPE(3i32);
 pub const IPSEC_AUTH_AES_192: IPSEC_AUTH_TYPE = IPSEC_AUTH_TYPE(4i32);
 pub const IPSEC_AUTH_AES_256: IPSEC_AUTH_TYPE = IPSEC_AUTH_TYPE(5i32);
 pub const IPSEC_AUTH_MAX: IPSEC_AUTH_TYPE = IPSEC_AUTH_TYPE(6i32);
-impl ::std::convert::From<i32> for IPSEC_AUTH_TYPE {
+impl ::core::convert::From<i32> for IPSEC_AUTH_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -11975,7 +12020,7 @@ pub const IPSEC_CIPHER_CONFIG_GCM_AES_192: u32 = 7u32;
 pub const IPSEC_CIPHER_CONFIG_GCM_AES_256: u32 = 8u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_MAX: u32 = 9u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_CIPHER_TRANSFORM0 {
@@ -11983,26 +12028,26 @@ pub struct IPSEC_CIPHER_TRANSFORM0 {
     pub cryptoModuleId: *mut ::windows::runtime::GUID,
 }
 impl IPSEC_CIPHER_TRANSFORM0 {}
-impl ::std::default::Default for IPSEC_CIPHER_TRANSFORM0 {
+impl ::core::default::Default for IPSEC_CIPHER_TRANSFORM0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_CIPHER_TRANSFORM0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_CIPHER_TRANSFORM0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_CIPHER_TRANSFORM0").field("cipherTransformId", &self.cipherTransformId).field("cryptoModuleId", &self.cryptoModuleId).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_CIPHER_TRANSFORM0 {
+impl ::core::cmp::PartialEq for IPSEC_CIPHER_TRANSFORM0 {
     fn eq(&self, other: &Self) -> bool {
         self.cipherTransformId == other.cipherTransformId && self.cryptoModuleId == other.cryptoModuleId
     }
 }
-impl ::std::cmp::Eq for IPSEC_CIPHER_TRANSFORM0 {}
+impl ::core::cmp::Eq for IPSEC_CIPHER_TRANSFORM0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_CIPHER_TRANSFORM0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_CIPHER_TRANSFORM_ID0 {
@@ -12010,27 +12055,27 @@ pub struct IPSEC_CIPHER_TRANSFORM_ID0 {
     pub cipherConfig: u8,
 }
 impl IPSEC_CIPHER_TRANSFORM_ID0 {}
-impl ::std::default::Default for IPSEC_CIPHER_TRANSFORM_ID0 {
+impl ::core::default::Default for IPSEC_CIPHER_TRANSFORM_ID0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_CIPHER_TRANSFORM_ID0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_CIPHER_TRANSFORM_ID0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_CIPHER_TRANSFORM_ID0").field("cipherType", &self.cipherType).field("cipherConfig", &self.cipherConfig).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_CIPHER_TRANSFORM_ID0 {
+impl ::core::cmp::PartialEq for IPSEC_CIPHER_TRANSFORM_ID0 {
     fn eq(&self, other: &Self) -> bool {
         self.cipherType == other.cipherType && self.cipherConfig == other.cipherConfig
     }
 }
-impl ::std::cmp::Eq for IPSEC_CIPHER_TRANSFORM_ID0 {}
+impl ::core::cmp::Eq for IPSEC_CIPHER_TRANSFORM_ID0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_CIPHER_TRANSFORM_ID0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_CIPHER_TYPE(pub i32);
 pub const IPSEC_CIPHER_TYPE_DES: IPSEC_CIPHER_TYPE = IPSEC_CIPHER_TYPE(1i32);
@@ -12039,7 +12084,7 @@ pub const IPSEC_CIPHER_TYPE_AES_128: IPSEC_CIPHER_TYPE = IPSEC_CIPHER_TYPE(3i32)
 pub const IPSEC_CIPHER_TYPE_AES_192: IPSEC_CIPHER_TYPE = IPSEC_CIPHER_TYPE(4i32);
 pub const IPSEC_CIPHER_TYPE_AES_256: IPSEC_CIPHER_TYPE = IPSEC_CIPHER_TYPE(5i32);
 pub const IPSEC_CIPHER_TYPE_MAX: IPSEC_CIPHER_TYPE = IPSEC_CIPHER_TYPE(6i32);
-impl ::std::convert::From<i32> for IPSEC_CIPHER_TYPE {
+impl ::core::convert::From<i32> for IPSEC_CIPHER_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12050,7 +12095,7 @@ unsafe impl ::windows::runtime::Abi for IPSEC_CIPHER_TYPE {
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_DOSP_DSCP_DISABLE_VALUE: u32 = 255u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_DOSP_FLAGS(pub u32);
 pub const IPSEC_DOSP_FLAG_ENABLE_IKEV1: IPSEC_DOSP_FLAGS = IPSEC_DOSP_FLAGS(1u32);
@@ -12059,7 +12104,7 @@ pub const IPSEC_DOSP_FLAG_DISABLE_AUTHIP: IPSEC_DOSP_FLAGS = IPSEC_DOSP_FLAGS(4u
 pub const IPSEC_DOSP_FLAG_DISABLE_DEFAULT_BLOCK: IPSEC_DOSP_FLAGS = IPSEC_DOSP_FLAGS(8u32);
 pub const IPSEC_DOSP_FLAG_FILTER_BLOCK: IPSEC_DOSP_FLAGS = IPSEC_DOSP_FLAGS(16u32);
 pub const IPSEC_DOSP_FLAG_FILTER_EXEMPT: IPSEC_DOSP_FLAGS = IPSEC_DOSP_FLAGS(32u32);
-impl ::std::convert::From<u32> for IPSEC_DOSP_FLAGS {
+impl ::core::convert::From<u32> for IPSEC_DOSP_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -12067,35 +12112,35 @@ impl ::std::convert::From<u32> for IPSEC_DOSP_FLAGS {
 unsafe impl ::windows::runtime::Abi for IPSEC_DOSP_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for IPSEC_DOSP_FLAGS {
+impl ::core::ops::BitOr for IPSEC_DOSP_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for IPSEC_DOSP_FLAGS {
+impl ::core::ops::BitAnd for IPSEC_DOSP_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for IPSEC_DOSP_FLAGS {
+impl ::core::ops::BitOrAssign for IPSEC_DOSP_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for IPSEC_DOSP_FLAGS {
+impl ::core::ops::BitAndAssign for IPSEC_DOSP_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for IPSEC_DOSP_FLAGS {
+impl ::core::ops::Not for IPSEC_DOSP_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_DOSP_OPTIONS0 {
@@ -12123,13 +12168,13 @@ pub struct IPSEC_DOSP_OPTIONS0 {
     pub internalV6AddrMask: FWP_V6_ADDR_AND_MASK,
 }
 impl IPSEC_DOSP_OPTIONS0 {}
-impl ::std::default::Default for IPSEC_DOSP_OPTIONS0 {
+impl ::core::default::Default for IPSEC_DOSP_OPTIONS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_DOSP_OPTIONS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_DOSP_OPTIONS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_DOSP_OPTIONS0")
             .field("stateIdleTimeoutSeconds", &self.stateIdleTimeoutSeconds)
             .field("perIPRateLimitQueueIdleTimeoutSeconds", &self.perIPRateLimitQueueIdleTimeoutSeconds)
@@ -12156,7 +12201,7 @@ impl ::std::fmt::Debug for IPSEC_DOSP_OPTIONS0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_DOSP_OPTIONS0 {
+impl ::core::cmp::PartialEq for IPSEC_DOSP_OPTIONS0 {
     fn eq(&self, other: &Self) -> bool {
         self.stateIdleTimeoutSeconds == other.stateIdleTimeoutSeconds
             && self.perIPRateLimitQueueIdleTimeoutSeconds == other.perIPRateLimitQueueIdleTimeoutSeconds
@@ -12182,13 +12227,13 @@ impl ::std::cmp::PartialEq for IPSEC_DOSP_OPTIONS0 {
             && self.internalV6AddrMask == other.internalV6AddrMask
     }
 }
-impl ::std::cmp::Eq for IPSEC_DOSP_OPTIONS0 {}
+impl ::core::cmp::Eq for IPSEC_DOSP_OPTIONS0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_DOSP_OPTIONS0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_DOSP_STATE0 {
@@ -12199,13 +12244,13 @@ pub struct IPSEC_DOSP_STATE0 {
     pub durationSecs: u32,
 }
 impl IPSEC_DOSP_STATE0 {}
-impl ::std::default::Default for IPSEC_DOSP_STATE0 {
+impl ::core::default::Default for IPSEC_DOSP_STATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_DOSP_STATE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_DOSP_STATE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_DOSP_STATE0")
             .field("publicHostV6Addr", &self.publicHostV6Addr)
             .field("internalHostV6Addr", &self.internalHostV6Addr)
@@ -12215,16 +12260,16 @@ impl ::std::fmt::Debug for IPSEC_DOSP_STATE0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_DOSP_STATE0 {
+impl ::core::cmp::PartialEq for IPSEC_DOSP_STATE0 {
     fn eq(&self, other: &Self) -> bool {
         self.publicHostV6Addr == other.publicHostV6Addr && self.internalHostV6Addr == other.internalHostV6Addr && self.totalInboundIPv6IPsecAuthPackets == other.totalInboundIPv6IPsecAuthPackets && self.totalOutboundIPv6IPsecAuthPackets == other.totalOutboundIPv6IPsecAuthPackets && self.durationSecs == other.durationSecs
     }
 }
-impl ::std::cmp::Eq for IPSEC_DOSP_STATE0 {}
+impl ::core::cmp::Eq for IPSEC_DOSP_STATE0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_DOSP_STATE0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
@@ -12232,26 +12277,26 @@ pub struct IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
     pub internalV6AddrMask: FWP_V6_ADDR_AND_MASK,
 }
 impl IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {}
-impl ::std::default::Default for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
+impl ::core::default::Default for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_DOSP_STATE_ENUM_TEMPLATE0").field("publicV6AddrMask", &self.publicV6AddrMask).field("internalV6AddrMask", &self.internalV6AddrMask).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
+impl ::core::cmp::PartialEq for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
         self.publicV6AddrMask == other.publicV6AddrMask && self.internalV6AddrMask == other.internalV6AddrMask
     }
 }
-impl ::std::cmp::Eq for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {}
+impl ::core::cmp::Eq for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_DOSP_STATISTICS0 {
@@ -12275,13 +12320,13 @@ pub struct IPSEC_DOSP_STATISTICS0 {
     pub currentInboundIPv6IPsecUnauthPerIPRateLimitQueues: u64,
 }
 impl IPSEC_DOSP_STATISTICS0 {}
-impl ::std::default::Default for IPSEC_DOSP_STATISTICS0 {
+impl ::core::default::Default for IPSEC_DOSP_STATISTICS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_DOSP_STATISTICS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_DOSP_STATISTICS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_DOSP_STATISTICS0")
             .field("totalStateEntriesCreated", &self.totalStateEntriesCreated)
             .field("currentStateEntries", &self.currentStateEntries)
@@ -12304,7 +12349,7 @@ impl ::std::fmt::Debug for IPSEC_DOSP_STATISTICS0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_DOSP_STATISTICS0 {
+impl ::core::cmp::PartialEq for IPSEC_DOSP_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
         self.totalStateEntriesCreated == other.totalStateEntriesCreated
             && self.currentStateEntries == other.currentStateEntries
@@ -12326,11 +12371,11 @@ impl ::std::cmp::PartialEq for IPSEC_DOSP_STATISTICS0 {
             && self.currentInboundIPv6IPsecUnauthPerIPRateLimitQueues == other.currentInboundIPv6IPsecUnauthPerIPRateLimitQueues
     }
 }
-impl ::std::cmp::Eq for IPSEC_DOSP_STATISTICS0 {}
+impl ::core::cmp::Eq for IPSEC_DOSP_STATISTICS0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_DOSP_STATISTICS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_ESP_DROP_PACKET_STATISTICS0 {
@@ -12341,13 +12386,13 @@ pub struct IPSEC_ESP_DROP_PACKET_STATISTICS0 {
     pub saNotInitializedOnInbound: u32,
 }
 impl IPSEC_ESP_DROP_PACKET_STATISTICS0 {}
-impl ::std::default::Default for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
+impl ::core::default::Default for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_ESP_DROP_PACKET_STATISTICS0")
             .field("invalidSpisOnInbound", &self.invalidSpisOnInbound)
             .field("decryptionFailuresOnInbound", &self.decryptionFailuresOnInbound)
@@ -12357,24 +12402,24 @@ impl ::std::fmt::Debug for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
+impl ::core::cmp::PartialEq for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
         self.invalidSpisOnInbound == other.invalidSpisOnInbound && self.decryptionFailuresOnInbound == other.decryptionFailuresOnInbound && self.authenticationFailuresOnInbound == other.authenticationFailuresOnInbound && self.replayCheckFailuresOnInbound == other.replayCheckFailuresOnInbound && self.saNotInitializedOnInbound == other.saNotInitializedOnInbound
     }
 }
-impl ::std::cmp::Eq for IPSEC_ESP_DROP_PACKET_STATISTICS0 {}
+impl ::core::cmp::Eq for IPSEC_ESP_DROP_PACKET_STATISTICS0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_FAILURE_POINT(pub i32);
 pub const IPSEC_FAILURE_NONE: IPSEC_FAILURE_POINT = IPSEC_FAILURE_POINT(0i32);
 pub const IPSEC_FAILURE_ME: IPSEC_FAILURE_POINT = IPSEC_FAILURE_POINT(1i32);
 pub const IPSEC_FAILURE_PEER: IPSEC_FAILURE_POINT = IPSEC_FAILURE_POINT(2i32);
 pub const IPSEC_FAILURE_POINT_MAX: IPSEC_FAILURE_POINT = IPSEC_FAILURE_POINT(3i32);
-impl ::std::convert::From<i32> for IPSEC_FAILURE_POINT {
+impl ::core::convert::From<i32> for IPSEC_FAILURE_POINT {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12382,7 +12427,7 @@ impl ::std::convert::From<i32> for IPSEC_FAILURE_POINT {
 unsafe impl ::windows::runtime::Abi for IPSEC_FAILURE_POINT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_GETSPI0 {
@@ -12392,42 +12437,42 @@ pub struct IPSEC_GETSPI0 {
     pub rngCryptoModuleID: *mut ::windows::runtime::GUID,
 }
 impl IPSEC_GETSPI0 {}
-impl ::std::default::Default for IPSEC_GETSPI0 {
+impl ::core::default::Default for IPSEC_GETSPI0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_GETSPI0 {
+impl ::core::cmp::PartialEq for IPSEC_GETSPI0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_GETSPI0 {}
+impl ::core::cmp::Eq for IPSEC_GETSPI0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_GETSPI0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_GETSPI0_0 {
     pub inboundUdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
 impl IPSEC_GETSPI0_0 {}
-impl ::std::default::Default for IPSEC_GETSPI0_0 {
+impl ::core::default::Default for IPSEC_GETSPI0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_GETSPI0_0 {
+impl ::core::cmp::PartialEq for IPSEC_GETSPI0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_GETSPI0_0 {}
+impl ::core::cmp::Eq for IPSEC_GETSPI0_0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_GETSPI0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_GETSPI1 {
@@ -12437,42 +12482,42 @@ pub struct IPSEC_GETSPI1 {
     pub rngCryptoModuleID: *mut ::windows::runtime::GUID,
 }
 impl IPSEC_GETSPI1 {}
-impl ::std::default::Default for IPSEC_GETSPI1 {
+impl ::core::default::Default for IPSEC_GETSPI1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_GETSPI1 {
+impl ::core::cmp::PartialEq for IPSEC_GETSPI1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_GETSPI1 {}
+impl ::core::cmp::Eq for IPSEC_GETSPI1 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_GETSPI1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_GETSPI1_0 {
     pub inboundUdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
 impl IPSEC_GETSPI1_0 {}
-impl ::std::default::Default for IPSEC_GETSPI1_0 {
+impl ::core::default::Default for IPSEC_GETSPI1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_GETSPI1_0 {
+impl ::core::cmp::PartialEq for IPSEC_GETSPI1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_GETSPI1_0 {}
+impl ::core::cmp::Eq for IPSEC_GETSPI1_0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_GETSPI1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -12487,30 +12532,30 @@ pub struct IPSEC_ID0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_ID0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_ID0 {
+impl ::core::default::Default for IPSEC_ID0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IPSEC_ID0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_ID0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_ID0").field("mmTargetName", &self.mmTargetName).field("emTargetName", &self.emTargetName).field("numTokens", &self.numTokens).field("tokens", &self.tokens).field("explicitCredentials", &self.explicitCredentials).field("logonId", &self.logonId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_ID0 {
+impl ::core::cmp::PartialEq for IPSEC_ID0 {
     fn eq(&self, other: &Self) -> bool {
         self.mmTargetName == other.mmTargetName && self.emTargetName == other.emTargetName && self.numTokens == other.numTokens && self.tokens == other.tokens && self.explicitCredentials == other.explicitCredentials && self.logonId == other.logonId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_ID0 {}
+impl ::core::cmp::Eq for IPSEC_ID0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_ID0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_KEYING_POLICY0 {
@@ -12518,26 +12563,26 @@ pub struct IPSEC_KEYING_POLICY0 {
     pub keyModKeys: *mut ::windows::runtime::GUID,
 }
 impl IPSEC_KEYING_POLICY0 {}
-impl ::std::default::Default for IPSEC_KEYING_POLICY0 {
+impl ::core::default::Default for IPSEC_KEYING_POLICY0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_KEYING_POLICY0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_KEYING_POLICY0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_KEYING_POLICY0").field("numKeyMods", &self.numKeyMods).field("keyModKeys", &self.keyModKeys).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_KEYING_POLICY0 {
+impl ::core::cmp::PartialEq for IPSEC_KEYING_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
         self.numKeyMods == other.numKeyMods && self.keyModKeys == other.keyModKeys
     }
 }
-impl ::std::cmp::Eq for IPSEC_KEYING_POLICY0 {}
+impl ::core::cmp::Eq for IPSEC_KEYING_POLICY0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_KEYING_POLICY0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_KEYING_POLICY1 {
@@ -12546,28 +12591,28 @@ pub struct IPSEC_KEYING_POLICY1 {
     pub flags: u32,
 }
 impl IPSEC_KEYING_POLICY1 {}
-impl ::std::default::Default for IPSEC_KEYING_POLICY1 {
+impl ::core::default::Default for IPSEC_KEYING_POLICY1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_KEYING_POLICY1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_KEYING_POLICY1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_KEYING_POLICY1").field("numKeyMods", &self.numKeyMods).field("keyModKeys", &self.keyModKeys).field("flags", &self.flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_KEYING_POLICY1 {
+impl ::core::cmp::PartialEq for IPSEC_KEYING_POLICY1 {
     fn eq(&self, other: &Self) -> bool {
         self.numKeyMods == other.numKeyMods && self.keyModKeys == other.keyModKeys && self.flags == other.flags
     }
 }
-impl ::std::cmp::Eq for IPSEC_KEYING_POLICY1 {}
+impl ::core::cmp::Eq for IPSEC_KEYING_POLICY1 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_KEYING_POLICY1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_KEYING_POLICY_FLAG_TERMINATING_MATCH: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_KEYMODULE_STATE0 {
@@ -12575,26 +12620,26 @@ pub struct IPSEC_KEYMODULE_STATE0 {
     pub stateBlob: FWP_BYTE_BLOB,
 }
 impl IPSEC_KEYMODULE_STATE0 {}
-impl ::std::default::Default for IPSEC_KEYMODULE_STATE0 {
+impl ::core::default::Default for IPSEC_KEYMODULE_STATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_KEYMODULE_STATE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_KEYMODULE_STATE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_KEYMODULE_STATE0").field("keyModuleKey", &self.keyModuleKey).field("stateBlob", &self.stateBlob).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_KEYMODULE_STATE0 {
+impl ::core::cmp::PartialEq for IPSEC_KEYMODULE_STATE0 {
     fn eq(&self, other: &Self) -> bool {
         self.keyModuleKey == other.keyModuleKey && self.stateBlob == other.stateBlob
     }
 }
-impl ::std::cmp::Eq for IPSEC_KEYMODULE_STATE0 {}
+impl ::core::cmp::Eq for IPSEC_KEYMODULE_STATE0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_KEYMODULE_STATE0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -12607,65 +12652,65 @@ pub struct IPSEC_KEY_MANAGER0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_KEY_MANAGER0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_KEY_MANAGER0 {
+impl ::core::default::Default for IPSEC_KEY_MANAGER0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IPSEC_KEY_MANAGER0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_KEY_MANAGER0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_KEY_MANAGER0").field("keyManagerKey", &self.keyManagerKey).field("displayData", &self.displayData).field("flags", &self.flags).field("keyDictationTimeoutHint", &self.keyDictationTimeoutHint).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_KEY_MANAGER0 {
+impl ::core::cmp::PartialEq for IPSEC_KEY_MANAGER0 {
     fn eq(&self, other: &Self) -> bool {
         self.keyManagerKey == other.keyManagerKey && self.displayData == other.displayData && self.flags == other.flags && self.keyDictationTimeoutHint == other.keyDictationTimeoutHint
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_KEY_MANAGER0 {}
+impl ::core::cmp::Eq for IPSEC_KEY_MANAGER0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_KEY_MANAGER0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct IPSEC_KEY_MANAGER_CALLBACKS0 {
     pub reserved: ::windows::runtime::GUID,
     pub flags: u32,
-    pub keyDictationCheck: ::std::option::Option<IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0>,
-    pub keyDictation: ::std::option::Option<IPSEC_KEY_MANAGER_DICTATE_KEY0>,
-    pub keyNotify: ::std::option::Option<IPSEC_KEY_MANAGER_NOTIFY_KEY0>,
+    pub keyDictationCheck: ::core::option::Option<IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0>,
+    pub keyDictation: ::core::option::Option<IPSEC_KEY_MANAGER_DICTATE_KEY0>,
+    pub keyNotify: ::core::option::Option<IPSEC_KEY_MANAGER_NOTIFY_KEY0>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IPSEC_KEY_MANAGER_CALLBACKS0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for IPSEC_KEY_MANAGER_CALLBACKS0 {
+impl ::core::default::Default for IPSEC_KEY_MANAGER_CALLBACKS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for IPSEC_KEY_MANAGER_CALLBACKS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_KEY_MANAGER_CALLBACKS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_KEY_MANAGER_CALLBACKS0").field("reserved", &self.reserved).field("flags", &self.flags).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for IPSEC_KEY_MANAGER_CALLBACKS0 {
+impl ::core::cmp::PartialEq for IPSEC_KEY_MANAGER_CALLBACKS0 {
     fn eq(&self, other: &Self) -> bool {
         self.reserved == other.reserved && self.flags == other.flags && self.keyDictationCheck.map(|f| f as usize) == other.keyDictationCheck.map(|f| f as usize) && self.keyDictation.map(|f| f as usize) == other.keyDictation.map(|f| f as usize) && self.keyNotify.map(|f| f as usize) == other.keyNotify.map(|f| f as usize)
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for IPSEC_KEY_MANAGER_CALLBACKS0 {}
+impl ::core::cmp::Eq for IPSEC_KEY_MANAGER_CALLBACKS0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for IPSEC_KEY_MANAGER_CALLBACKS0 {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -12679,7 +12724,7 @@ pub type IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0 = unsafe extern "system" fn(iket
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type IPSEC_KEY_MANAGER_NOTIFY_KEY0 = unsafe extern "system" fn(inboundsa: *const IPSEC_SA_DETAILS1, outboundsa: *const IPSEC_SA_DETAILS1);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_PFS_GROUP(pub i32);
 pub const IPSEC_PFS_NONE: IPSEC_PFS_GROUP = IPSEC_PFS_GROUP(0i32);
@@ -12692,7 +12737,7 @@ pub const IPSEC_PFS_ECP_384: IPSEC_PFS_GROUP = IPSEC_PFS_GROUP(5i32);
 pub const IPSEC_PFS_MM: IPSEC_PFS_GROUP = IPSEC_PFS_GROUP(6i32);
 pub const IPSEC_PFS_24: IPSEC_PFS_GROUP = IPSEC_PFS_GROUP(7i32);
 pub const IPSEC_PFS_MAX: IPSEC_PFS_GROUP = IPSEC_PFS_GROUP(8i32);
-impl ::std::convert::From<i32> for IPSEC_PFS_GROUP {
+impl ::core::convert::From<i32> for IPSEC_PFS_GROUP {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -12701,7 +12746,7 @@ unsafe impl ::windows::runtime::Abi for IPSEC_PFS_GROUP {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_POLICY_FLAG(pub u32);
 pub const IPSEC_POLICY_FLAG_ND_SECURE: IPSEC_POLICY_FLAG = IPSEC_POLICY_FLAG(2u32);
@@ -12717,7 +12762,7 @@ pub const IPSEC_POLICY_FLAG_TUNNEL_ALLOW_OUTBOUND_CLEAR_CONNECTION: IPSEC_POLICY
 pub const IPSEC_POLICY_FLAG_TUNNEL_BYPASS_ALREADY_SECURE_CONNECTION: IPSEC_POLICY_FLAG = IPSEC_POLICY_FLAG(2048u32);
 pub const IPSEC_POLICY_FLAG_TUNNEL_BYPASS_ICMPV6: IPSEC_POLICY_FLAG = IPSEC_POLICY_FLAG(4096u32);
 pub const IPSEC_POLICY_FLAG_KEY_MANAGER_ALLOW_DICTATE_KEY: IPSEC_POLICY_FLAG = IPSEC_POLICY_FLAG(8192u32);
-impl ::std::convert::From<u32> for IPSEC_POLICY_FLAG {
+impl ::core::convert::From<u32> for IPSEC_POLICY_FLAG {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -12725,29 +12770,29 @@ impl ::std::convert::From<u32> for IPSEC_POLICY_FLAG {
 unsafe impl ::windows::runtime::Abi for IPSEC_POLICY_FLAG {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for IPSEC_POLICY_FLAG {
+impl ::core::ops::BitOr for IPSEC_POLICY_FLAG {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for IPSEC_POLICY_FLAG {
+impl ::core::ops::BitAnd for IPSEC_POLICY_FLAG {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for IPSEC_POLICY_FLAG {
+impl ::core::ops::BitOrAssign for IPSEC_POLICY_FLAG {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for IPSEC_POLICY_FLAG {
+impl ::core::ops::BitAndAssign for IPSEC_POLICY_FLAG {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for IPSEC_POLICY_FLAG {
+impl ::core::ops::Not for IPSEC_POLICY_FLAG {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -12759,7 +12804,7 @@ pub const IPSEC_POLICY_FLAG_KEY_MANAGER_ALLOW_NOTIFY_KEY: u32 = 16384u32;
 pub const IPSEC_POLICY_FLAG_RESERVED1: u32 = 32768u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_POLICY_FLAG_SITE_TO_SITE_TUNNEL: u32 = 65536u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_PROPOSAL0 {
@@ -12769,26 +12814,26 @@ pub struct IPSEC_PROPOSAL0 {
     pub pfsGroup: IPSEC_PFS_GROUP,
 }
 impl IPSEC_PROPOSAL0 {}
-impl ::std::default::Default for IPSEC_PROPOSAL0 {
+impl ::core::default::Default for IPSEC_PROPOSAL0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_PROPOSAL0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_PROPOSAL0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_PROPOSAL0").field("lifetime", &self.lifetime).field("numSaTransforms", &self.numSaTransforms).field("saTransforms", &self.saTransforms).field("pfsGroup", &self.pfsGroup).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_PROPOSAL0 {
+impl ::core::cmp::PartialEq for IPSEC_PROPOSAL0 {
     fn eq(&self, other: &Self) -> bool {
         self.lifetime == other.lifetime && self.numSaTransforms == other.numSaTransforms && self.saTransforms == other.saTransforms && self.pfsGroup == other.pfsGroup
     }
 }
-impl ::std::cmp::Eq for IPSEC_PROPOSAL0 {}
+impl ::core::cmp::Eq for IPSEC_PROPOSAL0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_PROPOSAL0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA0 {
@@ -12797,21 +12842,21 @@ pub struct IPSEC_SA0 {
     pub Anonymous: IPSEC_SA0_0,
 }
 impl IPSEC_SA0 {}
-impl ::std::default::Default for IPSEC_SA0 {
+impl ::core::default::Default for IPSEC_SA0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_SA0 {
+impl ::core::cmp::PartialEq for IPSEC_SA0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_SA0 {}
+impl ::core::cmp::Eq for IPSEC_SA0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_SA0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_SA0_0 {
@@ -12822,21 +12867,21 @@ pub union IPSEC_SA0_0 {
     pub espAuthFwInformation: *mut IPSEC_SA_AUTH_INFORMATION0,
 }
 impl IPSEC_SA0_0 {}
-impl ::std::default::Default for IPSEC_SA0_0 {
+impl ::core::default::Default for IPSEC_SA0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_SA0_0 {
+impl ::core::cmp::PartialEq for IPSEC_SA0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_SA0_0 {}
+impl ::core::cmp::Eq for IPSEC_SA0_0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_SA0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
@@ -12844,26 +12889,26 @@ pub struct IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
     pub saAuthInformation: IPSEC_SA_AUTH_INFORMATION0,
 }
 impl IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {}
-impl ::std::default::Default for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
+impl ::core::default::Default for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0").field("saCipherInformation", &self.saCipherInformation).field("saAuthInformation", &self.saAuthInformation).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
     fn eq(&self, other: &Self) -> bool {
         self.saCipherInformation == other.saCipherInformation && self.saAuthInformation == other.saAuthInformation
     }
 }
-impl ::std::cmp::Eq for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {}
+impl ::core::cmp::Eq for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_AUTH_INFORMATION0 {
@@ -12871,26 +12916,26 @@ pub struct IPSEC_SA_AUTH_INFORMATION0 {
     pub authKey: FWP_BYTE_BLOB,
 }
 impl IPSEC_SA_AUTH_INFORMATION0 {}
-impl ::std::default::Default for IPSEC_SA_AUTH_INFORMATION0 {
+impl ::core::default::Default for IPSEC_SA_AUTH_INFORMATION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_SA_AUTH_INFORMATION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_SA_AUTH_INFORMATION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_SA_AUTH_INFORMATION0").field("authTransform", &self.authTransform).field("authKey", &self.authKey).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_SA_AUTH_INFORMATION0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_AUTH_INFORMATION0 {
     fn eq(&self, other: &Self) -> bool {
         self.authTransform == other.authTransform && self.authKey == other.authKey
     }
 }
-impl ::std::cmp::Eq for IPSEC_SA_AUTH_INFORMATION0 {}
+impl ::core::cmp::Eq for IPSEC_SA_AUTH_INFORMATION0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_AUTH_INFORMATION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -12913,24 +12958,24 @@ pub struct IPSEC_SA_BUNDLE0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_SA_BUNDLE0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_SA_BUNDLE0 {
+impl ::core::default::Default for IPSEC_SA_BUNDLE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_SA_BUNDLE0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_BUNDLE0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_SA_BUNDLE0 {}
+impl ::core::cmp::Eq for IPSEC_SA_BUNDLE0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_BUNDLE0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IPSEC_SA_BUNDLE0_0 {
@@ -12939,24 +12984,24 @@ pub union IPSEC_SA_BUNDLE0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_SA_BUNDLE0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_SA_BUNDLE0_0 {
+impl ::core::default::Default for IPSEC_SA_BUNDLE0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_SA_BUNDLE0_0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_BUNDLE0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_SA_BUNDLE0_0 {}
+impl ::core::cmp::Eq for IPSEC_SA_BUNDLE0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_BUNDLE0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -12981,24 +13026,24 @@ pub struct IPSEC_SA_BUNDLE1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_SA_BUNDLE1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_SA_BUNDLE1 {
+impl ::core::default::Default for IPSEC_SA_BUNDLE1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_SA_BUNDLE1 {
+impl ::core::cmp::PartialEq for IPSEC_SA_BUNDLE1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_SA_BUNDLE1 {}
+impl ::core::cmp::Eq for IPSEC_SA_BUNDLE1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_BUNDLE1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IPSEC_SA_BUNDLE1_0 {
@@ -13007,25 +13052,25 @@ pub union IPSEC_SA_BUNDLE1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_SA_BUNDLE1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_SA_BUNDLE1_0 {
+impl ::core::default::Default for IPSEC_SA_BUNDLE1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_SA_BUNDLE1_0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_BUNDLE1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_SA_BUNDLE1_0 {}
+impl ::core::cmp::Eq for IPSEC_SA_BUNDLE1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_BUNDLE1_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_SA_BUNDLE_FLAGS(pub u32);
 pub const IPSEC_SA_BUNDLE_FLAG_ND_SECURE: IPSEC_SA_BUNDLE_FLAGS = IPSEC_SA_BUNDLE_FLAGS(1u32);
@@ -13038,7 +13083,7 @@ pub const IPSEC_SA_BUNDLE_FLAG_ASSUME_UDP_CONTEXT_OUTBOUND: IPSEC_SA_BUNDLE_FLAG
 pub const IPSEC_SA_BUNDLE_FLAG_ND_PEER_BOUNDARY: IPSEC_SA_BUNDLE_FLAGS = IPSEC_SA_BUNDLE_FLAGS(4096u32);
 pub const IPSEC_SA_BUNDLE_FLAG_SUPPRESS_DUPLICATE_DELETION: IPSEC_SA_BUNDLE_FLAGS = IPSEC_SA_BUNDLE_FLAGS(8192u32);
 pub const IPSEC_SA_BUNDLE_FLAG_PEER_SUPPORTS_GUARANTEE_ENCRYPTION: IPSEC_SA_BUNDLE_FLAGS = IPSEC_SA_BUNDLE_FLAGS(16384u32);
-impl ::std::convert::From<u32> for IPSEC_SA_BUNDLE_FLAGS {
+impl ::core::convert::From<u32> for IPSEC_SA_BUNDLE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -13046,29 +13091,29 @@ impl ::std::convert::From<u32> for IPSEC_SA_BUNDLE_FLAGS {
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_BUNDLE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for IPSEC_SA_BUNDLE_FLAGS {
+impl ::core::ops::BitOr for IPSEC_SA_BUNDLE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for IPSEC_SA_BUNDLE_FLAGS {
+impl ::core::ops::BitAnd for IPSEC_SA_BUNDLE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for IPSEC_SA_BUNDLE_FLAGS {
+impl ::core::ops::BitOrAssign for IPSEC_SA_BUNDLE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for IPSEC_SA_BUNDLE_FLAGS {
+impl ::core::ops::BitAndAssign for IPSEC_SA_BUNDLE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for IPSEC_SA_BUNDLE_FLAGS {
+impl ::core::ops::Not for IPSEC_SA_BUNDLE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -13100,7 +13145,7 @@ pub const IPSEC_SA_BUNDLE_FLAG_NO_MACHINE_LUID_VERIFY: u32 = 32u32;
 pub const IPSEC_SA_BUNDLE_FLAG_SA_OFFLOADED: u32 = 2097152u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_USING_DICTATED_KEYS: u32 = 524288u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_CIPHER_INFORMATION0 {
@@ -13108,26 +13153,26 @@ pub struct IPSEC_SA_CIPHER_INFORMATION0 {
     pub cipherKey: FWP_BYTE_BLOB,
 }
 impl IPSEC_SA_CIPHER_INFORMATION0 {}
-impl ::std::default::Default for IPSEC_SA_CIPHER_INFORMATION0 {
+impl ::core::default::Default for IPSEC_SA_CIPHER_INFORMATION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_SA_CIPHER_INFORMATION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_SA_CIPHER_INFORMATION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_SA_CIPHER_INFORMATION0").field("cipherTransform", &self.cipherTransform).field("cipherKey", &self.cipherKey).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_SA_CIPHER_INFORMATION0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_CIPHER_INFORMATION0 {
     fn eq(&self, other: &Self) -> bool {
         self.cipherTransform == other.cipherTransform && self.cipherKey == other.cipherKey
     }
 }
-impl ::std::cmp::Eq for IPSEC_SA_CIPHER_INFORMATION0 {}
+impl ::core::cmp::Eq for IPSEC_SA_CIPHER_INFORMATION0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_CIPHER_INFORMATION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -13139,30 +13184,30 @@ pub struct IPSEC_SA_CONTEXT0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IPSEC_SA_CONTEXT0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for IPSEC_SA_CONTEXT0 {
+impl ::core::default::Default for IPSEC_SA_CONTEXT0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for IPSEC_SA_CONTEXT0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_SA_CONTEXT0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_SA_CONTEXT0").field("saContextId", &self.saContextId).field("inboundSa", &self.inboundSa).field("outboundSa", &self.outboundSa).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for IPSEC_SA_CONTEXT0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_CONTEXT0 {
     fn eq(&self, other: &Self) -> bool {
         self.saContextId == other.saContextId && self.inboundSa == other.inboundSa && self.outboundSa == other.outboundSa
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for IPSEC_SA_CONTEXT0 {}
+impl ::core::cmp::Eq for IPSEC_SA_CONTEXT0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_CONTEXT0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -13174,32 +13219,32 @@ pub struct IPSEC_SA_CONTEXT1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IPSEC_SA_CONTEXT1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for IPSEC_SA_CONTEXT1 {
+impl ::core::default::Default for IPSEC_SA_CONTEXT1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for IPSEC_SA_CONTEXT1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_SA_CONTEXT1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_SA_CONTEXT1").field("saContextId", &self.saContextId).field("inboundSa", &self.inboundSa).field("outboundSa", &self.outboundSa).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for IPSEC_SA_CONTEXT1 {
+impl ::core::cmp::PartialEq for IPSEC_SA_CONTEXT1 {
     fn eq(&self, other: &Self) -> bool {
         self.saContextId == other.saContextId && self.inboundSa == other.inboundSa && self.outboundSa == other.outboundSa
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for IPSEC_SA_CONTEXT1 {}
+impl ::core::cmp::Eq for IPSEC_SA_CONTEXT1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_CONTEXT1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-pub type IPSEC_SA_CONTEXT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, change: *const IPSEC_SA_CONTEXT_CHANGE0);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type IPSEC_SA_CONTEXT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const IPSEC_SA_CONTEXT_CHANGE0);
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_CONTEXT_CHANGE0 {
@@ -13207,26 +13252,26 @@ pub struct IPSEC_SA_CONTEXT_CHANGE0 {
     pub saContextId: u64,
 }
 impl IPSEC_SA_CONTEXT_CHANGE0 {}
-impl ::std::default::Default for IPSEC_SA_CONTEXT_CHANGE0 {
+impl ::core::default::Default for IPSEC_SA_CONTEXT_CHANGE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_SA_CONTEXT_CHANGE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_SA_CONTEXT_CHANGE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_SA_CONTEXT_CHANGE0").field("changeType", &self.changeType).field("saContextId", &self.saContextId).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_SA_CONTEXT_CHANGE0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_CONTEXT_CHANGE0 {
     fn eq(&self, other: &Self) -> bool {
         self.changeType == other.changeType && self.saContextId == other.saContextId
     }
 }
-impl ::std::cmp::Eq for IPSEC_SA_CONTEXT_CHANGE0 {}
+impl ::core::cmp::Eq for IPSEC_SA_CONTEXT_CHANGE0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_CONTEXT_CHANGE0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -13237,31 +13282,31 @@ pub struct IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
+impl ::core::default::Default for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {}
+impl ::core::cmp::Eq for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_SA_CONTEXT_EVENT_TYPE0(pub i32);
 pub const IPSEC_SA_CONTEXT_EVENT_ADD: IPSEC_SA_CONTEXT_EVENT_TYPE0 = IPSEC_SA_CONTEXT_EVENT_TYPE0(1i32);
 pub const IPSEC_SA_CONTEXT_EVENT_DELETE: IPSEC_SA_CONTEXT_EVENT_TYPE0 = IPSEC_SA_CONTEXT_EVENT_TYPE0(2i32);
 pub const IPSEC_SA_CONTEXT_EVENT_MAX: IPSEC_SA_CONTEXT_EVENT_TYPE0 = IPSEC_SA_CONTEXT_EVENT_TYPE0(3i32);
-impl ::std::convert::From<i32> for IPSEC_SA_CONTEXT_EVENT_TYPE0 {
+impl ::core::convert::From<i32> for IPSEC_SA_CONTEXT_EVENT_TYPE0 {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -13269,7 +13314,7 @@ impl ::std::convert::From<i32> for IPSEC_SA_CONTEXT_EVENT_TYPE0 {
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_CONTEXT_EVENT_TYPE0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -13281,30 +13326,30 @@ pub struct IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IPSEC_SA_CONTEXT_SUBSCRIPTION0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
+impl ::core::default::Default for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_SA_CONTEXT_SUBSCRIPTION0").field("enumTemplate", &self.enumTemplate).field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
         self.enumTemplate == other.enumTemplate && self.flags == other.flags && self.sessionKey == other.sessionKey
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {}
+impl ::core::cmp::Eq for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -13319,24 +13364,24 @@ pub struct IPSEC_SA_DETAILS0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IPSEC_SA_DETAILS0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for IPSEC_SA_DETAILS0 {
+impl ::core::default::Default for IPSEC_SA_DETAILS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for IPSEC_SA_DETAILS0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_DETAILS0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for IPSEC_SA_DETAILS0 {}
+impl ::core::cmp::Eq for IPSEC_SA_DETAILS0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_DETAILS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union IPSEC_SA_DETAILS0_0 {
@@ -13345,24 +13390,24 @@ pub union IPSEC_SA_DETAILS0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IPSEC_SA_DETAILS0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for IPSEC_SA_DETAILS0_0 {
+impl ::core::default::Default for IPSEC_SA_DETAILS0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for IPSEC_SA_DETAILS0_0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_DETAILS0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for IPSEC_SA_DETAILS0_0 {}
+impl ::core::cmp::Eq for IPSEC_SA_DETAILS0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_DETAILS0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
@@ -13378,24 +13423,24 @@ pub struct IPSEC_SA_DETAILS1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IPSEC_SA_DETAILS1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for IPSEC_SA_DETAILS1 {
+impl ::core::default::Default for IPSEC_SA_DETAILS1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for IPSEC_SA_DETAILS1 {
+impl ::core::cmp::PartialEq for IPSEC_SA_DETAILS1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for IPSEC_SA_DETAILS1 {}
+impl ::core::cmp::Eq for IPSEC_SA_DETAILS1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_DETAILS1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union IPSEC_SA_DETAILS1_0 {
@@ -13404,50 +13449,50 @@ pub union IPSEC_SA_DETAILS1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IPSEC_SA_DETAILS1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for IPSEC_SA_DETAILS1_0 {
+impl ::core::default::Default for IPSEC_SA_DETAILS1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for IPSEC_SA_DETAILS1_0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_DETAILS1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for IPSEC_SA_DETAILS1_0 {}
+impl ::core::cmp::Eq for IPSEC_SA_DETAILS1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_DETAILS1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_ENUM_TEMPLATE0 {
     pub saDirection: FWP_DIRECTION,
 }
 impl IPSEC_SA_ENUM_TEMPLATE0 {}
-impl ::std::default::Default for IPSEC_SA_ENUM_TEMPLATE0 {
+impl ::core::default::Default for IPSEC_SA_ENUM_TEMPLATE0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_SA_ENUM_TEMPLATE0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_SA_ENUM_TEMPLATE0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_SA_ENUM_TEMPLATE0").field("saDirection", &self.saDirection).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_SA_ENUM_TEMPLATE0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
         self.saDirection == other.saDirection
     }
 }
-impl ::std::cmp::Eq for IPSEC_SA_ENUM_TEMPLATE0 {}
+impl ::core::cmp::Eq for IPSEC_SA_ENUM_TEMPLATE0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_ENUM_TEMPLATE0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_IDLE_TIMEOUT0 {
@@ -13455,26 +13500,26 @@ pub struct IPSEC_SA_IDLE_TIMEOUT0 {
     pub idleTimeoutSecondsFailOver: u32,
 }
 impl IPSEC_SA_IDLE_TIMEOUT0 {}
-impl ::std::default::Default for IPSEC_SA_IDLE_TIMEOUT0 {
+impl ::core::default::Default for IPSEC_SA_IDLE_TIMEOUT0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_SA_IDLE_TIMEOUT0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_SA_IDLE_TIMEOUT0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_SA_IDLE_TIMEOUT0").field("idleTimeoutSeconds", &self.idleTimeoutSeconds).field("idleTimeoutSecondsFailOver", &self.idleTimeoutSecondsFailOver).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_SA_IDLE_TIMEOUT0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_IDLE_TIMEOUT0 {
     fn eq(&self, other: &Self) -> bool {
         self.idleTimeoutSeconds == other.idleTimeoutSeconds && self.idleTimeoutSecondsFailOver == other.idleTimeoutSecondsFailOver
     }
 }
-impl ::std::cmp::Eq for IPSEC_SA_IDLE_TIMEOUT0 {}
+impl ::core::cmp::Eq for IPSEC_SA_IDLE_TIMEOUT0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_IDLE_TIMEOUT0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_LIFETIME0 {
@@ -13483,26 +13528,26 @@ pub struct IPSEC_SA_LIFETIME0 {
     pub lifetimePackets: u32,
 }
 impl IPSEC_SA_LIFETIME0 {}
-impl ::std::default::Default for IPSEC_SA_LIFETIME0 {
+impl ::core::default::Default for IPSEC_SA_LIFETIME0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_SA_LIFETIME0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_SA_LIFETIME0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_SA_LIFETIME0").field("lifetimeSeconds", &self.lifetimeSeconds).field("lifetimeKilobytes", &self.lifetimeKilobytes).field("lifetimePackets", &self.lifetimePackets).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_SA_LIFETIME0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_LIFETIME0 {
     fn eq(&self, other: &Self) -> bool {
         self.lifetimeSeconds == other.lifetimeSeconds && self.lifetimeKilobytes == other.lifetimeKilobytes && self.lifetimePackets == other.lifetimePackets
     }
 }
-impl ::std::cmp::Eq for IPSEC_SA_LIFETIME0 {}
+impl ::core::cmp::Eq for IPSEC_SA_LIFETIME0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_LIFETIME0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_SA_TRANSFORM0 {
@@ -13510,21 +13555,21 @@ pub struct IPSEC_SA_TRANSFORM0 {
     pub Anonymous: IPSEC_SA_TRANSFORM0_0,
 }
 impl IPSEC_SA_TRANSFORM0 {}
-impl ::std::default::Default for IPSEC_SA_TRANSFORM0 {
+impl ::core::default::Default for IPSEC_SA_TRANSFORM0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_SA_TRANSFORM0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_TRANSFORM0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_SA_TRANSFORM0 {}
+impl ::core::cmp::Eq for IPSEC_SA_TRANSFORM0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_TRANSFORM0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_SA_TRANSFORM0_0 {
@@ -13535,21 +13580,21 @@ pub union IPSEC_SA_TRANSFORM0_0 {
     pub espAuthFwTransform: *mut IPSEC_AUTH_TRANSFORM0,
 }
 impl IPSEC_SA_TRANSFORM0_0 {}
-impl ::std::default::Default for IPSEC_SA_TRANSFORM0_0 {
+impl ::core::default::Default for IPSEC_SA_TRANSFORM0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_SA_TRANSFORM0_0 {
+impl ::core::cmp::PartialEq for IPSEC_SA_TRANSFORM0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_SA_TRANSFORM0_0 {}
+impl ::core::cmp::Eq for IPSEC_SA_TRANSFORM0_0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_TRANSFORM0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_STATISTICS0 {
@@ -13561,13 +13606,13 @@ pub struct IPSEC_STATISTICS0 {
     pub outboundTrafficStatistics: IPSEC_TRAFFIC_STATISTICS0,
 }
 impl IPSEC_STATISTICS0 {}
-impl ::std::default::Default for IPSEC_STATISTICS0 {
+impl ::core::default::Default for IPSEC_STATISTICS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_STATISTICS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_STATISTICS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_STATISTICS0")
             .field("aggregateSaStatistics", &self.aggregateSaStatistics)
             .field("espDropPacketStatistics", &self.espDropPacketStatistics)
@@ -13578,16 +13623,16 @@ impl ::std::fmt::Debug for IPSEC_STATISTICS0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_STATISTICS0 {
+impl ::core::cmp::PartialEq for IPSEC_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
         self.aggregateSaStatistics == other.aggregateSaStatistics && self.espDropPacketStatistics == other.espDropPacketStatistics && self.ahDropPacketStatistics == other.ahDropPacketStatistics && self.aggregateDropPacketStatistics == other.aggregateDropPacketStatistics && self.inboundTrafficStatistics == other.inboundTrafficStatistics && self.outboundTrafficStatistics == other.outboundTrafficStatistics
     }
 }
-impl ::std::cmp::Eq for IPSEC_STATISTICS0 {}
+impl ::core::cmp::Eq for IPSEC_STATISTICS0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_STATISTICS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_STATISTICS1 {
@@ -13599,13 +13644,13 @@ pub struct IPSEC_STATISTICS1 {
     pub outboundTrafficStatistics: IPSEC_TRAFFIC_STATISTICS1,
 }
 impl IPSEC_STATISTICS1 {}
-impl ::std::default::Default for IPSEC_STATISTICS1 {
+impl ::core::default::Default for IPSEC_STATISTICS1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_STATISTICS1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_STATISTICS1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_STATISTICS1")
             .field("aggregateSaStatistics", &self.aggregateSaStatistics)
             .field("espDropPacketStatistics", &self.espDropPacketStatistics)
@@ -13616,16 +13661,16 @@ impl ::std::fmt::Debug for IPSEC_STATISTICS1 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_STATISTICS1 {
+impl ::core::cmp::PartialEq for IPSEC_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
         self.aggregateSaStatistics == other.aggregateSaStatistics && self.espDropPacketStatistics == other.espDropPacketStatistics && self.ahDropPacketStatistics == other.ahDropPacketStatistics && self.aggregateDropPacketStatistics == other.aggregateDropPacketStatistics && self.inboundTrafficStatistics == other.inboundTrafficStatistics && self.outboundTrafficStatistics == other.outboundTrafficStatistics
     }
 }
-impl ::std::cmp::Eq for IPSEC_STATISTICS1 {}
+impl ::core::cmp::Eq for IPSEC_STATISTICS1 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_STATISTICS1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TOKEN0 {
@@ -13635,33 +13680,33 @@ pub struct IPSEC_TOKEN0 {
     pub token: u64,
 }
 impl IPSEC_TOKEN0 {}
-impl ::std::default::Default for IPSEC_TOKEN0 {
+impl ::core::default::Default for IPSEC_TOKEN0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_TOKEN0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_TOKEN0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_TOKEN0").field("r#type", &self.r#type).field("principal", &self.principal).field("mode", &self.mode).field("token", &self.token).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TOKEN0 {
+impl ::core::cmp::PartialEq for IPSEC_TOKEN0 {
     fn eq(&self, other: &Self) -> bool {
         self.r#type == other.r#type && self.principal == other.principal && self.mode == other.mode && self.token == other.token
     }
 }
-impl ::std::cmp::Eq for IPSEC_TOKEN0 {}
+impl ::core::cmp::Eq for IPSEC_TOKEN0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TOKEN0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_TOKEN_MODE(pub i32);
 pub const IPSEC_TOKEN_MODE_MAIN: IPSEC_TOKEN_MODE = IPSEC_TOKEN_MODE(0i32);
 pub const IPSEC_TOKEN_MODE_EXTENDED: IPSEC_TOKEN_MODE = IPSEC_TOKEN_MODE(1i32);
 pub const IPSEC_TOKEN_MODE_MAX: IPSEC_TOKEN_MODE = IPSEC_TOKEN_MODE(2i32);
-impl ::std::convert::From<i32> for IPSEC_TOKEN_MODE {
+impl ::core::convert::From<i32> for IPSEC_TOKEN_MODE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -13670,13 +13715,13 @@ unsafe impl ::windows::runtime::Abi for IPSEC_TOKEN_MODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_TOKEN_PRINCIPAL(pub i32);
 pub const IPSEC_TOKEN_PRINCIPAL_LOCAL: IPSEC_TOKEN_PRINCIPAL = IPSEC_TOKEN_PRINCIPAL(0i32);
 pub const IPSEC_TOKEN_PRINCIPAL_PEER: IPSEC_TOKEN_PRINCIPAL = IPSEC_TOKEN_PRINCIPAL(1i32);
 pub const IPSEC_TOKEN_PRINCIPAL_MAX: IPSEC_TOKEN_PRINCIPAL = IPSEC_TOKEN_PRINCIPAL(2i32);
-impl ::std::convert::From<i32> for IPSEC_TOKEN_PRINCIPAL {
+impl ::core::convert::From<i32> for IPSEC_TOKEN_PRINCIPAL {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -13685,13 +13730,13 @@ unsafe impl ::windows::runtime::Abi for IPSEC_TOKEN_PRINCIPAL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_TOKEN_TYPE(pub i32);
 pub const IPSEC_TOKEN_TYPE_MACHINE: IPSEC_TOKEN_TYPE = IPSEC_TOKEN_TYPE(0i32);
 pub const IPSEC_TOKEN_TYPE_IMPERSONATION: IPSEC_TOKEN_TYPE = IPSEC_TOKEN_TYPE(1i32);
 pub const IPSEC_TOKEN_TYPE_MAX: IPSEC_TOKEN_TYPE = IPSEC_TOKEN_TYPE(2i32);
-impl ::std::convert::From<i32> for IPSEC_TOKEN_TYPE {
+impl ::core::convert::From<i32> for IPSEC_TOKEN_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -13699,7 +13744,7 @@ impl ::std::convert::From<i32> for IPSEC_TOKEN_TYPE {
 unsafe impl ::windows::runtime::Abi for IPSEC_TOKEN_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TRAFFIC0 {
@@ -13711,21 +13756,21 @@ pub struct IPSEC_TRAFFIC0 {
     pub remotePort: u16,
 }
 impl IPSEC_TRAFFIC0 {}
-impl ::std::default::Default for IPSEC_TRAFFIC0 {
+impl ::core::default::Default for IPSEC_TRAFFIC0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TRAFFIC0 {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TRAFFIC0 {}
+impl ::core::cmp::Eq for IPSEC_TRAFFIC0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC0_0 {
@@ -13733,21 +13778,21 @@ pub union IPSEC_TRAFFIC0_0 {
     pub localV6Address: [u8; 16],
 }
 impl IPSEC_TRAFFIC0_0 {}
-impl ::std::default::Default for IPSEC_TRAFFIC0_0 {
+impl ::core::default::Default for IPSEC_TRAFFIC0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TRAFFIC0_0 {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TRAFFIC0_0 {}
+impl ::core::cmp::Eq for IPSEC_TRAFFIC0_0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC0_1 {
@@ -13755,21 +13800,21 @@ pub union IPSEC_TRAFFIC0_1 {
     pub remoteV6Address: [u8; 16],
 }
 impl IPSEC_TRAFFIC0_1 {}
-impl ::std::default::Default for IPSEC_TRAFFIC0_1 {
+impl ::core::default::Default for IPSEC_TRAFFIC0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TRAFFIC0_1 {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TRAFFIC0_1 {}
+impl ::core::cmp::Eq for IPSEC_TRAFFIC0_1 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC0_2 {
@@ -13777,21 +13822,21 @@ pub union IPSEC_TRAFFIC0_2 {
     pub tunnelPolicyId: u64,
 }
 impl IPSEC_TRAFFIC0_2 {}
-impl ::std::default::Default for IPSEC_TRAFFIC0_2 {
+impl ::core::default::Default for IPSEC_TRAFFIC0_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TRAFFIC0_2 {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC0_2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TRAFFIC0_2 {}
+impl ::core::cmp::Eq for IPSEC_TRAFFIC0_2 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC0_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TRAFFIC1 {
@@ -13807,21 +13852,21 @@ pub struct IPSEC_TRAFFIC1 {
     pub realIfProfileId: u32,
 }
 impl IPSEC_TRAFFIC1 {}
-impl ::std::default::Default for IPSEC_TRAFFIC1 {
+impl ::core::default::Default for IPSEC_TRAFFIC1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TRAFFIC1 {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TRAFFIC1 {}
+impl ::core::cmp::Eq for IPSEC_TRAFFIC1 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC1_0 {
@@ -13829,21 +13874,21 @@ pub union IPSEC_TRAFFIC1_0 {
     pub localV6Address: [u8; 16],
 }
 impl IPSEC_TRAFFIC1_0 {}
-impl ::std::default::Default for IPSEC_TRAFFIC1_0 {
+impl ::core::default::Default for IPSEC_TRAFFIC1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TRAFFIC1_0 {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TRAFFIC1_0 {}
+impl ::core::cmp::Eq for IPSEC_TRAFFIC1_0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC1_1 {
@@ -13851,21 +13896,21 @@ pub union IPSEC_TRAFFIC1_1 {
     pub remoteV6Address: [u8; 16],
 }
 impl IPSEC_TRAFFIC1_1 {}
-impl ::std::default::Default for IPSEC_TRAFFIC1_1 {
+impl ::core::default::Default for IPSEC_TRAFFIC1_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TRAFFIC1_1 {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC1_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TRAFFIC1_1 {}
+impl ::core::cmp::Eq for IPSEC_TRAFFIC1_1 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC1_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC1_2 {
@@ -13873,21 +13918,21 @@ pub union IPSEC_TRAFFIC1_2 {
     pub tunnelPolicyId: u64,
 }
 impl IPSEC_TRAFFIC1_2 {}
-impl ::std::default::Default for IPSEC_TRAFFIC1_2 {
+impl ::core::default::Default for IPSEC_TRAFFIC1_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TRAFFIC1_2 {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC1_2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TRAFFIC1_2 {}
+impl ::core::cmp::Eq for IPSEC_TRAFFIC1_2 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC1_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TRAFFIC_SELECTOR0_ {
@@ -13899,21 +13944,21 @@ pub struct IPSEC_TRAFFIC_SELECTOR0_ {
     pub Anonymous2: IPSEC_TRAFFIC_SELECTOR0__1,
 }
 impl IPSEC_TRAFFIC_SELECTOR0_ {}
-impl ::std::default::Default for IPSEC_TRAFFIC_SELECTOR0_ {
+impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR0_ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR0_ {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR0_ {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TRAFFIC_SELECTOR0_ {}
+impl ::core::cmp::Eq for IPSEC_TRAFFIC_SELECTOR0_ {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC_SELECTOR0_ {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC_SELECTOR0__0 {
@@ -13921,21 +13966,21 @@ pub union IPSEC_TRAFFIC_SELECTOR0__0 {
     pub startV6Address: [u8; 16],
 }
 impl IPSEC_TRAFFIC_SELECTOR0__0 {}
-impl ::std::default::Default for IPSEC_TRAFFIC_SELECTOR0__0 {
+impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR0__0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR0__0 {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR0__0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TRAFFIC_SELECTOR0__0 {}
+impl ::core::cmp::Eq for IPSEC_TRAFFIC_SELECTOR0__0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC_SELECTOR0__0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TRAFFIC_SELECTOR0__1 {
@@ -13943,21 +13988,21 @@ pub union IPSEC_TRAFFIC_SELECTOR0__1 {
     pub endV6Address: [u8; 16],
 }
 impl IPSEC_TRAFFIC_SELECTOR0__1 {}
-impl ::std::default::Default for IPSEC_TRAFFIC_SELECTOR0__1 {
+impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR0__1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR0__1 {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR0__1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TRAFFIC_SELECTOR0__1 {}
+impl ::core::cmp::Eq for IPSEC_TRAFFIC_SELECTOR0__1 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC_SELECTOR0__1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
@@ -13968,13 +14013,13 @@ pub struct IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
     pub remoteTrafficSelectors: *mut IPSEC_TRAFFIC_SELECTOR0_,
 }
 impl IPSEC_TRAFFIC_SELECTOR_POLICY0_ {}
-impl ::std::default::Default for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
+impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_TRAFFIC_SELECTOR_POLICY0_")
             .field("flags", &self.flags)
             .field("numLocalTrafficSelectors", &self.numLocalTrafficSelectors)
@@ -13984,16 +14029,16 @@ impl ::std::fmt::Debug for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
     fn eq(&self, other: &Self) -> bool {
         self.flags == other.flags && self.numLocalTrafficSelectors == other.numLocalTrafficSelectors && self.localTrafficSelectors == other.localTrafficSelectors && self.numRemoteTrafficSelectors == other.numRemoteTrafficSelectors && self.remoteTrafficSelectors == other.remoteTrafficSelectors
     }
 }
-impl ::std::cmp::Eq for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {}
+impl ::core::cmp::Eq for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC_SELECTOR_POLICY0_ {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TRAFFIC_STATISTICS0 {
@@ -14005,13 +14050,13 @@ pub struct IPSEC_TRAFFIC_STATISTICS0 {
     pub offloadByteCount: u64,
 }
 impl IPSEC_TRAFFIC_STATISTICS0 {}
-impl ::std::default::Default for IPSEC_TRAFFIC_STATISTICS0 {
+impl ::core::default::Default for IPSEC_TRAFFIC_STATISTICS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_TRAFFIC_STATISTICS0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_TRAFFIC_STATISTICS0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_TRAFFIC_STATISTICS0")
             .field("encryptedByteCount", &self.encryptedByteCount)
             .field("authenticatedAHByteCount", &self.authenticatedAHByteCount)
@@ -14022,16 +14067,16 @@ impl ::std::fmt::Debug for IPSEC_TRAFFIC_STATISTICS0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TRAFFIC_STATISTICS0 {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
         self.encryptedByteCount == other.encryptedByteCount && self.authenticatedAHByteCount == other.authenticatedAHByteCount && self.authenticatedESPByteCount == other.authenticatedESPByteCount && self.transportByteCount == other.transportByteCount && self.tunnelByteCount == other.tunnelByteCount && self.offloadByteCount == other.offloadByteCount
     }
 }
-impl ::std::cmp::Eq for IPSEC_TRAFFIC_STATISTICS0 {}
+impl ::core::cmp::Eq for IPSEC_TRAFFIC_STATISTICS0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC_STATISTICS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TRAFFIC_STATISTICS1 {
@@ -14044,13 +14089,13 @@ pub struct IPSEC_TRAFFIC_STATISTICS1 {
     pub totalSuccessfulPackets: u64,
 }
 impl IPSEC_TRAFFIC_STATISTICS1 {}
-impl ::std::default::Default for IPSEC_TRAFFIC_STATISTICS1 {
+impl ::core::default::Default for IPSEC_TRAFFIC_STATISTICS1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_TRAFFIC_STATISTICS1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_TRAFFIC_STATISTICS1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_TRAFFIC_STATISTICS1")
             .field("encryptedByteCount", &self.encryptedByteCount)
             .field("authenticatedAHByteCount", &self.authenticatedAHByteCount)
@@ -14062,23 +14107,23 @@ impl ::std::fmt::Debug for IPSEC_TRAFFIC_STATISTICS1 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TRAFFIC_STATISTICS1 {
+impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
         self.encryptedByteCount == other.encryptedByteCount && self.authenticatedAHByteCount == other.authenticatedAHByteCount && self.authenticatedESPByteCount == other.authenticatedESPByteCount && self.transportByteCount == other.transportByteCount && self.tunnelByteCount == other.tunnelByteCount && self.offloadByteCount == other.offloadByteCount && self.totalSuccessfulPackets == other.totalSuccessfulPackets
     }
 }
-impl ::std::cmp::Eq for IPSEC_TRAFFIC_STATISTICS1 {}
+impl ::core::cmp::Eq for IPSEC_TRAFFIC_STATISTICS1 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC_STATISTICS1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_TRAFFIC_TYPE(pub i32);
 pub const IPSEC_TRAFFIC_TYPE_TRANSPORT: IPSEC_TRAFFIC_TYPE = IPSEC_TRAFFIC_TYPE(0i32);
 pub const IPSEC_TRAFFIC_TYPE_TUNNEL: IPSEC_TRAFFIC_TYPE = IPSEC_TRAFFIC_TYPE(1i32);
 pub const IPSEC_TRAFFIC_TYPE_MAX: IPSEC_TRAFFIC_TYPE = IPSEC_TRAFFIC_TYPE(2i32);
-impl ::std::convert::From<i32> for IPSEC_TRAFFIC_TYPE {
+impl ::core::convert::From<i32> for IPSEC_TRAFFIC_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -14087,7 +14132,7 @@ unsafe impl ::windows::runtime::Abi for IPSEC_TRAFFIC_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPSEC_TRANSFORM_TYPE(pub i32);
 pub const IPSEC_TRANSFORM_AH: IPSEC_TRANSFORM_TYPE = IPSEC_TRANSFORM_TYPE(1i32);
@@ -14096,7 +14141,7 @@ pub const IPSEC_TRANSFORM_ESP_CIPHER: IPSEC_TRANSFORM_TYPE = IPSEC_TRANSFORM_TYP
 pub const IPSEC_TRANSFORM_ESP_AUTH_AND_CIPHER: IPSEC_TRANSFORM_TYPE = IPSEC_TRANSFORM_TYPE(4i32);
 pub const IPSEC_TRANSFORM_ESP_AUTH_FW: IPSEC_TRANSFORM_TYPE = IPSEC_TRANSFORM_TYPE(5i32);
 pub const IPSEC_TRANSFORM_TYPE_MAX: IPSEC_TRANSFORM_TYPE = IPSEC_TRANSFORM_TYPE(6i32);
-impl ::std::convert::From<i32> for IPSEC_TRANSFORM_TYPE {
+impl ::core::convert::From<i32> for IPSEC_TRANSFORM_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -14104,7 +14149,7 @@ impl ::std::convert::From<i32> for IPSEC_TRANSFORM_TYPE {
 unsafe impl ::windows::runtime::Abi for IPSEC_TRANSFORM_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -14119,14 +14164,14 @@ pub struct IPSEC_TRANSPORT_POLICY0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_TRANSPORT_POLICY0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_TRANSPORT_POLICY0 {
+impl ::core::default::Default for IPSEC_TRANSPORT_POLICY0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IPSEC_TRANSPORT_POLICY0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_TRANSPORT_POLICY0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_TRANSPORT_POLICY0")
             .field("numIpsecProposals", &self.numIpsecProposals)
             .field("ipsecProposals", &self.ipsecProposals)
@@ -14138,18 +14183,18 @@ impl ::std::fmt::Debug for IPSEC_TRANSPORT_POLICY0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_TRANSPORT_POLICY0 {
+impl ::core::cmp::PartialEq for IPSEC_TRANSPORT_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
         self.numIpsecProposals == other.numIpsecProposals && self.ipsecProposals == other.ipsecProposals && self.flags == other.flags && self.ndAllowClearTimeoutSeconds == other.ndAllowClearTimeoutSeconds && self.saIdleTimeout == other.saIdleTimeout && self.emPolicy == other.emPolicy
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_TRANSPORT_POLICY0 {}
+impl ::core::cmp::Eq for IPSEC_TRANSPORT_POLICY0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_TRANSPORT_POLICY0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -14164,14 +14209,14 @@ pub struct IPSEC_TRANSPORT_POLICY1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_TRANSPORT_POLICY1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_TRANSPORT_POLICY1 {
+impl ::core::default::Default for IPSEC_TRANSPORT_POLICY1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IPSEC_TRANSPORT_POLICY1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_TRANSPORT_POLICY1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_TRANSPORT_POLICY1")
             .field("numIpsecProposals", &self.numIpsecProposals)
             .field("ipsecProposals", &self.ipsecProposals)
@@ -14183,18 +14228,18 @@ impl ::std::fmt::Debug for IPSEC_TRANSPORT_POLICY1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_TRANSPORT_POLICY1 {
+impl ::core::cmp::PartialEq for IPSEC_TRANSPORT_POLICY1 {
     fn eq(&self, other: &Self) -> bool {
         self.numIpsecProposals == other.numIpsecProposals && self.ipsecProposals == other.ipsecProposals && self.flags == other.flags && self.ndAllowClearTimeoutSeconds == other.ndAllowClearTimeoutSeconds && self.saIdleTimeout == other.saIdleTimeout && self.emPolicy == other.emPolicy
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_TRANSPORT_POLICY1 {}
+impl ::core::cmp::Eq for IPSEC_TRANSPORT_POLICY1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_TRANSPORT_POLICY1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -14209,14 +14254,14 @@ pub struct IPSEC_TRANSPORT_POLICY2 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_TRANSPORT_POLICY2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_TRANSPORT_POLICY2 {
+impl ::core::default::Default for IPSEC_TRANSPORT_POLICY2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IPSEC_TRANSPORT_POLICY2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_TRANSPORT_POLICY2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_TRANSPORT_POLICY2")
             .field("numIpsecProposals", &self.numIpsecProposals)
             .field("ipsecProposals", &self.ipsecProposals)
@@ -14228,18 +14273,18 @@ impl ::std::fmt::Debug for IPSEC_TRANSPORT_POLICY2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_TRANSPORT_POLICY2 {
+impl ::core::cmp::PartialEq for IPSEC_TRANSPORT_POLICY2 {
     fn eq(&self, other: &Self) -> bool {
         self.numIpsecProposals == other.numIpsecProposals && self.ipsecProposals == other.ipsecProposals && self.flags == other.flags && self.ndAllowClearTimeoutSeconds == other.ndAllowClearTimeoutSeconds && self.saIdleTimeout == other.saIdleTimeout && self.emPolicy == other.emPolicy
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_TRANSPORT_POLICY2 {}
+impl ::core::cmp::Eq for IPSEC_TRANSPORT_POLICY2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_TRANSPORT_POLICY2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TUNNEL_ENDPOINT0 {
@@ -14247,21 +14292,21 @@ pub struct IPSEC_TUNNEL_ENDPOINT0 {
     pub Anonymous: IPSEC_TUNNEL_ENDPOINT0_0,
 }
 impl IPSEC_TUNNEL_ENDPOINT0 {}
-impl ::std::default::Default for IPSEC_TUNNEL_ENDPOINT0 {
+impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINT0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINT0 {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINT0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TUNNEL_ENDPOINT0 {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_ENDPOINT0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_ENDPOINT0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TUNNEL_ENDPOINT0_0 {
@@ -14269,21 +14314,21 @@ pub union IPSEC_TUNNEL_ENDPOINT0_0 {
     pub v6Address: [u8; 16],
 }
 impl IPSEC_TUNNEL_ENDPOINT0_0 {}
-impl ::std::default::Default for IPSEC_TUNNEL_ENDPOINT0_0 {
+impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINT0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINT0_0 {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINT0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TUNNEL_ENDPOINT0_0 {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_ENDPOINT0_0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_ENDPOINT0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TUNNEL_ENDPOINTS0 {
@@ -14292,21 +14337,21 @@ pub struct IPSEC_TUNNEL_ENDPOINTS0 {
     pub Anonymous2: IPSEC_TUNNEL_ENDPOINTS0_1,
 }
 impl IPSEC_TUNNEL_ENDPOINTS0 {}
-impl ::std::default::Default for IPSEC_TUNNEL_ENDPOINTS0 {
+impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS0 {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS0 {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_ENDPOINTS0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TUNNEL_ENDPOINTS0_0 {
@@ -14314,21 +14359,21 @@ pub union IPSEC_TUNNEL_ENDPOINTS0_0 {
     pub localV6Address: [u8; 16],
 }
 impl IPSEC_TUNNEL_ENDPOINTS0_0 {}
-impl ::std::default::Default for IPSEC_TUNNEL_ENDPOINTS0_0 {
+impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS0_0 {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS0_0 {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS0_0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_ENDPOINTS0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TUNNEL_ENDPOINTS0_1 {
@@ -14336,21 +14381,21 @@ pub union IPSEC_TUNNEL_ENDPOINTS0_1 {
     pub remoteV6Address: [u8; 16],
 }
 impl IPSEC_TUNNEL_ENDPOINTS0_1 {}
-impl ::std::default::Default for IPSEC_TUNNEL_ENDPOINTS0_1 {
+impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS0_1 {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS0_1 {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS0_1 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_ENDPOINTS0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_TUNNEL_ENDPOINTS1 {
@@ -14360,21 +14405,21 @@ pub struct IPSEC_TUNNEL_ENDPOINTS1 {
     pub localIfLuid: u64,
 }
 impl IPSEC_TUNNEL_ENDPOINTS1 {}
-impl ::std::default::Default for IPSEC_TUNNEL_ENDPOINTS1 {
+impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS1 {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS1 {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS1 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_ENDPOINTS1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TUNNEL_ENDPOINTS1_0 {
@@ -14382,21 +14427,21 @@ pub union IPSEC_TUNNEL_ENDPOINTS1_0 {
     pub localV6Address: [u8; 16],
 }
 impl IPSEC_TUNNEL_ENDPOINTS1_0 {}
-impl ::std::default::Default for IPSEC_TUNNEL_ENDPOINTS1_0 {
+impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS1_0 {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS1_0 {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS1_0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_ENDPOINTS1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPSEC_TUNNEL_ENDPOINTS1_1 {
@@ -14404,21 +14449,21 @@ pub union IPSEC_TUNNEL_ENDPOINTS1_1 {
     pub remoteV6Address: [u8; 16],
 }
 impl IPSEC_TUNNEL_ENDPOINTS1_1 {}
-impl ::std::default::Default for IPSEC_TUNNEL_ENDPOINTS1_1 {
+impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS1_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS1_1 {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS1_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS1_1 {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS1_1 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_ENDPOINTS1_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -14434,24 +14479,24 @@ pub struct IPSEC_TUNNEL_ENDPOINTS2 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_TUNNEL_ENDPOINTS2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_TUNNEL_ENDPOINTS2 {
+impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS2 {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS2 {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_ENDPOINTS2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IPSEC_TUNNEL_ENDPOINTS2_0 {
@@ -14461,24 +14506,24 @@ pub union IPSEC_TUNNEL_ENDPOINTS2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_TUNNEL_ENDPOINTS2_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_TUNNEL_ENDPOINTS2_0 {
+impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS2_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS2_0 {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS2_0 {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_ENDPOINTS2_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union IPSEC_TUNNEL_ENDPOINTS2_1 {
@@ -14488,24 +14533,24 @@ pub union IPSEC_TUNNEL_ENDPOINTS2_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_TUNNEL_ENDPOINTS2_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_TUNNEL_ENDPOINTS2_1 {
+impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS2_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS2_1 {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS2_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS2_1 {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS2_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_ENDPOINTS2_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -14520,24 +14565,24 @@ pub struct IPSEC_TUNNEL_POLICY0 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_TUNNEL_POLICY0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_TUNNEL_POLICY0 {
+impl ::core::default::Default for IPSEC_TUNNEL_POLICY0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_POLICY0 {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_POLICY0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_TUNNEL_POLICY0 {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_POLICY0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_POLICY0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -14552,24 +14597,24 @@ pub struct IPSEC_TUNNEL_POLICY1 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_TUNNEL_POLICY1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_TUNNEL_POLICY1 {
+impl ::core::default::Default for IPSEC_TUNNEL_POLICY1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_POLICY1 {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_POLICY1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_TUNNEL_POLICY1 {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_POLICY1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_POLICY1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -14585,24 +14630,24 @@ pub struct IPSEC_TUNNEL_POLICY2 {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_TUNNEL_POLICY2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_TUNNEL_POLICY2 {
+impl ::core::default::Default for IPSEC_TUNNEL_POLICY2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_POLICY2 {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_POLICY2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_TUNNEL_POLICY2 {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_POLICY2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_POLICY2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -14621,24 +14666,24 @@ pub struct IPSEC_TUNNEL_POLICY3_ {
 #[cfg(feature = "Win32_Foundation")]
 impl IPSEC_TUNNEL_POLICY3_ {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IPSEC_TUNNEL_POLICY3_ {
+impl ::core::default::Default for IPSEC_TUNNEL_POLICY3_ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IPSEC_TUNNEL_POLICY3_ {
+impl ::core::cmp::PartialEq for IPSEC_TUNNEL_POLICY3_ {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IPSEC_TUNNEL_POLICY3_ {}
+impl ::core::cmp::Eq for IPSEC_TUNNEL_POLICY3_ {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_POLICY3_ {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_V4_UDP_ENCAPSULATION0 {
@@ -14646,26 +14691,26 @@ pub struct IPSEC_V4_UDP_ENCAPSULATION0 {
     pub remoteUdpEncapPort: u16,
 }
 impl IPSEC_V4_UDP_ENCAPSULATION0 {}
-impl ::std::default::Default for IPSEC_V4_UDP_ENCAPSULATION0 {
+impl ::core::default::Default for IPSEC_V4_UDP_ENCAPSULATION0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_V4_UDP_ENCAPSULATION0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_V4_UDP_ENCAPSULATION0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_V4_UDP_ENCAPSULATION0").field("localUdpEncapPort", &self.localUdpEncapPort).field("remoteUdpEncapPort", &self.remoteUdpEncapPort).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_V4_UDP_ENCAPSULATION0 {
+impl ::core::cmp::PartialEq for IPSEC_V4_UDP_ENCAPSULATION0 {
     fn eq(&self, other: &Self) -> bool {
         self.localUdpEncapPort == other.localUdpEncapPort && self.remoteUdpEncapPort == other.remoteUdpEncapPort
     }
 }
-impl ::std::cmp::Eq for IPSEC_V4_UDP_ENCAPSULATION0 {}
+impl ::core::cmp::Eq for IPSEC_V4_UDP_ENCAPSULATION0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_V4_UDP_ENCAPSULATION0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
@@ -14673,47 +14718,47 @@ pub struct IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
     pub trafficSelectorId: u64,
 }
 impl IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {}
-impl ::std::default::Default for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
+impl ::core::default::Default for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPSEC_VIRTUAL_IF_TUNNEL_INFO0").field("virtualIfTunnelId", &self.virtualIfTunnelId).field("trafficSelectorId", &self.trafficSelectorId).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
+impl ::core::cmp::PartialEq for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
     fn eq(&self, other: &Self) -> bool {
         self.virtualIfTunnelId == other.virtualIfTunnelId && self.trafficSelectorId == other.trafficSelectorId
     }
 }
-impl ::std::cmp::Eq for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {}
+impl ::core::cmp::Eq for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPTLS_METADATA {
     pub SequenceNumber: u64,
 }
 impl IPTLS_METADATA {}
-impl ::std::default::Default for IPTLS_METADATA {
+impl ::core::default::Default for IPTLS_METADATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPTLS_METADATA {
+impl ::core::cmp::PartialEq for IPTLS_METADATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPTLS_METADATA {}
+impl ::core::cmp::Eq for IPTLS_METADATA {}
 unsafe impl ::windows::runtime::Abi for IPTLS_METADATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -14732,24 +14777,24 @@ pub struct IPV4_HEADER {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV4_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IPV4_HEADER {
+impl ::core::default::Default for IPV4_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IPV4_HEADER {
+impl ::core::cmp::PartialEq for IPV4_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IPV4_HEADER {}
+impl ::core::cmp::Eq for IPV4_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV4_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union IPV4_HEADER_0 {
@@ -14759,24 +14804,24 @@ pub union IPV4_HEADER_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV4_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IPV4_HEADER_0 {
+impl ::core::default::Default for IPV4_HEADER_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IPV4_HEADER_0 {
+impl ::core::cmp::PartialEq for IPV4_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IPV4_HEADER_0 {}
+impl ::core::cmp::Eq for IPV4_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV4_HEADER_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IPV4_HEADER_0_0 {
@@ -14785,30 +14830,30 @@ pub struct IPV4_HEADER_0_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV4_HEADER_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IPV4_HEADER_0_0 {
+impl ::core::default::Default for IPV4_HEADER_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::fmt::Debug for IPV4_HEADER_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPV4_HEADER_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IPV4_HEADER_0_0 {
+impl ::core::cmp::PartialEq for IPV4_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IPV4_HEADER_0_0 {}
+impl ::core::cmp::Eq for IPV4_HEADER_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV4_HEADER_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union IPV4_HEADER_1 {
@@ -14818,24 +14863,24 @@ pub union IPV4_HEADER_1 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV4_HEADER_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IPV4_HEADER_1 {
+impl ::core::default::Default for IPV4_HEADER_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IPV4_HEADER_1 {
+impl ::core::cmp::PartialEq for IPV4_HEADER_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IPV4_HEADER_1 {}
+impl ::core::cmp::Eq for IPV4_HEADER_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV4_HEADER_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IPV4_HEADER_1_0 {
@@ -14844,30 +14889,30 @@ pub struct IPV4_HEADER_1_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV4_HEADER_1_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IPV4_HEADER_1_0 {
+impl ::core::default::Default for IPV4_HEADER_1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::fmt::Debug for IPV4_HEADER_1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPV4_HEADER_1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IPV4_HEADER_1_0 {
+impl ::core::cmp::PartialEq for IPV4_HEADER_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IPV4_HEADER_1_0 {}
+impl ::core::cmp::Eq for IPV4_HEADER_1_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV4_HEADER_1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union IPV4_HEADER_2 {
@@ -14877,24 +14922,24 @@ pub union IPV4_HEADER_2 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV4_HEADER_2 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IPV4_HEADER_2 {
+impl ::core::default::Default for IPV4_HEADER_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IPV4_HEADER_2 {
+impl ::core::cmp::PartialEq for IPV4_HEADER_2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IPV4_HEADER_2 {}
+impl ::core::cmp::Eq for IPV4_HEADER_2 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV4_HEADER_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IPV4_HEADER_2_0 {
@@ -14903,25 +14948,25 @@ pub struct IPV4_HEADER_2_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV4_HEADER_2_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IPV4_HEADER_2_0 {
+impl ::core::default::Default for IPV4_HEADER_2_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::fmt::Debug for IPV4_HEADER_2_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPV4_HEADER_2_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IPV4_HEADER_2_0 {
+impl ::core::cmp::PartialEq for IPV4_HEADER_2_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IPV4_HEADER_2_0 {}
+impl ::core::cmp::Eq for IPV4_HEADER_2_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV4_HEADER_2_0 {
     type Abi = Self;
@@ -14932,7 +14977,7 @@ pub const IPV4_MAX_MINIMUM_MTU: u32 = 576u32;
 pub const IPV4_MINIMUM_MTU: u32 = 576u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV4_MIN_MINIMUM_MTU: u32 = 352u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV4_OPTION_HEADER {
@@ -14940,21 +14985,21 @@ pub struct IPV4_OPTION_HEADER {
     pub OptionLength: u8,
 }
 impl IPV4_OPTION_HEADER {}
-impl ::std::default::Default for IPV4_OPTION_HEADER {
+impl ::core::default::Default for IPV4_OPTION_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPV4_OPTION_HEADER {
+impl ::core::cmp::PartialEq for IPV4_OPTION_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPV4_OPTION_HEADER {}
+impl ::core::cmp::Eq for IPV4_OPTION_HEADER {}
 unsafe impl ::windows::runtime::Abi for IPV4_OPTION_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPV4_OPTION_HEADER_0 {
@@ -14962,48 +15007,48 @@ pub union IPV4_OPTION_HEADER_0 {
     pub Anonymous: IPV4_OPTION_HEADER_0_0,
 }
 impl IPV4_OPTION_HEADER_0 {}
-impl ::std::default::Default for IPV4_OPTION_HEADER_0 {
+impl ::core::default::Default for IPV4_OPTION_HEADER_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPV4_OPTION_HEADER_0 {
+impl ::core::cmp::PartialEq for IPV4_OPTION_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPV4_OPTION_HEADER_0 {}
+impl ::core::cmp::Eq for IPV4_OPTION_HEADER_0 {}
 unsafe impl ::windows::runtime::Abi for IPV4_OPTION_HEADER_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV4_OPTION_HEADER_0_0 {
     pub _bitfield: u8,
 }
 impl IPV4_OPTION_HEADER_0_0 {}
-impl ::std::default::Default for IPV4_OPTION_HEADER_0_0 {
+impl ::core::default::Default for IPV4_OPTION_HEADER_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPV4_OPTION_HEADER_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPV4_OPTION_HEADER_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPV4_OPTION_HEADER_0_0 {
+impl ::core::cmp::PartialEq for IPV4_OPTION_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::std::cmp::Eq for IPV4_OPTION_HEADER_0_0 {}
+impl ::core::cmp::Eq for IPV4_OPTION_HEADER_0_0 {}
 unsafe impl ::windows::runtime::Abi for IPV4_OPTION_HEADER_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPV4_OPTION_TYPE(pub i32);
 pub const IP_OPT_EOL: IPV4_OPTION_TYPE = IPV4_OPTION_TYPE(0i32);
@@ -15016,7 +15061,7 @@ pub const IP_OPT_SSRR: IPV4_OPTION_TYPE = IPV4_OPTION_TYPE(137i32);
 pub const IP_OPT_SID: IPV4_OPTION_TYPE = IPV4_OPTION_TYPE(136i32);
 pub const IP_OPT_ROUTER_ALERT: IPV4_OPTION_TYPE = IPV4_OPTION_TYPE(148i32);
 pub const IP_OPT_MULTIDEST: IPV4_OPTION_TYPE = IPV4_OPTION_TYPE(149i32);
-impl ::std::convert::From<i32> for IPV4_OPTION_TYPE {
+impl ::core::convert::From<i32> for IPV4_OPTION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -15024,7 +15069,7 @@ impl ::std::convert::From<i32> for IPV4_OPTION_TYPE {
 unsafe impl ::windows::runtime::Abi for IPV4_OPTION_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV4_ROUTING_HEADER {
@@ -15032,21 +15077,21 @@ pub struct IPV4_ROUTING_HEADER {
     pub Pointer: u8,
 }
 impl IPV4_ROUTING_HEADER {}
-impl ::std::default::Default for IPV4_ROUTING_HEADER {
+impl ::core::default::Default for IPV4_ROUTING_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPV4_ROUTING_HEADER {
+impl ::core::cmp::PartialEq for IPV4_ROUTING_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPV4_ROUTING_HEADER {}
+impl ::core::cmp::Eq for IPV4_ROUTING_HEADER {}
 unsafe impl ::windows::runtime::Abi for IPV4_ROUTING_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV4_TIMESTAMP_OPTION {
@@ -15055,21 +15100,21 @@ pub struct IPV4_TIMESTAMP_OPTION {
     pub Anonymous: IPV4_TIMESTAMP_OPTION_0,
 }
 impl IPV4_TIMESTAMP_OPTION {}
-impl ::std::default::Default for IPV4_TIMESTAMP_OPTION {
+impl ::core::default::Default for IPV4_TIMESTAMP_OPTION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPV4_TIMESTAMP_OPTION {
+impl ::core::cmp::PartialEq for IPV4_TIMESTAMP_OPTION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPV4_TIMESTAMP_OPTION {}
+impl ::core::cmp::Eq for IPV4_TIMESTAMP_OPTION {}
 unsafe impl ::windows::runtime::Abi for IPV4_TIMESTAMP_OPTION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPV4_TIMESTAMP_OPTION_0 {
@@ -15077,43 +15122,43 @@ pub union IPV4_TIMESTAMP_OPTION_0 {
     pub Anonymous: IPV4_TIMESTAMP_OPTION_0_0,
 }
 impl IPV4_TIMESTAMP_OPTION_0 {}
-impl ::std::default::Default for IPV4_TIMESTAMP_OPTION_0 {
+impl ::core::default::Default for IPV4_TIMESTAMP_OPTION_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPV4_TIMESTAMP_OPTION_0 {
+impl ::core::cmp::PartialEq for IPV4_TIMESTAMP_OPTION_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPV4_TIMESTAMP_OPTION_0 {}
+impl ::core::cmp::Eq for IPV4_TIMESTAMP_OPTION_0 {}
 unsafe impl ::windows::runtime::Abi for IPV4_TIMESTAMP_OPTION_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV4_TIMESTAMP_OPTION_0_0 {
     pub _bitfield: u8,
 }
 impl IPV4_TIMESTAMP_OPTION_0_0 {}
-impl ::std::default::Default for IPV4_TIMESTAMP_OPTION_0_0 {
+impl ::core::default::Default for IPV4_TIMESTAMP_OPTION_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPV4_TIMESTAMP_OPTION_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPV4_TIMESTAMP_OPTION_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPV4_TIMESTAMP_OPTION_0_0 {
+impl ::core::cmp::PartialEq for IPV4_TIMESTAMP_OPTION_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::std::cmp::Eq for IPV4_TIMESTAMP_OPTION_0_0 {}
+impl ::core::cmp::Eq for IPV4_TIMESTAMP_OPTION_0_0 {}
 unsafe impl ::windows::runtime::Abi for IPV4_TIMESTAMP_OPTION_0_0 {
     type Abi = Self;
 }
@@ -15123,7 +15168,7 @@ pub const IPV4_VERSION: u32 = 4u32;
 pub const IPV6_ECN_MASK: u32 = 12288u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_ECN_SHIFT: u32 = 12u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_EXTENSION_HEADER {
@@ -15131,28 +15176,28 @@ pub struct IPV6_EXTENSION_HEADER {
     pub Length: u8,
 }
 impl IPV6_EXTENSION_HEADER {}
-impl ::std::default::Default for IPV6_EXTENSION_HEADER {
+impl ::core::default::Default for IPV6_EXTENSION_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPV6_EXTENSION_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPV6_EXTENSION_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPV6_EXTENSION_HEADER").field("NextHeader", &self.NextHeader).field("Length", &self.Length).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPV6_EXTENSION_HEADER {
+impl ::core::cmp::PartialEq for IPV6_EXTENSION_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.NextHeader == other.NextHeader && self.Length == other.Length
     }
 }
-impl ::std::cmp::Eq for IPV6_EXTENSION_HEADER {}
+impl ::core::cmp::Eq for IPV6_EXTENSION_HEADER {}
 unsafe impl ::windows::runtime::Abi for IPV6_EXTENSION_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_FLOW_LABEL_MASK: u32 = 4294905600u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_FRAGMENT_HEADER {
@@ -15162,21 +15207,21 @@ pub struct IPV6_FRAGMENT_HEADER {
     pub Id: u32,
 }
 impl IPV6_FRAGMENT_HEADER {}
-impl ::std::default::Default for IPV6_FRAGMENT_HEADER {
+impl ::core::default::Default for IPV6_FRAGMENT_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPV6_FRAGMENT_HEADER {
+impl ::core::cmp::PartialEq for IPV6_FRAGMENT_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPV6_FRAGMENT_HEADER {}
+impl ::core::cmp::Eq for IPV6_FRAGMENT_HEADER {}
 unsafe impl ::windows::runtime::Abi for IPV6_FRAGMENT_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPV6_FRAGMENT_HEADER_0 {
@@ -15184,49 +15229,49 @@ pub union IPV6_FRAGMENT_HEADER_0 {
     pub OffsetAndFlags: u16,
 }
 impl IPV6_FRAGMENT_HEADER_0 {}
-impl ::std::default::Default for IPV6_FRAGMENT_HEADER_0 {
+impl ::core::default::Default for IPV6_FRAGMENT_HEADER_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPV6_FRAGMENT_HEADER_0 {
+impl ::core::cmp::PartialEq for IPV6_FRAGMENT_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPV6_FRAGMENT_HEADER_0 {}
+impl ::core::cmp::Eq for IPV6_FRAGMENT_HEADER_0 {}
 unsafe impl ::windows::runtime::Abi for IPV6_FRAGMENT_HEADER_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_FRAGMENT_HEADER_0_0 {
     pub _bitfield: u16,
 }
 impl IPV6_FRAGMENT_HEADER_0_0 {}
-impl ::std::default::Default for IPV6_FRAGMENT_HEADER_0_0 {
+impl ::core::default::Default for IPV6_FRAGMENT_HEADER_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPV6_FRAGMENT_HEADER_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPV6_FRAGMENT_HEADER_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPV6_FRAGMENT_HEADER_0_0 {
+impl ::core::cmp::PartialEq for IPV6_FRAGMENT_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::std::cmp::Eq for IPV6_FRAGMENT_HEADER_0_0 {}
+impl ::core::cmp::Eq for IPV6_FRAGMENT_HEADER_0_0 {}
 unsafe impl ::windows::runtime::Abi for IPV6_FRAGMENT_HEADER_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_FULL_TRAFFIC_CLASS_MASK: u32 = 61455u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -15241,24 +15286,24 @@ pub struct IPV6_HEADER {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV6_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IPV6_HEADER {
+impl ::core::default::Default for IPV6_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IPV6_HEADER {
+impl ::core::cmp::PartialEq for IPV6_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IPV6_HEADER {}
+impl ::core::cmp::Eq for IPV6_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV6_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union IPV6_HEADER_0 {
@@ -15268,24 +15313,24 @@ pub union IPV6_HEADER_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV6_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IPV6_HEADER_0 {
+impl ::core::default::Default for IPV6_HEADER_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IPV6_HEADER_0 {
+impl ::core::cmp::PartialEq for IPV6_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IPV6_HEADER_0 {}
+impl ::core::cmp::Eq for IPV6_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV6_HEADER_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IPV6_HEADER_0_0 {
@@ -15294,32 +15339,32 @@ pub struct IPV6_HEADER_0_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV6_HEADER_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for IPV6_HEADER_0_0 {
+impl ::core::default::Default for IPV6_HEADER_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::fmt::Debug for IPV6_HEADER_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPV6_HEADER_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for IPV6_HEADER_0_0 {
+impl ::core::cmp::PartialEq for IPV6_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for IPV6_HEADER_0_0 {}
+impl ::core::cmp::Eq for IPV6_HEADER_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV6_HEADER_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_MINIMUM_MTU: u32 = 1280u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {
@@ -15327,21 +15372,21 @@ pub union IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {
     pub Value: u32,
 }
 impl IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {}
-impl ::std::default::Default for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {
+impl ::core::default::Default for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {
+impl ::core::cmp::PartialEq for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {}
+impl ::core::cmp::Eq for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {}
 unsafe impl ::windows::runtime::Abi for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
@@ -15349,26 +15394,26 @@ pub struct IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
     pub Reserved2: [u8; 3],
 }
 impl IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {}
-impl ::std::default::Default for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
+impl ::core::default::Default for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).field("Reserved2", &self.Reserved2).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
+impl ::core::cmp::PartialEq for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield && self.Reserved2 == other.Reserved2
     }
 }
-impl ::std::cmp::Eq for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {}
+impl ::core::cmp::Eq for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {}
 unsafe impl ::windows::runtime::Abi for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_OPTION_HEADER {
@@ -15376,26 +15421,26 @@ pub struct IPV6_OPTION_HEADER {
     pub DataLength: u8,
 }
 impl IPV6_OPTION_HEADER {}
-impl ::std::default::Default for IPV6_OPTION_HEADER {
+impl ::core::default::Default for IPV6_OPTION_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPV6_OPTION_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPV6_OPTION_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPV6_OPTION_HEADER").field("Type", &self.Type).field("DataLength", &self.DataLength).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPV6_OPTION_HEADER {
+impl ::core::cmp::PartialEq for IPV6_OPTION_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.DataLength == other.DataLength
     }
 }
-impl ::std::cmp::Eq for IPV6_OPTION_HEADER {}
+impl ::core::cmp::Eq for IPV6_OPTION_HEADER {}
 unsafe impl ::windows::runtime::Abi for IPV6_OPTION_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_OPTION_JUMBOGRAM {
@@ -15403,26 +15448,26 @@ pub struct IPV6_OPTION_JUMBOGRAM {
     pub JumbogramLength: [u8; 4],
 }
 impl IPV6_OPTION_JUMBOGRAM {}
-impl ::std::default::Default for IPV6_OPTION_JUMBOGRAM {
+impl ::core::default::Default for IPV6_OPTION_JUMBOGRAM {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPV6_OPTION_JUMBOGRAM {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPV6_OPTION_JUMBOGRAM {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPV6_OPTION_JUMBOGRAM").field("Header", &self.Header).field("JumbogramLength", &self.JumbogramLength).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPV6_OPTION_JUMBOGRAM {
+impl ::core::cmp::PartialEq for IPV6_OPTION_JUMBOGRAM {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.JumbogramLength == other.JumbogramLength
     }
 }
-impl ::std::cmp::Eq for IPV6_OPTION_JUMBOGRAM {}
+impl ::core::cmp::Eq for IPV6_OPTION_JUMBOGRAM {}
 unsafe impl ::windows::runtime::Abi for IPV6_OPTION_JUMBOGRAM {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_OPTION_ROUTER_ALERT {
@@ -15430,27 +15475,27 @@ pub struct IPV6_OPTION_ROUTER_ALERT {
     pub Value: [u8; 2],
 }
 impl IPV6_OPTION_ROUTER_ALERT {}
-impl ::std::default::Default for IPV6_OPTION_ROUTER_ALERT {
+impl ::core::default::Default for IPV6_OPTION_ROUTER_ALERT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPV6_OPTION_ROUTER_ALERT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPV6_OPTION_ROUTER_ALERT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPV6_OPTION_ROUTER_ALERT").field("Header", &self.Header).field("Value", &self.Value).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPV6_OPTION_ROUTER_ALERT {
+impl ::core::cmp::PartialEq for IPV6_OPTION_ROUTER_ALERT {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header && self.Value == other.Value
     }
 }
-impl ::std::cmp::Eq for IPV6_OPTION_ROUTER_ALERT {}
+impl ::core::cmp::Eq for IPV6_OPTION_ROUTER_ALERT {}
 unsafe impl ::windows::runtime::Abi for IPV6_OPTION_ROUTER_ALERT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPV6_OPTION_TYPE(pub i32);
 pub const IP6OPT_PAD1: IPV6_OPTION_TYPE = IPV6_OPTION_TYPE(0i32);
@@ -15459,7 +15504,7 @@ pub const IP6OPT_TUNNEL_LIMIT: IPV6_OPTION_TYPE = IPV6_OPTION_TYPE(4i32);
 pub const IP6OPT_ROUTER_ALERT: IPV6_OPTION_TYPE = IPV6_OPTION_TYPE(5i32);
 pub const IP6OPT_JUMBO: IPV6_OPTION_TYPE = IPV6_OPTION_TYPE(194i32);
 pub const IP6OPT_NSAP_ADDR: IPV6_OPTION_TYPE = IPV6_OPTION_TYPE(195i32);
-impl ::std::convert::From<i32> for IPV6_OPTION_TYPE {
+impl ::core::convert::From<i32> for IPV6_OPTION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -15467,7 +15512,7 @@ impl ::std::convert::From<i32> for IPV6_OPTION_TYPE {
 unsafe impl ::windows::runtime::Abi for IPV6_OPTION_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union IPV6_ROUTER_ADVERTISEMENT_FLAGS {
@@ -15475,47 +15520,47 @@ pub union IPV6_ROUTER_ADVERTISEMENT_FLAGS {
     pub Value: u8,
 }
 impl IPV6_ROUTER_ADVERTISEMENT_FLAGS {}
-impl ::std::default::Default for IPV6_ROUTER_ADVERTISEMENT_FLAGS {
+impl ::core::default::Default for IPV6_ROUTER_ADVERTISEMENT_FLAGS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IPV6_ROUTER_ADVERTISEMENT_FLAGS {
+impl ::core::cmp::PartialEq for IPV6_ROUTER_ADVERTISEMENT_FLAGS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IPV6_ROUTER_ADVERTISEMENT_FLAGS {}
+impl ::core::cmp::Eq for IPV6_ROUTER_ADVERTISEMENT_FLAGS {}
 unsafe impl ::windows::runtime::Abi for IPV6_ROUTER_ADVERTISEMENT_FLAGS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {
     pub _bitfield: u8,
 }
 impl IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {}
-impl ::std::default::Default for IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {
+impl ::core::default::Default for IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {
+impl ::core::cmp::PartialEq for IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::std::cmp::Eq for IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {}
+impl ::core::cmp::Eq for IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {}
 unsafe impl ::windows::runtime::Abi for IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct IPV6_ROUTING_HEADER {
@@ -15526,22 +15571,22 @@ pub struct IPV6_ROUTING_HEADER {
     pub Reserved: [u8; 4],
 }
 impl IPV6_ROUTING_HEADER {}
-impl ::std::default::Default for IPV6_ROUTING_HEADER {
+impl ::core::default::Default for IPV6_ROUTING_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPV6_ROUTING_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPV6_ROUTING_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPV6_ROUTING_HEADER").field("NextHeader", &self.NextHeader).field("Length", &self.Length).field("RoutingType", &self.RoutingType).field("SegmentsLeft", &self.SegmentsLeft).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPV6_ROUTING_HEADER {
+impl ::core::cmp::PartialEq for IPV6_ROUTING_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.NextHeader == other.NextHeader && self.Length == other.Length && self.RoutingType == other.RoutingType && self.SegmentsLeft == other.SegmentsLeft && self.Reserved == other.Reserved
     }
 }
-impl ::std::cmp::Eq for IPV6_ROUTING_HEADER {}
+impl ::core::cmp::Eq for IPV6_ROUTING_HEADER {}
 unsafe impl ::windows::runtime::Abi for IPV6_ROUTING_HEADER {
     type Abi = Self;
 }
@@ -15550,13 +15595,13 @@ pub const IPV6_TRAFFIC_CLASS_MASK: u32 = 49167u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_VERSION: u32 = 96u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IP_OPTION_TIMESTAMP_FLAGS(pub i32);
 pub const IP_OPTION_TIMESTAMP_ONLY: IP_OPTION_TIMESTAMP_FLAGS = IP_OPTION_TIMESTAMP_FLAGS(0i32);
 pub const IP_OPTION_TIMESTAMP_ADDRESS: IP_OPTION_TIMESTAMP_FLAGS = IP_OPTION_TIMESTAMP_FLAGS(1i32);
 pub const IP_OPTION_TIMESTAMP_SPECIFIC_ADDRESS: IP_OPTION_TIMESTAMP_FLAGS = IP_OPTION_TIMESTAMP_FLAGS(3i32);
-impl ::std::convert::From<i32> for IP_OPTION_TIMESTAMP_FLAGS {
+impl ::core::convert::From<i32> for IP_OPTION_TIMESTAMP_FLAGS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -15576,7 +15621,7 @@ pub unsafe fn IPsecDospGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn IPsecDospGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(IPsecDospGetSecurityInfo0(enginehandle.into_param().abi(), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl), ::std::mem::transmute(securitydescriptor)))
+        ::core::mem::transmute(IPsecDospGetSecurityInfo0(enginehandle.into_param().abi(), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15591,7 +15636,7 @@ pub unsafe fn IPsecDospGetStatistics0<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn IPsecDospGetStatistics0(enginehandle: super::super::Foundation::HANDLE, idpstatistics: *mut IPSEC_DOSP_STATISTICS0) -> u32;
         }
-        ::std::mem::transmute(IPsecDospGetStatistics0(enginehandle.into_param().abi(), ::std::mem::transmute(idpstatistics)))
+        ::core::mem::transmute(IPsecDospGetStatistics0(enginehandle.into_param().abi(), ::core::mem::transmute(idpstatistics)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15606,7 +15651,7 @@ pub unsafe fn IPsecDospSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn IPsecDospSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
         }
-        ::std::mem::transmute(IPsecDospSetSecurityInfo0(enginehandle.into_param().abi(), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl)))
+        ::core::mem::transmute(IPsecDospSetSecurityInfo0(enginehandle.into_param().abi(), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15621,7 +15666,7 @@ pub unsafe fn IPsecDospStateCreateEnumHandle0<'a, Param0: ::windows::runtime::In
         extern "system" {
             fn IPsecDospStateCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const IPSEC_DOSP_STATE_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(IPsecDospStateCreateEnumHandle0(enginehandle.into_param().abi(), ::std::mem::transmute(enumtemplate), ::std::mem::transmute(enumhandle)))
+        ::core::mem::transmute(IPsecDospStateCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate), ::core::mem::transmute(enumhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15636,7 +15681,7 @@ pub unsafe fn IPsecDospStateDestroyEnumHandle0<'a, Param0: ::windows::runtime::I
         extern "system" {
             fn IPsecDospStateDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(IPsecDospStateDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
+        ::core::mem::transmute(IPsecDospStateDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15651,7 +15696,7 @@ pub unsafe fn IPsecDospStateEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn IPsecDospStateEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_DOSP_STATE0, numentries: *mut u32) -> u32;
         }
-        ::std::mem::transmute(IPsecDospStateEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentries)))
+        ::core::mem::transmute(IPsecDospStateEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15666,7 +15711,7 @@ pub unsafe fn IPsecGetStatistics0<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn IPsecGetStatistics0(enginehandle: super::super::Foundation::HANDLE, ipsecstatistics: *mut IPSEC_STATISTICS0) -> u32;
         }
-        ::std::mem::transmute(IPsecGetStatistics0(enginehandle.into_param().abi(), ::std::mem::transmute(ipsecstatistics)))
+        ::core::mem::transmute(IPsecGetStatistics0(enginehandle.into_param().abi(), ::core::mem::transmute(ipsecstatistics)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15681,7 +15726,7 @@ pub unsafe fn IPsecGetStatistics1<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn IPsecGetStatistics1(enginehandle: super::super::Foundation::HANDLE, ipsecstatistics: *mut IPSEC_STATISTICS1) -> u32;
         }
-        ::std::mem::transmute(IPsecGetStatistics1(enginehandle.into_param().abi(), ::std::mem::transmute(ipsecstatistics)))
+        ::core::mem::transmute(IPsecGetStatistics1(enginehandle.into_param().abi(), ::core::mem::transmute(ipsecstatistics)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15694,9 +15739,9 @@ pub unsafe fn IPsecKeyManagerAddAndRegister0<'a, Param0: ::windows::runtime::Int
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IPsecKeyManagerAddAndRegister0(enginehandle: super::super::Foundation::HANDLE, keymanager: *const IPSEC_KEY_MANAGER0, keymanagercallbacks: *const ::std::mem::ManuallyDrop<IPSEC_KEY_MANAGER_CALLBACKS0>, keymgmthandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn IPsecKeyManagerAddAndRegister0(enginehandle: super::super::Foundation::HANDLE, keymanager: *const IPSEC_KEY_MANAGER0, keymanagercallbacks: *const ::core::mem::ManuallyDrop<IPSEC_KEY_MANAGER_CALLBACKS0>, keymgmthandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(IPsecKeyManagerAddAndRegister0(enginehandle.into_param().abi(), ::std::mem::transmute(keymanager), ::std::mem::transmute(keymanagercallbacks), ::std::mem::transmute(keymgmthandle)))
+        ::core::mem::transmute(IPsecKeyManagerAddAndRegister0(enginehandle.into_param().abi(), ::core::mem::transmute(keymanager), ::core::mem::transmute(keymanagercallbacks), ::core::mem::transmute(keymgmthandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15704,22 +15749,22 @@ pub unsafe fn IPsecKeyManagerAddAndRegister0<'a, Param0: ::windows::runtime::Int
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, reserved: *const ::std::ffi::c_void, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
+pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, reserved: *const ::core::ffi::c_void, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, reserved: *const ::std::ffi::c_void, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
+            fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, reserved: *const ::core::ffi::c_void, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(IPsecKeyManagerGetSecurityInfoByKey0(
+        ::core::mem::transmute(IPsecKeyManagerGetSecurityInfoByKey0(
             enginehandle.into_param().abi(),
-            ::std::mem::transmute(reserved),
-            ::std::mem::transmute(securityinfo),
-            ::std::mem::transmute(sidowner),
-            ::std::mem::transmute(sidgroup),
-            ::std::mem::transmute(dacl),
-            ::std::mem::transmute(sacl),
-            ::std::mem::transmute(securitydescriptor),
+            ::core::mem::transmute(reserved),
+            ::core::mem::transmute(securityinfo),
+            ::core::mem::transmute(sidowner),
+            ::core::mem::transmute(sidgroup),
+            ::core::mem::transmute(dacl),
+            ::core::mem::transmute(sacl),
+            ::core::mem::transmute(securitydescriptor),
         ))
     }
     #[cfg(not(windows))]
@@ -15728,14 +15773,14 @@ pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0<'a, Param0: ::windows::runtim
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn IPsecKeyManagerSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, reserved: *const ::std::ffi::c_void, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
+pub unsafe fn IPsecKeyManagerSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, reserved: *const ::core::ffi::c_void, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IPsecKeyManagerSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, reserved: *const ::std::ffi::c_void, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
+            fn IPsecKeyManagerSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, reserved: *const ::core::ffi::c_void, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
         }
-        ::std::mem::transmute(IPsecKeyManagerSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::std::mem::transmute(reserved), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl)))
+        ::core::mem::transmute(IPsecKeyManagerSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(reserved), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15750,7 +15795,7 @@ pub unsafe fn IPsecKeyManagerUnregisterAndDelete0<'a, Param0: ::windows::runtime
         extern "system" {
             fn IPsecKeyManagerUnregisterAndDelete0(enginehandle: super::super::Foundation::HANDLE, keymgmthandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(IPsecKeyManagerUnregisterAndDelete0(enginehandle.into_param().abi(), keymgmthandle.into_param().abi()))
+        ::core::mem::transmute(IPsecKeyManagerUnregisterAndDelete0(enginehandle.into_param().abi(), keymgmthandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15765,7 +15810,7 @@ pub unsafe fn IPsecKeyManagersGet0<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn IPsecKeyManagersGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut IPSEC_KEY_MANAGER0, numentries: *mut u32) -> u32;
         }
-        ::std::mem::transmute(IPsecKeyManagersGet0(enginehandle.into_param().abi(), ::std::mem::transmute(entries), ::std::mem::transmute(numentries)))
+        ::core::mem::transmute(IPsecKeyManagersGet0(enginehandle.into_param().abi(), ::core::mem::transmute(entries), ::core::mem::transmute(numentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15780,7 +15825,7 @@ pub unsafe fn IPsecSaContextAddInbound0<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn IPsecSaContextAddInbound0(enginehandle: super::super::Foundation::HANDLE, id: u64, inboundbundle: *const IPSEC_SA_BUNDLE0) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextAddInbound0(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(inboundbundle)))
+        ::core::mem::transmute(IPsecSaContextAddInbound0(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(inboundbundle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15795,7 +15840,7 @@ pub unsafe fn IPsecSaContextAddInbound1<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn IPsecSaContextAddInbound1(enginehandle: super::super::Foundation::HANDLE, id: u64, inboundbundle: *const IPSEC_SA_BUNDLE1) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextAddInbound1(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(inboundbundle)))
+        ::core::mem::transmute(IPsecSaContextAddInbound1(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(inboundbundle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15810,7 +15855,7 @@ pub unsafe fn IPsecSaContextAddOutbound0<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn IPsecSaContextAddOutbound0(enginehandle: super::super::Foundation::HANDLE, id: u64, outboundbundle: *const IPSEC_SA_BUNDLE0) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextAddOutbound0(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(outboundbundle)))
+        ::core::mem::transmute(IPsecSaContextAddOutbound0(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(outboundbundle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15825,7 +15870,7 @@ pub unsafe fn IPsecSaContextAddOutbound1<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn IPsecSaContextAddOutbound1(enginehandle: super::super::Foundation::HANDLE, id: u64, outboundbundle: *const IPSEC_SA_BUNDLE1) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextAddOutbound1(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(outboundbundle)))
+        ::core::mem::transmute(IPsecSaContextAddOutbound1(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(outboundbundle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15840,7 +15885,7 @@ pub unsafe fn IPsecSaContextCreate0<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn IPsecSaContextCreate0(enginehandle: super::super::Foundation::HANDLE, outboundtraffic: *const IPSEC_TRAFFIC0, inboundfilterid: *mut u64, id: *mut u64) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextCreate0(enginehandle.into_param().abi(), ::std::mem::transmute(outboundtraffic), ::std::mem::transmute(inboundfilterid), ::std::mem::transmute(id)))
+        ::core::mem::transmute(IPsecSaContextCreate0(enginehandle.into_param().abi(), ::core::mem::transmute(outboundtraffic), ::core::mem::transmute(inboundfilterid), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15855,7 +15900,7 @@ pub unsafe fn IPsecSaContextCreate1<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn IPsecSaContextCreate1(enginehandle: super::super::Foundation::HANDLE, outboundtraffic: *const IPSEC_TRAFFIC1, virtualiftunnelinfo: *const IPSEC_VIRTUAL_IF_TUNNEL_INFO0, inboundfilterid: *mut u64, id: *mut u64) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextCreate1(enginehandle.into_param().abi(), ::std::mem::transmute(outboundtraffic), ::std::mem::transmute(virtualiftunnelinfo), ::std::mem::transmute(inboundfilterid), ::std::mem::transmute(id)))
+        ::core::mem::transmute(IPsecSaContextCreate1(enginehandle.into_param().abi(), ::core::mem::transmute(outboundtraffic), ::core::mem::transmute(virtualiftunnelinfo), ::core::mem::transmute(inboundfilterid), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15870,7 +15915,7 @@ pub unsafe fn IPsecSaContextCreateEnumHandle0<'a, Param0: ::windows::runtime::In
         extern "system" {
             fn IPsecSaContextCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextCreateEnumHandle0(enginehandle.into_param().abi(), ::std::mem::transmute(enumtemplate), ::std::mem::transmute(enumhandle)))
+        ::core::mem::transmute(IPsecSaContextCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate), ::core::mem::transmute(enumhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15885,7 +15930,7 @@ pub unsafe fn IPsecSaContextDeleteById0<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn IPsecSaContextDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextDeleteById0(enginehandle.into_param().abi(), ::std::mem::transmute(id)))
+        ::core::mem::transmute(IPsecSaContextDeleteById0(enginehandle.into_param().abi(), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15900,7 +15945,7 @@ pub unsafe fn IPsecSaContextDestroyEnumHandle0<'a, Param0: ::windows::runtime::I
         extern "system" {
             fn IPsecSaContextDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
+        ::core::mem::transmute(IPsecSaContextDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15915,7 +15960,7 @@ pub unsafe fn IPsecSaContextEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn IPsecSaContextEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_CONTEXT0, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(IPsecSaContextEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15930,7 +15975,7 @@ pub unsafe fn IPsecSaContextEnum1<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn IPsecSaContextEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_CONTEXT1, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(IPsecSaContextEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15945,7 +15990,7 @@ pub unsafe fn IPsecSaContextExpire0<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn IPsecSaContextExpire0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextExpire0(enginehandle.into_param().abi(), ::std::mem::transmute(id)))
+        ::core::mem::transmute(IPsecSaContextExpire0(enginehandle.into_param().abi(), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15960,7 +16005,7 @@ pub unsafe fn IPsecSaContextGetById0<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn IPsecSaContextGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, sacontext: *mut *mut IPSEC_SA_CONTEXT0) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextGetById0(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(sacontext)))
+        ::core::mem::transmute(IPsecSaContextGetById0(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(sacontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15975,7 +16020,7 @@ pub unsafe fn IPsecSaContextGetById1<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn IPsecSaContextGetById1(enginehandle: super::super::Foundation::HANDLE, id: u64, sacontext: *mut *mut IPSEC_SA_CONTEXT1) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextGetById1(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(sacontext)))
+        ::core::mem::transmute(IPsecSaContextGetById1(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(sacontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15990,7 +16035,7 @@ pub unsafe fn IPsecSaContextGetSpi0<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn IPsecSaContextGetSpi0(enginehandle: super::super::Foundation::HANDLE, id: u64, getspi: *const IPSEC_GETSPI0, inboundspi: *mut u32) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextGetSpi0(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(getspi), ::std::mem::transmute(inboundspi)))
+        ::core::mem::transmute(IPsecSaContextGetSpi0(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(getspi), ::core::mem::transmute(inboundspi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16005,7 +16050,7 @@ pub unsafe fn IPsecSaContextGetSpi1<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn IPsecSaContextGetSpi1(enginehandle: super::super::Foundation::HANDLE, id: u64, getspi: *const IPSEC_GETSPI1, inboundspi: *mut u32) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextGetSpi1(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(getspi), ::std::mem::transmute(inboundspi)))
+        ::core::mem::transmute(IPsecSaContextGetSpi1(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(getspi), ::core::mem::transmute(inboundspi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16020,7 +16065,7 @@ pub unsafe fn IPsecSaContextSetSpi0<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn IPsecSaContextSetSpi0(enginehandle: super::super::Foundation::HANDLE, id: u64, getspi: *const IPSEC_GETSPI1, inboundspi: u32) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextSetSpi0(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(getspi), ::std::mem::transmute(inboundspi)))
+        ::core::mem::transmute(IPsecSaContextSetSpi0(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(getspi), ::core::mem::transmute(inboundspi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16028,14 +16073,14 @@ pub unsafe fn IPsecSaContextSetSpi0<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn IPsecSaContextSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: ::std::option::Option<IPSEC_SA_CONTEXT_CALLBACK0>, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn IPsecSaContextSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: ::core::option::Option<IPSEC_SA_CONTEXT_CALLBACK0>, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IPsecSaContextSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn IPsecSaContextSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: ::windows::runtime::RawPtr, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextSubscribe0(enginehandle.into_param().abi(), ::std::mem::transmute(subscription), ::std::mem::transmute(callback), ::std::mem::transmute(context), ::std::mem::transmute(eventshandle)))
+        ::core::mem::transmute(IPsecSaContextSubscribe0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(eventshandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16050,7 +16095,7 @@ pub unsafe fn IPsecSaContextSubscriptionsGet0<'a, Param0: ::windows::runtime::In
         extern "system" {
             fn IPsecSaContextSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut IPSEC_SA_CONTEXT_SUBSCRIPTION0, numentries: *mut u32) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextSubscriptionsGet0(enginehandle.into_param().abi(), ::std::mem::transmute(entries), ::std::mem::transmute(numentries)))
+        ::core::mem::transmute(IPsecSaContextSubscriptionsGet0(enginehandle.into_param().abi(), ::core::mem::transmute(entries), ::core::mem::transmute(numentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16065,7 +16110,7 @@ pub unsafe fn IPsecSaContextUnsubscribe0<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn IPsecSaContextUnsubscribe0(enginehandle: super::super::Foundation::HANDLE, eventshandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextUnsubscribe0(enginehandle.into_param().abi(), eventshandle.into_param().abi()))
+        ::core::mem::transmute(IPsecSaContextUnsubscribe0(enginehandle.into_param().abi(), eventshandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16080,7 +16125,7 @@ pub unsafe fn IPsecSaContextUpdate0<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn IPsecSaContextUpdate0(enginehandle: super::super::Foundation::HANDLE, flags: u64, newvalues: *const IPSEC_SA_CONTEXT1) -> u32;
         }
-        ::std::mem::transmute(IPsecSaContextUpdate0(enginehandle.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(newvalues)))
+        ::core::mem::transmute(IPsecSaContextUpdate0(enginehandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(newvalues)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16095,7 +16140,7 @@ pub unsafe fn IPsecSaCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn IPsecSaCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const IPSEC_SA_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(IPsecSaCreateEnumHandle0(enginehandle.into_param().abi(), ::std::mem::transmute(enumtemplate), ::std::mem::transmute(enumhandle)))
+        ::core::mem::transmute(IPsecSaCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate), ::core::mem::transmute(enumhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16110,7 +16155,7 @@ pub unsafe fn IPsecSaDbGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn IPsecSaDbGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(IPsecSaDbGetSecurityInfo0(enginehandle.into_param().abi(), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl), ::std::mem::transmute(securitydescriptor)))
+        ::core::mem::transmute(IPsecSaDbGetSecurityInfo0(enginehandle.into_param().abi(), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16125,7 +16170,7 @@ pub unsafe fn IPsecSaDbSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn IPsecSaDbSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
         }
-        ::std::mem::transmute(IPsecSaDbSetSecurityInfo0(enginehandle.into_param().abi(), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl)))
+        ::core::mem::transmute(IPsecSaDbSetSecurityInfo0(enginehandle.into_param().abi(), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16140,7 +16185,7 @@ pub unsafe fn IPsecSaDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn IPsecSaDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(IPsecSaDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
+        ::core::mem::transmute(IPsecSaDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16155,7 +16200,7 @@ pub unsafe fn IPsecSaEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn IPsecSaEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_DETAILS0, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(IPsecSaEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(IPsecSaEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16170,7 +16215,7 @@ pub unsafe fn IPsecSaEnum1<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn IPsecSaEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_DETAILS1, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(IPsecSaEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(IPsecSaEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16185,7 +16230,7 @@ pub unsafe fn IkeextGetStatistics0<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn IkeextGetStatistics0(enginehandle: super::super::Foundation::HANDLE, ikeextstatistics: *mut IKEEXT_STATISTICS0) -> u32;
         }
-        ::std::mem::transmute(IkeextGetStatistics0(enginehandle.into_param().abi(), ::std::mem::transmute(ikeextstatistics)))
+        ::core::mem::transmute(IkeextGetStatistics0(enginehandle.into_param().abi(), ::core::mem::transmute(ikeextstatistics)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16200,7 +16245,7 @@ pub unsafe fn IkeextGetStatistics1<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn IkeextGetStatistics1(enginehandle: super::super::Foundation::HANDLE, ikeextstatistics: *mut IKEEXT_STATISTICS1) -> u32;
         }
-        ::std::mem::transmute(IkeextGetStatistics1(enginehandle.into_param().abi(), ::std::mem::transmute(ikeextstatistics)))
+        ::core::mem::transmute(IkeextGetStatistics1(enginehandle.into_param().abi(), ::core::mem::transmute(ikeextstatistics)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16215,7 +16260,7 @@ pub unsafe fn IkeextSaCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn IkeextSaCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const IKEEXT_SA_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(IkeextSaCreateEnumHandle0(enginehandle.into_param().abi(), ::std::mem::transmute(enumtemplate), ::std::mem::transmute(enumhandle)))
+        ::core::mem::transmute(IkeextSaCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate), ::core::mem::transmute(enumhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16230,7 +16275,7 @@ pub unsafe fn IkeextSaDbGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn IkeextSaDbGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(IkeextSaDbGetSecurityInfo0(enginehandle.into_param().abi(), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl), ::std::mem::transmute(securitydescriptor)))
+        ::core::mem::transmute(IkeextSaDbGetSecurityInfo0(enginehandle.into_param().abi(), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16245,7 +16290,7 @@ pub unsafe fn IkeextSaDbSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn IkeextSaDbSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
         }
-        ::std::mem::transmute(IkeextSaDbSetSecurityInfo0(enginehandle.into_param().abi(), ::std::mem::transmute(securityinfo), ::std::mem::transmute(sidowner), ::std::mem::transmute(sidgroup), ::std::mem::transmute(dacl), ::std::mem::transmute(sacl)))
+        ::core::mem::transmute(IkeextSaDbSetSecurityInfo0(enginehandle.into_param().abi(), ::core::mem::transmute(securityinfo), ::core::mem::transmute(sidowner), ::core::mem::transmute(sidgroup), ::core::mem::transmute(dacl), ::core::mem::transmute(sacl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16260,7 +16305,7 @@ pub unsafe fn IkeextSaDeleteById0<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn IkeextSaDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32;
         }
-        ::std::mem::transmute(IkeextSaDeleteById0(enginehandle.into_param().abi(), ::std::mem::transmute(id)))
+        ::core::mem::transmute(IkeextSaDeleteById0(enginehandle.into_param().abi(), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16275,7 +16320,7 @@ pub unsafe fn IkeextSaDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn IkeextSaDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(IkeextSaDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
+        ::core::mem::transmute(IkeextSaDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16290,7 +16335,7 @@ pub unsafe fn IkeextSaEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn IkeextSaEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS0, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(IkeextSaEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(IkeextSaEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16305,7 +16350,7 @@ pub unsafe fn IkeextSaEnum1<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn IkeextSaEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS1, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(IkeextSaEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(IkeextSaEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16320,7 +16365,7 @@ pub unsafe fn IkeextSaEnum2<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn IkeextSaEnum2(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS2, numentriesreturned: *mut u32) -> u32;
         }
-        ::std::mem::transmute(IkeextSaEnum2(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::std::mem::transmute(numentriesrequested), ::std::mem::transmute(entries), ::std::mem::transmute(numentriesreturned)))
+        ::core::mem::transmute(IkeextSaEnum2(enginehandle.into_param().abi(), enumhandle.into_param().abi(), ::core::mem::transmute(numentriesrequested), ::core::mem::transmute(entries), ::core::mem::transmute(numentriesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16335,7 +16380,7 @@ pub unsafe fn IkeextSaGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn IkeextSaGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, sa: *mut *mut IKEEXT_SA_DETAILS0) -> u32;
         }
-        ::std::mem::transmute(IkeextSaGetById0(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(sa)))
+        ::core::mem::transmute(IkeextSaGetById0(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(sa)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16350,7 +16395,7 @@ pub unsafe fn IkeextSaGetById1<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn IkeextSaGetById1(enginehandle: super::super::Foundation::HANDLE, id: u64, salookupcontext: *const ::windows::runtime::GUID, sa: *mut *mut IKEEXT_SA_DETAILS1) -> u32;
         }
-        ::std::mem::transmute(IkeextSaGetById1(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(salookupcontext), ::std::mem::transmute(sa)))
+        ::core::mem::transmute(IkeextSaGetById1(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(salookupcontext), ::core::mem::transmute(sa)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16365,7 +16410,7 @@ pub unsafe fn IkeextSaGetById2<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn IkeextSaGetById2(enginehandle: super::super::Foundation::HANDLE, id: u64, salookupcontext: *const ::windows::runtime::GUID, sa: *mut *mut IKEEXT_SA_DETAILS2) -> u32;
         }
-        ::std::mem::transmute(IkeextSaGetById2(enginehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(salookupcontext), ::std::mem::transmute(sa)))
+        ::core::mem::transmute(IkeextSaGetById2(enginehandle.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(salookupcontext), ::core::mem::transmute(sa)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16376,7 +16421,7 @@ pub const MAX_IPV4_HLEN: u32 = 60u32;
 pub const MAX_IPV4_PACKET: u32 = 65535u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const MAX_IPV6_PAYLOAD: u32 = 65535u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -16392,24 +16437,24 @@ pub struct MLDV2_QUERY_HEADER {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl MLDV2_QUERY_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for MLDV2_QUERY_HEADER {
+impl ::core::default::Default for MLDV2_QUERY_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for MLDV2_QUERY_HEADER {
+impl ::core::cmp::PartialEq for MLDV2_QUERY_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for MLDV2_QUERY_HEADER {}
+impl ::core::cmp::Eq for MLDV2_QUERY_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for MLDV2_QUERY_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union MLDV2_QUERY_HEADER_0 {
@@ -16419,24 +16464,24 @@ pub union MLDV2_QUERY_HEADER_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl MLDV2_QUERY_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for MLDV2_QUERY_HEADER_0 {
+impl ::core::default::Default for MLDV2_QUERY_HEADER_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for MLDV2_QUERY_HEADER_0 {
+impl ::core::cmp::PartialEq for MLDV2_QUERY_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for MLDV2_QUERY_HEADER_0 {}
+impl ::core::cmp::Eq for MLDV2_QUERY_HEADER_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for MLDV2_QUERY_HEADER_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MLDV2_QUERY_HEADER_0_0 {
@@ -16445,30 +16490,30 @@ pub struct MLDV2_QUERY_HEADER_0_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl MLDV2_QUERY_HEADER_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for MLDV2_QUERY_HEADER_0_0 {
+impl ::core::default::Default for MLDV2_QUERY_HEADER_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::fmt::Debug for MLDV2_QUERY_HEADER_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MLDV2_QUERY_HEADER_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for MLDV2_QUERY_HEADER_0_0 {
+impl ::core::cmp::PartialEq for MLDV2_QUERY_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for MLDV2_QUERY_HEADER_0_0 {}
+impl ::core::cmp::Eq for MLDV2_QUERY_HEADER_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for MLDV2_QUERY_HEADER_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union MLDV2_QUERY_HEADER_1 {
@@ -16478,24 +16523,24 @@ pub union MLDV2_QUERY_HEADER_1 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl MLDV2_QUERY_HEADER_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for MLDV2_QUERY_HEADER_1 {
+impl ::core::default::Default for MLDV2_QUERY_HEADER_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for MLDV2_QUERY_HEADER_1 {
+impl ::core::cmp::PartialEq for MLDV2_QUERY_HEADER_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for MLDV2_QUERY_HEADER_1 {}
+impl ::core::cmp::Eq for MLDV2_QUERY_HEADER_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for MLDV2_QUERY_HEADER_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MLDV2_QUERY_HEADER_1_0 {
@@ -16504,30 +16549,30 @@ pub struct MLDV2_QUERY_HEADER_1_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl MLDV2_QUERY_HEADER_1_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for MLDV2_QUERY_HEADER_1_0 {
+impl ::core::default::Default for MLDV2_QUERY_HEADER_1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::fmt::Debug for MLDV2_QUERY_HEADER_1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MLDV2_QUERY_HEADER_1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for MLDV2_QUERY_HEADER_1_0 {
+impl ::core::cmp::PartialEq for MLDV2_QUERY_HEADER_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for MLDV2_QUERY_HEADER_1_0 {}
+impl ::core::cmp::Eq for MLDV2_QUERY_HEADER_1_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for MLDV2_QUERY_HEADER_1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct MLDV2_REPORT_HEADER {
@@ -16536,26 +16581,26 @@ pub struct MLDV2_REPORT_HEADER {
     pub RecordCount: u16,
 }
 impl MLDV2_REPORT_HEADER {}
-impl ::std::default::Default for MLDV2_REPORT_HEADER {
+impl ::core::default::Default for MLDV2_REPORT_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MLDV2_REPORT_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MLDV2_REPORT_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MLDV2_REPORT_HEADER").field("IcmpHeader", &self.IcmpHeader).field("Reserved", &self.Reserved).field("RecordCount", &self.RecordCount).finish()
     }
 }
-impl ::std::cmp::PartialEq for MLDV2_REPORT_HEADER {
+impl ::core::cmp::PartialEq for MLDV2_REPORT_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.IcmpHeader == other.IcmpHeader && self.Reserved == other.Reserved && self.RecordCount == other.RecordCount
     }
 }
-impl ::std::cmp::Eq for MLDV2_REPORT_HEADER {}
+impl ::core::cmp::Eq for MLDV2_REPORT_HEADER {}
 unsafe impl ::windows::runtime::Abi for MLDV2_REPORT_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -16568,24 +16613,24 @@ pub struct MLDV2_REPORT_RECORD_HEADER {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl MLDV2_REPORT_RECORD_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for MLDV2_REPORT_RECORD_HEADER {
+impl ::core::default::Default for MLDV2_REPORT_RECORD_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for MLDV2_REPORT_RECORD_HEADER {
+impl ::core::cmp::PartialEq for MLDV2_REPORT_RECORD_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for MLDV2_REPORT_RECORD_HEADER {}
+impl ::core::cmp::Eq for MLDV2_REPORT_RECORD_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for MLDV2_REPORT_RECORD_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -16598,30 +16643,30 @@ pub struct MLD_HEADER {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl MLD_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for MLD_HEADER {
+impl ::core::default::Default for MLD_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for MLD_HEADER {
+impl ::core::cmp::PartialEq for MLD_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for MLD_HEADER {}
+impl ::core::cmp::Eq for MLD_HEADER {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for MLD_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLD_MAX_RESP_CODE_TYPE(pub i32);
 pub const MLD_MAX_RESP_CODE_TYPE_NORMAL: MLD_MAX_RESP_CODE_TYPE = MLD_MAX_RESP_CODE_TYPE(0i32);
 pub const MLD_MAX_RESP_CODE_TYPE_FLOAT: MLD_MAX_RESP_CODE_TYPE = MLD_MAX_RESP_CODE_TYPE(1i32);
-impl ::std::convert::From<i32> for MLD_MAX_RESP_CODE_TYPE {
+impl ::core::convert::From<i32> for MLD_MAX_RESP_CODE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -16636,7 +16681,7 @@ pub const ND_NA_FLAG_ROUTER: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_NA_FLAG_SOLICITED: u32 = 1073741824u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ND_OPTION_TYPE(pub i32);
 pub const ND_OPT_SOURCE_LINKADDR: ND_OPTION_TYPE = ND_OPTION_TYPE(1i32);
@@ -16652,7 +16697,7 @@ pub const ND_OPT_TARGET_ADDR_LIST: ND_OPTION_TYPE = ND_OPTION_TYPE(10i32);
 pub const ND_OPT_ROUTE_INFO: ND_OPTION_TYPE = ND_OPTION_TYPE(24i32);
 pub const ND_OPT_RDNSS: ND_OPTION_TYPE = ND_OPTION_TYPE(25i32);
 pub const ND_OPT_DNSSL: ND_OPTION_TYPE = ND_OPTION_TYPE(31i32);
-impl ::std::convert::From<i32> for ND_OPTION_TYPE {
+impl ::core::convert::From<i32> for ND_OPTION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -16684,7 +16729,7 @@ pub const ND_RA_FLAG_MANAGED: u32 = 128u32;
 pub const ND_RA_FLAG_OTHER: u32 = 64u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_RA_FLAG_PREFERENCE: u32 = 24u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
@@ -16696,24 +16741,24 @@ pub struct NPI_MODULEID {
 #[cfg(feature = "Win32_Foundation")]
 impl NPI_MODULEID {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NPI_MODULEID {
+impl ::core::default::Default for NPI_MODULEID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NPI_MODULEID {
+impl ::core::cmp::PartialEq for NPI_MODULEID {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NPI_MODULEID {}
+impl ::core::cmp::Eq for NPI_MODULEID {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NPI_MODULEID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union NPI_MODULEID_0 {
@@ -16723,30 +16768,30 @@ pub union NPI_MODULEID_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl NPI_MODULEID_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NPI_MODULEID_0 {
+impl ::core::default::Default for NPI_MODULEID_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NPI_MODULEID_0 {
+impl ::core::cmp::PartialEq for NPI_MODULEID_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NPI_MODULEID_0 {}
+impl ::core::cmp::Eq for NPI_MODULEID_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NPI_MODULEID_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NPI_MODULEID_TYPE(pub i32);
 pub const MIT_GUID: NPI_MODULEID_TYPE = NPI_MODULEID_TYPE(1i32);
 pub const MIT_IF_LUID: NPI_MODULEID_TYPE = NPI_MODULEID_TYPE(2i32);
-impl ::std::convert::From<i32> for NPI_MODULEID_TYPE {
+impl ::core::convert::From<i32> for NPI_MODULEID_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -16768,7 +16813,7 @@ pub const SIZEOF_IP_OPT_TIMESTAMP_HEADER: u32 = 4u32;
 pub const SNAP_CONTROL: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SNAP_DSAP: u32 = 170u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct SNAP_HEADER {
@@ -16779,22 +16824,22 @@ pub struct SNAP_HEADER {
     pub Type: u16,
 }
 impl SNAP_HEADER {}
-impl ::std::default::Default for SNAP_HEADER {
+impl ::core::default::Default for SNAP_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SNAP_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SNAP_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SNAP_HEADER").field("Dsap", &self.Dsap).field("Ssap", &self.Ssap).field("Control", &self.Control).field("Oui", &self.Oui).field("Type", &self.Type).finish()
     }
 }
-impl ::std::cmp::PartialEq for SNAP_HEADER {
+impl ::core::cmp::PartialEq for SNAP_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.Dsap == other.Dsap && self.Ssap == other.Ssap && self.Control == other.Control && self.Oui == other.Oui && self.Type == other.Type
     }
 }
-impl ::std::cmp::Eq for SNAP_HEADER {}
+impl ::core::cmp::Eq for SNAP_HEADER {}
 unsafe impl ::windows::runtime::Abi for SNAP_HEADER {
     type Abi = Self;
 }
@@ -16835,14 +16880,14 @@ pub const TH_SYN: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_URG: u32 = 32u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TUNNEL_SUB_TYPE(pub i32);
 pub const TUNNEL_SUB_TYPE_NONE: TUNNEL_SUB_TYPE = TUNNEL_SUB_TYPE(0i32);
 pub const TUNNEL_SUB_TYPE_CP: TUNNEL_SUB_TYPE = TUNNEL_SUB_TYPE(1i32);
 pub const TUNNEL_SUB_TYPE_IPTLS: TUNNEL_SUB_TYPE = TUNNEL_SUB_TYPE(2i32);
 pub const TUNNEL_SUB_TYPE_HA: TUNNEL_SUB_TYPE = TUNNEL_SUB_TYPE(3i32);
-impl ::std::convert::From<i32> for TUNNEL_SUB_TYPE {
+impl ::core::convert::From<i32> for TUNNEL_SUB_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -16850,7 +16895,7 @@ impl ::std::convert::From<i32> for TUNNEL_SUB_TYPE {
 unsafe impl ::windows::runtime::Abi for TUNNEL_SUB_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct VLAN_TAG {
@@ -16858,21 +16903,21 @@ pub struct VLAN_TAG {
     pub Type: u16,
 }
 impl VLAN_TAG {}
-impl ::std::default::Default for VLAN_TAG {
+impl ::core::default::Default for VLAN_TAG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for VLAN_TAG {
+impl ::core::cmp::PartialEq for VLAN_TAG {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for VLAN_TAG {}
+impl ::core::cmp::Eq for VLAN_TAG {}
 unsafe impl ::windows::runtime::Abi for VLAN_TAG {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub union VLAN_TAG_0 {
@@ -16880,43 +16925,43 @@ pub union VLAN_TAG_0 {
     pub Anonymous: VLAN_TAG_0_0,
 }
 impl VLAN_TAG_0 {}
-impl ::std::default::Default for VLAN_TAG_0 {
+impl ::core::default::Default for VLAN_TAG_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for VLAN_TAG_0 {
+impl ::core::cmp::PartialEq for VLAN_TAG_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for VLAN_TAG_0 {}
+impl ::core::cmp::Eq for VLAN_TAG_0 {}
 unsafe impl ::windows::runtime::Abi for VLAN_TAG_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct VLAN_TAG_0_0 {
     pub _bitfield: u16,
 }
 impl VLAN_TAG_0_0 {}
-impl ::std::default::Default for VLAN_TAG_0_0 {
+impl ::core::default::Default for VLAN_TAG_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VLAN_TAG_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VLAN_TAG_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::std::cmp::PartialEq for VLAN_TAG_0_0 {
+impl ::core::cmp::PartialEq for VLAN_TAG_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::std::cmp::Eq for VLAN_TAG_0_0 {}
+impl ::core::cmp::Eq for VLAN_TAG_0_0 {}
 unsafe impl ::windows::runtime::Abi for VLAN_TAG_0_0 {
     type Abi = Self;
 }
@@ -16926,7 +16971,7 @@ pub const _BIG_ENDIAN: u32 = 4321u32;
 pub const _LITTLE_ENDIAN: u32 = 1234u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const _PDP_ENDIAN: u32 = 3412u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -16937,24 +16982,24 @@ pub struct nd_neighbor_advert {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_neighbor_advert {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for nd_neighbor_advert {
+impl ::core::default::Default for nd_neighbor_advert {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for nd_neighbor_advert {
+impl ::core::cmp::PartialEq for nd_neighbor_advert {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for nd_neighbor_advert {}
+impl ::core::cmp::Eq for nd_neighbor_advert {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_neighbor_advert {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -16965,24 +17010,24 @@ pub struct nd_neighbor_solicit {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_neighbor_solicit {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for nd_neighbor_solicit {
+impl ::core::default::Default for nd_neighbor_solicit {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for nd_neighbor_solicit {
+impl ::core::cmp::PartialEq for nd_neighbor_solicit {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for nd_neighbor_solicit {}
+impl ::core::cmp::Eq for nd_neighbor_solicit {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_neighbor_solicit {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct nd_opt_dnssl {
@@ -16992,26 +17037,26 @@ pub struct nd_opt_dnssl {
     pub nd_opt_dnssl_lifetime: u32,
 }
 impl nd_opt_dnssl {}
-impl ::std::default::Default for nd_opt_dnssl {
+impl ::core::default::Default for nd_opt_dnssl {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for nd_opt_dnssl {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for nd_opt_dnssl {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("nd_opt_dnssl").field("nd_opt_dnssl_type", &self.nd_opt_dnssl_type).field("nd_opt_dnssl_len", &self.nd_opt_dnssl_len).field("nd_opt_dnssl_reserved", &self.nd_opt_dnssl_reserved).field("nd_opt_dnssl_lifetime", &self.nd_opt_dnssl_lifetime).finish()
     }
 }
-impl ::std::cmp::PartialEq for nd_opt_dnssl {
+impl ::core::cmp::PartialEq for nd_opt_dnssl {
     fn eq(&self, other: &Self) -> bool {
         self.nd_opt_dnssl_type == other.nd_opt_dnssl_type && self.nd_opt_dnssl_len == other.nd_opt_dnssl_len && self.nd_opt_dnssl_reserved == other.nd_opt_dnssl_reserved && self.nd_opt_dnssl_lifetime == other.nd_opt_dnssl_lifetime
     }
 }
-impl ::std::cmp::Eq for nd_opt_dnssl {}
+impl ::core::cmp::Eq for nd_opt_dnssl {}
 unsafe impl ::windows::runtime::Abi for nd_opt_dnssl {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct nd_opt_hdr {
@@ -17019,26 +17064,26 @@ pub struct nd_opt_hdr {
     pub nd_opt_len: u8,
 }
 impl nd_opt_hdr {}
-impl ::std::default::Default for nd_opt_hdr {
+impl ::core::default::Default for nd_opt_hdr {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for nd_opt_hdr {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for nd_opt_hdr {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("nd_opt_hdr").field("nd_opt_type", &self.nd_opt_type).field("nd_opt_len", &self.nd_opt_len).finish()
     }
 }
-impl ::std::cmp::PartialEq for nd_opt_hdr {
+impl ::core::cmp::PartialEq for nd_opt_hdr {
     fn eq(&self, other: &Self) -> bool {
         self.nd_opt_type == other.nd_opt_type && self.nd_opt_len == other.nd_opt_len
     }
 }
-impl ::std::cmp::Eq for nd_opt_hdr {}
+impl ::core::cmp::Eq for nd_opt_hdr {}
 unsafe impl ::windows::runtime::Abi for nd_opt_hdr {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct nd_opt_mtu {
@@ -17048,26 +17093,26 @@ pub struct nd_opt_mtu {
     pub nd_opt_mtu_mtu: u32,
 }
 impl nd_opt_mtu {}
-impl ::std::default::Default for nd_opt_mtu {
+impl ::core::default::Default for nd_opt_mtu {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for nd_opt_mtu {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for nd_opt_mtu {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("nd_opt_mtu").field("nd_opt_mtu_type", &self.nd_opt_mtu_type).field("nd_opt_mtu_len", &self.nd_opt_mtu_len).field("nd_opt_mtu_reserved", &self.nd_opt_mtu_reserved).field("nd_opt_mtu_mtu", &self.nd_opt_mtu_mtu).finish()
     }
 }
-impl ::std::cmp::PartialEq for nd_opt_mtu {
+impl ::core::cmp::PartialEq for nd_opt_mtu {
     fn eq(&self, other: &Self) -> bool {
         self.nd_opt_mtu_type == other.nd_opt_mtu_type && self.nd_opt_mtu_len == other.nd_opt_mtu_len && self.nd_opt_mtu_reserved == other.nd_opt_mtu_reserved && self.nd_opt_mtu_mtu == other.nd_opt_mtu_mtu
     }
 }
-impl ::std::cmp::Eq for nd_opt_mtu {}
+impl ::core::cmp::Eq for nd_opt_mtu {}
 unsafe impl ::windows::runtime::Abi for nd_opt_mtu {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -17084,24 +17129,24 @@ pub struct nd_opt_prefix_info {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_opt_prefix_info {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for nd_opt_prefix_info {
+impl ::core::default::Default for nd_opt_prefix_info {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for nd_opt_prefix_info {
+impl ::core::cmp::PartialEq for nd_opt_prefix_info {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for nd_opt_prefix_info {}
+impl ::core::cmp::Eq for nd_opt_prefix_info {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_opt_prefix_info {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union nd_opt_prefix_info_0 {
@@ -17111,24 +17156,24 @@ pub union nd_opt_prefix_info_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_opt_prefix_info_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for nd_opt_prefix_info_0 {
+impl ::core::default::Default for nd_opt_prefix_info_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for nd_opt_prefix_info_0 {
+impl ::core::cmp::PartialEq for nd_opt_prefix_info_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for nd_opt_prefix_info_0 {}
+impl ::core::cmp::Eq for nd_opt_prefix_info_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_opt_prefix_info_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct nd_opt_prefix_info_0_0 {
@@ -17137,30 +17182,30 @@ pub struct nd_opt_prefix_info_0_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_opt_prefix_info_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for nd_opt_prefix_info_0_0 {
+impl ::core::default::Default for nd_opt_prefix_info_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::fmt::Debug for nd_opt_prefix_info_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for nd_opt_prefix_info_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Flags_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for nd_opt_prefix_info_0_0 {
+impl ::core::cmp::PartialEq for nd_opt_prefix_info_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for nd_opt_prefix_info_0_0 {}
+impl ::core::cmp::Eq for nd_opt_prefix_info_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_opt_prefix_info_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union nd_opt_prefix_info_1 {
@@ -17170,24 +17215,24 @@ pub union nd_opt_prefix_info_1 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_opt_prefix_info_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for nd_opt_prefix_info_1 {
+impl ::core::default::Default for nd_opt_prefix_info_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for nd_opt_prefix_info_1 {
+impl ::core::cmp::PartialEq for nd_opt_prefix_info_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for nd_opt_prefix_info_1 {}
+impl ::core::cmp::Eq for nd_opt_prefix_info_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_opt_prefix_info_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct nd_opt_prefix_info_1_0 {
@@ -17197,30 +17242,30 @@ pub struct nd_opt_prefix_info_1_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_opt_prefix_info_1_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for nd_opt_prefix_info_1_0 {
+impl ::core::default::Default for nd_opt_prefix_info_1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::fmt::Debug for nd_opt_prefix_info_1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for nd_opt_prefix_info_1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("nd_opt_pi_reserved3", &self.nd_opt_pi_reserved3).field("nd_opt_pi_site_prefix_len", &self.nd_opt_pi_site_prefix_len).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for nd_opt_prefix_info_1_0 {
+impl ::core::cmp::PartialEq for nd_opt_prefix_info_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.nd_opt_pi_reserved3 == other.nd_opt_pi_reserved3 && self.nd_opt_pi_site_prefix_len == other.nd_opt_pi_site_prefix_len
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for nd_opt_prefix_info_1_0 {}
+impl ::core::cmp::Eq for nd_opt_prefix_info_1_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_opt_prefix_info_1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct nd_opt_rd_hdr {
@@ -17230,26 +17275,26 @@ pub struct nd_opt_rd_hdr {
     pub nd_opt_rh_reserved2: u32,
 }
 impl nd_opt_rd_hdr {}
-impl ::std::default::Default for nd_opt_rd_hdr {
+impl ::core::default::Default for nd_opt_rd_hdr {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for nd_opt_rd_hdr {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for nd_opt_rd_hdr {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("nd_opt_rd_hdr").field("nd_opt_rh_type", &self.nd_opt_rh_type).field("nd_opt_rh_len", &self.nd_opt_rh_len).field("nd_opt_rh_reserved1", &self.nd_opt_rh_reserved1).field("nd_opt_rh_reserved2", &self.nd_opt_rh_reserved2).finish()
     }
 }
-impl ::std::cmp::PartialEq for nd_opt_rd_hdr {
+impl ::core::cmp::PartialEq for nd_opt_rd_hdr {
     fn eq(&self, other: &Self) -> bool {
         self.nd_opt_rh_type == other.nd_opt_rh_type && self.nd_opt_rh_len == other.nd_opt_rh_len && self.nd_opt_rh_reserved1 == other.nd_opt_rh_reserved1 && self.nd_opt_rh_reserved2 == other.nd_opt_rh_reserved2
     }
 }
-impl ::std::cmp::Eq for nd_opt_rd_hdr {}
+impl ::core::cmp::Eq for nd_opt_rd_hdr {}
 unsafe impl ::windows::runtime::Abi for nd_opt_rd_hdr {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct nd_opt_rdnss {
@@ -17259,26 +17304,26 @@ pub struct nd_opt_rdnss {
     pub nd_opt_rdnss_lifetime: u32,
 }
 impl nd_opt_rdnss {}
-impl ::std::default::Default for nd_opt_rdnss {
+impl ::core::default::Default for nd_opt_rdnss {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for nd_opt_rdnss {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for nd_opt_rdnss {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("nd_opt_rdnss").field("nd_opt_rdnss_type", &self.nd_opt_rdnss_type).field("nd_opt_rdnss_len", &self.nd_opt_rdnss_len).field("nd_opt_rdnss_reserved", &self.nd_opt_rdnss_reserved).field("nd_opt_rdnss_lifetime", &self.nd_opt_rdnss_lifetime).finish()
     }
 }
-impl ::std::cmp::PartialEq for nd_opt_rdnss {
+impl ::core::cmp::PartialEq for nd_opt_rdnss {
     fn eq(&self, other: &Self) -> bool {
         self.nd_opt_rdnss_type == other.nd_opt_rdnss_type && self.nd_opt_rdnss_len == other.nd_opt_rdnss_len && self.nd_opt_rdnss_reserved == other.nd_opt_rdnss_reserved && self.nd_opt_rdnss_lifetime == other.nd_opt_rdnss_lifetime
     }
 }
-impl ::std::cmp::Eq for nd_opt_rdnss {}
+impl ::core::cmp::Eq for nd_opt_rdnss {}
 unsafe impl ::windows::runtime::Abi for nd_opt_rdnss {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -17293,24 +17338,24 @@ pub struct nd_opt_route_info {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_opt_route_info {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for nd_opt_route_info {
+impl ::core::default::Default for nd_opt_route_info {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for nd_opt_route_info {
+impl ::core::cmp::PartialEq for nd_opt_route_info {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for nd_opt_route_info {}
+impl ::core::cmp::Eq for nd_opt_route_info {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_opt_route_info {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union nd_opt_route_info_0 {
@@ -17320,24 +17365,24 @@ pub union nd_opt_route_info_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_opt_route_info_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for nd_opt_route_info_0 {
+impl ::core::default::Default for nd_opt_route_info_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for nd_opt_route_info_0 {
+impl ::core::cmp::PartialEq for nd_opt_route_info_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for nd_opt_route_info_0 {}
+impl ::core::cmp::Eq for nd_opt_route_info_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_opt_route_info_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct nd_opt_route_info_0_0 {
@@ -17346,30 +17391,30 @@ pub struct nd_opt_route_info_0_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_opt_route_info_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for nd_opt_route_info_0_0 {
+impl ::core::default::Default for nd_opt_route_info_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::fmt::Debug for nd_opt_route_info_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for nd_opt_route_info_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Flags_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for nd_opt_route_info_0_0 {
+impl ::core::cmp::PartialEq for nd_opt_route_info_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for nd_opt_route_info_0_0 {}
+impl ::core::cmp::Eq for nd_opt_route_info_0_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_opt_route_info_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
@@ -17381,24 +17426,24 @@ pub struct nd_redirect {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_redirect {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for nd_redirect {
+impl ::core::default::Default for nd_redirect {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for nd_redirect {
+impl ::core::cmp::PartialEq for nd_redirect {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for nd_redirect {}
+impl ::core::cmp::Eq for nd_redirect {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_redirect {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct nd_router_advert {
@@ -17407,42 +17452,42 @@ pub struct nd_router_advert {
     pub nd_ra_retransmit: u32,
 }
 impl nd_router_advert {}
-impl ::std::default::Default for nd_router_advert {
+impl ::core::default::Default for nd_router_advert {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for nd_router_advert {
+impl ::core::cmp::PartialEq for nd_router_advert {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for nd_router_advert {}
+impl ::core::cmp::Eq for nd_router_advert {}
 unsafe impl ::windows::runtime::Abi for nd_router_advert {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct nd_router_solicit {
     pub nd_rs_hdr: ICMP_MESSAGE,
 }
 impl nd_router_solicit {}
-impl ::std::default::Default for nd_router_solicit {
+impl ::core::default::Default for nd_router_solicit {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for nd_router_solicit {
+impl ::core::cmp::PartialEq for nd_router_solicit {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for nd_router_solicit {}
+impl ::core::cmp::Eq for nd_router_solicit {}
 unsafe impl ::windows::runtime::Abi for nd_router_solicit {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_hdr {
@@ -17457,21 +17502,21 @@ pub struct tcp_hdr {
     pub th_urp: u16,
 }
 impl tcp_hdr {}
-impl ::std::default::Default for tcp_hdr {
+impl ::core::default::Default for tcp_hdr {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tcp_hdr {
+impl ::core::cmp::PartialEq for tcp_hdr {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tcp_hdr {}
+impl ::core::cmp::Eq for tcp_hdr {}
 unsafe impl ::windows::runtime::Abi for tcp_hdr {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_fastopen {
@@ -17480,26 +17525,26 @@ pub struct tcp_opt_fastopen {
     pub Cookie: [u8; 1],
 }
 impl tcp_opt_fastopen {}
-impl ::std::default::Default for tcp_opt_fastopen {
+impl ::core::default::Default for tcp_opt_fastopen {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for tcp_opt_fastopen {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for tcp_opt_fastopen {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("tcp_opt_fastopen").field("Kind", &self.Kind).field("Length", &self.Length).field("Cookie", &self.Cookie).finish()
     }
 }
-impl ::std::cmp::PartialEq for tcp_opt_fastopen {
+impl ::core::cmp::PartialEq for tcp_opt_fastopen {
     fn eq(&self, other: &Self) -> bool {
         self.Kind == other.Kind && self.Length == other.Length && self.Cookie == other.Cookie
     }
 }
-impl ::std::cmp::Eq for tcp_opt_fastopen {}
+impl ::core::cmp::Eq for tcp_opt_fastopen {}
 unsafe impl ::windows::runtime::Abi for tcp_opt_fastopen {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_mss {
@@ -17508,21 +17553,21 @@ pub struct tcp_opt_mss {
     pub Mss: u16,
 }
 impl tcp_opt_mss {}
-impl ::std::default::Default for tcp_opt_mss {
+impl ::core::default::Default for tcp_opt_mss {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tcp_opt_mss {
+impl ::core::cmp::PartialEq for tcp_opt_mss {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tcp_opt_mss {}
+impl ::core::cmp::Eq for tcp_opt_mss {}
 unsafe impl ::windows::runtime::Abi for tcp_opt_mss {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_sack {
@@ -17531,21 +17576,21 @@ pub struct tcp_opt_sack {
     pub Block: [tcp_opt_sack_0; 1],
 }
 impl tcp_opt_sack {}
-impl ::std::default::Default for tcp_opt_sack {
+impl ::core::default::Default for tcp_opt_sack {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tcp_opt_sack {
+impl ::core::cmp::PartialEq for tcp_opt_sack {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tcp_opt_sack {}
+impl ::core::cmp::Eq for tcp_opt_sack {}
 unsafe impl ::windows::runtime::Abi for tcp_opt_sack {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_sack_0 {
@@ -17553,21 +17598,21 @@ pub struct tcp_opt_sack_0 {
     pub Right: u32,
 }
 impl tcp_opt_sack_0 {}
-impl ::std::default::Default for tcp_opt_sack_0 {
+impl ::core::default::Default for tcp_opt_sack_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tcp_opt_sack_0 {
+impl ::core::cmp::PartialEq for tcp_opt_sack_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tcp_opt_sack_0 {}
+impl ::core::cmp::Eq for tcp_opt_sack_0 {}
 unsafe impl ::windows::runtime::Abi for tcp_opt_sack_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_sack_permitted {
@@ -17575,26 +17620,26 @@ pub struct tcp_opt_sack_permitted {
     pub Length: u8,
 }
 impl tcp_opt_sack_permitted {}
-impl ::std::default::Default for tcp_opt_sack_permitted {
+impl ::core::default::Default for tcp_opt_sack_permitted {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for tcp_opt_sack_permitted {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for tcp_opt_sack_permitted {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("tcp_opt_sack_permitted").field("Kind", &self.Kind).field("Length", &self.Length).finish()
     }
 }
-impl ::std::cmp::PartialEq for tcp_opt_sack_permitted {
+impl ::core::cmp::PartialEq for tcp_opt_sack_permitted {
     fn eq(&self, other: &Self) -> bool {
         self.Kind == other.Kind && self.Length == other.Length
     }
 }
-impl ::std::cmp::Eq for tcp_opt_sack_permitted {}
+impl ::core::cmp::Eq for tcp_opt_sack_permitted {}
 unsafe impl ::windows::runtime::Abi for tcp_opt_sack_permitted {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_ts {
@@ -17604,21 +17649,21 @@ pub struct tcp_opt_ts {
     pub EcR: u32,
 }
 impl tcp_opt_ts {}
-impl ::std::default::Default for tcp_opt_ts {
+impl ::core::default::Default for tcp_opt_ts {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tcp_opt_ts {
+impl ::core::cmp::PartialEq for tcp_opt_ts {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tcp_opt_ts {}
+impl ::core::cmp::Eq for tcp_opt_ts {}
 unsafe impl ::windows::runtime::Abi for tcp_opt_ts {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_unknown {
@@ -17626,26 +17671,26 @@ pub struct tcp_opt_unknown {
     pub Length: u8,
 }
 impl tcp_opt_unknown {}
-impl ::std::default::Default for tcp_opt_unknown {
+impl ::core::default::Default for tcp_opt_unknown {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for tcp_opt_unknown {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for tcp_opt_unknown {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("tcp_opt_unknown").field("Kind", &self.Kind).field("Length", &self.Length).finish()
     }
 }
-impl ::std::cmp::PartialEq for tcp_opt_unknown {
+impl ::core::cmp::PartialEq for tcp_opt_unknown {
     fn eq(&self, other: &Self) -> bool {
         self.Kind == other.Kind && self.Length == other.Length
     }
 }
-impl ::std::cmp::Eq for tcp_opt_unknown {}
+impl ::core::cmp::Eq for tcp_opt_unknown {}
 unsafe impl ::windows::runtime::Abi for tcp_opt_unknown {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub struct tcp_opt_ws {
@@ -17654,22 +17699,22 @@ pub struct tcp_opt_ws {
     pub ShiftCnt: u8,
 }
 impl tcp_opt_ws {}
-impl ::std::default::Default for tcp_opt_ws {
+impl ::core::default::Default for tcp_opt_ws {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for tcp_opt_ws {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for tcp_opt_ws {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("tcp_opt_ws").field("Kind", &self.Kind).field("Length", &self.Length).field("ShiftCnt", &self.ShiftCnt).finish()
     }
 }
-impl ::std::cmp::PartialEq for tcp_opt_ws {
+impl ::core::cmp::PartialEq for tcp_opt_ws {
     fn eq(&self, other: &Self) -> bool {
         self.Kind == other.Kind && self.Length == other.Length && self.ShiftCnt == other.ShiftCnt
     }
 }
-impl ::std::cmp::Eq for tcp_opt_ws {}
+impl ::core::cmp::Eq for tcp_opt_ws {}
 unsafe impl ::windows::runtime::Abi for tcp_opt_ws {
     type Abi = Self;
 }

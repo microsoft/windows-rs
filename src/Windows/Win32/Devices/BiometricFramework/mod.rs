@@ -131,16 +131,16 @@ pub type PIBIO_ENGINE_UPDATE_ENROLLMENT_FN = unsafe extern "system" fn(pipeline:
 pub type PIBIO_ENGINE_VERIFY_FEATURE_SET_FN = unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, identity: *const WINBIO_IDENTITY, subfactor: u8, r#match: *mut super::super::Foundation::BOOLEAN, payloadblob: *mut *mut u8, payloadblobsize: *mut usize, hashvalue: *mut *mut u8, hashsize: *mut usize, rejectdetail: *mut u32) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type PIBIO_FRAMEWORK_ALLOCATE_MEMORY_FN = unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, allocationsize: usize, address: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+pub type PIBIO_FRAMEWORK_ALLOCATE_MEMORY_FN = unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, allocationsize: usize, address: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type PIBIO_FRAMEWORK_FREE_MEMORY_FN = unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, address: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+pub type PIBIO_FRAMEWORK_FREE_MEMORY_FN = unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, address: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type PIBIO_FRAMEWORK_GET_PROPERTY_FN = unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, propertytype: u32, propertyid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *mut *mut ::std::ffi::c_void, propertybuffersize: *mut usize) -> ::windows::runtime::HRESULT;
+pub type PIBIO_FRAMEWORK_GET_PROPERTY_FN = unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, propertytype: u32, propertyid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *mut *mut ::core::ffi::c_void, propertybuffersize: *mut usize) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type PIBIO_FRAMEWORK_LOCK_AND_VALIDATE_SECURE_BUFFER_FN = unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, securebufferidentifier: ::windows::runtime::GUID, securebufferaddress: *mut *mut ::std::ffi::c_void, securebuffersize: *mut usize) -> ::windows::runtime::HRESULT;
+pub type PIBIO_FRAMEWORK_LOCK_AND_VALIDATE_SECURE_BUFFER_FN = unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, securebufferidentifier: ::windows::runtime::GUID, securebufferaddress: *mut *mut ::core::ffi::c_void, securebuffersize: *mut usize) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type PIBIO_FRAMEWORK_RELEASE_SECURE_BUFFER_FN = unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, securebufferidentifier: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
@@ -370,15 +370,15 @@ pub type PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN = unsafe extern "system" fn(pipel
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINBIO_ASYNC_COMPLETION_CALLBACK = unsafe extern "system" fn(asyncresult: *const WINBIO_ASYNC_RESULT);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-pub type PWINBIO_CAPTURE_CALLBACK = unsafe extern "system" fn(capturecallbackcontext: *const ::std::ffi::c_void, operationstatus: ::windows::runtime::HRESULT, unitid: u32, sample: *const WINBIO_BIR, samplesize: usize, rejectdetail: u32);
+pub type PWINBIO_CAPTURE_CALLBACK = unsafe extern "system" fn(capturecallbackcontext: *const ::core::ffi::c_void, operationstatus: ::windows::runtime::HRESULT, unitid: u32, sample: *const WINBIO_BIR, samplesize: usize, rejectdetail: u32);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-pub type PWINBIO_ENROLL_CAPTURE_CALLBACK = unsafe extern "system" fn(enrollcallbackcontext: *const ::std::ffi::c_void, operationstatus: ::windows::runtime::HRESULT, rejectdetail: u32);
+pub type PWINBIO_ENROLL_CAPTURE_CALLBACK = unsafe extern "system" fn(enrollcallbackcontext: *const ::core::ffi::c_void, operationstatus: ::windows::runtime::HRESULT, rejectdetail: u32);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-pub type PWINBIO_EVENT_CALLBACK = unsafe extern "system" fn(eventcallbackcontext: *const ::std::ffi::c_void, operationstatus: ::windows::runtime::HRESULT, event: *const WINBIO_EVENT);
+pub type PWINBIO_EVENT_CALLBACK = unsafe extern "system" fn(eventcallbackcontext: *const ::core::ffi::c_void, operationstatus: ::windows::runtime::HRESULT, event: *const WINBIO_EVENT);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-pub type PWINBIO_IDENTIFY_CALLBACK = unsafe extern "system" fn(identifycallbackcontext: *const ::std::ffi::c_void, operationstatus: ::windows::runtime::HRESULT, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, rejectdetail: u32);
+pub type PWINBIO_IDENTIFY_CALLBACK = unsafe extern "system" fn(identifycallbackcontext: *const ::core::ffi::c_void, operationstatus: ::windows::runtime::HRESULT, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, rejectdetail: u32);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-pub type PWINBIO_LOCATE_SENSOR_CALLBACK = unsafe extern "system" fn(locatecallbackcontext: *const ::std::ffi::c_void, operationstatus: ::windows::runtime::HRESULT, unitid: u32);
+pub type PWINBIO_LOCATE_SENSOR_CALLBACK = unsafe extern "system" fn(locatecallbackcontext: *const ::core::ffi::c_void, operationstatus: ::windows::runtime::HRESULT, unitid: u32);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type PWINBIO_QUERY_ENGINE_INTERFACE_FN = unsafe extern "system" fn(engineinterface: *mut *mut WINBIO_ENGINE_INTERFACE) -> ::windows::runtime::HRESULT;
@@ -390,8 +390,8 @@ pub type PWINBIO_QUERY_SENSOR_INTERFACE_FN = unsafe extern "system" fn(sensorint
 pub type PWINBIO_QUERY_STORAGE_INTERFACE_FN = unsafe extern "system" fn(storageinterface: *mut *mut WINBIO_STORAGE_INTERFACE) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINBIO_VERIFY_CALLBACK = unsafe extern "system" fn(verifycallbackcontext: *const ::std::ffi::c_void, operationstatus: ::windows::runtime::HRESULT, unitid: u32, r#match: super::super::Foundation::BOOLEAN, rejectdetail: u32);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type PWINBIO_VERIFY_CALLBACK = unsafe extern "system" fn(verifycallbackcontext: *const ::core::ffi::c_void, operationstatus: ::windows::runtime::HRESULT, unitid: u32, r#match: super::super::Foundation::BOOLEAN, rejectdetail: u32);
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ACCOUNT_POLICY {
@@ -399,21 +399,21 @@ pub struct WINBIO_ACCOUNT_POLICY {
     pub AntiSpoofBehavior: WINBIO_ANTI_SPOOF_POLICY_ACTION,
 }
 impl WINBIO_ACCOUNT_POLICY {}
-impl ::std::default::Default for WINBIO_ACCOUNT_POLICY {
+impl ::core::default::Default for WINBIO_ACCOUNT_POLICY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_ACCOUNT_POLICY {
+impl ::core::cmp::PartialEq for WINBIO_ACCOUNT_POLICY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WINBIO_ACCOUNT_POLICY {}
+impl ::core::cmp::Eq for WINBIO_ACCOUNT_POLICY {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ACCOUNT_POLICY {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ADAPTER_INTERFACE_VERSION {
@@ -421,26 +421,26 @@ pub struct WINBIO_ADAPTER_INTERFACE_VERSION {
     pub MinorVersion: u16,
 }
 impl WINBIO_ADAPTER_INTERFACE_VERSION {}
-impl ::std::default::Default for WINBIO_ADAPTER_INTERFACE_VERSION {
+impl ::core::default::Default for WINBIO_ADAPTER_INTERFACE_VERSION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_ADAPTER_INTERFACE_VERSION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ADAPTER_INTERFACE_VERSION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_ADAPTER_INTERFACE_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_ADAPTER_INTERFACE_VERSION {
+impl ::core::cmp::PartialEq for WINBIO_ADAPTER_INTERFACE_VERSION {
     fn eq(&self, other: &Self) -> bool {
         self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
     }
 }
-impl ::std::cmp::Eq for WINBIO_ADAPTER_INTERFACE_VERSION {}
+impl ::core::cmp::Eq for WINBIO_ADAPTER_INTERFACE_VERSION {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ADAPTER_INTERFACE_VERSION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ANTI_SPOOF_POLICY {
@@ -448,33 +448,33 @@ pub struct WINBIO_ANTI_SPOOF_POLICY {
     pub Source: WINBIO_POLICY_SOURCE,
 }
 impl WINBIO_ANTI_SPOOF_POLICY {}
-impl ::std::default::Default for WINBIO_ANTI_SPOOF_POLICY {
+impl ::core::default::Default for WINBIO_ANTI_SPOOF_POLICY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_ANTI_SPOOF_POLICY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ANTI_SPOOF_POLICY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_ANTI_SPOOF_POLICY").field("Action", &self.Action).field("Source", &self.Source).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_ANTI_SPOOF_POLICY {
+impl ::core::cmp::PartialEq for WINBIO_ANTI_SPOOF_POLICY {
     fn eq(&self, other: &Self) -> bool {
         self.Action == other.Action && self.Source == other.Source
     }
 }
-impl ::std::cmp::Eq for WINBIO_ANTI_SPOOF_POLICY {}
+impl ::core::cmp::Eq for WINBIO_ANTI_SPOOF_POLICY {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ANTI_SPOOF_POLICY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_ANTI_SPOOF_POLICY_ACTION(pub i32);
 pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(0i32);
 pub const WINBIO_ANTI_SPOOF_ENABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(1i32);
 pub const WINBIO_ANTI_SPOOF_REMOVE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(2i32);
-impl ::std::convert::From<i32> for WINBIO_ANTI_SPOOF_POLICY_ACTION {
+impl ::core::convert::From<i32> for WINBIO_ANTI_SPOOF_POLICY_ACTION {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -483,14 +483,14 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ANTI_SPOOF_POLICY_ACTION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_ASYNC_NOTIFICATION_METHOD(pub i32);
 pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(0i32);
 pub const WINBIO_ASYNC_NOTIFY_CALLBACK: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(1i32);
 pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(2i32);
 pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(3i32);
-impl ::std::convert::From<i32> for WINBIO_ASYNC_NOTIFICATION_METHOD {
+impl ::core::convert::From<i32> for WINBIO_ASYNC_NOTIFICATION_METHOD {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -498,7 +498,7 @@ impl ::std::convert::From<i32> for WINBIO_ASYNC_NOTIFICATION_METHOD {
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_NOTIFICATION_METHOD {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
@@ -509,30 +509,30 @@ pub struct WINBIO_ASYNC_RESULT {
     pub TimeStamp: i64,
     pub ApiStatus: ::windows::runtime::HRESULT,
     pub UnitId: u32,
-    pub UserData: *mut ::std::ffi::c_void,
+    pub UserData: *mut ::core::ffi::c_void,
     pub Parameters: WINBIO_ASYNC_RESULT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINBIO_ASYNC_RESULT_0 {
@@ -561,24 +561,24 @@ pub union WINBIO_ASYNC_RESULT_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_0 {
@@ -589,30 +589,30 @@ pub struct WINBIO_ASYNC_RESULT_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_0 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_ASYNC_RESULT_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_CaptureSample_e__Struct").field("Sample", &self.Sample).field("SampleSize", &self.SampleSize).field("RejectDetail", &self.RejectDetail).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_0 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Sample == other.Sample && self.SampleSize == other.SampleSize && self.RejectDetail == other.RejectDetail
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_0 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_1 {
@@ -628,14 +628,14 @@ pub struct WINBIO_ASYNC_RESULT_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_1 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_ASYNC_RESULT_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_ControlUnit_e__Struct")
             .field("Component", &self.Component)
             .field("ControlCode", &self.ControlCode)
@@ -649,18 +649,18 @@ impl ::std::fmt::Debug for WINBIO_ASYNC_RESULT_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_1 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Component == other.Component && self.ControlCode == other.ControlCode && self.OperationStatus == other.OperationStatus && self.SendBuffer == other.SendBuffer && self.SendBufferSize == other.SendBufferSize && self.ReceiveBuffer == other.ReceiveBuffer && self.ReceiveBufferSize == other.ReceiveBufferSize && self.ReceiveDataSize == other.ReceiveDataSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_1 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_2 {
@@ -670,24 +670,24 @@ pub struct WINBIO_ASYNC_RESULT_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_2 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_2 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_2 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_3 {
@@ -696,30 +696,30 @@ pub struct WINBIO_ASYNC_RESULT_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_3 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_ASYNC_RESULT_0_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_EnrollBegin_e__Struct").field("SubFactor", &self.SubFactor).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_3 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.SubFactor == other.SubFactor
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_3 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_4 {
@@ -728,30 +728,30 @@ pub struct WINBIO_ASYNC_RESULT_0_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_4 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_4 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_ASYNC_RESULT_0_4 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_4 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_EnrollCapture_e__Struct").field("RejectDetail", &self.RejectDetail).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_4 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_4 {
     fn eq(&self, other: &Self) -> bool {
         self.RejectDetail == other.RejectDetail
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_4 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_4 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_5 {
@@ -761,24 +761,24 @@ pub struct WINBIO_ASYNC_RESULT_0_5 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_5 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_5 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_5 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_5 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_5 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_5 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_5 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_5 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_6 {
@@ -787,30 +787,30 @@ pub struct WINBIO_ASYNC_RESULT_0_6 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_6 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_6 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_6 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_ASYNC_RESULT_0_6 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_6 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_EnrollSelect_e__Struct").field("SelectorValue", &self.SelectorValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_6 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_6 {
     fn eq(&self, other: &Self) -> bool {
         self.SelectorValue == other.SelectorValue
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_6 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_6 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_6 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_7 {
@@ -820,30 +820,30 @@ pub struct WINBIO_ASYNC_RESULT_0_7 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_7 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_7 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_7 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_ASYNC_RESULT_0_7 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_7 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_EnumBiometricUnits_e__Struct").field("UnitCount", &self.UnitCount).field("UnitSchemaArray", &self.UnitSchemaArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_7 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_7 {
     fn eq(&self, other: &Self) -> bool {
         self.UnitCount == other.UnitCount && self.UnitSchemaArray == other.UnitSchemaArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_7 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_7 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_7 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_8 {
@@ -853,30 +853,30 @@ pub struct WINBIO_ASYNC_RESULT_0_8 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_8 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_8 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_8 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_ASYNC_RESULT_0_8 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_8 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_EnumDatabases_e__Struct").field("StorageCount", &self.StorageCount).field("StorageSchemaArray", &self.StorageSchemaArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_8 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_8 {
     fn eq(&self, other: &Self) -> bool {
         self.StorageCount == other.StorageCount && self.StorageSchemaArray == other.StorageSchemaArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_8 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_8 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_8 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_9 {
@@ -887,24 +887,24 @@ pub struct WINBIO_ASYNC_RESULT_0_9 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_9 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_9 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_9 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_9 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_9 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_9 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_9 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_9 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_10 {
@@ -914,30 +914,30 @@ pub struct WINBIO_ASYNC_RESULT_0_10 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_10 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_10 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_10 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_ASYNC_RESULT_0_10 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_10 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_EnumServiceProviders_e__Struct").field("BspCount", &self.BspCount).field("BspSchemaArray", &self.BspSchemaArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_10 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_10 {
     fn eq(&self, other: &Self) -> bool {
         self.BspCount == other.BspCount && self.BspSchemaArray == other.BspSchemaArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_10 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_10 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_10 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_11 {
@@ -946,24 +946,24 @@ pub struct WINBIO_ASYNC_RESULT_0_11 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_11 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_11 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_11 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_11 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_11 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_11 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_11 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_11 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_12 {
@@ -972,29 +972,29 @@ pub struct WINBIO_ASYNC_RESULT_0_12 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
     pub PropertyBufferSize: usize,
-    pub PropertyBuffer: *mut ::std::ffi::c_void,
+    pub PropertyBuffer: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_12 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_12 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_12 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_12 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_12 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_12 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_12 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_12 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_13 {
@@ -1004,24 +1004,24 @@ pub struct WINBIO_ASYNC_RESULT_0_13 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_13 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_13 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_13 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_13 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_13 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_13 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_13 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_13 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_14 {
@@ -1033,24 +1033,24 @@ pub struct WINBIO_ASYNC_RESULT_0_14 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_14 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_14 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_14 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_14 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_14 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_14 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_14 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_14 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_15 {
@@ -1061,24 +1061,24 @@ pub struct WINBIO_ASYNC_RESULT_0_15 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_15 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_15 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_15 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_15 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_15 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_15 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_15 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_15 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_16 {
@@ -1089,30 +1089,30 @@ pub struct WINBIO_ASYNC_RESULT_0_16 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_16 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_16 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_16 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_ASYNC_RESULT_0_16 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_16 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_MonitorPresence_e__Struct").field("ChangeType", &self.ChangeType).field("PresenceCount", &self.PresenceCount).field("PresenceArray", &self.PresenceArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_16 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_16 {
     fn eq(&self, other: &Self) -> bool {
         self.ChangeType == other.ChangeType && self.PresenceCount == other.PresenceCount && self.PresenceArray == other.PresenceArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_16 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_16 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_16 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_17 {
@@ -1121,30 +1121,30 @@ pub struct WINBIO_ASYNC_RESULT_0_17 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_17 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_17 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_17 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_ASYNC_RESULT_0_17 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_17 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_NotifyUnitStatusChange_e__Struct").field("ExtendedStatus", &self.ExtendedStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_17 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_17 {
     fn eq(&self, other: &Self) -> bool {
         self.ExtendedStatus == other.ExtendedStatus
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_17 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_17 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_17 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_18 {
@@ -1153,29 +1153,29 @@ pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
     pub PropertyBufferSize: usize,
-    pub PropertyBuffer: *mut ::std::ffi::c_void,
+    pub PropertyBuffer: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_18 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_18 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_18 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_18 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_18 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_18 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_18 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_18 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_19 {
@@ -1186,30 +1186,30 @@ pub struct WINBIO_ASYNC_RESULT_0_19 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_19 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_19 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_19 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_ASYNC_RESULT_0_19 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_19 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_VerifyAndReleaseTicket_e__Struct").field("Match", &self.Match).field("RejectDetail", &self.RejectDetail).field("Ticket", &self.Ticket).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_19 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_19 {
     fn eq(&self, other: &Self) -> bool {
         self.Match == other.Match && self.RejectDetail == other.RejectDetail && self.Ticket == other.Ticket
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_19 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_19 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_19 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_20 {
@@ -1219,30 +1219,30 @@ pub struct WINBIO_ASYNC_RESULT_0_20 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_ASYNC_RESULT_0_20 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_ASYNC_RESULT_0_20 {
+impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_20 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_ASYNC_RESULT_0_20 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_20 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Verify_e__Struct").field("Match", &self.Match).field("RejectDetail", &self.RejectDetail).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_20 {
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_20 {
     fn eq(&self, other: &Self) -> bool {
         self.Match == other.Match && self.RejectDetail == other.RejectDetail
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_20 {}
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_20 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_20 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BDB_ANSI_381_HEADER {
@@ -1263,13 +1263,13 @@ pub struct WINBIO_BDB_ANSI_381_HEADER {
     pub Reserved: u16,
 }
 impl WINBIO_BDB_ANSI_381_HEADER {}
-impl ::std::default::Default for WINBIO_BDB_ANSI_381_HEADER {
+impl ::core::default::Default for WINBIO_BDB_ANSI_381_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_BDB_ANSI_381_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_BDB_ANSI_381_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_BDB_ANSI_381_HEADER")
             .field("RecordLength", &self.RecordLength)
             .field("FormatIdentifier", &self.FormatIdentifier)
@@ -1289,7 +1289,7 @@ impl ::std::fmt::Debug for WINBIO_BDB_ANSI_381_HEADER {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_BDB_ANSI_381_HEADER {
+impl ::core::cmp::PartialEq for WINBIO_BDB_ANSI_381_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.RecordLength == other.RecordLength
             && self.FormatIdentifier == other.FormatIdentifier
@@ -1308,11 +1308,11 @@ impl ::std::cmp::PartialEq for WINBIO_BDB_ANSI_381_HEADER {
             && self.Reserved == other.Reserved
     }
 }
-impl ::std::cmp::Eq for WINBIO_BDB_ANSI_381_HEADER {}
+impl ::core::cmp::Eq for WINBIO_BDB_ANSI_381_HEADER {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BDB_ANSI_381_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BDB_ANSI_381_RECORD {
@@ -1327,13 +1327,13 @@ pub struct WINBIO_BDB_ANSI_381_RECORD {
     pub Reserved: u8,
 }
 impl WINBIO_BDB_ANSI_381_RECORD {}
-impl ::std::default::Default for WINBIO_BDB_ANSI_381_RECORD {
+impl ::core::default::Default for WINBIO_BDB_ANSI_381_RECORD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_BDB_ANSI_381_RECORD {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_BDB_ANSI_381_RECORD {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_BDB_ANSI_381_RECORD")
             .field("BlockLength", &self.BlockLength)
             .field("HorizontalLineLength", &self.HorizontalLineLength)
@@ -1347,16 +1347,16 @@ impl ::std::fmt::Debug for WINBIO_BDB_ANSI_381_RECORD {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_BDB_ANSI_381_RECORD {
+impl ::core::cmp::PartialEq for WINBIO_BDB_ANSI_381_RECORD {
     fn eq(&self, other: &Self) -> bool {
         self.BlockLength == other.BlockLength && self.HorizontalLineLength == other.HorizontalLineLength && self.VerticalLineLength == other.VerticalLineLength && self.Position == other.Position && self.CountOfViews == other.CountOfViews && self.ViewNumber == other.ViewNumber && self.ImageQuality == other.ImageQuality && self.ImpressionType == other.ImpressionType && self.Reserved == other.Reserved
     }
 }
-impl ::std::cmp::Eq for WINBIO_BDB_ANSI_381_RECORD {}
+impl ::core::cmp::Eq for WINBIO_BDB_ANSI_381_RECORD {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BDB_ANSI_381_RECORD {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BIR {
@@ -1366,22 +1366,22 @@ pub struct WINBIO_BIR {
     pub SignatureBlock: WINBIO_BIR_DATA,
 }
 impl WINBIO_BIR {}
-impl ::std::default::Default for WINBIO_BIR {
+impl ::core::default::Default for WINBIO_BIR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_BIR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_BIR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_BIR").field("HeaderBlock", &self.HeaderBlock).field("StandardDataBlock", &self.StandardDataBlock).field("VendorDataBlock", &self.VendorDataBlock).field("SignatureBlock", &self.SignatureBlock).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_BIR {
+impl ::core::cmp::PartialEq for WINBIO_BIR {
     fn eq(&self, other: &Self) -> bool {
         self.HeaderBlock == other.HeaderBlock && self.StandardDataBlock == other.StandardDataBlock && self.VendorDataBlock == other.VendorDataBlock && self.SignatureBlock == other.SignatureBlock
     }
 }
-impl ::std::cmp::Eq for WINBIO_BIR {}
+impl ::core::cmp::Eq for WINBIO_BIR {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BIR {
     type Abi = Self;
 }
@@ -1389,7 +1389,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_BIR {
 pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8u32;
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_BIR_ALIGN_SIZE: u32 = 8u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BIR_DATA {
@@ -1397,26 +1397,26 @@ pub struct WINBIO_BIR_DATA {
     pub Offset: u32,
 }
 impl WINBIO_BIR_DATA {}
-impl ::std::default::Default for WINBIO_BIR_DATA {
+impl ::core::default::Default for WINBIO_BIR_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_BIR_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_BIR_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_BIR_DATA").field("Size", &self.Size).field("Offset", &self.Offset).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_BIR_DATA {
+impl ::core::cmp::PartialEq for WINBIO_BIR_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Offset == other.Offset
     }
 }
-impl ::std::cmp::Eq for WINBIO_BIR_DATA {}
+impl ::core::cmp::Eq for WINBIO_BIR_DATA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BIR_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BIR_HEADER {
@@ -1434,13 +1434,13 @@ pub struct WINBIO_BIR_HEADER {
     pub ProductId: WINBIO_REGISTERED_FORMAT,
 }
 impl WINBIO_BIR_HEADER {}
-impl ::std::default::Default for WINBIO_BIR_HEADER {
+impl ::core::default::Default for WINBIO_BIR_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_BIR_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_BIR_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_BIR_HEADER")
             .field("ValidFields", &self.ValidFields)
             .field("HeaderVersion", &self.HeaderVersion)
@@ -1457,7 +1457,7 @@ impl ::std::fmt::Debug for WINBIO_BIR_HEADER {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_BIR_HEADER {
+impl ::core::cmp::PartialEq for WINBIO_BIR_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.ValidFields == other.ValidFields
             && self.HeaderVersion == other.HeaderVersion
@@ -1473,11 +1473,11 @@ impl ::std::cmp::PartialEq for WINBIO_BIR_HEADER {
             && self.ProductId == other.ProductId
     }
 }
-impl ::std::cmp::Eq for WINBIO_BIR_HEADER {}
+impl ::core::cmp::Eq for WINBIO_BIR_HEADER {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BIR_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BIR_HEADER_0 {
@@ -1485,26 +1485,26 @@ pub struct WINBIO_BIR_HEADER_0 {
     pub EndDate: i64,
 }
 impl WINBIO_BIR_HEADER_0 {}
-impl ::std::default::Default for WINBIO_BIR_HEADER_0 {
+impl ::core::default::Default for WINBIO_BIR_HEADER_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_BIR_HEADER_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_BIR_HEADER_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_ValidityPeriod_e__Struct").field("BeginDate", &self.BeginDate).field("EndDate", &self.EndDate).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_BIR_HEADER_0 {
+impl ::core::cmp::PartialEq for WINBIO_BIR_HEADER_0 {
     fn eq(&self, other: &Self) -> bool {
         self.BeginDate == other.BeginDate && self.EndDate == other.EndDate
     }
 }
-impl ::std::cmp::Eq for WINBIO_BIR_HEADER_0 {}
+impl ::core::cmp::Eq for WINBIO_BIR_HEADER_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BIR_HEADER_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BLANK_PAYLOAD {
@@ -1512,26 +1512,26 @@ pub struct WINBIO_BLANK_PAYLOAD {
     pub WinBioHresult: ::windows::runtime::HRESULT,
 }
 impl WINBIO_BLANK_PAYLOAD {}
-impl ::std::default::Default for WINBIO_BLANK_PAYLOAD {
+impl ::core::default::Default for WINBIO_BLANK_PAYLOAD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_BLANK_PAYLOAD {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_BLANK_PAYLOAD {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_BLANK_PAYLOAD").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_BLANK_PAYLOAD {
+impl ::core::cmp::PartialEq for WINBIO_BLANK_PAYLOAD {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult
     }
 }
-impl ::std::cmp::Eq for WINBIO_BLANK_PAYLOAD {}
+impl ::core::cmp::Eq for WINBIO_BLANK_PAYLOAD {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BLANK_PAYLOAD {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BSP_SCHEMA {
@@ -1542,26 +1542,26 @@ pub struct WINBIO_BSP_SCHEMA {
     pub Version: WINBIO_VERSION,
 }
 impl WINBIO_BSP_SCHEMA {}
-impl ::std::default::Default for WINBIO_BSP_SCHEMA {
+impl ::core::default::Default for WINBIO_BSP_SCHEMA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_BSP_SCHEMA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_BSP_SCHEMA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_BSP_SCHEMA").field("BiometricFactor", &self.BiometricFactor).field("BspId", &self.BspId).field("Description", &self.Description).field("Vendor", &self.Vendor).field("Version", &self.Version).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_BSP_SCHEMA {
+impl ::core::cmp::PartialEq for WINBIO_BSP_SCHEMA {
     fn eq(&self, other: &Self) -> bool {
         self.BiometricFactor == other.BiometricFactor && self.BspId == other.BspId && self.Description == other.Description && self.Vendor == other.Vendor && self.Version == other.Version
     }
 }
-impl ::std::cmp::Eq for WINBIO_BSP_SCHEMA {}
+impl ::core::cmp::Eq for WINBIO_BSP_SCHEMA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BSP_SCHEMA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_CALIBRATION_INFO {
@@ -1570,26 +1570,26 @@ pub struct WINBIO_CALIBRATION_INFO {
     pub CalibrationData: WINBIO_DATA,
 }
 impl WINBIO_CALIBRATION_INFO {}
-impl ::std::default::Default for WINBIO_CALIBRATION_INFO {
+impl ::core::default::Default for WINBIO_CALIBRATION_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_CALIBRATION_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_CALIBRATION_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_CALIBRATION_INFO").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("CalibrationData", &self.CalibrationData).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_CALIBRATION_INFO {
+impl ::core::cmp::PartialEq for WINBIO_CALIBRATION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.CalibrationData == other.CalibrationData
     }
 }
-impl ::std::cmp::Eq for WINBIO_CALIBRATION_INFO {}
+impl ::core::cmp::Eq for WINBIO_CALIBRATION_INFO {}
 unsafe impl ::windows::runtime::Abi for WINBIO_CALIBRATION_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_CAPTURE_DATA {
@@ -1600,26 +1600,26 @@ pub struct WINBIO_CAPTURE_DATA {
     pub CaptureData: WINBIO_DATA,
 }
 impl WINBIO_CAPTURE_DATA {}
-impl ::std::default::Default for WINBIO_CAPTURE_DATA {
+impl ::core::default::Default for WINBIO_CAPTURE_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_CAPTURE_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_CAPTURE_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_CAPTURE_DATA").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("SensorStatus", &self.SensorStatus).field("RejectDetail", &self.RejectDetail).field("CaptureData", &self.CaptureData).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_CAPTURE_DATA {
+impl ::core::cmp::PartialEq for WINBIO_CAPTURE_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.SensorStatus == other.SensorStatus && self.RejectDetail == other.RejectDetail && self.CaptureData == other.CaptureData
     }
 }
-impl ::std::cmp::Eq for WINBIO_CAPTURE_DATA {}
+impl ::core::cmp::Eq for WINBIO_CAPTURE_DATA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_CAPTURE_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_CAPTURE_PARAMETERS {
@@ -1630,33 +1630,33 @@ pub struct WINBIO_CAPTURE_PARAMETERS {
     pub Flags: u8,
 }
 impl WINBIO_CAPTURE_PARAMETERS {}
-impl ::std::default::Default for WINBIO_CAPTURE_PARAMETERS {
+impl ::core::default::Default for WINBIO_CAPTURE_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_CAPTURE_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_CAPTURE_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_CAPTURE_PARAMETERS").field("PayloadSize", &self.PayloadSize).field("Purpose", &self.Purpose).field("Format", &self.Format).field("VendorFormat", &self.VendorFormat).field("Flags", &self.Flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_CAPTURE_PARAMETERS {
+impl ::core::cmp::PartialEq for WINBIO_CAPTURE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.Purpose == other.Purpose && self.Format == other.Format && self.VendorFormat == other.VendorFormat && self.Flags == other.Flags
     }
 }
-impl ::std::cmp::Eq for WINBIO_CAPTURE_PARAMETERS {}
+impl ::core::cmp::Eq for WINBIO_CAPTURE_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for WINBIO_CAPTURE_PARAMETERS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_COMPONENT(pub u32);
 pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = WINBIO_COMPONENT(1u32);
 pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = WINBIO_COMPONENT(2u32);
 pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = WINBIO_COMPONENT(3u32);
-impl ::std::convert::From<u32> for WINBIO_COMPONENT {
+impl ::core::convert::From<u32> for WINBIO_COMPONENT {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1664,42 +1664,42 @@ impl ::std::convert::From<u32> for WINBIO_COMPONENT {
 unsafe impl ::windows::runtime::Abi for WINBIO_COMPONENT {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for WINBIO_COMPONENT {
+impl ::core::ops::BitOr for WINBIO_COMPONENT {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for WINBIO_COMPONENT {
+impl ::core::ops::BitAnd for WINBIO_COMPONENT {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for WINBIO_COMPONENT {
+impl ::core::ops::BitOrAssign for WINBIO_COMPONENT {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for WINBIO_COMPONENT {
+impl ::core::ops::BitAndAssign for WINBIO_COMPONENT {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for WINBIO_COMPONENT {
+impl ::core::ops::Not for WINBIO_COMPONENT {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_CREDENTIAL_FORMAT(pub i32);
 pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(1i32);
 pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(2i32);
 pub const WINBIO_PASSWORD_PROTECTED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(3i32);
-impl ::std::convert::From<i32> for WINBIO_CREDENTIAL_FORMAT {
+impl ::core::convert::From<i32> for WINBIO_CREDENTIAL_FORMAT {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1708,12 +1708,12 @@ unsafe impl ::windows::runtime::Abi for WINBIO_CREDENTIAL_FORMAT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_CREDENTIAL_STATE(pub i32);
 pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(1i32);
 pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(2i32);
-impl ::std::convert::From<i32> for WINBIO_CREDENTIAL_STATE {
+impl ::core::convert::From<i32> for WINBIO_CREDENTIAL_STATE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1722,12 +1722,12 @@ unsafe impl ::windows::runtime::Abi for WINBIO_CREDENTIAL_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_CREDENTIAL_TYPE(pub i32);
 pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(1i32);
 pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(-1i32);
-impl ::std::convert::From<i32> for WINBIO_CREDENTIAL_TYPE {
+impl ::core::convert::From<i32> for WINBIO_CREDENTIAL_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1735,7 +1735,7 @@ impl ::std::convert::From<i32> for WINBIO_CREDENTIAL_TYPE {
 unsafe impl ::windows::runtime::Abi for WINBIO_CREDENTIAL_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_DATA {
@@ -1743,26 +1743,26 @@ pub struct WINBIO_DATA {
     pub Data: [u8; 1],
 }
 impl WINBIO_DATA {}
-impl ::std::default::Default for WINBIO_DATA {
+impl ::core::default::Default for WINBIO_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_DATA").field("Size", &self.Size).field("Data", &self.Data).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_DATA {
+impl ::core::cmp::PartialEq for WINBIO_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Data == other.Data
     }
 }
-impl ::std::cmp::Eq for WINBIO_DATA {}
+impl ::core::cmp::Eq for WINBIO_DATA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_DIAGNOSTICS {
@@ -1772,26 +1772,26 @@ pub struct WINBIO_DIAGNOSTICS {
     pub VendorDiagnostics: WINBIO_DATA,
 }
 impl WINBIO_DIAGNOSTICS {}
-impl ::std::default::Default for WINBIO_DIAGNOSTICS {
+impl ::core::default::Default for WINBIO_DIAGNOSTICS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_DIAGNOSTICS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_DIAGNOSTICS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_DIAGNOSTICS").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("SensorStatus", &self.SensorStatus).field("VendorDiagnostics", &self.VendorDiagnostics).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_DIAGNOSTICS {
+impl ::core::cmp::PartialEq for WINBIO_DIAGNOSTICS {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.SensorStatus == other.SensorStatus && self.VendorDiagnostics == other.VendorDiagnostics
     }
 }
-impl ::std::cmp::Eq for WINBIO_DIAGNOSTICS {}
+impl ::core::cmp::Eq for WINBIO_DIAGNOSTICS {}
 unsafe impl ::windows::runtime::Abi for WINBIO_DIAGNOSTICS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ENCRYPTED_CAPTURE_PARAMS {
@@ -1803,26 +1803,26 @@ pub struct WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     pub NonceSize: u32,
 }
 impl WINBIO_ENCRYPTED_CAPTURE_PARAMS {}
-impl ::std::default::Default for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
+impl ::core::default::Default for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_ENCRYPTED_CAPTURE_PARAMS").field("PayloadSize", &self.PayloadSize).field("Purpose", &self.Purpose).field("Format", &self.Format).field("VendorFormat", &self.VendorFormat).field("Flags", &self.Flags).field("NonceSize", &self.NonceSize).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
+impl ::core::cmp::PartialEq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.Purpose == other.Purpose && self.Format == other.Format && self.VendorFormat == other.VendorFormat && self.Flags == other.Flags && self.NonceSize == other.NonceSize
     }
 }
-impl ::std::cmp::Eq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {}
+impl ::core::cmp::Eq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
@@ -1831,64 +1831,64 @@ pub struct WINBIO_ENGINE_INTERFACE {
     pub Type: u32,
     pub Size: usize,
     pub AdapterId: ::windows::runtime::GUID,
-    pub Attach: ::std::option::Option<PIBIO_ENGINE_ATTACH_FN>,
-    pub Detach: ::std::option::Option<PIBIO_ENGINE_DETACH_FN>,
-    pub ClearContext: ::std::option::Option<PIBIO_ENGINE_CLEAR_CONTEXT_FN>,
-    pub QueryPreferredFormat: ::std::option::Option<PIBIO_ENGINE_QUERY_PREFERRED_FORMAT_FN>,
-    pub QueryIndexVectorSize: ::std::option::Option<PIBIO_ENGINE_QUERY_INDEX_VECTOR_SIZE_FN>,
-    pub QueryHashAlgorithms: ::std::option::Option<PIBIO_ENGINE_QUERY_HASH_ALGORITHMS_FN>,
-    pub SetHashAlgorithm: ::std::option::Option<PIBIO_ENGINE_SET_HASH_ALGORITHM_FN>,
-    pub QuerySampleHint: ::std::option::Option<PIBIO_ENGINE_QUERY_SAMPLE_HINT_FN>,
-    pub AcceptSampleData: ::std::option::Option<PIBIO_ENGINE_ACCEPT_SAMPLE_DATA_FN>,
-    pub ExportEngineData: ::std::option::Option<PIBIO_ENGINE_EXPORT_ENGINE_DATA_FN>,
-    pub VerifyFeatureSet: ::std::option::Option<PIBIO_ENGINE_VERIFY_FEATURE_SET_FN>,
-    pub IdentifyFeatureSet: ::std::option::Option<PIBIO_ENGINE_IDENTIFY_FEATURE_SET_FN>,
-    pub CreateEnrollment: ::std::option::Option<PIBIO_ENGINE_CREATE_ENROLLMENT_FN>,
-    pub UpdateEnrollment: ::std::option::Option<PIBIO_ENGINE_UPDATE_ENROLLMENT_FN>,
-    pub GetEnrollmentStatus: ::std::option::Option<PIBIO_ENGINE_GET_ENROLLMENT_STATUS_FN>,
-    pub GetEnrollmentHash: ::std::option::Option<PIBIO_ENGINE_GET_ENROLLMENT_HASH_FN>,
-    pub CheckForDuplicate: ::std::option::Option<PIBIO_ENGINE_CHECK_FOR_DUPLICATE_FN>,
-    pub CommitEnrollment: ::std::option::Option<PIBIO_ENGINE_COMMIT_ENROLLMENT_FN>,
-    pub DiscardEnrollment: ::std::option::Option<PIBIO_ENGINE_DISCARD_ENROLLMENT_FN>,
-    pub ControlUnit: ::std::option::Option<PIBIO_ENGINE_CONTROL_UNIT_FN>,
-    pub ControlUnitPrivileged: ::std::option::Option<PIBIO_ENGINE_CONTROL_UNIT_PRIVILEGED_FN>,
-    pub NotifyPowerChange: ::std::option::Option<PIBIO_ENGINE_NOTIFY_POWER_CHANGE_FN>,
-    pub Reserved_1: ::std::option::Option<PIBIO_ENGINE_RESERVED_1_FN>,
-    pub PipelineInit: ::std::option::Option<PIBIO_ENGINE_PIPELINE_INIT_FN>,
-    pub PipelineCleanup: ::std::option::Option<PIBIO_ENGINE_PIPELINE_CLEANUP_FN>,
-    pub Activate: ::std::option::Option<PIBIO_ENGINE_ACTIVATE_FN>,
-    pub Deactivate: ::std::option::Option<PIBIO_ENGINE_DEACTIVATE_FN>,
-    pub QueryExtendedInfo: ::std::option::Option<PIBIO_ENGINE_QUERY_EXTENDED_INFO_FN>,
-    pub IdentifyAll: ::std::option::Option<PIBIO_ENGINE_IDENTIFY_ALL_FN>,
-    pub SetEnrollmentSelector: ::std::option::Option<PIBIO_ENGINE_SET_ENROLLMENT_SELECTOR_FN>,
-    pub SetEnrollmentParameters: ::std::option::Option<PIBIO_ENGINE_SET_ENROLLMENT_PARAMETERS_FN>,
-    pub QueryExtendedEnrollmentStatus: ::std::option::Option<PIBIO_ENGINE_QUERY_EXTENDED_ENROLLMENT_STATUS_FN>,
-    pub RefreshCache: ::std::option::Option<PIBIO_ENGINE_REFRESH_CACHE_FN>,
-    pub SelectCalibrationFormat: ::std::option::Option<PIBIO_ENGINE_SELECT_CALIBRATION_FORMAT_FN>,
-    pub QueryCalibrationData: ::std::option::Option<PIBIO_ENGINE_QUERY_CALIBRATION_DATA_FN>,
-    pub SetAccountPolicy: ::std::option::Option<PIBIO_ENGINE_SET_ACCOUNT_POLICY_FN>,
-    pub CreateKey: ::std::option::Option<PIBIO_ENGINE_CREATE_KEY_FN>,
-    pub IdentifyFeatureSetSecure: ::std::option::Option<PIBIO_ENGINE_IDENTIFY_FEATURE_SET_SECURE_FN>,
-    pub AcceptPrivateSensorTypeInfo: ::std::option::Option<PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FN>,
-    pub CreateEnrollmentAuthenticated: ::std::option::Option<PIBIO_ENGINE_CREATE_ENROLLMENT_AUTHENTICATED_FN>,
-    pub IdentifyFeatureSetAuthenticated: ::std::option::Option<PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN>,
+    pub Attach: ::core::option::Option<PIBIO_ENGINE_ATTACH_FN>,
+    pub Detach: ::core::option::Option<PIBIO_ENGINE_DETACH_FN>,
+    pub ClearContext: ::core::option::Option<PIBIO_ENGINE_CLEAR_CONTEXT_FN>,
+    pub QueryPreferredFormat: ::core::option::Option<PIBIO_ENGINE_QUERY_PREFERRED_FORMAT_FN>,
+    pub QueryIndexVectorSize: ::core::option::Option<PIBIO_ENGINE_QUERY_INDEX_VECTOR_SIZE_FN>,
+    pub QueryHashAlgorithms: ::core::option::Option<PIBIO_ENGINE_QUERY_HASH_ALGORITHMS_FN>,
+    pub SetHashAlgorithm: ::core::option::Option<PIBIO_ENGINE_SET_HASH_ALGORITHM_FN>,
+    pub QuerySampleHint: ::core::option::Option<PIBIO_ENGINE_QUERY_SAMPLE_HINT_FN>,
+    pub AcceptSampleData: ::core::option::Option<PIBIO_ENGINE_ACCEPT_SAMPLE_DATA_FN>,
+    pub ExportEngineData: ::core::option::Option<PIBIO_ENGINE_EXPORT_ENGINE_DATA_FN>,
+    pub VerifyFeatureSet: ::core::option::Option<PIBIO_ENGINE_VERIFY_FEATURE_SET_FN>,
+    pub IdentifyFeatureSet: ::core::option::Option<PIBIO_ENGINE_IDENTIFY_FEATURE_SET_FN>,
+    pub CreateEnrollment: ::core::option::Option<PIBIO_ENGINE_CREATE_ENROLLMENT_FN>,
+    pub UpdateEnrollment: ::core::option::Option<PIBIO_ENGINE_UPDATE_ENROLLMENT_FN>,
+    pub GetEnrollmentStatus: ::core::option::Option<PIBIO_ENGINE_GET_ENROLLMENT_STATUS_FN>,
+    pub GetEnrollmentHash: ::core::option::Option<PIBIO_ENGINE_GET_ENROLLMENT_HASH_FN>,
+    pub CheckForDuplicate: ::core::option::Option<PIBIO_ENGINE_CHECK_FOR_DUPLICATE_FN>,
+    pub CommitEnrollment: ::core::option::Option<PIBIO_ENGINE_COMMIT_ENROLLMENT_FN>,
+    pub DiscardEnrollment: ::core::option::Option<PIBIO_ENGINE_DISCARD_ENROLLMENT_FN>,
+    pub ControlUnit: ::core::option::Option<PIBIO_ENGINE_CONTROL_UNIT_FN>,
+    pub ControlUnitPrivileged: ::core::option::Option<PIBIO_ENGINE_CONTROL_UNIT_PRIVILEGED_FN>,
+    pub NotifyPowerChange: ::core::option::Option<PIBIO_ENGINE_NOTIFY_POWER_CHANGE_FN>,
+    pub Reserved_1: ::core::option::Option<PIBIO_ENGINE_RESERVED_1_FN>,
+    pub PipelineInit: ::core::option::Option<PIBIO_ENGINE_PIPELINE_INIT_FN>,
+    pub PipelineCleanup: ::core::option::Option<PIBIO_ENGINE_PIPELINE_CLEANUP_FN>,
+    pub Activate: ::core::option::Option<PIBIO_ENGINE_ACTIVATE_FN>,
+    pub Deactivate: ::core::option::Option<PIBIO_ENGINE_DEACTIVATE_FN>,
+    pub QueryExtendedInfo: ::core::option::Option<PIBIO_ENGINE_QUERY_EXTENDED_INFO_FN>,
+    pub IdentifyAll: ::core::option::Option<PIBIO_ENGINE_IDENTIFY_ALL_FN>,
+    pub SetEnrollmentSelector: ::core::option::Option<PIBIO_ENGINE_SET_ENROLLMENT_SELECTOR_FN>,
+    pub SetEnrollmentParameters: ::core::option::Option<PIBIO_ENGINE_SET_ENROLLMENT_PARAMETERS_FN>,
+    pub QueryExtendedEnrollmentStatus: ::core::option::Option<PIBIO_ENGINE_QUERY_EXTENDED_ENROLLMENT_STATUS_FN>,
+    pub RefreshCache: ::core::option::Option<PIBIO_ENGINE_REFRESH_CACHE_FN>,
+    pub SelectCalibrationFormat: ::core::option::Option<PIBIO_ENGINE_SELECT_CALIBRATION_FORMAT_FN>,
+    pub QueryCalibrationData: ::core::option::Option<PIBIO_ENGINE_QUERY_CALIBRATION_DATA_FN>,
+    pub SetAccountPolicy: ::core::option::Option<PIBIO_ENGINE_SET_ACCOUNT_POLICY_FN>,
+    pub CreateKey: ::core::option::Option<PIBIO_ENGINE_CREATE_KEY_FN>,
+    pub IdentifyFeatureSetSecure: ::core::option::Option<PIBIO_ENGINE_IDENTIFY_FEATURE_SET_SECURE_FN>,
+    pub AcceptPrivateSensorTypeInfo: ::core::option::Option<PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FN>,
+    pub CreateEnrollmentAuthenticated: ::core::option::Option<PIBIO_ENGINE_CREATE_ENROLLMENT_AUTHENTICATED_FN>,
+    pub IdentifyFeatureSetAuthenticated: ::core::option::Option<PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WINBIO_ENGINE_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::default::Default for WINBIO_ENGINE_INTERFACE {
+impl ::core::default::Default for WINBIO_ENGINE_INTERFACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::fmt::Debug for WINBIO_ENGINE_INTERFACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_ENGINE_INTERFACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_ENGINE_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::cmp::PartialEq for WINBIO_ENGINE_INTERFACE {
+impl ::core::cmp::PartialEq for WINBIO_ENGINE_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version
             && self.Type == other.Type
@@ -1938,12 +1938,12 @@ impl ::std::cmp::PartialEq for WINBIO_ENGINE_INTERFACE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::cmp::Eq for WINBIO_ENGINE_INTERFACE {}
+impl ::core::cmp::Eq for WINBIO_ENGINE_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WINBIO_ENGINE_INTERFACE {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EVENT {
@@ -1951,21 +1951,21 @@ pub struct WINBIO_EVENT {
     pub Parameters: WINBIO_EVENT_0,
 }
 impl WINBIO_EVENT {}
-impl ::std::default::Default for WINBIO_EVENT {
+impl ::core::default::Default for WINBIO_EVENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EVENT {
+impl ::core::cmp::PartialEq for WINBIO_EVENT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WINBIO_EVENT {}
+impl ::core::cmp::Eq for WINBIO_EVENT {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EVENT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub union WINBIO_EVENT_0 {
@@ -1974,47 +1974,47 @@ pub union WINBIO_EVENT_0 {
     pub Error: WINBIO_EVENT_0_0,
 }
 impl WINBIO_EVENT_0 {}
-impl ::std::default::Default for WINBIO_EVENT_0 {
+impl ::core::default::Default for WINBIO_EVENT_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EVENT_0 {
+impl ::core::cmp::PartialEq for WINBIO_EVENT_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WINBIO_EVENT_0 {}
+impl ::core::cmp::Eq for WINBIO_EVENT_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EVENT_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EVENT_0_0 {
     pub ErrorCode: ::windows::runtime::HRESULT,
 }
 impl WINBIO_EVENT_0_0 {}
-impl ::std::default::Default for WINBIO_EVENT_0_0 {
+impl ::core::default::Default for WINBIO_EVENT_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EVENT_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EVENT_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Error_e__Struct").field("ErrorCode", &self.ErrorCode).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EVENT_0_0 {
+impl ::core::cmp::PartialEq for WINBIO_EVENT_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.ErrorCode == other.ErrorCode
     }
 }
-impl ::std::cmp::Eq for WINBIO_EVENT_0_0 {}
+impl ::core::cmp::Eq for WINBIO_EVENT_0_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EVENT_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EVENT_0_1 {
@@ -2024,21 +2024,21 @@ pub struct WINBIO_EVENT_0_1 {
     pub RejectDetail: u32,
 }
 impl WINBIO_EVENT_0_1 {}
-impl ::std::default::Default for WINBIO_EVENT_0_1 {
+impl ::core::default::Default for WINBIO_EVENT_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EVENT_0_1 {
+impl ::core::cmp::PartialEq for WINBIO_EVENT_0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WINBIO_EVENT_0_1 {}
+impl ::core::cmp::Eq for WINBIO_EVENT_0_1 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EVENT_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EVENT_0_2 {
@@ -2046,26 +2046,26 @@ pub struct WINBIO_EVENT_0_2 {
     pub RejectDetail: u32,
 }
 impl WINBIO_EVENT_0_2 {}
-impl ::std::default::Default for WINBIO_EVENT_0_2 {
+impl ::core::default::Default for WINBIO_EVENT_0_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EVENT_0_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EVENT_0_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Unclaimed_e__Struct").field("UnitId", &self.UnitId).field("RejectDetail", &self.RejectDetail).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EVENT_0_2 {
+impl ::core::cmp::PartialEq for WINBIO_EVENT_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.UnitId == other.UnitId && self.RejectDetail == other.RejectDetail
     }
 }
-impl ::std::cmp::Eq for WINBIO_EVENT_0_2 {}
+impl ::core::cmp::Eq for WINBIO_EVENT_0_2 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EVENT_0_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO {
@@ -2074,21 +2074,21 @@ pub struct WINBIO_EXTENDED_ENGINE_INFO {
     pub Specific: WINBIO_EXTENDED_ENGINE_INFO_0,
 }
 impl WINBIO_EXTENDED_ENGINE_INFO {}
-impl ::std::default::Default for WINBIO_EXTENDED_ENGINE_INFO {
+impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub union WINBIO_EXTENDED_ENGINE_INFO_0 {
@@ -2099,21 +2099,21 @@ pub union WINBIO_EXTENDED_ENGINE_INFO_0 {
     pub Voice: WINBIO_EXTENDED_ENGINE_INFO_0_3,
 }
 impl WINBIO_EXTENDED_ENGINE_INFO_0 {}
-impl ::std::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0 {
@@ -2121,52 +2121,52 @@ pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_0_0,
 }
 impl WINBIO_EXTENDED_ENGINE_INFO_0_0 {}
-impl ::std::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_FacialFeatures_e__Struct").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     pub Null: u32,
 }
 impl WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {}
-impl ::std::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_EnrollmentRequirements_e__Struct").field("Null", &self.Null).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Null == other.Null
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1 {
@@ -2174,26 +2174,26 @@ pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_1_0,
 }
 impl WINBIO_EXTENDED_ENGINE_INFO_0_1 {}
-impl ::std::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Fingerprint_e__Struct").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_1 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_1 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
@@ -2205,26 +2205,26 @@ pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     pub RightEdge: u32,
 }
 impl WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {}
-impl ::std::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_EnrollmentRequirements_e__Struct").field("GeneralSamples", &self.GeneralSamples).field("Center", &self.Center).field("TopEdge", &self.TopEdge).field("BottomEdge", &self.BottomEdge).field("LeftEdge", &self.LeftEdge).field("RightEdge", &self.RightEdge).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.GeneralSamples == other.GeneralSamples && self.Center == other.Center && self.TopEdge == other.TopEdge && self.BottomEdge == other.BottomEdge && self.LeftEdge == other.LeftEdge && self.RightEdge == other.RightEdge
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2 {
@@ -2232,52 +2232,52 @@ pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_2_0,
 }
 impl WINBIO_EXTENDED_ENGINE_INFO_0_2 {}
-impl ::std::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Iris_e__Struct").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_2 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_2 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     pub Null: u32,
 }
 impl WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {}
-impl ::std::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_EnrollmentRequirements_e__Struct").field("Null", &self.Null).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Null == other.Null
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3 {
@@ -2285,52 +2285,52 @@ pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_3_0,
 }
 impl WINBIO_EXTENDED_ENGINE_INFO_0_3 {}
-impl ::std::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Voice_e__Struct").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_3 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_3 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     pub Null: u32,
 }
 impl WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {}
-impl ::std::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_EnrollmentRequirements_e__Struct").field("Null", &self.Null).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Null == other.Null
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
@@ -2338,26 +2338,26 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     pub SubFactor: u8,
 }
 impl WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {}
-impl ::std::default::Default for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
+impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_EXTENDED_ENROLLMENT_PARAMETERS").field("Size", &self.Size).field("SubFactor", &self.SubFactor).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.SubFactor == other.SubFactor
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
@@ -2372,24 +2372,24 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_ENROLLMENT_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS {
+impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
@@ -2402,24 +2402,24 @@ pub union WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
@@ -2430,30 +2430,30 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_FacialFeatures_e__Struct").field("BoundingBox", &self.BoundingBox).field("Distance", &self.Distance).field("OpaqueEngineData", &self.OpaqueEngineData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.BoundingBox == other.BoundingBox && self.Distance == other.Distance && self.OpaqueEngineData == other.OpaqueEngineData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
@@ -2463,30 +2463,30 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_OpaqueEngineData_e__Struct").field("AdapterId", &self.AdapterId).field("Data", &self.Data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.AdapterId == other.AdapterId && self.Data == other.Data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
@@ -2500,30 +2500,30 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Fingerprint_e__Struct").field("GeneralSamples", &self.GeneralSamples).field("Center", &self.Center).field("TopEdge", &self.TopEdge).field("BottomEdge", &self.BottomEdge).field("LeftEdge", &self.LeftEdge).field("RightEdge", &self.RightEdge).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.GeneralSamples == other.GeneralSamples && self.Center == other.Center && self.TopEdge == other.TopEdge && self.BottomEdge == other.BottomEdge && self.LeftEdge == other.LeftEdge && self.RightEdge == other.RightEdge
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
@@ -2540,14 +2540,14 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Iris_e__Struct")
             .field("EyeBoundingBox_1", &self.EyeBoundingBox_1)
             .field("EyeBoundingBox_2", &self.EyeBoundingBox_2)
@@ -2562,18 +2562,18 @@ impl ::std::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.EyeBoundingBox_1 == other.EyeBoundingBox_1 && self.EyeBoundingBox_2 == other.EyeBoundingBox_2 && self.PupilCenter_1 == other.PupilCenter_1 && self.PupilCenter_2 == other.PupilCenter_2 && self.Distance == other.Distance && self.GridPointCompletionPercent == other.GridPointCompletionPercent && self.GridPointIndex == other.GridPointIndex && self.Point3D == other.Point3D && self.StopCaptureAndShowCriticalFeedback == other.StopCaptureAndShowCriticalFeedback
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
@@ -2584,30 +2584,30 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Point3D_e__Struct").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     fn eq(&self, other: &Self) -> bool {
         self.X == other.X && self.Y == other.Y && self.Z == other.Z
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
@@ -2616,30 +2616,30 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
+impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Voice_e__Struct").field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
@@ -2651,24 +2651,24 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_SENSOR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_SENSOR_INFO {
+impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINBIO_EXTENDED_SENSOR_INFO_0 {
@@ -2681,24 +2681,24 @@ pub union WINBIO_EXTENDED_SENSOR_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_SENSOR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0 {
@@ -2710,30 +2710,30 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_SENSOR_INFO_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_FacialFeatures_e__Struct").field("FrameSize", &self.FrameSize).field("FrameOffset", &self.FrameOffset).field("MandatoryOrientation", &self.MandatoryOrientation).field("HardwareInfo", &self.HardwareInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.FrameSize == other.FrameSize && self.FrameOffset == other.FrameOffset && self.MandatoryOrientation == other.MandatoryOrientation && self.HardwareInfo == other.HardwareInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
@@ -2744,30 +2744,30 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_HardwareInfo_e__Struct").field("ColorSensorId", &self.ColorSensorId).field("InfraredSensorId", &self.InfraredSensorId).field("InfraredSensorRotationAngle", &self.InfraredSensorRotationAngle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.ColorSensorId == other.ColorSensorId && self.InfraredSensorId == other.InfraredSensorId && self.InfraredSensorRotationAngle == other.InfraredSensorRotationAngle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_1 {
@@ -2776,30 +2776,30 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_SENSOR_INFO_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
+impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Fingerprint_e__Struct").field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_1 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_2 {
@@ -2810,30 +2810,30 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_SENSOR_INFO_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
+impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Iris_e__Struct").field("FrameSize", &self.FrameSize).field("FrameOffset", &self.FrameOffset).field("MandatoryOrientation", &self.MandatoryOrientation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.FrameSize == other.FrameSize && self.FrameOffset == other.FrameOffset && self.MandatoryOrientation == other.MandatoryOrientation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_2 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_3 {
@@ -2842,30 +2842,30 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_EXTENDED_SENSOR_INFO_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
+impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Voice_e__Struct").field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_3 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_STORAGE_INFO {
@@ -2874,21 +2874,21 @@ pub struct WINBIO_EXTENDED_STORAGE_INFO {
     pub Specific: WINBIO_EXTENDED_STORAGE_INFO_0,
 }
 impl WINBIO_EXTENDED_STORAGE_INFO {}
-impl ::std::default::Default for WINBIO_EXTENDED_STORAGE_INFO {
+impl ::core::default::Default for WINBIO_EXTENDED_STORAGE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub union WINBIO_EXTENDED_STORAGE_INFO_0 {
@@ -2899,125 +2899,125 @@ pub union WINBIO_EXTENDED_STORAGE_INFO_0 {
     pub Voice: WINBIO_EXTENDED_STORAGE_INFO_0_3,
 }
 impl WINBIO_EXTENDED_STORAGE_INFO_0 {}
-impl ::std::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     pub Capabilities: u32,
 }
 impl WINBIO_EXTENDED_STORAGE_INFO_0_0 {}
-impl ::std::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
+impl ::core::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_FacialFeatures_e__Struct").field("Capabilities", &self.Capabilities).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Capabilities == other.Capabilities
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_0 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     pub Capabilities: u32,
 }
 impl WINBIO_EXTENDED_STORAGE_INFO_0_1 {}
-impl ::std::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
+impl ::core::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Fingerprint_e__Struct").field("Capabilities", &self.Capabilities).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Capabilities == other.Capabilities
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_1 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_1 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     pub Capabilities: u32,
 }
 impl WINBIO_EXTENDED_STORAGE_INFO_0_2 {}
-impl ::std::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
+impl ::core::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Iris_e__Struct").field("Capabilities", &self.Capabilities).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.Capabilities == other.Capabilities
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_2 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_2 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     pub Capabilities: u32,
 }
 impl WINBIO_EXTENDED_STORAGE_INFO_0_3 {}
-impl ::std::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
+impl ::core::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Voice_e__Struct").field("Capabilities", &self.Capabilities).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.Capabilities == other.Capabilities
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_3 {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_3 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_UNIT_STATUS {
@@ -3025,22 +3025,22 @@ pub struct WINBIO_EXTENDED_UNIT_STATUS {
     pub ReasonCode: u32,
 }
 impl WINBIO_EXTENDED_UNIT_STATUS {}
-impl ::std::default::Default for WINBIO_EXTENDED_UNIT_STATUS {
+impl ::core::default::Default for WINBIO_EXTENDED_UNIT_STATUS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_EXTENDED_UNIT_STATUS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_EXTENDED_UNIT_STATUS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_EXTENDED_UNIT_STATUS").field("Availability", &self.Availability).field("ReasonCode", &self.ReasonCode).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_EXTENDED_UNIT_STATUS {
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_UNIT_STATUS {
     fn eq(&self, other: &Self) -> bool {
         self.Availability == other.Availability && self.ReasonCode == other.ReasonCode
     }
 }
-impl ::std::cmp::Eq for WINBIO_EXTENDED_UNIT_STATUS {}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_UNIT_STATUS {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_UNIT_STATUS {
     type Abi = Self;
 }
@@ -3212,7 +3212,7 @@ pub const WINBIO_E_UNSUPPORTED_PROPERTY: ::windows::runtime::HRESULT = ::windows
 pub const WINBIO_E_UNSUPPORTED_PURPOSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861042i32 as _);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_UNSUPPORTED_SENSOR_CALIBRATION_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860978i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
@@ -3223,30 +3223,30 @@ pub struct WINBIO_FP_BU_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_FP_BU_STATE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_FP_BU_STATE {
+impl ::core::default::Default for WINBIO_FP_BU_STATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_FP_BU_STATE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_FP_BU_STATE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_FP_BU_STATE").field("SensorAttached", &self.SensorAttached).field("CreationResult", &self.CreationResult).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_FP_BU_STATE {
+impl ::core::cmp::PartialEq for WINBIO_FP_BU_STATE {
     fn eq(&self, other: &Self) -> bool {
         self.SensorAttached == other.SensorAttached && self.CreationResult == other.CreationResult
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_FP_BU_STATE {}
+impl ::core::cmp::Eq for WINBIO_FP_BU_STATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_FP_BU_STATE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
@@ -3255,67 +3255,67 @@ pub struct WINBIO_FRAMEWORK_INTERFACE {
     pub Type: u32,
     pub Size: usize,
     pub AdapterId: ::windows::runtime::GUID,
-    pub SetUnitStatus: ::std::option::Option<PIBIO_FRAMEWORK_SET_UNIT_STATUS_FN>,
-    pub VsmStorageAttach: ::std::option::Option<PIBIO_STORAGE_ATTACH_FN>,
-    pub VsmStorageDetach: ::std::option::Option<PIBIO_STORAGE_DETACH_FN>,
-    pub VsmStorageClearContext: ::std::option::Option<PIBIO_STORAGE_CLEAR_CONTEXT_FN>,
-    pub VsmStorageCreateDatabase: ::std::option::Option<PIBIO_STORAGE_CREATE_DATABASE_FN>,
-    pub VsmStorageOpenDatabase: ::std::option::Option<PIBIO_STORAGE_OPEN_DATABASE_FN>,
-    pub VsmStorageCloseDatabase: ::std::option::Option<PIBIO_STORAGE_CLOSE_DATABASE_FN>,
-    pub VsmStorageDeleteRecord: ::std::option::Option<PIBIO_STORAGE_DELETE_RECORD_FN>,
-    pub VsmStorageNotifyPowerChange: ::std::option::Option<PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FN>,
-    pub VsmStoragePipelineInit: ::std::option::Option<PIBIO_STORAGE_PIPELINE_INIT_FN>,
-    pub VsmStoragePipelineCleanup: ::std::option::Option<PIBIO_STORAGE_PIPELINE_CLEANUP_FN>,
-    pub VsmStorageActivate: ::std::option::Option<PIBIO_STORAGE_ACTIVATE_FN>,
-    pub VsmStorageDeactivate: ::std::option::Option<PIBIO_STORAGE_DEACTIVATE_FN>,
-    pub VsmStorageQueryExtendedInfo: ::std::option::Option<PIBIO_STORAGE_QUERY_EXTENDED_INFO_FN>,
-    pub VsmStorageCacheClear: ::std::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_CLEAR_FN>,
-    pub VsmStorageCacheImportBegin: ::std::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_BEGIN_FN>,
-    pub VsmStorageCacheImportNext: ::std::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_NEXT_FN>,
-    pub VsmStorageCacheImportEnd: ::std::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_END_FN>,
-    pub VsmStorageCacheExportBegin: ::std::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_BEGIN_FN>,
-    pub VsmStorageCacheExportNext: ::std::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_NEXT_FN>,
-    pub VsmStorageCacheExportEnd: ::std::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_END_FN>,
-    pub VsmSensorAttach: ::std::option::Option<PIBIO_SENSOR_ATTACH_FN>,
-    pub VsmSensorDetach: ::std::option::Option<PIBIO_SENSOR_DETACH_FN>,
-    pub VsmSensorClearContext: ::std::option::Option<PIBIO_SENSOR_CLEAR_CONTEXT_FN>,
-    pub VsmSensorPushDataToEngine: ::std::option::Option<PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FN>,
-    pub VsmSensorNotifyPowerChange: ::std::option::Option<PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FN>,
-    pub VsmSensorPipelineInit: ::std::option::Option<PIBIO_SENSOR_PIPELINE_INIT_FN>,
-    pub VsmSensorPipelineCleanup: ::std::option::Option<PIBIO_SENSOR_PIPELINE_CLEANUP_FN>,
-    pub VsmSensorActivate: ::std::option::Option<PIBIO_SENSOR_ACTIVATE_FN>,
-    pub VsmSensorDeactivate: ::std::option::Option<PIBIO_SENSOR_DEACTIVATE_FN>,
-    pub VsmSensorAsyncImportRawBuffer: ::std::option::Option<PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FN>,
-    pub VsmSensorAsyncImportSecureBuffer: ::std::option::Option<PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FN>,
-    pub Reserved1: ::std::option::Option<PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_1_FN>,
-    pub Reserved2: ::std::option::Option<PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_2_FN>,
-    pub Reserved3: ::std::option::Option<PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_3_FN>,
-    pub Reserved4: ::std::option::Option<PIBIO_STORAGE_RESERVED_1_FN>,
-    pub Reserved5: ::std::option::Option<PIBIO_STORAGE_RESERVED_2_FN>,
-    pub AllocateMemory: ::std::option::Option<PIBIO_FRAMEWORK_ALLOCATE_MEMORY_FN>,
-    pub FreeMemory: ::std::option::Option<PIBIO_FRAMEWORK_FREE_MEMORY_FN>,
-    pub GetProperty: ::std::option::Option<PIBIO_FRAMEWORK_GET_PROPERTY_FN>,
-    pub LockAndValidateSecureBuffer: ::std::option::Option<PIBIO_FRAMEWORK_LOCK_AND_VALIDATE_SECURE_BUFFER_FN>,
-    pub ReleaseSecureBuffer: ::std::option::Option<PIBIO_FRAMEWORK_RELEASE_SECURE_BUFFER_FN>,
-    pub QueryAuthorizedEnrollments: ::std::option::Option<PIBIO_FRAMEWORK_VSM_QUERY_AUTHORIZED_ENROLLMENTS_FN>,
-    pub DecryptSample: ::std::option::Option<PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN>,
+    pub SetUnitStatus: ::core::option::Option<PIBIO_FRAMEWORK_SET_UNIT_STATUS_FN>,
+    pub VsmStorageAttach: ::core::option::Option<PIBIO_STORAGE_ATTACH_FN>,
+    pub VsmStorageDetach: ::core::option::Option<PIBIO_STORAGE_DETACH_FN>,
+    pub VsmStorageClearContext: ::core::option::Option<PIBIO_STORAGE_CLEAR_CONTEXT_FN>,
+    pub VsmStorageCreateDatabase: ::core::option::Option<PIBIO_STORAGE_CREATE_DATABASE_FN>,
+    pub VsmStorageOpenDatabase: ::core::option::Option<PIBIO_STORAGE_OPEN_DATABASE_FN>,
+    pub VsmStorageCloseDatabase: ::core::option::Option<PIBIO_STORAGE_CLOSE_DATABASE_FN>,
+    pub VsmStorageDeleteRecord: ::core::option::Option<PIBIO_STORAGE_DELETE_RECORD_FN>,
+    pub VsmStorageNotifyPowerChange: ::core::option::Option<PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FN>,
+    pub VsmStoragePipelineInit: ::core::option::Option<PIBIO_STORAGE_PIPELINE_INIT_FN>,
+    pub VsmStoragePipelineCleanup: ::core::option::Option<PIBIO_STORAGE_PIPELINE_CLEANUP_FN>,
+    pub VsmStorageActivate: ::core::option::Option<PIBIO_STORAGE_ACTIVATE_FN>,
+    pub VsmStorageDeactivate: ::core::option::Option<PIBIO_STORAGE_DEACTIVATE_FN>,
+    pub VsmStorageQueryExtendedInfo: ::core::option::Option<PIBIO_STORAGE_QUERY_EXTENDED_INFO_FN>,
+    pub VsmStorageCacheClear: ::core::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_CLEAR_FN>,
+    pub VsmStorageCacheImportBegin: ::core::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_BEGIN_FN>,
+    pub VsmStorageCacheImportNext: ::core::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_NEXT_FN>,
+    pub VsmStorageCacheImportEnd: ::core::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_END_FN>,
+    pub VsmStorageCacheExportBegin: ::core::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_BEGIN_FN>,
+    pub VsmStorageCacheExportNext: ::core::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_NEXT_FN>,
+    pub VsmStorageCacheExportEnd: ::core::option::Option<PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_END_FN>,
+    pub VsmSensorAttach: ::core::option::Option<PIBIO_SENSOR_ATTACH_FN>,
+    pub VsmSensorDetach: ::core::option::Option<PIBIO_SENSOR_DETACH_FN>,
+    pub VsmSensorClearContext: ::core::option::Option<PIBIO_SENSOR_CLEAR_CONTEXT_FN>,
+    pub VsmSensorPushDataToEngine: ::core::option::Option<PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FN>,
+    pub VsmSensorNotifyPowerChange: ::core::option::Option<PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FN>,
+    pub VsmSensorPipelineInit: ::core::option::Option<PIBIO_SENSOR_PIPELINE_INIT_FN>,
+    pub VsmSensorPipelineCleanup: ::core::option::Option<PIBIO_SENSOR_PIPELINE_CLEANUP_FN>,
+    pub VsmSensorActivate: ::core::option::Option<PIBIO_SENSOR_ACTIVATE_FN>,
+    pub VsmSensorDeactivate: ::core::option::Option<PIBIO_SENSOR_DEACTIVATE_FN>,
+    pub VsmSensorAsyncImportRawBuffer: ::core::option::Option<PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FN>,
+    pub VsmSensorAsyncImportSecureBuffer: ::core::option::Option<PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FN>,
+    pub Reserved1: ::core::option::Option<PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_1_FN>,
+    pub Reserved2: ::core::option::Option<PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_2_FN>,
+    pub Reserved3: ::core::option::Option<PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_3_FN>,
+    pub Reserved4: ::core::option::Option<PIBIO_STORAGE_RESERVED_1_FN>,
+    pub Reserved5: ::core::option::Option<PIBIO_STORAGE_RESERVED_2_FN>,
+    pub AllocateMemory: ::core::option::Option<PIBIO_FRAMEWORK_ALLOCATE_MEMORY_FN>,
+    pub FreeMemory: ::core::option::Option<PIBIO_FRAMEWORK_FREE_MEMORY_FN>,
+    pub GetProperty: ::core::option::Option<PIBIO_FRAMEWORK_GET_PROPERTY_FN>,
+    pub LockAndValidateSecureBuffer: ::core::option::Option<PIBIO_FRAMEWORK_LOCK_AND_VALIDATE_SECURE_BUFFER_FN>,
+    pub ReleaseSecureBuffer: ::core::option::Option<PIBIO_FRAMEWORK_RELEASE_SECURE_BUFFER_FN>,
+    pub QueryAuthorizedEnrollments: ::core::option::Option<PIBIO_FRAMEWORK_VSM_QUERY_AUTHORIZED_ENROLLMENTS_FN>,
+    pub DecryptSample: ::core::option::Option<PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WINBIO_FRAMEWORK_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::default::Default for WINBIO_FRAMEWORK_INTERFACE {
+impl ::core::default::Default for WINBIO_FRAMEWORK_INTERFACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::fmt::Debug for WINBIO_FRAMEWORK_INTERFACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_FRAMEWORK_INTERFACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_FRAMEWORK_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::cmp::PartialEq for WINBIO_FRAMEWORK_INTERFACE {
+impl ::core::cmp::PartialEq for WINBIO_FRAMEWORK_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version
             && self.Type == other.Type
@@ -3368,12 +3368,12 @@ impl ::std::cmp::PartialEq for WINBIO_FRAMEWORK_INTERFACE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::cmp::Eq for WINBIO_FRAMEWORK_INTERFACE {}
+impl ::core::cmp::Eq for WINBIO_FRAMEWORK_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WINBIO_FRAMEWORK_INTERFACE {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_GESTURE_METADATA {
@@ -3383,26 +3383,26 @@ pub struct WINBIO_GESTURE_METADATA {
     pub ProtectionType: u32,
 }
 impl WINBIO_GESTURE_METADATA {}
-impl ::std::default::Default for WINBIO_GESTURE_METADATA {
+impl ::core::default::Default for WINBIO_GESTURE_METADATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_GESTURE_METADATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_GESTURE_METADATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_GESTURE_METADATA").field("Size", &self.Size).field("BiometricType", &self.BiometricType).field("MatchType", &self.MatchType).field("ProtectionType", &self.ProtectionType).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_GESTURE_METADATA {
+impl ::core::cmp::PartialEq for WINBIO_GESTURE_METADATA {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.BiometricType == other.BiometricType && self.MatchType == other.MatchType && self.ProtectionType == other.ProtectionType
     }
 }
-impl ::std::cmp::Eq for WINBIO_GESTURE_METADATA {}
+impl ::core::cmp::Eq for WINBIO_GESTURE_METADATA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_GESTURE_METADATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_GET_INDICATOR {
@@ -3411,26 +3411,26 @@ pub struct WINBIO_GET_INDICATOR {
     pub IndicatorStatus: u32,
 }
 impl WINBIO_GET_INDICATOR {}
-impl ::std::default::Default for WINBIO_GET_INDICATOR {
+impl ::core::default::Default for WINBIO_GET_INDICATOR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_GET_INDICATOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_GET_INDICATOR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_GET_INDICATOR").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("IndicatorStatus", &self.IndicatorStatus).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_GET_INDICATOR {
+impl ::core::cmp::PartialEq for WINBIO_GET_INDICATOR {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.IndicatorStatus == other.IndicatorStatus
     }
 }
-impl ::std::cmp::Eq for WINBIO_GET_INDICATOR {}
+impl ::core::cmp::Eq for WINBIO_GET_INDICATOR {}
 unsafe impl ::windows::runtime::Abi for WINBIO_GET_INDICATOR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_IDENTITY {
@@ -3438,21 +3438,21 @@ pub struct WINBIO_IDENTITY {
     pub Value: WINBIO_IDENTITY_0,
 }
 impl WINBIO_IDENTITY {}
-impl ::std::default::Default for WINBIO_IDENTITY {
+impl ::core::default::Default for WINBIO_IDENTITY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_IDENTITY {
+impl ::core::cmp::PartialEq for WINBIO_IDENTITY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WINBIO_IDENTITY {}
+impl ::core::cmp::Eq for WINBIO_IDENTITY {}
 unsafe impl ::windows::runtime::Abi for WINBIO_IDENTITY {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub union WINBIO_IDENTITY_0 {
@@ -3463,21 +3463,21 @@ pub union WINBIO_IDENTITY_0 {
     pub SecureId: [u8; 32],
 }
 impl WINBIO_IDENTITY_0 {}
-impl ::std::default::Default for WINBIO_IDENTITY_0 {
+impl ::core::default::Default for WINBIO_IDENTITY_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_IDENTITY_0 {
+impl ::core::cmp::PartialEq for WINBIO_IDENTITY_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WINBIO_IDENTITY_0 {}
+impl ::core::cmp::Eq for WINBIO_IDENTITY_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_IDENTITY_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_IDENTITY_0_0 {
@@ -3485,22 +3485,22 @@ pub struct WINBIO_IDENTITY_0_0 {
     pub Data: [u8; 68],
 }
 impl WINBIO_IDENTITY_0_0 {}
-impl ::std::default::Default for WINBIO_IDENTITY_0_0 {
+impl ::core::default::Default for WINBIO_IDENTITY_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_IDENTITY_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_IDENTITY_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_AccountSid_e__Struct").field("Size", &self.Size).field("Data", &self.Data).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_IDENTITY_0_0 {
+impl ::core::cmp::PartialEq for WINBIO_IDENTITY_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Data == other.Data
     }
 }
-impl ::std::cmp::Eq for WINBIO_IDENTITY_0_0 {}
+impl ::core::cmp::Eq for WINBIO_IDENTITY_0_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_IDENTITY_0_0 {
     type Abi = Self;
 }
@@ -3510,7 +3510,7 @@ pub const WINBIO_I_EXTENDED_STATUS_INFORMATION: ::windows::runtime::HRESULT = ::
 pub const WINBIO_I_MORE_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(589825i32 as _);
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_MAX_STRING_LEN: u32 = 256u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_NOTIFY_WAKE {
@@ -3519,26 +3519,26 @@ pub struct WINBIO_NOTIFY_WAKE {
     pub Reason: u32,
 }
 impl WINBIO_NOTIFY_WAKE {}
-impl ::std::default::Default for WINBIO_NOTIFY_WAKE {
+impl ::core::default::Default for WINBIO_NOTIFY_WAKE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_NOTIFY_WAKE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_NOTIFY_WAKE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_NOTIFY_WAKE").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("Reason", &self.Reason).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_NOTIFY_WAKE {
+impl ::core::cmp::PartialEq for WINBIO_NOTIFY_WAKE {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.Reason == other.Reason
     }
 }
-impl ::std::cmp::Eq for WINBIO_NOTIFY_WAKE {}
+impl ::core::cmp::Eq for WINBIO_NOTIFY_WAKE {}
 unsafe impl ::windows::runtime::Abi for WINBIO_NOTIFY_WAKE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
@@ -3557,14 +3557,14 @@ pub struct WINBIO_PIPELINE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WINBIO_PIPELINE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::default::Default for WINBIO_PIPELINE {
+impl ::core::default::Default for WINBIO_PIPELINE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::fmt::Debug for WINBIO_PIPELINE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_PIPELINE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_PIPELINE")
             .field("SensorHandle", &self.SensorHandle)
             .field("EngineHandle", &self.EngineHandle)
@@ -3580,26 +3580,26 @@ impl ::std::fmt::Debug for WINBIO_PIPELINE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::cmp::PartialEq for WINBIO_PIPELINE {
+impl ::core::cmp::PartialEq for WINBIO_PIPELINE {
     fn eq(&self, other: &Self) -> bool {
         self.SensorHandle == other.SensorHandle && self.EngineHandle == other.EngineHandle && self.StorageHandle == other.StorageHandle && self.SensorInterface == other.SensorInterface && self.EngineInterface == other.EngineInterface && self.StorageInterface == other.StorageInterface && self.SensorContext == other.SensorContext && self.EngineContext == other.EngineContext && self.StorageContext == other.StorageContext && self.FrameworkInterface == other.FrameworkInterface
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::cmp::Eq for WINBIO_PIPELINE {}
+impl ::core::cmp::Eq for WINBIO_PIPELINE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WINBIO_PIPELINE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_POLICY_SOURCE(pub i32);
 pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(0i32);
 pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(1i32);
 pub const WINBIO_POLICY_LOCAL: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(2i32);
 pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(3i32);
-impl ::std::convert::From<i32> for WINBIO_POLICY_SOURCE {
+impl ::core::convert::From<i32> for WINBIO_POLICY_SOURCE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3608,12 +3608,12 @@ unsafe impl ::windows::runtime::Abi for WINBIO_POLICY_SOURCE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_POOL(pub u32);
 pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = WINBIO_POOL(1u32);
 pub const WINBIO_POOL_PRIVATE: WINBIO_POOL = WINBIO_POOL(2u32);
-impl ::std::convert::From<u32> for WINBIO_POOL {
+impl ::core::convert::From<u32> for WINBIO_POOL {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -3621,35 +3621,35 @@ impl ::std::convert::From<u32> for WINBIO_POOL {
 unsafe impl ::windows::runtime::Abi for WINBIO_POOL {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for WINBIO_POOL {
+impl ::core::ops::BitOr for WINBIO_POOL {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for WINBIO_POOL {
+impl ::core::ops::BitAnd for WINBIO_POOL {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for WINBIO_POOL {
+impl ::core::ops::BitOrAssign for WINBIO_POOL {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for WINBIO_POOL {
+impl ::core::ops::BitAndAssign for WINBIO_POOL {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for WINBIO_POOL {
+impl ::core::ops::Not for WINBIO_POOL {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
@@ -3667,24 +3667,24 @@ pub struct WINBIO_PRESENCE {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_PRESENCE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_PRESENCE {
+impl ::core::default::Default for WINBIO_PRESENCE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_PRESENCE {
+impl ::core::cmp::PartialEq for WINBIO_PRESENCE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_PRESENCE {}
+impl ::core::cmp::Eq for WINBIO_PRESENCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_PRESENCE_0 {
@@ -3694,30 +3694,30 @@ pub struct WINBIO_PRESENCE_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_PRESENCE_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_PRESENCE_0 {
+impl ::core::default::Default for WINBIO_PRESENCE_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_PRESENCE_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_PRESENCE_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Authorization_e__Struct").field("Size", &self.Size).field("Data", &self.Data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_PRESENCE_0 {
+impl ::core::cmp::PartialEq for WINBIO_PRESENCE_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Data == other.Data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_PRESENCE_0 {}
+impl ::core::cmp::Eq for WINBIO_PRESENCE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
@@ -3728,24 +3728,24 @@ pub union WINBIO_PRESENCE_PROPERTIES {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_PRESENCE_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_PRESENCE_PROPERTIES {
+impl ::core::default::Default for WINBIO_PRESENCE_PROPERTIES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES {
+impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_PRESENCE_PROPERTIES {}
+impl ::core::cmp::Eq for WINBIO_PRESENCE_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_PROPERTIES {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_PRESENCE_PROPERTIES_0 {
@@ -3756,30 +3756,30 @@ pub struct WINBIO_PRESENCE_PROPERTIES_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_PRESENCE_PROPERTIES_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_PRESENCE_PROPERTIES_0 {
+impl ::core::default::Default for WINBIO_PRESENCE_PROPERTIES_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_FacialFeatures_e__Struct").field("BoundingBox", &self.BoundingBox).field("Distance", &self.Distance).field("OpaqueEngineData", &self.OpaqueEngineData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_0 {
+impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_0 {
     fn eq(&self, other: &Self) -> bool {
         self.BoundingBox == other.BoundingBox && self.Distance == other.Distance && self.OpaqueEngineData == other.OpaqueEngineData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_0 {}
+impl ::core::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_PROPERTIES_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_PRESENCE_PROPERTIES_0_0 {
@@ -3789,30 +3789,30 @@ pub struct WINBIO_PRESENCE_PROPERTIES_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_PRESENCE_PROPERTIES_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_PRESENCE_PROPERTIES_0_0 {
+impl ::core::default::Default for WINBIO_PRESENCE_PROPERTIES_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_OpaqueEngineData_e__Struct").field("AdapterId", &self.AdapterId).field("Data", &self.Data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_0_0 {
+impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.AdapterId == other.AdapterId && self.Data == other.Data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_0_0 {}
+impl ::core::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_PROPERTIES_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_PRESENCE_PROPERTIES_1 {
@@ -3825,30 +3825,30 @@ pub struct WINBIO_PRESENCE_PROPERTIES_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl WINBIO_PRESENCE_PROPERTIES_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WINBIO_PRESENCE_PROPERTIES_1 {
+impl ::core::default::Default for WINBIO_PRESENCE_PROPERTIES_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Iris_e__Struct").field("EyeBoundingBox_1", &self.EyeBoundingBox_1).field("EyeBoundingBox_2", &self.EyeBoundingBox_2).field("PupilCenter_1", &self.PupilCenter_1).field("PupilCenter_2", &self.PupilCenter_2).field("Distance", &self.Distance).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_1 {
+impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_1 {
     fn eq(&self, other: &Self) -> bool {
         self.EyeBoundingBox_1 == other.EyeBoundingBox_1 && self.EyeBoundingBox_2 == other.EyeBoundingBox_2 && self.PupilCenter_1 == other.PupilCenter_1 && self.PupilCenter_2 == other.PupilCenter_2 && self.Distance == other.Distance
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_1 {}
+impl ::core::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_PROPERTIES_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_PRIVATE_SENSOR_TYPE_INFO {
@@ -3857,26 +3857,26 @@ pub struct WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     pub PrivateSensorTypeInfo: WINBIO_DATA,
 }
 impl WINBIO_PRIVATE_SENSOR_TYPE_INFO {}
-impl ::std::default::Default for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
+impl ::core::default::Default for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_PRIVATE_SENSOR_TYPE_INFO").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("PrivateSensorTypeInfo", &self.PrivateSensorTypeInfo).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
+impl ::core::cmp::PartialEq for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.PrivateSensorTypeInfo == other.PrivateSensorTypeInfo
     }
 }
-impl ::std::cmp::Eq for WINBIO_PRIVATE_SENSOR_TYPE_INFO {}
+impl ::core::cmp::Eq for WINBIO_PRIVATE_SENSOR_TYPE_INFO {}
 unsafe impl ::windows::runtime::Abi for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_PROTECTION_POLICY {
@@ -3888,21 +3888,21 @@ pub struct WINBIO_PROTECTION_POLICY {
     pub Policy: [u8; 128],
 }
 impl WINBIO_PROTECTION_POLICY {}
-impl ::std::default::Default for WINBIO_PROTECTION_POLICY {
+impl ::core::default::Default for WINBIO_PROTECTION_POLICY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_PROTECTION_POLICY {
+impl ::core::cmp::PartialEq for WINBIO_PROTECTION_POLICY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WINBIO_PROTECTION_POLICY {}
+impl ::core::cmp::Eq for WINBIO_PROTECTION_POLICY {}
 unsafe impl ::windows::runtime::Abi for WINBIO_PROTECTION_POLICY {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_REGISTERED_FORMAT {
@@ -3910,22 +3910,22 @@ pub struct WINBIO_REGISTERED_FORMAT {
     pub Type: u16,
 }
 impl WINBIO_REGISTERED_FORMAT {}
-impl ::std::default::Default for WINBIO_REGISTERED_FORMAT {
+impl ::core::default::Default for WINBIO_REGISTERED_FORMAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_REGISTERED_FORMAT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_REGISTERED_FORMAT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_REGISTERED_FORMAT").field("Owner", &self.Owner).field("Type", &self.Type).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_REGISTERED_FORMAT {
+impl ::core::cmp::PartialEq for WINBIO_REGISTERED_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.Owner == other.Owner && self.Type == other.Type
     }
 }
-impl ::std::cmp::Eq for WINBIO_REGISTERED_FORMAT {}
+impl ::core::cmp::Eq for WINBIO_REGISTERED_FORMAT {}
 unsafe impl ::windows::runtime::Abi for WINBIO_REGISTERED_FORMAT {
     type Abi = Self;
 }
@@ -3947,7 +3947,7 @@ pub const WINBIO_SCP_RANDOM_SIZE_V1: u32 = 32u32;
 pub const WINBIO_SCP_SIGNATURE_SIZE_V1: u32 = 64u32;
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_SCP_VERSION_1: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_SECURE_BUFFER_HEADER_V1 {
@@ -3957,26 +3957,26 @@ pub struct WINBIO_SECURE_BUFFER_HEADER_V1 {
     pub ValidationTag: u64,
 }
 impl WINBIO_SECURE_BUFFER_HEADER_V1 {}
-impl ::std::default::Default for WINBIO_SECURE_BUFFER_HEADER_V1 {
+impl ::core::default::Default for WINBIO_SECURE_BUFFER_HEADER_V1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_SECURE_BUFFER_HEADER_V1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_SECURE_BUFFER_HEADER_V1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_SECURE_BUFFER_HEADER_V1").field("Type", &self.Type).field("Size", &self.Size).field("Flags", &self.Flags).field("ValidationTag", &self.ValidationTag).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_SECURE_BUFFER_HEADER_V1 {
+impl ::core::cmp::PartialEq for WINBIO_SECURE_BUFFER_HEADER_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Size == other.Size && self.Flags == other.Flags && self.ValidationTag == other.ValidationTag
     }
 }
-impl ::std::cmp::Eq for WINBIO_SECURE_BUFFER_HEADER_V1 {}
+impl ::core::cmp::Eq for WINBIO_SECURE_BUFFER_HEADER_V1 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_SECURE_BUFFER_HEADER_V1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_SECURE_CONNECTION_DATA {
@@ -3988,13 +3988,13 @@ pub struct WINBIO_SECURE_CONNECTION_DATA {
     pub IntermediateCA2Size: u32,
 }
 impl WINBIO_SECURE_CONNECTION_DATA {}
-impl ::std::default::Default for WINBIO_SECURE_CONNECTION_DATA {
+impl ::core::default::Default for WINBIO_SECURE_CONNECTION_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_SECURE_CONNECTION_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_SECURE_CONNECTION_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_SECURE_CONNECTION_DATA")
             .field("Size", &self.Size)
             .field("Version", &self.Version)
@@ -4005,16 +4005,16 @@ impl ::std::fmt::Debug for WINBIO_SECURE_CONNECTION_DATA {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_SECURE_CONNECTION_DATA {
+impl ::core::cmp::PartialEq for WINBIO_SECURE_CONNECTION_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Version == other.Version && self.Flags == other.Flags && self.ModelCertificateSize == other.ModelCertificateSize && self.IntermediateCA1Size == other.IntermediateCA1Size && self.IntermediateCA2Size == other.IntermediateCA2Size
     }
 }
-impl ::std::cmp::Eq for WINBIO_SECURE_CONNECTION_DATA {}
+impl ::core::cmp::Eq for WINBIO_SECURE_CONNECTION_DATA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_SECURE_CONNECTION_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_SECURE_CONNECTION_PARAMS {
@@ -4023,26 +4023,26 @@ pub struct WINBIO_SECURE_CONNECTION_PARAMS {
     pub Flags: u16,
 }
 impl WINBIO_SECURE_CONNECTION_PARAMS {}
-impl ::std::default::Default for WINBIO_SECURE_CONNECTION_PARAMS {
+impl ::core::default::Default for WINBIO_SECURE_CONNECTION_PARAMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_SECURE_CONNECTION_PARAMS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_SECURE_CONNECTION_PARAMS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_SECURE_CONNECTION_PARAMS").field("PayloadSize", &self.PayloadSize).field("Version", &self.Version).field("Flags", &self.Flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_SECURE_CONNECTION_PARAMS {
+impl ::core::cmp::PartialEq for WINBIO_SECURE_CONNECTION_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.Version == other.Version && self.Flags == other.Flags
     }
 }
-impl ::std::cmp::Eq for WINBIO_SECURE_CONNECTION_PARAMS {}
+impl ::core::cmp::Eq for WINBIO_SECURE_CONNECTION_PARAMS {}
 unsafe impl ::windows::runtime::Abi for WINBIO_SECURE_CONNECTION_PARAMS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_SENSOR_ATTRIBUTES {
@@ -4060,13 +4060,13 @@ pub struct WINBIO_SENSOR_ATTRIBUTES {
     pub SupportedFormat: [WINBIO_REGISTERED_FORMAT; 1],
 }
 impl WINBIO_SENSOR_ATTRIBUTES {}
-impl ::std::default::Default for WINBIO_SENSOR_ATTRIBUTES {
+impl ::core::default::Default for WINBIO_SENSOR_ATTRIBUTES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_SENSOR_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_SENSOR_ATTRIBUTES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_SENSOR_ATTRIBUTES")
             .field("PayloadSize", &self.PayloadSize)
             .field("WinBioHresult", &self.WinBioHresult)
@@ -4083,7 +4083,7 @@ impl ::std::fmt::Debug for WINBIO_SENSOR_ATTRIBUTES {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_SENSOR_ATTRIBUTES {
+impl ::core::cmp::PartialEq for WINBIO_SENSOR_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize
             && self.WinBioHresult == other.WinBioHresult
@@ -4099,11 +4099,11 @@ impl ::std::cmp::PartialEq for WINBIO_SENSOR_ATTRIBUTES {
             && self.SupportedFormat == other.SupportedFormat
     }
 }
-impl ::std::cmp::Eq for WINBIO_SENSOR_ATTRIBUTES {}
+impl ::core::cmp::Eq for WINBIO_SENSOR_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for WINBIO_SENSOR_ATTRIBUTES {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
@@ -4112,54 +4112,54 @@ pub struct WINBIO_SENSOR_INTERFACE {
     pub Type: u32,
     pub Size: usize,
     pub AdapterId: ::windows::runtime::GUID,
-    pub Attach: ::std::option::Option<PIBIO_SENSOR_ATTACH_FN>,
-    pub Detach: ::std::option::Option<PIBIO_SENSOR_DETACH_FN>,
-    pub ClearContext: ::std::option::Option<PIBIO_SENSOR_CLEAR_CONTEXT_FN>,
-    pub QueryStatus: ::std::option::Option<PIBIO_SENSOR_QUERY_STATUS_FN>,
-    pub Reset: ::std::option::Option<PIBIO_SENSOR_RESET_FN>,
-    pub SetMode: ::std::option::Option<PIBIO_SENSOR_SET_MODE_FN>,
-    pub SetIndicatorStatus: ::std::option::Option<PIBIO_SENSOR_SET_INDICATOR_STATUS_FN>,
-    pub GetIndicatorStatus: ::std::option::Option<PIBIO_SENSOR_GET_INDICATOR_STATUS_FN>,
-    pub StartCapture: ::std::option::Option<PIBIO_SENSOR_START_CAPTURE_FN>,
-    pub FinishCapture: ::std::option::Option<PIBIO_SENSOR_FINISH_CAPTURE_FN>,
-    pub ExportSensorData: ::std::option::Option<PIBIO_SENSOR_EXPORT_SENSOR_DATA_FN>,
-    pub Cancel: ::std::option::Option<PIBIO_SENSOR_CANCEL_FN>,
-    pub PushDataToEngine: ::std::option::Option<PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FN>,
-    pub ControlUnit: ::std::option::Option<PIBIO_SENSOR_CONTROL_UNIT_FN>,
-    pub ControlUnitPrivileged: ::std::option::Option<PIBIO_SENSOR_CONTROL_UNIT_PRIVILEGED_FN>,
-    pub NotifyPowerChange: ::std::option::Option<PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FN>,
-    pub PipelineInit: ::std::option::Option<PIBIO_SENSOR_PIPELINE_INIT_FN>,
-    pub PipelineCleanup: ::std::option::Option<PIBIO_SENSOR_PIPELINE_CLEANUP_FN>,
-    pub Activate: ::std::option::Option<PIBIO_SENSOR_ACTIVATE_FN>,
-    pub Deactivate: ::std::option::Option<PIBIO_SENSOR_DEACTIVATE_FN>,
-    pub QueryExtendedInfo: ::std::option::Option<PIBIO_SENSOR_QUERY_EXTENDED_INFO_FN>,
-    pub QueryCalibrationFormats: ::std::option::Option<PIBIO_SENSOR_QUERY_CALIBRATION_FORMATS_FN>,
-    pub SetCalibrationFormat: ::std::option::Option<PIBIO_SENSOR_SET_CALIBRATION_FORMAT_FN>,
-    pub AcceptCalibrationData: ::std::option::Option<PIBIO_SENSOR_ACCEPT_CALIBRATION_DATA_FN>,
-    pub AsyncImportRawBuffer: ::std::option::Option<PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FN>,
-    pub AsyncImportSecureBuffer: ::std::option::Option<PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FN>,
-    pub QueryPrivateSensorType: ::std::option::Option<PIBIO_SENSOR_QUERY_PRIVATE_SENSOR_TYPE_FN>,
-    pub ConnectSecure: ::std::option::Option<PIBIO_SENSOR_CONNECT_SECURE_FN>,
-    pub StartCaptureEx: ::std::option::Option<PIBIO_SENSOR_START_CAPTURE_EX_FN>,
-    pub StartNotifyWake: ::std::option::Option<PIBIO_SENSOR_START_NOTIFY_WAKE_FN>,
-    pub FinishNotifyWake: ::std::option::Option<PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN>,
+    pub Attach: ::core::option::Option<PIBIO_SENSOR_ATTACH_FN>,
+    pub Detach: ::core::option::Option<PIBIO_SENSOR_DETACH_FN>,
+    pub ClearContext: ::core::option::Option<PIBIO_SENSOR_CLEAR_CONTEXT_FN>,
+    pub QueryStatus: ::core::option::Option<PIBIO_SENSOR_QUERY_STATUS_FN>,
+    pub Reset: ::core::option::Option<PIBIO_SENSOR_RESET_FN>,
+    pub SetMode: ::core::option::Option<PIBIO_SENSOR_SET_MODE_FN>,
+    pub SetIndicatorStatus: ::core::option::Option<PIBIO_SENSOR_SET_INDICATOR_STATUS_FN>,
+    pub GetIndicatorStatus: ::core::option::Option<PIBIO_SENSOR_GET_INDICATOR_STATUS_FN>,
+    pub StartCapture: ::core::option::Option<PIBIO_SENSOR_START_CAPTURE_FN>,
+    pub FinishCapture: ::core::option::Option<PIBIO_SENSOR_FINISH_CAPTURE_FN>,
+    pub ExportSensorData: ::core::option::Option<PIBIO_SENSOR_EXPORT_SENSOR_DATA_FN>,
+    pub Cancel: ::core::option::Option<PIBIO_SENSOR_CANCEL_FN>,
+    pub PushDataToEngine: ::core::option::Option<PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FN>,
+    pub ControlUnit: ::core::option::Option<PIBIO_SENSOR_CONTROL_UNIT_FN>,
+    pub ControlUnitPrivileged: ::core::option::Option<PIBIO_SENSOR_CONTROL_UNIT_PRIVILEGED_FN>,
+    pub NotifyPowerChange: ::core::option::Option<PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FN>,
+    pub PipelineInit: ::core::option::Option<PIBIO_SENSOR_PIPELINE_INIT_FN>,
+    pub PipelineCleanup: ::core::option::Option<PIBIO_SENSOR_PIPELINE_CLEANUP_FN>,
+    pub Activate: ::core::option::Option<PIBIO_SENSOR_ACTIVATE_FN>,
+    pub Deactivate: ::core::option::Option<PIBIO_SENSOR_DEACTIVATE_FN>,
+    pub QueryExtendedInfo: ::core::option::Option<PIBIO_SENSOR_QUERY_EXTENDED_INFO_FN>,
+    pub QueryCalibrationFormats: ::core::option::Option<PIBIO_SENSOR_QUERY_CALIBRATION_FORMATS_FN>,
+    pub SetCalibrationFormat: ::core::option::Option<PIBIO_SENSOR_SET_CALIBRATION_FORMAT_FN>,
+    pub AcceptCalibrationData: ::core::option::Option<PIBIO_SENSOR_ACCEPT_CALIBRATION_DATA_FN>,
+    pub AsyncImportRawBuffer: ::core::option::Option<PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FN>,
+    pub AsyncImportSecureBuffer: ::core::option::Option<PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FN>,
+    pub QueryPrivateSensorType: ::core::option::Option<PIBIO_SENSOR_QUERY_PRIVATE_SENSOR_TYPE_FN>,
+    pub ConnectSecure: ::core::option::Option<PIBIO_SENSOR_CONNECT_SECURE_FN>,
+    pub StartCaptureEx: ::core::option::Option<PIBIO_SENSOR_START_CAPTURE_EX_FN>,
+    pub StartNotifyWake: ::core::option::Option<PIBIO_SENSOR_START_NOTIFY_WAKE_FN>,
+    pub FinishNotifyWake: ::core::option::Option<PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WINBIO_SENSOR_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::default::Default for WINBIO_SENSOR_INTERFACE {
+impl ::core::default::Default for WINBIO_SENSOR_INTERFACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::fmt::Debug for WINBIO_SENSOR_INTERFACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_SENSOR_INTERFACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_SENSOR_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::cmp::PartialEq for WINBIO_SENSOR_INTERFACE {
+impl ::core::cmp::PartialEq for WINBIO_SENSOR_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version
             && self.Type == other.Type
@@ -4199,20 +4199,20 @@ impl ::std::cmp::PartialEq for WINBIO_SENSOR_INTERFACE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::cmp::Eq for WINBIO_SENSOR_INTERFACE {}
+impl ::core::cmp::Eq for WINBIO_SENSOR_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WINBIO_SENSOR_INTERFACE {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_SETTING_SOURCE(pub u32);
 pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(0u32);
 pub const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(1u32);
 pub const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(3u32);
 pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(2u32);
-impl ::std::convert::From<u32> for WINBIO_SETTING_SOURCE {
+impl ::core::convert::From<u32> for WINBIO_SETTING_SOURCE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -4220,35 +4220,35 @@ impl ::std::convert::From<u32> for WINBIO_SETTING_SOURCE {
 unsafe impl ::windows::runtime::Abi for WINBIO_SETTING_SOURCE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for WINBIO_SETTING_SOURCE {
+impl ::core::ops::BitOr for WINBIO_SETTING_SOURCE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for WINBIO_SETTING_SOURCE {
+impl ::core::ops::BitAnd for WINBIO_SETTING_SOURCE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for WINBIO_SETTING_SOURCE {
+impl ::core::ops::BitOrAssign for WINBIO_SETTING_SOURCE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for WINBIO_SETTING_SOURCE {
+impl ::core::ops::BitAndAssign for WINBIO_SETTING_SOURCE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for WINBIO_SETTING_SOURCE {
+impl ::core::ops::Not for WINBIO_SETTING_SOURCE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_SET_INDICATOR {
@@ -4256,26 +4256,26 @@ pub struct WINBIO_SET_INDICATOR {
     pub IndicatorStatus: u32,
 }
 impl WINBIO_SET_INDICATOR {}
-impl ::std::default::Default for WINBIO_SET_INDICATOR {
+impl ::core::default::Default for WINBIO_SET_INDICATOR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_SET_INDICATOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_SET_INDICATOR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_SET_INDICATOR").field("PayloadSize", &self.PayloadSize).field("IndicatorStatus", &self.IndicatorStatus).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_SET_INDICATOR {
+impl ::core::cmp::PartialEq for WINBIO_SET_INDICATOR {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.IndicatorStatus == other.IndicatorStatus
     }
 }
-impl ::std::cmp::Eq for WINBIO_SET_INDICATOR {}
+impl ::core::cmp::Eq for WINBIO_SET_INDICATOR {}
 unsafe impl ::windows::runtime::Abi for WINBIO_SET_INDICATOR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
@@ -4284,53 +4284,53 @@ pub struct WINBIO_STORAGE_INTERFACE {
     pub Type: u32,
     pub Size: usize,
     pub AdapterId: ::windows::runtime::GUID,
-    pub Attach: ::std::option::Option<PIBIO_STORAGE_ATTACH_FN>,
-    pub Detach: ::std::option::Option<PIBIO_STORAGE_DETACH_FN>,
-    pub ClearContext: ::std::option::Option<PIBIO_STORAGE_CLEAR_CONTEXT_FN>,
-    pub CreateDatabase: ::std::option::Option<PIBIO_STORAGE_CREATE_DATABASE_FN>,
-    pub EraseDatabase: ::std::option::Option<PIBIO_STORAGE_ERASE_DATABASE_FN>,
-    pub OpenDatabase: ::std::option::Option<PIBIO_STORAGE_OPEN_DATABASE_FN>,
-    pub CloseDatabase: ::std::option::Option<PIBIO_STORAGE_CLOSE_DATABASE_FN>,
-    pub GetDataFormat: ::std::option::Option<PIBIO_STORAGE_GET_DATA_FORMAT_FN>,
-    pub GetDatabaseSize: ::std::option::Option<PIBIO_STORAGE_GET_DATABASE_SIZE_FN>,
-    pub AddRecord: ::std::option::Option<PIBIO_STORAGE_ADD_RECORD_FN>,
-    pub DeleteRecord: ::std::option::Option<PIBIO_STORAGE_DELETE_RECORD_FN>,
-    pub QueryBySubject: ::std::option::Option<PIBIO_STORAGE_QUERY_BY_SUBJECT_FN>,
-    pub QueryByContent: ::std::option::Option<PIBIO_STORAGE_QUERY_BY_CONTENT_FN>,
-    pub GetRecordCount: ::std::option::Option<PIBIO_STORAGE_GET_RECORD_COUNT_FN>,
-    pub FirstRecord: ::std::option::Option<PIBIO_STORAGE_FIRST_RECORD_FN>,
-    pub NextRecord: ::std::option::Option<PIBIO_STORAGE_NEXT_RECORD_FN>,
-    pub GetCurrentRecord: ::std::option::Option<PIBIO_STORAGE_GET_CURRENT_RECORD_FN>,
-    pub ControlUnit: ::std::option::Option<PIBIO_STORAGE_CONTROL_UNIT_FN>,
-    pub ControlUnitPrivileged: ::std::option::Option<PIBIO_STORAGE_CONTROL_UNIT_PRIVILEGED_FN>,
-    pub NotifyPowerChange: ::std::option::Option<PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FN>,
-    pub PipelineInit: ::std::option::Option<PIBIO_STORAGE_PIPELINE_INIT_FN>,
-    pub PipelineCleanup: ::std::option::Option<PIBIO_STORAGE_PIPELINE_CLEANUP_FN>,
-    pub Activate: ::std::option::Option<PIBIO_STORAGE_ACTIVATE_FN>,
-    pub Deactivate: ::std::option::Option<PIBIO_STORAGE_DEACTIVATE_FN>,
-    pub QueryExtendedInfo: ::std::option::Option<PIBIO_STORAGE_QUERY_EXTENDED_INFO_FN>,
-    pub NotifyDatabaseChange: ::std::option::Option<PIBIO_STORAGE_NOTIFY_DATABASE_CHANGE_FN>,
-    pub Reserved1: ::std::option::Option<PIBIO_STORAGE_RESERVED_1_FN>,
-    pub Reserved2: ::std::option::Option<PIBIO_STORAGE_RESERVED_2_FN>,
-    pub UpdateRecordBegin: ::std::option::Option<PIBIO_STORAGE_UPDATE_RECORD_BEGIN_FN>,
-    pub UpdateRecordCommit: ::std::option::Option<PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN>,
+    pub Attach: ::core::option::Option<PIBIO_STORAGE_ATTACH_FN>,
+    pub Detach: ::core::option::Option<PIBIO_STORAGE_DETACH_FN>,
+    pub ClearContext: ::core::option::Option<PIBIO_STORAGE_CLEAR_CONTEXT_FN>,
+    pub CreateDatabase: ::core::option::Option<PIBIO_STORAGE_CREATE_DATABASE_FN>,
+    pub EraseDatabase: ::core::option::Option<PIBIO_STORAGE_ERASE_DATABASE_FN>,
+    pub OpenDatabase: ::core::option::Option<PIBIO_STORAGE_OPEN_DATABASE_FN>,
+    pub CloseDatabase: ::core::option::Option<PIBIO_STORAGE_CLOSE_DATABASE_FN>,
+    pub GetDataFormat: ::core::option::Option<PIBIO_STORAGE_GET_DATA_FORMAT_FN>,
+    pub GetDatabaseSize: ::core::option::Option<PIBIO_STORAGE_GET_DATABASE_SIZE_FN>,
+    pub AddRecord: ::core::option::Option<PIBIO_STORAGE_ADD_RECORD_FN>,
+    pub DeleteRecord: ::core::option::Option<PIBIO_STORAGE_DELETE_RECORD_FN>,
+    pub QueryBySubject: ::core::option::Option<PIBIO_STORAGE_QUERY_BY_SUBJECT_FN>,
+    pub QueryByContent: ::core::option::Option<PIBIO_STORAGE_QUERY_BY_CONTENT_FN>,
+    pub GetRecordCount: ::core::option::Option<PIBIO_STORAGE_GET_RECORD_COUNT_FN>,
+    pub FirstRecord: ::core::option::Option<PIBIO_STORAGE_FIRST_RECORD_FN>,
+    pub NextRecord: ::core::option::Option<PIBIO_STORAGE_NEXT_RECORD_FN>,
+    pub GetCurrentRecord: ::core::option::Option<PIBIO_STORAGE_GET_CURRENT_RECORD_FN>,
+    pub ControlUnit: ::core::option::Option<PIBIO_STORAGE_CONTROL_UNIT_FN>,
+    pub ControlUnitPrivileged: ::core::option::Option<PIBIO_STORAGE_CONTROL_UNIT_PRIVILEGED_FN>,
+    pub NotifyPowerChange: ::core::option::Option<PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FN>,
+    pub PipelineInit: ::core::option::Option<PIBIO_STORAGE_PIPELINE_INIT_FN>,
+    pub PipelineCleanup: ::core::option::Option<PIBIO_STORAGE_PIPELINE_CLEANUP_FN>,
+    pub Activate: ::core::option::Option<PIBIO_STORAGE_ACTIVATE_FN>,
+    pub Deactivate: ::core::option::Option<PIBIO_STORAGE_DEACTIVATE_FN>,
+    pub QueryExtendedInfo: ::core::option::Option<PIBIO_STORAGE_QUERY_EXTENDED_INFO_FN>,
+    pub NotifyDatabaseChange: ::core::option::Option<PIBIO_STORAGE_NOTIFY_DATABASE_CHANGE_FN>,
+    pub Reserved1: ::core::option::Option<PIBIO_STORAGE_RESERVED_1_FN>,
+    pub Reserved2: ::core::option::Option<PIBIO_STORAGE_RESERVED_2_FN>,
+    pub UpdateRecordBegin: ::core::option::Option<PIBIO_STORAGE_UPDATE_RECORD_BEGIN_FN>,
+    pub UpdateRecordCommit: ::core::option::Option<PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WINBIO_STORAGE_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::default::Default for WINBIO_STORAGE_INTERFACE {
+impl ::core::default::Default for WINBIO_STORAGE_INTERFACE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::fmt::Debug for WINBIO_STORAGE_INTERFACE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_STORAGE_INTERFACE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_STORAGE_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::cmp::PartialEq for WINBIO_STORAGE_INTERFACE {
+impl ::core::cmp::PartialEq for WINBIO_STORAGE_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version
             && self.Type == other.Type
@@ -4369,12 +4369,12 @@ impl ::std::cmp::PartialEq for WINBIO_STORAGE_INTERFACE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::std::cmp::Eq for WINBIO_STORAGE_INTERFACE {}
+impl ::core::cmp::Eq for WINBIO_STORAGE_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WINBIO_STORAGE_INTERFACE {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_STORAGE_RECORD {
@@ -4388,13 +4388,13 @@ pub struct WINBIO_STORAGE_RECORD {
     pub PayloadBlobSize: usize,
 }
 impl WINBIO_STORAGE_RECORD {}
-impl ::std::default::Default for WINBIO_STORAGE_RECORD {
+impl ::core::default::Default for WINBIO_STORAGE_RECORD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_STORAGE_RECORD {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_STORAGE_RECORD {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_STORAGE_RECORD")
             .field("Identity", &self.Identity)
             .field("SubFactor", &self.SubFactor)
@@ -4407,16 +4407,16 @@ impl ::std::fmt::Debug for WINBIO_STORAGE_RECORD {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_STORAGE_RECORD {
+impl ::core::cmp::PartialEq for WINBIO_STORAGE_RECORD {
     fn eq(&self, other: &Self) -> bool {
         self.Identity == other.Identity && self.SubFactor == other.SubFactor && self.IndexVector == other.IndexVector && self.IndexElementCount == other.IndexElementCount && self.TemplateBlob == other.TemplateBlob && self.TemplateBlobSize == other.TemplateBlobSize && self.PayloadBlob == other.PayloadBlob && self.PayloadBlobSize == other.PayloadBlobSize
     }
 }
-impl ::std::cmp::Eq for WINBIO_STORAGE_RECORD {}
+impl ::core::cmp::Eq for WINBIO_STORAGE_RECORD {}
 unsafe impl ::windows::runtime::Abi for WINBIO_STORAGE_RECORD {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_STORAGE_SCHEMA {
@@ -4428,26 +4428,26 @@ pub struct WINBIO_STORAGE_SCHEMA {
     pub ConnectionString: [u16; 256],
 }
 impl WINBIO_STORAGE_SCHEMA {}
-impl ::std::default::Default for WINBIO_STORAGE_SCHEMA {
+impl ::core::default::Default for WINBIO_STORAGE_SCHEMA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_STORAGE_SCHEMA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_STORAGE_SCHEMA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_STORAGE_SCHEMA").field("BiometricFactor", &self.BiometricFactor).field("DatabaseId", &self.DatabaseId).field("DataFormat", &self.DataFormat).field("Attributes", &self.Attributes).field("FilePath", &self.FilePath).field("ConnectionString", &self.ConnectionString).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_STORAGE_SCHEMA {
+impl ::core::cmp::PartialEq for WINBIO_STORAGE_SCHEMA {
     fn eq(&self, other: &Self) -> bool {
         self.BiometricFactor == other.BiometricFactor && self.DatabaseId == other.DatabaseId && self.DataFormat == other.DataFormat && self.Attributes == other.Attributes && self.FilePath == other.FilePath && self.ConnectionString == other.ConnectionString
     }
 }
-impl ::std::cmp::Eq for WINBIO_STORAGE_SCHEMA {}
+impl ::core::cmp::Eq for WINBIO_STORAGE_SCHEMA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_STORAGE_SCHEMA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_SUPPORTED_ALGORITHMS {
@@ -4457,26 +4457,26 @@ pub struct WINBIO_SUPPORTED_ALGORITHMS {
     pub AlgorithmData: WINBIO_DATA,
 }
 impl WINBIO_SUPPORTED_ALGORITHMS {}
-impl ::std::default::Default for WINBIO_SUPPORTED_ALGORITHMS {
+impl ::core::default::Default for WINBIO_SUPPORTED_ALGORITHMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_SUPPORTED_ALGORITHMS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_SUPPORTED_ALGORITHMS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_SUPPORTED_ALGORITHMS").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("NumberOfAlgorithms", &self.NumberOfAlgorithms).field("AlgorithmData", &self.AlgorithmData).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_SUPPORTED_ALGORITHMS {
+impl ::core::cmp::PartialEq for WINBIO_SUPPORTED_ALGORITHMS {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.NumberOfAlgorithms == other.NumberOfAlgorithms && self.AlgorithmData == other.AlgorithmData
     }
 }
-impl ::std::cmp::Eq for WINBIO_SUPPORTED_ALGORITHMS {}
+impl ::core::cmp::Eq for WINBIO_SUPPORTED_ALGORITHMS {}
 unsafe impl ::windows::runtime::Abi for WINBIO_SUPPORTED_ALGORITHMS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_UNIT_SCHEMA {
@@ -4493,13 +4493,13 @@ pub struct WINBIO_UNIT_SCHEMA {
     pub FirmwareVersion: WINBIO_VERSION,
 }
 impl WINBIO_UNIT_SCHEMA {}
-impl ::std::default::Default for WINBIO_UNIT_SCHEMA {
+impl ::core::default::Default for WINBIO_UNIT_SCHEMA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_UNIT_SCHEMA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_UNIT_SCHEMA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_UNIT_SCHEMA")
             .field("UnitId", &self.UnitId)
             .field("PoolType", &self.PoolType)
@@ -4515,16 +4515,16 @@ impl ::std::fmt::Debug for WINBIO_UNIT_SCHEMA {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_UNIT_SCHEMA {
+impl ::core::cmp::PartialEq for WINBIO_UNIT_SCHEMA {
     fn eq(&self, other: &Self) -> bool {
         self.UnitId == other.UnitId && self.PoolType == other.PoolType && self.BiometricFactor == other.BiometricFactor && self.SensorSubType == other.SensorSubType && self.Capabilities == other.Capabilities && self.DeviceInstanceId == other.DeviceInstanceId && self.Description == other.Description && self.Manufacturer == other.Manufacturer && self.Model == other.Model && self.SerialNumber == other.SerialNumber && self.FirmwareVersion == other.FirmwareVersion
     }
 }
-impl ::std::cmp::Eq for WINBIO_UNIT_SCHEMA {}
+impl ::core::cmp::Eq for WINBIO_UNIT_SCHEMA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_UNIT_SCHEMA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_UPDATE_FIRMWARE {
@@ -4532,26 +4532,26 @@ pub struct WINBIO_UPDATE_FIRMWARE {
     pub FirmwareData: WINBIO_DATA,
 }
 impl WINBIO_UPDATE_FIRMWARE {}
-impl ::std::default::Default for WINBIO_UPDATE_FIRMWARE {
+impl ::core::default::Default for WINBIO_UPDATE_FIRMWARE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_UPDATE_FIRMWARE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_UPDATE_FIRMWARE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_UPDATE_FIRMWARE").field("PayloadSize", &self.PayloadSize).field("FirmwareData", &self.FirmwareData).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_UPDATE_FIRMWARE {
+impl ::core::cmp::PartialEq for WINBIO_UPDATE_FIRMWARE {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.FirmwareData == other.FirmwareData
     }
 }
-impl ::std::cmp::Eq for WINBIO_UPDATE_FIRMWARE {}
+impl ::core::cmp::Eq for WINBIO_UPDATE_FIRMWARE {}
 unsafe impl ::windows::runtime::Abi for WINBIO_UPDATE_FIRMWARE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_VERSION {
@@ -4559,22 +4559,22 @@ pub struct WINBIO_VERSION {
     pub MinorVersion: u32,
 }
 impl WINBIO_VERSION {}
-impl ::std::default::Default for WINBIO_VERSION {
+impl ::core::default::Default for WINBIO_VERSION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WINBIO_VERSION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WINBIO_VERSION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WINBIO_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
     }
 }
-impl ::std::cmp::PartialEq for WINBIO_VERSION {
+impl ::core::cmp::PartialEq for WINBIO_VERSION {
     fn eq(&self, other: &Self) -> bool {
         self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
     }
 }
-impl ::std::cmp::Eq for WINBIO_VERSION {}
+impl ::core::cmp::Eq for WINBIO_VERSION {}
 unsafe impl ::windows::runtime::Abi for WINBIO_VERSION {
     type Abi = Self;
 }
@@ -4605,7 +4605,7 @@ pub unsafe fn WinBioAsyncEnumBiometricUnits(frameworkhandle: u32, factor: u32) -
         extern "system" {
             fn WinBioAsyncEnumBiometricUnits(frameworkhandle: u32, factor: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioAsyncEnumBiometricUnits(::std::mem::transmute(frameworkhandle), ::std::mem::transmute(factor)).ok()
+        WinBioAsyncEnumBiometricUnits(::core::mem::transmute(frameworkhandle), ::core::mem::transmute(factor)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4619,7 +4619,7 @@ pub unsafe fn WinBioAsyncEnumDatabases(frameworkhandle: u32, factor: u32) -> ::w
         extern "system" {
             fn WinBioAsyncEnumDatabases(frameworkhandle: u32, factor: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioAsyncEnumDatabases(::std::mem::transmute(frameworkhandle), ::std::mem::transmute(factor)).ok()
+        WinBioAsyncEnumDatabases(::core::mem::transmute(frameworkhandle), ::core::mem::transmute(factor)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4633,7 +4633,7 @@ pub unsafe fn WinBioAsyncEnumServiceProviders(frameworkhandle: u32, factor: u32)
         extern "system" {
             fn WinBioAsyncEnumServiceProviders(frameworkhandle: u32, factor: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioAsyncEnumServiceProviders(::std::mem::transmute(frameworkhandle), ::std::mem::transmute(factor)).ok()
+        WinBioAsyncEnumServiceProviders(::core::mem::transmute(frameworkhandle), ::core::mem::transmute(factor)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4647,7 +4647,7 @@ pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetyp
         extern "system" {
             fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetypes: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioAsyncMonitorFrameworkChanges(::std::mem::transmute(frameworkhandle), ::std::mem::transmute(changetypes)).ok()
+        WinBioAsyncMonitorFrameworkChanges(::core::mem::transmute(frameworkhandle), ::core::mem::transmute(changetypes)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4655,15 +4655,15 @@ pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetyp
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinBioAsyncOpenFramework<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Param1, messagecode: u32, callbackroutine: ::std::option::Option<PWINBIO_ASYNC_COMPLETION_CALLBACK>, userdata: *const ::std::ffi::c_void, asynchronousopen: Param5) -> ::windows::runtime::Result<u32> {
+pub unsafe fn WinBioAsyncOpenFramework<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Param1, messagecode: u32, callbackroutine: ::core::option::Option<PWINBIO_ASYNC_COMPLETION_CALLBACK>, userdata: *const ::core::ffi::c_void, asynchronousopen: Param5) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: ::windows::runtime::RawPtr, userdata: *const ::std::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, frameworkhandle: *mut u32) -> ::windows::runtime::HRESULT;
+            fn WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: ::windows::runtime::RawPtr, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, frameworkhandle: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        WinBioAsyncOpenFramework(::std::mem::transmute(notificationmethod), targetwindow.into_param().abi(), ::std::mem::transmute(messagecode), ::std::mem::transmute(callbackroutine), ::std::mem::transmute(userdata), asynchronousopen.into_param().abi(), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        WinBioAsyncOpenFramework(::core::mem::transmute(notificationmethod), targetwindow.into_param().abi(), ::core::mem::transmute(messagecode), ::core::mem::transmute(callbackroutine), ::core::mem::transmute(userdata), asynchronousopen.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4681,29 +4681,29 @@ pub unsafe fn WinBioAsyncOpenSession<'a, Param7: ::windows::runtime::IntoParam<'
     notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD,
     targetwindow: Param7,
     messagecode: u32,
-    callbackroutine: ::std::option::Option<PWINBIO_ASYNC_COMPLETION_CALLBACK>,
-    userdata: *const ::std::ffi::c_void,
+    callbackroutine: ::core::option::Option<PWINBIO_ASYNC_COMPLETION_CALLBACK>,
+    userdata: *const ::core::ffi::c_void,
     asynchronousopen: Param11,
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioAsyncOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows::runtime::GUID, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: ::windows::runtime::RawPtr, userdata: *const ::std::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, sessionhandle: *mut u32) -> ::windows::runtime::HRESULT;
+            fn WinBioAsyncOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows::runtime::GUID, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: ::windows::runtime::RawPtr, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, sessionhandle: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         WinBioAsyncOpenSession(
-            ::std::mem::transmute(factor),
-            ::std::mem::transmute(pooltype),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(unitarray),
-            ::std::mem::transmute(unitcount),
-            ::std::mem::transmute(databaseid),
-            ::std::mem::transmute(notificationmethod),
+            ::core::mem::transmute(factor),
+            ::core::mem::transmute(pooltype),
+            ::core::mem::transmute(flags),
+            ::core::mem::transmute(unitarray),
+            ::core::mem::transmute(unitcount),
+            ::core::mem::transmute(databaseid),
+            ::core::mem::transmute(notificationmethod),
             targetwindow.into_param().abi(),
-            ::std::mem::transmute(messagecode),
-            ::std::mem::transmute(callbackroutine),
-            ::std::mem::transmute(userdata),
+            ::core::mem::transmute(messagecode),
+            ::core::mem::transmute(callbackroutine),
+            ::core::mem::transmute(userdata),
             asynchronousopen.into_param().abi(),
             &mut result__,
         )
@@ -4721,7 +4721,7 @@ pub unsafe fn WinBioCancel(sessionhandle: u32) -> ::windows::runtime::Result<()>
         extern "system" {
             fn WinBioCancel(sessionhandle: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioCancel(::std::mem::transmute(sessionhandle)).ok()
+        WinBioCancel(::core::mem::transmute(sessionhandle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4735,21 +4735,21 @@ pub unsafe fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, un
         extern "system" {
             fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, unitid: *mut u32, sample: *mut *mut WINBIO_BIR, samplesize: *mut usize, rejectdetail: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioCaptureSample(::std::mem::transmute(sessionhandle), ::std::mem::transmute(purpose), ::std::mem::transmute(flags), ::std::mem::transmute(unitid), ::std::mem::transmute(sample), ::std::mem::transmute(samplesize), ::std::mem::transmute(rejectdetail)).ok()
+        WinBioCaptureSample(::core::mem::transmute(sessionhandle), ::core::mem::transmute(purpose), ::core::mem::transmute(flags), ::core::mem::transmute(unitid), ::core::mem::transmute(sample), ::core::mem::transmute(samplesize), ::core::mem::transmute(rejectdetail)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
-pub unsafe fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: ::std::option::Option<PWINBIO_CAPTURE_CALLBACK>, capturecallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: ::core::option::Option<PWINBIO_CAPTURE_CALLBACK>, capturecallbackcontext: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: ::windows::runtime::RawPtr, capturecallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: ::windows::runtime::RawPtr, capturecallbackcontext: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        WinBioCaptureSampleWithCallback(::std::mem::transmute(sessionhandle), ::std::mem::transmute(purpose), ::std::mem::transmute(flags), ::std::mem::transmute(capturecallback), ::std::mem::transmute(capturecallbackcontext)).ok()
+        WinBioCaptureSampleWithCallback(::core::mem::transmute(sessionhandle), ::core::mem::transmute(purpose), ::core::mem::transmute(flags), ::core::mem::transmute(capturecallback), ::core::mem::transmute(capturecallbackcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4763,7 +4763,7 @@ pub unsafe fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows::runtime::
         extern "system" {
             fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioCloseFramework(::std::mem::transmute(frameworkhandle)).ok()
+        WinBioCloseFramework(::core::mem::transmute(frameworkhandle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4777,7 +4777,7 @@ pub unsafe fn WinBioCloseSession(sessionhandle: u32) -> ::windows::runtime::Resu
         extern "system" {
             fn WinBioCloseSession(sessionhandle: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioCloseSession(::std::mem::transmute(sessionhandle)).ok()
+        WinBioCloseSession(::core::mem::transmute(sessionhandle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4792,16 +4792,16 @@ pub unsafe fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINB
             fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows::runtime::HRESULT;
         }
         WinBioControlUnit(
-            ::std::mem::transmute(sessionhandle),
-            ::std::mem::transmute(unitid),
-            ::std::mem::transmute(component),
-            ::std::mem::transmute(controlcode),
-            ::std::mem::transmute(sendbuffer),
-            ::std::mem::transmute(sendbuffersize),
-            ::std::mem::transmute(receivebuffer),
-            ::std::mem::transmute(receivebuffersize),
-            ::std::mem::transmute(receivedatasize),
-            ::std::mem::transmute(operationstatus),
+            ::core::mem::transmute(sessionhandle),
+            ::core::mem::transmute(unitid),
+            ::core::mem::transmute(component),
+            ::core::mem::transmute(controlcode),
+            ::core::mem::transmute(sendbuffer),
+            ::core::mem::transmute(sendbuffersize),
+            ::core::mem::transmute(receivebuffer),
+            ::core::mem::transmute(receivebuffersize),
+            ::core::mem::transmute(receivedatasize),
+            ::core::mem::transmute(operationstatus),
         )
         .ok()
     }
@@ -4818,16 +4818,16 @@ pub unsafe fn WinBioControlUnitPrivileged(sessionhandle: u32, unitid: u32, compo
             fn WinBioControlUnitPrivileged(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows::runtime::HRESULT;
         }
         WinBioControlUnitPrivileged(
-            ::std::mem::transmute(sessionhandle),
-            ::std::mem::transmute(unitid),
-            ::std::mem::transmute(component),
-            ::std::mem::transmute(controlcode),
-            ::std::mem::transmute(sendbuffer),
-            ::std::mem::transmute(sendbuffersize),
-            ::std::mem::transmute(receivebuffer),
-            ::std::mem::transmute(receivebuffersize),
-            ::std::mem::transmute(receivedatasize),
-            ::std::mem::transmute(operationstatus),
+            ::core::mem::transmute(sessionhandle),
+            ::core::mem::transmute(unitid),
+            ::core::mem::transmute(component),
+            ::core::mem::transmute(controlcode),
+            ::core::mem::transmute(sendbuffer),
+            ::core::mem::transmute(sendbuffersize),
+            ::core::mem::transmute(receivebuffer),
+            ::core::mem::transmute(receivebuffersize),
+            ::core::mem::transmute(receivedatasize),
+            ::core::mem::transmute(operationstatus),
         )
         .ok()
     }
@@ -4843,7 +4843,7 @@ pub unsafe fn WinBioDeleteTemplate(sessionhandle: u32, unitid: u32, identity: *c
         extern "system" {
             fn WinBioDeleteTemplate(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8) -> ::windows::runtime::HRESULT;
         }
-        WinBioDeleteTemplate(::std::mem::transmute(sessionhandle), ::std::mem::transmute(unitid), ::std::mem::transmute(identity), ::std::mem::transmute(subfactor)).ok()
+        WinBioDeleteTemplate(::core::mem::transmute(sessionhandle), ::core::mem::transmute(unitid), ::core::mem::transmute(identity), ::core::mem::transmute(subfactor)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4857,7 +4857,7 @@ pub unsafe fn WinBioEnrollBegin(sessionhandle: u32, subfactor: u8, unitid: u32) 
         extern "system" {
             fn WinBioEnrollBegin(sessionhandle: u32, subfactor: u8, unitid: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioEnrollBegin(::std::mem::transmute(sessionhandle), ::std::mem::transmute(subfactor), ::std::mem::transmute(unitid)).ok()
+        WinBioEnrollBegin(::core::mem::transmute(sessionhandle), ::core::mem::transmute(subfactor), ::core::mem::transmute(unitid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4871,22 +4871,22 @@ pub unsafe fn WinBioEnrollCapture(sessionhandle: u32) -> ::windows::runtime::Res
         extern "system" {
             fn WinBioEnrollCapture(sessionhandle: u32, rejectdetail: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        WinBioEnrollCapture(::std::mem::transmute(sessionhandle), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        WinBioEnrollCapture(::core::mem::transmute(sessionhandle), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
-pub unsafe fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: ::std::option::Option<PWINBIO_ENROLL_CAPTURE_CALLBACK>, enrollcallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: ::core::option::Option<PWINBIO_ENROLL_CAPTURE_CALLBACK>, enrollcallbackcontext: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: ::windows::runtime::RawPtr, enrollcallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: ::windows::runtime::RawPtr, enrollcallbackcontext: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        WinBioEnrollCaptureWithCallback(::std::mem::transmute(sessionhandle), ::std::mem::transmute(enrollcallback), ::std::mem::transmute(enrollcallbackcontext)).ok()
+        WinBioEnrollCaptureWithCallback(::core::mem::transmute(sessionhandle), ::core::mem::transmute(enrollcallback), ::core::mem::transmute(enrollcallbackcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4900,7 +4900,7 @@ pub unsafe fn WinBioEnrollCommit(sessionhandle: u32, identity: *mut WINBIO_IDENT
         extern "system" {
             fn WinBioEnrollCommit(sessionhandle: u32, identity: *mut WINBIO_IDENTITY, isnewtemplate: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        WinBioEnrollCommit(::std::mem::transmute(sessionhandle), ::std::mem::transmute(identity), ::std::mem::transmute(isnewtemplate)).ok()
+        WinBioEnrollCommit(::core::mem::transmute(sessionhandle), ::core::mem::transmute(identity), ::core::mem::transmute(isnewtemplate)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4914,7 +4914,7 @@ pub unsafe fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows::runtime::Res
         extern "system" {
             fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioEnrollDiscard(::std::mem::transmute(sessionhandle)).ok()
+        WinBioEnrollDiscard(::core::mem::transmute(sessionhandle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4928,7 +4928,7 @@ pub unsafe fn WinBioEnrollSelect(sessionhandle: u32, selectorvalue: u64) -> ::wi
         extern "system" {
             fn WinBioEnrollSelect(sessionhandle: u32, selectorvalue: u64) -> ::windows::runtime::HRESULT;
         }
-        WinBioEnrollSelect(::std::mem::transmute(sessionhandle), ::std::mem::transmute(selectorvalue)).ok()
+        WinBioEnrollSelect(::core::mem::transmute(sessionhandle), ::core::mem::transmute(selectorvalue)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4942,7 +4942,7 @@ pub unsafe fn WinBioEnumBiometricUnits(factor: u32, unitschemaarray: *mut *mut W
         extern "system" {
             fn WinBioEnumBiometricUnits(factor: u32, unitschemaarray: *mut *mut WINBIO_UNIT_SCHEMA, unitcount: *mut usize) -> ::windows::runtime::HRESULT;
         }
-        WinBioEnumBiometricUnits(::std::mem::transmute(factor), ::std::mem::transmute(unitschemaarray), ::std::mem::transmute(unitcount)).ok()
+        WinBioEnumBiometricUnits(::core::mem::transmute(factor), ::core::mem::transmute(unitschemaarray), ::core::mem::transmute(unitcount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4956,7 +4956,7 @@ pub unsafe fn WinBioEnumDatabases(factor: u32, storageschemaarray: *mut *mut WIN
         extern "system" {
             fn WinBioEnumDatabases(factor: u32, storageschemaarray: *mut *mut WINBIO_STORAGE_SCHEMA, storagecount: *mut usize) -> ::windows::runtime::HRESULT;
         }
-        WinBioEnumDatabases(::std::mem::transmute(factor), ::std::mem::transmute(storageschemaarray), ::std::mem::transmute(storagecount)).ok()
+        WinBioEnumDatabases(::core::mem::transmute(factor), ::core::mem::transmute(storageschemaarray), ::core::mem::transmute(storagecount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4970,7 +4970,7 @@ pub unsafe fn WinBioEnumEnrollments(sessionhandle: u32, unitid: u32, identity: *
         extern "system" {
             fn WinBioEnumEnrollments(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactorarray: *mut *mut u8, subfactorcount: *mut usize) -> ::windows::runtime::HRESULT;
         }
-        WinBioEnumEnrollments(::std::mem::transmute(sessionhandle), ::std::mem::transmute(unitid), ::std::mem::transmute(identity), ::std::mem::transmute(subfactorarray), ::std::mem::transmute(subfactorcount)).ok()
+        WinBioEnumEnrollments(::core::mem::transmute(sessionhandle), ::core::mem::transmute(unitid), ::core::mem::transmute(identity), ::core::mem::transmute(subfactorarray), ::core::mem::transmute(subfactorcount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4984,21 +4984,21 @@ pub unsafe fn WinBioEnumServiceProviders(factor: u32, bspschemaarray: *mut *mut 
         extern "system" {
             fn WinBioEnumServiceProviders(factor: u32, bspschemaarray: *mut *mut WINBIO_BSP_SCHEMA, bspcount: *mut usize) -> ::windows::runtime::HRESULT;
         }
-        WinBioEnumServiceProviders(::std::mem::transmute(factor), ::std::mem::transmute(bspschemaarray), ::std::mem::transmute(bspcount)).ok()
+        WinBioEnumServiceProviders(::core::mem::transmute(factor), ::core::mem::transmute(bspschemaarray), ::core::mem::transmute(bspcount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
-pub unsafe fn WinBioFree(address: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn WinBioFree(address: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioFree(address: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn WinBioFree(address: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        WinBioFree(::std::mem::transmute(address)).ok()
+        WinBioFree(::core::mem::transmute(address)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5012,8 +5012,8 @@ pub unsafe fn WinBioGetCredentialState<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn WinBioGetCredentialState(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE, credentialstate: *mut WINBIO_CREDENTIAL_STATE) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <WINBIO_CREDENTIAL_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        WinBioGetCredentialState(identity.into_param().abi(), ::std::mem::transmute(r#type), &mut result__).from_abi::<WINBIO_CREDENTIAL_STATE>(result__)
+        let mut result__: <WINBIO_CREDENTIAL_STATE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        WinBioGetCredentialState(identity.into_param().abi(), ::core::mem::transmute(r#type), &mut result__).from_abi::<WINBIO_CREDENTIAL_STATE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5027,7 +5027,7 @@ pub unsafe fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SE
         extern "system" {
             fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
-        ::std::mem::transmute(WinBioGetDomainLogonSetting(::std::mem::transmute(value), ::std::mem::transmute(source)))
+        ::core::mem::transmute(WinBioGetDomainLogonSetting(::core::mem::transmute(value), ::core::mem::transmute(source)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5041,7 +5041,7 @@ pub unsafe fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTIN
         extern "system" {
             fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
-        ::std::mem::transmute(WinBioGetEnabledSetting(::std::mem::transmute(value), ::std::mem::transmute(source)))
+        ::core::mem::transmute(WinBioGetEnabledSetting(::core::mem::transmute(value), ::core::mem::transmute(source)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5055,8 +5055,8 @@ pub unsafe fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY) -> 
         extern "system" {
             fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY, enrolledfactors: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        WinBioGetEnrolledFactors(::std::mem::transmute(accountowner), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        WinBioGetEnrolledFactors(::core::mem::transmute(accountowner), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5070,21 +5070,21 @@ pub unsafe fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_
         extern "system" {
             fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
-        ::std::mem::transmute(WinBioGetLogonSetting(::std::mem::transmute(value), ::std::mem::transmute(source)))
+        ::core::mem::transmute(WinBioGetLogonSetting(::core::mem::transmute(value), ::core::mem::transmute(source)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
-pub unsafe fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *mut *mut ::std::ffi::c_void, propertybuffersize: *mut usize) -> ::windows::runtime::Result<()> {
+pub unsafe fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *mut *mut ::core::ffi::c_void, propertybuffersize: *mut usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *mut *mut ::std::ffi::c_void, propertybuffersize: *mut usize) -> ::windows::runtime::HRESULT;
+            fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *mut *mut ::core::ffi::c_void, propertybuffersize: *mut usize) -> ::windows::runtime::HRESULT;
         }
-        WinBioGetProperty(::std::mem::transmute(sessionhandle), ::std::mem::transmute(propertytype), ::std::mem::transmute(propertyid), ::std::mem::transmute(unitid), ::std::mem::transmute(identity), ::std::mem::transmute(subfactor), ::std::mem::transmute(propertybuffer), ::std::mem::transmute(propertybuffersize)).ok()
+        WinBioGetProperty(::core::mem::transmute(sessionhandle), ::core::mem::transmute(propertytype), ::core::mem::transmute(propertyid), ::core::mem::transmute(unitid), ::core::mem::transmute(identity), ::core::mem::transmute(subfactor), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5098,21 +5098,21 @@ pub unsafe fn WinBioIdentify(sessionhandle: u32, unitid: *mut u32, identity: *mu
         extern "system" {
             fn WinBioIdentify(sessionhandle: u32, unitid: *mut u32, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, rejectdetail: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioIdentify(::std::mem::transmute(sessionhandle), ::std::mem::transmute(unitid), ::std::mem::transmute(identity), ::std::mem::transmute(subfactor), ::std::mem::transmute(rejectdetail)).ok()
+        WinBioIdentify(::core::mem::transmute(sessionhandle), ::core::mem::transmute(unitid), ::core::mem::transmute(identity), ::core::mem::transmute(subfactor), ::core::mem::transmute(rejectdetail)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
-pub unsafe fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: ::std::option::Option<PWINBIO_IDENTIFY_CALLBACK>, identifycallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: ::core::option::Option<PWINBIO_IDENTIFY_CALLBACK>, identifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: ::windows::runtime::RawPtr, identifycallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: ::windows::runtime::RawPtr, identifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        WinBioIdentifyWithCallback(::std::mem::transmute(sessionhandle), ::std::mem::transmute(identifycallback), ::std::mem::transmute(identifycallbackcontext)).ok()
+        WinBioIdentifyWithCallback(::core::mem::transmute(sessionhandle), ::core::mem::transmute(identifycallback), ::core::mem::transmute(identifycallbackcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5126,7 +5126,7 @@ pub unsafe fn WinBioImproveBegin(sessionhandle: u32, unitid: u32) -> ::windows::
         extern "system" {
             fn WinBioImproveBegin(sessionhandle: u32, unitid: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioImproveBegin(::std::mem::transmute(sessionhandle), ::std::mem::transmute(unitid)).ok()
+        WinBioImproveBegin(::core::mem::transmute(sessionhandle), ::core::mem::transmute(unitid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5140,7 +5140,7 @@ pub unsafe fn WinBioImproveEnd(sessionhandle: u32) -> ::windows::runtime::Result
         extern "system" {
             fn WinBioImproveEnd(sessionhandle: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioImproveEnd(::std::mem::transmute(sessionhandle)).ok()
+        WinBioImproveEnd(::core::mem::transmute(sessionhandle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5154,22 +5154,22 @@ pub unsafe fn WinBioLocateSensor(sessionhandle: u32) -> ::windows::runtime::Resu
         extern "system" {
             fn WinBioLocateSensor(sessionhandle: u32, unitid: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        WinBioLocateSensor(::std::mem::transmute(sessionhandle), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        WinBioLocateSensor(::core::mem::transmute(sessionhandle), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
-pub unsafe fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: ::std::option::Option<PWINBIO_LOCATE_SENSOR_CALLBACK>, locatecallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: ::core::option::Option<PWINBIO_LOCATE_SENSOR_CALLBACK>, locatecallbackcontext: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: ::windows::runtime::RawPtr, locatecallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: ::windows::runtime::RawPtr, locatecallbackcontext: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        WinBioLocateSensorWithCallback(::std::mem::transmute(sessionhandle), ::std::mem::transmute(locatecallback), ::std::mem::transmute(locatecallbackcontext)).ok()
+        WinBioLocateSensorWithCallback(::core::mem::transmute(sessionhandle), ::core::mem::transmute(locatecallback), ::core::mem::transmute(locatecallbackcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5183,7 +5183,7 @@ pub unsafe fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows::runt
         extern "system" {
             fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioLockUnit(::std::mem::transmute(sessionhandle), ::std::mem::transmute(unitid)).ok()
+        WinBioLockUnit(::core::mem::transmute(sessionhandle), ::core::mem::transmute(unitid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5197,7 +5197,7 @@ pub unsafe fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows::runtim
         extern "system" {
             fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioLogonIdentifiedUser(::std::mem::transmute(sessionhandle)).ok()
+        WinBioLogonIdentifiedUser(::core::mem::transmute(sessionhandle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5211,7 +5211,7 @@ pub unsafe fn WinBioMonitorPresence(sessionhandle: u32, unitid: u32) -> ::window
         extern "system" {
             fn WinBioMonitorPresence(sessionhandle: u32, unitid: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioMonitorPresence(::std::mem::transmute(sessionhandle), ::std::mem::transmute(unitid)).ok()
+        WinBioMonitorPresence(::core::mem::transmute(sessionhandle), ::core::mem::transmute(unitid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5225,22 +5225,22 @@ pub unsafe fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, 
         extern "system" {
             fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows::runtime::GUID, sessionhandle: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        WinBioOpenSession(::std::mem::transmute(factor), ::std::mem::transmute(pooltype), ::std::mem::transmute(flags), ::std::mem::transmute(unitarray), ::std::mem::transmute(unitcount), ::std::mem::transmute(databaseid), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        WinBioOpenSession(::core::mem::transmute(factor), ::core::mem::transmute(pooltype), ::core::mem::transmute(flags), ::core::mem::transmute(unitarray), ::core::mem::transmute(unitcount), ::core::mem::transmute(databaseid), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
-pub unsafe fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: ::std::option::Option<PWINBIO_EVENT_CALLBACK>, eventcallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: ::core::option::Option<PWINBIO_EVENT_CALLBACK>, eventcallbackcontext: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: ::windows::runtime::RawPtr, eventcallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: ::windows::runtime::RawPtr, eventcallbackcontext: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        WinBioRegisterEventMonitor(::std::mem::transmute(sessionhandle), ::std::mem::transmute(eventmask), ::std::mem::transmute(eventcallback), ::std::mem::transmute(eventcallbackcontext)).ok()
+        WinBioRegisterEventMonitor(::core::mem::transmute(sessionhandle), ::core::mem::transmute(eventmask), ::core::mem::transmute(eventcallback), ::core::mem::transmute(eventcallbackcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5296,7 +5296,7 @@ pub unsafe fn WinBioRemoveCredential<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn WinBioRemoveCredential(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE) -> ::windows::runtime::HRESULT;
         }
-        WinBioRemoveCredential(identity.into_param().abi(), ::std::mem::transmute(r#type)).ok()
+        WinBioRemoveCredential(identity.into_param().abi(), ::core::mem::transmute(r#type)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5310,21 +5310,21 @@ pub unsafe fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: *c
         extern "system" {
             fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: *const u8, credentialsize: usize, format: WINBIO_CREDENTIAL_FORMAT) -> ::windows::runtime::HRESULT;
         }
-        WinBioSetCredential(::std::mem::transmute(r#type), ::std::mem::transmute(credential), ::std::mem::transmute(credentialsize), ::std::mem::transmute(format)).ok()
+        WinBioSetCredential(::core::mem::transmute(r#type), ::core::mem::transmute(credential), ::core::mem::transmute(credentialsize), ::core::mem::transmute(format)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
-pub unsafe fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *const ::std::ffi::c_void, propertybuffersize: usize) -> ::windows::runtime::Result<()> {
+pub unsafe fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *const ::core::ffi::c_void, propertybuffersize: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *const ::std::ffi::c_void, propertybuffersize: usize) -> ::windows::runtime::HRESULT;
+            fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *const ::core::ffi::c_void, propertybuffersize: usize) -> ::windows::runtime::HRESULT;
         }
-        WinBioSetProperty(::std::mem::transmute(sessionhandle), ::std::mem::transmute(propertytype), ::std::mem::transmute(propertyid), ::std::mem::transmute(unitid), ::std::mem::transmute(identity), ::std::mem::transmute(subfactor), ::std::mem::transmute(propertybuffer), ::std::mem::transmute(propertybuffersize)).ok()
+        WinBioSetProperty(::core::mem::transmute(sessionhandle), ::core::mem::transmute(propertytype), ::core::mem::transmute(propertyid), ::core::mem::transmute(unitid), ::core::mem::transmute(identity), ::core::mem::transmute(subfactor), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5338,7 +5338,7 @@ pub unsafe fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows::ru
         extern "system" {
             fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioUnlockUnit(::std::mem::transmute(sessionhandle), ::std::mem::transmute(unitid)).ok()
+        WinBioUnlockUnit(::core::mem::transmute(sessionhandle), ::core::mem::transmute(unitid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5352,7 +5352,7 @@ pub unsafe fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows::run
         extern "system" {
             fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioUnregisterEventMonitor(::std::mem::transmute(sessionhandle)).ok()
+        WinBioUnregisterEventMonitor(::core::mem::transmute(sessionhandle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5366,7 +5366,7 @@ pub unsafe fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY,
         extern "system" {
             fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, unitid: *mut u32, r#match: *mut u8, rejectdetail: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioVerify(::std::mem::transmute(sessionhandle), ::std::mem::transmute(identity), ::std::mem::transmute(subfactor), ::std::mem::transmute(unitid), ::std::mem::transmute(r#match), ::std::mem::transmute(rejectdetail)).ok()
+        WinBioVerify(::core::mem::transmute(sessionhandle), ::core::mem::transmute(identity), ::core::mem::transmute(subfactor), ::core::mem::transmute(unitid), ::core::mem::transmute(r#match), ::core::mem::transmute(rejectdetail)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5374,14 +5374,14 @@ pub unsafe fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY,
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: ::std::option::Option<PWINBIO_VERIFY_CALLBACK>, verifycallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: ::core::option::Option<PWINBIO_VERIFY_CALLBACK>, verifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: ::windows::runtime::RawPtr, verifycallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: ::windows::runtime::RawPtr, verifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        WinBioVerifyWithCallback(::std::mem::transmute(sessionhandle), ::std::mem::transmute(identity), ::std::mem::transmute(subfactor), ::std::mem::transmute(verifycallback), ::std::mem::transmute(verifycallbackcontext)).ok()
+        WinBioVerifyWithCallback(::core::mem::transmute(sessionhandle), ::core::mem::transmute(identity), ::core::mem::transmute(subfactor), ::core::mem::transmute(verifycallback), ::core::mem::transmute(verifycallbackcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5395,17 +5395,17 @@ pub unsafe fn WinBioWait(sessionhandle: u32) -> ::windows::runtime::Result<()> {
         extern "system" {
             fn WinBioWait(sessionhandle: u32) -> ::windows::runtime::HRESULT;
         }
-        WinBioWait(::std::mem::transmute(sessionhandle)).ok()
+        WinBioWait(::core::mem::transmute(sessionhandle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _WINIBIO_ENGINE_CONTEXT(pub u8);
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _WINIBIO_SENSOR_CONTEXT(pub u8);
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _WINIBIO_STORAGE_CONTEXT(pub u8);

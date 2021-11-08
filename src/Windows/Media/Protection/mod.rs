@@ -3,23 +3,23 @@
 pub mod PlayReady;
 #[doc = "*Required features: `Media_Protection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ComponentLoadFailedEventArgs(pub ::windows::runtime::IInspectable);
 impl ComponentLoadFailedEventArgs {
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Information(&self) -> ::windows::runtime::Result<RevocationAndRenewalInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<RevocationAndRenewalInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RevocationAndRenewalInformation>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Completion(&self) -> ::windows::runtime::Result<MediaProtectionServiceCompletion> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaProtectionServiceCompletion>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaProtectionServiceCompletion>(result__)
         }
     }
 }
@@ -33,12 +33,12 @@ unsafe impl ::windows::runtime::Interface for ComponentLoadFailedEventArgs {
 impl ::windows::runtime::RuntimeName for ComponentLoadFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.ComponentLoadFailedEventArgs";
 }
-impl ::std::convert::From<ComponentLoadFailedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ComponentLoadFailedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ComponentLoadFailedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ComponentLoadFailedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ComponentLoadFailedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ComponentLoadFailedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -53,12 +53,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ComponentLoadFailedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ComponentLoadFailedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: ComponentLoadFailedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ComponentLoadFailedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ComponentLoadFailedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &ComponentLoadFailedEventArgs) -> Self {
         value.0.clone()
     }
@@ -73,25 +73,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ComponentLoadFailedEventArgs {}
-unsafe impl ::std::marker::Sync for ComponentLoadFailedEventArgs {}
+unsafe impl ::core::marker::Send for ComponentLoadFailedEventArgs {}
+unsafe impl ::core::marker::Sync for ComponentLoadFailedEventArgs {}
 #[doc = "*Required features: `Media_Protection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ComponentLoadFailedEventHandler(::windows::runtime::IUnknown);
 impl ComponentLoadFailedEventHandler {
-    pub fn new<F: FnMut(&::std::option::Option<MediaProtectionManager>, &::std::option::Option<ComponentLoadFailedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::Option<ComponentLoadFailedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
         let com = ComponentLoadFailedEventHandler_box::<F> {
             vtable: &ComponentLoadFailedEventHandler_box::<F>::VTABLE,
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, MediaProtectionManager>, Param1: ::windows::runtime::IntoParam<'a, ComponentLoadFailedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ComponentLoadFailedEventHandler {
@@ -110,19 +110,19 @@ pub struct ComponentLoadFailedEventHandler_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(C)]
-struct ComponentLoadFailedEventHandler_box<F: FnMut(&::std::option::Option<MediaProtectionManager>, &::std::option::Option<ComponentLoadFailedEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
+struct ComponentLoadFailedEventHandler_box<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::Option<ComponentLoadFailedEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
     vtable: *const ComponentLoadFailedEventHandler_abi,
     invoke: F,
     count: ::windows::runtime::RefCount,
 }
-impl<F: FnMut(&::std::option::Option<MediaProtectionManager>, &::std::option::Option<ComponentLoadFailedEventArgs>) -> ::windows::runtime::Result<()> + 'static> ComponentLoadFailedEventHandler_box<F> {
+impl<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::Option<ComponentLoadFailedEventArgs>) -> ::windows::runtime::Result<()> + 'static> ComponentLoadFailedEventHandler_box<F> {
     const VTABLE: ComponentLoadFailedEventHandler_abi = ComponentLoadFailedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         *interface = if iid == &<ComponentLoadFailedEventHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
-            ::std::ptr::null_mut()
+            ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
             ::windows::runtime::HRESULT(0x8000_4002)
@@ -159,8 +159,8 @@ impl ComponentRenewal {
     #[doc = "*Required features: `Media_Protection`, `Foundation`*"]
     pub fn RenewSystemComponentsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, RevocationAndRenewalInformation>>(information: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>> {
         Self::IComponentRenewalStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), information.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), information.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>>(result__)
         })
     }
     pub fn IComponentRenewalStatics<R, F: FnOnce(&IComponentRenewalStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -172,7 +172,7 @@ impl ::windows::runtime::RuntimeName for ComponentRenewal {
     const NAME: &'static str = "Windows.Media.Protection.ComponentRenewal";
 }
 #[doc = "*Required features: `Media_Protection`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GraphicsTrustStatus(pub i32);
 impl GraphicsTrustStatus {
@@ -183,7 +183,7 @@ impl GraphicsTrustStatus {
     pub const DriverSigningFailure: GraphicsTrustStatus = GraphicsTrustStatus(4i32);
     pub const UnknownFailure: GraphicsTrustStatus = GraphicsTrustStatus(5i32);
 }
-impl ::std::convert::From<i32> for GraphicsTrustStatus {
+impl ::core::convert::From<i32> for GraphicsTrustStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -198,7 +198,7 @@ impl ::windows::runtime::DefaultType for GraphicsTrustStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Protection`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HdcpProtection(pub i32);
 impl HdcpProtection {
@@ -206,7 +206,7 @@ impl HdcpProtection {
     pub const On: HdcpProtection = HdcpProtection(1i32);
     pub const OnWithTypeEnforcement: HdcpProtection = HdcpProtection(2i32);
 }
-impl ::std::convert::From<i32> for HdcpProtection {
+impl ::core::convert::From<i32> for HdcpProtection {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -222,7 +222,7 @@ impl ::windows::runtime::DefaultType for HdcpProtection {
 }
 #[doc = "*Required features: `Media_Protection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HdcpSession(pub ::windows::runtime::IInspectable);
 impl HdcpSession {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -236,14 +236,14 @@ impl HdcpSession {
     #[doc = "*Required features: `Media_Protection`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn IsEffectiveProtectionAtLeast(&self, protection: HdcpProtection) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), protection, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), protection, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -251,8 +251,8 @@ impl HdcpSession {
     pub fn GetEffectiveProtection(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<HdcpProtection>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<HdcpProtection>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<HdcpProtection>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -260,8 +260,8 @@ impl HdcpSession {
     pub fn SetDesiredMinProtectionAsync(&self, protection: HdcpProtection) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), protection, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), protection, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -269,15 +269,15 @@ impl HdcpSession {
     pub fn ProtectionChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<HdcpSession, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection`, `Foundation`*"]
     pub fn RemoveProtectionChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for HdcpSession {
@@ -290,12 +290,12 @@ unsafe impl ::windows::runtime::Interface for HdcpSession {
 impl ::windows::runtime::RuntimeName for HdcpSession {
     const NAME: &'static str = "Windows.Media.Protection.HdcpSession";
 }
-impl ::std::convert::From<HdcpSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<HdcpSession> for ::windows::runtime::IUnknown {
     fn from(value: HdcpSession) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&HdcpSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&HdcpSession> for ::windows::runtime::IUnknown {
     fn from(value: &HdcpSession) -> Self {
         value.0 .0.clone()
     }
@@ -310,12 +310,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<HdcpSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<HdcpSession> for ::windows::runtime::IInspectable {
     fn from(value: HdcpSession) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&HdcpSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&HdcpSession> for ::windows::runtime::IInspectable {
     fn from(value: &HdcpSession) -> Self {
         value.0.clone()
     }
@@ -331,14 +331,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<HdcpSession> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<HdcpSession> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: HdcpSession) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&HdcpSession> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&HdcpSession> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &HdcpSession) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -353,13 +353,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &HdcpSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for HdcpSession {}
-unsafe impl ::std::marker::Sync for HdcpSession {}
+unsafe impl ::core::marker::Send for HdcpSession {}
+unsafe impl ::core::marker::Sync for HdcpSession {}
 #[doc = "*Required features: `Media_Protection`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HdcpSetProtectionResult(pub i32);
 impl HdcpSetProtectionResult {
@@ -368,7 +368,7 @@ impl HdcpSetProtectionResult {
     pub const NotSupported: HdcpSetProtectionResult = HdcpSetProtectionResult(2i32);
     pub const UnknownFailure: HdcpSetProtectionResult = HdcpSetProtectionResult(3i32);
 }
-impl ::std::convert::From<i32> for HdcpSetProtectionResult {
+impl ::core::convert::From<i32> for HdcpSetProtectionResult {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -534,7 +534,7 @@ pub struct IMediaProtectionServiceCompletion_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, success: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection`*"]
 pub struct IMediaProtectionServiceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaProtectionServiceRequest {
@@ -546,28 +546,28 @@ impl IMediaProtectionServiceRequest {
     pub fn ProtectionSystem(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IMediaProtectionServiceRequest {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{b1de0ea6-2094-478d-87a4-8b95200f85c6}");
 }
-impl ::std::convert::From<IMediaProtectionServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IMediaProtectionServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: IMediaProtectionServiceRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IMediaProtectionServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IMediaProtectionServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: &IMediaProtectionServiceRequest) -> Self {
         value.0 .0.clone()
     }
@@ -582,12 +582,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IMediaProtectionServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IMediaProtectionServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: IMediaProtectionServiceRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IMediaProtectionServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IMediaProtectionServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: &IMediaProtectionServiceRequest) -> Self {
         value.0.clone()
     }
@@ -630,7 +630,7 @@ pub struct IProtectionCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, keysystem: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ProtectionCapabilityResult) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, keysystem: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ProtectionCapabilityResult) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -668,10 +668,10 @@ pub struct IRevocationAndRenewalItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut RevocationAndRenewalReasons) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -713,7 +713,7 @@ pub struct IServiceRequestedEventArgs2_abi(
 );
 #[doc = "*Required features: `Media_Protection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaProtectionManager(pub ::windows::runtime::IInspectable);
 impl MediaProtectionManager {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -728,53 +728,53 @@ impl MediaProtectionManager {
     pub fn ServiceRequested<'a, Param0: ::windows::runtime::IntoParam<'a, ServiceRequestedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection`, `Foundation`*"]
     pub fn RemoveServiceRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection`, `Foundation`*"]
     pub fn RebootNeeded<'a, Param0: ::windows::runtime::IntoParam<'a, RebootNeededEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection`, `Foundation`*"]
     pub fn RemoveRebootNeeded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection`, `Foundation`*"]
     pub fn ComponentLoadFailed<'a, Param0: ::windows::runtime::IntoParam<'a, ComponentLoadFailedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection`, `Foundation`*"]
     pub fn RemoveComponentLoadFailed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Protection`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
 }
@@ -788,12 +788,12 @@ unsafe impl ::windows::runtime::Interface for MediaProtectionManager {
 impl ::windows::runtime::RuntimeName for MediaProtectionManager {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionManager";
 }
-impl ::std::convert::From<MediaProtectionManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaProtectionManager> for ::windows::runtime::IUnknown {
     fn from(value: MediaProtectionManager) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaProtectionManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaProtectionManager> for ::windows::runtime::IUnknown {
     fn from(value: &MediaProtectionManager) -> Self {
         value.0 .0.clone()
     }
@@ -808,12 +808,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaProtectionManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaProtectionManager> for ::windows::runtime::IInspectable {
     fn from(value: MediaProtectionManager) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaProtectionManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaProtectionManager> for ::windows::runtime::IInspectable {
     fn from(value: &MediaProtectionManager) -> Self {
         value.0.clone()
     }
@@ -828,11 +828,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaProtectionManager {}
-unsafe impl ::std::marker::Sync for MediaProtectionManager {}
+unsafe impl ::core::marker::Send for MediaProtectionManager {}
+unsafe impl ::core::marker::Sync for MediaProtectionManager {}
 #[doc = "*Required features: `Media_Protection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaProtectionPMPServer(pub ::windows::runtime::IInspectable);
 impl MediaProtectionPMPServer {
     #[cfg(feature = "Foundation_Collections")]
@@ -840,16 +840,16 @@ impl MediaProtectionPMPServer {
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Protection`, `Foundation_Collections`*"]
     pub fn CreatePMPServer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(pproperties: Param0) -> ::windows::runtime::Result<MediaProtectionPMPServer> {
         Self::IMediaProtectionPMPServerFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), pproperties.into_param().abi(), &mut result__).from_abi::<MediaProtectionPMPServer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pproperties.into_param().abi(), &mut result__).from_abi::<MediaProtectionPMPServer>(result__)
         })
     }
     pub fn IMediaProtectionPMPServerFactory<R, F: FnOnce(&IMediaProtectionPMPServerFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -867,12 +867,12 @@ unsafe impl ::windows::runtime::Interface for MediaProtectionPMPServer {
 impl ::windows::runtime::RuntimeName for MediaProtectionPMPServer {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionPMPServer";
 }
-impl ::std::convert::From<MediaProtectionPMPServer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaProtectionPMPServer> for ::windows::runtime::IUnknown {
     fn from(value: MediaProtectionPMPServer) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaProtectionPMPServer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaProtectionPMPServer> for ::windows::runtime::IUnknown {
     fn from(value: &MediaProtectionPMPServer) -> Self {
         value.0 .0.clone()
     }
@@ -887,12 +887,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaProtectionPMPServer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaProtectionPMPServer> for ::windows::runtime::IInspectable {
     fn from(value: MediaProtectionPMPServer) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaProtectionPMPServer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaProtectionPMPServer> for ::windows::runtime::IInspectable {
     fn from(value: &MediaProtectionPMPServer) -> Self {
         value.0.clone()
     }
@@ -907,17 +907,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaProtectionPMPServer {}
-unsafe impl ::std::marker::Sync for MediaProtectionPMPServer {}
+unsafe impl ::core::marker::Send for MediaProtectionPMPServer {}
+unsafe impl ::core::marker::Sync for MediaProtectionPMPServer {}
 #[doc = "*Required features: `Media_Protection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaProtectionServiceCompletion(pub ::windows::runtime::IInspectable);
 impl MediaProtectionServiceCompletion {
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Complete(&self, success: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), success).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), success).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaProtectionServiceCompletion {
@@ -930,12 +930,12 @@ unsafe impl ::windows::runtime::Interface for MediaProtectionServiceCompletion {
 impl ::windows::runtime::RuntimeName for MediaProtectionServiceCompletion {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionServiceCompletion";
 }
-impl ::std::convert::From<MediaProtectionServiceCompletion> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MediaProtectionServiceCompletion> for ::windows::runtime::IUnknown {
     fn from(value: MediaProtectionServiceCompletion) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MediaProtectionServiceCompletion> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MediaProtectionServiceCompletion> for ::windows::runtime::IUnknown {
     fn from(value: &MediaProtectionServiceCompletion) -> Self {
         value.0 .0.clone()
     }
@@ -950,12 +950,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MediaProtectionServiceCompletion> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MediaProtectionServiceCompletion> for ::windows::runtime::IInspectable {
     fn from(value: MediaProtectionServiceCompletion) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MediaProtectionServiceCompletion> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MediaProtectionServiceCompletion> for ::windows::runtime::IInspectable {
     fn from(value: &MediaProtectionServiceCompletion) -> Self {
         value.0.clone()
     }
@@ -970,11 +970,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MediaProtectionServiceCompletion {}
-unsafe impl ::std::marker::Sync for MediaProtectionServiceCompletion {}
+unsafe impl ::core::marker::Send for MediaProtectionServiceCompletion {}
+unsafe impl ::core::marker::Sync for MediaProtectionServiceCompletion {}
 #[doc = "*Required features: `Media_Protection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProtectionCapabilities(pub ::windows::runtime::IInspectable);
 impl ProtectionCapabilities {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -988,8 +988,8 @@ impl ProtectionCapabilities {
     pub fn IsTypeSupported<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, r#type: Param0, keysystem: Param1) -> ::windows::runtime::Result<ProtectionCapabilityResult> {
         let this = self;
         unsafe {
-            let mut result__: ProtectionCapabilityResult = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), r#type.into_param().abi(), keysystem.into_param().abi(), &mut result__).from_abi::<ProtectionCapabilityResult>(result__)
+            let mut result__: ProtectionCapabilityResult = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), r#type.into_param().abi(), keysystem.into_param().abi(), &mut result__).from_abi::<ProtectionCapabilityResult>(result__)
         }
     }
 }
@@ -1003,12 +1003,12 @@ unsafe impl ::windows::runtime::Interface for ProtectionCapabilities {
 impl ::windows::runtime::RuntimeName for ProtectionCapabilities {
     const NAME: &'static str = "Windows.Media.Protection.ProtectionCapabilities";
 }
-impl ::std::convert::From<ProtectionCapabilities> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ProtectionCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: ProtectionCapabilities) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ProtectionCapabilities> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ProtectionCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &ProtectionCapabilities) -> Self {
         value.0 .0.clone()
     }
@@ -1023,12 +1023,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ProtectionCapabilities> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ProtectionCapabilities> for ::windows::runtime::IInspectable {
     fn from(value: ProtectionCapabilities) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ProtectionCapabilities> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ProtectionCapabilities> for ::windows::runtime::IInspectable {
     fn from(value: &ProtectionCapabilities) -> Self {
         value.0.clone()
     }
@@ -1043,10 +1043,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ProtectionCapabilities {}
-unsafe impl ::std::marker::Sync for ProtectionCapabilities {}
+unsafe impl ::core::marker::Send for ProtectionCapabilities {}
+unsafe impl ::core::marker::Sync for ProtectionCapabilities {}
 #[doc = "*Required features: `Media_Protection`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ProtectionCapabilityResult(pub i32);
 impl ProtectionCapabilityResult {
@@ -1054,7 +1054,7 @@ impl ProtectionCapabilityResult {
     pub const Maybe: ProtectionCapabilityResult = ProtectionCapabilityResult(1i32);
     pub const Probably: ProtectionCapabilityResult = ProtectionCapabilityResult(2i32);
 }
-impl ::std::convert::From<i32> for ProtectionCapabilityResult {
+impl ::core::convert::From<i32> for ProtectionCapabilityResult {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1069,25 +1069,25 @@ impl ::windows::runtime::DefaultType for ProtectionCapabilityResult {
     type DefaultType = Self;
 }
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct ProtectionRenewalContract(pub u8);
 #[doc = "*Required features: `Media_Protection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RebootNeededEventHandler(::windows::runtime::IUnknown);
 impl RebootNeededEventHandler {
-    pub fn new<F: FnMut(&::std::option::Option<MediaProtectionManager>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<MediaProtectionManager>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
         let com = RebootNeededEventHandler_box::<F> {
             vtable: &RebootNeededEventHandler_box::<F>::VTABLE,
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, MediaProtectionManager>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for RebootNeededEventHandler {
@@ -1106,19 +1106,19 @@ pub struct RebootNeededEventHandler_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(C)]
-struct RebootNeededEventHandler_box<F: FnMut(&::std::option::Option<MediaProtectionManager>) -> ::windows::runtime::Result<()> + 'static> {
+struct RebootNeededEventHandler_box<F: FnMut(&::core::option::Option<MediaProtectionManager>) -> ::windows::runtime::Result<()> + 'static> {
     vtable: *const RebootNeededEventHandler_abi,
     invoke: F,
     count: ::windows::runtime::RefCount,
 }
-impl<F: FnMut(&::std::option::Option<MediaProtectionManager>) -> ::windows::runtime::Result<()> + 'static> RebootNeededEventHandler_box<F> {
+impl<F: FnMut(&::core::option::Option<MediaProtectionManager>) -> ::windows::runtime::Result<()> + 'static> RebootNeededEventHandler_box<F> {
     const VTABLE: RebootNeededEventHandler_abi = RebootNeededEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         *interface = if iid == &<RebootNeededEventHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
-            ::std::ptr::null_mut()
+            ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
             ::windows::runtime::HRESULT(0x8000_4002)
@@ -1145,7 +1145,7 @@ impl<F: FnMut(&::std::option::Option<MediaProtectionManager>) -> ::windows::runt
     }
 }
 #[doc = "*Required features: `Media_Protection`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RenewalStatus(pub i32);
 impl RenewalStatus {
@@ -1155,7 +1155,7 @@ impl RenewalStatus {
     pub const AppComponentsMayNeedUpdating: RenewalStatus = RenewalStatus(3i32);
     pub const NoComponentsFound: RenewalStatus = RenewalStatus(4i32);
 }
-impl ::std::convert::From<i32> for RenewalStatus {
+impl ::core::convert::From<i32> for RenewalStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1171,7 +1171,7 @@ impl ::windows::runtime::DefaultType for RenewalStatus {
 }
 #[doc = "*Required features: `Media_Protection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RevocationAndRenewalInformation(pub ::windows::runtime::IInspectable);
 impl RevocationAndRenewalInformation {
     #[cfg(feature = "Foundation_Collections")]
@@ -1179,8 +1179,8 @@ impl RevocationAndRenewalInformation {
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<RevocationAndRenewalItem>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<RevocationAndRenewalItem>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<RevocationAndRenewalItem>>(result__)
         }
     }
 }
@@ -1194,12 +1194,12 @@ unsafe impl ::windows::runtime::Interface for RevocationAndRenewalInformation {
 impl ::windows::runtime::RuntimeName for RevocationAndRenewalInformation {
     const NAME: &'static str = "Windows.Media.Protection.RevocationAndRenewalInformation";
 }
-impl ::std::convert::From<RevocationAndRenewalInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RevocationAndRenewalInformation> for ::windows::runtime::IUnknown {
     fn from(value: RevocationAndRenewalInformation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&RevocationAndRenewalInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RevocationAndRenewalInformation> for ::windows::runtime::IUnknown {
     fn from(value: &RevocationAndRenewalInformation) -> Self {
         value.0 .0.clone()
     }
@@ -1214,12 +1214,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<RevocationAndRenewalInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RevocationAndRenewalInformation> for ::windows::runtime::IInspectable {
     fn from(value: RevocationAndRenewalInformation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&RevocationAndRenewalInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RevocationAndRenewalInformation> for ::windows::runtime::IInspectable {
     fn from(value: &RevocationAndRenewalInformation) -> Self {
         value.0.clone()
     }
@@ -1234,51 +1234,51 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for RevocationAndRenewalInformation {}
-unsafe impl ::std::marker::Sync for RevocationAndRenewalInformation {}
+unsafe impl ::core::marker::Send for RevocationAndRenewalInformation {}
+unsafe impl ::core::marker::Sync for RevocationAndRenewalInformation {}
 #[doc = "*Required features: `Media_Protection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RevocationAndRenewalItem(pub ::windows::runtime::IInspectable);
 impl RevocationAndRenewalItem {
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Reasons(&self) -> ::windows::runtime::Result<RevocationAndRenewalReasons> {
         let this = self;
         unsafe {
-            let mut result__: RevocationAndRenewalReasons = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<RevocationAndRenewalReasons>(result__)
+            let mut result__: RevocationAndRenewalReasons = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RevocationAndRenewalReasons>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn HeaderHash(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn PublicKeyHash(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn RenewalId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -1292,12 +1292,12 @@ unsafe impl ::windows::runtime::Interface for RevocationAndRenewalItem {
 impl ::windows::runtime::RuntimeName for RevocationAndRenewalItem {
     const NAME: &'static str = "Windows.Media.Protection.RevocationAndRenewalItem";
 }
-impl ::std::convert::From<RevocationAndRenewalItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RevocationAndRenewalItem> for ::windows::runtime::IUnknown {
     fn from(value: RevocationAndRenewalItem) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&RevocationAndRenewalItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RevocationAndRenewalItem> for ::windows::runtime::IUnknown {
     fn from(value: &RevocationAndRenewalItem) -> Self {
         value.0 .0.clone()
     }
@@ -1312,12 +1312,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<RevocationAndRenewalItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RevocationAndRenewalItem> for ::windows::runtime::IInspectable {
     fn from(value: RevocationAndRenewalItem) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&RevocationAndRenewalItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RevocationAndRenewalItem> for ::windows::runtime::IInspectable {
     fn from(value: &RevocationAndRenewalItem) -> Self {
         value.0.clone()
     }
@@ -1332,10 +1332,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for RevocationAndRenewalItem {}
-unsafe impl ::std::marker::Sync for RevocationAndRenewalItem {}
+unsafe impl ::core::marker::Send for RevocationAndRenewalItem {}
+unsafe impl ::core::marker::Sync for RevocationAndRenewalItem {}
 #[doc = "*Required features: `Media_Protection`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RevocationAndRenewalReasons(pub u32);
 impl RevocationAndRenewalReasons {
@@ -1355,7 +1355,7 @@ impl RevocationAndRenewalReasons {
     pub const ComponentSignedWithTestCertificate: RevocationAndRenewalReasons = RevocationAndRenewalReasons(16777216u32);
     pub const EncryptionFailure: RevocationAndRenewalReasons = RevocationAndRenewalReasons(268435456u32);
 }
-impl ::std::convert::From<u32> for RevocationAndRenewalReasons {
+impl ::core::convert::From<u32> for RevocationAndRenewalReasons {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1369,29 +1369,29 @@ unsafe impl ::windows::runtime::RuntimeType for RevocationAndRenewalReasons {
 impl ::windows::runtime::DefaultType for RevocationAndRenewalReasons {
     type DefaultType = Self;
 }
-impl ::std::ops::BitOr for RevocationAndRenewalReasons {
+impl ::core::ops::BitOr for RevocationAndRenewalReasons {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for RevocationAndRenewalReasons {
+impl ::core::ops::BitAnd for RevocationAndRenewalReasons {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for RevocationAndRenewalReasons {
+impl ::core::ops::BitOrAssign for RevocationAndRenewalReasons {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for RevocationAndRenewalReasons {
+impl ::core::ops::BitAndAssign for RevocationAndRenewalReasons {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for RevocationAndRenewalReasons {
+impl ::core::ops::Not for RevocationAndRenewalReasons {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -1399,23 +1399,23 @@ impl ::std::ops::Not for RevocationAndRenewalReasons {
 }
 #[doc = "*Required features: `Media_Protection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ServiceRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl ServiceRequestedEventArgs {
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<IMediaProtectionServiceRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IMediaProtectionServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IMediaProtectionServiceRequest>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Completion(&self) -> ::windows::runtime::Result<MediaProtectionServiceCompletion> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaProtectionServiceCompletion>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaProtectionServiceCompletion>(result__)
         }
     }
     #[cfg(feature = "Media_Playback")]
@@ -1423,8 +1423,8 @@ impl ServiceRequestedEventArgs {
     pub fn MediaPlaybackItem(&self) -> ::windows::runtime::Result<super::Playback::MediaPlaybackItem> {
         let this = &::windows::runtime::Interface::cast::<IServiceRequestedEventArgs2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Playback::MediaPlaybackItem>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Playback::MediaPlaybackItem>(result__)
         }
     }
 }
@@ -1438,12 +1438,12 @@ unsafe impl ::windows::runtime::Interface for ServiceRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for ServiceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.ServiceRequestedEventArgs";
 }
-impl ::std::convert::From<ServiceRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ServiceRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ServiceRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ServiceRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ServiceRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ServiceRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1458,12 +1458,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ServiceRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ServiceRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: ServiceRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ServiceRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ServiceRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &ServiceRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1478,25 +1478,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ServiceRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for ServiceRequestedEventArgs {}
+unsafe impl ::core::marker::Send for ServiceRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for ServiceRequestedEventArgs {}
 #[doc = "*Required features: `Media_Protection`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ServiceRequestedEventHandler(::windows::runtime::IUnknown);
 impl ServiceRequestedEventHandler {
-    pub fn new<F: FnMut(&::std::option::Option<MediaProtectionManager>, &::std::option::Option<ServiceRequestedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::Option<ServiceRequestedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
         let com = ServiceRequestedEventHandler_box::<F> {
             vtable: &ServiceRequestedEventHandler_box::<F>::VTABLE,
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, MediaProtectionManager>, Param1: ::windows::runtime::IntoParam<'a, ServiceRequestedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ServiceRequestedEventHandler {
@@ -1515,19 +1515,19 @@ pub struct ServiceRequestedEventHandler_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(C)]
-struct ServiceRequestedEventHandler_box<F: FnMut(&::std::option::Option<MediaProtectionManager>, &::std::option::Option<ServiceRequestedEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
+struct ServiceRequestedEventHandler_box<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::Option<ServiceRequestedEventArgs>) -> ::windows::runtime::Result<()> + 'static> {
     vtable: *const ServiceRequestedEventHandler_abi,
     invoke: F,
     count: ::windows::runtime::RefCount,
 }
-impl<F: FnMut(&::std::option::Option<MediaProtectionManager>, &::std::option::Option<ServiceRequestedEventArgs>) -> ::windows::runtime::Result<()> + 'static> ServiceRequestedEventHandler_box<F> {
+impl<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::Option<ServiceRequestedEventArgs>) -> ::windows::runtime::Result<()> + 'static> ServiceRequestedEventHandler_box<F> {
     const VTABLE: ServiceRequestedEventHandler_abi = ServiceRequestedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         *interface = if iid == &<ServiceRequestedEventHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
-            ::std::ptr::null_mut()
+            ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
             ::windows::runtime::HRESULT(0x8000_4002)

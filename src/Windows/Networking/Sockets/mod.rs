@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct BandwidthStatistics {
@@ -11,13 +11,13 @@ pub struct BandwidthStatistics {
     pub InboundBandwidthPeaked: bool,
 }
 impl BandwidthStatistics {}
-impl ::std::default::Default for BandwidthStatistics {
+impl ::core::default::Default for BandwidthStatistics {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for BandwidthStatistics {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for BandwidthStatistics {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("BandwidthStatistics")
             .field("OutboundBitsPerSecond", &self.OutboundBitsPerSecond)
             .field("InboundBitsPerSecond", &self.InboundBitsPerSecond)
@@ -28,12 +28,12 @@ impl ::std::fmt::Debug for BandwidthStatistics {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for BandwidthStatistics {
+impl ::core::cmp::PartialEq for BandwidthStatistics {
     fn eq(&self, other: &Self) -> bool {
         self.OutboundBitsPerSecond == other.OutboundBitsPerSecond && self.InboundBitsPerSecond == other.InboundBitsPerSecond && self.OutboundBitsPerSecondInstability == other.OutboundBitsPerSecondInstability && self.InboundBitsPerSecondInstability == other.InboundBitsPerSecondInstability && self.OutboundBandwidthPeaked == other.OutboundBandwidthPeaked && self.InboundBandwidthPeaked == other.InboundBandwidthPeaked
     }
 }
-impl ::std::cmp::Eq for BandwidthStatistics {}
+impl ::core::cmp::Eq for BandwidthStatistics {}
 unsafe impl ::windows::runtime::Abi for BandwidthStatistics {
     type Abi = Self;
 }
@@ -45,44 +45,44 @@ impl ::windows::runtime::DefaultType for BandwidthStatistics {
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ControlChannelTrigger(pub ::windows::runtime::IInspectable);
 impl ControlChannelTrigger {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn ControlChannelTriggerId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn ServerKeepAliveIntervalInMinutes(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetServerKeepAliveIntervalInMinutes(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn CurrentKeepAliveIntervalInMinutes(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn TransportObject(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Background")]
@@ -90,8 +90,8 @@ impl ControlChannelTrigger {
     pub fn KeepAliveTrigger(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Background::IBackgroundTrigger> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::IBackgroundTrigger>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::IBackgroundTrigger>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Background")]
@@ -99,59 +99,59 @@ impl ControlChannelTrigger {
     pub fn PushNotificationTrigger(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Background::IBackgroundTrigger> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::IBackgroundTrigger>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::IBackgroundTrigger>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn UsingTransport<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, transport: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), transport.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), transport.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn WaitForPushEnabled(&self) -> ::windows::runtime::Result<ControlChannelTriggerStatus> {
         let this = self;
         unsafe {
-            let mut result__: ControlChannelTriggerStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ControlChannelTriggerStatus>(result__)
+            let mut result__: ControlChannelTriggerStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ControlChannelTriggerStatus>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn DecreaseNetworkKeepAliveInterval(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn FlushTransport(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn CreateControlChannelTrigger<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(channelid: Param0, serverkeepaliveintervalinminutes: u32) -> ::windows::runtime::Result<ControlChannelTrigger> {
         Self::IControlChannelTriggerFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), channelid.into_param().abi(), serverkeepaliveintervalinminutes, &mut result__).from_abi::<ControlChannelTrigger>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), channelid.into_param().abi(), serverkeepaliveintervalinminutes, &mut result__).from_abi::<ControlChannelTrigger>(result__)
         })
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn CreateControlChannelTriggerEx<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(channelid: Param0, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType) -> ::windows::runtime::Result<ControlChannelTrigger> {
         Self::IControlChannelTriggerFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), channelid.into_param().abi(), serverkeepaliveintervalinminutes, resourcerequesttype, &mut result__).from_abi::<ControlChannelTrigger>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), channelid.into_param().abi(), serverkeepaliveintervalinminutes, resourcerequesttype, &mut result__).from_abi::<ControlChannelTrigger>(result__)
         })
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn IsWakeFromLowPowerSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IControlChannelTrigger2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     pub fn IControlChannelTriggerFactory<R, F: FnOnce(&IControlChannelTriggerFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -169,12 +169,12 @@ unsafe impl ::windows::runtime::Interface for ControlChannelTrigger {
 impl ::windows::runtime::RuntimeName for ControlChannelTrigger {
     const NAME: &'static str = "Windows.Networking.Sockets.ControlChannelTrigger";
 }
-impl ::std::convert::From<ControlChannelTrigger> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ControlChannelTrigger> for ::windows::runtime::IUnknown {
     fn from(value: ControlChannelTrigger) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ControlChannelTrigger> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ControlChannelTrigger> for ::windows::runtime::IUnknown {
     fn from(value: &ControlChannelTrigger) -> Self {
         value.0 .0.clone()
     }
@@ -189,12 +189,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ControlChannelTrigger> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ControlChannelTrigger> for ::windows::runtime::IInspectable {
     fn from(value: ControlChannelTrigger) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ControlChannelTrigger> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ControlChannelTrigger> for ::windows::runtime::IInspectable {
     fn from(value: &ControlChannelTrigger) -> Self {
         value.0.clone()
     }
@@ -210,14 +210,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<ControlChannelTrigger> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<ControlChannelTrigger> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ControlChannelTrigger) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&ControlChannelTrigger> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&ControlChannelTrigger> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &ControlChannelTrigger) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -232,16 +232,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &ControlChannelTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for ControlChannelTrigger {}
-unsafe impl ::std::marker::Sync for ControlChannelTrigger {}
+unsafe impl ::core::marker::Send for ControlChannelTrigger {}
+unsafe impl ::core::marker::Sync for ControlChannelTrigger {}
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct ControlChannelTriggerContract(pub u8);
 #[doc = "*Required features: `Networking_Sockets`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ControlChannelTriggerResetReason(pub i32);
 impl ControlChannelTriggerResetReason {
@@ -250,7 +250,7 @@ impl ControlChannelTriggerResetReason {
     pub const QuietHoursExit: ControlChannelTriggerResetReason = ControlChannelTriggerResetReason(2i32);
     pub const ApplicationRestart: ControlChannelTriggerResetReason = ControlChannelTriggerResetReason(3i32);
 }
-impl ::std::convert::From<i32> for ControlChannelTriggerResetReason {
+impl ::core::convert::From<i32> for ControlChannelTriggerResetReason {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -265,14 +265,14 @@ impl ::windows::runtime::DefaultType for ControlChannelTriggerResetReason {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ControlChannelTriggerResourceType(pub i32);
 impl ControlChannelTriggerResourceType {
     pub const RequestSoftwareSlot: ControlChannelTriggerResourceType = ControlChannelTriggerResourceType(0i32);
     pub const RequestHardwareSlot: ControlChannelTriggerResourceType = ControlChannelTriggerResourceType(1i32);
 }
-impl ::std::convert::From<i32> for ControlChannelTriggerResourceType {
+impl ::core::convert::From<i32> for ControlChannelTriggerResourceType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -287,7 +287,7 @@ impl ::windows::runtime::DefaultType for ControlChannelTriggerResourceType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ControlChannelTriggerStatus(pub i32);
 impl ControlChannelTriggerStatus {
@@ -299,7 +299,7 @@ impl ControlChannelTriggerStatus {
     pub const TransportDisconnected: ControlChannelTriggerStatus = ControlChannelTriggerStatus(5i32);
     pub const ServiceUnavailable: ControlChannelTriggerStatus = ControlChannelTriggerStatus(6i32);
 }
-impl ::std::convert::From<i32> for ControlChannelTriggerStatus {
+impl ::core::convert::From<i32> for ControlChannelTriggerStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -315,7 +315,7 @@ impl ::windows::runtime::DefaultType for ControlChannelTriggerStatus {
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DatagramSocket(pub ::windows::runtime::IInspectable);
 impl DatagramSocket {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -329,16 +329,16 @@ impl DatagramSocket {
     pub fn Control(&self) -> ::windows::runtime::Result<DatagramSocketControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DatagramSocketControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DatagramSocketControl>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Information(&self) -> ::windows::runtime::Result<DatagramSocketInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DatagramSocketInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DatagramSocketInformation>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -346,8 +346,8 @@ impl DatagramSocket {
     pub fn OutputStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -355,8 +355,8 @@ impl DatagramSocket {
     pub fn ConnectAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, remotehostname: Param0, remoteservicename: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -364,8 +364,8 @@ impl DatagramSocket {
     pub fn ConnectWithEndpointPairAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::EndpointPair>>(&self, endpointpair: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), endpointpair.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), endpointpair.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -373,8 +373,8 @@ impl DatagramSocket {
     pub fn BindServiceNameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, localservicename: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), localservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), localservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -382,22 +382,22 @@ impl DatagramSocket {
     pub fn BindEndpointAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, localhostname: Param0, localservicename: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), localhostname.into_param().abi(), localservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), localhostname.into_param().abi(), localservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn JoinMulticastGroup<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>>(&self, host: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), host.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), host.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`, `Storage_Streams`*"]
     pub fn GetOutputStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, remotehostname: Param0, remoteservicename: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -405,8 +405,8 @@ impl DatagramSocket {
     pub fn GetOutputStreamWithEndpointPairAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::EndpointPair>>(&self, endpointpair: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), endpointpair.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), endpointpair.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -414,29 +414,29 @@ impl DatagramSocket {
     pub fn MessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DatagramSocket, DatagramSocketMessageReceivedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn RemoveMessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`, `Networking_Connectivity`*"]
     pub fn BindServiceNameAndAdapterAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::Connectivity::NetworkAdapter>>(&self, localservicename: Param0, adapter: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IDatagramSocket2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), localservicename.into_param().abi(), adapter.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), localservicename.into_param().abi(), adapter.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -444,50 +444,50 @@ impl DatagramSocket {
     pub fn CancelIOAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IDatagramSocket3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn EnableTransferOwnership<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, taskid: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), taskid.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), taskid.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn EnableTransferOwnershipWithConnectedStandbyAction<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, taskid: Param0, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), taskid.into_param().abi(), connectedstandbyaction).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), taskid.into_param().abi(), connectedstandbyaction).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn TransferOwnership<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, socketid: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), socketid.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), socketid.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn TransferOwnershipWithContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SocketActivityContext>>(&self, socketid: Param0, data: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), socketid.into_param().abi(), data.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), socketid.into_param().abi(), data.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn TransferOwnershipWithContextAndKeepAliveTime<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SocketActivityContext>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, socketid: Param0, data: Param1, keepalivetime: Param2) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), socketid.into_param().abi(), data.into_param().abi(), keepalivetime.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), socketid.into_param().abi(), data.into_param().abi(), keepalivetime.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetEndpointPairsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(remotehostname: Param0, remoteservicename: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>> {
         Self::IDatagramSocketStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetEndpointPairsWithSortOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(remotehostname: Param0, remoteservicename: Param1, sortoptions: super::HostNameSortOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>> {
         Self::IDatagramSocketStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), sortoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), sortoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
         })
     }
     pub fn IDatagramSocketStatics<R, F: FnOnce(&IDatagramSocketStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -505,12 +505,12 @@ unsafe impl ::windows::runtime::Interface for DatagramSocket {
 impl ::windows::runtime::RuntimeName for DatagramSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocket";
 }
-impl ::std::convert::From<DatagramSocket> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DatagramSocket> for ::windows::runtime::IUnknown {
     fn from(value: DatagramSocket) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DatagramSocket> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DatagramSocket> for ::windows::runtime::IUnknown {
     fn from(value: &DatagramSocket) -> Self {
         value.0 .0.clone()
     }
@@ -525,12 +525,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DatagramSocket> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DatagramSocket> for ::windows::runtime::IInspectable {
     fn from(value: DatagramSocket) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DatagramSocket> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DatagramSocket> for ::windows::runtime::IInspectable {
     fn from(value: &DatagramSocket) -> Self {
         value.0.clone()
     }
@@ -546,14 +546,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<DatagramSocket> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<DatagramSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DatagramSocket) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&DatagramSocket> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&DatagramSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &DatagramSocket) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -568,80 +568,80 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &DatagramSocket {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for DatagramSocket {}
-unsafe impl ::std::marker::Sync for DatagramSocket {}
+unsafe impl ::core::marker::Send for DatagramSocket {}
+unsafe impl ::core::marker::Sync for DatagramSocket {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DatagramSocketControl(pub ::windows::runtime::IInspectable);
 impl DatagramSocketControl {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn QualityOfService(&self) -> ::windows::runtime::Result<SocketQualityOfService> {
         let this = self;
         unsafe {
-            let mut result__: SocketQualityOfService = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketQualityOfService>(result__)
+            let mut result__: SocketQualityOfService = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketQualityOfService>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetQualityOfService(&self, value: SocketQualityOfService) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn OutboundUnicastHopLimit(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__: u8 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            let mut result__: u8 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetOutboundUnicastHopLimit(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn InboundBufferSizeInBytes(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IDatagramSocketControl2>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetInboundBufferSizeInBytes(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IDatagramSocketControl2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn DontFragment(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IDatagramSocketControl2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetDontFragment(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IDatagramSocketControl2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn MulticastOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IDatagramSocketControl3>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetMulticastOnly(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IDatagramSocketControl3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for DatagramSocketControl {
@@ -654,12 +654,12 @@ unsafe impl ::windows::runtime::Interface for DatagramSocketControl {
 impl ::windows::runtime::RuntimeName for DatagramSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketControl";
 }
-impl ::std::convert::From<DatagramSocketControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DatagramSocketControl> for ::windows::runtime::IUnknown {
     fn from(value: DatagramSocketControl) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DatagramSocketControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DatagramSocketControl> for ::windows::runtime::IUnknown {
     fn from(value: &DatagramSocketControl) -> Self {
         value.0 .0.clone()
     }
@@ -674,12 +674,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DatagramSocketControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DatagramSocketControl> for ::windows::runtime::IInspectable {
     fn from(value: DatagramSocketControl) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DatagramSocketControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DatagramSocketControl> for ::windows::runtime::IInspectable {
     fn from(value: &DatagramSocketControl) -> Self {
         value.0.clone()
     }
@@ -694,43 +694,43 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DatagramSocketControl {}
-unsafe impl ::std::marker::Sync for DatagramSocketControl {}
+unsafe impl ::core::marker::Send for DatagramSocketControl {}
+unsafe impl ::core::marker::Sync for DatagramSocketControl {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DatagramSocketInformation(pub ::windows::runtime::IInspectable);
 impl DatagramSocketInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn LocalAddress(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn LocalPort(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn RemoteAddress(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn RemotePort(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -744,12 +744,12 @@ unsafe impl ::windows::runtime::Interface for DatagramSocketInformation {
 impl ::windows::runtime::RuntimeName for DatagramSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketInformation";
 }
-impl ::std::convert::From<DatagramSocketInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DatagramSocketInformation> for ::windows::runtime::IUnknown {
     fn from(value: DatagramSocketInformation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DatagramSocketInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DatagramSocketInformation> for ::windows::runtime::IUnknown {
     fn from(value: &DatagramSocketInformation) -> Self {
         value.0 .0.clone()
     }
@@ -764,12 +764,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DatagramSocketInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DatagramSocketInformation> for ::windows::runtime::IInspectable {
     fn from(value: DatagramSocketInformation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DatagramSocketInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DatagramSocketInformation> for ::windows::runtime::IInspectable {
     fn from(value: &DatagramSocketInformation) -> Self {
         value.0.clone()
     }
@@ -784,35 +784,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DatagramSocketInformation {}
-unsafe impl ::std::marker::Sync for DatagramSocketInformation {}
+unsafe impl ::core::marker::Send for DatagramSocketInformation {}
+unsafe impl ::core::marker::Sync for DatagramSocketInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DatagramSocketMessageReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl DatagramSocketMessageReceivedEventArgs {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn RemoteAddress(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn RemotePort(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn LocalAddress(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -820,8 +820,8 @@ impl DatagramSocketMessageReceivedEventArgs {
     pub fn GetDataReader(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::DataReader> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::DataReader>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::DataReader>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -829,8 +829,8 @@ impl DatagramSocketMessageReceivedEventArgs {
     pub fn GetDataStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
 }
@@ -844,12 +844,12 @@ unsafe impl ::windows::runtime::Interface for DatagramSocketMessageReceivedEvent
 impl ::windows::runtime::RuntimeName for DatagramSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs";
 }
-impl ::std::convert::From<DatagramSocketMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DatagramSocketMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: DatagramSocketMessageReceivedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DatagramSocketMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DatagramSocketMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -864,12 +864,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DatagramSocketMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DatagramSocketMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: DatagramSocketMessageReceivedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DatagramSocketMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DatagramSocketMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
         value.0.clone()
     }
@@ -884,8 +884,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for DatagramSocketMessageReceivedEventArgs {}
-unsafe impl ::std::marker::Sync for DatagramSocketMessageReceivedEventArgs {}
+unsafe impl ::core::marker::Send for DatagramSocketMessageReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for DatagramSocketMessageReceivedEventArgs {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IControlChannelTrigger(pub ::windows::runtime::IInspectable);
@@ -902,7 +902,7 @@ pub struct IControlChannelTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
@@ -935,7 +935,7 @@ pub struct IControlChannelTrigger2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct IControlChannelTriggerEventDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IControlChannelTriggerEventDetails {
@@ -947,20 +947,20 @@ impl IControlChannelTriggerEventDetails {
     pub fn ControlChannelTrigger(&self) -> ::windows::runtime::Result<ControlChannelTrigger> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ControlChannelTrigger>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ControlChannelTrigger>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IControlChannelTriggerEventDetails {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1b36e047-89bb-4236-96ac-71d012bb4869}");
 }
-impl ::std::convert::From<IControlChannelTriggerEventDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IControlChannelTriggerEventDetails> for ::windows::runtime::IUnknown {
     fn from(value: IControlChannelTriggerEventDetails) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IControlChannelTriggerEventDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IControlChannelTriggerEventDetails> for ::windows::runtime::IUnknown {
     fn from(value: &IControlChannelTriggerEventDetails) -> Self {
         value.0 .0.clone()
     }
@@ -975,12 +975,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IControlChannelTriggerEventDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IControlChannelTriggerEventDetails> for ::windows::runtime::IInspectable {
     fn from(value: IControlChannelTriggerEventDetails) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IControlChannelTriggerEventDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IControlChannelTriggerEventDetails> for ::windows::runtime::IInspectable {
     fn from(value: &IControlChannelTriggerEventDetails) -> Self {
         value.0.clone()
     }
@@ -1022,11 +1022,11 @@ pub struct IControlChannelTriggerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, channelid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, serverkeepaliveintervalinminutes: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, channelid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, channelid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, serverkeepaliveintervalinminutes: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, channelid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct IControlChannelTriggerResetEventDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IControlChannelTriggerResetEventDetails {
@@ -1038,36 +1038,36 @@ impl IControlChannelTriggerResetEventDetails {
     pub fn ResetReason(&self) -> ::windows::runtime::Result<ControlChannelTriggerResetReason> {
         let this = self;
         unsafe {
-            let mut result__: ControlChannelTriggerResetReason = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ControlChannelTriggerResetReason>(result__)
+            let mut result__: ControlChannelTriggerResetReason = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ControlChannelTriggerResetReason>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn HardwareSlotReset(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SoftwareSlotReset(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IControlChannelTriggerResetEventDetails {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{6851038e-8ec4-42fe-9bb2-21e91b7bfcb1}");
 }
-impl ::std::convert::From<IControlChannelTriggerResetEventDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IControlChannelTriggerResetEventDetails> for ::windows::runtime::IUnknown {
     fn from(value: IControlChannelTriggerResetEventDetails) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IControlChannelTriggerResetEventDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IControlChannelTriggerResetEventDetails> for ::windows::runtime::IUnknown {
     fn from(value: &IControlChannelTriggerResetEventDetails) -> Self {
         value.0 .0.clone()
     }
@@ -1082,12 +1082,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IControlChannelTriggerResetEventDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IControlChannelTriggerResetEventDetails> for ::windows::runtime::IInspectable {
     fn from(value: IControlChannelTriggerResetEventDetails) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IControlChannelTriggerResetEventDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IControlChannelTriggerResetEventDetails> for ::windows::runtime::IInspectable {
     fn from(value: &IControlChannelTriggerResetEventDetails) -> Self {
         value.0.clone()
     }
@@ -1135,16 +1135,16 @@ pub struct IDatagramSocket_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, endpointpair: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localhostname: ::windows::runtime::RawPtr, localservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localhostname: ::windows::runtime::RawPtr, localservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, host: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, endpointpair: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
@@ -1169,7 +1169,7 @@ pub struct IDatagramSocket2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, adapter: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, adapter: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Networking_Connectivity")))] usize,
 );
 #[repr(transparent)]
@@ -1192,9 +1192,9 @@ pub struct IDatagramSocket3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, taskid: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, taskid: ::windows::runtime::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -1275,9 +1275,9 @@ pub struct IDatagramSocketInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -1296,7 +1296,7 @@ pub struct IDatagramSocketMessageReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
@@ -1319,9 +1319,9 @@ pub struct IDatagramSocketStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, sortoptions: super::HostNameSortOptions, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, sortoptions: super::HostNameSortOptions, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
@@ -1507,7 +1507,7 @@ pub struct IServerMessageWebSocket_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, code: u16, reason: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, code: u16, reason: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -1545,7 +1545,7 @@ pub struct IServerMessageWebSocketInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut BandwidthStatistics) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -1573,7 +1573,7 @@ pub struct IServerStreamWebSocket_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, code: u16, reason: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, code: u16, reason: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -1592,7 +1592,7 @@ pub struct IServerStreamWebSocketInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut BandwidthStatistics) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -1650,7 +1650,7 @@ pub struct ISocketActivityInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SocketActivityKind) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -1737,11 +1737,11 @@ pub struct IStreamSocket_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, endpointpair: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, endpointpair: ::windows::runtime::RawPtr, protectionlevel: SocketProtectionLevel, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, protectionlevel: SocketProtectionLevel, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, protectionlevel: SocketProtectionLevel, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, protectionlevel: SocketProtectionLevel, validationhostname: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
@@ -1762,7 +1762,7 @@ pub struct IStreamSocket2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, protectionlevel: SocketProtectionLevel, adapter: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, protectionlevel: SocketProtectionLevel, adapter: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Networking_Connectivity")))] usize,
 );
 #[repr(transparent)]
@@ -1785,9 +1785,9 @@ pub struct IStreamSocket3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, taskid: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, taskid: ::windows::runtime::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -1895,11 +1895,11 @@ pub struct IStreamSocketInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut RoundTripTimeStatistics) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut BandwidthStatistics) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SocketProtectionLevel) -> ::windows::runtime::HRESULT,
@@ -1948,9 +1948,9 @@ pub struct IStreamSocketListener_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localhostname: ::windows::runtime::RawPtr, localservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localhostname: ::windows::runtime::RawPtr, localservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventhandler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
@@ -1973,9 +1973,9 @@ pub struct IStreamSocketListener2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, protectionlevel: SocketProtectionLevel, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, protectionlevel: SocketProtectionLevel, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, protectionlevel: SocketProtectionLevel, adapter: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, protectionlevel: SocketProtectionLevel, adapter: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Networking_Connectivity")))] usize,
 );
 #[repr(transparent)]
@@ -1998,8 +1998,8 @@ pub struct IStreamSocketListener3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, taskid: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, taskid: ::windows::runtime::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -2079,7 +2079,7 @@ pub struct IStreamSocketListenerInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -2097,9 +2097,9 @@ pub struct IStreamSocketStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, sortoptions: super::HostNameSortOptions, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, sortoptions: super::HostNameSortOptions, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
@@ -2191,7 +2191,7 @@ pub struct IStreamWebSocketControl2_abi(
     #[cfg(not(feature = "Security_Cryptography_Certificates"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct IWebSocket(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocket {
@@ -2204,8 +2204,8 @@ impl IWebSocket {
     pub fn OutputStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2213,51 +2213,51 @@ impl IWebSocket {
     pub fn ConnectAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetRequestHeader<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, headername: Param0, headervalue: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), headername.into_param().abi(), headervalue.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), headername.into_param().abi(), headervalue.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn Closed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn RemoveClosed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn CloseWithStatus<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, code: u16, reason: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), code, reason.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), code, reason.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IWebSocket {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{f877396f-99b1-4e18-bc08-850c9adf156e}");
 }
-impl ::std::convert::From<IWebSocket> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWebSocket> for ::windows::runtime::IUnknown {
     fn from(value: IWebSocket) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IWebSocket> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWebSocket> for ::windows::runtime::IUnknown {
     fn from(value: &IWebSocket) -> Self {
         value.0 .0.clone()
     }
@@ -2272,12 +2272,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IWebSocket> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IWebSocket> for ::windows::runtime::IInspectable {
     fn from(value: IWebSocket) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWebSocket> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IWebSocket> for ::windows::runtime::IInspectable {
     fn from(value: &IWebSocket) -> Self {
         value.0.clone()
     }
@@ -2293,14 +2293,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<IWebSocket> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<IWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IWebSocket) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&IWebSocket> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&IWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &IWebSocket) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2315,7 +2315,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &IWebSocket {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[repr(C)]
@@ -2331,12 +2331,12 @@ pub struct IWebSocket_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, headername: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, headervalue: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, headername: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventhandler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, code: u16, reason: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, code: u16, reason: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -2355,10 +2355,10 @@ pub struct IWebSocketClosedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct IWebSocketControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketControl {
@@ -2370,64 +2370,64 @@ impl IWebSocketControl {
     pub fn OutboundBufferSizeInBytes(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn ServerCredential(&self) -> ::windows::runtime::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn SetServerCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn ProxyCredential(&self) -> ::windows::runtime::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn SetProxyCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation_Collections`*"]
     pub fn SupportedProtocols(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IWebSocketControl {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{2ec4bdc3-d9a5-455a-9811-de24d45337e9}");
 }
-impl ::std::convert::From<IWebSocketControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWebSocketControl> for ::windows::runtime::IUnknown {
     fn from(value: IWebSocketControl) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IWebSocketControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWebSocketControl> for ::windows::runtime::IUnknown {
     fn from(value: &IWebSocketControl) -> Self {
         value.0 .0.clone()
     }
@@ -2442,12 +2442,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IWebSocketControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IWebSocketControl> for ::windows::runtime::IInspectable {
     fn from(value: IWebSocketControl) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWebSocketControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IWebSocketControl> for ::windows::runtime::IInspectable {
     fn from(value: &IWebSocketControl) -> Self {
         value.0.clone()
     }
@@ -2485,7 +2485,7 @@ pub struct IWebSocketControl_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct IWebSocketControl2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketControl2 {
@@ -2497,52 +2497,52 @@ impl IWebSocketControl2 {
     pub fn OutboundBufferSizeInBytes(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn ServerCredential(&self) -> ::windows::runtime::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn SetServerCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn ProxyCredential(&self) -> ::windows::runtime::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn SetProxyCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation_Collections`*"]
     pub fn SupportedProtocols(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -2550,20 +2550,20 @@ impl IWebSocketControl2 {
     pub fn IgnorableServerCertificateErrors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IWebSocketControl2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{79c3be03-f2ca-461e-af4e-9665bc2d0620}");
 }
-impl ::std::convert::From<IWebSocketControl2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWebSocketControl2> for ::windows::runtime::IUnknown {
     fn from(value: IWebSocketControl2) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IWebSocketControl2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWebSocketControl2> for ::windows::runtime::IUnknown {
     fn from(value: &IWebSocketControl2) -> Self {
         value.0 .0.clone()
     }
@@ -2578,12 +2578,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IWebSocketControl2> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IWebSocketControl2> for ::windows::runtime::IInspectable {
     fn from(value: IWebSocketControl2) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWebSocketControl2> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IWebSocketControl2> for ::windows::runtime::IInspectable {
     fn from(value: &IWebSocketControl2) -> Self {
         value.0.clone()
     }
@@ -2598,13 +2598,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<IWebSocketControl2> for IWebSocketControl {
+impl ::core::convert::TryFrom<IWebSocketControl2> for IWebSocketControl {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IWebSocketControl2) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&IWebSocketControl2> for IWebSocketControl {
+impl ::core::convert::TryFrom<&IWebSocketControl2> for IWebSocketControl {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &IWebSocketControl2) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2617,7 +2617,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketControl> for IWebSocketCont
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketControl> for &IWebSocketControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketControl> {
-        ::std::convert::TryInto::<IWebSocketControl>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IWebSocketControl>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[repr(C)]
@@ -2652,7 +2652,7 @@ pub struct IWebSocketErrorStatics_abi(
     #[cfg(not(feature = "Web"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct IWebSocketInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketInformation {
@@ -2664,36 +2664,36 @@ impl IWebSocketInformation {
     pub fn LocalAddress(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn BandwidthStatistics(&self) -> ::windows::runtime::Result<BandwidthStatistics> {
         let this = self;
         unsafe {
-            let mut result__: BandwidthStatistics = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BandwidthStatistics>(result__)
+            let mut result__: BandwidthStatistics = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BandwidthStatistics>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Protocol(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IWebSocketInformation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{5e01e316-c92a-47a5-b25f-07847639d181}");
 }
-impl ::std::convert::From<IWebSocketInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWebSocketInformation> for ::windows::runtime::IUnknown {
     fn from(value: IWebSocketInformation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IWebSocketInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWebSocketInformation> for ::windows::runtime::IUnknown {
     fn from(value: &IWebSocketInformation) -> Self {
         value.0 .0.clone()
     }
@@ -2708,12 +2708,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IWebSocketInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IWebSocketInformation> for ::windows::runtime::IInspectable {
     fn from(value: IWebSocketInformation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWebSocketInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IWebSocketInformation> for ::windows::runtime::IInspectable {
     fn from(value: &IWebSocketInformation) -> Self {
         value.0.clone()
     }
@@ -2739,10 +2739,10 @@ pub struct IWebSocketInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut BandwidthStatistics) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct IWebSocketInformation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketInformation2 {
@@ -2754,24 +2754,24 @@ impl IWebSocketInformation2 {
     pub fn LocalAddress(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketInformation>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn BandwidthStatistics(&self) -> ::windows::runtime::Result<BandwidthStatistics> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketInformation>(self)?;
         unsafe {
-            let mut result__: BandwidthStatistics = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BandwidthStatistics>(result__)
+            let mut result__: BandwidthStatistics = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BandwidthStatistics>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Protocol(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketInformation>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -2779,16 +2779,16 @@ impl IWebSocketInformation2 {
     pub fn ServerCertificate(&self) -> ::windows::runtime::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn ServerCertificateErrorSeverity(&self) -> ::windows::runtime::Result<SocketSslErrorSeverity> {
         let this = self;
         unsafe {
-            let mut result__: SocketSslErrorSeverity = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketSslErrorSeverity>(result__)
+            let mut result__: SocketSslErrorSeverity = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketSslErrorSeverity>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -2796,8 +2796,8 @@ impl IWebSocketInformation2 {
     pub fn ServerCertificateErrors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -2805,20 +2805,20 @@ impl IWebSocketInformation2 {
     pub fn ServerIntermediateCertificates(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IWebSocketInformation2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{ce1d39ce-a1b7-4d43-8269-8d5b981bd47a}");
 }
-impl ::std::convert::From<IWebSocketInformation2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWebSocketInformation2> for ::windows::runtime::IUnknown {
     fn from(value: IWebSocketInformation2) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IWebSocketInformation2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWebSocketInformation2> for ::windows::runtime::IUnknown {
     fn from(value: &IWebSocketInformation2) -> Self {
         value.0 .0.clone()
     }
@@ -2833,12 +2833,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IWebSocketInformation2> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IWebSocketInformation2> for ::windows::runtime::IInspectable {
     fn from(value: IWebSocketInformation2) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWebSocketInformation2> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IWebSocketInformation2> for ::windows::runtime::IInspectable {
     fn from(value: &IWebSocketInformation2) -> Self {
         value.0.clone()
     }
@@ -2853,13 +2853,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<IWebSocketInformation2> for IWebSocketInformation {
+impl ::core::convert::TryFrom<IWebSocketInformation2> for IWebSocketInformation {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IWebSocketInformation2) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&IWebSocketInformation2> for IWebSocketInformation {
+impl ::core::convert::TryFrom<&IWebSocketInformation2> for IWebSocketInformation {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &IWebSocketInformation2) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2872,7 +2872,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketInformation> for IWebSocket
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketInformation> for &IWebSocketInformation2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketInformation> {
-        ::std::convert::TryInto::<IWebSocketInformation>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IWebSocketInformation>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[repr(C)]
@@ -2921,7 +2921,7 @@ pub struct IWebSocketServerCustomValidationRequestedEventArgs_abi(
 );
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MessageWebSocket(pub ::windows::runtime::IInspectable);
 impl MessageWebSocket {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2935,16 +2935,16 @@ impl MessageWebSocket {
     pub fn Control(&self) -> ::windows::runtime::Result<MessageWebSocketControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MessageWebSocketControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MessageWebSocketControl>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Information(&self) -> ::windows::runtime::Result<MessageWebSocketInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MessageWebSocketInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MessageWebSocketInformation>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2952,29 +2952,29 @@ impl MessageWebSocket {
     pub fn MessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn RemoveMessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Networking_Sockets`, `Storage_Streams`*"]
     pub fn OutputStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IOutputStream> {
         let this = &::windows::runtime::Interface::cast::<IWebSocket>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2982,57 +2982,57 @@ impl MessageWebSocket {
     pub fn ConnectAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IWebSocket>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetRequestHeader<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, headername: Param0, headervalue: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocket>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), headername.into_param().abi(), headervalue.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), headername.into_param().abi(), headervalue.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn Closed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IWebSocket>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn RemoveClosed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocket>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn CloseWithStatus<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, code: u16, reason: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocket>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), code, reason.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), code, reason.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn ServerCustomValidationRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MessageWebSocket, WebSocketServerCustomValidationRequestedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IMessageWebSocket2>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn RemoveServerCustomValidationRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMessageWebSocket2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`, `Storage_Streams`*"]
     pub fn SendNonfinalFrameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, data: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::runtime::Interface::cast::<IMessageWebSocket3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -3040,8 +3040,8 @@ impl MessageWebSocket {
     pub fn SendFinalFrameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, data: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::runtime::Interface::cast::<IMessageWebSocket3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
 }
@@ -3055,12 +3055,12 @@ unsafe impl ::windows::runtime::Interface for MessageWebSocket {
 impl ::windows::runtime::RuntimeName for MessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocket";
 }
-impl ::std::convert::From<MessageWebSocket> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MessageWebSocket> for ::windows::runtime::IUnknown {
     fn from(value: MessageWebSocket) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MessageWebSocket> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MessageWebSocket> for ::windows::runtime::IUnknown {
     fn from(value: &MessageWebSocket) -> Self {
         value.0 .0.clone()
     }
@@ -3075,12 +3075,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MessageWebSocket> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MessageWebSocket> for ::windows::runtime::IInspectable {
     fn from(value: MessageWebSocket) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MessageWebSocket> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MessageWebSocket> for ::windows::runtime::IInspectable {
     fn from(value: &MessageWebSocket) -> Self {
         value.0.clone()
     }
@@ -3096,14 +3096,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<MessageWebSocket> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<MessageWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MessageWebSocket) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&MessageWebSocket> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&MessageWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &MessageWebSocket) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3118,16 +3118,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &MessageWebSocket {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<MessageWebSocket> for IWebSocket {
+impl ::core::convert::TryFrom<MessageWebSocket> for IWebSocket {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MessageWebSocket) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&MessageWebSocket> for IWebSocket {
+impl ::core::convert::TryFrom<&MessageWebSocket> for IWebSocket {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &MessageWebSocket) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3140,92 +3140,92 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWebSocket> for MessageWebSocket {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocket> for &MessageWebSocket {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocket> {
-        ::std::convert::TryInto::<IWebSocket>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IWebSocket>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for MessageWebSocket {}
-unsafe impl ::std::marker::Sync for MessageWebSocket {}
+unsafe impl ::core::marker::Send for MessageWebSocket {}
+unsafe impl ::core::marker::Sync for MessageWebSocket {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MessageWebSocketControl(pub ::windows::runtime::IInspectable);
 impl MessageWebSocketControl {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn MaxMessageSize(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetMaxMessageSize(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<SocketMessageType> {
         let this = self;
         unsafe {
-            let mut result__: SocketMessageType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketMessageType>(result__)
+            let mut result__: SocketMessageType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketMessageType>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetMessageType(&self, value: SocketMessageType) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn OutboundBufferSizeInBytes(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn ServerCredential(&self) -> ::windows::runtime::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn SetServerCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn ProxyCredential(&self) -> ::windows::runtime::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn SetProxyCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation_Collections`*"]
     pub fn SupportedProtocols(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -3233,8 +3233,8 @@ impl MessageWebSocketControl {
     pub fn IgnorableServerCertificateErrors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -3242,52 +3242,52 @@ impl MessageWebSocketControl {
     pub fn DesiredUnsolicitedPongInterval(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMessageWebSocketControl2>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn SetDesiredUnsolicitedPongInterval<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMessageWebSocketControl2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn ActualUnsolicitedPongInterval(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMessageWebSocketControl2>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn ReceiveMode(&self) -> ::windows::runtime::Result<MessageWebSocketReceiveMode> {
         let this = &::windows::runtime::Interface::cast::<IMessageWebSocketControl2>(self)?;
         unsafe {
-            let mut result__: MessageWebSocketReceiveMode = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MessageWebSocketReceiveMode>(result__)
+            let mut result__: MessageWebSocketReceiveMode = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MessageWebSocketReceiveMode>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetReceiveMode(&self, value: MessageWebSocketReceiveMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMessageWebSocketControl2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Cryptography_Certificates`*"]
     pub fn ClientCertificate(&self) -> ::windows::runtime::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = &::windows::runtime::Interface::cast::<IMessageWebSocketControl2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Cryptography_Certificates`*"]
     pub fn SetClientCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Cryptography::Certificates::Certificate>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMessageWebSocketControl2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for MessageWebSocketControl {
@@ -3300,12 +3300,12 @@ unsafe impl ::windows::runtime::Interface for MessageWebSocketControl {
 impl ::windows::runtime::RuntimeName for MessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketControl";
 }
-impl ::std::convert::From<MessageWebSocketControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MessageWebSocketControl> for ::windows::runtime::IUnknown {
     fn from(value: MessageWebSocketControl) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MessageWebSocketControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MessageWebSocketControl> for ::windows::runtime::IUnknown {
     fn from(value: &MessageWebSocketControl) -> Self {
         value.0 .0.clone()
     }
@@ -3320,12 +3320,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MessageWebSocketControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MessageWebSocketControl> for ::windows::runtime::IInspectable {
     fn from(value: MessageWebSocketControl) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MessageWebSocketControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MessageWebSocketControl> for ::windows::runtime::IInspectable {
     fn from(value: &MessageWebSocketControl) -> Self {
         value.0.clone()
     }
@@ -3340,13 +3340,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<MessageWebSocketControl> for IWebSocketControl {
+impl ::core::convert::TryFrom<MessageWebSocketControl> for IWebSocketControl {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MessageWebSocketControl) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&MessageWebSocketControl> for IWebSocketControl {
+impl ::core::convert::TryFrom<&MessageWebSocketControl> for IWebSocketControl {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &MessageWebSocketControl) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3359,16 +3359,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketControl> for MessageWebSock
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketControl> for &MessageWebSocketControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketControl> {
-        ::std::convert::TryInto::<IWebSocketControl>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IWebSocketControl>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<MessageWebSocketControl> for IWebSocketControl2 {
+impl ::core::convert::TryFrom<MessageWebSocketControl> for IWebSocketControl2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MessageWebSocketControl) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&MessageWebSocketControl> for IWebSocketControl2 {
+impl ::core::convert::TryFrom<&MessageWebSocketControl> for IWebSocketControl2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &MessageWebSocketControl) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3381,38 +3381,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketControl2> for MessageWebSoc
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketControl2> for &MessageWebSocketControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketControl2> {
-        ::std::convert::TryInto::<IWebSocketControl2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IWebSocketControl2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for MessageWebSocketControl {}
-unsafe impl ::std::marker::Sync for MessageWebSocketControl {}
+unsafe impl ::core::marker::Send for MessageWebSocketControl {}
+unsafe impl ::core::marker::Sync for MessageWebSocketControl {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MessageWebSocketInformation(pub ::windows::runtime::IInspectable);
 impl MessageWebSocketInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn LocalAddress(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn BandwidthStatistics(&self) -> ::windows::runtime::Result<BandwidthStatistics> {
         let this = self;
         unsafe {
-            let mut result__: BandwidthStatistics = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BandwidthStatistics>(result__)
+            let mut result__: BandwidthStatistics = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BandwidthStatistics>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Protocol(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -3420,16 +3420,16 @@ impl MessageWebSocketInformation {
     pub fn ServerCertificate(&self) -> ::windows::runtime::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn ServerCertificateErrorSeverity(&self) -> ::windows::runtime::Result<SocketSslErrorSeverity> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
-            let mut result__: SocketSslErrorSeverity = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketSslErrorSeverity>(result__)
+            let mut result__: SocketSslErrorSeverity = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketSslErrorSeverity>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -3437,8 +3437,8 @@ impl MessageWebSocketInformation {
     pub fn ServerCertificateErrors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -3446,8 +3446,8 @@ impl MessageWebSocketInformation {
     pub fn ServerIntermediateCertificates(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
         }
     }
 }
@@ -3461,12 +3461,12 @@ unsafe impl ::windows::runtime::Interface for MessageWebSocketInformation {
 impl ::windows::runtime::RuntimeName for MessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketInformation";
 }
-impl ::std::convert::From<MessageWebSocketInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MessageWebSocketInformation> for ::windows::runtime::IUnknown {
     fn from(value: MessageWebSocketInformation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MessageWebSocketInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MessageWebSocketInformation> for ::windows::runtime::IUnknown {
     fn from(value: &MessageWebSocketInformation) -> Self {
         value.0 .0.clone()
     }
@@ -3481,12 +3481,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MessageWebSocketInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MessageWebSocketInformation> for ::windows::runtime::IInspectable {
     fn from(value: MessageWebSocketInformation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MessageWebSocketInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MessageWebSocketInformation> for ::windows::runtime::IInspectable {
     fn from(value: &MessageWebSocketInformation) -> Self {
         value.0.clone()
     }
@@ -3501,33 +3501,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<MessageWebSocketInformation> for IWebSocketInformation {
+impl ::core::convert::From<MessageWebSocketInformation> for IWebSocketInformation {
     fn from(value: MessageWebSocketInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&MessageWebSocketInformation> for IWebSocketInformation {
+impl ::core::convert::From<&MessageWebSocketInformation> for IWebSocketInformation {
     fn from(value: &MessageWebSocketInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketInformation> for MessageWebSocketInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketInformation> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketInformation> for &MessageWebSocketInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketInformation> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::TryFrom<MessageWebSocketInformation> for IWebSocketInformation2 {
+impl ::core::convert::TryFrom<MessageWebSocketInformation> for IWebSocketInformation2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MessageWebSocketInformation) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&MessageWebSocketInformation> for IWebSocketInformation2 {
+impl ::core::convert::TryFrom<&MessageWebSocketInformation> for IWebSocketInformation2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &MessageWebSocketInformation) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3540,22 +3540,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketInformation2> for MessageWe
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketInformation2> for &MessageWebSocketInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketInformation2> {
-        ::std::convert::TryInto::<IWebSocketInformation2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IWebSocketInformation2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for MessageWebSocketInformation {}
-unsafe impl ::std::marker::Sync for MessageWebSocketInformation {}
+unsafe impl ::core::marker::Send for MessageWebSocketInformation {}
+unsafe impl ::core::marker::Sync for MessageWebSocketInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MessageWebSocketMessageReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl MessageWebSocketMessageReceivedEventArgs {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<SocketMessageType> {
         let this = self;
         unsafe {
-            let mut result__: SocketMessageType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketMessageType>(result__)
+            let mut result__: SocketMessageType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketMessageType>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -3563,8 +3563,8 @@ impl MessageWebSocketMessageReceivedEventArgs {
     pub fn GetDataReader(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::DataReader> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::DataReader>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::DataReader>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -3572,16 +3572,16 @@ impl MessageWebSocketMessageReceivedEventArgs {
     pub fn GetDataStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn IsMessageComplete(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMessageWebSocketMessageReceivedEventArgs2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -3595,12 +3595,12 @@ unsafe impl ::windows::runtime::Interface for MessageWebSocketMessageReceivedEve
 impl ::windows::runtime::RuntimeName for MessageWebSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs";
 }
-impl ::std::convert::From<MessageWebSocketMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MessageWebSocketMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MessageWebSocketMessageReceivedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MessageWebSocketMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MessageWebSocketMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MessageWebSocketMessageReceivedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -3615,12 +3615,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MessageWebSocketMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MessageWebSocketMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: MessageWebSocketMessageReceivedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MessageWebSocketMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MessageWebSocketMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &MessageWebSocketMessageReceivedEventArgs) -> Self {
         value.0.clone()
     }
@@ -3635,17 +3635,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MessageWebSocketMessageReceivedEventArgs {}
-unsafe impl ::std::marker::Sync for MessageWebSocketMessageReceivedEventArgs {}
+unsafe impl ::core::marker::Send for MessageWebSocketMessageReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for MessageWebSocketMessageReceivedEventArgs {}
 #[doc = "*Required features: `Networking_Sockets`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MessageWebSocketReceiveMode(pub i32);
 impl MessageWebSocketReceiveMode {
     pub const FullMessage: MessageWebSocketReceiveMode = MessageWebSocketReceiveMode(0i32);
     pub const PartialMessage: MessageWebSocketReceiveMode = MessageWebSocketReceiveMode(1i32);
 }
-impl ::std::convert::From<i32> for MessageWebSocketReceiveMode {
+impl ::core::convert::From<i32> for MessageWebSocketReceiveMode {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3659,7 +3659,7 @@ unsafe impl ::windows::runtime::RuntimeType for MessageWebSocketReceiveMode {
 impl ::windows::runtime::DefaultType for MessageWebSocketReceiveMode {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct RoundTripTimeStatistics {
@@ -3669,22 +3669,22 @@ pub struct RoundTripTimeStatistics {
     pub Sum: u32,
 }
 impl RoundTripTimeStatistics {}
-impl ::std::default::Default for RoundTripTimeStatistics {
+impl ::core::default::Default for RoundTripTimeStatistics {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RoundTripTimeStatistics {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RoundTripTimeStatistics {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RoundTripTimeStatistics").field("Variance", &self.Variance).field("Max", &self.Max).field("Min", &self.Min).field("Sum", &self.Sum).finish()
     }
 }
-impl ::std::cmp::PartialEq for RoundTripTimeStatistics {
+impl ::core::cmp::PartialEq for RoundTripTimeStatistics {
     fn eq(&self, other: &Self) -> bool {
         self.Variance == other.Variance && self.Max == other.Max && self.Min == other.Min && self.Sum == other.Sum
     }
 }
-impl ::std::cmp::Eq for RoundTripTimeStatistics {}
+impl ::core::cmp::Eq for RoundTripTimeStatistics {}
 unsafe impl ::windows::runtime::Abi for RoundTripTimeStatistics {
     type Abi = Self;
 }
@@ -3696,44 +3696,44 @@ impl ::windows::runtime::DefaultType for RoundTripTimeStatistics {
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ServerMessageWebSocket(pub ::windows::runtime::IInspectable);
 impl ServerMessageWebSocket {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn MessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn RemoveMessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Control(&self) -> ::windows::runtime::Result<ServerMessageWebSocketControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ServerMessageWebSocketControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ServerMessageWebSocketControl>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Information(&self) -> ::windows::runtime::Result<ServerMessageWebSocketInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ServerMessageWebSocketInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ServerMessageWebSocketInformation>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -3741,8 +3741,8 @@ impl ServerMessageWebSocket {
     pub fn OutputStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -3750,20 +3750,20 @@ impl ServerMessageWebSocket {
     pub fn Closed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, WebSocketClosedEventArgs>>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn RemoveClosed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn CloseWithStatus<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, code: u16, reason: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), code, reason.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), code, reason.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ServerMessageWebSocket {
@@ -3776,12 +3776,12 @@ unsafe impl ::windows::runtime::Interface for ServerMessageWebSocket {
 impl ::windows::runtime::RuntimeName for ServerMessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocket";
 }
-impl ::std::convert::From<ServerMessageWebSocket> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ServerMessageWebSocket> for ::windows::runtime::IUnknown {
     fn from(value: ServerMessageWebSocket) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ServerMessageWebSocket> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ServerMessageWebSocket> for ::windows::runtime::IUnknown {
     fn from(value: &ServerMessageWebSocket) -> Self {
         value.0 .0.clone()
     }
@@ -3796,12 +3796,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ServerMessageWebSocket> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ServerMessageWebSocket> for ::windows::runtime::IInspectable {
     fn from(value: ServerMessageWebSocket) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ServerMessageWebSocket> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ServerMessageWebSocket> for ::windows::runtime::IInspectable {
     fn from(value: &ServerMessageWebSocket) -> Self {
         value.0.clone()
     }
@@ -3817,14 +3817,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<ServerMessageWebSocket> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<ServerMessageWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ServerMessageWebSocket) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&ServerMessageWebSocket> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&ServerMessageWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &ServerMessageWebSocket) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3839,28 +3839,28 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &ServerMessageWebSocket {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for ServerMessageWebSocket {}
-unsafe impl ::std::marker::Sync for ServerMessageWebSocket {}
+unsafe impl ::core::marker::Send for ServerMessageWebSocket {}
+unsafe impl ::core::marker::Sync for ServerMessageWebSocket {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ServerMessageWebSocketControl(pub ::windows::runtime::IInspectable);
 impl ServerMessageWebSocketControl {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<SocketMessageType> {
         let this = self;
         unsafe {
-            let mut result__: SocketMessageType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketMessageType>(result__)
+            let mut result__: SocketMessageType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketMessageType>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetMessageType(&self, value: SocketMessageType) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ServerMessageWebSocketControl {
@@ -3873,12 +3873,12 @@ unsafe impl ::windows::runtime::Interface for ServerMessageWebSocketControl {
 impl ::windows::runtime::RuntimeName for ServerMessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketControl";
 }
-impl ::std::convert::From<ServerMessageWebSocketControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ServerMessageWebSocketControl> for ::windows::runtime::IUnknown {
     fn from(value: ServerMessageWebSocketControl) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ServerMessageWebSocketControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ServerMessageWebSocketControl> for ::windows::runtime::IUnknown {
     fn from(value: &ServerMessageWebSocketControl) -> Self {
         value.0 .0.clone()
     }
@@ -3893,12 +3893,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ServerMessageWebSocketControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ServerMessageWebSocketControl> for ::windows::runtime::IInspectable {
     fn from(value: ServerMessageWebSocketControl) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ServerMessageWebSocketControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ServerMessageWebSocketControl> for ::windows::runtime::IInspectable {
     fn from(value: &ServerMessageWebSocketControl) -> Self {
         value.0.clone()
     }
@@ -3913,35 +3913,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ServerMessageWebSocketControl {}
-unsafe impl ::std::marker::Sync for ServerMessageWebSocketControl {}
+unsafe impl ::core::marker::Send for ServerMessageWebSocketControl {}
+unsafe impl ::core::marker::Sync for ServerMessageWebSocketControl {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ServerMessageWebSocketInformation(pub ::windows::runtime::IInspectable);
 impl ServerMessageWebSocketInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn BandwidthStatistics(&self) -> ::windows::runtime::Result<BandwidthStatistics> {
         let this = self;
         unsafe {
-            let mut result__: BandwidthStatistics = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BandwidthStatistics>(result__)
+            let mut result__: BandwidthStatistics = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BandwidthStatistics>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Protocol(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn LocalAddress(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
 }
@@ -3955,12 +3955,12 @@ unsafe impl ::windows::runtime::Interface for ServerMessageWebSocketInformation 
 impl ::windows::runtime::RuntimeName for ServerMessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketInformation";
 }
-impl ::std::convert::From<ServerMessageWebSocketInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ServerMessageWebSocketInformation> for ::windows::runtime::IUnknown {
     fn from(value: ServerMessageWebSocketInformation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ServerMessageWebSocketInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ServerMessageWebSocketInformation> for ::windows::runtime::IUnknown {
     fn from(value: &ServerMessageWebSocketInformation) -> Self {
         value.0 .0.clone()
     }
@@ -3975,12 +3975,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ServerMessageWebSocketInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ServerMessageWebSocketInformation> for ::windows::runtime::IInspectable {
     fn from(value: ServerMessageWebSocketInformation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ServerMessageWebSocketInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ServerMessageWebSocketInformation> for ::windows::runtime::IInspectable {
     fn from(value: &ServerMessageWebSocketInformation) -> Self {
         value.0.clone()
     }
@@ -3995,25 +3995,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ServerMessageWebSocketInformation {}
-unsafe impl ::std::marker::Sync for ServerMessageWebSocketInformation {}
+unsafe impl ::core::marker::Send for ServerMessageWebSocketInformation {}
+unsafe impl ::core::marker::Sync for ServerMessageWebSocketInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ServerStreamWebSocket(pub ::windows::runtime::IInspectable);
 impl ServerStreamWebSocket {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Information(&self) -> ::windows::runtime::Result<ServerStreamWebSocketInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ServerStreamWebSocketInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ServerStreamWebSocketInformation>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -4021,8 +4021,8 @@ impl ServerStreamWebSocket {
     pub fn InputStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -4030,8 +4030,8 @@ impl ServerStreamWebSocket {
     pub fn OutputStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -4039,20 +4039,20 @@ impl ServerStreamWebSocket {
     pub fn Closed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ServerStreamWebSocket, WebSocketClosedEventArgs>>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn RemoveClosed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn CloseWithStatus<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, code: u16, reason: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), code, reason.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), code, reason.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ServerStreamWebSocket {
@@ -4065,12 +4065,12 @@ unsafe impl ::windows::runtime::Interface for ServerStreamWebSocket {
 impl ::windows::runtime::RuntimeName for ServerStreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocket";
 }
-impl ::std::convert::From<ServerStreamWebSocket> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ServerStreamWebSocket> for ::windows::runtime::IUnknown {
     fn from(value: ServerStreamWebSocket) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ServerStreamWebSocket> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ServerStreamWebSocket> for ::windows::runtime::IUnknown {
     fn from(value: &ServerStreamWebSocket) -> Self {
         value.0 .0.clone()
     }
@@ -4085,12 +4085,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ServerStreamWebSocket> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ServerStreamWebSocket> for ::windows::runtime::IInspectable {
     fn from(value: ServerStreamWebSocket) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ServerStreamWebSocket> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ServerStreamWebSocket> for ::windows::runtime::IInspectable {
     fn from(value: &ServerStreamWebSocket) -> Self {
         value.0.clone()
     }
@@ -4106,14 +4106,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<ServerStreamWebSocket> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<ServerStreamWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ServerStreamWebSocket) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&ServerStreamWebSocket> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&ServerStreamWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &ServerStreamWebSocket) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4128,38 +4128,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &ServerStreamWebSocket {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for ServerStreamWebSocket {}
-unsafe impl ::std::marker::Sync for ServerStreamWebSocket {}
+unsafe impl ::core::marker::Send for ServerStreamWebSocket {}
+unsafe impl ::core::marker::Sync for ServerStreamWebSocket {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ServerStreamWebSocketInformation(pub ::windows::runtime::IInspectable);
 impl ServerStreamWebSocketInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn BandwidthStatistics(&self) -> ::windows::runtime::Result<BandwidthStatistics> {
         let this = self;
         unsafe {
-            let mut result__: BandwidthStatistics = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BandwidthStatistics>(result__)
+            let mut result__: BandwidthStatistics = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BandwidthStatistics>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Protocol(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn LocalAddress(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
 }
@@ -4173,12 +4173,12 @@ unsafe impl ::windows::runtime::Interface for ServerStreamWebSocketInformation {
 impl ::windows::runtime::RuntimeName for ServerStreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocketInformation";
 }
-impl ::std::convert::From<ServerStreamWebSocketInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ServerStreamWebSocketInformation> for ::windows::runtime::IUnknown {
     fn from(value: ServerStreamWebSocketInformation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ServerStreamWebSocketInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ServerStreamWebSocketInformation> for ::windows::runtime::IUnknown {
     fn from(value: &ServerStreamWebSocketInformation) -> Self {
         value.0 .0.clone()
     }
@@ -4193,12 +4193,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ServerStreamWebSocketInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ServerStreamWebSocketInformation> for ::windows::runtime::IInspectable {
     fn from(value: ServerStreamWebSocketInformation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ServerStreamWebSocketInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ServerStreamWebSocketInformation> for ::windows::runtime::IInspectable {
     fn from(value: &ServerStreamWebSocketInformation) -> Self {
         value.0.clone()
     }
@@ -4213,17 +4213,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ServerStreamWebSocketInformation {}
-unsafe impl ::std::marker::Sync for ServerStreamWebSocketInformation {}
+unsafe impl ::core::marker::Send for ServerStreamWebSocketInformation {}
+unsafe impl ::core::marker::Sync for ServerStreamWebSocketInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SocketActivityConnectedStandbyAction(pub i32);
 impl SocketActivityConnectedStandbyAction {
     pub const DoNotWake: SocketActivityConnectedStandbyAction = SocketActivityConnectedStandbyAction(0i32);
     pub const Wake: SocketActivityConnectedStandbyAction = SocketActivityConnectedStandbyAction(1i32);
 }
-impl ::std::convert::From<i32> for SocketActivityConnectedStandbyAction {
+impl ::core::convert::From<i32> for SocketActivityConnectedStandbyAction {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4239,7 +4239,7 @@ impl ::windows::runtime::DefaultType for SocketActivityConnectedStandbyAction {
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SocketActivityContext(pub ::windows::runtime::IInspectable);
 impl SocketActivityContext {
     #[cfg(feature = "Storage_Streams")]
@@ -4247,16 +4247,16 @@ impl SocketActivityContext {
     pub fn Data(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Networking_Sockets`, `Storage_Streams`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(data: Param0) -> ::windows::runtime::Result<SocketActivityContext> {
         Self::ISocketActivityContextFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<SocketActivityContext>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<SocketActivityContext>(result__)
         })
     }
     pub fn ISocketActivityContextFactory<R, F: FnOnce(&ISocketActivityContextFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -4274,12 +4274,12 @@ unsafe impl ::windows::runtime::Interface for SocketActivityContext {
 impl ::windows::runtime::RuntimeName for SocketActivityContext {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityContext";
 }
-impl ::std::convert::From<SocketActivityContext> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SocketActivityContext> for ::windows::runtime::IUnknown {
     fn from(value: SocketActivityContext) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SocketActivityContext> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SocketActivityContext> for ::windows::runtime::IUnknown {
     fn from(value: &SocketActivityContext) -> Self {
         value.0 .0.clone()
     }
@@ -4294,12 +4294,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SocketActivityContext> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SocketActivityContext> for ::windows::runtime::IInspectable {
     fn from(value: SocketActivityContext) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SocketActivityContext> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SocketActivityContext> for ::windows::runtime::IInspectable {
     fn from(value: &SocketActivityContext) -> Self {
         value.0.clone()
     }
@@ -4314,75 +4314,75 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SocketActivityContext {}
-unsafe impl ::std::marker::Sync for SocketActivityContext {}
+unsafe impl ::core::marker::Send for SocketActivityContext {}
+unsafe impl ::core::marker::Sync for SocketActivityContext {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SocketActivityInformation(pub ::windows::runtime::IInspectable);
 impl SocketActivityInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn TaskId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SocketKind(&self) -> ::windows::runtime::Result<SocketActivityKind> {
         let this = self;
         unsafe {
-            let mut result__: SocketActivityKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketActivityKind>(result__)
+            let mut result__: SocketActivityKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketActivityKind>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Context(&self) -> ::windows::runtime::Result<SocketActivityContext> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketActivityContext>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketActivityContext>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn DatagramSocket(&self) -> ::windows::runtime::Result<DatagramSocket> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DatagramSocket>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DatagramSocket>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn StreamSocket(&self) -> ::windows::runtime::Result<StreamSocket> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StreamSocket>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StreamSocket>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn StreamSocketListener(&self) -> ::windows::runtime::Result<StreamSocketListener> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StreamSocketListener>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StreamSocketListener>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation_Collections`*"]
     pub fn AllSockets() -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, SocketActivityInformation>> {
         Self::ISocketActivityInformationStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, SocketActivityInformation>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, SocketActivityInformation>>(result__)
         })
     }
     pub fn ISocketActivityInformationStatics<R, F: FnOnce(&ISocketActivityInformationStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -4400,12 +4400,12 @@ unsafe impl ::windows::runtime::Interface for SocketActivityInformation {
 impl ::windows::runtime::RuntimeName for SocketActivityInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityInformation";
 }
-impl ::std::convert::From<SocketActivityInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SocketActivityInformation> for ::windows::runtime::IUnknown {
     fn from(value: SocketActivityInformation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SocketActivityInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SocketActivityInformation> for ::windows::runtime::IUnknown {
     fn from(value: &SocketActivityInformation) -> Self {
         value.0 .0.clone()
     }
@@ -4420,12 +4420,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SocketActivityInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SocketActivityInformation> for ::windows::runtime::IInspectable {
     fn from(value: SocketActivityInformation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SocketActivityInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SocketActivityInformation> for ::windows::runtime::IInspectable {
     fn from(value: &SocketActivityInformation) -> Self {
         value.0.clone()
     }
@@ -4440,10 +4440,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SocketActivityInformation {}
-unsafe impl ::std::marker::Sync for SocketActivityInformation {}
+unsafe impl ::core::marker::Send for SocketActivityInformation {}
+unsafe impl ::core::marker::Sync for SocketActivityInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SocketActivityKind(pub i32);
 impl SocketActivityKind {
@@ -4452,7 +4452,7 @@ impl SocketActivityKind {
     pub const DatagramSocket: SocketActivityKind = SocketActivityKind(2i32);
     pub const StreamSocket: SocketActivityKind = SocketActivityKind(3i32);
 }
-impl ::std::convert::From<i32> for SocketActivityKind {
+impl ::core::convert::From<i32> for SocketActivityKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4468,23 +4468,23 @@ impl ::windows::runtime::DefaultType for SocketActivityKind {
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SocketActivityTriggerDetails(pub ::windows::runtime::IInspectable);
 impl SocketActivityTriggerDetails {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<SocketActivityTriggerReason> {
         let this = self;
         unsafe {
-            let mut result__: SocketActivityTriggerReason = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketActivityTriggerReason>(result__)
+            let mut result__: SocketActivityTriggerReason = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketActivityTriggerReason>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SocketInformation(&self) -> ::windows::runtime::Result<SocketActivityInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketActivityInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketActivityInformation>(result__)
         }
     }
 }
@@ -4498,12 +4498,12 @@ unsafe impl ::windows::runtime::Interface for SocketActivityTriggerDetails {
 impl ::windows::runtime::RuntimeName for SocketActivityTriggerDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityTriggerDetails";
 }
-impl ::std::convert::From<SocketActivityTriggerDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SocketActivityTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: SocketActivityTriggerDetails) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SocketActivityTriggerDetails> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SocketActivityTriggerDetails> for ::windows::runtime::IUnknown {
     fn from(value: &SocketActivityTriggerDetails) -> Self {
         value.0 .0.clone()
     }
@@ -4518,12 +4518,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SocketActivityTriggerDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SocketActivityTriggerDetails> for ::windows::runtime::IInspectable {
     fn from(value: SocketActivityTriggerDetails) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SocketActivityTriggerDetails> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SocketActivityTriggerDetails> for ::windows::runtime::IInspectable {
     fn from(value: &SocketActivityTriggerDetails) -> Self {
         value.0.clone()
     }
@@ -4538,10 +4538,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SocketActivityTriggerDetails {}
-unsafe impl ::std::marker::Sync for SocketActivityTriggerDetails {}
+unsafe impl ::core::marker::Send for SocketActivityTriggerDetails {}
+unsafe impl ::core::marker::Sync for SocketActivityTriggerDetails {}
 #[doc = "*Required features: `Networking_Sockets`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SocketActivityTriggerReason(pub i32);
 impl SocketActivityTriggerReason {
@@ -4551,7 +4551,7 @@ impl SocketActivityTriggerReason {
     pub const KeepAliveTimerExpired: SocketActivityTriggerReason = SocketActivityTriggerReason(3i32);
     pub const SocketClosed: SocketActivityTriggerReason = SocketActivityTriggerReason(4i32);
 }
-impl ::std::convert::From<i32> for SocketActivityTriggerReason {
+impl ::core::convert::From<i32> for SocketActivityTriggerReason {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4571,8 +4571,8 @@ impl SocketError {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn GetStatus(hresult: i32) -> ::windows::runtime::Result<SocketErrorStatus> {
         Self::ISocketErrorStatics(|this| unsafe {
-            let mut result__: SocketErrorStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), hresult, &mut result__).from_abi::<SocketErrorStatus>(result__)
+            let mut result__: SocketErrorStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), hresult, &mut result__).from_abi::<SocketErrorStatus>(result__)
         })
     }
     pub fn ISocketErrorStatics<R, F: FnOnce(&ISocketErrorStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -4584,7 +4584,7 @@ impl ::windows::runtime::RuntimeName for SocketError {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketError";
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SocketErrorStatus(pub i32);
 impl SocketErrorStatus {
@@ -4620,7 +4620,7 @@ impl SocketErrorStatus {
     pub const CertificateRevocationServerOffline: SocketErrorStatus = SocketErrorStatus(29i32);
     pub const CertificateIsInvalid: SocketErrorStatus = SocketErrorStatus(30i32);
 }
-impl ::std::convert::From<i32> for SocketErrorStatus {
+impl ::core::convert::From<i32> for SocketErrorStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4635,14 +4635,14 @@ impl ::windows::runtime::DefaultType for SocketErrorStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SocketMessageType(pub i32);
 impl SocketMessageType {
     pub const Binary: SocketMessageType = SocketMessageType(0i32);
     pub const Utf8: SocketMessageType = SocketMessageType(1i32);
 }
-impl ::std::convert::From<i32> for SocketMessageType {
+impl ::core::convert::From<i32> for SocketMessageType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4657,7 +4657,7 @@ impl ::windows::runtime::DefaultType for SocketMessageType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SocketProtectionLevel(pub i32);
 impl SocketProtectionLevel {
@@ -4672,7 +4672,7 @@ impl SocketProtectionLevel {
     pub const Tls12: SocketProtectionLevel = SocketProtectionLevel(8i32);
     pub const Unspecified: SocketProtectionLevel = SocketProtectionLevel(9i32);
 }
-impl ::std::convert::From<i32> for SocketProtectionLevel {
+impl ::core::convert::From<i32> for SocketProtectionLevel {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4687,14 +4687,14 @@ impl ::windows::runtime::DefaultType for SocketProtectionLevel {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SocketQualityOfService(pub i32);
 impl SocketQualityOfService {
     pub const Normal: SocketQualityOfService = SocketQualityOfService(0i32);
     pub const LowLatency: SocketQualityOfService = SocketQualityOfService(1i32);
 }
-impl ::std::convert::From<i32> for SocketQualityOfService {
+impl ::core::convert::From<i32> for SocketQualityOfService {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4709,7 +4709,7 @@ impl ::windows::runtime::DefaultType for SocketQualityOfService {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SocketSslErrorSeverity(pub i32);
 impl SocketSslErrorSeverity {
@@ -4717,7 +4717,7 @@ impl SocketSslErrorSeverity {
     pub const Ignorable: SocketSslErrorSeverity = SocketSslErrorSeverity(1i32);
     pub const Fatal: SocketSslErrorSeverity = SocketSslErrorSeverity(2i32);
 }
-impl ::std::convert::From<i32> for SocketSslErrorSeverity {
+impl ::core::convert::From<i32> for SocketSslErrorSeverity {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4733,7 +4733,7 @@ impl ::windows::runtime::DefaultType for SocketSslErrorSeverity {
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StreamSocket(pub ::windows::runtime::IInspectable);
 impl StreamSocket {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -4747,16 +4747,16 @@ impl StreamSocket {
     pub fn Control(&self) -> ::windows::runtime::Result<StreamSocketControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StreamSocketControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StreamSocketControl>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Information(&self) -> ::windows::runtime::Result<StreamSocketInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StreamSocketInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StreamSocketInformation>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -4764,8 +4764,8 @@ impl StreamSocket {
     pub fn InputStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -4773,8 +4773,8 @@ impl StreamSocket {
     pub fn OutputStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -4782,8 +4782,8 @@ impl StreamSocket {
     pub fn ConnectWithEndpointPairAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::EndpointPair>>(&self, endpointpair: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), endpointpair.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), endpointpair.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -4791,8 +4791,8 @@ impl StreamSocket {
     pub fn ConnectAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, remotehostname: Param0, remoteservicename: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -4800,8 +4800,8 @@ impl StreamSocket {
     pub fn ConnectWithEndpointPairAndProtectionLevelAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::EndpointPair>>(&self, endpointpair: Param0, protectionlevel: SocketProtectionLevel) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), endpointpair.into_param().abi(), protectionlevel, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), endpointpair.into_param().abi(), protectionlevel, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -4809,8 +4809,8 @@ impl StreamSocket {
     pub fn ConnectWithProtectionLevelAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, remotehostname: Param0, remoteservicename: Param1, protectionlevel: SocketProtectionLevel) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), protectionlevel, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), protectionlevel, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -4818,23 +4818,23 @@ impl StreamSocket {
     pub fn UpgradeToSslAsync<'a, Param1: ::windows::runtime::IntoParam<'a, super::HostName>>(&self, protectionlevel: SocketProtectionLevel, validationhostname: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), protectionlevel, validationhostname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), protectionlevel, validationhostname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`, `Networking_Connectivity`*"]
     pub fn ConnectWithProtectionLevelAndAdapterAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, super::Connectivity::NetworkAdapter>>(&self, remotehostname: Param0, remoteservicename: Param1, protectionlevel: SocketProtectionLevel, adapter: Param3) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocket2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), protectionlevel, adapter.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), protectionlevel, adapter.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -4842,50 +4842,50 @@ impl StreamSocket {
     pub fn CancelIOAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocket3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn EnableTransferOwnership<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, taskid: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocket3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), taskid.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), taskid.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn EnableTransferOwnershipWithConnectedStandbyAction<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, taskid: Param0, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocket3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), taskid.into_param().abi(), connectedstandbyaction).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), taskid.into_param().abi(), connectedstandbyaction).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn TransferOwnership<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, socketid: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocket3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), socketid.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), socketid.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn TransferOwnershipWithContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SocketActivityContext>>(&self, socketid: Param0, data: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocket3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), socketid.into_param().abi(), data.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), socketid.into_param().abi(), data.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn TransferOwnershipWithContextAndKeepAliveTime<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SocketActivityContext>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, socketid: Param0, data: Param1, keepalivetime: Param2) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocket3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), socketid.into_param().abi(), data.into_param().abi(), keepalivetime.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), socketid.into_param().abi(), data.into_param().abi(), keepalivetime.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetEndpointPairsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(remotehostname: Param0, remoteservicename: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>> {
         Self::IStreamSocketStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetEndpointPairsWithSortOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(remotehostname: Param0, remoteservicename: Param1, sortoptions: super::HostNameSortOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>> {
         Self::IStreamSocketStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), sortoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), sortoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
         })
     }
     pub fn IStreamSocketStatics<R, F: FnOnce(&IStreamSocketStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -4903,12 +4903,12 @@ unsafe impl ::windows::runtime::Interface for StreamSocket {
 impl ::windows::runtime::RuntimeName for StreamSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocket";
 }
-impl ::std::convert::From<StreamSocket> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<StreamSocket> for ::windows::runtime::IUnknown {
     fn from(value: StreamSocket) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&StreamSocket> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&StreamSocket> for ::windows::runtime::IUnknown {
     fn from(value: &StreamSocket) -> Self {
         value.0 .0.clone()
     }
@@ -4923,12 +4923,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<StreamSocket> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<StreamSocket> for ::windows::runtime::IInspectable {
     fn from(value: StreamSocket) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&StreamSocket> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&StreamSocket> for ::windows::runtime::IInspectable {
     fn from(value: &StreamSocket) -> Self {
         value.0.clone()
     }
@@ -4944,14 +4944,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<StreamSocket> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<StreamSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: StreamSocket) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&StreamSocket> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&StreamSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &StreamSocket) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -4966,130 +4966,130 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &StreamSocket {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for StreamSocket {}
-unsafe impl ::std::marker::Sync for StreamSocket {}
+unsafe impl ::core::marker::Send for StreamSocket {}
+unsafe impl ::core::marker::Sync for StreamSocket {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StreamSocketControl(pub ::windows::runtime::IInspectable);
 impl StreamSocketControl {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn NoDelay(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetNoDelay(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn KeepAlive(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetKeepAlive(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn OutboundBufferSizeInBytes(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn QualityOfService(&self) -> ::windows::runtime::Result<SocketQualityOfService> {
         let this = self;
         unsafe {
-            let mut result__: SocketQualityOfService = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketQualityOfService>(result__)
+            let mut result__: SocketQualityOfService = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketQualityOfService>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetQualityOfService(&self, value: SocketQualityOfService) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn OutboundUnicastHopLimit(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__: u8 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            let mut result__: u8 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetOutboundUnicastHopLimit(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation_Collections`, `Security_Cryptography_Certificates`*"]
     pub fn IgnorableServerCertificateErrors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketControl2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SerializeConnectionAttempts(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketControl3>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetSerializeConnectionAttempts(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketControl3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Cryptography_Certificates`*"]
     pub fn ClientCertificate(&self) -> ::windows::runtime::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketControl3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Cryptography_Certificates`*"]
     pub fn SetClientCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Cryptography::Certificates::Certificate>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketControl3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn MinProtectionLevel(&self) -> ::windows::runtime::Result<SocketProtectionLevel> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketControl4>(self)?;
         unsafe {
-            let mut result__: SocketProtectionLevel = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketProtectionLevel>(result__)
+            let mut result__: SocketProtectionLevel = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketProtectionLevel>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetMinProtectionLevel(&self, value: SocketProtectionLevel) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketControl4>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for StreamSocketControl {
@@ -5102,12 +5102,12 @@ unsafe impl ::windows::runtime::Interface for StreamSocketControl {
 impl ::windows::runtime::RuntimeName for StreamSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketControl";
 }
-impl ::std::convert::From<StreamSocketControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<StreamSocketControl> for ::windows::runtime::IUnknown {
     fn from(value: StreamSocketControl) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&StreamSocketControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&StreamSocketControl> for ::windows::runtime::IUnknown {
     fn from(value: &StreamSocketControl) -> Self {
         value.0 .0.clone()
     }
@@ -5122,12 +5122,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<StreamSocketControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<StreamSocketControl> for ::windows::runtime::IInspectable {
     fn from(value: StreamSocketControl) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&StreamSocketControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&StreamSocketControl> for ::windows::runtime::IInspectable {
     fn from(value: &StreamSocketControl) -> Self {
         value.0.clone()
     }
@@ -5142,83 +5142,83 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for StreamSocketControl {}
-unsafe impl ::std::marker::Sync for StreamSocketControl {}
+unsafe impl ::core::marker::Send for StreamSocketControl {}
+unsafe impl ::core::marker::Sync for StreamSocketControl {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StreamSocketInformation(pub ::windows::runtime::IInspectable);
 impl StreamSocketInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn LocalAddress(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn LocalPort(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn RemoteHostName(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn RemoteAddress(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn RemoteServiceName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn RemotePort(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn RoundTripTimeStatistics(&self) -> ::windows::runtime::Result<RoundTripTimeStatistics> {
         let this = self;
         unsafe {
-            let mut result__: RoundTripTimeStatistics = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<RoundTripTimeStatistics>(result__)
+            let mut result__: RoundTripTimeStatistics = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RoundTripTimeStatistics>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn BandwidthStatistics(&self) -> ::windows::runtime::Result<BandwidthStatistics> {
         let this = self;
         unsafe {
-            let mut result__: BandwidthStatistics = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BandwidthStatistics>(result__)
+            let mut result__: BandwidthStatistics = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BandwidthStatistics>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn ProtectionLevel(&self) -> ::windows::runtime::Result<SocketProtectionLevel> {
         let this = self;
         unsafe {
-            let mut result__: SocketProtectionLevel = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketProtectionLevel>(result__)
+            let mut result__: SocketProtectionLevel = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketProtectionLevel>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -5226,16 +5226,16 @@ impl StreamSocketInformation {
     pub fn SessionKey(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn ServerCertificateErrorSeverity(&self) -> ::windows::runtime::Result<SocketSslErrorSeverity> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketInformation2>(self)?;
         unsafe {
-            let mut result__: SocketSslErrorSeverity = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketSslErrorSeverity>(result__)
+            let mut result__: SocketSslErrorSeverity = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketSslErrorSeverity>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -5243,8 +5243,8 @@ impl StreamSocketInformation {
     pub fn ServerCertificateErrors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketInformation2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -5252,8 +5252,8 @@ impl StreamSocketInformation {
     pub fn ServerCertificate(&self) -> ::windows::runtime::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketInformation2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -5261,8 +5261,8 @@ impl StreamSocketInformation {
     pub fn ServerIntermediateCertificates(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketInformation2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
         }
     }
 }
@@ -5276,12 +5276,12 @@ unsafe impl ::windows::runtime::Interface for StreamSocketInformation {
 impl ::windows::runtime::RuntimeName for StreamSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketInformation";
 }
-impl ::std::convert::From<StreamSocketInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<StreamSocketInformation> for ::windows::runtime::IUnknown {
     fn from(value: StreamSocketInformation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&StreamSocketInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&StreamSocketInformation> for ::windows::runtime::IUnknown {
     fn from(value: &StreamSocketInformation) -> Self {
         value.0 .0.clone()
     }
@@ -5296,12 +5296,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<StreamSocketInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<StreamSocketInformation> for ::windows::runtime::IInspectable {
     fn from(value: StreamSocketInformation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&StreamSocketInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&StreamSocketInformation> for ::windows::runtime::IInspectable {
     fn from(value: &StreamSocketInformation) -> Self {
         value.0.clone()
     }
@@ -5316,11 +5316,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for StreamSocketInformation {}
-unsafe impl ::std::marker::Sync for StreamSocketInformation {}
+unsafe impl ::core::marker::Send for StreamSocketInformation {}
+unsafe impl ::core::marker::Sync for StreamSocketInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StreamSocketListener(pub ::windows::runtime::IInspectable);
 impl StreamSocketListener {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5334,16 +5334,16 @@ impl StreamSocketListener {
     pub fn Control(&self) -> ::windows::runtime::Result<StreamSocketListenerControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StreamSocketListenerControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StreamSocketListenerControl>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Information(&self) -> ::windows::runtime::Result<StreamSocketListenerInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StreamSocketListenerInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StreamSocketListenerInformation>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -5351,8 +5351,8 @@ impl StreamSocketListener {
     pub fn BindServiceNameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, localservicename: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), localservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), localservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -5360,8 +5360,8 @@ impl StreamSocketListener {
     pub fn BindEndpointAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, localhostname: Param0, localservicename: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), localhostname.into_param().abi(), localservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), localhostname.into_param().abi(), localservicename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -5369,29 +5369,29 @@ impl StreamSocketListener {
     pub fn ConnectionReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<StreamSocketListener, StreamSocketListenerConnectionReceivedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn RemoveConnectionReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn BindServiceNameWithProtectionLevelAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, localservicename: Param0, protectionlevel: SocketProtectionLevel) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListener2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), localservicename.into_param().abi(), protectionlevel, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), localservicename.into_param().abi(), protectionlevel, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))]
@@ -5399,8 +5399,8 @@ impl StreamSocketListener {
     pub fn BindServiceNameWithProtectionLevelAndAdapterAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, super::Connectivity::NetworkAdapter>>(&self, localservicename: Param0, protectionlevel: SocketProtectionLevel, adapter: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListener2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), localservicename.into_param().abi(), protectionlevel, adapter.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), localservicename.into_param().abi(), protectionlevel, adapter.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -5408,29 +5408,29 @@ impl StreamSocketListener {
     pub fn CancelIOAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListener3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn EnableTransferOwnership<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, taskid: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListener3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), taskid.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), taskid.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn EnableTransferOwnershipWithConnectedStandbyAction<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, taskid: Param0, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListener3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), taskid.into_param().abi(), connectedstandbyaction).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), taskid.into_param().abi(), connectedstandbyaction).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn TransferOwnership<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, socketid: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListener3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), socketid.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), socketid.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn TransferOwnershipWithContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SocketActivityContext>>(&self, socketid: Param0, data: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListener3>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), socketid.into_param().abi(), data.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), socketid.into_param().abi(), data.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for StreamSocketListener {
@@ -5443,12 +5443,12 @@ unsafe impl ::windows::runtime::Interface for StreamSocketListener {
 impl ::windows::runtime::RuntimeName for StreamSocketListener {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListener";
 }
-impl ::std::convert::From<StreamSocketListener> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<StreamSocketListener> for ::windows::runtime::IUnknown {
     fn from(value: StreamSocketListener) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&StreamSocketListener> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&StreamSocketListener> for ::windows::runtime::IUnknown {
     fn from(value: &StreamSocketListener) -> Self {
         value.0 .0.clone()
     }
@@ -5463,12 +5463,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<StreamSocketListener> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<StreamSocketListener> for ::windows::runtime::IInspectable {
     fn from(value: StreamSocketListener) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&StreamSocketListener> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&StreamSocketListener> for ::windows::runtime::IInspectable {
     fn from(value: &StreamSocketListener) -> Self {
         value.0.clone()
     }
@@ -5484,14 +5484,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<StreamSocketListener> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<StreamSocketListener> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: StreamSocketListener) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&StreamSocketListener> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&StreamSocketListener> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &StreamSocketListener) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5506,22 +5506,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &StreamSocketListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for StreamSocketListener {}
-unsafe impl ::std::marker::Sync for StreamSocketListener {}
+unsafe impl ::core::marker::Send for StreamSocketListener {}
+unsafe impl ::core::marker::Sync for StreamSocketListener {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StreamSocketListenerConnectionReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl StreamSocketListenerConnectionReceivedEventArgs {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Socket(&self) -> ::windows::runtime::Result<StreamSocket> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StreamSocket>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StreamSocket>(result__)
         }
     }
 }
@@ -5535,12 +5535,12 @@ unsafe impl ::windows::runtime::Interface for StreamSocketListenerConnectionRece
 impl ::windows::runtime::RuntimeName for StreamSocketListenerConnectionReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs";
 }
-impl ::std::convert::From<StreamSocketListenerConnectionReceivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<StreamSocketListenerConnectionReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: StreamSocketListenerConnectionReceivedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&StreamSocketListenerConnectionReceivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&StreamSocketListenerConnectionReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &StreamSocketListenerConnectionReceivedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -5555,12 +5555,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<StreamSocketListenerConnectionReceivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<StreamSocketListenerConnectionReceivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: StreamSocketListenerConnectionReceivedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&StreamSocketListenerConnectionReceivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&StreamSocketListenerConnectionReceivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &StreamSocketListenerConnectionReceivedEventArgs) -> Self {
         value.0.clone()
     }
@@ -5575,77 +5575,77 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for StreamSocketListenerConnectionReceivedEventArgs {}
-unsafe impl ::std::marker::Sync for StreamSocketListenerConnectionReceivedEventArgs {}
+unsafe impl ::core::marker::Send for StreamSocketListenerConnectionReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for StreamSocketListenerConnectionReceivedEventArgs {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StreamSocketListenerControl(pub ::windows::runtime::IInspectable);
 impl StreamSocketListenerControl {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn QualityOfService(&self) -> ::windows::runtime::Result<SocketQualityOfService> {
         let this = self;
         unsafe {
-            let mut result__: SocketQualityOfService = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketQualityOfService>(result__)
+            let mut result__: SocketQualityOfService = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketQualityOfService>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetQualityOfService(&self, value: SocketQualityOfService) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn NoDelay(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListenerControl2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetNoDelay(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListenerControl2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn KeepAlive(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListenerControl2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetKeepAlive(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListenerControl2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn OutboundBufferSizeInBytes(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListenerControl2>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListenerControl2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn OutboundUnicastHopLimit(&self) -> ::windows::runtime::Result<u8> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListenerControl2>(self)?;
         unsafe {
-            let mut result__: u8 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            let mut result__: u8 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetOutboundUnicastHopLimit(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamSocketListenerControl2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for StreamSocketListenerControl {
@@ -5658,12 +5658,12 @@ unsafe impl ::windows::runtime::Interface for StreamSocketListenerControl {
 impl ::windows::runtime::RuntimeName for StreamSocketListenerControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerControl";
 }
-impl ::std::convert::From<StreamSocketListenerControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<StreamSocketListenerControl> for ::windows::runtime::IUnknown {
     fn from(value: StreamSocketListenerControl) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&StreamSocketListenerControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&StreamSocketListenerControl> for ::windows::runtime::IUnknown {
     fn from(value: &StreamSocketListenerControl) -> Self {
         value.0 .0.clone()
     }
@@ -5678,12 +5678,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<StreamSocketListenerControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<StreamSocketListenerControl> for ::windows::runtime::IInspectable {
     fn from(value: StreamSocketListenerControl) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&StreamSocketListenerControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&StreamSocketListenerControl> for ::windows::runtime::IInspectable {
     fn from(value: &StreamSocketListenerControl) -> Self {
         value.0.clone()
     }
@@ -5698,19 +5698,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for StreamSocketListenerControl {}
-unsafe impl ::std::marker::Sync for StreamSocketListenerControl {}
+unsafe impl ::core::marker::Send for StreamSocketListenerControl {}
+unsafe impl ::core::marker::Sync for StreamSocketListenerControl {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StreamSocketListenerInformation(pub ::windows::runtime::IInspectable);
 impl StreamSocketListenerInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn LocalPort(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -5724,12 +5724,12 @@ unsafe impl ::windows::runtime::Interface for StreamSocketListenerInformation {
 impl ::windows::runtime::RuntimeName for StreamSocketListenerInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerInformation";
 }
-impl ::std::convert::From<StreamSocketListenerInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<StreamSocketListenerInformation> for ::windows::runtime::IUnknown {
     fn from(value: StreamSocketListenerInformation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&StreamSocketListenerInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&StreamSocketListenerInformation> for ::windows::runtime::IUnknown {
     fn from(value: &StreamSocketListenerInformation) -> Self {
         value.0 .0.clone()
     }
@@ -5744,12 +5744,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<StreamSocketListenerInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<StreamSocketListenerInformation> for ::windows::runtime::IInspectable {
     fn from(value: StreamSocketListenerInformation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&StreamSocketListenerInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&StreamSocketListenerInformation> for ::windows::runtime::IInspectable {
     fn from(value: &StreamSocketListenerInformation) -> Self {
         value.0.clone()
     }
@@ -5764,11 +5764,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for StreamSocketListenerInformation {}
-unsafe impl ::std::marker::Sync for StreamSocketListenerInformation {}
+unsafe impl ::core::marker::Send for StreamSocketListenerInformation {}
+unsafe impl ::core::marker::Sync for StreamSocketListenerInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StreamWebSocket(pub ::windows::runtime::IInspectable);
 impl StreamWebSocket {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5782,16 +5782,16 @@ impl StreamWebSocket {
     pub fn Control(&self) -> ::windows::runtime::Result<StreamWebSocketControl> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StreamWebSocketControl>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StreamWebSocketControl>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Information(&self) -> ::windows::runtime::Result<StreamWebSocketInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StreamWebSocketInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StreamWebSocketInformation>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -5799,23 +5799,23 @@ impl StreamWebSocket {
     pub fn InputStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Networking_Sockets`, `Storage_Streams`*"]
     pub fn OutputStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IOutputStream> {
         let this = &::windows::runtime::Interface::cast::<IWebSocket>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -5823,49 +5823,49 @@ impl StreamWebSocket {
     pub fn ConnectAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IWebSocket>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetRequestHeader<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, headername: Param0, headervalue: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocket>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), headername.into_param().abi(), headervalue.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), headername.into_param().abi(), headervalue.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn Closed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IWebSocket>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn RemoveClosed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocket>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn CloseWithStatus<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, code: u16, reason: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocket>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), code, reason.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), code, reason.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn ServerCustomValidationRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<StreamWebSocket, WebSocketServerCustomValidationRequestedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IStreamWebSocket2>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn RemoveServerCustomValidationRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamWebSocket2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for StreamWebSocket {
@@ -5878,12 +5878,12 @@ unsafe impl ::windows::runtime::Interface for StreamWebSocket {
 impl ::windows::runtime::RuntimeName for StreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocket";
 }
-impl ::std::convert::From<StreamWebSocket> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<StreamWebSocket> for ::windows::runtime::IUnknown {
     fn from(value: StreamWebSocket) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&StreamWebSocket> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&StreamWebSocket> for ::windows::runtime::IUnknown {
     fn from(value: &StreamWebSocket) -> Self {
         value.0 .0.clone()
     }
@@ -5898,12 +5898,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<StreamWebSocket> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<StreamWebSocket> for ::windows::runtime::IInspectable {
     fn from(value: StreamWebSocket) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&StreamWebSocket> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&StreamWebSocket> for ::windows::runtime::IInspectable {
     fn from(value: &StreamWebSocket) -> Self {
         value.0.clone()
     }
@@ -5919,14 +5919,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<StreamWebSocket> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<StreamWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: StreamWebSocket) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&StreamWebSocket> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&StreamWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &StreamWebSocket) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5941,16 +5941,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &StreamWebSocket {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<StreamWebSocket> for IWebSocket {
+impl ::core::convert::TryFrom<StreamWebSocket> for IWebSocket {
     type Error = ::windows::runtime::Error;
     fn try_from(value: StreamWebSocket) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&StreamWebSocket> for IWebSocket {
+impl ::core::convert::TryFrom<&StreamWebSocket> for IWebSocket {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &StreamWebSocket) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5963,79 +5963,79 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWebSocket> for StreamWebSocket {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocket> for &StreamWebSocket {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocket> {
-        ::std::convert::TryInto::<IWebSocket>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IWebSocket>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for StreamWebSocket {}
-unsafe impl ::std::marker::Sync for StreamWebSocket {}
+unsafe impl ::core::marker::Send for StreamWebSocket {}
+unsafe impl ::core::marker::Sync for StreamWebSocket {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StreamWebSocketControl(pub ::windows::runtime::IInspectable);
 impl StreamWebSocketControl {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn NoDelay(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetNoDelay(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn OutboundBufferSizeInBytes(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn ServerCredential(&self) -> ::windows::runtime::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn SetServerCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn ProxyCredential(&self) -> ::windows::runtime::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[cfg(feature = "Security_Credentials")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Credentials`*"]
     pub fn SetProxyCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation_Collections`*"]
     pub fn SupportedProtocols(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -6043,8 +6043,8 @@ impl StreamWebSocketControl {
     pub fn IgnorableServerCertificateErrors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketControl2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -6052,23 +6052,23 @@ impl StreamWebSocketControl {
     pub fn DesiredUnsolicitedPongInterval(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IStreamWebSocketControl2>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn SetDesiredUnsolicitedPongInterval<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamWebSocketControl2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn ActualUnsolicitedPongInterval(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IStreamWebSocketControl2>(self)?;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -6076,15 +6076,15 @@ impl StreamWebSocketControl {
     pub fn ClientCertificate(&self) -> ::windows::runtime::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = &::windows::runtime::Interface::cast::<IStreamWebSocketControl2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
     #[doc = "*Required features: `Networking_Sockets`, `Security_Cryptography_Certificates`*"]
     pub fn SetClientCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Cryptography::Certificates::Certificate>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStreamWebSocketControl2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for StreamWebSocketControl {
@@ -6097,12 +6097,12 @@ unsafe impl ::windows::runtime::Interface for StreamWebSocketControl {
 impl ::windows::runtime::RuntimeName for StreamWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketControl";
 }
-impl ::std::convert::From<StreamWebSocketControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<StreamWebSocketControl> for ::windows::runtime::IUnknown {
     fn from(value: StreamWebSocketControl) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&StreamWebSocketControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&StreamWebSocketControl> for ::windows::runtime::IUnknown {
     fn from(value: &StreamWebSocketControl) -> Self {
         value.0 .0.clone()
     }
@@ -6117,12 +6117,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<StreamWebSocketControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<StreamWebSocketControl> for ::windows::runtime::IInspectable {
     fn from(value: StreamWebSocketControl) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&StreamWebSocketControl> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&StreamWebSocketControl> for ::windows::runtime::IInspectable {
     fn from(value: &StreamWebSocketControl) -> Self {
         value.0.clone()
     }
@@ -6137,13 +6137,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<StreamWebSocketControl> for IWebSocketControl {
+impl ::core::convert::TryFrom<StreamWebSocketControl> for IWebSocketControl {
     type Error = ::windows::runtime::Error;
     fn try_from(value: StreamWebSocketControl) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&StreamWebSocketControl> for IWebSocketControl {
+impl ::core::convert::TryFrom<&StreamWebSocketControl> for IWebSocketControl {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &StreamWebSocketControl) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6156,16 +6156,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketControl> for StreamWebSocke
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketControl> for &StreamWebSocketControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketControl> {
-        ::std::convert::TryInto::<IWebSocketControl>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IWebSocketControl>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<StreamWebSocketControl> for IWebSocketControl2 {
+impl ::core::convert::TryFrom<StreamWebSocketControl> for IWebSocketControl2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: StreamWebSocketControl) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&StreamWebSocketControl> for IWebSocketControl2 {
+impl ::core::convert::TryFrom<&StreamWebSocketControl> for IWebSocketControl2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &StreamWebSocketControl) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6178,38 +6178,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketControl2> for StreamWebSock
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketControl2> for &StreamWebSocketControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketControl2> {
-        ::std::convert::TryInto::<IWebSocketControl2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IWebSocketControl2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for StreamWebSocketControl {}
-unsafe impl ::std::marker::Sync for StreamWebSocketControl {}
+unsafe impl ::core::marker::Send for StreamWebSocketControl {}
+unsafe impl ::core::marker::Sync for StreamWebSocketControl {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StreamWebSocketInformation(pub ::windows::runtime::IInspectable);
 impl StreamWebSocketInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn LocalAddress(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn BandwidthStatistics(&self) -> ::windows::runtime::Result<BandwidthStatistics> {
         let this = self;
         unsafe {
-            let mut result__: BandwidthStatistics = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BandwidthStatistics>(result__)
+            let mut result__: BandwidthStatistics = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BandwidthStatistics>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Protocol(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -6217,16 +6217,16 @@ impl StreamWebSocketInformation {
     pub fn ServerCertificate(&self) -> ::windows::runtime::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn ServerCertificateErrorSeverity(&self) -> ::windows::runtime::Result<SocketSslErrorSeverity> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
-            let mut result__: SocketSslErrorSeverity = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketSslErrorSeverity>(result__)
+            let mut result__: SocketSslErrorSeverity = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketSslErrorSeverity>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -6234,8 +6234,8 @@ impl StreamWebSocketInformation {
     pub fn ServerCertificateErrors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -6243,8 +6243,8 @@ impl StreamWebSocketInformation {
     pub fn ServerIntermediateCertificates(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = &::windows::runtime::Interface::cast::<IWebSocketInformation2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
         }
     }
 }
@@ -6258,12 +6258,12 @@ unsafe impl ::windows::runtime::Interface for StreamWebSocketInformation {
 impl ::windows::runtime::RuntimeName for StreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketInformation";
 }
-impl ::std::convert::From<StreamWebSocketInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<StreamWebSocketInformation> for ::windows::runtime::IUnknown {
     fn from(value: StreamWebSocketInformation) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&StreamWebSocketInformation> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&StreamWebSocketInformation> for ::windows::runtime::IUnknown {
     fn from(value: &StreamWebSocketInformation) -> Self {
         value.0 .0.clone()
     }
@@ -6278,12 +6278,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<StreamWebSocketInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<StreamWebSocketInformation> for ::windows::runtime::IInspectable {
     fn from(value: StreamWebSocketInformation) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&StreamWebSocketInformation> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&StreamWebSocketInformation> for ::windows::runtime::IInspectable {
     fn from(value: &StreamWebSocketInformation) -> Self {
         value.0.clone()
     }
@@ -6298,33 +6298,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<StreamWebSocketInformation> for IWebSocketInformation {
+impl ::core::convert::From<StreamWebSocketInformation> for IWebSocketInformation {
     fn from(value: StreamWebSocketInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&StreamWebSocketInformation> for IWebSocketInformation {
+impl ::core::convert::From<&StreamWebSocketInformation> for IWebSocketInformation {
     fn from(value: &StreamWebSocketInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketInformation> for StreamWebSocketInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketInformation> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketInformation> for &StreamWebSocketInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketInformation> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::TryFrom<StreamWebSocketInformation> for IWebSocketInformation2 {
+impl ::core::convert::TryFrom<StreamWebSocketInformation> for IWebSocketInformation2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: StreamWebSocketInformation) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&StreamWebSocketInformation> for IWebSocketInformation2 {
+impl ::core::convert::TryFrom<&StreamWebSocketInformation> for IWebSocketInformation2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &StreamWebSocketInformation) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6337,30 +6337,30 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketInformation2> for StreamWeb
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketInformation2> for &StreamWebSocketInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketInformation2> {
-        ::std::convert::TryInto::<IWebSocketInformation2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IWebSocketInformation2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for StreamWebSocketInformation {}
-unsafe impl ::std::marker::Sync for StreamWebSocketInformation {}
+unsafe impl ::core::marker::Send for StreamWebSocketInformation {}
+unsafe impl ::core::marker::Sync for StreamWebSocketInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebSocketClosedEventArgs(pub ::windows::runtime::IInspectable);
 impl WebSocketClosedEventArgs {
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Code(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
@@ -6374,12 +6374,12 @@ unsafe impl ::windows::runtime::Interface for WebSocketClosedEventArgs {
 impl ::windows::runtime::RuntimeName for WebSocketClosedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketClosedEventArgs";
 }
-impl ::std::convert::From<WebSocketClosedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebSocketClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebSocketClosedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WebSocketClosedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebSocketClosedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebSocketClosedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -6394,12 +6394,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WebSocketClosedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebSocketClosedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebSocketClosedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WebSocketClosedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebSocketClosedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebSocketClosedEventArgs) -> Self {
         value.0.clone()
     }
@@ -6414,8 +6414,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for WebSocketClosedEventArgs {}
-unsafe impl ::std::marker::Sync for WebSocketClosedEventArgs {}
+unsafe impl ::core::marker::Send for WebSocketClosedEventArgs {}
+unsafe impl ::core::marker::Sync for WebSocketClosedEventArgs {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct WebSocketError {}
 impl WebSocketError {
@@ -6423,8 +6423,8 @@ impl WebSocketError {
     #[doc = "*Required features: `Networking_Sockets`, `Web`*"]
     pub fn GetStatus(hresult: i32) -> ::windows::runtime::Result<super::super::Web::WebErrorStatus> {
         Self::IWebSocketErrorStatics(|this| unsafe {
-            let mut result__: super::super::Web::WebErrorStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), hresult, &mut result__).from_abi::<super::super::Web::WebErrorStatus>(result__)
+            let mut result__: super::super::Web::WebErrorStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), hresult, &mut result__).from_abi::<super::super::Web::WebErrorStatus>(result__)
         })
     }
     pub fn IWebSocketErrorStatics<R, F: FnOnce(&IWebSocketErrorStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -6438,7 +6438,7 @@ impl ::windows::runtime::RuntimeName for WebSocketError {
 #[cfg(feature = "ApplicationModel_Background")]
 #[doc = "*Required features: `Networking_Sockets`, `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebSocketKeepAlive(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Background")]
 impl WebSocketKeepAlive {
@@ -6453,7 +6453,7 @@ impl WebSocketKeepAlive {
     #[doc = "*Required features: `Networking_Sockets`, `ApplicationModel_Background`*"]
     pub fn Run<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Background::IBackgroundTaskInstance>>(&self, taskinstance: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), taskinstance.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), taskinstance.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
@@ -6470,13 +6470,13 @@ impl ::windows::runtime::RuntimeName for WebSocketKeepAlive {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketKeepAlive";
 }
 #[cfg(feature = "ApplicationModel_Background")]
-impl ::std::convert::From<WebSocketKeepAlive> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebSocketKeepAlive> for ::windows::runtime::IUnknown {
     fn from(value: WebSocketKeepAlive) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
-impl ::std::convert::From<&WebSocketKeepAlive> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebSocketKeepAlive> for ::windows::runtime::IUnknown {
     fn from(value: &WebSocketKeepAlive) -> Self {
         value.0 .0.clone()
     }
@@ -6494,13 +6494,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
-impl ::std::convert::From<WebSocketKeepAlive> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebSocketKeepAlive> for ::windows::runtime::IInspectable {
     fn from(value: WebSocketKeepAlive) -> Self {
         value.0
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
-impl ::std::convert::From<&WebSocketKeepAlive> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebSocketKeepAlive> for ::windows::runtime::IInspectable {
     fn from(value: &WebSocketKeepAlive) -> Self {
         value.0.clone()
     }
@@ -6518,36 +6518,36 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
-impl ::std::convert::From<WebSocketKeepAlive> for super::super::ApplicationModel::Background::IBackgroundTask {
+impl ::core::convert::From<WebSocketKeepAlive> for super::super::ApplicationModel::Background::IBackgroundTask {
     fn from(value: WebSocketKeepAlive) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
-impl ::std::convert::From<&WebSocketKeepAlive> for super::super::ApplicationModel::Background::IBackgroundTask {
+impl ::core::convert::From<&WebSocketKeepAlive> for super::super::ApplicationModel::Background::IBackgroundTask {
     fn from(value: &WebSocketKeepAlive) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Background::IBackgroundTask> for WebSocketKeepAlive {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Background::IBackgroundTask> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Background::IBackgroundTask> for &WebSocketKeepAlive {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Background::IBackgroundTask> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
-unsafe impl ::std::marker::Send for WebSocketKeepAlive {}
+unsafe impl ::core::marker::Send for WebSocketKeepAlive {}
 #[cfg(feature = "ApplicationModel_Background")]
-unsafe impl ::std::marker::Sync for WebSocketKeepAlive {}
+unsafe impl ::core::marker::Sync for WebSocketKeepAlive {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebSocketServerCustomValidationRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl WebSocketServerCustomValidationRequestedEventArgs {
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -6555,16 +6555,16 @@ impl WebSocketServerCustomValidationRequestedEventArgs {
     pub fn ServerCertificate(&self) -> ::windows::runtime::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn ServerCertificateErrorSeverity(&self) -> ::windows::runtime::Result<SocketSslErrorSeverity> {
         let this = self;
         unsafe {
-            let mut result__: SocketSslErrorSeverity = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SocketSslErrorSeverity>(result__)
+            let mut result__: SocketSslErrorSeverity = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SocketSslErrorSeverity>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -6572,8 +6572,8 @@ impl WebSocketServerCustomValidationRequestedEventArgs {
     pub fn ServerCertificateErrors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -6581,22 +6581,22 @@ impl WebSocketServerCustomValidationRequestedEventArgs {
     pub fn ServerIntermediateCertificates(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
         }
     }
     #[doc = "*Required features: `Networking_Sockets`*"]
     pub fn Reject(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_Sockets`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -6610,12 +6610,12 @@ unsafe impl ::windows::runtime::Interface for WebSocketServerCustomValidationReq
 impl ::windows::runtime::RuntimeName for WebSocketServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs";
 }
-impl ::std::convert::From<WebSocketServerCustomValidationRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WebSocketServerCustomValidationRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WebSocketServerCustomValidationRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WebSocketServerCustomValidationRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WebSocketServerCustomValidationRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WebSocketServerCustomValidationRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -6630,12 +6630,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WebSocketServerCustomValidationRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WebSocketServerCustomValidationRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WebSocketServerCustomValidationRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WebSocketServerCustomValidationRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WebSocketServerCustomValidationRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WebSocketServerCustomValidationRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -6650,5 +6650,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for WebSocketServerCustomValidationRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for WebSocketServerCustomValidationRequestedEventArgs {}
+unsafe impl ::core::marker::Send for WebSocketServerCustomValidationRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for WebSocketServerCustomValidationRequestedEventArgs {}

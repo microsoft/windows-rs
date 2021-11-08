@@ -1,26 +1,26 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_System_UpdateAssessment`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWaaSAssessor(pub ::windows::runtime::IUnknown);
 impl IWaaSAssessor {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_UpdateAssessment`, `Win32_Foundation`*"]
     pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows::runtime::Result<OSUpdateAssessment> {
-        let mut result__: <OSUpdateAssessment as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<OSUpdateAssessment>(result__)
+        let mut result__: <OSUpdateAssessment as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<OSUpdateAssessment>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWaaSAssessor {
     type Vtable = IWaaSAssessor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(591903727, 6715, 17828, [144, 45, 62, 9, 194, 105, 180, 94]);
 }
-impl ::std::convert::From<IWaaSAssessor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWaaSAssessor> for ::windows::runtime::IUnknown {
     fn from(value: IWaaSAssessor) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWaaSAssessor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWaaSAssessor> for ::windows::runtime::IUnknown {
     fn from(value: &IWaaSAssessor) -> Self {
         value.0.clone()
     }
@@ -44,7 +44,7 @@ pub struct IWaaSAssessor_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result: *mut OSUpdateAssessment) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_UpdateAssessment`, `Win32_Foundation`*"]
@@ -63,14 +63,14 @@ pub struct OSUpdateAssessment {
 #[cfg(feature = "Win32_Foundation")]
 impl OSUpdateAssessment {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for OSUpdateAssessment {
+impl ::core::default::Default for OSUpdateAssessment {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for OSUpdateAssessment {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for OSUpdateAssessment {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("OSUpdateAssessment")
             .field("isEndOfSupport", &self.isEndOfSupport)
             .field("assessmentForCurrent", &self.assessmentForCurrent)
@@ -86,7 +86,7 @@ impl ::std::fmt::Debug for OSUpdateAssessment {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for OSUpdateAssessment {
+impl ::core::cmp::PartialEq for OSUpdateAssessment {
     fn eq(&self, other: &Self) -> bool {
         self.isEndOfSupport == other.isEndOfSupport
             && self.assessmentForCurrent == other.assessmentForCurrent
@@ -101,12 +101,12 @@ impl ::std::cmp::PartialEq for OSUpdateAssessment {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for OSUpdateAssessment {}
+impl ::core::cmp::Eq for OSUpdateAssessment {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OSUpdateAssessment {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_UpdateAssessment`*"]
 pub struct UpdateAssessment {
@@ -115,27 +115,27 @@ pub struct UpdateAssessment {
     pub daysOutOfDate: u32,
 }
 impl UpdateAssessment {}
-impl ::std::default::Default for UpdateAssessment {
+impl ::core::default::Default for UpdateAssessment {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for UpdateAssessment {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for UpdateAssessment {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("UpdateAssessment").field("status", &self.status).field("impact", &self.impact).field("daysOutOfDate", &self.daysOutOfDate).finish()
     }
 }
-impl ::std::cmp::PartialEq for UpdateAssessment {
+impl ::core::cmp::PartialEq for UpdateAssessment {
     fn eq(&self, other: &Self) -> bool {
         self.status == other.status && self.impact == other.impact && self.daysOutOfDate == other.daysOutOfDate
     }
 }
-impl ::std::cmp::Eq for UpdateAssessment {}
+impl ::core::cmp::Eq for UpdateAssessment {}
 unsafe impl ::windows::runtime::Abi for UpdateAssessment {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAssessment`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UpdateAssessmentStatus(pub i32);
 pub const UpdateAssessmentStatus_Latest: UpdateAssessmentStatus = UpdateAssessmentStatus(0i32);
@@ -150,7 +150,7 @@ pub const UpdateAssessmentStatus_NotLatestPausedQuality: UpdateAssessmentStatus 
 pub const UpdateAssessmentStatus_NotLatestManaged: UpdateAssessmentStatus = UpdateAssessmentStatus(9i32);
 pub const UpdateAssessmentStatus_NotLatestUnknown: UpdateAssessmentStatus = UpdateAssessmentStatus(10i32);
 pub const UpdateAssessmentStatus_NotLatestTargetedVersion: UpdateAssessmentStatus = UpdateAssessmentStatus(11i32);
-impl ::std::convert::From<i32> for UpdateAssessmentStatus {
+impl ::core::convert::From<i32> for UpdateAssessmentStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -159,14 +159,14 @@ unsafe impl ::windows::runtime::Abi for UpdateAssessmentStatus {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAssessment`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UpdateImpactLevel(pub i32);
 pub const UpdateImpactLevel_None: UpdateImpactLevel = UpdateImpactLevel(0i32);
 pub const UpdateImpactLevel_Low: UpdateImpactLevel = UpdateImpactLevel(1i32);
 pub const UpdateImpactLevel_Medium: UpdateImpactLevel = UpdateImpactLevel(2i32);
 pub const UpdateImpactLevel_High: UpdateImpactLevel = UpdateImpactLevel(3i32);
-impl ::std::convert::From<i32> for UpdateImpactLevel {
+impl ::core::convert::From<i32> for UpdateImpactLevel {
     fn from(value: i32) -> Self {
         Self(value)
     }

@@ -1,15 +1,15 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Management_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ApplicationDataManager(pub ::windows::runtime::IInspectable);
 impl ApplicationDataManager {
     #[cfg(feature = "Storage")]
     #[doc = "*Required features: `Management_Core`, `Storage`*"]
     pub fn CreateForPackageFamily<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(packagefamilyname: Param0) -> ::windows::runtime::Result<super::super::Storage::ApplicationData> {
         Self::IApplicationDataManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Storage::ApplicationData>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Storage::ApplicationData>(result__)
         })
     }
     pub fn IApplicationDataManagerStatics<R, F: FnOnce(&IApplicationDataManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -27,12 +27,12 @@ unsafe impl ::windows::runtime::Interface for ApplicationDataManager {
 impl ::windows::runtime::RuntimeName for ApplicationDataManager {
     const NAME: &'static str = "Windows.Management.Core.ApplicationDataManager";
 }
-impl ::std::convert::From<ApplicationDataManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ApplicationDataManager> for ::windows::runtime::IUnknown {
     fn from(value: ApplicationDataManager) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ApplicationDataManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ApplicationDataManager> for ::windows::runtime::IUnknown {
     fn from(value: &ApplicationDataManager) -> Self {
         value.0 .0.clone()
     }
@@ -47,12 +47,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ApplicationDataManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ApplicationDataManager> for ::windows::runtime::IInspectable {
     fn from(value: ApplicationDataManager) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ApplicationDataManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ApplicationDataManager> for ::windows::runtime::IInspectable {
     fn from(value: &ApplicationDataManager) -> Self {
         value.0.clone()
     }
@@ -67,8 +67,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ApplicationDataManager {}
-unsafe impl ::std::marker::Sync for ApplicationDataManager {}
+unsafe impl ::core::marker::Send for ApplicationDataManager {}
+unsafe impl ::core::marker::Sync for ApplicationDataManager {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IApplicationDataManager(pub ::windows::runtime::IInspectable);
@@ -102,6 +102,6 @@ pub struct IApplicationDataManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Storage")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage"))] usize,
 );

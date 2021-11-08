@@ -6,9 +6,9 @@ pub unsafe fn DSCreateISecurityInfoObject<'a, Param0: ::windows::runtime::IntoPa
     pwszobjectpath: Param0,
     pwszobjectclass: Param1,
     dwflags: u32,
-    ppsi: *mut ::std::option::Option<super::Authorization::ISecurityInformation>,
-    pfnreadsd: ::std::option::Option<PFNREADOBJECTSECURITY>,
-    pfnwritesd: ::std::option::Option<PFNWRITEOBJECTSECURITY>,
+    ppsi: *mut ::core::option::Option<super::Authorization::ISecurityInformation>,
+    pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
+    pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
     lpcontext: Param6,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -17,7 +17,7 @@ pub unsafe fn DSCreateISecurityInfoObject<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn DSCreateISecurityInfoObject(pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, ppsi: *mut ::windows::runtime::RawPtr, pfnreadsd: ::windows::runtime::RawPtr, pfnwritesd: ::windows::runtime::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
         }
-        DSCreateISecurityInfoObject(pwszobjectpath.into_param().abi(), pwszobjectclass.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(ppsi), ::std::mem::transmute(pfnreadsd), ::std::mem::transmute(pfnwritesd), lpcontext.into_param().abi()).ok()
+        DSCreateISecurityInfoObject(pwszobjectpath.into_param().abi(), pwszobjectclass.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppsi), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -40,9 +40,9 @@ pub unsafe fn DSCreateISecurityInfoObjectEx<
     pwszusername: Param3,
     pwszpassword: Param4,
     dwflags: u32,
-    ppsi: *mut ::std::option::Option<super::Authorization::ISecurityInformation>,
-    pfnreadsd: ::std::option::Option<PFNREADOBJECTSECURITY>,
-    pfnwritesd: ::std::option::Option<PFNWRITEOBJECTSECURITY>,
+    ppsi: *mut ::core::option::Option<super::Authorization::ISecurityInformation>,
+    pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
+    pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
     lpcontext: Param9,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -57,10 +57,10 @@ pub unsafe fn DSCreateISecurityInfoObjectEx<
             pwszserver.into_param().abi(),
             pwszusername.into_param().abi(),
             pwszpassword.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(ppsi),
-            ::std::mem::transmute(pfnreadsd),
-            ::std::mem::transmute(pfnwritesd),
+            ::core::mem::transmute(dwflags),
+            ::core::mem::transmute(ppsi),
+            ::core::mem::transmute(pfnreadsd),
+            ::core::mem::transmute(pfnwritesd),
             lpcontext.into_param().abi(),
         )
         .ok()
@@ -76,8 +76,8 @@ pub unsafe fn DSCreateSecurityPage<'a, Param0: ::windows::runtime::IntoParam<'a,
     pwszobjectclass: Param1,
     dwflags: u32,
     phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE,
-    pfnreadsd: ::std::option::Option<PFNREADOBJECTSECURITY>,
-    pfnwritesd: ::std::option::Option<PFNWRITEOBJECTSECURITY>,
+    pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
+    pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
     lpcontext: Param6,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -86,7 +86,7 @@ pub unsafe fn DSCreateSecurityPage<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn DSCreateSecurityPage(pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE, pfnreadsd: ::windows::runtime::RawPtr, pfnwritesd: ::windows::runtime::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
         }
-        DSCreateSecurityPage(pwszobjectpath.into_param().abi(), pwszobjectclass.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(phpage), ::std::mem::transmute(pfnreadsd), ::std::mem::transmute(pfnwritesd), lpcontext.into_param().abi()).ok()
+        DSCreateSecurityPage(pwszobjectpath.into_param().abi(), pwszobjectclass.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(phpage), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -100,8 +100,8 @@ pub unsafe fn DSEditSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super
     pwszobjectclass: Param2,
     dwflags: u32,
     pwszcaption: Param4,
-    pfnreadsd: ::std::option::Option<PFNREADOBJECTSECURITY>,
-    pfnwritesd: ::std::option::Option<PFNWRITEOBJECTSECURITY>,
+    pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
+    pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
     lpcontext: Param7,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -110,7 +110,7 @@ pub unsafe fn DSEditSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn DSEditSecurity(hwndowner: super::super::Foundation::HWND, pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, pwszcaption: super::super::Foundation::PWSTR, pfnreadsd: ::windows::runtime::RawPtr, pfnwritesd: ::windows::runtime::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
         }
-        DSEditSecurity(hwndowner.into_param().abi(), pwszobjectpath.into_param().abi(), pwszobjectclass.into_param().abi(), ::std::mem::transmute(dwflags), pwszcaption.into_param().abi(), ::std::mem::transmute(pfnreadsd), ::std::mem::transmute(pfnwritesd), lpcontext.into_param().abi()).ok()
+        DSEditSecurity(hwndowner.into_param().abi(), pwszobjectpath.into_param().abi(), pwszobjectclass.into_param().abi(), ::core::mem::transmute(dwflags), pwszcaption.into_param().abi(), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

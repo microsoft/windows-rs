@@ -76,16 +76,16 @@ pub struct ISignalNotifierStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, handler: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, handler: ::windows::runtime::RawPtr, timeout: super::super::super::Foundation::TimeSpan, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, handler: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, handler: ::windows::runtime::RawPtr, timeout: super::super::super::Foundation::TimeSpan, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, handler: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, handler: ::windows::runtime::RawPtr, timeout: super::super::super::Foundation::TimeSpan, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, handler: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, handler: ::windows::runtime::RawPtr, timeout: super::super::super::Foundation::TimeSpan, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[doc = "*Required features: `System_Threading_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PreallocatedWorkItem(pub ::windows::runtime::IInspectable);
 impl PreallocatedWorkItem {
     #[cfg(feature = "Foundation")]
@@ -93,32 +93,32 @@ impl PreallocatedWorkItem {
     pub fn RunAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_Threading_Core`, `Foundation`*"]
     pub fn CreateWorkItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::WorkItemHandler>>(handler: Param0) -> ::windows::runtime::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<PreallocatedWorkItem>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<PreallocatedWorkItem>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_Threading_Core`, `Foundation`*"]
     pub fn CreateWorkItemWithPriority<'a, Param0: ::windows::runtime::IntoParam<'a, super::WorkItemHandler>>(handler: Param0, priority: super::WorkItemPriority) -> ::windows::runtime::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), handler.into_param().abi(), priority, &mut result__).from_abi::<PreallocatedWorkItem>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), priority, &mut result__).from_abi::<PreallocatedWorkItem>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_Threading_Core`, `Foundation`*"]
     pub fn CreateWorkItemWithPriorityAndOptions<'a, Param0: ::windows::runtime::IntoParam<'a, super::WorkItemHandler>>(handler: Param0, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> ::windows::runtime::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), priority, options, &mut result__).from_abi::<PreallocatedWorkItem>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), priority, options, &mut result__).from_abi::<PreallocatedWorkItem>(result__)
         })
     }
     pub fn IPreallocatedWorkItemFactory<R, F: FnOnce(&IPreallocatedWorkItemFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -136,12 +136,12 @@ unsafe impl ::windows::runtime::Interface for PreallocatedWorkItem {
 impl ::windows::runtime::RuntimeName for PreallocatedWorkItem {
     const NAME: &'static str = "Windows.System.Threading.Core.PreallocatedWorkItem";
 }
-impl ::std::convert::From<PreallocatedWorkItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PreallocatedWorkItem> for ::windows::runtime::IUnknown {
     fn from(value: PreallocatedWorkItem) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PreallocatedWorkItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PreallocatedWorkItem> for ::windows::runtime::IUnknown {
     fn from(value: &PreallocatedWorkItem) -> Self {
         value.0 .0.clone()
     }
@@ -156,12 +156,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PreallocatedWorkItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PreallocatedWorkItem> for ::windows::runtime::IInspectable {
     fn from(value: PreallocatedWorkItem) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PreallocatedWorkItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PreallocatedWorkItem> for ::windows::runtime::IInspectable {
     fn from(value: &PreallocatedWorkItem) -> Self {
         value.0.clone()
     }
@@ -176,25 +176,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PreallocatedWorkItem {}
-unsafe impl ::std::marker::Sync for PreallocatedWorkItem {}
+unsafe impl ::core::marker::Send for PreallocatedWorkItem {}
+unsafe impl ::core::marker::Sync for PreallocatedWorkItem {}
 #[doc = "*Required features: `System_Threading_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SignalHandler(::windows::runtime::IUnknown);
 impl SignalHandler {
-    pub fn new<F: FnMut(&::std::option::Option<SignalNotifier>, bool) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::core::option::Option<SignalNotifier>, bool) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
         let com = SignalHandler_box::<F> {
             vtable: &SignalHandler_box::<F>::VTABLE,
             count: ::windows::runtime::RefCount::new(1),
             invoke,
         };
-        unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `System_Threading_Core`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, SignalNotifier>>(&self, signalnotifier: Param0, timedout: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), signalnotifier.into_param().abi(), timedout).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).3)(::core::mem::transmute_copy(this), signalnotifier.into_param().abi(), timedout).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for SignalHandler {
@@ -213,19 +213,19 @@ pub struct SignalHandler_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalnotifier: ::windows::runtime::RawPtr, timedout: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(C)]
-struct SignalHandler_box<F: FnMut(&::std::option::Option<SignalNotifier>, bool) -> ::windows::runtime::Result<()> + 'static> {
+struct SignalHandler_box<F: FnMut(&::core::option::Option<SignalNotifier>, bool) -> ::windows::runtime::Result<()> + 'static> {
     vtable: *const SignalHandler_abi,
     invoke: F,
     count: ::windows::runtime::RefCount,
 }
-impl<F: FnMut(&::std::option::Option<SignalNotifier>, bool) -> ::windows::runtime::Result<()> + 'static> SignalHandler_box<F> {
+impl<F: FnMut(&::core::option::Option<SignalNotifier>, bool) -> ::windows::runtime::Result<()> + 'static> SignalHandler_box<F> {
     const VTABLE: SignalHandler_abi = SignalHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         *interface = if iid == &<SignalHandler as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
             &mut (*this).vtable as *mut _ as _
         } else {
-            ::std::ptr::null_mut()
+            ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
             ::windows::runtime::HRESULT(0x8000_4002)
@@ -253,47 +253,47 @@ impl<F: FnMut(&::std::option::Option<SignalNotifier>, bool) -> ::windows::runtim
 }
 #[doc = "*Required features: `System_Threading_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SignalNotifier(pub ::windows::runtime::IInspectable);
 impl SignalNotifier {
     #[doc = "*Required features: `System_Threading_Core`*"]
     pub fn Enable(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `System_Threading_Core`*"]
     pub fn Terminate(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `System_Threading_Core`*"]
     pub fn AttachToEvent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SignalHandler>>(name: Param0, handler: Param1) -> ::windows::runtime::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), name.into_param().abi(), handler.into_param().abi(), &mut result__).from_abi::<SignalNotifier>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), name.into_param().abi(), handler.into_param().abi(), &mut result__).from_abi::<SignalNotifier>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_Threading_Core`, `Foundation`*"]
     pub fn AttachToEventWithTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SignalHandler>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(name: Param0, handler: Param1, timeout: Param2) -> ::windows::runtime::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), name.into_param().abi(), handler.into_param().abi(), timeout.into_param().abi(), &mut result__).from_abi::<SignalNotifier>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), name.into_param().abi(), handler.into_param().abi(), timeout.into_param().abi(), &mut result__).from_abi::<SignalNotifier>(result__)
         })
     }
     #[doc = "*Required features: `System_Threading_Core`*"]
     pub fn AttachToSemaphore<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SignalHandler>>(name: Param0, handler: Param1) -> ::windows::runtime::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), name.into_param().abi(), handler.into_param().abi(), &mut result__).from_abi::<SignalNotifier>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), name.into_param().abi(), handler.into_param().abi(), &mut result__).from_abi::<SignalNotifier>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_Threading_Core`, `Foundation`*"]
     pub fn AttachToSemaphoreWithTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SignalHandler>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(name: Param0, handler: Param1, timeout: Param2) -> ::windows::runtime::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), name.into_param().abi(), handler.into_param().abi(), timeout.into_param().abi(), &mut result__).from_abi::<SignalNotifier>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), name.into_param().abi(), handler.into_param().abi(), timeout.into_param().abi(), &mut result__).from_abi::<SignalNotifier>(result__)
         })
     }
     pub fn ISignalNotifierStatics<R, F: FnOnce(&ISignalNotifierStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -311,12 +311,12 @@ unsafe impl ::windows::runtime::Interface for SignalNotifier {
 impl ::windows::runtime::RuntimeName for SignalNotifier {
     const NAME: &'static str = "Windows.System.Threading.Core.SignalNotifier";
 }
-impl ::std::convert::From<SignalNotifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SignalNotifier> for ::windows::runtime::IUnknown {
     fn from(value: SignalNotifier) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SignalNotifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SignalNotifier> for ::windows::runtime::IUnknown {
     fn from(value: &SignalNotifier) -> Self {
         value.0 .0.clone()
     }
@@ -331,12 +331,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SignalNotifier> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SignalNotifier> for ::windows::runtime::IInspectable {
     fn from(value: SignalNotifier) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SignalNotifier> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SignalNotifier> for ::windows::runtime::IInspectable {
     fn from(value: &SignalNotifier) -> Self {
         value.0.clone()
     }
@@ -351,5 +351,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SignalNotifier {}
-unsafe impl ::std::marker::Sync for SignalNotifier {}
+unsafe impl ::core::marker::Send for SignalNotifier {}
+unsafe impl ::core::marker::Sync for SignalNotifier {}

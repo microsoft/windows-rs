@@ -15,7 +15,7 @@ pub struct IXsltProcessor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Data_Xml_Dom")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputnode: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Data_Xml_Dom")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputnode: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
@@ -58,7 +58,7 @@ pub struct IXsltProcessorFactory_abi(
 );
 #[doc = "*Required features: `Data_Xml_Xsl`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct XsltProcessor(pub ::windows::runtime::IInspectable);
 impl XsltProcessor {
     #[cfg(feature = "Data_Xml_Dom")]
@@ -66,8 +66,8 @@ impl XsltProcessor {
     pub fn TransformToString<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dom::IXmlNode>>(&self, inputnode: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), inputnode.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), inputnode.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
@@ -75,16 +75,16 @@ impl XsltProcessor {
     pub fn TransformToDocument<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dom::IXmlNode>>(&self, inputnode: Param0) -> ::windows::runtime::Result<super::Dom::XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXsltProcessor2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), inputnode.into_param().abi(), &mut result__).from_abi::<super::Dom::XmlDocument>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), inputnode.into_param().abi(), &mut result__).from_abi::<super::Dom::XmlDocument>(result__)
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
     #[doc = "*Required features: `Data_Xml_Xsl`, `Data_Xml_Dom`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dom::XmlDocument>>(document: Param0) -> ::windows::runtime::Result<XsltProcessor> {
         Self::IXsltProcessorFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), document.into_param().abi(), &mut result__).from_abi::<XsltProcessor>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), document.into_param().abi(), &mut result__).from_abi::<XsltProcessor>(result__)
         })
     }
     pub fn IXsltProcessorFactory<R, F: FnOnce(&IXsltProcessorFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -102,12 +102,12 @@ unsafe impl ::windows::runtime::Interface for XsltProcessor {
 impl ::windows::runtime::RuntimeName for XsltProcessor {
     const NAME: &'static str = "Windows.Data.Xml.Xsl.XsltProcessor";
 }
-impl ::std::convert::From<XsltProcessor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<XsltProcessor> for ::windows::runtime::IUnknown {
     fn from(value: XsltProcessor) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&XsltProcessor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&XsltProcessor> for ::windows::runtime::IUnknown {
     fn from(value: &XsltProcessor) -> Self {
         value.0 .0.clone()
     }
@@ -122,12 +122,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<XsltProcessor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<XsltProcessor> for ::windows::runtime::IInspectable {
     fn from(value: XsltProcessor) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&XsltProcessor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&XsltProcessor> for ::windows::runtime::IInspectable {
     fn from(value: &XsltProcessor) -> Self {
         value.0.clone()
     }
@@ -142,5 +142,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for XsltProcessor {}
-unsafe impl ::std::marker::Sync for XsltProcessor {}
+unsafe impl ::core::marker::Send for XsltProcessor {}
+unsafe impl ::core::marker::Sync for XsltProcessor {}

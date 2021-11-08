@@ -59,15 +59,15 @@ pub struct IRadialControllerIndependentInputSourceStatics_abi(
 );
 #[doc = "*Required features: `UI_Input_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RadialControllerIndependentInputSource(pub ::windows::runtime::IInspectable);
 impl RadialControllerIndependentInputSource {
     #[doc = "*Required features: `UI_Input_Core`*"]
     pub fn Controller(&self) -> ::windows::runtime::Result<super::RadialController> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::RadialController>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::RadialController>(result__)
         }
     }
     #[cfg(feature = "UI_Core")]
@@ -75,16 +75,16 @@ impl RadialControllerIndependentInputSource {
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
     #[doc = "*Required features: `UI_Input_Core`, `ApplicationModel_Core`*"]
     pub fn CreateForView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::ApplicationModel::Core::CoreApplicationView>>(view: Param0) -> ::windows::runtime::Result<RadialControllerIndependentInputSource> {
         Self::IRadialControllerIndependentInputSourceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), view.into_param().abi(), &mut result__).from_abi::<RadialControllerIndependentInputSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), view.into_param().abi(), &mut result__).from_abi::<RadialControllerIndependentInputSource>(result__)
         })
     }
     #[cfg(feature = "System")]
@@ -92,8 +92,8 @@ impl RadialControllerIndependentInputSource {
     pub fn DispatcherQueue(&self) -> ::windows::runtime::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::runtime::Interface::cast::<IRadialControllerIndependentInputSource2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::System::DispatcherQueue>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::System::DispatcherQueue>(result__)
         }
     }
     pub fn IRadialControllerIndependentInputSourceStatics<R, F: FnOnce(&IRadialControllerIndependentInputSourceStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -111,12 +111,12 @@ unsafe impl ::windows::runtime::Interface for RadialControllerIndependentInputSo
 impl ::windows::runtime::RuntimeName for RadialControllerIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Input.Core.RadialControllerIndependentInputSource";
 }
-impl ::std::convert::From<RadialControllerIndependentInputSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<RadialControllerIndependentInputSource> for ::windows::runtime::IUnknown {
     fn from(value: RadialControllerIndependentInputSource) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&RadialControllerIndependentInputSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&RadialControllerIndependentInputSource> for ::windows::runtime::IUnknown {
     fn from(value: &RadialControllerIndependentInputSource) -> Self {
         value.0 .0.clone()
     }
@@ -131,12 +131,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<RadialControllerIndependentInputSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<RadialControllerIndependentInputSource> for ::windows::runtime::IInspectable {
     fn from(value: RadialControllerIndependentInputSource) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&RadialControllerIndependentInputSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&RadialControllerIndependentInputSource> for ::windows::runtime::IInspectable {
     fn from(value: &RadialControllerIndependentInputSource) -> Self {
         value.0.clone()
     }
@@ -151,5 +151,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for RadialControllerIndependentInputSource {}
-unsafe impl ::std::marker::Sync for RadialControllerIndependentInputSource {}
+unsafe impl ::core::marker::Send for RadialControllerIndependentInputSource {}
+unsafe impl ::core::marker::Sync for RadialControllerIndependentInputSource {}

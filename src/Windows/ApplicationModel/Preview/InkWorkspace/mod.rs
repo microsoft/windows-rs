@@ -38,7 +38,7 @@ pub struct IInkWorkspaceHostedAppManagerStatics_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Preview_InkWorkspace`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InkWorkspaceHostedAppManager(pub ::windows::runtime::IInspectable);
 impl InkWorkspaceHostedAppManager {
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
@@ -46,15 +46,15 @@ impl InkWorkspaceHostedAppManager {
     pub fn SetThumbnailAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Imaging::SoftwareBitmap>>(&self, bitmap: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), bitmap.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Preview_InkWorkspace`*"]
     pub fn GetForCurrentApp() -> ::windows::runtime::Result<InkWorkspaceHostedAppManager> {
         Self::IInkWorkspaceHostedAppManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkWorkspaceHostedAppManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkWorkspaceHostedAppManager>(result__)
         })
     }
     pub fn IInkWorkspaceHostedAppManagerStatics<R, F: FnOnce(&IInkWorkspaceHostedAppManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -72,12 +72,12 @@ unsafe impl ::windows::runtime::Interface for InkWorkspaceHostedAppManager {
 impl ::windows::runtime::RuntimeName for InkWorkspaceHostedAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager";
 }
-impl ::std::convert::From<InkWorkspaceHostedAppManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InkWorkspaceHostedAppManager> for ::windows::runtime::IUnknown {
     fn from(value: InkWorkspaceHostedAppManager) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&InkWorkspaceHostedAppManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InkWorkspaceHostedAppManager> for ::windows::runtime::IUnknown {
     fn from(value: &InkWorkspaceHostedAppManager) -> Self {
         value.0 .0.clone()
     }
@@ -92,12 +92,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<InkWorkspaceHostedAppManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InkWorkspaceHostedAppManager> for ::windows::runtime::IInspectable {
     fn from(value: InkWorkspaceHostedAppManager) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&InkWorkspaceHostedAppManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InkWorkspaceHostedAppManager> for ::windows::runtime::IInspectable {
     fn from(value: &InkWorkspaceHostedAppManager) -> Self {
         value.0.clone()
     }
@@ -112,8 +112,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for InkWorkspaceHostedAppManager {}
-unsafe impl ::std::marker::Sync for InkWorkspaceHostedAppManager {}
+unsafe impl ::core::marker::Send for InkWorkspaceHostedAppManager {}
+unsafe impl ::core::marker::Sync for InkWorkspaceHostedAppManager {}
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct PreviewInkWorkspaceContract(pub u8);

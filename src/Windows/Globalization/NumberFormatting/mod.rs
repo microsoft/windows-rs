@@ -1,87 +1,87 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CurrencyFormatter(pub ::windows::runtime::IInspectable);
 impl CurrencyFormatter {
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn Currency(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetCurrency<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn Mode(&self) -> ::windows::runtime::Result<CurrencyFormatterMode> {
         let this = &::windows::runtime::Interface::cast::<ICurrencyFormatter2>(self)?;
         unsafe {
-            let mut result__: CurrencyFormatterMode = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CurrencyFormatterMode>(result__)
+            let mut result__: CurrencyFormatterMode = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CurrencyFormatterMode>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetMode(&self, value: CurrencyFormatterMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICurrencyFormatter2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn ApplyRoundingForCurrency(&self, roundingalgorithm: RoundingAlgorithm) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICurrencyFormatter2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), roundingalgorithm).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), roundingalgorithm).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatInt(&self, value: i64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatUInt(&self, value: u64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatDouble(&self, value: f64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatInt2(&self, value: i64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatUInt2(&self, value: u64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatDouble2(&self, value: f64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -89,97 +89,97 @@ impl CurrencyFormatter {
     pub fn Languages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn GeographicRegion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IntegerDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIntegerDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FractionDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetFractionDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IsGrouped(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsGrouped(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IsDecimalPointAlwaysDisplayed(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsDecimalPointAlwaysDisplayed(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn NumeralSystem(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetNumeralSystem<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn ResolvedLanguage(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn ResolvedGeographicRegion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -187,8 +187,8 @@ impl CurrencyFormatter {
     pub fn ParseInt<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<i64>> {
         let this = &::windows::runtime::Interface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<i64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<i64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -196,8 +196,8 @@ impl CurrencyFormatter {
     pub fn ParseUInt<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<u64>> {
         let this = &::windows::runtime::Interface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<u64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -205,62 +205,62 @@ impl CurrencyFormatter {
     pub fn ParseDouble<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows::runtime::Interface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn NumberRounder(&self) -> ::windows::runtime::Result<INumberRounder> {
         let this = &::windows::runtime::Interface::cast::<INumberRounderOption>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<INumberRounder>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<INumberRounder>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetNumberRounder<'a, Param0: ::windows::runtime::IntoParam<'a, INumberRounder>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberRounderOption>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IsZeroSigned(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISignedZeroOption>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsZeroSigned(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISignedZeroOption>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SignificantDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ISignificantDigitsOption>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetSignificantDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISignificantDigitsOption>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn CreateCurrencyFormatterCode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(currencycode: Param0) -> ::windows::runtime::Result<CurrencyFormatter> {
         Self::ICurrencyFormatterFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), currencycode.into_param().abi(), &mut result__).from_abi::<CurrencyFormatter>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), currencycode.into_param().abi(), &mut result__).from_abi::<CurrencyFormatter>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Globalization_NumberFormatting`, `Foundation_Collections`*"]
     pub fn CreateCurrencyFormatterCodeContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(currencycode: Param0, languages: Param1, geographicregion: Param2) -> ::windows::runtime::Result<CurrencyFormatter> {
         Self::ICurrencyFormatterFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), currencycode.into_param().abi(), languages.into_param().abi(), geographicregion.into_param().abi(), &mut result__).from_abi::<CurrencyFormatter>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), currencycode.into_param().abi(), languages.into_param().abi(), geographicregion.into_param().abi(), &mut result__).from_abi::<CurrencyFormatter>(result__)
         })
     }
     pub fn ICurrencyFormatterFactory<R, F: FnOnce(&ICurrencyFormatterFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -278,12 +278,12 @@ unsafe impl ::windows::runtime::Interface for CurrencyFormatter {
 impl ::windows::runtime::RuntimeName for CurrencyFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.CurrencyFormatter";
 }
-impl ::std::convert::From<CurrencyFormatter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CurrencyFormatter> for ::windows::runtime::IUnknown {
     fn from(value: CurrencyFormatter) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CurrencyFormatter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CurrencyFormatter> for ::windows::runtime::IUnknown {
     fn from(value: &CurrencyFormatter) -> Self {
         value.0 .0.clone()
     }
@@ -298,12 +298,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CurrencyFormatter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CurrencyFormatter> for ::windows::runtime::IInspectable {
     fn from(value: CurrencyFormatter) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CurrencyFormatter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CurrencyFormatter> for ::windows::runtime::IInspectable {
     fn from(value: &CurrencyFormatter) -> Self {
         value.0.clone()
     }
@@ -318,13 +318,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<CurrencyFormatter> for INumberFormatter {
+impl ::core::convert::TryFrom<CurrencyFormatter> for INumberFormatter {
     type Error = ::windows::runtime::Error;
     fn try_from(value: CurrencyFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&CurrencyFormatter> for INumberFormatter {
+impl ::core::convert::TryFrom<&CurrencyFormatter> for INumberFormatter {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &CurrencyFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -337,16 +337,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter> for CurrencyFormatt
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter> for &CurrencyFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter> {
-        ::std::convert::TryInto::<INumberFormatter>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberFormatter>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<CurrencyFormatter> for INumberFormatter2 {
+impl ::core::convert::TryFrom<CurrencyFormatter> for INumberFormatter2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: CurrencyFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&CurrencyFormatter> for INumberFormatter2 {
+impl ::core::convert::TryFrom<&CurrencyFormatter> for INumberFormatter2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &CurrencyFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -359,16 +359,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter2> for CurrencyFormat
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter2> for &CurrencyFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter2> {
-        ::std::convert::TryInto::<INumberFormatter2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberFormatter2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<CurrencyFormatter> for INumberFormatterOptions {
+impl ::core::convert::TryFrom<CurrencyFormatter> for INumberFormatterOptions {
     type Error = ::windows::runtime::Error;
     fn try_from(value: CurrencyFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&CurrencyFormatter> for INumberFormatterOptions {
+impl ::core::convert::TryFrom<&CurrencyFormatter> for INumberFormatterOptions {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &CurrencyFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -381,16 +381,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatterOptions> for Currency
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatterOptions> for &CurrencyFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatterOptions> {
-        ::std::convert::TryInto::<INumberFormatterOptions>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberFormatterOptions>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<CurrencyFormatter> for INumberParser {
+impl ::core::convert::TryFrom<CurrencyFormatter> for INumberParser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: CurrencyFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&CurrencyFormatter> for INumberParser {
+impl ::core::convert::TryFrom<&CurrencyFormatter> for INumberParser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &CurrencyFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -403,16 +403,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberParser> for CurrencyFormatter 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberParser> for &CurrencyFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberParser> {
-        ::std::convert::TryInto::<INumberParser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberParser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<CurrencyFormatter> for INumberRounderOption {
+impl ::core::convert::TryFrom<CurrencyFormatter> for INumberRounderOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: CurrencyFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&CurrencyFormatter> for INumberRounderOption {
+impl ::core::convert::TryFrom<&CurrencyFormatter> for INumberRounderOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &CurrencyFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -425,16 +425,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberRounderOption> for CurrencyFor
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberRounderOption> for &CurrencyFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberRounderOption> {
-        ::std::convert::TryInto::<INumberRounderOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberRounderOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<CurrencyFormatter> for ISignedZeroOption {
+impl ::core::convert::TryFrom<CurrencyFormatter> for ISignedZeroOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: CurrencyFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&CurrencyFormatter> for ISignedZeroOption {
+impl ::core::convert::TryFrom<&CurrencyFormatter> for ISignedZeroOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &CurrencyFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -447,16 +447,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISignedZeroOption> for CurrencyFormat
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISignedZeroOption> for &CurrencyFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISignedZeroOption> {
-        ::std::convert::TryInto::<ISignedZeroOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<ISignedZeroOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<CurrencyFormatter> for ISignificantDigitsOption {
+impl ::core::convert::TryFrom<CurrencyFormatter> for ISignificantDigitsOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: CurrencyFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&CurrencyFormatter> for ISignificantDigitsOption {
+impl ::core::convert::TryFrom<&CurrencyFormatter> for ISignificantDigitsOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &CurrencyFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -469,20 +469,20 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISignificantDigitsOption> for Currenc
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISignificantDigitsOption> for &CurrencyFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISignificantDigitsOption> {
-        ::std::convert::TryInto::<ISignificantDigitsOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<ISignificantDigitsOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for CurrencyFormatter {}
-unsafe impl ::std::marker::Sync for CurrencyFormatter {}
+unsafe impl ::core::marker::Send for CurrencyFormatter {}
+unsafe impl ::core::marker::Sync for CurrencyFormatter {}
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CurrencyFormatterMode(pub i32);
 impl CurrencyFormatterMode {
     pub const UseSymbol: CurrencyFormatterMode = CurrencyFormatterMode(0i32);
     pub const UseCurrencyCode: CurrencyFormatterMode = CurrencyFormatterMode(1i32);
 }
-impl ::std::convert::From<i32> for CurrencyFormatterMode {
+impl ::core::convert::From<i32> for CurrencyFormatterMode {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -498,7 +498,7 @@ impl ::windows::runtime::DefaultType for CurrencyFormatterMode {
 }
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DecimalFormatter(pub ::windows::runtime::IInspectable);
 impl DecimalFormatter {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -512,48 +512,48 @@ impl DecimalFormatter {
     pub fn FormatInt(&self, value: i64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatUInt(&self, value: u64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatDouble(&self, value: f64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatInt2(&self, value: i64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatUInt2(&self, value: u64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatDouble2(&self, value: f64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -561,97 +561,97 @@ impl DecimalFormatter {
     pub fn Languages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn GeographicRegion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IntegerDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIntegerDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FractionDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetFractionDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IsGrouped(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsGrouped(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IsDecimalPointAlwaysDisplayed(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsDecimalPointAlwaysDisplayed(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn NumeralSystem(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetNumeralSystem<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn ResolvedLanguage(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn ResolvedGeographicRegion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -659,8 +659,8 @@ impl DecimalFormatter {
     pub fn ParseInt<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<i64>> {
         let this = &::windows::runtime::Interface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<i64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<i64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -668,8 +668,8 @@ impl DecimalFormatter {
     pub fn ParseUInt<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<u64>> {
         let this = &::windows::runtime::Interface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<u64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -677,55 +677,55 @@ impl DecimalFormatter {
     pub fn ParseDouble<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows::runtime::Interface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn NumberRounder(&self) -> ::windows::runtime::Result<INumberRounder> {
         let this = &::windows::runtime::Interface::cast::<INumberRounderOption>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<INumberRounder>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<INumberRounder>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetNumberRounder<'a, Param0: ::windows::runtime::IntoParam<'a, INumberRounder>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberRounderOption>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IsZeroSigned(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISignedZeroOption>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsZeroSigned(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISignedZeroOption>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SignificantDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ISignificantDigitsOption>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetSignificantDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISignificantDigitsOption>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Globalization_NumberFormatting`, `Foundation_Collections`*"]
     pub fn CreateDecimalFormatter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(languages: Param0, geographicregion: Param1) -> ::windows::runtime::Result<DecimalFormatter> {
         Self::IDecimalFormatterFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), languages.into_param().abi(), geographicregion.into_param().abi(), &mut result__).from_abi::<DecimalFormatter>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), languages.into_param().abi(), geographicregion.into_param().abi(), &mut result__).from_abi::<DecimalFormatter>(result__)
         })
     }
     pub fn IDecimalFormatterFactory<R, F: FnOnce(&IDecimalFormatterFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -743,12 +743,12 @@ unsafe impl ::windows::runtime::Interface for DecimalFormatter {
 impl ::windows::runtime::RuntimeName for DecimalFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.DecimalFormatter";
 }
-impl ::std::convert::From<DecimalFormatter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<DecimalFormatter> for ::windows::runtime::IUnknown {
     fn from(value: DecimalFormatter) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&DecimalFormatter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&DecimalFormatter> for ::windows::runtime::IUnknown {
     fn from(value: &DecimalFormatter) -> Self {
         value.0 .0.clone()
     }
@@ -763,12 +763,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<DecimalFormatter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<DecimalFormatter> for ::windows::runtime::IInspectable {
     fn from(value: DecimalFormatter) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&DecimalFormatter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&DecimalFormatter> for ::windows::runtime::IInspectable {
     fn from(value: &DecimalFormatter) -> Self {
         value.0.clone()
     }
@@ -783,33 +783,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<DecimalFormatter> for INumberFormatter {
+impl ::core::convert::From<DecimalFormatter> for INumberFormatter {
     fn from(value: DecimalFormatter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&DecimalFormatter> for INumberFormatter {
+impl ::core::convert::From<&DecimalFormatter> for INumberFormatter {
     fn from(value: &DecimalFormatter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter> for DecimalFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter> for &DecimalFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::TryFrom<DecimalFormatter> for INumberFormatter2 {
+impl ::core::convert::TryFrom<DecimalFormatter> for INumberFormatter2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DecimalFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&DecimalFormatter> for INumberFormatter2 {
+impl ::core::convert::TryFrom<&DecimalFormatter> for INumberFormatter2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &DecimalFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -822,16 +822,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter2> for DecimalFormatt
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter2> for &DecimalFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter2> {
-        ::std::convert::TryInto::<INumberFormatter2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberFormatter2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<DecimalFormatter> for INumberFormatterOptions {
+impl ::core::convert::TryFrom<DecimalFormatter> for INumberFormatterOptions {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DecimalFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&DecimalFormatter> for INumberFormatterOptions {
+impl ::core::convert::TryFrom<&DecimalFormatter> for INumberFormatterOptions {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &DecimalFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -844,16 +844,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatterOptions> for DecimalF
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatterOptions> for &DecimalFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatterOptions> {
-        ::std::convert::TryInto::<INumberFormatterOptions>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberFormatterOptions>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<DecimalFormatter> for INumberParser {
+impl ::core::convert::TryFrom<DecimalFormatter> for INumberParser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DecimalFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&DecimalFormatter> for INumberParser {
+impl ::core::convert::TryFrom<&DecimalFormatter> for INumberParser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &DecimalFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -866,16 +866,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberParser> for DecimalFormatter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberParser> for &DecimalFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberParser> {
-        ::std::convert::TryInto::<INumberParser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberParser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<DecimalFormatter> for INumberRounderOption {
+impl ::core::convert::TryFrom<DecimalFormatter> for INumberRounderOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DecimalFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&DecimalFormatter> for INumberRounderOption {
+impl ::core::convert::TryFrom<&DecimalFormatter> for INumberRounderOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &DecimalFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -888,16 +888,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberRounderOption> for DecimalForm
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberRounderOption> for &DecimalFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberRounderOption> {
-        ::std::convert::TryInto::<INumberRounderOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberRounderOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<DecimalFormatter> for ISignedZeroOption {
+impl ::core::convert::TryFrom<DecimalFormatter> for ISignedZeroOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DecimalFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&DecimalFormatter> for ISignedZeroOption {
+impl ::core::convert::TryFrom<&DecimalFormatter> for ISignedZeroOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &DecimalFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -910,16 +910,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISignedZeroOption> for DecimalFormatt
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISignedZeroOption> for &DecimalFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISignedZeroOption> {
-        ::std::convert::TryInto::<ISignedZeroOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<ISignedZeroOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<DecimalFormatter> for ISignificantDigitsOption {
+impl ::core::convert::TryFrom<DecimalFormatter> for ISignificantDigitsOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DecimalFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&DecimalFormatter> for ISignificantDigitsOption {
+impl ::core::convert::TryFrom<&DecimalFormatter> for ISignificantDigitsOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &DecimalFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -932,11 +932,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISignificantDigitsOption> for Decimal
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISignificantDigitsOption> for &DecimalFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISignificantDigitsOption> {
-        ::std::convert::TryInto::<ISignificantDigitsOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<ISignificantDigitsOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for DecimalFormatter {}
-unsafe impl ::std::marker::Sync for DecimalFormatter {}
+unsafe impl ::core::marker::Send for DecimalFormatter {}
+unsafe impl ::core::marker::Sync for DecimalFormatter {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct ICurrencyFormatter(pub ::windows::runtime::IInspectable);
@@ -953,8 +953,8 @@ pub struct ICurrencyFormatter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -992,8 +992,8 @@ pub struct ICurrencyFormatterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, currencycode: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, currencycode: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, languages: ::windows::runtime::RawPtr, geographicregion: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, currencycode: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, currencycode: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, languages: ::windows::runtime::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
@@ -1012,7 +1012,7 @@ pub struct IDecimalFormatterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languages: ::windows::runtime::RawPtr, geographicregion: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languages: ::windows::runtime::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
@@ -1037,7 +1037,7 @@ pub struct IIncrementNumberRounder_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 pub struct INumberFormatter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberFormatter {
@@ -1049,36 +1049,36 @@ impl INumberFormatter {
     pub fn FormatInt(&self, value: i64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatUInt(&self, value: u64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatDouble(&self, value: f64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INumberFormatter {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a5007c49-7676-4db7-8631-1b6ff265caa9}");
 }
-impl ::std::convert::From<INumberFormatter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INumberFormatter> for ::windows::runtime::IUnknown {
     fn from(value: INumberFormatter) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INumberFormatter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INumberFormatter> for ::windows::runtime::IUnknown {
     fn from(value: &INumberFormatter) -> Self {
         value.0 .0.clone()
     }
@@ -1093,12 +1093,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INumberFormatter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INumberFormatter> for ::windows::runtime::IInspectable {
     fn from(value: INumberFormatter) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INumberFormatter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INumberFormatter> for ::windows::runtime::IInspectable {
     fn from(value: &INumberFormatter) -> Self {
         value.0.clone()
     }
@@ -1122,12 +1122,12 @@ pub struct INumberFormatter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i64, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u64, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i64, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u64, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 pub struct INumberFormatter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberFormatter2 {
@@ -1139,36 +1139,36 @@ impl INumberFormatter2 {
     pub fn FormatInt(&self, value: i64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatUInt(&self, value: u64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatDouble(&self, value: f64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INumberFormatter2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{d4a8c1f0-80d0-4b0d-a89e-882c1e8f8310}");
 }
-impl ::std::convert::From<INumberFormatter2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INumberFormatter2> for ::windows::runtime::IUnknown {
     fn from(value: INumberFormatter2) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INumberFormatter2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INumberFormatter2> for ::windows::runtime::IUnknown {
     fn from(value: &INumberFormatter2) -> Self {
         value.0 .0.clone()
     }
@@ -1183,12 +1183,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INumberFormatter2> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INumberFormatter2> for ::windows::runtime::IInspectable {
     fn from(value: INumberFormatter2) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INumberFormatter2> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INumberFormatter2> for ::windows::runtime::IInspectable {
     fn from(value: &INumberFormatter2) -> Self {
         value.0.clone()
     }
@@ -1212,12 +1212,12 @@ pub struct INumberFormatter2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i64, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u64, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i64, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u64, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 pub struct INumberFormatterOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberFormatterOptions {
@@ -1230,109 +1230,109 @@ impl INumberFormatterOptions {
     pub fn Languages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn GeographicRegion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IntegerDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIntegerDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FractionDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetFractionDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IsGrouped(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsGrouped(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IsDecimalPointAlwaysDisplayed(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsDecimalPointAlwaysDisplayed(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn NumeralSystem(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetNumeralSystem<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn ResolvedLanguage(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn ResolvedGeographicRegion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INumberFormatterOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{80332d21-aee1-4a39-baa2-07ed8c96daf6}");
 }
-impl ::std::convert::From<INumberFormatterOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INumberFormatterOptions> for ::windows::runtime::IUnknown {
     fn from(value: INumberFormatterOptions) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INumberFormatterOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INumberFormatterOptions> for ::windows::runtime::IUnknown {
     fn from(value: &INumberFormatterOptions) -> Self {
         value.0 .0.clone()
     }
@@ -1347,12 +1347,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INumberFormatterOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INumberFormatterOptions> for ::windows::runtime::IInspectable {
     fn from(value: INumberFormatterOptions) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INumberFormatterOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INumberFormatterOptions> for ::windows::runtime::IInspectable {
     fn from(value: &INumberFormatterOptions) -> Self {
         value.0.clone()
     }
@@ -1378,7 +1378,7 @@ pub struct INumberFormatterOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
@@ -1387,13 +1387,13 @@ pub struct INumberFormatterOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 pub struct INumberParser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberParser {
@@ -1406,8 +1406,8 @@ impl INumberParser {
     pub fn ParseInt<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<i64>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<i64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<i64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1415,8 +1415,8 @@ impl INumberParser {
     pub fn ParseUInt<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<u64>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<u64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1424,20 +1424,20 @@ impl INumberParser {
     pub fn ParseDouble<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INumberParser {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e6659412-4a13-4a53-83a1-392fbe4cff9f}");
 }
-impl ::std::convert::From<INumberParser> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INumberParser> for ::windows::runtime::IUnknown {
     fn from(value: INumberParser) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INumberParser> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INumberParser> for ::windows::runtime::IUnknown {
     fn from(value: &INumberParser) -> Self {
         value.0 .0.clone()
     }
@@ -1452,12 +1452,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INumberParser> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INumberParser> for ::windows::runtime::IInspectable {
     fn from(value: INumberParser) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INumberParser> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INumberParser> for ::windows::runtime::IInspectable {
     fn from(value: &INumberParser) -> Self {
         value.0.clone()
     }
@@ -1481,15 +1481,15 @@ pub struct INumberParser_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 pub struct INumberRounder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberRounder {
@@ -1501,60 +1501,60 @@ impl INumberRounder {
     pub fn RoundInt32(&self, value: i32) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundUInt32(&self, value: u32) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundInt64(&self, value: i64) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__: i64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<i64>(result__)
+            let mut result__: i64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundUInt64(&self, value: u64) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundSingle(&self, value: f32) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<f32>(result__)
+            let mut result__: f32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundDouble(&self, value: f64) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<f64>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INumberRounder {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{5473c375-38ed-4631-b80c-ef34fc48b7f5}");
 }
-impl ::std::convert::From<INumberRounder> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INumberRounder> for ::windows::runtime::IUnknown {
     fn from(value: INumberRounder) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INumberRounder> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INumberRounder> for ::windows::runtime::IUnknown {
     fn from(value: &INumberRounder) -> Self {
         value.0 .0.clone()
     }
@@ -1569,12 +1569,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INumberRounder> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INumberRounder> for ::windows::runtime::IInspectable {
     fn from(value: INumberRounder) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INumberRounder> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INumberRounder> for ::windows::runtime::IInspectable {
     fn from(value: &INumberRounder) -> Self {
         value.0.clone()
     }
@@ -1606,7 +1606,7 @@ pub struct INumberRounder_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 pub struct INumberRounderOption(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberRounderOption {
@@ -1618,25 +1618,25 @@ impl INumberRounderOption {
     pub fn NumberRounder(&self) -> ::windows::runtime::Result<INumberRounder> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<INumberRounder>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<INumberRounder>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetNumberRounder<'a, Param0: ::windows::runtime::IntoParam<'a, INumberRounder>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INumberRounderOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{3b088433-646f-4efe-8d48-66eb2e49e736}");
 }
-impl ::std::convert::From<INumberRounderOption> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INumberRounderOption> for ::windows::runtime::IUnknown {
     fn from(value: INumberRounderOption) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INumberRounderOption> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INumberRounderOption> for ::windows::runtime::IUnknown {
     fn from(value: &INumberRounderOption) -> Self {
         value.0 .0.clone()
     }
@@ -1651,12 +1651,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INumberRounderOption> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INumberRounderOption> for ::windows::runtime::IInspectable {
     fn from(value: INumberRounderOption) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INumberRounderOption> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INumberRounderOption> for ::windows::runtime::IInspectable {
     fn from(value: &INumberRounderOption) -> Self {
         value.0.clone()
     }
@@ -1701,10 +1701,10 @@ pub struct INumeralSystemTranslator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -1741,7 +1741,7 @@ pub struct IPercentFormatterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languages: ::windows::runtime::RawPtr, geographicregion: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languages: ::windows::runtime::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
@@ -1760,11 +1760,11 @@ pub struct IPermilleFormatterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languages: ::windows::runtime::RawPtr, geographicregion: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languages: ::windows::runtime::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 pub struct ISignedZeroOption(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignedZeroOption {
@@ -1776,25 +1776,25 @@ impl ISignedZeroOption {
     pub fn IsZeroSigned(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsZeroSigned(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ISignedZeroOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{fd1cdd31-0a3c-49c4-a642-96a1564f4f30}");
 }
-impl ::std::convert::From<ISignedZeroOption> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISignedZeroOption> for ::windows::runtime::IUnknown {
     fn from(value: ISignedZeroOption) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ISignedZeroOption> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISignedZeroOption> for ::windows::runtime::IUnknown {
     fn from(value: &ISignedZeroOption) -> Self {
         value.0 .0.clone()
     }
@@ -1809,12 +1809,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ISignedZeroOption> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ISignedZeroOption> for ::windows::runtime::IInspectable {
     fn from(value: ISignedZeroOption) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ISignedZeroOption> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ISignedZeroOption> for ::windows::runtime::IInspectable {
     fn from(value: &ISignedZeroOption) -> Self {
         value.0.clone()
     }
@@ -1863,7 +1863,7 @@ pub struct ISignificantDigitsNumberRounder_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 pub struct ISignificantDigitsOption(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignificantDigitsOption {
@@ -1875,25 +1875,25 @@ impl ISignificantDigitsOption {
     pub fn SignificantDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetSignificantDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ISignificantDigitsOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1d4dfcdd-2d43-4ee8-bbf1-c1b26a711a58}");
 }
-impl ::std::convert::From<ISignificantDigitsOption> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISignificantDigitsOption> for ::windows::runtime::IUnknown {
     fn from(value: ISignificantDigitsOption) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ISignificantDigitsOption> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISignificantDigitsOption> for ::windows::runtime::IUnknown {
     fn from(value: &ISignificantDigitsOption) -> Self {
         value.0 .0.clone()
     }
@@ -1908,12 +1908,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ISignificantDigitsOption> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ISignificantDigitsOption> for ::windows::runtime::IInspectable {
     fn from(value: ISignificantDigitsOption) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ISignificantDigitsOption> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ISignificantDigitsOption> for ::windows::runtime::IInspectable {
     fn from(value: &ISignificantDigitsOption) -> Self {
         value.0.clone()
     }
@@ -1942,7 +1942,7 @@ pub struct ISignificantDigitsOption_abi(
 );
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IncrementNumberRounder(pub ::windows::runtime::IInspectable);
 impl IncrementNumberRounder {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1956,75 +1956,75 @@ impl IncrementNumberRounder {
     pub fn RoundInt32(&self, value: i32) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundUInt32(&self, value: u32) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundInt64(&self, value: i64) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__: i64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<i64>(result__)
+            let mut result__: i64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundUInt64(&self, value: u64) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundSingle(&self, value: f32) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<f32>(result__)
+            let mut result__: f32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundDouble(&self, value: f64) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundingAlgorithm(&self) -> ::windows::runtime::Result<RoundingAlgorithm> {
         let this = &::windows::runtime::Interface::cast::<IIncrementNumberRounder>(self)?;
         unsafe {
-            let mut result__: RoundingAlgorithm = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<RoundingAlgorithm>(result__)
+            let mut result__: RoundingAlgorithm = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RoundingAlgorithm>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetRoundingAlgorithm(&self, value: RoundingAlgorithm) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IIncrementNumberRounder>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn Increment(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IIncrementNumberRounder>(self)?;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIncrement(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IIncrementNumberRounder>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IncrementNumberRounder {
@@ -2037,12 +2037,12 @@ unsafe impl ::windows::runtime::Interface for IncrementNumberRounder {
 impl ::windows::runtime::RuntimeName for IncrementNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.IncrementNumberRounder";
 }
-impl ::std::convert::From<IncrementNumberRounder> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IncrementNumberRounder> for ::windows::runtime::IUnknown {
     fn from(value: IncrementNumberRounder) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IncrementNumberRounder> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IncrementNumberRounder> for ::windows::runtime::IUnknown {
     fn from(value: &IncrementNumberRounder) -> Self {
         value.0 .0.clone()
     }
@@ -2057,12 +2057,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IncrementNumberRounder> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IncrementNumberRounder> for ::windows::runtime::IInspectable {
     fn from(value: IncrementNumberRounder) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IncrementNumberRounder> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IncrementNumberRounder> for ::windows::runtime::IInspectable {
     fn from(value: &IncrementNumberRounder) -> Self {
         value.0.clone()
     }
@@ -2077,31 +2077,31 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IncrementNumberRounder> for INumberRounder {
+impl ::core::convert::From<IncrementNumberRounder> for INumberRounder {
     fn from(value: IncrementNumberRounder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IncrementNumberRounder> for INumberRounder {
+impl ::core::convert::From<&IncrementNumberRounder> for INumberRounder {
     fn from(value: &IncrementNumberRounder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberRounder> for IncrementNumberRounder {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberRounder> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberRounder> for &IncrementNumberRounder {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberRounder> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::std::marker::Send for IncrementNumberRounder {}
-unsafe impl ::std::marker::Sync for IncrementNumberRounder {}
+unsafe impl ::core::marker::Send for IncrementNumberRounder {}
+unsafe impl ::core::marker::Sync for IncrementNumberRounder {}
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct NumeralSystemTranslator(pub ::windows::runtime::IInspectable);
 impl NumeralSystemTranslator {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2116,45 +2116,45 @@ impl NumeralSystemTranslator {
     pub fn Languages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn ResolvedLanguage(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn NumeralSystem(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetNumeralSystem<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn TranslateNumerals<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Globalization_NumberFormatting`, `Foundation_Collections`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(languages: Param0) -> ::windows::runtime::Result<NumeralSystemTranslator> {
         Self::INumeralSystemTranslatorFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), languages.into_param().abi(), &mut result__).from_abi::<NumeralSystemTranslator>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), languages.into_param().abi(), &mut result__).from_abi::<NumeralSystemTranslator>(result__)
         })
     }
     pub fn INumeralSystemTranslatorFactory<R, F: FnOnce(&INumeralSystemTranslatorFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -2172,12 +2172,12 @@ unsafe impl ::windows::runtime::Interface for NumeralSystemTranslator {
 impl ::windows::runtime::RuntimeName for NumeralSystemTranslator {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.NumeralSystemTranslator";
 }
-impl ::std::convert::From<NumeralSystemTranslator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<NumeralSystemTranslator> for ::windows::runtime::IUnknown {
     fn from(value: NumeralSystemTranslator) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&NumeralSystemTranslator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&NumeralSystemTranslator> for ::windows::runtime::IUnknown {
     fn from(value: &NumeralSystemTranslator) -> Self {
         value.0 .0.clone()
     }
@@ -2192,12 +2192,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<NumeralSystemTranslator> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<NumeralSystemTranslator> for ::windows::runtime::IInspectable {
     fn from(value: NumeralSystemTranslator) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&NumeralSystemTranslator> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&NumeralSystemTranslator> for ::windows::runtime::IInspectable {
     fn from(value: &NumeralSystemTranslator) -> Self {
         value.0.clone()
     }
@@ -2212,11 +2212,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for NumeralSystemTranslator {}
-unsafe impl ::std::marker::Sync for NumeralSystemTranslator {}
+unsafe impl ::core::marker::Send for NumeralSystemTranslator {}
+unsafe impl ::core::marker::Sync for NumeralSystemTranslator {}
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PercentFormatter(pub ::windows::runtime::IInspectable);
 impl PercentFormatter {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2230,48 +2230,48 @@ impl PercentFormatter {
     pub fn FormatInt(&self, value: i64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatUInt(&self, value: u64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatDouble(&self, value: f64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatInt2(&self, value: i64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatUInt2(&self, value: u64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatDouble2(&self, value: f64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2279,97 +2279,97 @@ impl PercentFormatter {
     pub fn Languages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn GeographicRegion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IntegerDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIntegerDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FractionDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetFractionDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IsGrouped(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsGrouped(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IsDecimalPointAlwaysDisplayed(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsDecimalPointAlwaysDisplayed(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn NumeralSystem(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetNumeralSystem<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn ResolvedLanguage(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn ResolvedGeographicRegion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2377,8 +2377,8 @@ impl PercentFormatter {
     pub fn ParseInt<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<i64>> {
         let this = &::windows::runtime::Interface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<i64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<i64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2386,8 +2386,8 @@ impl PercentFormatter {
     pub fn ParseUInt<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<u64>> {
         let this = &::windows::runtime::Interface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<u64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2395,55 +2395,55 @@ impl PercentFormatter {
     pub fn ParseDouble<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows::runtime::Interface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn NumberRounder(&self) -> ::windows::runtime::Result<INumberRounder> {
         let this = &::windows::runtime::Interface::cast::<INumberRounderOption>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<INumberRounder>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<INumberRounder>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetNumberRounder<'a, Param0: ::windows::runtime::IntoParam<'a, INumberRounder>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberRounderOption>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IsZeroSigned(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISignedZeroOption>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsZeroSigned(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISignedZeroOption>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SignificantDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ISignificantDigitsOption>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetSignificantDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISignificantDigitsOption>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Globalization_NumberFormatting`, `Foundation_Collections`*"]
     pub fn CreatePercentFormatter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(languages: Param0, geographicregion: Param1) -> ::windows::runtime::Result<PercentFormatter> {
         Self::IPercentFormatterFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), languages.into_param().abi(), geographicregion.into_param().abi(), &mut result__).from_abi::<PercentFormatter>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), languages.into_param().abi(), geographicregion.into_param().abi(), &mut result__).from_abi::<PercentFormatter>(result__)
         })
     }
     pub fn IPercentFormatterFactory<R, F: FnOnce(&IPercentFormatterFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -2461,12 +2461,12 @@ unsafe impl ::windows::runtime::Interface for PercentFormatter {
 impl ::windows::runtime::RuntimeName for PercentFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.PercentFormatter";
 }
-impl ::std::convert::From<PercentFormatter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PercentFormatter> for ::windows::runtime::IUnknown {
     fn from(value: PercentFormatter) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PercentFormatter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PercentFormatter> for ::windows::runtime::IUnknown {
     fn from(value: &PercentFormatter) -> Self {
         value.0 .0.clone()
     }
@@ -2481,12 +2481,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PercentFormatter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PercentFormatter> for ::windows::runtime::IInspectable {
     fn from(value: PercentFormatter) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PercentFormatter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PercentFormatter> for ::windows::runtime::IInspectable {
     fn from(value: &PercentFormatter) -> Self {
         value.0.clone()
     }
@@ -2501,33 +2501,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<PercentFormatter> for INumberFormatter {
+impl ::core::convert::From<PercentFormatter> for INumberFormatter {
     fn from(value: PercentFormatter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&PercentFormatter> for INumberFormatter {
+impl ::core::convert::From<&PercentFormatter> for INumberFormatter {
     fn from(value: &PercentFormatter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter> for PercentFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter> for &PercentFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::TryFrom<PercentFormatter> for INumberFormatter2 {
+impl ::core::convert::TryFrom<PercentFormatter> for INumberFormatter2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PercentFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PercentFormatter> for INumberFormatter2 {
+impl ::core::convert::TryFrom<&PercentFormatter> for INumberFormatter2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PercentFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2540,16 +2540,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter2> for PercentFormatt
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter2> for &PercentFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter2> {
-        ::std::convert::TryInto::<INumberFormatter2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberFormatter2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PercentFormatter> for INumberFormatterOptions {
+impl ::core::convert::TryFrom<PercentFormatter> for INumberFormatterOptions {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PercentFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PercentFormatter> for INumberFormatterOptions {
+impl ::core::convert::TryFrom<&PercentFormatter> for INumberFormatterOptions {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PercentFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2562,16 +2562,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatterOptions> for PercentF
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatterOptions> for &PercentFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatterOptions> {
-        ::std::convert::TryInto::<INumberFormatterOptions>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberFormatterOptions>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PercentFormatter> for INumberParser {
+impl ::core::convert::TryFrom<PercentFormatter> for INumberParser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PercentFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PercentFormatter> for INumberParser {
+impl ::core::convert::TryFrom<&PercentFormatter> for INumberParser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PercentFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2584,16 +2584,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberParser> for PercentFormatter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberParser> for &PercentFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberParser> {
-        ::std::convert::TryInto::<INumberParser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberParser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PercentFormatter> for INumberRounderOption {
+impl ::core::convert::TryFrom<PercentFormatter> for INumberRounderOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PercentFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PercentFormatter> for INumberRounderOption {
+impl ::core::convert::TryFrom<&PercentFormatter> for INumberRounderOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PercentFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2606,16 +2606,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberRounderOption> for PercentForm
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberRounderOption> for &PercentFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberRounderOption> {
-        ::std::convert::TryInto::<INumberRounderOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberRounderOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PercentFormatter> for ISignedZeroOption {
+impl ::core::convert::TryFrom<PercentFormatter> for ISignedZeroOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PercentFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PercentFormatter> for ISignedZeroOption {
+impl ::core::convert::TryFrom<&PercentFormatter> for ISignedZeroOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PercentFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2628,16 +2628,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISignedZeroOption> for PercentFormatt
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISignedZeroOption> for &PercentFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISignedZeroOption> {
-        ::std::convert::TryInto::<ISignedZeroOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<ISignedZeroOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PercentFormatter> for ISignificantDigitsOption {
+impl ::core::convert::TryFrom<PercentFormatter> for ISignificantDigitsOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PercentFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PercentFormatter> for ISignificantDigitsOption {
+impl ::core::convert::TryFrom<&PercentFormatter> for ISignificantDigitsOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PercentFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2650,14 +2650,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISignificantDigitsOption> for Percent
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISignificantDigitsOption> for &PercentFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISignificantDigitsOption> {
-        ::std::convert::TryInto::<ISignificantDigitsOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<ISignificantDigitsOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for PercentFormatter {}
-unsafe impl ::std::marker::Sync for PercentFormatter {}
+unsafe impl ::core::marker::Send for PercentFormatter {}
+unsafe impl ::core::marker::Sync for PercentFormatter {}
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PermilleFormatter(pub ::windows::runtime::IInspectable);
 impl PermilleFormatter {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2671,48 +2671,48 @@ impl PermilleFormatter {
     pub fn FormatInt(&self, value: i64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatUInt(&self, value: u64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatDouble(&self, value: f64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatInt2(&self, value: i64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatUInt2(&self, value: u64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FormatDouble2(&self, value: f64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2720,97 +2720,97 @@ impl PermilleFormatter {
     pub fn Languages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn GeographicRegion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IntegerDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIntegerDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn FractionDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetFractionDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IsGrouped(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsGrouped(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IsDecimalPointAlwaysDisplayed(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsDecimalPointAlwaysDisplayed(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn NumeralSystem(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetNumeralSystem<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn ResolvedLanguage(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn ResolvedGeographicRegion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2818,8 +2818,8 @@ impl PermilleFormatter {
     pub fn ParseInt<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<i64>> {
         let this = &::windows::runtime::Interface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<i64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<i64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2827,8 +2827,8 @@ impl PermilleFormatter {
     pub fn ParseUInt<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<u64>> {
         let this = &::windows::runtime::Interface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<u64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2836,55 +2836,55 @@ impl PermilleFormatter {
     pub fn ParseDouble<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows::runtime::Interface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn NumberRounder(&self) -> ::windows::runtime::Result<INumberRounder> {
         let this = &::windows::runtime::Interface::cast::<INumberRounderOption>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<INumberRounder>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<INumberRounder>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetNumberRounder<'a, Param0: ::windows::runtime::IntoParam<'a, INumberRounder>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INumberRounderOption>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn IsZeroSigned(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISignedZeroOption>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetIsZeroSigned(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISignedZeroOption>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SignificantDigits(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ISignificantDigitsOption>(self)?;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetSignificantDigits(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISignificantDigitsOption>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Globalization_NumberFormatting`, `Foundation_Collections`*"]
     pub fn CreatePermilleFormatter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(languages: Param0, geographicregion: Param1) -> ::windows::runtime::Result<PermilleFormatter> {
         Self::IPermilleFormatterFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), languages.into_param().abi(), geographicregion.into_param().abi(), &mut result__).from_abi::<PermilleFormatter>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), languages.into_param().abi(), geographicregion.into_param().abi(), &mut result__).from_abi::<PermilleFormatter>(result__)
         })
     }
     pub fn IPermilleFormatterFactory<R, F: FnOnce(&IPermilleFormatterFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -2902,12 +2902,12 @@ unsafe impl ::windows::runtime::Interface for PermilleFormatter {
 impl ::windows::runtime::RuntimeName for PermilleFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.PermilleFormatter";
 }
-impl ::std::convert::From<PermilleFormatter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PermilleFormatter> for ::windows::runtime::IUnknown {
     fn from(value: PermilleFormatter) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PermilleFormatter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PermilleFormatter> for ::windows::runtime::IUnknown {
     fn from(value: &PermilleFormatter) -> Self {
         value.0 .0.clone()
     }
@@ -2922,12 +2922,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PermilleFormatter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PermilleFormatter> for ::windows::runtime::IInspectable {
     fn from(value: PermilleFormatter) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PermilleFormatter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PermilleFormatter> for ::windows::runtime::IInspectable {
     fn from(value: &PermilleFormatter) -> Self {
         value.0.clone()
     }
@@ -2942,33 +2942,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<PermilleFormatter> for INumberFormatter {
+impl ::core::convert::From<PermilleFormatter> for INumberFormatter {
     fn from(value: PermilleFormatter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&PermilleFormatter> for INumberFormatter {
+impl ::core::convert::From<&PermilleFormatter> for INumberFormatter {
     fn from(value: &PermilleFormatter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter> for PermilleFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter> for &PermilleFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::TryFrom<PermilleFormatter> for INumberFormatter2 {
+impl ::core::convert::TryFrom<PermilleFormatter> for INumberFormatter2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PermilleFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PermilleFormatter> for INumberFormatter2 {
+impl ::core::convert::TryFrom<&PermilleFormatter> for INumberFormatter2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PermilleFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2981,16 +2981,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter2> for PermilleFormat
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter2> for &PermilleFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter2> {
-        ::std::convert::TryInto::<INumberFormatter2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberFormatter2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PermilleFormatter> for INumberFormatterOptions {
+impl ::core::convert::TryFrom<PermilleFormatter> for INumberFormatterOptions {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PermilleFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PermilleFormatter> for INumberFormatterOptions {
+impl ::core::convert::TryFrom<&PermilleFormatter> for INumberFormatterOptions {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PermilleFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3003,16 +3003,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatterOptions> for Permille
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatterOptions> for &PermilleFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatterOptions> {
-        ::std::convert::TryInto::<INumberFormatterOptions>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberFormatterOptions>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PermilleFormatter> for INumberParser {
+impl ::core::convert::TryFrom<PermilleFormatter> for INumberParser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PermilleFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PermilleFormatter> for INumberParser {
+impl ::core::convert::TryFrom<&PermilleFormatter> for INumberParser {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PermilleFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3025,16 +3025,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberParser> for PermilleFormatter 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberParser> for &PermilleFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberParser> {
-        ::std::convert::TryInto::<INumberParser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberParser>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PermilleFormatter> for INumberRounderOption {
+impl ::core::convert::TryFrom<PermilleFormatter> for INumberRounderOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PermilleFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PermilleFormatter> for INumberRounderOption {
+impl ::core::convert::TryFrom<&PermilleFormatter> for INumberRounderOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PermilleFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3047,16 +3047,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, INumberRounderOption> for PermilleFor
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberRounderOption> for &PermilleFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberRounderOption> {
-        ::std::convert::TryInto::<INumberRounderOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<INumberRounderOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PermilleFormatter> for ISignedZeroOption {
+impl ::core::convert::TryFrom<PermilleFormatter> for ISignedZeroOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PermilleFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PermilleFormatter> for ISignedZeroOption {
+impl ::core::convert::TryFrom<&PermilleFormatter> for ISignedZeroOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PermilleFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3069,16 +3069,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISignedZeroOption> for PermilleFormat
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISignedZeroOption> for &PermilleFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISignedZeroOption> {
-        ::std::convert::TryInto::<ISignedZeroOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<ISignedZeroOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PermilleFormatter> for ISignificantDigitsOption {
+impl ::core::convert::TryFrom<PermilleFormatter> for ISignificantDigitsOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PermilleFormatter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PermilleFormatter> for ISignificantDigitsOption {
+impl ::core::convert::TryFrom<&PermilleFormatter> for ISignificantDigitsOption {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PermilleFormatter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3091,13 +3091,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISignificantDigitsOption> for Permill
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISignificantDigitsOption> for &PermilleFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISignificantDigitsOption> {
-        ::std::convert::TryInto::<ISignificantDigitsOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<ISignificantDigitsOption>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for PermilleFormatter {}
-unsafe impl ::std::marker::Sync for PermilleFormatter {}
+unsafe impl ::core::marker::Send for PermilleFormatter {}
+unsafe impl ::core::marker::Sync for PermilleFormatter {}
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RoundingAlgorithm(pub i32);
 impl RoundingAlgorithm {
@@ -3113,7 +3113,7 @@ impl RoundingAlgorithm {
     pub const RoundHalfToEven: RoundingAlgorithm = RoundingAlgorithm(9i32);
     pub const RoundHalfToOdd: RoundingAlgorithm = RoundingAlgorithm(10i32);
 }
-impl ::std::convert::From<i32> for RoundingAlgorithm {
+impl ::core::convert::From<i32> for RoundingAlgorithm {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3129,7 +3129,7 @@ impl ::windows::runtime::DefaultType for RoundingAlgorithm {
 }
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SignificantDigitsNumberRounder(pub ::windows::runtime::IInspectable);
 impl SignificantDigitsNumberRounder {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3143,75 +3143,75 @@ impl SignificantDigitsNumberRounder {
     pub fn RoundInt32(&self, value: i32) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundUInt32(&self, value: u32) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundInt64(&self, value: i64) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__: i64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<i64>(result__)
+            let mut result__: i64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundUInt64(&self, value: u64) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundSingle(&self, value: f32) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<f32>(result__)
+            let mut result__: f32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundDouble(&self, value: f64) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn RoundingAlgorithm(&self) -> ::windows::runtime::Result<RoundingAlgorithm> {
         let this = &::windows::runtime::Interface::cast::<ISignificantDigitsNumberRounder>(self)?;
         unsafe {
-            let mut result__: RoundingAlgorithm = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<RoundingAlgorithm>(result__)
+            let mut result__: RoundingAlgorithm = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RoundingAlgorithm>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetRoundingAlgorithm(&self, value: RoundingAlgorithm) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISignificantDigitsNumberRounder>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SignificantDigits(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<ISignificantDigitsNumberRounder>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn SetSignificantDigits(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISignificantDigitsNumberRounder>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for SignificantDigitsNumberRounder {
@@ -3224,12 +3224,12 @@ unsafe impl ::windows::runtime::Interface for SignificantDigitsNumberRounder {
 impl ::windows::runtime::RuntimeName for SignificantDigitsNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder";
 }
-impl ::std::convert::From<SignificantDigitsNumberRounder> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SignificantDigitsNumberRounder> for ::windows::runtime::IUnknown {
     fn from(value: SignificantDigitsNumberRounder) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SignificantDigitsNumberRounder> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SignificantDigitsNumberRounder> for ::windows::runtime::IUnknown {
     fn from(value: &SignificantDigitsNumberRounder) -> Self {
         value.0 .0.clone()
     }
@@ -3244,12 +3244,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SignificantDigitsNumberRounder> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SignificantDigitsNumberRounder> for ::windows::runtime::IInspectable {
     fn from(value: SignificantDigitsNumberRounder) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SignificantDigitsNumberRounder> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SignificantDigitsNumberRounder> for ::windows::runtime::IInspectable {
     fn from(value: &SignificantDigitsNumberRounder) -> Self {
         value.0.clone()
     }
@@ -3264,25 +3264,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<SignificantDigitsNumberRounder> for INumberRounder {
+impl ::core::convert::From<SignificantDigitsNumberRounder> for INumberRounder {
     fn from(value: SignificantDigitsNumberRounder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&SignificantDigitsNumberRounder> for INumberRounder {
+impl ::core::convert::From<&SignificantDigitsNumberRounder> for INumberRounder {
     fn from(value: &SignificantDigitsNumberRounder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberRounder> for SignificantDigitsNumberRounder {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberRounder> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberRounder> for &SignificantDigitsNumberRounder {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberRounder> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::std::marker::Send for SignificantDigitsNumberRounder {}
-unsafe impl ::std::marker::Sync for SignificantDigitsNumberRounder {}
+unsafe impl ::core::marker::Send for SignificantDigitsNumberRounder {}
+unsafe impl ::core::marker::Sync for SignificantDigitsNumberRounder {}

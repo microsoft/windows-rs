@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -10,24 +10,24 @@ pub struct CONVERT_A {
 #[cfg(feature = "Win32_Foundation")]
 impl CONVERT_A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CONVERT_A {
+impl ::core::default::Default for CONVERT_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CONVERT_A {
+impl ::core::cmp::PartialEq for CONVERT_A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CONVERT_A {}
+impl ::core::cmp::Eq for CONVERT_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONVERT_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union CONVERT_A_0 {
@@ -37,24 +37,24 @@ pub union CONVERT_A_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl CONVERT_A_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CONVERT_A_0 {
+impl ::core::default::Default for CONVERT_A_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CONVERT_A_0 {
+impl ::core::cmp::PartialEq for CONVERT_A_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CONVERT_A_0 {}
+impl ::core::cmp::Eq for CONVERT_A_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONVERT_A_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONVERT_A_0_0 {
@@ -63,30 +63,30 @@ pub struct CONVERT_A_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl CONVERT_A_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CONVERT_A_0_0 {
+impl ::core::default::Default for CONVERT_A_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CONVERT_A_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CONVERT_A_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CONVERT_A_0_0 {
+impl ::core::cmp::PartialEq for CONVERT_A_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CONVERT_A_0_0 {}
+impl ::core::cmp::Eq for CONVERT_A_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONVERT_A_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -97,24 +97,24 @@ pub struct CONVERT_W {
 #[cfg(feature = "Win32_Foundation")]
 impl CONVERT_W {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CONVERT_W {
+impl ::core::default::Default for CONVERT_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CONVERT_W {
+impl ::core::cmp::PartialEq for CONVERT_W {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CONVERT_W {}
+impl ::core::cmp::Eq for CONVERT_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONVERT_W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union CONVERT_W_0 {
@@ -124,24 +124,24 @@ pub union CONVERT_W_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl CONVERT_W_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CONVERT_W_0 {
+impl ::core::default::Default for CONVERT_W_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CONVERT_W_0 {
+impl ::core::cmp::PartialEq for CONVERT_W_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CONVERT_W_0 {}
+impl ::core::cmp::Eq for CONVERT_W_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONVERT_W_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONVERT_W_0_0 {
@@ -150,32 +150,32 @@ pub struct CONVERT_W_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl CONVERT_W_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CONVERT_W_0_0 {
+impl ::core::default::Default for CONVERT_W_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CONVERT_W_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CONVERT_W_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CONVERT_W_0_0 {
+impl ::core::cmp::PartialEq for CONVERT_W_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CONVERT_W_0_0 {}
+impl ::core::cmp::Eq for CONVERT_W_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONVERT_W_0_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_BASE_NAME_LENGTH: u32 = 3u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -188,24 +188,24 @@ pub struct JET_BKINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_BKINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_BKINFO {
+impl ::core::default::Default for JET_BKINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_BKINFO {
+impl ::core::cmp::PartialEq for JET_BKINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_BKINFO {}
+impl ::core::cmp::Eq for JET_BKINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_BKINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_BKINFO_0 {
@@ -215,24 +215,24 @@ pub union JET_BKINFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_BKINFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_BKINFO_0 {
+impl ::core::default::Default for JET_BKINFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_BKINFO_0 {
+impl ::core::cmp::PartialEq for JET_BKINFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_BKINFO_0 {}
+impl ::core::cmp::Eq for JET_BKINFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_BKINFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -249,24 +249,24 @@ pub struct JET_BKLOGTIME {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_BKLOGTIME {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_BKLOGTIME {
+impl ::core::default::Default for JET_BKLOGTIME {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_BKLOGTIME {
+impl ::core::cmp::PartialEq for JET_BKLOGTIME {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_BKLOGTIME {}
+impl ::core::cmp::Eq for JET_BKLOGTIME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_BKLOGTIME_0 {
@@ -276,24 +276,24 @@ pub union JET_BKLOGTIME_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_BKLOGTIME_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_BKLOGTIME_0 {
+impl ::core::default::Default for JET_BKLOGTIME_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_BKLOGTIME_0 {
+impl ::core::cmp::PartialEq for JET_BKLOGTIME_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_BKLOGTIME_0 {}
+impl ::core::cmp::Eq for JET_BKLOGTIME_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKLOGTIME_0_0 {
@@ -302,30 +302,30 @@ pub struct JET_BKLOGTIME_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_BKLOGTIME_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_BKLOGTIME_0_0 {
+impl ::core::default::Default for JET_BKLOGTIME_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_BKLOGTIME_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_BKLOGTIME_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_BKLOGTIME_0_0 {
+impl ::core::cmp::PartialEq for JET_BKLOGTIME_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_BKLOGTIME_0_0 {}
+impl ::core::cmp::Eq for JET_BKLOGTIME_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_BKLOGTIME_1 {
@@ -335,24 +335,24 @@ pub union JET_BKLOGTIME_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_BKLOGTIME_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_BKLOGTIME_1 {
+impl ::core::default::Default for JET_BKLOGTIME_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_BKLOGTIME_1 {
+impl ::core::cmp::PartialEq for JET_BKLOGTIME_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_BKLOGTIME_1 {}
+impl ::core::cmp::Eq for JET_BKLOGTIME_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKLOGTIME_1_0 {
@@ -361,33 +361,33 @@ pub struct JET_BKLOGTIME_1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_BKLOGTIME_1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_BKLOGTIME_1_0 {
+impl ::core::default::Default for JET_BKLOGTIME_1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_BKLOGTIME_1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_BKLOGTIME_1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_BKLOGTIME_1_0 {
+impl ::core::cmp::PartialEq for JET_BKLOGTIME_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_BKLOGTIME_1_0 {}
+impl ::core::cmp::Eq for JET_BKLOGTIME_1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME_1_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-pub type JET_CALLBACK = unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, dbid: u32, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pvarg1: *mut ::std::ffi::c_void, pvarg2: *mut ::std::ffi::c_void, pvcontext: *const ::std::ffi::c_void, ulunused: super::StructuredStorage::JET_API_PTR) -> i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type JET_CALLBACK = unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, dbid: u32, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pvarg1: *mut ::core::ffi::c_void, pvarg2: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, ulunused: super::StructuredStorage::JET_API_PTR) -> i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -407,14 +407,14 @@ pub struct JET_COLUMNBASE_A {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_COLUMNBASE_A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_COLUMNBASE_A {
+impl ::core::default::Default for JET_COLUMNBASE_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_COLUMNBASE_A {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_COLUMNBASE_A {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_COLUMNBASE_A")
             .field("cbStruct", &self.cbStruct)
             .field("columnid", &self.columnid)
@@ -431,18 +431,18 @@ impl ::std::fmt::Debug for JET_COLUMNBASE_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_COLUMNBASE_A {
+impl ::core::cmp::PartialEq for JET_COLUMNBASE_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.columnid == other.columnid && self.coltyp == other.coltyp && self.wCountry == other.wCountry && self.langid == other.langid && self.cp == other.cp && self.wFiller == other.wFiller && self.cbMax == other.cbMax && self.grbit == other.grbit && self.szBaseTableName == other.szBaseTableName && self.szBaseColumnName == other.szBaseColumnName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_COLUMNBASE_A {}
+impl ::core::cmp::Eq for JET_COLUMNBASE_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_COLUMNBASE_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_COLUMNBASE_W {
@@ -459,13 +459,13 @@ pub struct JET_COLUMNBASE_W {
     pub szBaseColumnName: [u16; 256],
 }
 impl JET_COLUMNBASE_W {}
-impl ::std::default::Default for JET_COLUMNBASE_W {
+impl ::core::default::Default for JET_COLUMNBASE_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_COLUMNBASE_W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_COLUMNBASE_W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_COLUMNBASE_W")
             .field("cbStruct", &self.cbStruct)
             .field("columnid", &self.columnid)
@@ -481,16 +481,16 @@ impl ::std::fmt::Debug for JET_COLUMNBASE_W {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_COLUMNBASE_W {
+impl ::core::cmp::PartialEq for JET_COLUMNBASE_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.columnid == other.columnid && self.coltyp == other.coltyp && self.wCountry == other.wCountry && self.langid == other.langid && self.cp == other.cp && self.wFiller == other.wFiller && self.cbMax == other.cbMax && self.grbit == other.grbit && self.szBaseTableName == other.szBaseTableName && self.szBaseColumnName == other.szBaseColumnName
     }
 }
-impl ::std::cmp::Eq for JET_COLUMNBASE_W {}
+impl ::core::cmp::Eq for JET_COLUMNBASE_W {}
 unsafe impl ::windows::runtime::Abi for JET_COLUMNBASE_W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -500,7 +500,7 @@ pub struct JET_COLUMNCREATE_A {
     pub coltyp: u32,
     pub cbMax: u32,
     pub grbit: u32,
-    pub pvDefault: *mut ::std::ffi::c_void,
+    pub pvDefault: *mut ::core::ffi::c_void,
     pub cbDefault: u32,
     pub cp: u32,
     pub columnid: u32,
@@ -509,14 +509,14 @@ pub struct JET_COLUMNCREATE_A {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_COLUMNCREATE_A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_COLUMNCREATE_A {
+impl ::core::default::Default for JET_COLUMNCREATE_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_COLUMNCREATE_A {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_COLUMNCREATE_A {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_COLUMNCREATE_A")
             .field("cbStruct", &self.cbStruct)
             .field("szColumnName", &self.szColumnName)
@@ -532,18 +532,18 @@ impl ::std::fmt::Debug for JET_COLUMNCREATE_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_COLUMNCREATE_A {
+impl ::core::cmp::PartialEq for JET_COLUMNCREATE_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.szColumnName == other.szColumnName && self.coltyp == other.coltyp && self.cbMax == other.cbMax && self.grbit == other.grbit && self.pvDefault == other.pvDefault && self.cbDefault == other.cbDefault && self.cp == other.cp && self.columnid == other.columnid && self.err == other.err
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_COLUMNCREATE_A {}
+impl ::core::cmp::Eq for JET_COLUMNCREATE_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_COLUMNCREATE_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -553,7 +553,7 @@ pub struct JET_COLUMNCREATE_W {
     pub coltyp: u32,
     pub cbMax: u32,
     pub grbit: u32,
-    pub pvDefault: *mut ::std::ffi::c_void,
+    pub pvDefault: *mut ::core::ffi::c_void,
     pub cbDefault: u32,
     pub cp: u32,
     pub columnid: u32,
@@ -562,14 +562,14 @@ pub struct JET_COLUMNCREATE_W {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_COLUMNCREATE_W {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_COLUMNCREATE_W {
+impl ::core::default::Default for JET_COLUMNCREATE_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_COLUMNCREATE_W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_COLUMNCREATE_W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_COLUMNCREATE_W")
             .field("cbStruct", &self.cbStruct)
             .field("szColumnName", &self.szColumnName)
@@ -585,18 +585,18 @@ impl ::std::fmt::Debug for JET_COLUMNCREATE_W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_COLUMNCREATE_W {
+impl ::core::cmp::PartialEq for JET_COLUMNCREATE_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.szColumnName == other.szColumnName && self.coltyp == other.coltyp && self.cbMax == other.cbMax && self.grbit == other.grbit && self.pvDefault == other.pvDefault && self.cbDefault == other.cbDefault && self.cp == other.cp && self.columnid == other.columnid && self.err == other.err
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_COLUMNCREATE_W {}
+impl ::core::cmp::Eq for JET_COLUMNCREATE_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_COLUMNCREATE_W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_COLUMNDEF {
@@ -611,13 +611,13 @@ pub struct JET_COLUMNDEF {
     pub grbit: u32,
 }
 impl JET_COLUMNDEF {}
-impl ::std::default::Default for JET_COLUMNDEF {
+impl ::core::default::Default for JET_COLUMNDEF {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_COLUMNDEF {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_COLUMNDEF {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_COLUMNDEF")
             .field("cbStruct", &self.cbStruct)
             .field("columnid", &self.columnid)
@@ -631,16 +631,16 @@ impl ::std::fmt::Debug for JET_COLUMNDEF {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_COLUMNDEF {
+impl ::core::cmp::PartialEq for JET_COLUMNDEF {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.columnid == other.columnid && self.coltyp == other.coltyp && self.wCountry == other.wCountry && self.langid == other.langid && self.cp == other.cp && self.wCollate == other.wCollate && self.cbMax == other.cbMax && self.grbit == other.grbit
     }
 }
-impl ::std::cmp::Eq for JET_COLUMNDEF {}
+impl ::core::cmp::Eq for JET_COLUMNDEF {}
 unsafe impl ::windows::runtime::Abi for JET_COLUMNDEF {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
@@ -666,14 +666,14 @@ pub struct JET_COLUMNLIST {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl JET_COLUMNLIST {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::default::Default for JET_COLUMNLIST {
+impl ::core::default::Default for JET_COLUMNLIST {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::fmt::Debug for JET_COLUMNLIST {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_COLUMNLIST {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_COLUMNLIST")
             .field("cbStruct", &self.cbStruct)
             .field("tableid", &self.tableid)
@@ -696,7 +696,7 @@ impl ::std::fmt::Debug for JET_COLUMNLIST {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::cmp::PartialEq for JET_COLUMNLIST {
+impl ::core::cmp::PartialEq for JET_COLUMNLIST {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct
             && self.tableid == other.tableid
@@ -718,12 +718,12 @@ impl ::std::cmp::PartialEq for JET_COLUMNLIST {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::cmp::Eq for JET_COLUMNLIST {}
+impl ::core::cmp::Eq for JET_COLUMNLIST {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::runtime::Abi for JET_COLUMNLIST {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -738,27 +738,27 @@ pub struct JET_COMMIT_ID {
 impl JET_COMMIT_ID {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_COMMIT_ID {
+impl ::core::default::Default for JET_COMMIT_ID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_COMMIT_ID {
+impl ::core::cmp::PartialEq for JET_COMMIT_ID {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_COMMIT_ID {}
+impl ::core::cmp::Eq for JET_COMMIT_ID {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_COMMIT_ID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -773,27 +773,27 @@ pub struct JET_COMMIT_ID {
 impl JET_COMMIT_ID {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_COMMIT_ID {
+impl ::core::default::Default for JET_COMMIT_ID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_COMMIT_ID {
+impl ::core::cmp::PartialEq for JET_COMMIT_ID {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_COMMIT_ID {}
+impl ::core::cmp::Eq for JET_COMMIT_ID {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_COMMIT_ID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -805,30 +805,30 @@ pub struct JET_CONDITIONALCOLUMN_A {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_CONDITIONALCOLUMN_A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_CONDITIONALCOLUMN_A {
+impl ::core::default::Default for JET_CONDITIONALCOLUMN_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_CONDITIONALCOLUMN_A {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_CONDITIONALCOLUMN_A {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_CONDITIONALCOLUMN_A").field("cbStruct", &self.cbStruct).field("szColumnName", &self.szColumnName).field("grbit", &self.grbit).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_CONDITIONALCOLUMN_A {
+impl ::core::cmp::PartialEq for JET_CONDITIONALCOLUMN_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.szColumnName == other.szColumnName && self.grbit == other.grbit
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_CONDITIONALCOLUMN_A {}
+impl ::core::cmp::Eq for JET_CONDITIONALCOLUMN_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_CONDITIONALCOLUMN_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -840,25 +840,25 @@ pub struct JET_CONDITIONALCOLUMN_W {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_CONDITIONALCOLUMN_W {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_CONDITIONALCOLUMN_W {
+impl ::core::default::Default for JET_CONDITIONALCOLUMN_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_CONDITIONALCOLUMN_W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_CONDITIONALCOLUMN_W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_CONDITIONALCOLUMN_W").field("cbStruct", &self.cbStruct).field("szColumnName", &self.szColumnName).field("grbit", &self.grbit).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_CONDITIONALCOLUMN_W {
+impl ::core::cmp::PartialEq for JET_CONDITIONALCOLUMN_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.szColumnName == other.szColumnName && self.grbit == other.grbit
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_CONDITIONALCOLUMN_W {}
+impl ::core::cmp::Eq for JET_CONDITIONALCOLUMN_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_CONDITIONALCOLUMN_W {
     type Abi = Self;
@@ -869,7 +869,7 @@ pub const JET_ColInfoGrbitMinimalInfo: u32 = 1073741824u32;
 pub const JET_ColInfoGrbitNonDerivedColumnsOnly: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_ColInfoGrbitSortByColumnid: u32 = 536870912u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -899,24 +899,24 @@ pub struct JET_DBINFOMISC {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_DBINFOMISC {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_DBINFOMISC {
+impl ::core::default::Default for JET_DBINFOMISC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_DBINFOMISC {
+impl ::core::cmp::PartialEq for JET_DBINFOMISC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_DBINFOMISC {}
+impl ::core::cmp::Eq for JET_DBINFOMISC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_DBINFOMISC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -961,24 +961,24 @@ pub struct JET_DBINFOMISC2 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_DBINFOMISC2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_DBINFOMISC2 {
+impl ::core::default::Default for JET_DBINFOMISC2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_DBINFOMISC2 {
+impl ::core::cmp::PartialEq for JET_DBINFOMISC2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_DBINFOMISC2 {}
+impl ::core::cmp::Eq for JET_DBINFOMISC2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_DBINFOMISC2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -1024,24 +1024,24 @@ pub struct JET_DBINFOMISC3 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_DBINFOMISC3 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_DBINFOMISC3 {
+impl ::core::default::Default for JET_DBINFOMISC3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_DBINFOMISC3 {
+impl ::core::cmp::PartialEq for JET_DBINFOMISC3 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_DBINFOMISC3 {}
+impl ::core::cmp::Eq for JET_DBINFOMISC3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_DBINFOMISC3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -1089,24 +1089,24 @@ pub struct JET_DBINFOMISC4 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_DBINFOMISC4 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_DBINFOMISC4 {
+impl ::core::default::Default for JET_DBINFOMISC4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_DBINFOMISC4 {
+impl ::core::cmp::PartialEq for JET_DBINFOMISC4 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_DBINFOMISC4 {}
+impl ::core::cmp::Eq for JET_DBINFOMISC4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_DBINFOMISC4 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_DBINFOUPGRADE {
@@ -1119,21 +1119,21 @@ pub struct JET_DBINFOUPGRADE {
     pub Anonymous: JET_DBINFOUPGRADE_0,
 }
 impl JET_DBINFOUPGRADE {}
-impl ::std::default::Default for JET_DBINFOUPGRADE {
+impl ::core::default::Default for JET_DBINFOUPGRADE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JET_DBINFOUPGRADE {
+impl ::core::cmp::PartialEq for JET_DBINFOUPGRADE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JET_DBINFOUPGRADE {}
+impl ::core::cmp::Eq for JET_DBINFOUPGRADE {}
 unsafe impl ::windows::runtime::Abi for JET_DBINFOUPGRADE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub union JET_DBINFOUPGRADE_0 {
@@ -1141,43 +1141,43 @@ pub union JET_DBINFOUPGRADE_0 {
     pub Anonymous: JET_DBINFOUPGRADE_0_0,
 }
 impl JET_DBINFOUPGRADE_0 {}
-impl ::std::default::Default for JET_DBINFOUPGRADE_0 {
+impl ::core::default::Default for JET_DBINFOUPGRADE_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JET_DBINFOUPGRADE_0 {
+impl ::core::cmp::PartialEq for JET_DBINFOUPGRADE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JET_DBINFOUPGRADE_0 {}
+impl ::core::cmp::Eq for JET_DBINFOUPGRADE_0 {}
 unsafe impl ::windows::runtime::Abi for JET_DBINFOUPGRADE_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_DBINFOUPGRADE_0_0 {
     pub _bitfield: u32,
 }
 impl JET_DBINFOUPGRADE_0_0 {}
-impl ::std::default::Default for JET_DBINFOUPGRADE_0_0 {
+impl ::core::default::Default for JET_DBINFOUPGRADE_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_DBINFOUPGRADE_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_DBINFOUPGRADE_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_DBINFOUPGRADE_0_0 {
+impl ::core::cmp::PartialEq for JET_DBINFOUPGRADE_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::std::cmp::Eq for JET_DBINFOUPGRADE_0_0 {}
+impl ::core::cmp::Eq for JET_DBINFOUPGRADE_0_0 {}
 unsafe impl ::windows::runtime::Abi for JET_DBINFOUPGRADE_0_0 {
     type Abi = Self;
 }
@@ -1221,7 +1221,7 @@ pub const JET_DbInfoTransactions: u32 = 7u32;
 pub const JET_DbInfoUpgrade: u32 = 13u32;
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_DbInfoVersion: u32 = 8u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_ENUMCOLUMN {
@@ -1230,21 +1230,21 @@ pub struct JET_ENUMCOLUMN {
     pub Anonymous: JET_ENUMCOLUMN_0,
 }
 impl JET_ENUMCOLUMN {}
-impl ::std::default::Default for JET_ENUMCOLUMN {
+impl ::core::default::Default for JET_ENUMCOLUMN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JET_ENUMCOLUMN {
+impl ::core::cmp::PartialEq for JET_ENUMCOLUMN {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JET_ENUMCOLUMN {}
+impl ::core::cmp::Eq for JET_ENUMCOLUMN {}
 unsafe impl ::windows::runtime::Abi for JET_ENUMCOLUMN {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub union JET_ENUMCOLUMN_0 {
@@ -1252,21 +1252,21 @@ pub union JET_ENUMCOLUMN_0 {
     pub Anonymous2: JET_ENUMCOLUMN_0_1,
 }
 impl JET_ENUMCOLUMN_0 {}
-impl ::std::default::Default for JET_ENUMCOLUMN_0 {
+impl ::core::default::Default for JET_ENUMCOLUMN_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JET_ENUMCOLUMN_0 {
+impl ::core::cmp::PartialEq for JET_ENUMCOLUMN_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JET_ENUMCOLUMN_0 {}
+impl ::core::cmp::Eq for JET_ENUMCOLUMN_0 {}
 unsafe impl ::windows::runtime::Abi for JET_ENUMCOLUMN_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_ENUMCOLUMN_0_0 {
@@ -1274,53 +1274,53 @@ pub struct JET_ENUMCOLUMN_0_0 {
     pub rgEnumColumnValue: *mut JET_ENUMCOLUMNVALUE,
 }
 impl JET_ENUMCOLUMN_0_0 {}
-impl ::std::default::Default for JET_ENUMCOLUMN_0_0 {
+impl ::core::default::Default for JET_ENUMCOLUMN_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_ENUMCOLUMN_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_ENUMCOLUMN_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous1_e__Struct").field("cEnumColumnValue", &self.cEnumColumnValue).field("rgEnumColumnValue", &self.rgEnumColumnValue).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_ENUMCOLUMN_0_0 {
+impl ::core::cmp::PartialEq for JET_ENUMCOLUMN_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.cEnumColumnValue == other.cEnumColumnValue && self.rgEnumColumnValue == other.rgEnumColumnValue
     }
 }
-impl ::std::cmp::Eq for JET_ENUMCOLUMN_0_0 {}
+impl ::core::cmp::Eq for JET_ENUMCOLUMN_0_0 {}
 unsafe impl ::windows::runtime::Abi for JET_ENUMCOLUMN_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_ENUMCOLUMN_0_1 {
     pub cbData: u32,
-    pub pvData: *mut ::std::ffi::c_void,
+    pub pvData: *mut ::core::ffi::c_void,
 }
 impl JET_ENUMCOLUMN_0_1 {}
-impl ::std::default::Default for JET_ENUMCOLUMN_0_1 {
+impl ::core::default::Default for JET_ENUMCOLUMN_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_ENUMCOLUMN_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_ENUMCOLUMN_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous2_e__Struct").field("cbData", &self.cbData).field("pvData", &self.pvData).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_ENUMCOLUMN_0_1 {
+impl ::core::cmp::PartialEq for JET_ENUMCOLUMN_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.cbData == other.cbData && self.pvData == other.pvData
     }
 }
-impl ::std::cmp::Eq for JET_ENUMCOLUMN_0_1 {}
+impl ::core::cmp::Eq for JET_ENUMCOLUMN_0_1 {}
 unsafe impl ::windows::runtime::Abi for JET_ENUMCOLUMN_0_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_ENUMCOLUMNID {
@@ -1329,56 +1329,56 @@ pub struct JET_ENUMCOLUMNID {
     pub rgtagSequence: *mut u32,
 }
 impl JET_ENUMCOLUMNID {}
-impl ::std::default::Default for JET_ENUMCOLUMNID {
+impl ::core::default::Default for JET_ENUMCOLUMNID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_ENUMCOLUMNID {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_ENUMCOLUMNID {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_ENUMCOLUMNID").field("columnid", &self.columnid).field("ctagSequence", &self.ctagSequence).field("rgtagSequence", &self.rgtagSequence).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_ENUMCOLUMNID {
+impl ::core::cmp::PartialEq for JET_ENUMCOLUMNID {
     fn eq(&self, other: &Self) -> bool {
         self.columnid == other.columnid && self.ctagSequence == other.ctagSequence && self.rgtagSequence == other.rgtagSequence
     }
 }
-impl ::std::cmp::Eq for JET_ENUMCOLUMNID {}
+impl ::core::cmp::Eq for JET_ENUMCOLUMNID {}
 unsafe impl ::windows::runtime::Abi for JET_ENUMCOLUMNID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_ENUMCOLUMNVALUE {
     pub itagSequence: u32,
     pub err: i32,
     pub cbData: u32,
-    pub pvData: *mut ::std::ffi::c_void,
+    pub pvData: *mut ::core::ffi::c_void,
 }
 impl JET_ENUMCOLUMNVALUE {}
-impl ::std::default::Default for JET_ENUMCOLUMNVALUE {
+impl ::core::default::Default for JET_ENUMCOLUMNVALUE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_ENUMCOLUMNVALUE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_ENUMCOLUMNVALUE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_ENUMCOLUMNVALUE").field("itagSequence", &self.itagSequence).field("err", &self.err).field("cbData", &self.cbData).field("pvData", &self.pvData).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_ENUMCOLUMNVALUE {
+impl ::core::cmp::PartialEq for JET_ENUMCOLUMNVALUE {
     fn eq(&self, other: &Self) -> bool {
         self.itagSequence == other.itagSequence && self.err == other.err && self.cbData == other.cbData && self.pvData == other.pvData
     }
 }
-impl ::std::cmp::Eq for JET_ENUMCOLUMNVALUE {}
+impl ::core::cmp::Eq for JET_ENUMCOLUMNVALUE {}
 unsafe impl ::windows::runtime::Abi for JET_ENUMCOLUMNVALUE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JET_ERRCAT(pub i32);
 pub const JET_errcatUnknown: JET_ERRCAT = JET_ERRCAT(0i32);
@@ -1399,7 +1399,7 @@ pub const JET_errcatUsage: JET_ERRCAT = JET_ERRCAT(14i32);
 pub const JET_errcatState: JET_ERRCAT = JET_ERRCAT(15i32);
 pub const JET_errcatObsolete: JET_ERRCAT = JET_ERRCAT(16i32);
 pub const JET_errcatMax: JET_ERRCAT = JET_ERRCAT(17i32);
-impl ::std::convert::From<i32> for JET_ERRCAT {
+impl ::core::convert::From<i32> for JET_ERRCAT {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1407,7 +1407,7 @@ impl ::std::convert::From<i32> for JET_ERRCAT {
 unsafe impl ::windows::runtime::Abi for JET_ERRCAT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_ERRINFOBASIC_W {
@@ -1419,13 +1419,13 @@ pub struct JET_ERRINFOBASIC_W {
     pub rgszSourceFile: [u16; 64],
 }
 impl JET_ERRINFOBASIC_W {}
-impl ::std::default::Default for JET_ERRINFOBASIC_W {
+impl ::core::default::Default for JET_ERRINFOBASIC_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_ERRINFOBASIC_W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_ERRINFOBASIC_W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_ERRINFOBASIC_W")
             .field("cbStruct", &self.cbStruct)
             .field("errValue", &self.errValue)
@@ -1436,12 +1436,12 @@ impl ::std::fmt::Debug for JET_ERRINFOBASIC_W {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_ERRINFOBASIC_W {
+impl ::core::cmp::PartialEq for JET_ERRINFOBASIC_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.errValue == other.errValue && self.errcatMostSpecific == other.errcatMostSpecific && self.rgCategoricalHierarchy == other.rgCategoricalHierarchy && self.lSourceLine == other.lSourceLine && self.rgszSourceFile == other.rgszSourceFile
     }
 }
-impl ::std::cmp::Eq for JET_ERRINFOBASIC_W {}
+impl ::core::cmp::Eq for JET_ERRINFOBASIC_W {}
 unsafe impl ::windows::runtime::Abi for JET_ERRINFOBASIC_W {
     type Abi = Self;
 }
@@ -1464,14 +1464,14 @@ pub const JET_ExceptionMsgBox: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_ExceptionNone: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JET_INDEXCHECKING(pub i32);
 pub const JET_IndexCheckingOff: JET_INDEXCHECKING = JET_INDEXCHECKING(0i32);
 pub const JET_IndexCheckingOn: JET_INDEXCHECKING = JET_INDEXCHECKING(1i32);
 pub const JET_IndexCheckingDeferToOpenTable: JET_INDEXCHECKING = JET_INDEXCHECKING(2i32);
 pub const JET_IndexCheckingMax: JET_INDEXCHECKING = JET_INDEXCHECKING(3i32);
-impl ::std::convert::From<i32> for JET_INDEXCHECKING {
+impl ::core::convert::From<i32> for JET_INDEXCHECKING {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1479,7 +1479,7 @@ impl ::std::convert::From<i32> for JET_INDEXCHECKING {
 unsafe impl ::windows::runtime::Abi for JET_INDEXCHECKING {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -1501,24 +1501,24 @@ pub struct JET_INDEXCREATE2_A {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE2_A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE2_A {
+impl ::core::default::Default for JET_INDEXCREATE2_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE2_A {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE2_A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE2_A {}
+impl ::core::cmp::Eq for JET_INDEXCREATE2_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_A_0 {
@@ -1528,24 +1528,24 @@ pub union JET_INDEXCREATE2_A_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE2_A_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE2_A_0 {
+impl ::core::default::Default for JET_INDEXCREATE2_A_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE2_A_0 {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE2_A_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE2_A_0 {}
+impl ::core::cmp::Eq for JET_INDEXCREATE2_A_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_A_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_A_1 {
@@ -1555,24 +1555,24 @@ pub union JET_INDEXCREATE2_A_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE2_A_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE2_A_1 {
+impl ::core::default::Default for JET_INDEXCREATE2_A_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE2_A_1 {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE2_A_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE2_A_1 {}
+impl ::core::cmp::Eq for JET_INDEXCREATE2_A_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_A_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -1594,24 +1594,24 @@ pub struct JET_INDEXCREATE2_W {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE2_W {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE2_W {
+impl ::core::default::Default for JET_INDEXCREATE2_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE2_W {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE2_W {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE2_W {}
+impl ::core::cmp::Eq for JET_INDEXCREATE2_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_W_0 {
@@ -1621,24 +1621,24 @@ pub union JET_INDEXCREATE2_W_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE2_W_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE2_W_0 {
+impl ::core::default::Default for JET_INDEXCREATE2_W_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE2_W_0 {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE2_W_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE2_W_0 {}
+impl ::core::cmp::Eq for JET_INDEXCREATE2_W_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_W_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_W_1 {
@@ -1648,24 +1648,24 @@ pub union JET_INDEXCREATE2_W_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE2_W_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE2_W_1 {
+impl ::core::default::Default for JET_INDEXCREATE2_W_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE2_W_1 {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE2_W_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE2_W_1 {}
+impl ::core::cmp::Eq for JET_INDEXCREATE2_W_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_W_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -1687,24 +1687,24 @@ pub struct JET_INDEXCREATE3_A {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE3_A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE3_A {
+impl ::core::default::Default for JET_INDEXCREATE3_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE3_A {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE3_A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE3_A {}
+impl ::core::cmp::Eq for JET_INDEXCREATE3_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE3_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE3_A_0 {
@@ -1714,24 +1714,24 @@ pub union JET_INDEXCREATE3_A_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE3_A_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE3_A_0 {
+impl ::core::default::Default for JET_INDEXCREATE3_A_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE3_A_0 {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE3_A_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE3_A_0 {}
+impl ::core::cmp::Eq for JET_INDEXCREATE3_A_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE3_A_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -1753,24 +1753,24 @@ pub struct JET_INDEXCREATE3_W {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE3_W {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE3_W {
+impl ::core::default::Default for JET_INDEXCREATE3_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE3_W {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE3_W {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE3_W {}
+impl ::core::cmp::Eq for JET_INDEXCREATE3_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE3_W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE3_W_0 {
@@ -1780,24 +1780,24 @@ pub union JET_INDEXCREATE3_W_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE3_W_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE3_W_0 {
+impl ::core::default::Default for JET_INDEXCREATE3_W_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE3_W_0 {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE3_W_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE3_W_0 {}
+impl ::core::cmp::Eq for JET_INDEXCREATE3_W_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE3_W_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -1818,24 +1818,24 @@ pub struct JET_INDEXCREATE_A {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE_A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE_A {
+impl ::core::default::Default for JET_INDEXCREATE_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE_A {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE_A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE_A {}
+impl ::core::cmp::Eq for JET_INDEXCREATE_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_A_0 {
@@ -1845,24 +1845,24 @@ pub union JET_INDEXCREATE_A_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE_A_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE_A_0 {
+impl ::core::default::Default for JET_INDEXCREATE_A_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE_A_0 {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE_A_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE_A_0 {}
+impl ::core::cmp::Eq for JET_INDEXCREATE_A_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_A_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_A_1 {
@@ -1872,24 +1872,24 @@ pub union JET_INDEXCREATE_A_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE_A_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE_A_1 {
+impl ::core::default::Default for JET_INDEXCREATE_A_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE_A_1 {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE_A_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE_A_1 {}
+impl ::core::cmp::Eq for JET_INDEXCREATE_A_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_A_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -1910,24 +1910,24 @@ pub struct JET_INDEXCREATE_W {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE_W {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE_W {
+impl ::core::default::Default for JET_INDEXCREATE_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE_W {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE_W {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE_W {}
+impl ::core::cmp::Eq for JET_INDEXCREATE_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_W_0 {
@@ -1937,24 +1937,24 @@ pub union JET_INDEXCREATE_W_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE_W_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE_W_0 {
+impl ::core::default::Default for JET_INDEXCREATE_W_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE_W_0 {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE_W_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE_W_0 {}
+impl ::core::cmp::Eq for JET_INDEXCREATE_W_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_W_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_W_1 {
@@ -1964,24 +1964,24 @@ pub union JET_INDEXCREATE_W_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE_W_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_INDEXCREATE_W_1 {
+impl ::core::default::Default for JET_INDEXCREATE_W_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_INDEXCREATE_W_1 {
+impl ::core::cmp::PartialEq for JET_INDEXCREATE_W_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_INDEXCREATE_W_1 {}
+impl ::core::cmp::Eq for JET_INDEXCREATE_W_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_W_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
@@ -1992,30 +1992,30 @@ pub struct JET_INDEXID {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl JET_INDEXID {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::default::Default for JET_INDEXID {
+impl ::core::default::Default for JET_INDEXID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::fmt::Debug for JET_INDEXID {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_INDEXID {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_INDEXID").field("cbStruct", &self.cbStruct).field("rgbIndexId", &self.rgbIndexId).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::PartialEq for JET_INDEXID {
+impl ::core::cmp::PartialEq for JET_INDEXID {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.rgbIndexId == other.rgbIndexId
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::Eq for JET_INDEXID {}
+impl ::core::cmp::Eq for JET_INDEXID {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for JET_INDEXID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
@@ -2026,30 +2026,30 @@ pub struct JET_INDEXID {
 #[cfg(any(target_arch = "x86",))]
 impl JET_INDEXID {}
 #[cfg(any(target_arch = "x86",))]
-impl ::std::default::Default for JET_INDEXID {
+impl ::core::default::Default for JET_INDEXID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86",))]
-impl ::std::fmt::Debug for JET_INDEXID {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_INDEXID {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_INDEXID").field("cbStruct", &self.cbStruct).field("rgbIndexId", &self.rgbIndexId).finish()
     }
 }
 #[cfg(any(target_arch = "x86",))]
-impl ::std::cmp::PartialEq for JET_INDEXID {
+impl ::core::cmp::PartialEq for JET_INDEXID {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.rgbIndexId == other.rgbIndexId
     }
 }
 #[cfg(any(target_arch = "x86",))]
-impl ::std::cmp::Eq for JET_INDEXID {}
+impl ::core::cmp::Eq for JET_INDEXID {}
 #[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for JET_INDEXID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
@@ -2077,14 +2077,14 @@ pub struct JET_INDEXLIST {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl JET_INDEXLIST {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::default::Default for JET_INDEXLIST {
+impl ::core::default::Default for JET_INDEXLIST {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::fmt::Debug for JET_INDEXLIST {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_INDEXLIST {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_INDEXLIST")
             .field("cbStruct", &self.cbStruct)
             .field("tableid", &self.tableid)
@@ -2109,7 +2109,7 @@ impl ::std::fmt::Debug for JET_INDEXLIST {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::cmp::PartialEq for JET_INDEXLIST {
+impl ::core::cmp::PartialEq for JET_INDEXLIST {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct
             && self.tableid == other.tableid
@@ -2133,12 +2133,12 @@ impl ::std::cmp::PartialEq for JET_INDEXLIST {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::cmp::Eq for JET_INDEXLIST {}
+impl ::core::cmp::Eq for JET_INDEXLIST {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXLIST {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
@@ -2150,60 +2150,60 @@ pub struct JET_INDEXRANGE {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl JET_INDEXRANGE {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::default::Default for JET_INDEXRANGE {
+impl ::core::default::Default for JET_INDEXRANGE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::fmt::Debug for JET_INDEXRANGE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_INDEXRANGE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_INDEXRANGE").field("cbStruct", &self.cbStruct).field("tableid", &self.tableid).field("grbit", &self.grbit).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::cmp::PartialEq for JET_INDEXRANGE {
+impl ::core::cmp::PartialEq for JET_INDEXRANGE {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.tableid == other.tableid && self.grbit == other.grbit
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::cmp::Eq for JET_INDEXRANGE {}
+impl ::core::cmp::Eq for JET_INDEXRANGE {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXRANGE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_INDEX_COLUMN {
     pub columnid: u32,
     pub relop: JET_RELOP,
-    pub pv: *mut ::std::ffi::c_void,
+    pub pv: *mut ::core::ffi::c_void,
     pub cb: u32,
     pub grbit: u32,
 }
 impl JET_INDEX_COLUMN {}
-impl ::std::default::Default for JET_INDEX_COLUMN {
+impl ::core::default::Default for JET_INDEX_COLUMN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_INDEX_COLUMN {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_INDEX_COLUMN {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_INDEX_COLUMN").field("columnid", &self.columnid).field("relop", &self.relop).field("pv", &self.pv).field("cb", &self.cb).field("grbit", &self.grbit).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_INDEX_COLUMN {
+impl ::core::cmp::PartialEq for JET_INDEX_COLUMN {
     fn eq(&self, other: &Self) -> bool {
         self.columnid == other.columnid && self.relop == other.relop && self.pv == other.pv && self.cb == other.cb && self.grbit == other.grbit
     }
 }
-impl ::std::cmp::Eq for JET_INDEX_COLUMN {}
+impl ::core::cmp::Eq for JET_INDEX_COLUMN {}
 unsafe impl ::windows::runtime::Abi for JET_INDEX_COLUMN {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_INDEX_RANGE {
@@ -2213,26 +2213,26 @@ pub struct JET_INDEX_RANGE {
     pub cEndColumns: u32,
 }
 impl JET_INDEX_RANGE {}
-impl ::std::default::Default for JET_INDEX_RANGE {
+impl ::core::default::Default for JET_INDEX_RANGE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_INDEX_RANGE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_INDEX_RANGE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_INDEX_RANGE").field("rgStartColumns", &self.rgStartColumns).field("cStartColumns", &self.cStartColumns).field("rgEndColumns", &self.rgEndColumns).field("cEndColumns", &self.cEndColumns).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_INDEX_RANGE {
+impl ::core::cmp::PartialEq for JET_INDEX_RANGE {
     fn eq(&self, other: &Self) -> bool {
         self.rgStartColumns == other.rgStartColumns && self.cStartColumns == other.cStartColumns && self.rgEndColumns == other.rgEndColumns && self.cEndColumns == other.cEndColumns
     }
 }
-impl ::std::cmp::Eq for JET_INDEX_RANGE {}
+impl ::core::cmp::Eq for JET_INDEX_RANGE {}
 unsafe impl ::windows::runtime::Abi for JET_INDEX_RANGE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
@@ -2247,14 +2247,14 @@ pub struct JET_INSTANCE_INFO_A {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_INSTANCE_INFO_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_INSTANCE_INFO_A {
+impl ::core::default::Default for JET_INSTANCE_INFO_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::fmt::Debug for JET_INSTANCE_INFO_A {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_INSTANCE_INFO_A {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_INSTANCE_INFO_A")
             .field("hInstanceId", &self.hInstanceId)
             .field("szInstanceName", &self.szInstanceName)
@@ -2266,18 +2266,18 @@ impl ::std::fmt::Debug for JET_INSTANCE_INFO_A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_INSTANCE_INFO_A {
+impl ::core::cmp::PartialEq for JET_INSTANCE_INFO_A {
     fn eq(&self, other: &Self) -> bool {
         self.hInstanceId == other.hInstanceId && self.szInstanceName == other.szInstanceName && self.cDatabases == other.cDatabases && self.szDatabaseFileName == other.szDatabaseFileName && self.szDatabaseDisplayName == other.szDatabaseDisplayName && self.szDatabaseSLVFileName_Obsolete == other.szDatabaseSLVFileName_Obsolete
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_INSTANCE_INFO_A {}
+impl ::core::cmp::Eq for JET_INSTANCE_INFO_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_INSTANCE_INFO_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
@@ -2292,14 +2292,14 @@ pub struct JET_INSTANCE_INFO_W {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_INSTANCE_INFO_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_INSTANCE_INFO_W {
+impl ::core::default::Default for JET_INSTANCE_INFO_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::fmt::Debug for JET_INSTANCE_INFO_W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_INSTANCE_INFO_W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_INSTANCE_INFO_W")
             .field("hInstanceId", &self.hInstanceId)
             .field("szInstanceName", &self.szInstanceName)
@@ -2311,13 +2311,13 @@ impl ::std::fmt::Debug for JET_INSTANCE_INFO_W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_INSTANCE_INFO_W {
+impl ::core::cmp::PartialEq for JET_INSTANCE_INFO_W {
     fn eq(&self, other: &Self) -> bool {
         self.hInstanceId == other.hInstanceId && self.szInstanceName == other.szInstanceName && self.cDatabases == other.cDatabases && self.szDatabaseFileName == other.szDatabaseFileName && self.szDatabaseDisplayName == other.szDatabaseDisplayName && self.szDatabaseSLVFileName_Obsolete == other.szDatabaseSLVFileName_Obsolete
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_INSTANCE_INFO_W {}
+impl ::core::cmp::Eq for JET_INSTANCE_INFO_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_INSTANCE_INFO_W {
     type Abi = Self;
@@ -2326,7 +2326,7 @@ unsafe impl ::windows::runtime::Abi for JET_INSTANCE_INFO_W {
 pub const JET_IOPriorityLow: u32 = 1u32;
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_IOPriorityNormal: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_LGPOS {
@@ -2335,21 +2335,21 @@ pub struct JET_LGPOS {
     pub lGeneration: i32,
 }
 impl JET_LGPOS {}
-impl ::std::default::Default for JET_LGPOS {
+impl ::core::default::Default for JET_LGPOS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for JET_LGPOS {
+impl ::core::cmp::PartialEq for JET_LGPOS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for JET_LGPOS {}
+impl ::core::cmp::Eq for JET_LGPOS {}
 unsafe impl ::windows::runtime::Abi for JET_LGPOS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -2362,30 +2362,30 @@ pub struct JET_LOGINFO_A {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_LOGINFO_A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_LOGINFO_A {
+impl ::core::default::Default for JET_LOGINFO_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_LOGINFO_A {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_LOGINFO_A {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_LOGINFO_A").field("cbSize", &self.cbSize).field("ulGenLow", &self.ulGenLow).field("ulGenHigh", &self.ulGenHigh).field("szBaseName", &self.szBaseName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_LOGINFO_A {
+impl ::core::cmp::PartialEq for JET_LOGINFO_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.ulGenLow == other.ulGenLow && self.ulGenHigh == other.ulGenHigh && self.szBaseName == other.szBaseName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_LOGINFO_A {}
+impl ::core::cmp::Eq for JET_LOGINFO_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_LOGINFO_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_LOGINFO_W {
@@ -2395,26 +2395,26 @@ pub struct JET_LOGINFO_W {
     pub szBaseName: [u16; 4],
 }
 impl JET_LOGINFO_W {}
-impl ::std::default::Default for JET_LOGINFO_W {
+impl ::core::default::Default for JET_LOGINFO_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_LOGINFO_W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_LOGINFO_W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_LOGINFO_W").field("cbSize", &self.cbSize).field("ulGenLow", &self.ulGenLow).field("ulGenHigh", &self.ulGenHigh).field("szBaseName", &self.szBaseName).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_LOGINFO_W {
+impl ::core::cmp::PartialEq for JET_LOGINFO_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.ulGenLow == other.ulGenLow && self.ulGenHigh == other.ulGenHigh && self.szBaseName == other.szBaseName
     }
 }
-impl ::std::cmp::Eq for JET_LOGINFO_W {}
+impl ::core::cmp::Eq for JET_LOGINFO_W {}
 unsafe impl ::windows::runtime::Abi for JET_LOGINFO_W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -2431,24 +2431,24 @@ pub struct JET_LOGTIME {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_LOGTIME {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_LOGTIME {
+impl ::core::default::Default for JET_LOGTIME {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_LOGTIME {
+impl ::core::cmp::PartialEq for JET_LOGTIME {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_LOGTIME {}
+impl ::core::cmp::Eq for JET_LOGTIME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_LOGTIME {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_LOGTIME_0 {
@@ -2458,24 +2458,24 @@ pub union JET_LOGTIME_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_LOGTIME_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_LOGTIME_0 {
+impl ::core::default::Default for JET_LOGTIME_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_LOGTIME_0 {
+impl ::core::cmp::PartialEq for JET_LOGTIME_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_LOGTIME_0 {}
+impl ::core::cmp::Eq for JET_LOGTIME_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_LOGTIME_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_LOGTIME_0_0 {
@@ -2484,30 +2484,30 @@ pub struct JET_LOGTIME_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_LOGTIME_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_LOGTIME_0_0 {
+impl ::core::default::Default for JET_LOGTIME_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_LOGTIME_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_LOGTIME_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_LOGTIME_0_0 {
+impl ::core::cmp::PartialEq for JET_LOGTIME_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_LOGTIME_0_0 {}
+impl ::core::cmp::Eq for JET_LOGTIME_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_LOGTIME_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_LOGTIME_1 {
@@ -2517,24 +2517,24 @@ pub union JET_LOGTIME_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_LOGTIME_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_LOGTIME_1 {
+impl ::core::default::Default for JET_LOGTIME_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_LOGTIME_1 {
+impl ::core::cmp::PartialEq for JET_LOGTIME_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_LOGTIME_1 {}
+impl ::core::cmp::Eq for JET_LOGTIME_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_LOGTIME_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_LOGTIME_1_0 {
@@ -2543,35 +2543,35 @@ pub struct JET_LOGTIME_1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_LOGTIME_1_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_LOGTIME_1_0 {
+impl ::core::default::Default for JET_LOGTIME_1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_LOGTIME_1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_LOGTIME_1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_LOGTIME_1_0 {
+impl ::core::cmp::PartialEq for JET_LOGTIME_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_LOGTIME_1_0 {}
+impl ::core::cmp::Eq for JET_LOGTIME_1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_LOGTIME_1_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct JET_LS(pub usize);
-impl ::std::default::Default for JET_LS {
+impl ::core::default::Default for JET_LS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for JET_LS {}
@@ -2586,7 +2586,7 @@ pub const JET_MoveFirst: u32 = 2147483648u32;
 pub const JET_MoveLast: u32 = 2147483647u32;
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_MovePrevious: i32 = -1i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
@@ -2603,30 +2603,30 @@ pub struct JET_OBJECTINFO {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl JET_OBJECTINFO {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::default::Default for JET_OBJECTINFO {
+impl ::core::default::Default for JET_OBJECTINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::fmt::Debug for JET_OBJECTINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_OBJECTINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_OBJECTINFO").field("cbStruct", &self.cbStruct).field("objtyp", &self.objtyp).field("dtCreate", &self.dtCreate).field("dtUpdate", &self.dtUpdate).field("grbit", &self.grbit).field("flags", &self.flags).field("cRecord", &self.cRecord).field("cPage", &self.cPage).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::PartialEq for JET_OBJECTINFO {
+impl ::core::cmp::PartialEq for JET_OBJECTINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.objtyp == other.objtyp && self.dtCreate == other.dtCreate && self.dtUpdate == other.dtUpdate && self.grbit == other.grbit && self.flags == other.flags && self.cRecord == other.cRecord && self.cPage == other.cPage
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::Eq for JET_OBJECTINFO {}
+impl ::core::cmp::Eq for JET_OBJECTINFO {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for JET_OBJECTINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
@@ -2643,24 +2643,24 @@ pub struct JET_OBJECTINFO {
 #[cfg(any(target_arch = "x86",))]
 impl JET_OBJECTINFO {}
 #[cfg(any(target_arch = "x86",))]
-impl ::std::default::Default for JET_OBJECTINFO {
+impl ::core::default::Default for JET_OBJECTINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86",))]
-impl ::std::cmp::PartialEq for JET_OBJECTINFO {
+impl ::core::cmp::PartialEq for JET_OBJECTINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86",))]
-impl ::std::cmp::Eq for JET_OBJECTINFO {}
+impl ::core::cmp::Eq for JET_OBJECTINFO {}
 #[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for JET_OBJECTINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
@@ -2681,14 +2681,14 @@ pub struct JET_OBJECTLIST {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl JET_OBJECTLIST {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::default::Default for JET_OBJECTLIST {
+impl ::core::default::Default for JET_OBJECTLIST {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::fmt::Debug for JET_OBJECTLIST {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_OBJECTLIST {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_OBJECTLIST")
             .field("cbStruct", &self.cbStruct)
             .field("tableid", &self.tableid)
@@ -2706,7 +2706,7 @@ impl ::std::fmt::Debug for JET_OBJECTLIST {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::cmp::PartialEq for JET_OBJECTLIST {
+impl ::core::cmp::PartialEq for JET_OBJECTLIST {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct
             && self.tableid == other.tableid
@@ -2723,12 +2723,12 @@ impl ::std::cmp::PartialEq for JET_OBJECTLIST {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::cmp::Eq for JET_OBJECTLIST {}
+impl ::core::cmp::Eq for JET_OBJECTLIST {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::runtime::Abi for JET_OBJECTLIST {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
@@ -2746,14 +2746,14 @@ pub struct JET_OPENTEMPORARYTABLE {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl JET_OPENTEMPORARYTABLE {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::default::Default for JET_OPENTEMPORARYTABLE {
+impl ::core::default::Default for JET_OPENTEMPORARYTABLE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::fmt::Debug for JET_OPENTEMPORARYTABLE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_OPENTEMPORARYTABLE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_OPENTEMPORARYTABLE")
             .field("cbStruct", &self.cbStruct)
             .field("prgcolumndef", &self.prgcolumndef)
@@ -2768,18 +2768,18 @@ impl ::std::fmt::Debug for JET_OPENTEMPORARYTABLE {
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::cmp::PartialEq for JET_OPENTEMPORARYTABLE {
+impl ::core::cmp::PartialEq for JET_OPENTEMPORARYTABLE {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.prgcolumndef == other.prgcolumndef && self.ccolumn == other.ccolumn && self.pidxunicode == other.pidxunicode && self.grbit == other.grbit && self.prgcolumnid == other.prgcolumnid && self.cbKeyMost == other.cbKeyMost && self.cbVarSegMac == other.cbVarSegMac && self.tableid == other.tableid
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::cmp::Eq for JET_OPENTEMPORARYTABLE {}
+impl ::core::cmp::Eq for JET_OPENTEMPORARYTABLE {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::runtime::Abi for JET_OPENTEMPORARYTABLE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
@@ -2797,14 +2797,14 @@ pub struct JET_OPENTEMPORARYTABLE2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_OPENTEMPORARYTABLE2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_OPENTEMPORARYTABLE2 {
+impl ::core::default::Default for JET_OPENTEMPORARYTABLE2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::fmt::Debug for JET_OPENTEMPORARYTABLE2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_OPENTEMPORARYTABLE2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_OPENTEMPORARYTABLE2")
             .field("cbStruct", &self.cbStruct)
             .field("prgcolumndef", &self.prgcolumndef)
@@ -2819,18 +2819,18 @@ impl ::std::fmt::Debug for JET_OPENTEMPORARYTABLE2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_OPENTEMPORARYTABLE2 {
+impl ::core::cmp::PartialEq for JET_OPENTEMPORARYTABLE2 {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.prgcolumndef == other.prgcolumndef && self.ccolumn == other.ccolumn && self.pidxunicode == other.pidxunicode && self.grbit == other.grbit && self.prgcolumnid == other.prgcolumnid && self.cbKeyMost == other.cbKeyMost && self.cbVarSegMac == other.cbVarSegMac && self.tableid == other.tableid
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_OPENTEMPORARYTABLE2 {}
+impl ::core::cmp::Eq for JET_OPENTEMPORARYTABLE2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_OPENTEMPORARYTABLE2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_OPERATIONCONTEXT {
@@ -2841,31 +2841,31 @@ pub struct JET_OPERATIONCONTEXT {
     pub fFlags: u8,
 }
 impl JET_OPERATIONCONTEXT {}
-impl ::std::default::Default for JET_OPERATIONCONTEXT {
+impl ::core::default::Default for JET_OPERATIONCONTEXT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_OPERATIONCONTEXT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_OPERATIONCONTEXT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_OPERATIONCONTEXT").field("ulUserID", &self.ulUserID).field("nOperationID", &self.nOperationID).field("nOperationType", &self.nOperationType).field("nClientType", &self.nClientType).field("fFlags", &self.fFlags).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_OPERATIONCONTEXT {
+impl ::core::cmp::PartialEq for JET_OPERATIONCONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.ulUserID == other.ulUserID && self.nOperationID == other.nOperationID && self.nOperationType == other.nOperationType && self.nClientType == other.nClientType && self.fFlags == other.fFlags
     }
 }
-impl ::std::cmp::Eq for JET_OPERATIONCONTEXT {}
+impl ::core::cmp::Eq for JET_OPERATIONCONTEXT {}
 unsafe impl ::windows::runtime::Abi for JET_OPERATIONCONTEXT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct JET_OSSNAPID(pub usize);
-impl ::std::default::Default for JET_OSSNAPID {
+impl ::core::default::Default for JET_OSSNAPID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for JET_OSSNAPID {}
@@ -2886,11 +2886,11 @@ pub const JET_OnlineDefragSpaceTrees: u32 = 4u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub type JET_PFNDURABLECOMMITCALLBACK = unsafe extern "system" fn(instance: super::StructuredStorage::JET_INSTANCE, pcommitidseen: *const JET_COMMIT_ID, grbit: u32) -> i32;
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
-pub type JET_PFNREALLOC = unsafe extern "system" fn(pvcontext: *const ::std::ffi::c_void, pv: *const ::std::ffi::c_void, cb: u32) -> *mut ::std::ffi::c_void;
+pub type JET_PFNREALLOC = unsafe extern "system" fn(pvcontext: *const ::core::ffi::c_void, pv: *const ::core::ffi::c_void, cb: u32) -> *mut ::core::ffi::c_void;
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-pub type JET_PFNSTATUS = unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, snp: u32, snt: u32, pv: *const ::std::ffi::c_void) -> i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type JET_PFNSTATUS = unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, snp: u32, snt: u32, pv: *const ::core::ffi::c_void) -> i32;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -2908,27 +2908,27 @@ pub struct JET_RBSINFOMISC {
 impl JET_RBSINFOMISC {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_RBSINFOMISC {
+impl ::core::default::Default for JET_RBSINFOMISC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_RBSINFOMISC {
+impl ::core::cmp::PartialEq for JET_RBSINFOMISC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_RBSINFOMISC {}
+impl ::core::cmp::Eq for JET_RBSINFOMISC {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_RBSINFOMISC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -2946,27 +2946,27 @@ pub struct JET_RBSINFOMISC {
 impl JET_RBSINFOMISC {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_RBSINFOMISC {
+impl ::core::default::Default for JET_RBSINFOMISC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_RBSINFOMISC {
+impl ::core::cmp::PartialEq for JET_RBSINFOMISC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_RBSINFOMISC {}
+impl ::core::cmp::Eq for JET_RBSINFOMISC {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_RBSINFOMISC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -2985,27 +2985,27 @@ pub struct JET_RBSREVERTINFOMISC {
 impl JET_RBSREVERTINFOMISC {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_RBSREVERTINFOMISC {
+impl ::core::default::Default for JET_RBSREVERTINFOMISC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_RBSREVERTINFOMISC {
+impl ::core::cmp::PartialEq for JET_RBSREVERTINFOMISC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_RBSREVERTINFOMISC {}
+impl ::core::cmp::Eq for JET_RBSREVERTINFOMISC {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_RBSREVERTINFOMISC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -3024,27 +3024,27 @@ pub struct JET_RBSREVERTINFOMISC {
 impl JET_RBSREVERTINFOMISC {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_RBSREVERTINFOMISC {
+impl ::core::default::Default for JET_RBSREVERTINFOMISC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_RBSREVERTINFOMISC {
+impl ::core::cmp::PartialEq for JET_RBSREVERTINFOMISC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_RBSREVERTINFOMISC {}
+impl ::core::cmp::Eq for JET_RBSREVERTINFOMISC {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_RBSREVERTINFOMISC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
@@ -3057,30 +3057,30 @@ pub struct JET_RECORDLIST {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl JET_RECORDLIST {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::default::Default for JET_RECORDLIST {
+impl ::core::default::Default for JET_RECORDLIST {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::fmt::Debug for JET_RECORDLIST {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_RECORDLIST {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_RECORDLIST").field("cbStruct", &self.cbStruct).field("tableid", &self.tableid).field("cRecord", &self.cRecord).field("columnidBookmark", &self.columnidBookmark).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::cmp::PartialEq for JET_RECORDLIST {
+impl ::core::cmp::PartialEq for JET_RECORDLIST {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.tableid == other.tableid && self.cRecord == other.cRecord && self.columnidBookmark == other.columnidBookmark
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::cmp::Eq for JET_RECORDLIST {}
+impl ::core::cmp::Eq for JET_RECORDLIST {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::runtime::Abi for JET_RECORDLIST {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_RECPOS {
@@ -3090,26 +3090,26 @@ pub struct JET_RECPOS {
     pub centriesTotal: u32,
 }
 impl JET_RECPOS {}
-impl ::std::default::Default for JET_RECPOS {
+impl ::core::default::Default for JET_RECPOS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_RECPOS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_RECPOS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_RECPOS").field("cbStruct", &self.cbStruct).field("centriesLT", &self.centriesLT).field("centriesInRange", &self.centriesInRange).field("centriesTotal", &self.centriesTotal).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_RECPOS {
+impl ::core::cmp::PartialEq for JET_RECPOS {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.centriesLT == other.centriesLT && self.centriesInRange == other.centriesInRange && self.centriesTotal == other.centriesTotal
     }
 }
-impl ::std::cmp::Eq for JET_RECPOS {}
+impl ::core::cmp::Eq for JET_RECPOS {}
 unsafe impl ::windows::runtime::Abi for JET_RECPOS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
@@ -3126,14 +3126,14 @@ pub struct JET_RECSIZE {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl JET_RECSIZE {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::default::Default for JET_RECSIZE {
+impl ::core::default::Default for JET_RECSIZE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::fmt::Debug for JET_RECSIZE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_RECSIZE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_RECSIZE")
             .field("cbData", &self.cbData)
             .field("cbLongValueData", &self.cbLongValueData)
@@ -3147,18 +3147,18 @@ impl ::std::fmt::Debug for JET_RECSIZE {
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::PartialEq for JET_RECSIZE {
+impl ::core::cmp::PartialEq for JET_RECSIZE {
     fn eq(&self, other: &Self) -> bool {
         self.cbData == other.cbData && self.cbLongValueData == other.cbLongValueData && self.cbOverhead == other.cbOverhead && self.cbLongValueOverhead == other.cbLongValueOverhead && self.cNonTaggedColumns == other.cNonTaggedColumns && self.cTaggedColumns == other.cTaggedColumns && self.cLongValues == other.cLongValues && self.cMultiValues == other.cMultiValues
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::Eq for JET_RECSIZE {}
+impl ::core::cmp::Eq for JET_RECSIZE {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for JET_RECSIZE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
@@ -3175,24 +3175,24 @@ pub struct JET_RECSIZE {
 #[cfg(any(target_arch = "x86",))]
 impl JET_RECSIZE {}
 #[cfg(any(target_arch = "x86",))]
-impl ::std::default::Default for JET_RECSIZE {
+impl ::core::default::Default for JET_RECSIZE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86",))]
-impl ::std::cmp::PartialEq for JET_RECSIZE {
+impl ::core::cmp::PartialEq for JET_RECSIZE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86",))]
-impl ::std::cmp::Eq for JET_RECSIZE {}
+impl ::core::cmp::Eq for JET_RECSIZE {}
 #[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for JET_RECSIZE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
@@ -3212,14 +3212,14 @@ pub struct JET_RECSIZE2 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl JET_RECSIZE2 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::default::Default for JET_RECSIZE2 {
+impl ::core::default::Default for JET_RECSIZE2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::fmt::Debug for JET_RECSIZE2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_RECSIZE2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_RECSIZE2")
             .field("cbData", &self.cbData)
             .field("cbLongValueData", &self.cbLongValueData)
@@ -3236,7 +3236,7 @@ impl ::std::fmt::Debug for JET_RECSIZE2 {
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::PartialEq for JET_RECSIZE2 {
+impl ::core::cmp::PartialEq for JET_RECSIZE2 {
     fn eq(&self, other: &Self) -> bool {
         self.cbData == other.cbData
             && self.cbLongValueData == other.cbLongValueData
@@ -3252,12 +3252,12 @@ impl ::std::cmp::PartialEq for JET_RECSIZE2 {
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::Eq for JET_RECSIZE2 {}
+impl ::core::cmp::Eq for JET_RECSIZE2 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for JET_RECSIZE2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
@@ -3277,25 +3277,25 @@ pub struct JET_RECSIZE2 {
 #[cfg(any(target_arch = "x86",))]
 impl JET_RECSIZE2 {}
 #[cfg(any(target_arch = "x86",))]
-impl ::std::default::Default for JET_RECSIZE2 {
+impl ::core::default::Default for JET_RECSIZE2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86",))]
-impl ::std::cmp::PartialEq for JET_RECSIZE2 {
+impl ::core::cmp::PartialEq for JET_RECSIZE2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86",))]
-impl ::std::cmp::Eq for JET_RECSIZE2 {}
+impl ::core::cmp::Eq for JET_RECSIZE2 {}
 #[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for JET_RECSIZE2 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JET_RELOP(pub i32);
 pub const JET_relopEquals: JET_RELOP = JET_RELOP(0i32);
@@ -3307,7 +3307,7 @@ pub const JET_relopGreaterThanOrEqual: JET_RELOP = JET_RELOP(5i32);
 pub const JET_relopGreaterThan: JET_RELOP = JET_RELOP(6i32);
 pub const JET_relopBitmaskEqualsZero: JET_RELOP = JET_RELOP(7i32);
 pub const JET_relopBitmaskNotEqualsZero: JET_RELOP = JET_RELOP(8i32);
-impl ::std::convert::From<i32> for JET_RELOP {
+impl ::core::convert::From<i32> for JET_RELOP {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3315,7 +3315,7 @@ impl ::std::convert::From<i32> for JET_RELOP {
 unsafe impl ::windows::runtime::Abi for JET_RELOP {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_RETINFO {
@@ -3325,31 +3325,31 @@ pub struct JET_RETINFO {
     pub columnidNextTagged: u32,
 }
 impl JET_RETINFO {}
-impl ::std::default::Default for JET_RETINFO {
+impl ::core::default::Default for JET_RETINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_RETINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_RETINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_RETINFO").field("cbStruct", &self.cbStruct).field("ibLongValue", &self.ibLongValue).field("itagSequence", &self.itagSequence).field("columnidNextTagged", &self.columnidNextTagged).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_RETINFO {
+impl ::core::cmp::PartialEq for JET_RETINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.ibLongValue == other.ibLongValue && self.itagSequence == other.itagSequence && self.columnidNextTagged == other.columnidNextTagged
     }
 }
-impl ::std::cmp::Eq for JET_RETINFO {}
+impl ::core::cmp::Eq for JET_RETINFO {}
 unsafe impl ::windows::runtime::Abi for JET_RETINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_RETRIEVECOLUMN {
     pub columnid: u32,
-    pub pvData: *mut ::std::ffi::c_void,
+    pub pvData: *mut ::core::ffi::c_void,
     pub cbData: u32,
     pub cbActual: u32,
     pub grbit: u32,
@@ -3359,13 +3359,13 @@ pub struct JET_RETRIEVECOLUMN {
     pub err: i32,
 }
 impl JET_RETRIEVECOLUMN {}
-impl ::std::default::Default for JET_RETRIEVECOLUMN {
+impl ::core::default::Default for JET_RETRIEVECOLUMN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_RETRIEVECOLUMN {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_RETRIEVECOLUMN {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_RETRIEVECOLUMN")
             .field("columnid", &self.columnid)
             .field("pvData", &self.pvData)
@@ -3379,17 +3379,17 @@ impl ::std::fmt::Debug for JET_RETRIEVECOLUMN {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_RETRIEVECOLUMN {
+impl ::core::cmp::PartialEq for JET_RETRIEVECOLUMN {
     fn eq(&self, other: &Self) -> bool {
         self.columnid == other.columnid && self.pvData == other.pvData && self.cbData == other.cbData && self.cbActual == other.cbActual && self.grbit == other.grbit && self.ibLongValue == other.ibLongValue && self.itagSequence == other.itagSequence && self.columnidNextTagged == other.columnidNextTagged && self.err == other.err
     }
 }
-impl ::std::cmp::Eq for JET_RETRIEVECOLUMN {}
+impl ::core::cmp::Eq for JET_RETRIEVECOLUMN {}
 unsafe impl ::windows::runtime::Abi for JET_RETRIEVECOLUMN {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::clone::Clone for JET_RSTINFO_A {
+impl ::core::clone::Clone for JET_RSTINFO_A {
     fn clone(&self) -> Self {
         unimplemented!()
     }
@@ -3403,30 +3403,30 @@ pub struct JET_RSTINFO_A {
     pub crstmap: i32,
     pub lgposStop: JET_LGPOS,
     pub logtimeStop: JET_LOGTIME,
-    pub pfnStatus: ::std::option::Option<JET_PFNSTATUS>,
+    pub pfnStatus: ::core::option::Option<JET_PFNSTATUS>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_RSTINFO_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_RSTINFO_A {
+impl ::core::default::Default for JET_RSTINFO_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_RSTINFO_A {
+impl ::core::cmp::PartialEq for JET_RSTINFO_A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_RSTINFO_A {}
+impl ::core::cmp::Eq for JET_RSTINFO_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_RSTINFO_A {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::clone::Clone for JET_RSTINFO_W {
+impl ::core::clone::Clone for JET_RSTINFO_W {
     fn clone(&self) -> Self {
         unimplemented!()
     }
@@ -3440,29 +3440,29 @@ pub struct JET_RSTINFO_W {
     pub crstmap: i32,
     pub lgposStop: JET_LGPOS,
     pub logtimeStop: JET_LOGTIME,
-    pub pfnStatus: ::std::option::Option<JET_PFNSTATUS>,
+    pub pfnStatus: ::core::option::Option<JET_PFNSTATUS>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_RSTINFO_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_RSTINFO_W {
+impl ::core::default::Default for JET_RSTINFO_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_RSTINFO_W {
+impl ::core::cmp::PartialEq for JET_RSTINFO_W {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_RSTINFO_W {}
+impl ::core::cmp::Eq for JET_RSTINFO_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_RSTINFO_W {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -3473,30 +3473,30 @@ pub struct JET_RSTMAP_A {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_RSTMAP_A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_RSTMAP_A {
+impl ::core::default::Default for JET_RSTMAP_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_RSTMAP_A {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_RSTMAP_A {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_RSTMAP_A").field("szDatabaseName", &self.szDatabaseName).field("szNewDatabaseName", &self.szNewDatabaseName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_RSTMAP_A {
+impl ::core::cmp::PartialEq for JET_RSTMAP_A {
     fn eq(&self, other: &Self) -> bool {
         self.szDatabaseName == other.szDatabaseName && self.szNewDatabaseName == other.szNewDatabaseName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_RSTMAP_A {}
+impl ::core::cmp::Eq for JET_RSTMAP_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_RSTMAP_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -3507,35 +3507,35 @@ pub struct JET_RSTMAP_W {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_RSTMAP_W {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_RSTMAP_W {
+impl ::core::default::Default for JET_RSTMAP_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_RSTMAP_W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_RSTMAP_W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_RSTMAP_W").field("szDatabaseName", &self.szDatabaseName).field("szNewDatabaseName", &self.szNewDatabaseName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_RSTMAP_W {
+impl ::core::cmp::PartialEq for JET_RSTMAP_W {
     fn eq(&self, other: &Self) -> bool {
         self.szDatabaseName == other.szDatabaseName && self.szNewDatabaseName == other.szNewDatabaseName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_RSTMAP_W {}
+impl ::core::cmp::Eq for JET_RSTMAP_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_RSTMAP_W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_SETCOLUMN {
     pub columnid: u32,
-    pub pvData: *mut ::std::ffi::c_void,
+    pub pvData: *mut ::core::ffi::c_void,
     pub cbData: u32,
     pub grbit: u32,
     pub ibLongValue: u32,
@@ -3543,26 +3543,26 @@ pub struct JET_SETCOLUMN {
     pub err: i32,
 }
 impl JET_SETCOLUMN {}
-impl ::std::default::Default for JET_SETCOLUMN {
+impl ::core::default::Default for JET_SETCOLUMN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_SETCOLUMN {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_SETCOLUMN {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_SETCOLUMN").field("columnid", &self.columnid).field("pvData", &self.pvData).field("cbData", &self.cbData).field("grbit", &self.grbit).field("ibLongValue", &self.ibLongValue).field("itagSequence", &self.itagSequence).field("err", &self.err).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_SETCOLUMN {
+impl ::core::cmp::PartialEq for JET_SETCOLUMN {
     fn eq(&self, other: &Self) -> bool {
         self.columnid == other.columnid && self.pvData == other.pvData && self.cbData == other.cbData && self.grbit == other.grbit && self.ibLongValue == other.ibLongValue && self.itagSequence == other.itagSequence && self.err == other.err
     }
 }
-impl ::std::cmp::Eq for JET_SETCOLUMN {}
+impl ::core::cmp::Eq for JET_SETCOLUMN {}
 unsafe impl ::windows::runtime::Abi for JET_SETCOLUMN {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_SETINFO {
@@ -3571,26 +3571,26 @@ pub struct JET_SETINFO {
     pub itagSequence: u32,
 }
 impl JET_SETINFO {}
-impl ::std::default::Default for JET_SETINFO {
+impl ::core::default::Default for JET_SETINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_SETINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_SETINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_SETINFO").field("cbStruct", &self.cbStruct).field("ibLongValue", &self.ibLongValue).field("itagSequence", &self.itagSequence).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_SETINFO {
+impl ::core::cmp::PartialEq for JET_SETINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.ibLongValue == other.ibLongValue && self.itagSequence == other.itagSequence
     }
 }
-impl ::std::cmp::Eq for JET_SETINFO {}
+impl ::core::cmp::Eq for JET_SETINFO {}
 unsafe impl ::windows::runtime::Abi for JET_SETINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
@@ -3603,30 +3603,30 @@ pub struct JET_SETSYSPARAM_A {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_SETSYSPARAM_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_SETSYSPARAM_A {
+impl ::core::default::Default for JET_SETSYSPARAM_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::fmt::Debug for JET_SETSYSPARAM_A {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_SETSYSPARAM_A {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_SETSYSPARAM_A").field("paramid", &self.paramid).field("lParam", &self.lParam).field("sz", &self.sz).field("err", &self.err).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_SETSYSPARAM_A {
+impl ::core::cmp::PartialEq for JET_SETSYSPARAM_A {
     fn eq(&self, other: &Self) -> bool {
         self.paramid == other.paramid && self.lParam == other.lParam && self.sz == other.sz && self.err == other.err
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_SETSYSPARAM_A {}
+impl ::core::cmp::Eq for JET_SETSYSPARAM_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_SETSYSPARAM_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
@@ -3639,30 +3639,30 @@ pub struct JET_SETSYSPARAM_W {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_SETSYSPARAM_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_SETSYSPARAM_W {
+impl ::core::default::Default for JET_SETSYSPARAM_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::fmt::Debug for JET_SETSYSPARAM_W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_SETSYSPARAM_W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_SETSYSPARAM_W").field("paramid", &self.paramid).field("lParam", &self.lParam).field("sz", &self.sz).field("err", &self.err).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_SETSYSPARAM_W {
+impl ::core::cmp::PartialEq for JET_SETSYSPARAM_W {
     fn eq(&self, other: &Self) -> bool {
         self.paramid == other.paramid && self.lParam == other.lParam && self.sz == other.sz && self.err == other.err
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_SETSYSPARAM_W {}
+impl ::core::cmp::Eq for JET_SETSYSPARAM_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_SETSYSPARAM_W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -3674,24 +3674,24 @@ pub struct JET_SIGNATURE {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_SIGNATURE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_SIGNATURE {
+impl ::core::default::Default for JET_SIGNATURE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_SIGNATURE {
+impl ::core::cmp::PartialEq for JET_SIGNATURE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_SIGNATURE {}
+impl ::core::cmp::Eq for JET_SIGNATURE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_SIGNATURE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_SNPROG {
@@ -3700,26 +3700,26 @@ pub struct JET_SNPROG {
     pub cunitTotal: u32,
 }
 impl JET_SNPROG {}
-impl ::std::default::Default for JET_SNPROG {
+impl ::core::default::Default for JET_SNPROG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_SNPROG {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_SNPROG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_SNPROG").field("cbStruct", &self.cbStruct).field("cunitDone", &self.cunitDone).field("cunitTotal", &self.cunitTotal).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_SNPROG {
+impl ::core::cmp::PartialEq for JET_SNPROG {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.cunitDone == other.cunitDone && self.cunitTotal == other.cunitTotal
     }
 }
-impl ::std::cmp::Eq for JET_SNPROG {}
+impl ::core::cmp::Eq for JET_SNPROG {}
 unsafe impl ::windows::runtime::Abi for JET_SNPROG {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_SPACEHINTS {
@@ -3733,13 +3733,13 @@ pub struct JET_SPACEHINTS {
     pub cbMaxExtent: u32,
 }
 impl JET_SPACEHINTS {}
-impl ::std::default::Default for JET_SPACEHINTS {
+impl ::core::default::Default for JET_SPACEHINTS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_SPACEHINTS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_SPACEHINTS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_SPACEHINTS")
             .field("cbStruct", &self.cbStruct)
             .field("ulInitialDensity", &self.ulInitialDensity)
@@ -3752,16 +3752,16 @@ impl ::std::fmt::Debug for JET_SPACEHINTS {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_SPACEHINTS {
+impl ::core::cmp::PartialEq for JET_SPACEHINTS {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.ulInitialDensity == other.ulInitialDensity && self.cbInitial == other.cbInitial && self.grbit == other.grbit && self.ulMaintDensity == other.ulMaintDensity && self.ulGrowth == other.ulGrowth && self.cbMinExtent == other.cbMinExtent && self.cbMaxExtent == other.cbMaxExtent
     }
 }
-impl ::std::cmp::Eq for JET_SPACEHINTS {}
+impl ::core::cmp::Eq for JET_SPACEHINTS {}
 unsafe impl ::windows::runtime::Abi for JET_SPACEHINTS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
@@ -3784,14 +3784,14 @@ pub struct JET_TABLECREATE2_A {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_TABLECREATE2_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_TABLECREATE2_A {
+impl ::core::default::Default for JET_TABLECREATE2_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::fmt::Debug for JET_TABLECREATE2_A {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_TABLECREATE2_A {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_TABLECREATE2_A")
             .field("cbStruct", &self.cbStruct)
             .field("szTableName", &self.szTableName)
@@ -3811,7 +3811,7 @@ impl ::std::fmt::Debug for JET_TABLECREATE2_A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_TABLECREATE2_A {
+impl ::core::cmp::PartialEq for JET_TABLECREATE2_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct
             && self.szTableName == other.szTableName
@@ -3830,12 +3830,12 @@ impl ::std::cmp::PartialEq for JET_TABLECREATE2_A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_TABLECREATE2_A {}
+impl ::core::cmp::Eq for JET_TABLECREATE2_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE2_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
@@ -3858,14 +3858,14 @@ pub struct JET_TABLECREATE2_W {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_TABLECREATE2_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_TABLECREATE2_W {
+impl ::core::default::Default for JET_TABLECREATE2_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::fmt::Debug for JET_TABLECREATE2_W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_TABLECREATE2_W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_TABLECREATE2_W")
             .field("cbStruct", &self.cbStruct)
             .field("szTableName", &self.szTableName)
@@ -3885,7 +3885,7 @@ impl ::std::fmt::Debug for JET_TABLECREATE2_W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_TABLECREATE2_W {
+impl ::core::cmp::PartialEq for JET_TABLECREATE2_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct
             && self.szTableName == other.szTableName
@@ -3904,12 +3904,12 @@ impl ::std::cmp::PartialEq for JET_TABLECREATE2_W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_TABLECREATE2_W {}
+impl ::core::cmp::Eq for JET_TABLECREATE2_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE2_W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
@@ -3935,14 +3935,14 @@ pub struct JET_TABLECREATE3_A {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_TABLECREATE3_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_TABLECREATE3_A {
+impl ::core::default::Default for JET_TABLECREATE3_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::fmt::Debug for JET_TABLECREATE3_A {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_TABLECREATE3_A {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_TABLECREATE3_A")
             .field("cbStruct", &self.cbStruct)
             .field("szTableName", &self.szTableName)
@@ -3965,7 +3965,7 @@ impl ::std::fmt::Debug for JET_TABLECREATE3_A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_TABLECREATE3_A {
+impl ::core::cmp::PartialEq for JET_TABLECREATE3_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct
             && self.szTableName == other.szTableName
@@ -3987,12 +3987,12 @@ impl ::std::cmp::PartialEq for JET_TABLECREATE3_A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_TABLECREATE3_A {}
+impl ::core::cmp::Eq for JET_TABLECREATE3_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE3_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
@@ -4018,14 +4018,14 @@ pub struct JET_TABLECREATE3_W {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_TABLECREATE3_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_TABLECREATE3_W {
+impl ::core::default::Default for JET_TABLECREATE3_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::fmt::Debug for JET_TABLECREATE3_W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_TABLECREATE3_W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_TABLECREATE3_W")
             .field("cbStruct", &self.cbStruct)
             .field("szTableName", &self.szTableName)
@@ -4048,7 +4048,7 @@ impl ::std::fmt::Debug for JET_TABLECREATE3_W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_TABLECREATE3_W {
+impl ::core::cmp::PartialEq for JET_TABLECREATE3_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct
             && self.szTableName == other.szTableName
@@ -4070,12 +4070,12 @@ impl ::std::cmp::PartialEq for JET_TABLECREATE3_W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_TABLECREATE3_W {}
+impl ::core::cmp::Eq for JET_TABLECREATE3_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE3_W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
@@ -4101,14 +4101,14 @@ pub struct JET_TABLECREATE4_A {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_TABLECREATE4_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_TABLECREATE4_A {
+impl ::core::default::Default for JET_TABLECREATE4_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::fmt::Debug for JET_TABLECREATE4_A {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_TABLECREATE4_A {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_TABLECREATE4_A")
             .field("cbStruct", &self.cbStruct)
             .field("szTableName", &self.szTableName)
@@ -4131,7 +4131,7 @@ impl ::std::fmt::Debug for JET_TABLECREATE4_A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_TABLECREATE4_A {
+impl ::core::cmp::PartialEq for JET_TABLECREATE4_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct
             && self.szTableName == other.szTableName
@@ -4153,12 +4153,12 @@ impl ::std::cmp::PartialEq for JET_TABLECREATE4_A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_TABLECREATE4_A {}
+impl ::core::cmp::Eq for JET_TABLECREATE4_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE4_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
@@ -4184,14 +4184,14 @@ pub struct JET_TABLECREATE4_W {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_TABLECREATE4_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_TABLECREATE4_W {
+impl ::core::default::Default for JET_TABLECREATE4_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::fmt::Debug for JET_TABLECREATE4_W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_TABLECREATE4_W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_TABLECREATE4_W")
             .field("cbStruct", &self.cbStruct)
             .field("szTableName", &self.szTableName)
@@ -4214,7 +4214,7 @@ impl ::std::fmt::Debug for JET_TABLECREATE4_W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_TABLECREATE4_W {
+impl ::core::cmp::PartialEq for JET_TABLECREATE4_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct
             && self.szTableName == other.szTableName
@@ -4236,12 +4236,12 @@ impl ::std::cmp::PartialEq for JET_TABLECREATE4_W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_TABLECREATE4_W {}
+impl ::core::cmp::Eq for JET_TABLECREATE4_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE4_W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
@@ -4262,14 +4262,14 @@ pub struct JET_TABLECREATE_A {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_TABLECREATE_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_TABLECREATE_A {
+impl ::core::default::Default for JET_TABLECREATE_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::fmt::Debug for JET_TABLECREATE_A {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_TABLECREATE_A {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_TABLECREATE_A")
             .field("cbStruct", &self.cbStruct)
             .field("szTableName", &self.szTableName)
@@ -4287,18 +4287,18 @@ impl ::std::fmt::Debug for JET_TABLECREATE_A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_TABLECREATE_A {
+impl ::core::cmp::PartialEq for JET_TABLECREATE_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.grbit == other.grbit && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_TABLECREATE_A {}
+impl ::core::cmp::Eq for JET_TABLECREATE_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
@@ -4319,14 +4319,14 @@ pub struct JET_TABLECREATE_W {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl JET_TABLECREATE_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::default::Default for JET_TABLECREATE_W {
+impl ::core::default::Default for JET_TABLECREATE_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::fmt::Debug for JET_TABLECREATE_W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_TABLECREATE_W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_TABLECREATE_W")
             .field("cbStruct", &self.cbStruct)
             .field("szTableName", &self.szTableName)
@@ -4344,18 +4344,18 @@ impl ::std::fmt::Debug for JET_TABLECREATE_W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::PartialEq for JET_TABLECREATE_W {
+impl ::core::cmp::PartialEq for JET_TABLECREATE_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.grbit == other.grbit && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::std::cmp::Eq for JET_TABLECREATE_W {}
+impl ::core::cmp::Eq for JET_TABLECREATE_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE_W {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_THREADSTATS {
@@ -4369,13 +4369,13 @@ pub struct JET_THREADSTATS {
     pub cbLogRecord: u32,
 }
 impl JET_THREADSTATS {}
-impl ::std::default::Default for JET_THREADSTATS {
+impl ::core::default::Default for JET_THREADSTATS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_THREADSTATS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_THREADSTATS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_THREADSTATS")
             .field("cbStruct", &self.cbStruct)
             .field("cPageReferenced", &self.cPageReferenced)
@@ -4388,16 +4388,16 @@ impl ::std::fmt::Debug for JET_THREADSTATS {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_THREADSTATS {
+impl ::core::cmp::PartialEq for JET_THREADSTATS {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.cPageReferenced == other.cPageReferenced && self.cPageRead == other.cPageRead && self.cPagePreread == other.cPagePreread && self.cPageDirtied == other.cPageDirtied && self.cPageRedirtied == other.cPageRedirtied && self.cLogRecord == other.cLogRecord && self.cbLogRecord == other.cbLogRecord
     }
 }
-impl ::std::cmp::Eq for JET_THREADSTATS {}
+impl ::core::cmp::Eq for JET_THREADSTATS {}
 unsafe impl ::windows::runtime::Abi for JET_THREADSTATS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
@@ -4416,14 +4416,14 @@ pub struct JET_THREADSTATS2 {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl JET_THREADSTATS2 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::default::Default for JET_THREADSTATS2 {
+impl ::core::default::Default for JET_THREADSTATS2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::fmt::Debug for JET_THREADSTATS2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_THREADSTATS2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_THREADSTATS2")
             .field("cbStruct", &self.cbStruct)
             .field("cPageReferenced", &self.cPageReferenced)
@@ -4439,18 +4439,18 @@ impl ::std::fmt::Debug for JET_THREADSTATS2 {
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::PartialEq for JET_THREADSTATS2 {
+impl ::core::cmp::PartialEq for JET_THREADSTATS2 {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.cPageReferenced == other.cPageReferenced && self.cPageRead == other.cPageRead && self.cPagePreread == other.cPagePreread && self.cPageDirtied == other.cPageDirtied && self.cPageRedirtied == other.cPageRedirtied && self.cLogRecord == other.cLogRecord && self.cbLogRecord == other.cbLogRecord && self.cusecPageCacheMiss == other.cusecPageCacheMiss && self.cPageCacheMiss == other.cPageCacheMiss
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::std::cmp::Eq for JET_THREADSTATS2 {}
+impl ::core::cmp::Eq for JET_THREADSTATS2 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for JET_THREADSTATS2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
@@ -4469,24 +4469,24 @@ pub struct JET_THREADSTATS2 {
 #[cfg(any(target_arch = "x86",))]
 impl JET_THREADSTATS2 {}
 #[cfg(any(target_arch = "x86",))]
-impl ::std::default::Default for JET_THREADSTATS2 {
+impl ::core::default::Default for JET_THREADSTATS2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86",))]
-impl ::std::cmp::PartialEq for JET_THREADSTATS2 {
+impl ::core::cmp::PartialEq for JET_THREADSTATS2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(any(target_arch = "x86",))]
-impl ::std::cmp::Eq for JET_THREADSTATS2 {}
+impl ::core::cmp::Eq for JET_THREADSTATS2 {}
 #[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for JET_THREADSTATS2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_TUPLELIMITS {
@@ -4497,26 +4497,26 @@ pub struct JET_TUPLELIMITS {
     pub ichStart: u32,
 }
 impl JET_TUPLELIMITS {}
-impl ::std::default::Default for JET_TUPLELIMITS {
+impl ::core::default::Default for JET_TUPLELIMITS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_TUPLELIMITS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_TUPLELIMITS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_TUPLELIMITS").field("chLengthMin", &self.chLengthMin).field("chLengthMax", &self.chLengthMax).field("chToIndexMax", &self.chToIndexMax).field("cchIncrement", &self.cchIncrement).field("ichStart", &self.ichStart).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_TUPLELIMITS {
+impl ::core::cmp::PartialEq for JET_TUPLELIMITS {
     fn eq(&self, other: &Self) -> bool {
         self.chLengthMin == other.chLengthMin && self.chLengthMax == other.chLengthMax && self.chToIndexMax == other.chToIndexMax && self.cchIncrement == other.cchIncrement && self.ichStart == other.ichStart
     }
 }
-impl ::std::cmp::Eq for JET_TUPLELIMITS {}
+impl ::core::cmp::Eq for JET_TUPLELIMITS {}
 unsafe impl ::windows::runtime::Abi for JET_TUPLELIMITS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_UNICODEINDEX {
@@ -4524,26 +4524,26 @@ pub struct JET_UNICODEINDEX {
     pub dwMapFlags: u32,
 }
 impl JET_UNICODEINDEX {}
-impl ::std::default::Default for JET_UNICODEINDEX {
+impl ::core::default::Default for JET_UNICODEINDEX {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for JET_UNICODEINDEX {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_UNICODEINDEX {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_UNICODEINDEX").field("lcid", &self.lcid).field("dwMapFlags", &self.dwMapFlags).finish()
     }
 }
-impl ::std::cmp::PartialEq for JET_UNICODEINDEX {
+impl ::core::cmp::PartialEq for JET_UNICODEINDEX {
     fn eq(&self, other: &Self) -> bool {
         self.lcid == other.lcid && self.dwMapFlags == other.dwMapFlags
     }
 }
-impl ::std::cmp::Eq for JET_UNICODEINDEX {}
+impl ::core::cmp::Eq for JET_UNICODEINDEX {}
 unsafe impl ::windows::runtime::Abi for JET_UNICODEINDEX {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -4554,30 +4554,30 @@ pub struct JET_UNICODEINDEX2 {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_UNICODEINDEX2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_UNICODEINDEX2 {
+impl ::core::default::Default for JET_UNICODEINDEX2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_UNICODEINDEX2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_UNICODEINDEX2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_UNICODEINDEX2").field("szLocaleName", &self.szLocaleName).field("dwMapFlags", &self.dwMapFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_UNICODEINDEX2 {
+impl ::core::cmp::PartialEq for JET_UNICODEINDEX2 {
     fn eq(&self, other: &Self) -> bool {
         self.szLocaleName == other.szLocaleName && self.dwMapFlags == other.dwMapFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_UNICODEINDEX2 {}
+impl ::core::cmp::Eq for JET_UNICODEINDEX2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_UNICODEINDEX2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -4590,30 +4590,30 @@ pub struct JET_USERDEFINEDDEFAULT_A {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_USERDEFINEDDEFAULT_A {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_USERDEFINEDDEFAULT_A {
+impl ::core::default::Default for JET_USERDEFINEDDEFAULT_A {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_USERDEFINEDDEFAULT_A {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_USERDEFINEDDEFAULT_A {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_USERDEFINEDDEFAULT_A").field("szCallback", &self.szCallback).field("pbUserData", &self.pbUserData).field("cbUserData", &self.cbUserData).field("szDependantColumns", &self.szDependantColumns).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_USERDEFINEDDEFAULT_A {
+impl ::core::cmp::PartialEq for JET_USERDEFINEDDEFAULT_A {
     fn eq(&self, other: &Self) -> bool {
         self.szCallback == other.szCallback && self.pbUserData == other.pbUserData && self.cbUserData == other.cbUserData && self.szDependantColumns == other.szDependantColumns
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_USERDEFINEDDEFAULT_A {}
+impl ::core::cmp::Eq for JET_USERDEFINEDDEFAULT_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_USERDEFINEDDEFAULT_A {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
@@ -4626,25 +4626,25 @@ pub struct JET_USERDEFINEDDEFAULT_W {
 #[cfg(feature = "Win32_Foundation")]
 impl JET_USERDEFINEDDEFAULT_W {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for JET_USERDEFINEDDEFAULT_W {
+impl ::core::default::Default for JET_USERDEFINEDDEFAULT_W {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for JET_USERDEFINEDDEFAULT_W {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for JET_USERDEFINEDDEFAULT_W {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("JET_USERDEFINEDDEFAULT_W").field("szCallback", &self.szCallback).field("pbUserData", &self.pbUserData).field("cbUserData", &self.cbUserData).field("szDependantColumns", &self.szDependantColumns).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for JET_USERDEFINEDDEFAULT_W {
+impl ::core::cmp::PartialEq for JET_USERDEFINEDDEFAULT_W {
     fn eq(&self, other: &Self) -> bool {
         self.szCallback == other.szCallback && self.pbUserData == other.pbUserData && self.cbUserData == other.cbUserData && self.szDependantColumns == other.szDependantColumns
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for JET_USERDEFINEDDEFAULT_W {}
+impl ::core::cmp::Eq for JET_USERDEFINEDDEFAULT_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_USERDEFINEDDEFAULT_W {
     type Abi = Self;
@@ -6444,14 +6444,14 @@ pub const JET_wrnUniqueKey: u32 = 345u32;
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetAddColumnA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const i8, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::std::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32 {
+pub unsafe fn JetAddColumnA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const i8, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetAddColumnA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::std::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32;
+            fn JetAddColumnA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetAddColumnA(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szcolumnname), ::std::mem::transmute(pcolumndef), ::std::mem::transmute(pvdefault), ::std::mem::transmute(cbdefault), ::std::mem::transmute(pcolumnid)))
+        ::core::mem::transmute(JetAddColumnA(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pcolumndef), ::core::mem::transmute(pvdefault), ::core::mem::transmute(cbdefault), ::core::mem::transmute(pcolumnid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6459,14 +6459,14 @@ pub unsafe fn JetAddColumnA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetAddColumnW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const u16, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::std::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32 {
+pub unsafe fn JetAddColumnW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const u16, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetAddColumnW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::std::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32;
+            fn JetAddColumnW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetAddColumnW(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szcolumnname), ::std::mem::transmute(pcolumndef), ::std::mem::transmute(pvdefault), ::std::mem::transmute(cbdefault), ::std::mem::transmute(pcolumnid)))
+        ::core::mem::transmute(JetAddColumnW(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pcolumndef), ::core::mem::transmute(pvdefault), ::core::mem::transmute(cbdefault), ::core::mem::transmute(pcolumnid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6481,7 +6481,7 @@ pub unsafe fn JetAttachDatabase2A<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetAttachDatabase2A(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, cpgdatabasesizemax: u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetAttachDatabase2A(sesid.into_param().abi(), ::std::mem::transmute(szfilename), ::std::mem::transmute(cpgdatabasesizemax), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetAttachDatabase2A(sesid.into_param().abi(), ::core::mem::transmute(szfilename), ::core::mem::transmute(cpgdatabasesizemax), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6496,7 +6496,7 @@ pub unsafe fn JetAttachDatabase2W<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetAttachDatabase2W(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, cpgdatabasesizemax: u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetAttachDatabase2W(sesid.into_param().abi(), ::std::mem::transmute(szfilename), ::std::mem::transmute(cpgdatabasesizemax), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetAttachDatabase2W(sesid.into_param().abi(), ::core::mem::transmute(szfilename), ::core::mem::transmute(cpgdatabasesizemax), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6511,7 +6511,7 @@ pub unsafe fn JetAttachDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn JetAttachDatabaseA(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetAttachDatabaseA(sesid.into_param().abi(), ::std::mem::transmute(szfilename), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetAttachDatabaseA(sesid.into_param().abi(), ::core::mem::transmute(szfilename), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6526,7 +6526,7 @@ pub unsafe fn JetAttachDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn JetAttachDatabaseW(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetAttachDatabaseW(sesid.into_param().abi(), ::std::mem::transmute(szfilename), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetAttachDatabaseW(sesid.into_param().abi(), ::core::mem::transmute(szfilename), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6534,14 +6534,14 @@ pub unsafe fn JetAttachDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(JetBackupA(::std::mem::transmute(szbackuppath), ::std::mem::transmute(grbit), ::std::mem::transmute(pfnstatus)))
+        ::core::mem::transmute(JetBackupA(::core::mem::transmute(szbackuppath), ::core::mem::transmute(grbit), ::core::mem::transmute(pfnstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6549,14 +6549,14 @@ pub unsafe fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: ::std::
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBackupInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szbackuppath: *const i8, grbit: u32, pfnstatus: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetBackupInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szbackuppath: *const i8, grbit: u32, pfnstatus: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetBackupInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szbackuppath: *const i8, grbit: u32, pfnstatus: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(JetBackupInstanceA(instance.into_param().abi(), ::std::mem::transmute(szbackuppath), ::std::mem::transmute(grbit), ::std::mem::transmute(pfnstatus)))
+        ::core::mem::transmute(JetBackupInstanceA(instance.into_param().abi(), ::core::mem::transmute(szbackuppath), ::core::mem::transmute(grbit), ::core::mem::transmute(pfnstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6564,14 +6564,14 @@ pub unsafe fn JetBackupInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBackupInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szbackuppath: *const u16, grbit: u32, pfnstatus: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetBackupInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szbackuppath: *const u16, grbit: u32, pfnstatus: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetBackupInstanceW(instance: super::StructuredStorage::JET_INSTANCE, szbackuppath: *const u16, grbit: u32, pfnstatus: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(JetBackupInstanceW(instance.into_param().abi(), ::std::mem::transmute(szbackuppath), ::std::mem::transmute(grbit), ::std::mem::transmute(pfnstatus)))
+        ::core::mem::transmute(JetBackupInstanceW(instance.into_param().abi(), ::core::mem::transmute(szbackuppath), ::core::mem::transmute(grbit), ::core::mem::transmute(pfnstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6579,14 +6579,14 @@ pub unsafe fn JetBackupInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(JetBackupW(::std::mem::transmute(szbackuppath), ::std::mem::transmute(grbit), ::std::mem::transmute(pfnstatus)))
+        ::core::mem::transmute(JetBackupW(::core::mem::transmute(szbackuppath), ::core::mem::transmute(grbit), ::core::mem::transmute(pfnstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6600,7 +6600,7 @@ pub unsafe fn JetBeginExternalBackup(grbit: u32) -> i32 {
         extern "system" {
             fn JetBeginExternalBackup(grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetBeginExternalBackup(::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetBeginExternalBackup(::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6615,7 +6615,7 @@ pub unsafe fn JetBeginExternalBackupInstance<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn JetBeginExternalBackupInstance(instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetBeginExternalBackupInstance(instance.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetBeginExternalBackupInstance(instance.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6630,7 +6630,7 @@ pub unsafe fn JetBeginSessionA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetBeginSessionA(instance: super::StructuredStorage::JET_INSTANCE, psesid: *mut super::StructuredStorage::JET_SESID, szusername: *const i8, szpassword: *const i8) -> i32;
         }
-        ::std::mem::transmute(JetBeginSessionA(instance.into_param().abi(), ::std::mem::transmute(psesid), ::std::mem::transmute(szusername), ::std::mem::transmute(szpassword)))
+        ::core::mem::transmute(JetBeginSessionA(instance.into_param().abi(), ::core::mem::transmute(psesid), ::core::mem::transmute(szusername), ::core::mem::transmute(szpassword)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6645,7 +6645,7 @@ pub unsafe fn JetBeginSessionW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetBeginSessionW(instance: super::StructuredStorage::JET_INSTANCE, psesid: *mut super::StructuredStorage::JET_SESID, szusername: *const u16, szpassword: *const u16) -> i32;
         }
-        ::std::mem::transmute(JetBeginSessionW(instance.into_param().abi(), ::std::mem::transmute(psesid), ::std::mem::transmute(szusername), ::std::mem::transmute(szpassword)))
+        ::core::mem::transmute(JetBeginSessionW(instance.into_param().abi(), ::core::mem::transmute(psesid), ::core::mem::transmute(szusername), ::core::mem::transmute(szpassword)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6660,7 +6660,7 @@ pub unsafe fn JetBeginTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetBeginTransaction(sesid: super::StructuredStorage::JET_SESID) -> i32;
         }
-        ::std::mem::transmute(JetBeginTransaction(sesid.into_param().abi()))
+        ::core::mem::transmute(JetBeginTransaction(sesid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6675,7 +6675,7 @@ pub unsafe fn JetBeginTransaction2<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetBeginTransaction2(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetBeginTransaction2(sesid.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetBeginTransaction2(sesid.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6690,7 +6690,7 @@ pub unsafe fn JetBeginTransaction3<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetBeginTransaction3(sesid: super::StructuredStorage::JET_SESID, trxid: i64, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetBeginTransaction3(sesid.into_param().abi(), ::std::mem::transmute(trxid), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetBeginTransaction3(sesid.into_param().abi(), ::core::mem::transmute(trxid), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6705,7 +6705,7 @@ pub unsafe fn JetCloseDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetCloseDatabase(sesid: super::StructuredStorage::JET_SESID, dbid: u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetCloseDatabase(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetCloseDatabase(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6720,7 +6720,7 @@ pub unsafe fn JetCloseFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn JetCloseFile(hffile: super::StructuredStorage::JET_HANDLE) -> i32;
         }
-        ::std::mem::transmute(JetCloseFile(hffile.into_param().abi()))
+        ::core::mem::transmute(JetCloseFile(hffile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6735,7 +6735,7 @@ pub unsafe fn JetCloseFileInstance<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetCloseFileInstance(instance: super::StructuredStorage::JET_INSTANCE, hffile: super::StructuredStorage::JET_HANDLE) -> i32;
         }
-        ::std::mem::transmute(JetCloseFileInstance(instance.into_param().abi(), hffile.into_param().abi()))
+        ::core::mem::transmute(JetCloseFileInstance(instance.into_param().abi(), hffile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6750,7 +6750,7 @@ pub unsafe fn JetCloseTable<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn JetCloseTable(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID) -> i32;
         }
-        ::std::mem::transmute(JetCloseTable(sesid.into_param().abi(), tableid.into_param().abi()))
+        ::core::mem::transmute(JetCloseTable(sesid.into_param().abi(), tableid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6765,7 +6765,7 @@ pub unsafe fn JetCommitTransaction<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetCommitTransaction(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetCommitTransaction(sesid.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetCommitTransaction(sesid.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6780,7 +6780,7 @@ pub unsafe fn JetCommitTransaction2<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn JetCommitTransaction2(sesid: super::StructuredStorage::JET_SESID, grbit: u32, cmsecdurablecommit: u32, pcommitid: *mut JET_COMMIT_ID) -> i32;
         }
-        ::std::mem::transmute(JetCommitTransaction2(sesid.into_param().abi(), ::std::mem::transmute(grbit), ::std::mem::transmute(cmsecdurablecommit), ::std::mem::transmute(pcommitid)))
+        ::core::mem::transmute(JetCommitTransaction2(sesid.into_param().abi(), ::core::mem::transmute(grbit), ::core::mem::transmute(cmsecdurablecommit), ::core::mem::transmute(pcommitid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6788,14 +6788,14 @@ pub unsafe fn JetCommitTransaction2<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
-pub unsafe fn JetCompactA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: ::std::option::Option<JET_PFNSTATUS>, pconvert: *const CONVERT_A, grbit: u32) -> i32 {
+pub unsafe fn JetCompactA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: ::core::option::Option<JET_PFNSTATUS>, pconvert: *const CONVERT_A, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetCompactA(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: ::windows::runtime::RawPtr, pconvert: *const CONVERT_A, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetCompactA(sesid.into_param().abi(), ::std::mem::transmute(szdatabasesrc), ::std::mem::transmute(szdatabasedest), ::std::mem::transmute(pfnstatus), ::std::mem::transmute(pconvert), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetCompactA(sesid.into_param().abi(), ::core::mem::transmute(szdatabasesrc), ::core::mem::transmute(szdatabasedest), ::core::mem::transmute(pfnstatus), ::core::mem::transmute(pconvert), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6803,14 +6803,14 @@ pub unsafe fn JetCompactA<'a, Param0: ::windows::runtime::IntoParam<'a, super::S
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
-pub unsafe fn JetCompactW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: ::std::option::Option<JET_PFNSTATUS>, pconvert: *const CONVERT_W, grbit: u32) -> i32 {
+pub unsafe fn JetCompactW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: ::core::option::Option<JET_PFNSTATUS>, pconvert: *const CONVERT_W, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetCompactW(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: ::windows::runtime::RawPtr, pconvert: *const CONVERT_W, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetCompactW(sesid.into_param().abi(), ::std::mem::transmute(szdatabasesrc), ::std::mem::transmute(szdatabasedest), ::std::mem::transmute(pfnstatus), ::std::mem::transmute(pconvert), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetCompactW(sesid.into_param().abi(), ::core::mem::transmute(szdatabasesrc), ::core::mem::transmute(szdatabasedest), ::core::mem::transmute(pfnstatus), ::core::mem::transmute(pconvert), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6825,7 +6825,7 @@ pub unsafe fn JetComputeStats<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn JetComputeStats(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID) -> i32;
         }
-        ::std::mem::transmute(JetComputeStats(sesid.into_param().abi(), tableid.into_param().abi()))
+        ::core::mem::transmute(JetComputeStats(sesid.into_param().abi(), tableid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6839,7 +6839,7 @@ pub unsafe fn JetConfigureProcessForCrashDump(grbit: u32) -> i32 {
         extern "system" {
             fn JetConfigureProcessForCrashDump(grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetConfigureProcessForCrashDump(::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetConfigureProcessForCrashDump(::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6854,7 +6854,7 @@ pub unsafe fn JetCreateDatabase2A<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetCreateDatabase2A(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetCreateDatabase2A(sesid.into_param().abi(), ::std::mem::transmute(szfilename), ::std::mem::transmute(cpgdatabasesizemax), ::std::mem::transmute(pdbid), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetCreateDatabase2A(sesid.into_param().abi(), ::core::mem::transmute(szfilename), ::core::mem::transmute(cpgdatabasesizemax), ::core::mem::transmute(pdbid), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6869,7 +6869,7 @@ pub unsafe fn JetCreateDatabase2W<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetCreateDatabase2W(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetCreateDatabase2W(sesid.into_param().abi(), ::std::mem::transmute(szfilename), ::std::mem::transmute(cpgdatabasesizemax), ::std::mem::transmute(pdbid), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetCreateDatabase2W(sesid.into_param().abi(), ::core::mem::transmute(szfilename), ::core::mem::transmute(cpgdatabasesizemax), ::core::mem::transmute(pdbid), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6884,7 +6884,7 @@ pub unsafe fn JetCreateDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn JetCreateDatabaseA(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, szconnect: *const i8, pdbid: *mut u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetCreateDatabaseA(sesid.into_param().abi(), ::std::mem::transmute(szfilename), ::std::mem::transmute(szconnect), ::std::mem::transmute(pdbid), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetCreateDatabaseA(sesid.into_param().abi(), ::core::mem::transmute(szfilename), ::core::mem::transmute(szconnect), ::core::mem::transmute(pdbid), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6899,7 +6899,7 @@ pub unsafe fn JetCreateDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn JetCreateDatabaseW(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetCreateDatabaseW(sesid.into_param().abi(), ::std::mem::transmute(szfilename), ::std::mem::transmute(szconnect), ::std::mem::transmute(pdbid), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetCreateDatabaseW(sesid.into_param().abi(), ::core::mem::transmute(szfilename), ::core::mem::transmute(szconnect), ::core::mem::transmute(pdbid), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6914,7 +6914,7 @@ pub unsafe fn JetCreateIndex2A<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetCreateIndex2A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE_A, cindexcreate: u32) -> i32;
         }
-        ::std::mem::transmute(JetCreateIndex2A(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pindexcreate), ::std::mem::transmute(cindexcreate)))
+        ::core::mem::transmute(JetCreateIndex2A(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pindexcreate), ::core::mem::transmute(cindexcreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6929,7 +6929,7 @@ pub unsafe fn JetCreateIndex2W<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetCreateIndex2W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE_W, cindexcreate: u32) -> i32;
         }
-        ::std::mem::transmute(JetCreateIndex2W(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pindexcreate), ::std::mem::transmute(cindexcreate)))
+        ::core::mem::transmute(JetCreateIndex2W(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pindexcreate), ::core::mem::transmute(cindexcreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6944,7 +6944,7 @@ pub unsafe fn JetCreateIndex3A<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetCreateIndex3A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE2_A, cindexcreate: u32) -> i32;
         }
-        ::std::mem::transmute(JetCreateIndex3A(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pindexcreate), ::std::mem::transmute(cindexcreate)))
+        ::core::mem::transmute(JetCreateIndex3A(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pindexcreate), ::core::mem::transmute(cindexcreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6959,7 +6959,7 @@ pub unsafe fn JetCreateIndex3W<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetCreateIndex3W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE2_W, cindexcreate: u32) -> i32;
         }
-        ::std::mem::transmute(JetCreateIndex3W(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pindexcreate), ::std::mem::transmute(cindexcreate)))
+        ::core::mem::transmute(JetCreateIndex3W(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pindexcreate), ::core::mem::transmute(cindexcreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6974,7 +6974,7 @@ pub unsafe fn JetCreateIndex4A<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetCreateIndex4A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE3_A, cindexcreate: u32) -> i32;
         }
-        ::std::mem::transmute(JetCreateIndex4A(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pindexcreate), ::std::mem::transmute(cindexcreate)))
+        ::core::mem::transmute(JetCreateIndex4A(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pindexcreate), ::core::mem::transmute(cindexcreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6989,7 +6989,7 @@ pub unsafe fn JetCreateIndex4W<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetCreateIndex4W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE3_W, cindexcreate: u32) -> i32;
         }
-        ::std::mem::transmute(JetCreateIndex4W(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pindexcreate), ::std::mem::transmute(cindexcreate)))
+        ::core::mem::transmute(JetCreateIndex4W(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pindexcreate), ::core::mem::transmute(cindexcreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7004,7 +7004,7 @@ pub unsafe fn JetCreateIndexA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn JetCreateIndexA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, grbit: u32, szkey: super::super::Foundation::PSTR, cbkey: u32, ldensity: u32) -> i32;
         }
-        ::std::mem::transmute(JetCreateIndexA(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname), ::std::mem::transmute(grbit), szkey.into_param().abi(), ::std::mem::transmute(cbkey), ::std::mem::transmute(ldensity)))
+        ::core::mem::transmute(JetCreateIndexA(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname), ::core::mem::transmute(grbit), szkey.into_param().abi(), ::core::mem::transmute(cbkey), ::core::mem::transmute(ldensity)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7019,7 +7019,7 @@ pub unsafe fn JetCreateIndexW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn JetCreateIndexW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, grbit: u32, szkey: super::super::Foundation::PWSTR, cbkey: u32, ldensity: u32) -> i32;
         }
-        ::std::mem::transmute(JetCreateIndexW(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname), ::std::mem::transmute(grbit), szkey.into_param().abi(), ::std::mem::transmute(cbkey), ::std::mem::transmute(ldensity)))
+        ::core::mem::transmute(JetCreateIndexW(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname), ::core::mem::transmute(grbit), szkey.into_param().abi(), ::core::mem::transmute(cbkey), ::core::mem::transmute(ldensity)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7034,7 +7034,7 @@ pub unsafe fn JetCreateInstance2A(pinstance: *mut super::StructuredStorage::JET_
         extern "system" {
             fn JetCreateInstance2A(pinstance: *mut super::StructuredStorage::JET_INSTANCE, szinstancename: *const i8, szdisplayname: *const i8, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetCreateInstance2A(::std::mem::transmute(pinstance), ::std::mem::transmute(szinstancename), ::std::mem::transmute(szdisplayname), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetCreateInstance2A(::core::mem::transmute(pinstance), ::core::mem::transmute(szinstancename), ::core::mem::transmute(szdisplayname), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7049,7 +7049,7 @@ pub unsafe fn JetCreateInstance2W(pinstance: *mut super::StructuredStorage::JET_
         extern "system" {
             fn JetCreateInstance2W(pinstance: *mut super::StructuredStorage::JET_INSTANCE, szinstancename: *const u16, szdisplayname: *const u16, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetCreateInstance2W(::std::mem::transmute(pinstance), ::std::mem::transmute(szinstancename), ::std::mem::transmute(szdisplayname), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetCreateInstance2W(::core::mem::transmute(pinstance), ::core::mem::transmute(szinstancename), ::core::mem::transmute(szdisplayname), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7064,7 +7064,7 @@ pub unsafe fn JetCreateInstanceA(pinstance: *mut super::StructuredStorage::JET_I
         extern "system" {
             fn JetCreateInstanceA(pinstance: *mut super::StructuredStorage::JET_INSTANCE, szinstancename: *const i8) -> i32;
         }
-        ::std::mem::transmute(JetCreateInstanceA(::std::mem::transmute(pinstance), ::std::mem::transmute(szinstancename)))
+        ::core::mem::transmute(JetCreateInstanceA(::core::mem::transmute(pinstance), ::core::mem::transmute(szinstancename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7079,7 +7079,7 @@ pub unsafe fn JetCreateInstanceW(pinstance: *mut super::StructuredStorage::JET_I
         extern "system" {
             fn JetCreateInstanceW(pinstance: *mut super::StructuredStorage::JET_INSTANCE, szinstancename: *const u16) -> i32;
         }
-        ::std::mem::transmute(JetCreateInstanceW(::std::mem::transmute(pinstance), ::std::mem::transmute(szinstancename)))
+        ::core::mem::transmute(JetCreateInstanceW(::core::mem::transmute(pinstance), ::core::mem::transmute(szinstancename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7094,7 +7094,7 @@ pub unsafe fn JetCreateTableA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn JetCreateTableA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
         }
-        ::std::mem::transmute(JetCreateTableA(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename), ::std::mem::transmute(lpages), ::std::mem::transmute(ldensity), ::std::mem::transmute(ptableid)))
+        ::core::mem::transmute(JetCreateTableA(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(lpages), ::core::mem::transmute(ldensity), ::core::mem::transmute(ptableid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7109,7 +7109,7 @@ pub unsafe fn JetCreateTableColumnIndex2A<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn JetCreateTableColumnIndex2A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE2_A) -> i32;
         }
-        ::std::mem::transmute(JetCreateTableColumnIndex2A(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(ptablecreate)))
+        ::core::mem::transmute(JetCreateTableColumnIndex2A(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7124,7 +7124,7 @@ pub unsafe fn JetCreateTableColumnIndex2W<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn JetCreateTableColumnIndex2W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE2_W) -> i32;
         }
-        ::std::mem::transmute(JetCreateTableColumnIndex2W(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(ptablecreate)))
+        ::core::mem::transmute(JetCreateTableColumnIndex2W(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7139,7 +7139,7 @@ pub unsafe fn JetCreateTableColumnIndex3A<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn JetCreateTableColumnIndex3A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE3_A) -> i32;
         }
-        ::std::mem::transmute(JetCreateTableColumnIndex3A(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(ptablecreate)))
+        ::core::mem::transmute(JetCreateTableColumnIndex3A(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7154,7 +7154,7 @@ pub unsafe fn JetCreateTableColumnIndex3W<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn JetCreateTableColumnIndex3W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE3_W) -> i32;
         }
-        ::std::mem::transmute(JetCreateTableColumnIndex3W(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(ptablecreate)))
+        ::core::mem::transmute(JetCreateTableColumnIndex3W(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7169,7 +7169,7 @@ pub unsafe fn JetCreateTableColumnIndex4A<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn JetCreateTableColumnIndex4A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE4_A) -> i32;
         }
-        ::std::mem::transmute(JetCreateTableColumnIndex4A(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(ptablecreate)))
+        ::core::mem::transmute(JetCreateTableColumnIndex4A(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7184,7 +7184,7 @@ pub unsafe fn JetCreateTableColumnIndex4W<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn JetCreateTableColumnIndex4W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE4_W) -> i32;
         }
-        ::std::mem::transmute(JetCreateTableColumnIndex4W(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(ptablecreate)))
+        ::core::mem::transmute(JetCreateTableColumnIndex4W(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7199,7 +7199,7 @@ pub unsafe fn JetCreateTableColumnIndexA<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn JetCreateTableColumnIndexA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE_A) -> i32;
         }
-        ::std::mem::transmute(JetCreateTableColumnIndexA(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(ptablecreate)))
+        ::core::mem::transmute(JetCreateTableColumnIndexA(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7214,7 +7214,7 @@ pub unsafe fn JetCreateTableColumnIndexW<'a, Param0: ::windows::runtime::IntoPar
         extern "system" {
             fn JetCreateTableColumnIndexW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE_W) -> i32;
         }
-        ::std::mem::transmute(JetCreateTableColumnIndexW(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(ptablecreate)))
+        ::core::mem::transmute(JetCreateTableColumnIndexW(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7229,7 +7229,7 @@ pub unsafe fn JetCreateTableW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn JetCreateTableW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
         }
-        ::std::mem::transmute(JetCreateTableW(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename), ::std::mem::transmute(lpages), ::std::mem::transmute(ldensity), ::std::mem::transmute(ptableid)))
+        ::core::mem::transmute(JetCreateTableW(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(lpages), ::core::mem::transmute(ldensity), ::core::mem::transmute(ptableid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7237,14 +7237,14 @@ pub unsafe fn JetCreateTableW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment2A<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::std::option::Option<JET_CALLBACK>, grbit: u32) -> i32 {
+pub unsafe fn JetDefragment2A<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::core::option::Option<JET_CALLBACK>, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetDefragment2A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::windows::runtime::RawPtr, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetDefragment2A(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename), ::std::mem::transmute(pcpasses), ::std::mem::transmute(pcseconds), ::std::mem::transmute(callback), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetDefragment2A(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7252,14 +7252,14 @@ pub unsafe fn JetDefragment2A<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment2W<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::std::option::Option<JET_CALLBACK>, grbit: u32) -> i32 {
+pub unsafe fn JetDefragment2W<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::core::option::Option<JET_CALLBACK>, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetDefragment2W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::windows::runtime::RawPtr, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetDefragment2W(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename), ::std::mem::transmute(pcpasses), ::std::mem::transmute(pcseconds), ::std::mem::transmute(callback), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetDefragment2W(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7267,14 +7267,14 @@ pub unsafe fn JetDefragment2W<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment3A<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::std::option::Option<JET_CALLBACK>, pvcontext: *const ::std::ffi::c_void, grbit: u32) -> i32 {
+pub unsafe fn JetDefragment3A<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::core::option::Option<JET_CALLBACK>, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetDefragment3A(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::windows::runtime::RawPtr, pvcontext: *const ::std::ffi::c_void, grbit: u32) -> i32;
+            fn JetDefragment3A(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::windows::runtime::RawPtr, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetDefragment3A(sesid.into_param().abi(), ::std::mem::transmute(szdatabasename), ::std::mem::transmute(sztablename), ::std::mem::transmute(pcpasses), ::std::mem::transmute(pcseconds), ::std::mem::transmute(callback), ::std::mem::transmute(pvcontext), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetDefragment3A(sesid.into_param().abi(), ::core::mem::transmute(szdatabasename), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), ::core::mem::transmute(pvcontext), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7282,14 +7282,14 @@ pub unsafe fn JetDefragment3A<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment3W<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::std::option::Option<JET_CALLBACK>, pvcontext: *const ::std::ffi::c_void, grbit: u32) -> i32 {
+pub unsafe fn JetDefragment3W<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::core::option::Option<JET_CALLBACK>, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetDefragment3W(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::windows::runtime::RawPtr, pvcontext: *const ::std::ffi::c_void, grbit: u32) -> i32;
+            fn JetDefragment3W(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::windows::runtime::RawPtr, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetDefragment3W(sesid.into_param().abi(), ::std::mem::transmute(szdatabasename), ::std::mem::transmute(sztablename), ::std::mem::transmute(pcpasses), ::std::mem::transmute(pcseconds), ::std::mem::transmute(callback), ::std::mem::transmute(pvcontext), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetDefragment3W(sesid.into_param().abi(), ::core::mem::transmute(szdatabasename), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), ::core::mem::transmute(pvcontext), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7304,7 +7304,7 @@ pub unsafe fn JetDefragmentA<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn JetDefragmentA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetDefragmentA(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename), ::std::mem::transmute(pcpasses), ::std::mem::transmute(pcseconds), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetDefragmentA(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7319,7 +7319,7 @@ pub unsafe fn JetDefragmentW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn JetDefragmentW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetDefragmentW(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename), ::std::mem::transmute(pcpasses), ::std::mem::transmute(pcseconds), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetDefragmentW(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7334,7 +7334,7 @@ pub unsafe fn JetDelete<'a, Param0: ::windows::runtime::IntoParam<'a, super::Str
         extern "system" {
             fn JetDelete(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID) -> i32;
         }
-        ::std::mem::transmute(JetDelete(sesid.into_param().abi(), tableid.into_param().abi()))
+        ::core::mem::transmute(JetDelete(sesid.into_param().abi(), tableid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7349,7 +7349,7 @@ pub unsafe fn JetDeleteColumn2A<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn JetDeleteColumn2A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetDeleteColumn2A(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szcolumnname), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetDeleteColumn2A(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7364,7 +7364,7 @@ pub unsafe fn JetDeleteColumn2W<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn JetDeleteColumn2W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetDeleteColumn2W(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szcolumnname), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetDeleteColumn2W(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7379,7 +7379,7 @@ pub unsafe fn JetDeleteColumnA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetDeleteColumnA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8) -> i32;
         }
-        ::std::mem::transmute(JetDeleteColumnA(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szcolumnname)))
+        ::core::mem::transmute(JetDeleteColumnA(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szcolumnname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7394,7 +7394,7 @@ pub unsafe fn JetDeleteColumnW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetDeleteColumnW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16) -> i32;
         }
-        ::std::mem::transmute(JetDeleteColumnW(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szcolumnname)))
+        ::core::mem::transmute(JetDeleteColumnW(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szcolumnname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7409,7 +7409,7 @@ pub unsafe fn JetDeleteIndexA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn JetDeleteIndexA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8) -> i32;
         }
-        ::std::mem::transmute(JetDeleteIndexA(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname)))
+        ::core::mem::transmute(JetDeleteIndexA(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7424,7 +7424,7 @@ pub unsafe fn JetDeleteIndexW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn JetDeleteIndexW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16) -> i32;
         }
-        ::std::mem::transmute(JetDeleteIndexW(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname)))
+        ::core::mem::transmute(JetDeleteIndexW(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7439,7 +7439,7 @@ pub unsafe fn JetDeleteTableA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn JetDeleteTableA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8) -> i32;
         }
-        ::std::mem::transmute(JetDeleteTableA(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename)))
+        ::core::mem::transmute(JetDeleteTableA(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7454,7 +7454,7 @@ pub unsafe fn JetDeleteTableW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn JetDeleteTableW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16) -> i32;
         }
-        ::std::mem::transmute(JetDeleteTableW(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename)))
+        ::core::mem::transmute(JetDeleteTableW(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7469,7 +7469,7 @@ pub unsafe fn JetDetachDatabase2A<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetDetachDatabase2A(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetDetachDatabase2A(sesid.into_param().abi(), ::std::mem::transmute(szfilename), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetDetachDatabase2A(sesid.into_param().abi(), ::core::mem::transmute(szfilename), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7484,7 +7484,7 @@ pub unsafe fn JetDetachDatabase2W<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetDetachDatabase2W(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetDetachDatabase2W(sesid.into_param().abi(), ::std::mem::transmute(szfilename), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetDetachDatabase2W(sesid.into_param().abi(), ::core::mem::transmute(szfilename), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7499,7 +7499,7 @@ pub unsafe fn JetDetachDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn JetDetachDatabaseA(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8) -> i32;
         }
-        ::std::mem::transmute(JetDetachDatabaseA(sesid.into_param().abi(), ::std::mem::transmute(szfilename)))
+        ::core::mem::transmute(JetDetachDatabaseA(sesid.into_param().abi(), ::core::mem::transmute(szfilename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7514,7 +7514,7 @@ pub unsafe fn JetDetachDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn JetDetachDatabaseW(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16) -> i32;
         }
-        ::std::mem::transmute(JetDetachDatabaseW(sesid.into_param().abi(), ::std::mem::transmute(szfilename)))
+        ::core::mem::transmute(JetDetachDatabaseW(sesid.into_param().abi(), ::core::mem::transmute(szfilename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7529,7 +7529,7 @@ pub unsafe fn JetDupCursor<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn JetDupCursor(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, ptableid: *mut super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetDupCursor(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(ptableid), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetDupCursor(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(ptableid), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7544,7 +7544,7 @@ pub unsafe fn JetDupSession<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn JetDupSession(sesid: super::StructuredStorage::JET_SESID, psesid: *mut super::StructuredStorage::JET_SESID) -> i32;
         }
-        ::std::mem::transmute(JetDupSession(sesid.into_param().abi(), ::std::mem::transmute(psesid)))
+        ::core::mem::transmute(JetDupSession(sesid.into_param().abi(), ::core::mem::transmute(psesid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7559,7 +7559,7 @@ pub unsafe fn JetEnableMultiInstanceA(psetsysparam: *const JET_SETSYSPARAM_A, cs
         extern "system" {
             fn JetEnableMultiInstanceA(psetsysparam: *const JET_SETSYSPARAM_A, csetsysparam: u32, pcsetsucceed: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetEnableMultiInstanceA(::std::mem::transmute(psetsysparam), ::std::mem::transmute(csetsysparam), ::std::mem::transmute(pcsetsucceed)))
+        ::core::mem::transmute(JetEnableMultiInstanceA(::core::mem::transmute(psetsysparam), ::core::mem::transmute(csetsysparam), ::core::mem::transmute(pcsetsucceed)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7574,7 +7574,7 @@ pub unsafe fn JetEnableMultiInstanceW(psetsysparam: *const JET_SETSYSPARAM_W, cs
         extern "system" {
             fn JetEnableMultiInstanceW(psetsysparam: *const JET_SETSYSPARAM_W, csetsysparam: u32, pcsetsucceed: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetEnableMultiInstanceW(::std::mem::transmute(psetsysparam), ::std::mem::transmute(csetsysparam), ::std::mem::transmute(pcsetsucceed)))
+        ::core::mem::transmute(JetEnableMultiInstanceW(::core::mem::transmute(psetsysparam), ::core::mem::transmute(csetsysparam), ::core::mem::transmute(pcsetsucceed)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7588,7 +7588,7 @@ pub unsafe fn JetEndExternalBackup() -> i32 {
         extern "system" {
             fn JetEndExternalBackup() -> i32;
         }
-        ::std::mem::transmute(JetEndExternalBackup())
+        ::core::mem::transmute(JetEndExternalBackup())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7603,7 +7603,7 @@ pub unsafe fn JetEndExternalBackupInstance<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn JetEndExternalBackupInstance(instance: super::StructuredStorage::JET_INSTANCE) -> i32;
         }
-        ::std::mem::transmute(JetEndExternalBackupInstance(instance.into_param().abi()))
+        ::core::mem::transmute(JetEndExternalBackupInstance(instance.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7618,7 +7618,7 @@ pub unsafe fn JetEndExternalBackupInstance2<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn JetEndExternalBackupInstance2(instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetEndExternalBackupInstance2(instance.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetEndExternalBackupInstance2(instance.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7633,7 +7633,7 @@ pub unsafe fn JetEndSession<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn JetEndSession(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetEndSession(sesid.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetEndSession(sesid.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7641,24 +7641,24 @@ pub unsafe fn JetEndSession<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetEnumerateColumns<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: ::std::option::Option<JET_PFNREALLOC>, pvrealloccontext: *const ::std::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32 {
+pub unsafe fn JetEnumerateColumns<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: ::core::option::Option<JET_PFNREALLOC>, pvrealloccontext: *const ::core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetEnumerateColumns(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: ::windows::runtime::RawPtr, pvrealloccontext: *const ::std::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32;
+            fn JetEnumerateColumns(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: ::windows::runtime::RawPtr, pvrealloccontext: *const ::core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetEnumerateColumns(
+        ::core::mem::transmute(JetEnumerateColumns(
             sesid.into_param().abi(),
             tableid.into_param().abi(),
-            ::std::mem::transmute(cenumcolumnid),
-            ::std::mem::transmute(rgenumcolumnid),
-            ::std::mem::transmute(pcenumcolumn),
-            ::std::mem::transmute(prgenumcolumn),
-            ::std::mem::transmute(pfnrealloc),
-            ::std::mem::transmute(pvrealloccontext),
-            ::std::mem::transmute(cbdatamost),
-            ::std::mem::transmute(grbit),
+            ::core::mem::transmute(cenumcolumnid),
+            ::core::mem::transmute(rgenumcolumnid),
+            ::core::mem::transmute(pcenumcolumn),
+            ::core::mem::transmute(prgenumcolumn),
+            ::core::mem::transmute(pfnrealloc),
+            ::core::mem::transmute(pvrealloccontext),
+            ::core::mem::transmute(cbdatamost),
+            ::core::mem::transmute(grbit),
         ))
     }
     #[cfg(not(windows))]
@@ -7667,14 +7667,14 @@ pub unsafe fn JetEnumerateColumns<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetEscrowUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, columnid: u32, pv: *const ::std::ffi::c_void, cbmax: u32, pvold: *mut ::std::ffi::c_void, cboldmax: u32, pcboldactual: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetEscrowUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, columnid: u32, pv: *const ::core::ffi::c_void, cbmax: u32, pvold: *mut ::core::ffi::c_void, cboldmax: u32, pcboldactual: *mut u32, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetEscrowUpdate(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pv: *const ::std::ffi::c_void, cbmax: u32, pvold: *mut ::std::ffi::c_void, cboldmax: u32, pcboldactual: *mut u32, grbit: u32) -> i32;
+            fn JetEscrowUpdate(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pv: *const ::core::ffi::c_void, cbmax: u32, pvold: *mut ::core::ffi::c_void, cboldmax: u32, pcboldactual: *mut u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetEscrowUpdate(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(columnid), ::std::mem::transmute(pv), ::std::mem::transmute(cbmax), ::std::mem::transmute(pvold), ::std::mem::transmute(cboldmax), ::std::mem::transmute(pcboldactual), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetEscrowUpdate(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(columnid), ::core::mem::transmute(pv), ::core::mem::transmute(cbmax), ::core::mem::transmute(pvold), ::core::mem::transmute(cboldmax), ::core::mem::transmute(pcboldactual), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7682,24 +7682,24 @@ pub unsafe fn JetEscrowUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
-pub unsafe fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: *const i8, sztargetinstancelogpath: *const i8, sztargetinstancecheckpointpath: *const i8, pfn: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: *const i8, sztargetinstancelogpath: *const i8, sztargetinstancecheckpointpath: *const i8, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: *const i8, sztargetinstancelogpath: *const i8, sztargetinstancecheckpointpath: *const i8, pfn: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(JetExternalRestore2A(
-            ::std::mem::transmute(szcheckpointfilepath),
-            ::std::mem::transmute(szlogpath),
-            ::std::mem::transmute(rgrstmap),
-            ::std::mem::transmute(crstfilemap),
-            ::std::mem::transmute(szbackuplogpath),
-            ::std::mem::transmute(ploginfo),
-            ::std::mem::transmute(sztargetinstancename),
-            ::std::mem::transmute(sztargetinstancelogpath),
-            ::std::mem::transmute(sztargetinstancecheckpointpath),
-            ::std::mem::transmute(pfn),
+        ::core::mem::transmute(JetExternalRestore2A(
+            ::core::mem::transmute(szcheckpointfilepath),
+            ::core::mem::transmute(szlogpath),
+            ::core::mem::transmute(rgrstmap),
+            ::core::mem::transmute(crstfilemap),
+            ::core::mem::transmute(szbackuplogpath),
+            ::core::mem::transmute(ploginfo),
+            ::core::mem::transmute(sztargetinstancename),
+            ::core::mem::transmute(sztargetinstancelogpath),
+            ::core::mem::transmute(sztargetinstancecheckpointpath),
+            ::core::mem::transmute(pfn),
         ))
     }
     #[cfg(not(windows))]
@@ -7708,24 +7708,24 @@ pub unsafe fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
-pub unsafe fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: *const u16, sztargetinstancelogpath: *const u16, sztargetinstancecheckpointpath: *const u16, pfn: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: *const u16, sztargetinstancelogpath: *const u16, sztargetinstancecheckpointpath: *const u16, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: *const u16, sztargetinstancelogpath: *const u16, sztargetinstancecheckpointpath: *const u16, pfn: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(JetExternalRestore2W(
-            ::std::mem::transmute(szcheckpointfilepath),
-            ::std::mem::transmute(szlogpath),
-            ::std::mem::transmute(rgrstmap),
-            ::std::mem::transmute(crstfilemap),
-            ::std::mem::transmute(szbackuplogpath),
-            ::std::mem::transmute(ploginfo),
-            ::std::mem::transmute(sztargetinstancename),
-            ::std::mem::transmute(sztargetinstancelogpath),
-            ::std::mem::transmute(sztargetinstancecheckpointpath),
-            ::std::mem::transmute(pfn),
+        ::core::mem::transmute(JetExternalRestore2W(
+            ::core::mem::transmute(szcheckpointfilepath),
+            ::core::mem::transmute(szlogpath),
+            ::core::mem::transmute(rgrstmap),
+            ::core::mem::transmute(crstfilemap),
+            ::core::mem::transmute(szbackuplogpath),
+            ::core::mem::transmute(ploginfo),
+            ::core::mem::transmute(sztargetinstancename),
+            ::core::mem::transmute(sztargetinstancelogpath),
+            ::core::mem::transmute(sztargetinstancecheckpointpath),
+            ::core::mem::transmute(pfn),
         ))
     }
     #[cfg(not(windows))]
@@ -7734,14 +7734,23 @@ pub unsafe fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: 
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
-pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(JetExternalRestoreA(::std::mem::transmute(szcheckpointfilepath), ::std::mem::transmute(szlogpath), ::std::mem::transmute(rgrstmap), ::std::mem::transmute(crstfilemap), ::std::mem::transmute(szbackuplogpath), ::std::mem::transmute(genlow), ::std::mem::transmute(genhigh), ::std::mem::transmute(pfn)))
+        ::core::mem::transmute(JetExternalRestoreA(
+            ::core::mem::transmute(szcheckpointfilepath),
+            ::core::mem::transmute(szlogpath),
+            ::core::mem::transmute(rgrstmap),
+            ::core::mem::transmute(crstfilemap),
+            ::core::mem::transmute(szbackuplogpath),
+            ::core::mem::transmute(genlow),
+            ::core::mem::transmute(genhigh),
+            ::core::mem::transmute(pfn),
+        ))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7749,14 +7758,23 @@ pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *c
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
-pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(JetExternalRestoreW(::std::mem::transmute(szcheckpointfilepath), ::std::mem::transmute(szlogpath), ::std::mem::transmute(rgrstmap), ::std::mem::transmute(crstfilemap), ::std::mem::transmute(szbackuplogpath), ::std::mem::transmute(genlow), ::std::mem::transmute(genhigh), ::std::mem::transmute(pfn)))
+        ::core::mem::transmute(JetExternalRestoreW(
+            ::core::mem::transmute(szcheckpointfilepath),
+            ::core::mem::transmute(szlogpath),
+            ::core::mem::transmute(rgrstmap),
+            ::core::mem::transmute(crstfilemap),
+            ::core::mem::transmute(szbackuplogpath),
+            ::core::mem::transmute(genlow),
+            ::core::mem::transmute(genhigh),
+            ::core::mem::transmute(pfn),
+        ))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7771,7 +7789,7 @@ pub unsafe fn JetFreeBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn JetFreeBuffer(pbbuf: super::super::Foundation::PSTR) -> i32;
         }
-        ::std::mem::transmute(JetFreeBuffer(pbbuf.into_param().abi()))
+        ::core::mem::transmute(JetFreeBuffer(pbbuf.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7785,7 +7803,7 @@ pub unsafe fn JetGetAttachInfoA(szzdatabases: *mut i8, cbmax: u32, pcbactual: *m
         extern "system" {
             fn JetGetAttachInfoA(szzdatabases: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetGetAttachInfoA(::std::mem::transmute(szzdatabases), ::std::mem::transmute(cbmax), ::std::mem::transmute(pcbactual)))
+        ::core::mem::transmute(JetGetAttachInfoA(::core::mem::transmute(szzdatabases), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7800,7 +7818,7 @@ pub unsafe fn JetGetAttachInfoInstanceA<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn JetGetAttachInfoInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szzdatabases: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetGetAttachInfoInstanceA(instance.into_param().abi(), ::std::mem::transmute(szzdatabases), ::std::mem::transmute(cbmax), ::std::mem::transmute(pcbactual)))
+        ::core::mem::transmute(JetGetAttachInfoInstanceA(instance.into_param().abi(), ::core::mem::transmute(szzdatabases), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7815,7 +7833,7 @@ pub unsafe fn JetGetAttachInfoInstanceW<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn JetGetAttachInfoInstanceW(instance: super::StructuredStorage::JET_INSTANCE, szzdatabases: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetGetAttachInfoInstanceW(instance.into_param().abi(), ::std::mem::transmute(szzdatabases), ::std::mem::transmute(cbmax), ::std::mem::transmute(pcbactual)))
+        ::core::mem::transmute(JetGetAttachInfoInstanceW(instance.into_param().abi(), ::core::mem::transmute(szzdatabases), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7829,7 +7847,7 @@ pub unsafe fn JetGetAttachInfoW(wszzdatabases: *mut u16, cbmax: u32, pcbactual: 
         extern "system" {
             fn JetGetAttachInfoW(wszzdatabases: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetGetAttachInfoW(::std::mem::transmute(wszzdatabases), ::std::mem::transmute(cbmax), ::std::mem::transmute(pcbactual)))
+        ::core::mem::transmute(JetGetAttachInfoW(::core::mem::transmute(wszzdatabases), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7837,14 +7855,14 @@ pub unsafe fn JetGetAttachInfoW(wszzdatabases: *mut u16, cbmax: u32, pcbactual: 
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetBookmark<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *mut ::std::ffi::c_void, cbmax: u32, pcbactual: *mut u32) -> i32 {
+pub unsafe fn JetGetBookmark<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *mut ::core::ffi::c_void, cbmax: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut ::std::ffi::c_void, cbmax: u32, pcbactual: *mut u32) -> i32;
+            fn JetGetBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut ::core::ffi::c_void, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetGetBookmark(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pvbookmark), ::std::mem::transmute(cbmax), ::std::mem::transmute(pcbactual)))
+        ::core::mem::transmute(JetGetBookmark(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pvbookmark), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7852,14 +7870,14 @@ pub unsafe fn JetGetBookmark<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetColumnInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pcolumnnameorid: *const i8, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetColumnInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pcolumnnameorid: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetColumnInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcolumnnameorid: *const i8, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
+            fn JetGetColumnInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcolumnnameorid: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetColumnInfoA(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename), ::std::mem::transmute(pcolumnnameorid), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetColumnInfoA(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcolumnnameorid), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7867,14 +7885,14 @@ pub unsafe fn JetGetColumnInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetColumnInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pwcolumnnameorid: *const u16, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetColumnInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pwcolumnnameorid: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetColumnInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pwcolumnnameorid: *const u16, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
+            fn JetGetColumnInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pwcolumnnameorid: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetColumnInfoW(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename), ::std::mem::transmute(pwcolumnnameorid), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetColumnInfoW(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pwcolumnnameorid), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7889,7 +7907,7 @@ pub unsafe fn JetGetCurrentIndexA<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetGetCurrentIndexA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *mut i8, cbindexname: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetCurrentIndexA(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname), ::std::mem::transmute(cbindexname)))
+        ::core::mem::transmute(JetGetCurrentIndexA(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname), ::core::mem::transmute(cbindexname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7904,7 +7922,7 @@ pub unsafe fn JetGetCurrentIndexW<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetGetCurrentIndexW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *mut u16, cbindexname: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetCurrentIndexW(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname), ::std::mem::transmute(cbindexname)))
+        ::core::mem::transmute(JetGetCurrentIndexW(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname), ::core::mem::transmute(cbindexname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7912,42 +7930,42 @@ pub unsafe fn JetGetCurrentIndexW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetCursorInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetCursorInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetCursorInfo(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
+            fn JetGetCursorInfo(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetCursorInfo(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetCursorInfo(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 #[inline]
-pub unsafe fn JetGetDatabaseFileInfoA(szdatabasename: *const i8, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetDatabaseFileInfoA(szdatabasename: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetDatabaseFileInfoA(szdatabasename: *const i8, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
+            fn JetGetDatabaseFileInfoA(szdatabasename: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetDatabaseFileInfoA(::std::mem::transmute(szdatabasename), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetDatabaseFileInfoA(::core::mem::transmute(szdatabasename), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 #[inline]
-pub unsafe fn JetGetDatabaseFileInfoW(szdatabasename: *const u16, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetDatabaseFileInfoW(szdatabasename: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetDatabaseFileInfoW(szdatabasename: *const u16, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
+            fn JetGetDatabaseFileInfoW(szdatabasename: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetDatabaseFileInfoW(::std::mem::transmute(szdatabasename), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetDatabaseFileInfoW(::core::mem::transmute(szdatabasename), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7955,14 +7973,14 @@ pub unsafe fn JetGetDatabaseFileInfoW(szdatabasename: *const u16, pvresult: *mut
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetDatabaseInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetDatabaseInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetDatabaseInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
+            fn JetGetDatabaseInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetDatabaseInfoA(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetDatabaseInfoA(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7970,28 +7988,28 @@ pub unsafe fn JetGetDatabaseInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetDatabaseInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetDatabaseInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetDatabaseInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
+            fn JetGetDatabaseInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetDatabaseInfoW(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetDatabaseInfoW(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 #[inline]
-pub unsafe fn JetGetErrorInfoW(pvcontext: *const ::std::ffi::c_void, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32, grbit: u32) -> i32 {
+pub unsafe fn JetGetErrorInfoW(pvcontext: *const ::core::ffi::c_void, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetErrorInfoW(pvcontext: *const ::std::ffi::c_void, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32, grbit: u32) -> i32;
+            fn JetGetErrorInfoW(pvcontext: *const ::core::ffi::c_void, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetErrorInfoW(::std::mem::transmute(pvcontext), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetGetErrorInfoW(::core::mem::transmute(pvcontext), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7999,14 +8017,14 @@ pub unsafe fn JetGetErrorInfoW(pvcontext: *const ::std::ffi::c_void, pvresult: *
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetIndexInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, szindexname: *const i8, pvresult: *mut ::std::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetIndexInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, szindexname: *const i8, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetIndexInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, szindexname: *const i8, pvresult: *mut ::std::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
+            fn JetGetIndexInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, szindexname: *const i8, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetIndexInfoA(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename), ::std::mem::transmute(szindexname), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbresult), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetIndexInfoA(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(szindexname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbresult), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8014,14 +8032,14 @@ pub unsafe fn JetGetIndexInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetIndexInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, szindexname: *const u16, pvresult: *mut ::std::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetIndexInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetIndexInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, szindexname: *const u16, pvresult: *mut ::std::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
+            fn JetGetIndexInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetIndexInfoW(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename), ::std::mem::transmute(szindexname), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbresult), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetIndexInfoW(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(szindexname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbresult), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8036,7 +8054,7 @@ pub unsafe fn JetGetInstanceInfoA(pcinstanceinfo: *mut u32, painstanceinfo: *mut
         extern "system" {
             fn JetGetInstanceInfoA(pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A) -> i32;
         }
-        ::std::mem::transmute(JetGetInstanceInfoA(::std::mem::transmute(pcinstanceinfo), ::std::mem::transmute(painstanceinfo)))
+        ::core::mem::transmute(JetGetInstanceInfoA(::core::mem::transmute(pcinstanceinfo), ::core::mem::transmute(painstanceinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8051,7 +8069,7 @@ pub unsafe fn JetGetInstanceInfoW(pcinstanceinfo: *mut u32, painstanceinfo: *mut
         extern "system" {
             fn JetGetInstanceInfoW(pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W) -> i32;
         }
-        ::std::mem::transmute(JetGetInstanceInfoW(::std::mem::transmute(pcinstanceinfo), ::std::mem::transmute(painstanceinfo)))
+        ::core::mem::transmute(JetGetInstanceInfoW(::core::mem::transmute(pcinstanceinfo), ::core::mem::transmute(painstanceinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8059,14 +8077,14 @@ pub unsafe fn JetGetInstanceInfoW(pcinstanceinfo: *mut u32, painstanceinfo: *mut
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetInstanceMiscInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetInstanceMiscInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetInstanceMiscInfo(instance: super::StructuredStorage::JET_INSTANCE, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
+            fn JetGetInstanceMiscInfo(instance: super::StructuredStorage::JET_INSTANCE, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetInstanceMiscInfo(instance.into_param().abi(), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetInstanceMiscInfo(instance.into_param().abi(), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8081,7 +8099,7 @@ pub unsafe fn JetGetLS<'a, Param0: ::windows::runtime::IntoParam<'a, super::Stru
         extern "system" {
             fn JetGetLS(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pls: *mut JET_LS, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetLS(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pls), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetGetLS(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pls), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8096,7 +8114,7 @@ pub unsafe fn JetGetLock<'a, Param0: ::windows::runtime::IntoParam<'a, super::St
         extern "system" {
             fn JetGetLock(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetLock(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetGetLock(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8110,7 +8128,7 @@ pub unsafe fn JetGetLogInfoA(szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) 
         extern "system" {
             fn JetGetLogInfoA(szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetGetLogInfoA(::std::mem::transmute(szzlogs), ::std::mem::transmute(cbmax), ::std::mem::transmute(pcbactual)))
+        ::core::mem::transmute(JetGetLogInfoA(::core::mem::transmute(szzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8125,7 +8143,7 @@ pub unsafe fn JetGetLogInfoInstance2A<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn JetGetLogInfoInstance2A(instance: super::StructuredStorage::JET_INSTANCE, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32, ploginfo: *mut JET_LOGINFO_A) -> i32;
         }
-        ::std::mem::transmute(JetGetLogInfoInstance2A(instance.into_param().abi(), ::std::mem::transmute(szzlogs), ::std::mem::transmute(cbmax), ::std::mem::transmute(pcbactual), ::std::mem::transmute(ploginfo)))
+        ::core::mem::transmute(JetGetLogInfoInstance2A(instance.into_param().abi(), ::core::mem::transmute(szzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual), ::core::mem::transmute(ploginfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8140,7 +8158,7 @@ pub unsafe fn JetGetLogInfoInstance2W<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn JetGetLogInfoInstance2W(instance: super::StructuredStorage::JET_INSTANCE, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32, ploginfo: *mut JET_LOGINFO_W) -> i32;
         }
-        ::std::mem::transmute(JetGetLogInfoInstance2W(instance.into_param().abi(), ::std::mem::transmute(wszzlogs), ::std::mem::transmute(cbmax), ::std::mem::transmute(pcbactual), ::std::mem::transmute(ploginfo)))
+        ::core::mem::transmute(JetGetLogInfoInstance2W(instance.into_param().abi(), ::core::mem::transmute(wszzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual), ::core::mem::transmute(ploginfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8155,7 +8173,7 @@ pub unsafe fn JetGetLogInfoInstanceA<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn JetGetLogInfoInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetGetLogInfoInstanceA(instance.into_param().abi(), ::std::mem::transmute(szzlogs), ::std::mem::transmute(cbmax), ::std::mem::transmute(pcbactual)))
+        ::core::mem::transmute(JetGetLogInfoInstanceA(instance.into_param().abi(), ::core::mem::transmute(szzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8170,7 +8188,7 @@ pub unsafe fn JetGetLogInfoInstanceW<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn JetGetLogInfoInstanceW(instance: super::StructuredStorage::JET_INSTANCE, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetGetLogInfoInstanceW(instance.into_param().abi(), ::std::mem::transmute(wszzlogs), ::std::mem::transmute(cbmax), ::std::mem::transmute(pcbactual)))
+        ::core::mem::transmute(JetGetLogInfoInstanceW(instance.into_param().abi(), ::core::mem::transmute(wszzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8184,7 +8202,7 @@ pub unsafe fn JetGetLogInfoW(szzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32)
         extern "system" {
             fn JetGetLogInfoW(szzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetGetLogInfoW(::std::mem::transmute(szzlogs), ::std::mem::transmute(cbmax), ::std::mem::transmute(pcbactual)))
+        ::core::mem::transmute(JetGetLogInfoW(::core::mem::transmute(szzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8192,14 +8210,14 @@ pub unsafe fn JetGetLogInfoW(szzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32)
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetObjectInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, objtyp: u32, szcontainername: *const i8, szobjectname: *const i8, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetObjectInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, objtyp: u32, szcontainername: *const i8, szobjectname: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetObjectInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, objtyp: u32, szcontainername: *const i8, szobjectname: *const i8, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
+            fn JetGetObjectInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, objtyp: u32, szcontainername: *const i8, szobjectname: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetObjectInfoA(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(objtyp), ::std::mem::transmute(szcontainername), ::std::mem::transmute(szobjectname), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetObjectInfoA(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(objtyp), ::core::mem::transmute(szcontainername), ::core::mem::transmute(szobjectname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8207,14 +8225,14 @@ pub unsafe fn JetGetObjectInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetObjectInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, objtyp: u32, szcontainername: *const u16, szobjectname: *const u16, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetObjectInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, objtyp: u32, szcontainername: *const u16, szobjectname: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetObjectInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, objtyp: u32, szcontainername: *const u16, szobjectname: *const u16, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
+            fn JetGetObjectInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, objtyp: u32, szcontainername: *const u16, szobjectname: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetObjectInfoW(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(objtyp), ::std::mem::transmute(szcontainername), ::std::mem::transmute(szobjectname), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetObjectInfoW(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(objtyp), ::core::mem::transmute(szcontainername), ::core::mem::transmute(szobjectname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8229,7 +8247,7 @@ pub unsafe fn JetGetRecordPosition<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetGetRecordPosition(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, precpos: *mut JET_RECPOS, cbrecpos: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetRecordPosition(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(precpos), ::std::mem::transmute(cbrecpos)))
+        ::core::mem::transmute(JetGetRecordPosition(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(precpos), ::core::mem::transmute(cbrecpos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8244,7 +8262,7 @@ pub unsafe fn JetGetRecordSize<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetGetRecordSize(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, precsize: *mut JET_RECSIZE, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetRecordSize(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(precsize), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetGetRecordSize(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(precsize), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8259,7 +8277,7 @@ pub unsafe fn JetGetRecordSize2<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn JetGetRecordSize2(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, precsize: *mut JET_RECSIZE2, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetRecordSize2(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(precsize), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetGetRecordSize2(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(precsize), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8267,23 +8285,23 @@ pub unsafe fn JetGetRecordSize2<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetSecondaryIndexBookmark<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvsecondarykey: *mut ::std::ffi::c_void, cbsecondarykeymax: u32, pcbsecondarykeyactual: *mut u32, pvprimarybookmark: *mut ::std::ffi::c_void, cbprimarybookmarkmax: u32, pcbprimarybookmarkactual: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetGetSecondaryIndexBookmark<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvsecondarykey: *mut ::core::ffi::c_void, cbsecondarykeymax: u32, pcbsecondarykeyactual: *mut u32, pvprimarybookmark: *mut ::core::ffi::c_void, cbprimarybookmarkmax: u32, pcbprimarybookmarkactual: *mut u32, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetSecondaryIndexBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvsecondarykey: *mut ::std::ffi::c_void, cbsecondarykeymax: u32, pcbsecondarykeyactual: *mut u32, pvprimarybookmark: *mut ::std::ffi::c_void, cbprimarybookmarkmax: u32, pcbprimarybookmarkactual: *mut u32, grbit: u32) -> i32;
+            fn JetGetSecondaryIndexBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvsecondarykey: *mut ::core::ffi::c_void, cbsecondarykeymax: u32, pcbsecondarykeyactual: *mut u32, pvprimarybookmark: *mut ::core::ffi::c_void, cbprimarybookmarkmax: u32, pcbprimarybookmarkactual: *mut u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetSecondaryIndexBookmark(
+        ::core::mem::transmute(JetGetSecondaryIndexBookmark(
             sesid.into_param().abi(),
             tableid.into_param().abi(),
-            ::std::mem::transmute(pvsecondarykey),
-            ::std::mem::transmute(cbsecondarykeymax),
-            ::std::mem::transmute(pcbsecondarykeyactual),
-            ::std::mem::transmute(pvprimarybookmark),
-            ::std::mem::transmute(cbprimarybookmarkmax),
-            ::std::mem::transmute(pcbprimarybookmarkactual),
-            ::std::mem::transmute(grbit),
+            ::core::mem::transmute(pvsecondarykey),
+            ::core::mem::transmute(cbsecondarykeymax),
+            ::core::mem::transmute(pcbsecondarykeyactual),
+            ::core::mem::transmute(pvprimarybookmark),
+            ::core::mem::transmute(cbprimarybookmarkmax),
+            ::core::mem::transmute(pcbprimarybookmarkactual),
+            ::core::mem::transmute(grbit),
         ))
     }
     #[cfg(not(windows))]
@@ -8292,14 +8310,14 @@ pub unsafe fn JetGetSecondaryIndexBookmark<'a, Param0: ::windows::runtime::IntoP
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetSessionParameter<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, sesparamid: u32, pvparam: *mut ::std::ffi::c_void, cbparammax: u32, pcbparamactual: *mut u32) -> i32 {
+pub unsafe fn JetGetSessionParameter<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, sesparamid: u32, pvparam: *mut ::core::ffi::c_void, cbparammax: u32, pcbparamactual: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetSessionParameter(sesid: super::StructuredStorage::JET_SESID, sesparamid: u32, pvparam: *mut ::std::ffi::c_void, cbparammax: u32, pcbparamactual: *mut u32) -> i32;
+            fn JetGetSessionParameter(sesid: super::StructuredStorage::JET_SESID, sesparamid: u32, pvparam: *mut ::core::ffi::c_void, cbparammax: u32, pcbparamactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetGetSessionParameter(sesid.into_param().abi(), ::std::mem::transmute(sesparamid), ::std::mem::transmute(pvparam), ::std::mem::transmute(cbparammax), ::std::mem::transmute(pcbparamactual)))
+        ::core::mem::transmute(JetGetSessionParameter(sesid.into_param().abi(), ::core::mem::transmute(sesparamid), ::core::mem::transmute(pvparam), ::core::mem::transmute(cbparammax), ::core::mem::transmute(pcbparamactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8314,7 +8332,7 @@ pub unsafe fn JetGetSystemParameterA<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn JetGetSystemParameterA(instance: super::StructuredStorage::JET_INSTANCE, sesid: super::StructuredStorage::JET_SESID, paramid: u32, plparam: *mut super::StructuredStorage::JET_API_PTR, szparam: *mut i8, cbmax: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetSystemParameterA(instance.into_param().abi(), sesid.into_param().abi(), ::std::mem::transmute(paramid), ::std::mem::transmute(plparam), ::std::mem::transmute(szparam), ::std::mem::transmute(cbmax)))
+        ::core::mem::transmute(JetGetSystemParameterA(instance.into_param().abi(), sesid.into_param().abi(), ::core::mem::transmute(paramid), ::core::mem::transmute(plparam), ::core::mem::transmute(szparam), ::core::mem::transmute(cbmax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8329,7 +8347,7 @@ pub unsafe fn JetGetSystemParameterW<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn JetGetSystemParameterW(instance: super::StructuredStorage::JET_INSTANCE, sesid: super::StructuredStorage::JET_SESID, paramid: u32, plparam: *mut super::StructuredStorage::JET_API_PTR, szparam: *mut u16, cbmax: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetSystemParameterW(instance.into_param().abi(), sesid.into_param().abi(), ::std::mem::transmute(paramid), ::std::mem::transmute(plparam), ::std::mem::transmute(szparam), ::std::mem::transmute(cbmax)))
+        ::core::mem::transmute(JetGetSystemParameterW(instance.into_param().abi(), sesid.into_param().abi(), ::core::mem::transmute(paramid), ::core::mem::transmute(plparam), ::core::mem::transmute(szparam), ::core::mem::transmute(cbmax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8337,14 +8355,14 @@ pub unsafe fn JetGetSystemParameterW<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTableColumnInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const i8, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetTableColumnInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetTableColumnInfoA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
+            fn JetGetTableColumnInfoA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetTableColumnInfoA(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szcolumnname), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetTableColumnInfoA(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8352,14 +8370,14 @@ pub unsafe fn JetGetTableColumnInfoA<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTableColumnInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const u16, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetTableColumnInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetTableColumnInfoW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
+            fn JetGetTableColumnInfoW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetTableColumnInfoW(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szcolumnname), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetTableColumnInfoW(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8367,14 +8385,14 @@ pub unsafe fn JetGetTableColumnInfoW<'a, Param0: ::windows::runtime::IntoParam<'
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTableIndexInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const i8, pvresult: *mut ::std::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetTableIndexInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const i8, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetTableIndexInfoA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, pvresult: *mut ::std::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
+            fn JetGetTableIndexInfoA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetTableIndexInfoA(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbresult), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetTableIndexInfoA(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbresult), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8382,14 +8400,14 @@ pub unsafe fn JetGetTableIndexInfoA<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTableIndexInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const u16, pvresult: *mut ::std::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetTableIndexInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetTableIndexInfoW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, pvresult: *mut ::std::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
+            fn JetGetTableIndexInfoW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetTableIndexInfoW(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbresult), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetTableIndexInfoW(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbresult), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8397,14 +8415,14 @@ pub unsafe fn JetGetTableIndexInfoW<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTableInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetTableInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetTableInfoA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
+            fn JetGetTableInfoA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetTableInfoA(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetTableInfoA(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8412,28 +8430,28 @@ pub unsafe fn JetGetTableInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTableInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+pub unsafe fn JetGetTableInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetTableInfoW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvresult: *mut ::std::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
+            fn JetGetTableInfoW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetTableInfoW(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax), ::std::mem::transmute(infolevel)))
+        ::core::mem::transmute(JetGetTableInfoW(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 #[inline]
-pub unsafe fn JetGetThreadStats(pvresult: *mut ::std::ffi::c_void, cbmax: u32) -> i32 {
+pub unsafe fn JetGetThreadStats(pvresult: *mut ::core::ffi::c_void, cbmax: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGetThreadStats(pvresult: *mut ::std::ffi::c_void, cbmax: u32) -> i32;
+            fn JetGetThreadStats(pvresult: *mut ::core::ffi::c_void, cbmax: u32) -> i32;
         }
-        ::std::mem::transmute(JetGetThreadStats(::std::mem::transmute(pvresult), ::std::mem::transmute(cbmax)))
+        ::core::mem::transmute(JetGetThreadStats(::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8448,7 +8466,7 @@ pub unsafe fn JetGetTruncateLogInfoInstanceA<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn JetGetTruncateLogInfoInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetGetTruncateLogInfoInstanceA(instance.into_param().abi(), ::std::mem::transmute(szzlogs), ::std::mem::transmute(cbmax), ::std::mem::transmute(pcbactual)))
+        ::core::mem::transmute(JetGetTruncateLogInfoInstanceA(instance.into_param().abi(), ::core::mem::transmute(szzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8463,7 +8481,7 @@ pub unsafe fn JetGetTruncateLogInfoInstanceW<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn JetGetTruncateLogInfoInstanceW(instance: super::StructuredStorage::JET_INSTANCE, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetGetTruncateLogInfoInstanceW(instance.into_param().abi(), ::std::mem::transmute(wszzlogs), ::std::mem::transmute(cbmax), ::std::mem::transmute(pcbactual)))
+        ::core::mem::transmute(JetGetTruncateLogInfoInstanceW(instance.into_param().abi(), ::core::mem::transmute(wszzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8478,7 +8496,7 @@ pub unsafe fn JetGetVersion<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn JetGetVersion(sesid: super::StructuredStorage::JET_SESID, pwversion: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetGetVersion(sesid.into_param().abi(), ::std::mem::transmute(pwversion)))
+        ::core::mem::transmute(JetGetVersion(sesid.into_param().abi(), ::core::mem::transmute(pwversion)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8486,14 +8504,14 @@ pub unsafe fn JetGetVersion<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGotoBookmark<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *const ::std::ffi::c_void, cbbookmark: u32) -> i32 {
+pub unsafe fn JetGotoBookmark<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *const ::core::ffi::c_void, cbbookmark: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGotoBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *const ::std::ffi::c_void, cbbookmark: u32) -> i32;
+            fn JetGotoBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *const ::core::ffi::c_void, cbbookmark: u32) -> i32;
         }
-        ::std::mem::transmute(JetGotoBookmark(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pvbookmark), ::std::mem::transmute(cbbookmark)))
+        ::core::mem::transmute(JetGotoBookmark(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pvbookmark), ::core::mem::transmute(cbbookmark)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8508,7 +8526,7 @@ pub unsafe fn JetGotoPosition<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn JetGotoPosition(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, precpos: *const JET_RECPOS) -> i32;
         }
-        ::std::mem::transmute(JetGotoPosition(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(precpos)))
+        ::core::mem::transmute(JetGotoPosition(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(precpos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8516,14 +8534,14 @@ pub unsafe fn JetGotoPosition<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGotoSecondaryIndexBookmark<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvsecondarykey: *const ::std::ffi::c_void, cbsecondarykey: u32, pvprimarybookmark: *const ::std::ffi::c_void, cbprimarybookmark: u32, grbit: u32) -> i32 {
+pub unsafe fn JetGotoSecondaryIndexBookmark<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvsecondarykey: *const ::core::ffi::c_void, cbsecondarykey: u32, pvprimarybookmark: *const ::core::ffi::c_void, cbprimarybookmark: u32, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetGotoSecondaryIndexBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvsecondarykey: *const ::std::ffi::c_void, cbsecondarykey: u32, pvprimarybookmark: *const ::std::ffi::c_void, cbprimarybookmark: u32, grbit: u32) -> i32;
+            fn JetGotoSecondaryIndexBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvsecondarykey: *const ::core::ffi::c_void, cbsecondarykey: u32, pvprimarybookmark: *const ::core::ffi::c_void, cbprimarybookmark: u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetGotoSecondaryIndexBookmark(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pvsecondarykey), ::std::mem::transmute(cbsecondarykey), ::std::mem::transmute(pvprimarybookmark), ::std::mem::transmute(cbprimarybookmark), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetGotoSecondaryIndexBookmark(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pvsecondarykey), ::core::mem::transmute(cbsecondarykey), ::core::mem::transmute(pvprimarybookmark), ::core::mem::transmute(cbprimarybookmark), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8538,7 +8556,7 @@ pub unsafe fn JetGrowDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn JetGrowDatabase(sesid: super::StructuredStorage::JET_SESID, dbid: u32, cpg: u32, pcpgreal: *const u32) -> i32;
         }
-        ::std::mem::transmute(JetGrowDatabase(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(cpg), ::std::mem::transmute(pcpgreal)))
+        ::core::mem::transmute(JetGrowDatabase(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(cpg), ::core::mem::transmute(pcpgreal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8553,7 +8571,7 @@ pub unsafe fn JetIdle<'a, Param0: ::windows::runtime::IntoParam<'a, super::Struc
         extern "system" {
             fn JetIdle(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetIdle(sesid.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetIdle(sesid.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8568,7 +8586,7 @@ pub unsafe fn JetIndexRecordCount<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetIndexRecordCount(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pcrec: *mut u32, crecmax: u32) -> i32;
         }
-        ::std::mem::transmute(JetIndexRecordCount(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pcrec), ::std::mem::transmute(crecmax)))
+        ::core::mem::transmute(JetIndexRecordCount(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pcrec), ::core::mem::transmute(crecmax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8583,7 +8601,7 @@ pub unsafe fn JetInit(pinstance: *mut super::StructuredStorage::JET_INSTANCE) ->
         extern "system" {
             fn JetInit(pinstance: *mut super::StructuredStorage::JET_INSTANCE) -> i32;
         }
-        ::std::mem::transmute(JetInit(::std::mem::transmute(pinstance)))
+        ::core::mem::transmute(JetInit(::core::mem::transmute(pinstance)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8598,7 +8616,7 @@ pub unsafe fn JetInit2(pinstance: *mut super::StructuredStorage::JET_INSTANCE, g
         extern "system" {
             fn JetInit2(pinstance: *mut super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetInit2(::std::mem::transmute(pinstance), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetInit2(::core::mem::transmute(pinstance), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8611,9 +8629,9 @@ pub unsafe fn JetInit3A(pinstance: *mut super::StructuredStorage::JET_INSTANCE, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetInit3A(pinstance: *mut super::StructuredStorage::JET_INSTANCE, prstinfo: *const ::std::mem::ManuallyDrop<JET_RSTINFO_A>, grbit: u32) -> i32;
+            fn JetInit3A(pinstance: *mut super::StructuredStorage::JET_INSTANCE, prstinfo: *const ::core::mem::ManuallyDrop<JET_RSTINFO_A>, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetInit3A(::std::mem::transmute(pinstance), ::std::mem::transmute(prstinfo), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetInit3A(::core::mem::transmute(pinstance), ::core::mem::transmute(prstinfo), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8626,9 +8644,9 @@ pub unsafe fn JetInit3W(pinstance: *mut super::StructuredStorage::JET_INSTANCE, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetInit3W(pinstance: *mut super::StructuredStorage::JET_INSTANCE, prstinfo: *const ::std::mem::ManuallyDrop<JET_RSTINFO_W>, grbit: u32) -> i32;
+            fn JetInit3W(pinstance: *mut super::StructuredStorage::JET_INSTANCE, prstinfo: *const ::core::mem::ManuallyDrop<JET_RSTINFO_W>, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetInit3W(::std::mem::transmute(pinstance), ::std::mem::transmute(prstinfo), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetInit3W(::core::mem::transmute(pinstance), ::core::mem::transmute(prstinfo), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8643,7 +8661,7 @@ pub unsafe fn JetIntersectIndexes<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetIntersectIndexes(sesid: super::StructuredStorage::JET_SESID, rgindexrange: *const JET_INDEXRANGE, cindexrange: u32, precordlist: *mut JET_RECORDLIST, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetIntersectIndexes(sesid.into_param().abi(), ::std::mem::transmute(rgindexrange), ::std::mem::transmute(cindexrange), ::std::mem::transmute(precordlist), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetIntersectIndexes(sesid.into_param().abi(), ::core::mem::transmute(rgindexrange), ::core::mem::transmute(cindexrange), ::core::mem::transmute(precordlist), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8651,14 +8669,14 @@ pub unsafe fn JetIntersectIndexes<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetMakeKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvdata: *const ::std::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
+pub unsafe fn JetMakeKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetMakeKey(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvdata: *const ::std::ffi::c_void, cbdata: u32, grbit: u32) -> i32;
+            fn JetMakeKey(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetMakeKey(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pvdata), ::std::mem::transmute(cbdata), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetMakeKey(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pvdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8673,7 +8691,7 @@ pub unsafe fn JetMove<'a, Param0: ::windows::runtime::IntoParam<'a, super::Struc
         extern "system" {
             fn JetMove(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, crow: i32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetMove(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(crow), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetMove(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(crow), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8687,7 +8705,7 @@ pub unsafe fn JetOSSnapshotAbort<'a, Param0: ::windows::runtime::IntoParam<'a, J
         extern "system" {
             fn JetOSSnapshotAbort(snapid: JET_OSSNAPID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetOSSnapshotAbort(snapid.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetOSSnapshotAbort(snapid.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8701,7 +8719,7 @@ pub unsafe fn JetOSSnapshotEnd<'a, Param0: ::windows::runtime::IntoParam<'a, JET
         extern "system" {
             fn JetOSSnapshotEnd(snapid: JET_OSSNAPID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetOSSnapshotEnd(snapid.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetOSSnapshotEnd(snapid.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8716,7 +8734,7 @@ pub unsafe fn JetOSSnapshotFreezeA<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetOSSnapshotFreezeA(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetOSSnapshotFreezeA(snapid.into_param().abi(), ::std::mem::transmute(pcinstanceinfo), ::std::mem::transmute(painstanceinfo), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetOSSnapshotFreezeA(snapid.into_param().abi(), ::core::mem::transmute(pcinstanceinfo), ::core::mem::transmute(painstanceinfo), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8731,7 +8749,7 @@ pub unsafe fn JetOSSnapshotFreezeW<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetOSSnapshotFreezeW(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetOSSnapshotFreezeW(snapid.into_param().abi(), ::std::mem::transmute(pcinstanceinfo), ::std::mem::transmute(painstanceinfo), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetOSSnapshotFreezeW(snapid.into_param().abi(), ::core::mem::transmute(pcinstanceinfo), ::core::mem::transmute(painstanceinfo), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8746,7 +8764,7 @@ pub unsafe fn JetOSSnapshotGetFreezeInfoA<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn JetOSSnapshotGetFreezeInfoA(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetOSSnapshotGetFreezeInfoA(snapid.into_param().abi(), ::std::mem::transmute(pcinstanceinfo), ::std::mem::transmute(painstanceinfo), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetOSSnapshotGetFreezeInfoA(snapid.into_param().abi(), ::core::mem::transmute(pcinstanceinfo), ::core::mem::transmute(painstanceinfo), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8761,7 +8779,7 @@ pub unsafe fn JetOSSnapshotGetFreezeInfoW<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn JetOSSnapshotGetFreezeInfoW(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetOSSnapshotGetFreezeInfoW(snapid.into_param().abi(), ::std::mem::transmute(pcinstanceinfo), ::std::mem::transmute(painstanceinfo), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetOSSnapshotGetFreezeInfoW(snapid.into_param().abi(), ::core::mem::transmute(pcinstanceinfo), ::core::mem::transmute(painstanceinfo), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8775,7 +8793,7 @@ pub unsafe fn JetOSSnapshotPrepare(psnapid: *mut JET_OSSNAPID, grbit: u32) -> i3
         extern "system" {
             fn JetOSSnapshotPrepare(psnapid: *mut JET_OSSNAPID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetOSSnapshotPrepare(::std::mem::transmute(psnapid), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetOSSnapshotPrepare(::core::mem::transmute(psnapid), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8790,7 +8808,7 @@ pub unsafe fn JetOSSnapshotPrepareInstance<'a, Param0: ::windows::runtime::IntoP
         extern "system" {
             fn JetOSSnapshotPrepareInstance(snapid: JET_OSSNAPID, instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetOSSnapshotPrepareInstance(snapid.into_param().abi(), instance.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetOSSnapshotPrepareInstance(snapid.into_param().abi(), instance.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8804,7 +8822,7 @@ pub unsafe fn JetOSSnapshotThaw<'a, Param0: ::windows::runtime::IntoParam<'a, JE
         extern "system" {
             fn JetOSSnapshotThaw(snapid: JET_OSSNAPID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetOSSnapshotThaw(snapid.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetOSSnapshotThaw(snapid.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8818,7 +8836,7 @@ pub unsafe fn JetOSSnapshotTruncateLog<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn JetOSSnapshotTruncateLog(snapid: JET_OSSNAPID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetOSSnapshotTruncateLog(snapid.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetOSSnapshotTruncateLog(snapid.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8833,7 +8851,7 @@ pub unsafe fn JetOSSnapshotTruncateLogInstance<'a, Param0: ::windows::runtime::I
         extern "system" {
             fn JetOSSnapshotTruncateLogInstance(snapid: JET_OSSNAPID, instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetOSSnapshotTruncateLogInstance(snapid.into_param().abi(), instance.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetOSSnapshotTruncateLogInstance(snapid.into_param().abi(), instance.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8848,7 +8866,7 @@ pub unsafe fn JetOpenDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetOpenDatabaseA(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, szconnect: *const i8, pdbid: *mut u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetOpenDatabaseA(sesid.into_param().abi(), ::std::mem::transmute(szfilename), ::std::mem::transmute(szconnect), ::std::mem::transmute(pdbid), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetOpenDatabaseA(sesid.into_param().abi(), ::core::mem::transmute(szfilename), ::core::mem::transmute(szconnect), ::core::mem::transmute(pdbid), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8863,7 +8881,7 @@ pub unsafe fn JetOpenDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetOpenDatabaseW(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetOpenDatabaseW(sesid.into_param().abi(), ::std::mem::transmute(szfilename), ::std::mem::transmute(szconnect), ::std::mem::transmute(pdbid), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetOpenDatabaseW(sesid.into_param().abi(), ::core::mem::transmute(szfilename), ::core::mem::transmute(szconnect), ::core::mem::transmute(pdbid), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8878,7 +8896,7 @@ pub unsafe fn JetOpenFileA(szfilename: *const i8, phffile: *mut super::Structure
         extern "system" {
             fn JetOpenFileA(szfilename: *const i8, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetOpenFileA(::std::mem::transmute(szfilename), ::std::mem::transmute(phffile), ::std::mem::transmute(pulfilesizelow), ::std::mem::transmute(pulfilesizehigh)))
+        ::core::mem::transmute(JetOpenFileA(::core::mem::transmute(szfilename), ::core::mem::transmute(phffile), ::core::mem::transmute(pulfilesizelow), ::core::mem::transmute(pulfilesizehigh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8893,7 +8911,7 @@ pub unsafe fn JetOpenFileInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetOpenFileInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szfilename: *const i8, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetOpenFileInstanceA(instance.into_param().abi(), ::std::mem::transmute(szfilename), ::std::mem::transmute(phffile), ::std::mem::transmute(pulfilesizelow), ::std::mem::transmute(pulfilesizehigh)))
+        ::core::mem::transmute(JetOpenFileInstanceA(instance.into_param().abi(), ::core::mem::transmute(szfilename), ::core::mem::transmute(phffile), ::core::mem::transmute(pulfilesizelow), ::core::mem::transmute(pulfilesizehigh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8908,7 +8926,7 @@ pub unsafe fn JetOpenFileInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetOpenFileInstanceW(instance: super::StructuredStorage::JET_INSTANCE, szfilename: *const u16, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetOpenFileInstanceW(instance.into_param().abi(), ::std::mem::transmute(szfilename), ::std::mem::transmute(phffile), ::std::mem::transmute(pulfilesizelow), ::std::mem::transmute(pulfilesizehigh)))
+        ::core::mem::transmute(JetOpenFileInstanceW(instance.into_param().abi(), ::core::mem::transmute(szfilename), ::core::mem::transmute(phffile), ::core::mem::transmute(pulfilesizelow), ::core::mem::transmute(pulfilesizehigh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8923,7 +8941,7 @@ pub unsafe fn JetOpenFileW(szfilename: *const u16, phffile: *mut super::Structur
         extern "system" {
             fn JetOpenFileW(szfilename: *const u16, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetOpenFileW(::std::mem::transmute(szfilename), ::std::mem::transmute(phffile), ::std::mem::transmute(pulfilesizelow), ::std::mem::transmute(pulfilesizehigh)))
+        ::core::mem::transmute(JetOpenFileW(::core::mem::transmute(szfilename), ::core::mem::transmute(phffile), ::core::mem::transmute(pulfilesizelow), ::core::mem::transmute(pulfilesizehigh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8931,14 +8949,14 @@ pub unsafe fn JetOpenFileW(szfilename: *const u16, phffile: *mut super::Structur
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTableA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pvparameters: *const ::std::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
+pub unsafe fn JetOpenTableA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pvparameters: *const ::core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetOpenTableA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pvparameters: *const ::std::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
+            fn JetOpenTableA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pvparameters: *const ::core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
         }
-        ::std::mem::transmute(JetOpenTableA(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename), ::std::mem::transmute(pvparameters), ::std::mem::transmute(cbparameters), ::std::mem::transmute(grbit), ::std::mem::transmute(ptableid)))
+        ::core::mem::transmute(JetOpenTableA(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pvparameters), ::core::mem::transmute(cbparameters), ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8946,14 +8964,14 @@ pub unsafe fn JetOpenTableA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTableW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pvparameters: *const ::std::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
+pub unsafe fn JetOpenTableW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pvparameters: *const ::core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetOpenTableW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pvparameters: *const ::std::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
+            fn JetOpenTableW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pvparameters: *const ::core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
         }
-        ::std::mem::transmute(JetOpenTableW(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename), ::std::mem::transmute(pvparameters), ::std::mem::transmute(cbparameters), ::std::mem::transmute(grbit), ::std::mem::transmute(ptableid)))
+        ::core::mem::transmute(JetOpenTableW(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pvparameters), ::core::mem::transmute(cbparameters), ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8968,7 +8986,7 @@ pub unsafe fn JetOpenTempTable<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetOpenTempTable(sesid: super::StructuredStorage::JET_SESID, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetOpenTempTable(sesid.into_param().abi(), ::std::mem::transmute(prgcolumndef), ::std::mem::transmute(ccolumn), ::std::mem::transmute(grbit), ::std::mem::transmute(ptableid), ::std::mem::transmute(prgcolumnid)))
+        ::core::mem::transmute(JetOpenTempTable(sesid.into_param().abi(), ::core::mem::transmute(prgcolumndef), ::core::mem::transmute(ccolumn), ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid), ::core::mem::transmute(prgcolumnid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8983,7 +9001,7 @@ pub unsafe fn JetOpenTempTable2<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn JetOpenTempTable2(sesid: super::StructuredStorage::JET_SESID, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, lcid: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetOpenTempTable2(sesid.into_param().abi(), ::std::mem::transmute(prgcolumndef), ::std::mem::transmute(ccolumn), ::std::mem::transmute(lcid), ::std::mem::transmute(grbit), ::std::mem::transmute(ptableid), ::std::mem::transmute(prgcolumnid)))
+        ::core::mem::transmute(JetOpenTempTable2(sesid.into_param().abi(), ::core::mem::transmute(prgcolumndef), ::core::mem::transmute(ccolumn), ::core::mem::transmute(lcid), ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid), ::core::mem::transmute(prgcolumnid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8998,7 +9016,7 @@ pub unsafe fn JetOpenTempTable3<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn JetOpenTempTable3(sesid: super::StructuredStorage::JET_SESID, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, pidxunicode: *const JET_UNICODEINDEX, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetOpenTempTable3(sesid.into_param().abi(), ::std::mem::transmute(prgcolumndef), ::std::mem::transmute(ccolumn), ::std::mem::transmute(pidxunicode), ::std::mem::transmute(grbit), ::std::mem::transmute(ptableid), ::std::mem::transmute(prgcolumnid)))
+        ::core::mem::transmute(JetOpenTempTable3(sesid.into_param().abi(), ::core::mem::transmute(prgcolumndef), ::core::mem::transmute(ccolumn), ::core::mem::transmute(pidxunicode), ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid), ::core::mem::transmute(prgcolumnid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9013,7 +9031,7 @@ pub unsafe fn JetOpenTemporaryTable<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn JetOpenTemporaryTable(sesid: super::StructuredStorage::JET_SESID, popentemporarytable: *const JET_OPENTEMPORARYTABLE) -> i32;
         }
-        ::std::mem::transmute(JetOpenTemporaryTable(sesid.into_param().abi(), ::std::mem::transmute(popentemporarytable)))
+        ::core::mem::transmute(JetOpenTemporaryTable(sesid.into_param().abi(), ::core::mem::transmute(popentemporarytable)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9028,7 +9046,7 @@ pub unsafe fn JetOpenTemporaryTable2<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn JetOpenTemporaryTable2(sesid: super::StructuredStorage::JET_SESID, popentemporarytable: *const JET_OPENTEMPORARYTABLE2) -> i32;
         }
-        ::std::mem::transmute(JetOpenTemporaryTable2(sesid.into_param().abi(), ::std::mem::transmute(popentemporarytable)))
+        ::core::mem::transmute(JetOpenTemporaryTable2(sesid.into_param().abi(), ::core::mem::transmute(popentemporarytable)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9043,7 +9061,7 @@ pub unsafe fn JetPrepareUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetPrepareUpdate(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, prep: u32) -> i32;
         }
-        ::std::mem::transmute(JetPrepareUpdate(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(prep)))
+        ::core::mem::transmute(JetPrepareUpdate(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(prep)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9058,15 +9076,15 @@ pub unsafe fn JetPrereadIndexRanges<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn JetPrereadIndexRanges(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgindexranges: *const JET_INDEX_RANGE, cindexranges: u32, pcrangespreread: *mut u32, rgcolumnidpreread: *const u32, ccolumnidpreread: u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetPrereadIndexRanges(
+        ::core::mem::transmute(JetPrereadIndexRanges(
             sesid.into_param().abi(),
             tableid.into_param().abi(),
-            ::std::mem::transmute(rgindexranges),
-            ::std::mem::transmute(cindexranges),
-            ::std::mem::transmute(pcrangespreread),
-            ::std::mem::transmute(rgcolumnidpreread),
-            ::std::mem::transmute(ccolumnidpreread),
-            ::std::mem::transmute(grbit),
+            ::core::mem::transmute(rgindexranges),
+            ::core::mem::transmute(cindexranges),
+            ::core::mem::transmute(pcrangespreread),
+            ::core::mem::transmute(rgcolumnidpreread),
+            ::core::mem::transmute(ccolumnidpreread),
+            ::core::mem::transmute(grbit),
         ))
     }
     #[cfg(not(windows))]
@@ -9075,14 +9093,14 @@ pub unsafe fn JetPrereadIndexRanges<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetPrereadKeys<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, rgpvkeys: *const *const ::std::ffi::c_void, rgcbkeys: *const u32, ckeys: i32, pckeyspreread: *mut i32, grbit: u32) -> i32 {
+pub unsafe fn JetPrereadKeys<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, rgpvkeys: *const *const ::core::ffi::c_void, rgcbkeys: *const u32, ckeys: i32, pckeyspreread: *mut i32, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetPrereadKeys(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgpvkeys: *const *const ::std::ffi::c_void, rgcbkeys: *const u32, ckeys: i32, pckeyspreread: *mut i32, grbit: u32) -> i32;
+            fn JetPrereadKeys(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgpvkeys: *const *const ::core::ffi::c_void, rgcbkeys: *const u32, ckeys: i32, pckeyspreread: *mut i32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetPrereadKeys(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(rgpvkeys), ::std::mem::transmute(rgcbkeys), ::std::mem::transmute(ckeys), ::std::mem::transmute(pckeyspreread), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetPrereadKeys(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(rgpvkeys), ::core::mem::transmute(rgcbkeys), ::core::mem::transmute(ckeys), ::core::mem::transmute(pckeyspreread), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9090,14 +9108,14 @@ pub unsafe fn JetPrereadKeys<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetReadFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_HANDLE>>(hffile: Param0, pv: *mut ::std::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32 {
+pub unsafe fn JetReadFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_HANDLE>>(hffile: Param0, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetReadFile(hffile: super::StructuredStorage::JET_HANDLE, pv: *mut ::std::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32;
+            fn JetReadFile(hffile: super::StructuredStorage::JET_HANDLE, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetReadFile(hffile.into_param().abi(), ::std::mem::transmute(pv), ::std::mem::transmute(cb), ::std::mem::transmute(pcbactual)))
+        ::core::mem::transmute(JetReadFile(hffile.into_param().abi(), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9105,14 +9123,14 @@ pub unsafe fn JetReadFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::S
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetReadFileInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_HANDLE>>(instance: Param0, hffile: Param1, pv: *mut ::std::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32 {
+pub unsafe fn JetReadFileInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_HANDLE>>(instance: Param0, hffile: Param1, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetReadFileInstance(instance: super::StructuredStorage::JET_INSTANCE, hffile: super::StructuredStorage::JET_HANDLE, pv: *mut ::std::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32;
+            fn JetReadFileInstance(instance: super::StructuredStorage::JET_INSTANCE, hffile: super::StructuredStorage::JET_HANDLE, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetReadFileInstance(instance.into_param().abi(), hffile.into_param().abi(), ::std::mem::transmute(pv), ::std::mem::transmute(cb), ::std::mem::transmute(pcbactual)))
+        ::core::mem::transmute(JetReadFileInstance(instance.into_param().abi(), hffile.into_param().abi(), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9120,14 +9138,14 @@ pub unsafe fn JetReadFileInstance<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRegisterCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, cbtyp: u32, pcallback: ::std::option::Option<JET_CALLBACK>, pvcontext: *const ::std::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32 {
+pub unsafe fn JetRegisterCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, cbtyp: u32, pcallback: ::core::option::Option<JET_CALLBACK>, pvcontext: *const ::core::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetRegisterCallback(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pcallback: ::windows::runtime::RawPtr, pvcontext: *const ::std::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32;
+            fn JetRegisterCallback(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pcallback: ::windows::runtime::RawPtr, pvcontext: *const ::core::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32;
         }
-        ::std::mem::transmute(JetRegisterCallback(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(cbtyp), ::std::mem::transmute(pcallback), ::std::mem::transmute(pvcontext), ::std::mem::transmute(phcallbackid)))
+        ::core::mem::transmute(JetRegisterCallback(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(cbtyp), ::core::mem::transmute(pcallback), ::core::mem::transmute(pvcontext), ::core::mem::transmute(phcallbackid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9142,7 +9160,7 @@ pub unsafe fn JetRenameColumnA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetRenameColumnA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szname: *const i8, sznamenew: *const i8, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetRenameColumnA(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szname), ::std::mem::transmute(sznamenew), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetRenameColumnA(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szname), ::core::mem::transmute(sznamenew), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9157,7 +9175,7 @@ pub unsafe fn JetRenameColumnW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetRenameColumnW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szname: *const u16, sznamenew: *const u16, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetRenameColumnW(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szname), ::std::mem::transmute(sznamenew), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetRenameColumnW(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szname), ::core::mem::transmute(sznamenew), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9172,7 +9190,7 @@ pub unsafe fn JetRenameTableA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn JetRenameTableA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, szname: *const i8, sznamenew: *const i8) -> i32;
         }
-        ::std::mem::transmute(JetRenameTableA(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(szname), ::std::mem::transmute(sznamenew)))
+        ::core::mem::transmute(JetRenameTableA(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(szname), ::core::mem::transmute(sznamenew)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9187,7 +9205,7 @@ pub unsafe fn JetRenameTableW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn JetRenameTableW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, szname: *const u16, sznamenew: *const u16) -> i32;
         }
-        ::std::mem::transmute(JetRenameTableW(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(szname), ::std::mem::transmute(sznamenew)))
+        ::core::mem::transmute(JetRenameTableW(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(szname), ::core::mem::transmute(sznamenew)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9202,7 +9220,7 @@ pub unsafe fn JetResetSessionContext<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn JetResetSessionContext(sesid: super::StructuredStorage::JET_SESID) -> i32;
         }
-        ::std::mem::transmute(JetResetSessionContext(sesid.into_param().abi()))
+        ::core::mem::transmute(JetResetSessionContext(sesid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9217,7 +9235,7 @@ pub unsafe fn JetResetTableSequential<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn JetResetTableSequential(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetResetTableSequential(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetResetTableSequential(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9232,7 +9250,7 @@ pub unsafe fn JetResizeDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn JetResizeDatabase(sesid: super::StructuredStorage::JET_SESID, dbid: u32, cpgtarget: u32, pcpgactual: *mut u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetResizeDatabase(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(cpgtarget), ::std::mem::transmute(pcpgactual), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetResizeDatabase(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(cpgtarget), ::core::mem::transmute(pcpgactual), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9240,14 +9258,14 @@ pub unsafe fn JetResizeDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(JetRestore2A(::std::mem::transmute(sz), ::std::mem::transmute(szdest), ::std::mem::transmute(pfn)))
+        ::core::mem::transmute(JetRestore2A(::core::mem::transmute(sz), ::core::mem::transmute(szdest), ::core::mem::transmute(pfn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9255,14 +9273,14 @@ pub unsafe fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: ::std::option:
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(JetRestore2W(::std::mem::transmute(sz), ::std::mem::transmute(szdest), ::std::mem::transmute(pfn)))
+        ::core::mem::transmute(JetRestore2W(::core::mem::transmute(sz), ::core::mem::transmute(szdest), ::core::mem::transmute(pfn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9270,14 +9288,14 @@ pub unsafe fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: ::std::optio
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRestoreA(szsource: *const i8, pfn: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestoreA(szsource: *const i8, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetRestoreA(szsource: *const i8, pfn: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(JetRestoreA(::std::mem::transmute(szsource), ::std::mem::transmute(pfn)))
+        ::core::mem::transmute(JetRestoreA(::core::mem::transmute(szsource), ::core::mem::transmute(pfn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9285,14 +9303,14 @@ pub unsafe fn JetRestoreA(szsource: *const i8, pfn: ::std::option::Option<JET_PF
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRestoreInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, sz: *const i8, szdest: *const i8, pfn: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestoreInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, sz: *const i8, szdest: *const i8, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetRestoreInstanceA(instance: super::StructuredStorage::JET_INSTANCE, sz: *const i8, szdest: *const i8, pfn: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(JetRestoreInstanceA(instance.into_param().abi(), ::std::mem::transmute(sz), ::std::mem::transmute(szdest), ::std::mem::transmute(pfn)))
+        ::core::mem::transmute(JetRestoreInstanceA(instance.into_param().abi(), ::core::mem::transmute(sz), ::core::mem::transmute(szdest), ::core::mem::transmute(pfn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9300,14 +9318,14 @@ pub unsafe fn JetRestoreInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRestoreInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, sz: *const u16, szdest: *const u16, pfn: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestoreInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, sz: *const u16, szdest: *const u16, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetRestoreInstanceW(instance: super::StructuredStorage::JET_INSTANCE, sz: *const u16, szdest: *const u16, pfn: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(JetRestoreInstanceW(instance.into_param().abi(), ::std::mem::transmute(sz), ::std::mem::transmute(szdest), ::std::mem::transmute(pfn)))
+        ::core::mem::transmute(JetRestoreInstanceW(instance.into_param().abi(), ::core::mem::transmute(sz), ::core::mem::transmute(szdest), ::core::mem::transmute(pfn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9315,14 +9333,14 @@ pub unsafe fn JetRestoreInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRestoreW(szsource: *const u16, pfn: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
+pub unsafe fn JetRestoreW(szsource: *const u16, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetRestoreW(szsource: *const u16, pfn: ::windows::runtime::RawPtr) -> i32;
         }
-        ::std::mem::transmute(JetRestoreW(::std::mem::transmute(szsource), ::std::mem::transmute(pfn)))
+        ::core::mem::transmute(JetRestoreW(::core::mem::transmute(szsource), ::core::mem::transmute(pfn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9330,14 +9348,14 @@ pub unsafe fn JetRestoreW(szsource: *const u16, pfn: ::std::option::Option<JET_P
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRetrieveColumn<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, columnid: u32, pvdata: *mut ::std::ffi::c_void, cbdata: u32, pcbactual: *mut u32, grbit: u32, pretinfo: *mut JET_RETINFO) -> i32 {
+pub unsafe fn JetRetrieveColumn<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, columnid: u32, pvdata: *mut ::core::ffi::c_void, cbdata: u32, pcbactual: *mut u32, grbit: u32, pretinfo: *mut JET_RETINFO) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetRetrieveColumn(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pvdata: *mut ::std::ffi::c_void, cbdata: u32, pcbactual: *mut u32, grbit: u32, pretinfo: *mut JET_RETINFO) -> i32;
+            fn JetRetrieveColumn(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pvdata: *mut ::core::ffi::c_void, cbdata: u32, pcbactual: *mut u32, grbit: u32, pretinfo: *mut JET_RETINFO) -> i32;
         }
-        ::std::mem::transmute(JetRetrieveColumn(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(columnid), ::std::mem::transmute(pvdata), ::std::mem::transmute(cbdata), ::std::mem::transmute(pcbactual), ::std::mem::transmute(grbit), ::std::mem::transmute(pretinfo)))
+        ::core::mem::transmute(JetRetrieveColumn(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(columnid), ::core::mem::transmute(pvdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(pcbactual), ::core::mem::transmute(grbit), ::core::mem::transmute(pretinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9352,7 +9370,7 @@ pub unsafe fn JetRetrieveColumns<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn JetRetrieveColumns(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pretrievecolumn: *mut JET_RETRIEVECOLUMN, cretrievecolumn: u32) -> i32;
         }
-        ::std::mem::transmute(JetRetrieveColumns(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pretrievecolumn), ::std::mem::transmute(cretrievecolumn)))
+        ::core::mem::transmute(JetRetrieveColumns(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pretrievecolumn), ::core::mem::transmute(cretrievecolumn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9360,14 +9378,14 @@ pub unsafe fn JetRetrieveColumns<'a, Param0: ::windows::runtime::IntoParam<'a, s
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRetrieveKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvkey: *mut ::std::ffi::c_void, cbmax: u32, pcbactual: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetRetrieveKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvkey: *mut ::core::ffi::c_void, cbmax: u32, pcbactual: *mut u32, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetRetrieveKey(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvkey: *mut ::std::ffi::c_void, cbmax: u32, pcbactual: *mut u32, grbit: u32) -> i32;
+            fn JetRetrieveKey(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvkey: *mut ::core::ffi::c_void, cbmax: u32, pcbactual: *mut u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetRetrieveKey(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pvkey), ::std::mem::transmute(cbmax), ::std::mem::transmute(pcbactual), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetRetrieveKey(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pvkey), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9382,7 +9400,7 @@ pub unsafe fn JetRollback<'a, Param0: ::windows::runtime::IntoParam<'a, super::S
         extern "system" {
             fn JetRollback(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetRollback(sesid.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetRollback(sesid.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9397,7 +9415,7 @@ pub unsafe fn JetSeek<'a, Param0: ::windows::runtime::IntoParam<'a, super::Struc
         extern "system" {
             fn JetSeek(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetSeek(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetSeek(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9405,14 +9423,14 @@ pub unsafe fn JetSeek<'a, Param0: ::windows::runtime::IntoParam<'a, super::Struc
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetColumn<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, columnid: u32, pvdata: *const ::std::ffi::c_void, cbdata: u32, grbit: u32, psetinfo: *const JET_SETINFO) -> i32 {
+pub unsafe fn JetSetColumn<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, columnid: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32, psetinfo: *const JET_SETINFO) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetSetColumn(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pvdata: *const ::std::ffi::c_void, cbdata: u32, grbit: u32, psetinfo: *const JET_SETINFO) -> i32;
+            fn JetSetColumn(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32, psetinfo: *const JET_SETINFO) -> i32;
         }
-        ::std::mem::transmute(JetSetColumn(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(columnid), ::std::mem::transmute(pvdata), ::std::mem::transmute(cbdata), ::std::mem::transmute(grbit), ::std::mem::transmute(psetinfo)))
+        ::core::mem::transmute(JetSetColumn(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(columnid), ::core::mem::transmute(pvdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(grbit), ::core::mem::transmute(psetinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9420,14 +9438,14 @@ pub unsafe fn JetSetColumn<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetColumnDefaultValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, szcolumnname: *const i8, pvdata: *const ::std::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
+pub unsafe fn JetSetColumnDefaultValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, szcolumnname: *const i8, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetSetColumnDefaultValueA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, szcolumnname: *const i8, pvdata: *const ::std::ffi::c_void, cbdata: u32, grbit: u32) -> i32;
+            fn JetSetColumnDefaultValueA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, szcolumnname: *const i8, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetSetColumnDefaultValueA(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename), ::std::mem::transmute(szcolumnname), ::std::mem::transmute(pvdata), ::std::mem::transmute(cbdata), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetSetColumnDefaultValueA(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pvdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9435,14 +9453,14 @@ pub unsafe fn JetSetColumnDefaultValueA<'a, Param0: ::windows::runtime::IntoPara
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetColumnDefaultValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, szcolumnname: *const u16, pvdata: *const ::std::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
+pub unsafe fn JetSetColumnDefaultValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, szcolumnname: *const u16, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetSetColumnDefaultValueW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, szcolumnname: *const u16, pvdata: *const ::std::ffi::c_void, cbdata: u32, grbit: u32) -> i32;
+            fn JetSetColumnDefaultValueW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, szcolumnname: *const u16, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetSetColumnDefaultValueW(sesid.into_param().abi(), ::std::mem::transmute(dbid), ::std::mem::transmute(sztablename), ::std::mem::transmute(szcolumnname), ::std::mem::transmute(pvdata), ::std::mem::transmute(cbdata), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetSetColumnDefaultValueW(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pvdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9457,7 +9475,7 @@ pub unsafe fn JetSetColumns<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn JetSetColumns(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, psetcolumn: *const JET_SETCOLUMN, csetcolumn: u32) -> i32;
         }
-        ::std::mem::transmute(JetSetColumns(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(psetcolumn), ::std::mem::transmute(csetcolumn)))
+        ::core::mem::transmute(JetSetColumns(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(psetcolumn), ::core::mem::transmute(csetcolumn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9472,7 +9490,7 @@ pub unsafe fn JetSetCurrentIndex2A<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetSetCurrentIndex2A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetSetCurrentIndex2A(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetSetCurrentIndex2A(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9487,7 +9505,7 @@ pub unsafe fn JetSetCurrentIndex2W<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetSetCurrentIndex2W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetSetCurrentIndex2W(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetSetCurrentIndex2W(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9502,7 +9520,7 @@ pub unsafe fn JetSetCurrentIndex3A<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetSetCurrentIndex3A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, grbit: u32, itagsequence: u32) -> i32;
         }
-        ::std::mem::transmute(JetSetCurrentIndex3A(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname), ::std::mem::transmute(grbit), ::std::mem::transmute(itagsequence)))
+        ::core::mem::transmute(JetSetCurrentIndex3A(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname), ::core::mem::transmute(grbit), ::core::mem::transmute(itagsequence)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9517,7 +9535,7 @@ pub unsafe fn JetSetCurrentIndex3W<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetSetCurrentIndex3W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, grbit: u32, itagsequence: u32) -> i32;
         }
-        ::std::mem::transmute(JetSetCurrentIndex3W(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname), ::std::mem::transmute(grbit), ::std::mem::transmute(itagsequence)))
+        ::core::mem::transmute(JetSetCurrentIndex3W(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname), ::core::mem::transmute(grbit), ::core::mem::transmute(itagsequence)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9532,7 +9550,7 @@ pub unsafe fn JetSetCurrentIndex4A<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetSetCurrentIndex4A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, pindexid: *const JET_INDEXID, grbit: u32, itagsequence: u32) -> i32;
         }
-        ::std::mem::transmute(JetSetCurrentIndex4A(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname), ::std::mem::transmute(pindexid), ::std::mem::transmute(grbit), ::std::mem::transmute(itagsequence)))
+        ::core::mem::transmute(JetSetCurrentIndex4A(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname), ::core::mem::transmute(pindexid), ::core::mem::transmute(grbit), ::core::mem::transmute(itagsequence)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9547,7 +9565,7 @@ pub unsafe fn JetSetCurrentIndex4W<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetSetCurrentIndex4W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, pindexid: *const JET_INDEXID, grbit: u32, itagsequence: u32) -> i32;
         }
-        ::std::mem::transmute(JetSetCurrentIndex4W(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname), ::std::mem::transmute(pindexid), ::std::mem::transmute(grbit), ::std::mem::transmute(itagsequence)))
+        ::core::mem::transmute(JetSetCurrentIndex4W(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname), ::core::mem::transmute(pindexid), ::core::mem::transmute(grbit), ::core::mem::transmute(itagsequence)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9562,7 +9580,7 @@ pub unsafe fn JetSetCurrentIndexA<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetSetCurrentIndexA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8) -> i32;
         }
-        ::std::mem::transmute(JetSetCurrentIndexA(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname)))
+        ::core::mem::transmute(JetSetCurrentIndexA(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9577,7 +9595,7 @@ pub unsafe fn JetSetCurrentIndexW<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetSetCurrentIndexW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16) -> i32;
         }
-        ::std::mem::transmute(JetSetCurrentIndexW(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(szindexname)))
+        ::core::mem::transmute(JetSetCurrentIndexW(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(szindexname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9592,7 +9610,7 @@ pub unsafe fn JetSetCursorFilter<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn JetSetCursorFilter(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgcolumnfilters: *const JET_INDEX_COLUMN, ccolumnfilters: u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetSetCursorFilter(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(rgcolumnfilters), ::std::mem::transmute(ccolumnfilters), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetSetCursorFilter(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(rgcolumnfilters), ::core::mem::transmute(ccolumnfilters), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9607,7 +9625,7 @@ pub unsafe fn JetSetDatabaseSizeA<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetSetDatabaseSizeA(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const i8, cpg: u32, pcpgreal: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetSetDatabaseSizeA(sesid.into_param().abi(), ::std::mem::transmute(szdatabasename), ::std::mem::transmute(cpg), ::std::mem::transmute(pcpgreal)))
+        ::core::mem::transmute(JetSetDatabaseSizeA(sesid.into_param().abi(), ::core::mem::transmute(szdatabasename), ::core::mem::transmute(cpg), ::core::mem::transmute(pcpgreal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9622,7 +9640,7 @@ pub unsafe fn JetSetDatabaseSizeW<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn JetSetDatabaseSizeW(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const u16, cpg: u32, pcpgreal: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetSetDatabaseSizeW(sesid.into_param().abi(), ::std::mem::transmute(szdatabasename), ::std::mem::transmute(cpg), ::std::mem::transmute(pcpgreal)))
+        ::core::mem::transmute(JetSetDatabaseSizeW(sesid.into_param().abi(), ::core::mem::transmute(szdatabasename), ::core::mem::transmute(cpg), ::core::mem::transmute(pcpgreal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9637,7 +9655,7 @@ pub unsafe fn JetSetIndexRange<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn JetSetIndexRange(sesid: super::StructuredStorage::JET_SESID, tableidsrc: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetSetIndexRange(sesid.into_param().abi(), tableidsrc.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetSetIndexRange(sesid.into_param().abi(), tableidsrc.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9652,7 +9670,7 @@ pub unsafe fn JetSetLS<'a, Param0: ::windows::runtime::IntoParam<'a, super::Stru
         extern "system" {
             fn JetSetLS(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, ls: JET_LS, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetSetLS(sesid.into_param().abi(), tableid.into_param().abi(), ls.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetSetLS(sesid.into_param().abi(), tableid.into_param().abi(), ls.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9667,7 +9685,7 @@ pub unsafe fn JetSetSessionContext<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn JetSetSessionContext(sesid: super::StructuredStorage::JET_SESID, ulcontext: super::StructuredStorage::JET_API_PTR) -> i32;
         }
-        ::std::mem::transmute(JetSetSessionContext(sesid.into_param().abi(), ulcontext.into_param().abi()))
+        ::core::mem::transmute(JetSetSessionContext(sesid.into_param().abi(), ulcontext.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9675,14 +9693,14 @@ pub unsafe fn JetSetSessionContext<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetSessionParameter<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, sesparamid: u32, pvparam: *const ::std::ffi::c_void, cbparam: u32) -> i32 {
+pub unsafe fn JetSetSessionParameter<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, sesparamid: u32, pvparam: *const ::core::ffi::c_void, cbparam: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetSetSessionParameter(sesid: super::StructuredStorage::JET_SESID, sesparamid: u32, pvparam: *const ::std::ffi::c_void, cbparam: u32) -> i32;
+            fn JetSetSessionParameter(sesid: super::StructuredStorage::JET_SESID, sesparamid: u32, pvparam: *const ::core::ffi::c_void, cbparam: u32) -> i32;
         }
-        ::std::mem::transmute(JetSetSessionParameter(sesid.into_param().abi(), ::std::mem::transmute(sesparamid), ::std::mem::transmute(pvparam), ::std::mem::transmute(cbparam)))
+        ::core::mem::transmute(JetSetSessionParameter(sesid.into_param().abi(), ::core::mem::transmute(sesparamid), ::core::mem::transmute(pvparam), ::core::mem::transmute(cbparam)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9697,7 +9715,7 @@ pub unsafe fn JetSetSystemParameterA<'a, Param1: ::windows::runtime::IntoParam<'
         extern "system" {
             fn JetSetSystemParameterA(pinstance: *mut super::StructuredStorage::JET_INSTANCE, sesid: super::StructuredStorage::JET_SESID, paramid: u32, lparam: super::StructuredStorage::JET_API_PTR, szparam: *const i8) -> i32;
         }
-        ::std::mem::transmute(JetSetSystemParameterA(::std::mem::transmute(pinstance), sesid.into_param().abi(), ::std::mem::transmute(paramid), lparam.into_param().abi(), ::std::mem::transmute(szparam)))
+        ::core::mem::transmute(JetSetSystemParameterA(::core::mem::transmute(pinstance), sesid.into_param().abi(), ::core::mem::transmute(paramid), lparam.into_param().abi(), ::core::mem::transmute(szparam)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9712,7 +9730,7 @@ pub unsafe fn JetSetSystemParameterW<'a, Param1: ::windows::runtime::IntoParam<'
         extern "system" {
             fn JetSetSystemParameterW(pinstance: *mut super::StructuredStorage::JET_INSTANCE, sesid: super::StructuredStorage::JET_SESID, paramid: u32, lparam: super::StructuredStorage::JET_API_PTR, szparam: *const u16) -> i32;
         }
-        ::std::mem::transmute(JetSetSystemParameterW(::std::mem::transmute(pinstance), sesid.into_param().abi(), ::std::mem::transmute(paramid), lparam.into_param().abi(), ::std::mem::transmute(szparam)))
+        ::core::mem::transmute(JetSetSystemParameterW(::core::mem::transmute(pinstance), sesid.into_param().abi(), ::core::mem::transmute(paramid), lparam.into_param().abi(), ::core::mem::transmute(szparam)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9727,7 +9745,7 @@ pub unsafe fn JetSetTableSequential<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn JetSetTableSequential(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetSetTableSequential(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetSetTableSequential(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9741,7 +9759,7 @@ pub unsafe fn JetStopBackup() -> i32 {
         extern "system" {
             fn JetStopBackup() -> i32;
         }
-        ::std::mem::transmute(JetStopBackup())
+        ::core::mem::transmute(JetStopBackup())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9756,7 +9774,7 @@ pub unsafe fn JetStopBackupInstance<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn JetStopBackupInstance(instance: super::StructuredStorage::JET_INSTANCE) -> i32;
         }
-        ::std::mem::transmute(JetStopBackupInstance(instance.into_param().abi()))
+        ::core::mem::transmute(JetStopBackupInstance(instance.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9770,7 +9788,7 @@ pub unsafe fn JetStopService() -> i32 {
         extern "system" {
             fn JetStopService() -> i32;
         }
-        ::std::mem::transmute(JetStopService())
+        ::core::mem::transmute(JetStopService())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9785,7 +9803,7 @@ pub unsafe fn JetStopServiceInstance<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn JetStopServiceInstance(instance: super::StructuredStorage::JET_INSTANCE) -> i32;
         }
-        ::std::mem::transmute(JetStopServiceInstance(instance.into_param().abi()))
+        ::core::mem::transmute(JetStopServiceInstance(instance.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9800,7 +9818,7 @@ pub unsafe fn JetStopServiceInstance2<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn JetStopServiceInstance2(instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetStopServiceInstance2(instance.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetStopServiceInstance2(instance.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9815,7 +9833,7 @@ pub unsafe fn JetTerm<'a, Param0: ::windows::runtime::IntoParam<'a, super::Struc
         extern "system" {
             fn JetTerm(instance: super::StructuredStorage::JET_INSTANCE) -> i32;
         }
-        ::std::mem::transmute(JetTerm(instance.into_param().abi()))
+        ::core::mem::transmute(JetTerm(instance.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9830,7 +9848,7 @@ pub unsafe fn JetTerm2<'a, Param0: ::windows::runtime::IntoParam<'a, super::Stru
         extern "system" {
             fn JetTerm2(instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetTerm2(instance.into_param().abi(), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetTerm2(instance.into_param().abi(), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9844,7 +9862,7 @@ pub unsafe fn JetTruncateLog() -> i32 {
         extern "system" {
             fn JetTruncateLog() -> i32;
         }
-        ::std::mem::transmute(JetTruncateLog())
+        ::core::mem::transmute(JetTruncateLog())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9859,7 +9877,7 @@ pub unsafe fn JetTruncateLogInstance<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn JetTruncateLogInstance(instance: super::StructuredStorage::JET_INSTANCE) -> i32;
         }
-        ::std::mem::transmute(JetTruncateLogInstance(instance.into_param().abi()))
+        ::core::mem::transmute(JetTruncateLogInstance(instance.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9874,7 +9892,7 @@ pub unsafe fn JetUnregisterCallback<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn JetUnregisterCallback(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, hcallbackid: super::StructuredStorage::JET_HANDLE) -> i32;
         }
-        ::std::mem::transmute(JetUnregisterCallback(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(cbtyp), hcallbackid.into_param().abi()))
+        ::core::mem::transmute(JetUnregisterCallback(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(cbtyp), hcallbackid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9882,14 +9900,14 @@ pub unsafe fn JetUnregisterCallback<'a, Param0: ::windows::runtime::IntoParam<'a
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *mut ::std::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32) -> i32 {
+pub unsafe fn JetUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetUpdate(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut ::std::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32) -> i32;
+            fn JetUpdate(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32) -> i32;
         }
-        ::std::mem::transmute(JetUpdate(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pvbookmark), ::std::mem::transmute(cbbookmark), ::std::mem::transmute(pcbactual)))
+        ::core::mem::transmute(JetUpdate(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pvbookmark), ::core::mem::transmute(cbbookmark), ::core::mem::transmute(pcbactual)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9897,14 +9915,14 @@ pub unsafe fn JetUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, super::Str
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Storage_StructuredStorage`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetUpdate2<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *mut ::std::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32, grbit: u32) -> i32 {
+pub unsafe fn JetUpdate2<'a, Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetUpdate2(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut ::std::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32, grbit: u32) -> i32;
+            fn JetUpdate2(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32, grbit: u32) -> i32;
         }
-        ::std::mem::transmute(JetUpdate2(sesid.into_param().abi(), tableid.into_param().abi(), ::std::mem::transmute(pvbookmark), ::std::mem::transmute(cbbookmark), ::std::mem::transmute(pcbactual), ::std::mem::transmute(grbit)))
+        ::core::mem::transmute(JetUpdate2(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(pvbookmark), ::core::mem::transmute(cbbookmark), ::core::mem::transmute(pcbactual), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -74,15 +74,15 @@ pub struct IVariablePhotoSequenceCapture2_abi(
 );
 #[doc = "*Required features: `Media_Capture_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VariablePhotoCapturedEventArgs(pub ::windows::runtime::IInspectable);
 impl VariablePhotoCapturedEventArgs {
     #[doc = "*Required features: `Media_Capture_Core`*"]
     pub fn Frame(&self) -> ::windows::runtime::Result<super::CapturedFrame> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::CapturedFrame>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::CapturedFrame>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -90,8 +90,8 @@ impl VariablePhotoCapturedEventArgs {
     pub fn CaptureTimeOffset(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -99,16 +99,16 @@ impl VariablePhotoCapturedEventArgs {
     pub fn UsedFrameControllerIndex(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[doc = "*Required features: `Media_Capture_Core`*"]
     pub fn CapturedFrameControlValues(&self) -> ::windows::runtime::Result<super::CapturedFrameControlValues> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::CapturedFrameControlValues>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::CapturedFrameControlValues>(result__)
         }
     }
 }
@@ -122,12 +122,12 @@ unsafe impl ::windows::runtime::Interface for VariablePhotoCapturedEventArgs {
 impl ::windows::runtime::RuntimeName for VariablePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs";
 }
-impl ::std::convert::From<VariablePhotoCapturedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<VariablePhotoCapturedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: VariablePhotoCapturedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&VariablePhotoCapturedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&VariablePhotoCapturedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &VariablePhotoCapturedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -142,12 +142,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<VariablePhotoCapturedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<VariablePhotoCapturedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: VariablePhotoCapturedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&VariablePhotoCapturedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&VariablePhotoCapturedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &VariablePhotoCapturedEventArgs) -> Self {
         value.0.clone()
     }
@@ -162,11 +162,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for VariablePhotoCapturedEventArgs {}
-unsafe impl ::std::marker::Sync for VariablePhotoCapturedEventArgs {}
+unsafe impl ::core::marker::Send for VariablePhotoCapturedEventArgs {}
+unsafe impl ::core::marker::Sync for VariablePhotoCapturedEventArgs {}
 #[doc = "*Required features: `Media_Capture_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VariablePhotoSequenceCapture(pub ::windows::runtime::IInspectable);
 impl VariablePhotoSequenceCapture {
     #[cfg(feature = "Foundation")]
@@ -174,8 +174,8 @@ impl VariablePhotoSequenceCapture {
     pub fn StartAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -183,8 +183,8 @@ impl VariablePhotoSequenceCapture {
     pub fn StopAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -192,8 +192,8 @@ impl VariablePhotoSequenceCapture {
     pub fn FinishAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -201,38 +201,38 @@ impl VariablePhotoSequenceCapture {
     pub fn PhotoCaptured<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, VariablePhotoCapturedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Capture_Core`, `Foundation`*"]
     pub fn RemovePhotoCaptured<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Capture_Core`, `Foundation`*"]
     pub fn Stopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Capture_Core`, `Foundation`*"]
     pub fn RemoveStopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Capture_Core`, `Foundation`*"]
     pub fn UpdateSettingsAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IVariablePhotoSequenceCapture2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -246,12 +246,12 @@ unsafe impl ::windows::runtime::Interface for VariablePhotoSequenceCapture {
 impl ::windows::runtime::RuntimeName for VariablePhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoSequenceCapture";
 }
-impl ::std::convert::From<VariablePhotoSequenceCapture> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<VariablePhotoSequenceCapture> for ::windows::runtime::IUnknown {
     fn from(value: VariablePhotoSequenceCapture) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&VariablePhotoSequenceCapture> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&VariablePhotoSequenceCapture> for ::windows::runtime::IUnknown {
     fn from(value: &VariablePhotoSequenceCapture) -> Self {
         value.0 .0.clone()
     }
@@ -266,12 +266,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<VariablePhotoSequenceCapture> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<VariablePhotoSequenceCapture> for ::windows::runtime::IInspectable {
     fn from(value: VariablePhotoSequenceCapture) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&VariablePhotoSequenceCapture> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&VariablePhotoSequenceCapture> for ::windows::runtime::IInspectable {
     fn from(value: &VariablePhotoSequenceCapture) -> Self {
         value.0.clone()
     }

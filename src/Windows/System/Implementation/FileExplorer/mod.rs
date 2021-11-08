@@ -15,7 +15,7 @@ pub struct ISysStorageProviderEventReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -33,10 +33,10 @@ pub struct ISysStorageProviderEventReceivedEventArgsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, json: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, json: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
 pub struct ISysStorageProviderEventSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderEventSource {
@@ -49,26 +49,26 @@ impl ISysStorageProviderEventSource {
     pub fn EventReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_Implementation_FileExplorer`, `Foundation`*"]
     pub fn RemoveEventReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ISysStorageProviderEventSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1f36c476-9546-536a-8381-2f9a2c08cedd}");
 }
-impl ::std::convert::From<ISysStorageProviderEventSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISysStorageProviderEventSource> for ::windows::runtime::IUnknown {
     fn from(value: ISysStorageProviderEventSource) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ISysStorageProviderEventSource> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISysStorageProviderEventSource> for ::windows::runtime::IUnknown {
     fn from(value: &ISysStorageProviderEventSource) -> Self {
         value.0 .0.clone()
     }
@@ -83,12 +83,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ISysStorageProviderEventSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ISysStorageProviderEventSource> for ::windows::runtime::IInspectable {
     fn from(value: ISysStorageProviderEventSource) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ISysStorageProviderEventSource> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ISysStorageProviderEventSource> for ::windows::runtime::IInspectable {
     fn from(value: &ISysStorageProviderEventSource) -> Self {
         value.0.clone()
     }
@@ -118,7 +118,7 @@ pub struct ISysStorageProviderEventSource_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
 pub struct ISysStorageProviderHandlerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderHandlerFactory {
@@ -130,28 +130,28 @@ impl ISysStorageProviderHandlerFactory {
     pub fn GetHttpRequestProvider<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, syncrootid: Param0) -> ::windows::runtime::Result<ISysStorageProviderHttpRequestProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), syncrootid.into_param().abi(), &mut result__).from_abi::<ISysStorageProviderHttpRequestProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), syncrootid.into_param().abi(), &mut result__).from_abi::<ISysStorageProviderHttpRequestProvider>(result__)
         }
     }
     #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
     pub fn GetEventSource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, syncrootid: Param0, eventname: Param1) -> ::windows::runtime::Result<ISysStorageProviderEventSource> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), syncrootid.into_param().abi(), eventname.into_param().abi(), &mut result__).from_abi::<ISysStorageProviderEventSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), syncrootid.into_param().abi(), eventname.into_param().abi(), &mut result__).from_abi::<ISysStorageProviderEventSource>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ISysStorageProviderHandlerFactory {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{ee798431-8213-5e89-a623-14d8c72b8a61}");
 }
-impl ::std::convert::From<ISysStorageProviderHandlerFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISysStorageProviderHandlerFactory> for ::windows::runtime::IUnknown {
     fn from(value: ISysStorageProviderHandlerFactory) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ISysStorageProviderHandlerFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISysStorageProviderHandlerFactory> for ::windows::runtime::IUnknown {
     fn from(value: &ISysStorageProviderHandlerFactory) -> Self {
         value.0 .0.clone()
     }
@@ -166,12 +166,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ISysStorageProviderHandlerFactory> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ISysStorageProviderHandlerFactory> for ::windows::runtime::IInspectable {
     fn from(value: ISysStorageProviderHandlerFactory) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ISysStorageProviderHandlerFactory> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ISysStorageProviderHandlerFactory> for ::windows::runtime::IInspectable {
     fn from(value: &ISysStorageProviderHandlerFactory) -> Self {
         value.0.clone()
     }
@@ -195,11 +195,11 @@ pub struct ISysStorageProviderHandlerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, syncrootid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, syncrootid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, eventname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, syncrootid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, syncrootid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, eventname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
 pub struct ISysStorageProviderHttpRequestProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderHttpRequestProvider {
@@ -212,20 +212,20 @@ impl ISysStorageProviderHttpRequestProvider {
     pub fn SendRequestAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Web::Http::HttpRequestMessage>>(&self, request: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ISysStorageProviderHttpRequestProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{cb6fefb6-e76a-5c25-a33e-3e78a6e0e0ce}");
 }
-impl ::std::convert::From<ISysStorageProviderHttpRequestProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISysStorageProviderHttpRequestProvider> for ::windows::runtime::IUnknown {
     fn from(value: ISysStorageProviderHttpRequestProvider) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ISysStorageProviderHttpRequestProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISysStorageProviderHttpRequestProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ISysStorageProviderHttpRequestProvider) -> Self {
         value.0 .0.clone()
     }
@@ -240,12 +240,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ISysStorageProviderHttpRequestProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ISysStorageProviderHttpRequestProvider> for ::windows::runtime::IInspectable {
     fn from(value: ISysStorageProviderHttpRequestProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ISysStorageProviderHttpRequestProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ISysStorageProviderHttpRequestProvider> for ::windows::runtime::IInspectable {
     fn from(value: &ISysStorageProviderHttpRequestProvider) -> Self {
         value.0.clone()
     }
@@ -274,22 +274,22 @@ pub struct ISysStorageProviderHttpRequestProvider_abi(
 );
 #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SysStorageProviderEventReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl SysStorageProviderEventReceivedEventArgs {
     #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
     pub fn Json(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(json: Param0) -> ::windows::runtime::Result<SysStorageProviderEventReceivedEventArgs> {
         Self::ISysStorageProviderEventReceivedEventArgsFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), json.into_param().abi(), &mut result__).from_abi::<SysStorageProviderEventReceivedEventArgs>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), json.into_param().abi(), &mut result__).from_abi::<SysStorageProviderEventReceivedEventArgs>(result__)
         })
     }
     pub fn ISysStorageProviderEventReceivedEventArgsFactory<R, F: FnOnce(&ISysStorageProviderEventReceivedEventArgsFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -307,12 +307,12 @@ unsafe impl ::windows::runtime::Interface for SysStorageProviderEventReceivedEve
 impl ::windows::runtime::RuntimeName for SysStorageProviderEventReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.SysStorageProviderEventReceivedEventArgs";
 }
-impl ::std::convert::From<SysStorageProviderEventReceivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<SysStorageProviderEventReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: SysStorageProviderEventReceivedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&SysStorageProviderEventReceivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&SysStorageProviderEventReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &SysStorageProviderEventReceivedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -327,12 +327,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<SysStorageProviderEventReceivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<SysStorageProviderEventReceivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: SysStorageProviderEventReceivedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&SysStorageProviderEventReceivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&SysStorageProviderEventReceivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &SysStorageProviderEventReceivedEventArgs) -> Self {
         value.0.clone()
     }
@@ -347,5 +347,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for SysStorageProviderEventReceivedEventArgs {}
-unsafe impl ::std::marker::Sync for SysStorageProviderEventReceivedEventArgs {}
+unsafe impl ::core::marker::Send for SysStorageProviderEventReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for SysStorageProviderEventReceivedEventArgs {}

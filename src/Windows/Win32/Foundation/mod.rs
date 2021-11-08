@@ -65,36 +65,36 @@ pub const APPX_E_RELATIONSHIPS_NOT_ALLOWED: ::windows::runtime::HRESULT = ::wind
 pub const APPX_E_REQUESTED_RANGE_TOO_LARGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146958840i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const APPX_E_RESOURCESPRI_NOT_ALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146958829i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct APP_LOCAL_DEVICE_ID {
     pub value: [u8; 32],
 }
 impl APP_LOCAL_DEVICE_ID {}
-impl ::std::default::Default for APP_LOCAL_DEVICE_ID {
+impl ::core::default::Default for APP_LOCAL_DEVICE_ID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for APP_LOCAL_DEVICE_ID {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for APP_LOCAL_DEVICE_ID {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("APP_LOCAL_DEVICE_ID").field("value", &self.value).finish()
     }
 }
-impl ::std::cmp::PartialEq for APP_LOCAL_DEVICE_ID {
+impl ::core::cmp::PartialEq for APP_LOCAL_DEVICE_ID {
     fn eq(&self, other: &Self) -> bool {
         self.value == other.value
     }
 }
-impl ::std::cmp::Eq for APP_LOCAL_DEVICE_ID {}
+impl ::core::cmp::Eq for APP_LOCAL_DEVICE_ID {}
 unsafe impl ::windows::runtime::Abi for APP_LOCAL_DEVICE_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
 #[repr(transparent)]
-#[derive(:: std :: default :: Default, :: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: fmt :: Debug)]
+#[derive(:: core :: default :: Default, :: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: fmt :: Debug)]
 pub struct BOOL(pub i32);
 unsafe impl ::windows::runtime::Abi for BOOL {
     type Abi = Self;
@@ -123,17 +123,17 @@ impl BOOL {
         self.ok().expect(msg);
     }
 }
-impl ::std::convert::From<BOOL> for bool {
+impl ::core::convert::From<BOOL> for bool {
     fn from(value: BOOL) -> Self {
         value.as_bool()
     }
 }
-impl ::std::convert::From<&BOOL> for bool {
+impl ::core::convert::From<&BOOL> for bool {
     fn from(value: &BOOL) -> Self {
         value.as_bool()
     }
 }
-impl ::std::convert::From<bool> for BOOL {
+impl ::core::convert::From<bool> for BOOL {
     fn from(value: bool) -> Self {
         if value {
             BOOL(1)
@@ -142,22 +142,22 @@ impl ::std::convert::From<bool> for BOOL {
         }
     }
 }
-impl ::std::convert::From<&bool> for BOOL {
+impl ::core::convert::From<&bool> for BOOL {
     fn from(value: &bool) -> Self {
         (*value).into()
     }
 }
-impl ::std::cmp::PartialEq<bool> for BOOL {
+impl ::core::cmp::PartialEq<bool> for BOOL {
     fn eq(&self, other: &bool) -> bool {
         self.as_bool() == *other
     }
 }
-impl ::std::cmp::PartialEq<BOOL> for bool {
+impl ::core::cmp::PartialEq<BOOL> for bool {
     fn eq(&self, other: &BOOL) -> bool {
         *self == other.as_bool()
     }
 }
-impl std::ops::Not for BOOL {
+impl ::core::ops::Not for BOOL {
     type Output = Self;
     fn not(self) -> Self::Output {
         if self.as_bool() {
@@ -172,12 +172,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, BOOL> for bool {
         ::windows::runtime::Param::Owned(self.into())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct BOOLEAN(pub u8);
-impl ::std::default::Default for BOOLEAN {
+impl ::core::default::Default for BOOLEAN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for BOOLEAN {}
@@ -185,11 +185,11 @@ unsafe impl ::windows::runtime::Abi for BOOLEAN {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: Eq)]
+#[derive(:: core :: cmp :: Eq)]
 pub struct BSTR(pub *mut u16);
 impl BSTR {
     pub fn new() -> Self {
-        Self(std::ptr::null_mut())
+        Self(core::ptr::null_mut())
     }
     pub fn is_empty(&self) -> bool {
         self.len() == 0
@@ -203,7 +203,7 @@ impl BSTR {
     }
     pub fn from_wide(value: &[u16]) -> Self {
         if value.len() == 0 {
-            return Self(::std::ptr::null_mut());
+            return Self(::core::ptr::null_mut());
         }
         unsafe { SysAllocStringLen(PWSTR(value.as_ptr() as *mut _), value.len() as u32) }
     }
@@ -211,87 +211,94 @@ impl BSTR {
         if self.0.is_null() {
             return &[];
         }
-        unsafe { ::std::slice::from_raw_parts(self.0 as *const u16, self.len()) }
+        unsafe { ::core::slice::from_raw_parts(self.0 as *const u16, self.len()) }
     }
 }
-impl ::std::clone::Clone for BSTR {
+impl ::core::clone::Clone for BSTR {
     fn clone(&self) -> Self {
         Self::from_wide(self.as_wide())
     }
 }
-impl ::std::convert::From<&str> for BSTR {
+#[cfg(not(feature = "no_std"))]
+impl ::core::convert::From<&str> for BSTR {
     fn from(value: &str) -> Self {
         let value: ::std::vec::Vec<u16> = value.encode_utf16().collect();
         Self::from_wide(&value)
     }
 }
-impl ::std::convert::From<::std::string::String> for BSTR {
+#[cfg(not(feature = "no_std"))]
+impl ::core::convert::From<::std::string::String> for BSTR {
     fn from(value: ::std::string::String) -> Self {
         value.as_str().into()
     }
 }
-impl ::std::convert::From<&::std::string::String> for BSTR {
+#[cfg(not(feature = "no_std"))]
+impl ::core::convert::From<&::std::string::String> for BSTR {
     fn from(value: &::std::string::String) -> Self {
         value.as_str().into()
     }
 }
-impl<'a> ::std::convert::TryFrom<&'a BSTR> for ::std::string::String {
+#[cfg(not(feature = "no_std"))]
+impl<'a> ::core::convert::TryFrom<&'a BSTR> for ::std::string::String {
     type Error = ::std::string::FromUtf16Error;
-    fn try_from(value: &BSTR) -> ::std::result::Result<Self, Self::Error> {
+    fn try_from(value: &BSTR) -> ::core::result::Result<Self, Self::Error> {
         ::std::string::String::from_utf16(value.as_wide())
     }
 }
-impl ::std::convert::TryFrom<BSTR> for ::std::string::String {
+#[cfg(not(feature = "no_std"))]
+impl ::core::convert::TryFrom<BSTR> for ::std::string::String {
     type Error = ::std::string::FromUtf16Error;
-    fn try_from(value: BSTR) -> ::std::result::Result<Self, Self::Error> {
+    fn try_from(value: BSTR) -> ::core::result::Result<Self, Self::Error> {
         ::std::string::String::try_from(&value)
     }
 }
-impl ::std::default::Default for BSTR {
+impl ::core::default::Default for BSTR {
     fn default() -> Self {
-        Self(::std::ptr::null_mut())
+        Self(::core::ptr::null_mut())
     }
 }
-impl ::std::fmt::Display for BSTR {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        use std::fmt::Write;
+#[cfg(not(feature = "no_std"))]
+impl ::core::fmt::Display for BSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        use core::fmt::Write;
         for c in ::std::char::decode_utf16(self.as_wide().iter().cloned()) {
-            f.write_char(c.map_err(|_| ::std::fmt::Error)?)?
+            f.write_char(c.map_err(|_| ::core::fmt::Error)?)?
         }
         Ok(())
     }
 }
-impl ::std::fmt::Debug for BSTR {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        ::std::write!(f, "{}", self)
+impl ::core::fmt::Debug for BSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        ::core::write!(f, "{}", self)
     }
 }
-impl ::std::cmp::PartialEq for BSTR {
+impl ::core::cmp::PartialEq for BSTR {
     fn eq(&self, other: &Self) -> bool {
         self.as_wide() == other.as_wide()
     }
 }
-impl ::std::cmp::PartialEq<::std::string::String> for BSTR {
+#[cfg(not(feature = "no_std"))]
+impl ::core::cmp::PartialEq<::std::string::String> for BSTR {
     fn eq(&self, other: &::std::string::String) -> bool {
         self == other.as_str()
     }
 }
-impl ::std::cmp::PartialEq<str> for BSTR {
+impl ::core::cmp::PartialEq<str> for BSTR {
     fn eq(&self, other: &str) -> bool {
         self == other
     }
 }
-impl ::std::cmp::PartialEq<&str> for BSTR {
+impl ::core::cmp::PartialEq<&str> for BSTR {
     fn eq(&self, other: &&str) -> bool {
         self.as_wide().iter().copied().eq(other.encode_utf16())
     }
 }
-impl ::std::cmp::PartialEq<BSTR> for &str {
+impl ::core::cmp::PartialEq<BSTR> for &str {
     fn eq(&self, other: &BSTR) -> bool {
         other == self
     }
 }
-impl ::std::ops::Drop for BSTR {
+impl ::core::ops::Drop for BSTR {
     fn drop(&mut self) {
         if !self.0.is_null() {
             unsafe { SysFreeString(self as &Self) }
@@ -299,7 +306,7 @@ impl ::std::ops::Drop for BSTR {
     }
 }
 unsafe impl ::windows::runtime::Abi for BSTR {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 pub type BSTR_abi = *mut u16;
 impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for &str {
@@ -488,12 +495,12 @@ pub const CERT_E_UNTRUSTEDTESTROOT: ::windows::runtime::HRESULT = ::windows::run
 pub const CERT_E_VALIDITYPERIODNESTING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146762494i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const CERT_E_WRONG_USAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146762480i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct CHAR(pub u8);
-impl ::std::default::Default for CHAR {
+impl ::core::default::Default for CHAR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for CHAR {}
@@ -1319,7 +1326,7 @@ pub unsafe fn CloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HANDLE>>
         extern "system" {
             fn CloseHandle(hobject: HANDLE) -> BOOL;
         }
-        ::std::mem::transmute(CloseHandle(hobject.into_param().abi()))
+        ::core::mem::transmute(CloseHandle(hobject.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1333,7 +1340,7 @@ pub unsafe fn CompareObjectHandles<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
         }
-        ::std::mem::transmute(CompareObjectHandles(hfirstobjecthandle.into_param().abi(), hsecondobjecthandle.into_param().abi()))
+        ::core::mem::transmute(CompareObjectHandles(hfirstobjecthandle.into_param().abi(), hsecondobjecthandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1494,7 +1501,7 @@ pub const DCOMPOSITION_ERROR_SURFACE_BEING_RENDERED: ::windows::runtime::HRESULT
 pub const DCOMPOSITION_ERROR_SURFACE_NOT_BEING_RENDERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2003302398i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const DCOMPOSITION_ERROR_WINDOW_ALREADY_COMPOSED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2003302400i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct DECIMAL {
@@ -1504,21 +1511,21 @@ pub struct DECIMAL {
     pub Anonymous2: DECIMAL_1,
 }
 impl DECIMAL {}
-impl ::std::default::Default for DECIMAL {
+impl ::core::default::Default for DECIMAL {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DECIMAL {
+impl ::core::cmp::PartialEq for DECIMAL {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DECIMAL {}
+impl ::core::cmp::Eq for DECIMAL {}
 unsafe impl ::windows::runtime::Abi for DECIMAL {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub union DECIMAL_0 {
@@ -1526,21 +1533,21 @@ pub union DECIMAL_0 {
     pub signscale: u16,
 }
 impl DECIMAL_0 {}
-impl ::std::default::Default for DECIMAL_0 {
+impl ::core::default::Default for DECIMAL_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DECIMAL_0 {
+impl ::core::cmp::PartialEq for DECIMAL_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DECIMAL_0 {}
+impl ::core::cmp::Eq for DECIMAL_0 {}
 unsafe impl ::windows::runtime::Abi for DECIMAL_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct DECIMAL_0_0 {
@@ -1548,26 +1555,26 @@ pub struct DECIMAL_0_0 {
     pub sign: u8,
 }
 impl DECIMAL_0_0 {}
-impl ::std::default::Default for DECIMAL_0_0 {
+impl ::core::default::Default for DECIMAL_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DECIMAL_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DECIMAL_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("scale", &self.scale).field("sign", &self.sign).finish()
     }
 }
-impl ::std::cmp::PartialEq for DECIMAL_0_0 {
+impl ::core::cmp::PartialEq for DECIMAL_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.scale == other.scale && self.sign == other.sign
     }
 }
-impl ::std::cmp::Eq for DECIMAL_0_0 {}
+impl ::core::cmp::Eq for DECIMAL_0_0 {}
 unsafe impl ::windows::runtime::Abi for DECIMAL_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub union DECIMAL_1 {
@@ -1575,21 +1582,21 @@ pub union DECIMAL_1 {
     pub Lo64: u64,
 }
 impl DECIMAL_1 {}
-impl ::std::default::Default for DECIMAL_1 {
+impl ::core::default::Default for DECIMAL_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for DECIMAL_1 {
+impl ::core::cmp::PartialEq for DECIMAL_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for DECIMAL_1 {}
+impl ::core::cmp::Eq for DECIMAL_1 {}
 unsafe impl ::windows::runtime::Abi for DECIMAL_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct DECIMAL_1_0 {
@@ -1597,22 +1604,22 @@ pub struct DECIMAL_1_0 {
     pub Mid32: u32,
 }
 impl DECIMAL_1_0 {}
-impl ::std::default::Default for DECIMAL_1_0 {
+impl ::core::default::Default for DECIMAL_1_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DECIMAL_1_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DECIMAL_1_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("Lo32", &self.Lo32).field("Mid32", &self.Mid32).finish()
     }
 }
-impl ::std::cmp::PartialEq for DECIMAL_1_0 {
+impl ::core::cmp::PartialEq for DECIMAL_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Lo32 == other.Lo32 && self.Mid32 == other.Mid32
     }
 }
-impl ::std::cmp::Eq for DECIMAL_1_0 {}
+impl ::core::cmp::Eq for DECIMAL_1_0 {}
 unsafe impl ::windows::runtime::Abi for DECIMAL_1_0 {
     type Abi = Self;
 }
@@ -1719,12 +1726,12 @@ pub const DRAGDROP_S_LAST: i32 = 262415i32;
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const DRAGDROP_S_USEDEFAULTCURSORS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(262402i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DUPLICATE_HANDLE_OPTIONS(pub u32);
 pub const DUPLICATE_CLOSE_SOURCE: DUPLICATE_HANDLE_OPTIONS = DUPLICATE_HANDLE_OPTIONS(1u32);
 pub const DUPLICATE_SAME_ACCESS: DUPLICATE_HANDLE_OPTIONS = DUPLICATE_HANDLE_OPTIONS(2u32);
-impl ::std::convert::From<u32> for DUPLICATE_HANDLE_OPTIONS {
+impl ::core::convert::From<u32> for DUPLICATE_HANDLE_OPTIONS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1732,29 +1739,29 @@ impl ::std::convert::From<u32> for DUPLICATE_HANDLE_OPTIONS {
 unsafe impl ::windows::runtime::Abi for DUPLICATE_HANDLE_OPTIONS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for DUPLICATE_HANDLE_OPTIONS {
+impl ::core::ops::BitOr for DUPLICATE_HANDLE_OPTIONS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for DUPLICATE_HANDLE_OPTIONS {
+impl ::core::ops::BitAnd for DUPLICATE_HANDLE_OPTIONS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for DUPLICATE_HANDLE_OPTIONS {
+impl ::core::ops::BitOrAssign for DUPLICATE_HANDLE_OPTIONS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for DUPLICATE_HANDLE_OPTIONS {
+impl ::core::ops::BitAndAssign for DUPLICATE_HANDLE_OPTIONS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for DUPLICATE_HANDLE_OPTIONS {
+impl ::core::ops::Not for DUPLICATE_HANDLE_OPTIONS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -1865,7 +1872,7 @@ pub unsafe fn DuplicateHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HAND
         extern "system" {
             fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
         }
-        ::std::mem::transmute(DuplicateHandle(hsourceprocesshandle.into_param().abi(), hsourcehandle.into_param().abi(), htargetprocesshandle.into_param().abi(), ::std::mem::transmute(lptargethandle), ::std::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), ::std::mem::transmute(dwoptions)))
+        ::core::mem::transmute(DuplicateHandle(hsourceprocesshandle.into_param().abi(), hsourcehandle.into_param().abi(), htargetprocesshandle.into_param().abi(), ::core::mem::transmute(lptargethandle), ::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), ::core::mem::transmute(dwoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3004,7 +3011,7 @@ pub const FDAEMON_E_WORDLISTCOMMITFAILED: ::windows::runtime::HRESULT = ::window
 pub const FDAEMON_W_EMPTYWORDLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(267909i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const FDAEMON_W_WORDLISTFULL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(267904i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct FILETIME {
@@ -3012,22 +3019,22 @@ pub struct FILETIME {
     pub dwHighDateTime: u32,
 }
 impl FILETIME {}
-impl ::std::default::Default for FILETIME {
+impl ::core::default::Default for FILETIME {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FILETIME {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FILETIME {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FILETIME").field("dwLowDateTime", &self.dwLowDateTime).field("dwHighDateTime", &self.dwHighDateTime).finish()
     }
 }
-impl ::std::cmp::PartialEq for FILETIME {
+impl ::core::cmp::PartialEq for FILETIME {
     fn eq(&self, other: &Self) -> bool {
         self.dwLowDateTime == other.dwLowDateTime && self.dwHighDateTime == other.dwHighDateTime
     }
 }
-impl ::std::cmp::Eq for FILETIME {}
+impl ::core::cmp::Eq for FILETIME {}
 unsafe impl ::windows::runtime::Abi for FILETIME {
     type Abi = Self;
 }
@@ -3061,7 +3068,7 @@ pub const FILTER_S_NO_PROPSETS: ::windows::runtime::HRESULT = ::windows::runtime
 pub const FILTER_S_NO_SECURITY_DESCRIPTOR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(268092i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const FILTER_S_PARTIAL_CONTENTSCAN_IMMEDIATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(268081i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct FLOAT128 {
@@ -3069,22 +3076,22 @@ pub struct FLOAT128 {
     pub HighPart: i64,
 }
 impl FLOAT128 {}
-impl ::std::default::Default for FLOAT128 {
+impl ::core::default::Default for FLOAT128 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FLOAT128 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FLOAT128 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FLOAT128").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
-impl ::std::cmp::PartialEq for FLOAT128 {
+impl ::core::cmp::PartialEq for FLOAT128 {
     fn eq(&self, other: &Self) -> bool {
         self.LowPart == other.LowPart && self.HighPart == other.HighPart
     }
 }
-impl ::std::cmp::Eq for FLOAT128 {}
+impl ::core::cmp::Eq for FLOAT128 {}
 unsafe impl ::windows::runtime::Abi for FLOAT128 {
     type Abi = Self;
 }
@@ -3725,7 +3732,7 @@ pub unsafe fn GetHandleInformation<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> BOOL;
         }
-        ::std::mem::transmute(GetHandleInformation(hobject.into_param().abi(), ::std::mem::transmute(lpdwflags)))
+        ::core::mem::transmute(GetHandleInformation(hobject.into_param().abi(), ::core::mem::transmute(lpdwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3739,12 +3746,12 @@ pub unsafe fn GetLastError() -> WIN32_ERROR {
         extern "system" {
             fn GetLastError() -> WIN32_ERROR;
         }
-        ::std::mem::transmute(GetLastError())
+        ::core::mem::transmute(GetLastError())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HANDLE(pub isize);
 unsafe impl ::windows::runtime::Handle for HANDLE {
@@ -3763,12 +3770,12 @@ unsafe impl ::windows::runtime::Abi for HANDLE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HANDLE_FLAGS(pub u32);
 pub const HANDLE_FLAG_INHERIT: HANDLE_FLAGS = HANDLE_FLAGS(1u32);
 pub const HANDLE_FLAG_PROTECT_FROM_CLOSE: HANDLE_FLAGS = HANDLE_FLAGS(2u32);
-impl ::std::convert::From<u32> for HANDLE_FLAGS {
+impl ::core::convert::From<u32> for HANDLE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -3776,40 +3783,40 @@ impl ::std::convert::From<u32> for HANDLE_FLAGS {
 unsafe impl ::windows::runtime::Abi for HANDLE_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for HANDLE_FLAGS {
+impl ::core::ops::BitOr for HANDLE_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for HANDLE_FLAGS {
+impl ::core::ops::BitAnd for HANDLE_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for HANDLE_FLAGS {
+impl ::core::ops::BitOrAssign for HANDLE_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for HANDLE_FLAGS {
+impl ::core::ops::BitAndAssign for HANDLE_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for HANDLE_FLAGS {
+impl ::core::ops::Not for HANDLE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HANDLE_PTR(pub usize);
-impl ::std::default::Default for HANDLE_PTR {
+impl ::core::default::Default for HANDLE_PTR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HANDLE_PTR {}
@@ -3970,12 +3977,12 @@ pub const HCS_E_UNKNOWN_MESSAGE: ::windows::runtime::HRESULT = ::windows::runtim
 pub const HCS_E_UNSUPPORTED_PROTOCOL_VERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2143878900i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const HCS_E_WINDOWS_INSIDER_REQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2143878893i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HINSTANCE(pub isize);
-impl ::std::default::Default for HINSTANCE {
+impl ::core::default::Default for HINSTANCE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HINSTANCE {}
@@ -4108,12 +4115,12 @@ pub const HTTP_E_STATUS_URI_TOO_LONG: ::windows::runtime::HRESULT = ::windows::r
 pub const HTTP_E_STATUS_USE_PROXY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145844943i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const HTTP_E_STATUS_VERSION_NOT_SUP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145844743i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HWND(pub isize);
-impl ::std::default::Default for HWND {
+impl ::core::default::Default for HWND {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HWND {}
@@ -4174,43 +4181,43 @@ pub const JSCRIPT_E_CANTEXECUTE: ::windows::runtime::HRESULT = ::windows::runtim
 pub const LANGUAGE_E_DATABASE_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215484i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const LANGUAGE_S_LARGE_WORD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(268161i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct LPARAM(pub isize);
-impl ::std::default::Default for LPARAM {
+impl ::core::default::Default for LPARAM {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for LPARAM {}
 unsafe impl ::windows::runtime::Abi for LPARAM {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct LRESULT(pub isize);
-impl ::std::default::Default for LRESULT {
+impl ::core::default::Default for LRESULT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for LRESULT {}
 unsafe impl ::windows::runtime::Abi for LRESULT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct LSTATUS(pub i32);
-impl ::std::default::Default for LSTATUS {
+impl ::core::default::Default for LSTATUS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for LSTATUS {}
 unsafe impl ::windows::runtime::Abi for LSTATUS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct LUID {
@@ -4218,22 +4225,22 @@ pub struct LUID {
     pub HighPart: i32,
 }
 impl LUID {}
-impl ::std::default::Default for LUID {
+impl ::core::default::Default for LUID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for LUID {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LUID {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LUID").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
-impl ::std::cmp::PartialEq for LUID {
+impl ::core::cmp::PartialEq for LUID {
     fn eq(&self, other: &Self) -> bool {
         self.LowPart == other.LowPart && self.HighPart == other.HighPart
     }
 }
-impl ::std::cmp::Eq for LUID {}
+impl ::core::cmp::Eq for LUID {}
 unsafe impl ::windows::runtime::Abi for LUID {
     type Abi = Self;
 }
@@ -4652,7 +4659,7 @@ pub const NTE_USER_CANCELLED: ::windows::runtime::HRESULT = ::windows::runtime::
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const NTE_VALIDATION_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146893774i32 as _);
 #[repr(transparent)]
-#[derive(:: std :: default :: Default, :: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: fmt :: Debug)]
+#[derive(:: core :: default :: Default, :: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: fmt :: Debug)]
 pub struct NTSTATUS(pub u32);
 impl NTSTATUS {
     #[inline]
@@ -4680,7 +4687,7 @@ unsafe impl ::windows::runtime::Abi for NTSTATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NTSTATUS_FACILITY_CODE(pub u32);
 pub const FACILITY_DEBUGGER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(1u32);
@@ -4738,7 +4745,7 @@ pub const FACILITY_LICENSING: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(23
 pub const FACILITY_PLATFORM_MANIFEST: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(235u32);
 pub const FACILITY_APP_EXEC: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(236u32);
 pub const FACILITY_MAXIMUM_VALUE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(237u32);
-impl ::std::convert::From<u32> for NTSTATUS_FACILITY_CODE {
+impl ::core::convert::From<u32> for NTSTATUS_FACILITY_CODE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -4746,29 +4753,29 @@ impl ::std::convert::From<u32> for NTSTATUS_FACILITY_CODE {
 unsafe impl ::windows::runtime::Abi for NTSTATUS_FACILITY_CODE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for NTSTATUS_FACILITY_CODE {
+impl ::core::ops::BitOr for NTSTATUS_FACILITY_CODE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for NTSTATUS_FACILITY_CODE {
+impl ::core::ops::BitAnd for NTSTATUS_FACILITY_CODE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for NTSTATUS_FACILITY_CODE {
+impl ::core::ops::BitOrAssign for NTSTATUS_FACILITY_CODE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for NTSTATUS_FACILITY_CODE {
+impl ::core::ops::BitAndAssign for NTSTATUS_FACILITY_CODE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for NTSTATUS_FACILITY_CODE {
+impl ::core::ops::Not for NTSTATUS_FACILITY_CODE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -5232,7 +5239,7 @@ pub const PLA_E_TASKSCHED_CHANNEL_NOT_ENABLED: ::windows::runtime::HRESULT = ::w
 pub const PLA_E_TOO_MANY_FOLDERS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2144337851i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const PLA_S_PROPERTY_IGNORED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(3145984i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct POINT {
@@ -5240,26 +5247,26 @@ pub struct POINT {
     pub y: i32,
 }
 impl POINT {}
-impl ::std::default::Default for POINT {
+impl ::core::default::Default for POINT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for POINT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for POINT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("POINT").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-impl ::std::cmp::PartialEq for POINT {
+impl ::core::cmp::PartialEq for POINT {
     fn eq(&self, other: &Self) -> bool {
         self.x == other.x && self.y == other.y
     }
 }
-impl ::std::cmp::Eq for POINT {}
+impl ::core::cmp::Eq for POINT {}
 unsafe impl ::windows::runtime::Abi for POINT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct POINTL {
@@ -5267,26 +5274,26 @@ pub struct POINTL {
     pub y: i32,
 }
 impl POINTL {}
-impl ::std::default::Default for POINTL {
+impl ::core::default::Default for POINTL {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for POINTL {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for POINTL {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("POINTL").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-impl ::std::cmp::PartialEq for POINTL {
+impl ::core::cmp::PartialEq for POINTL {
     fn eq(&self, other: &Self) -> bool {
         self.x == other.x && self.y == other.y
     }
 }
-impl ::std::cmp::Eq for POINTL {}
+impl ::core::cmp::Eq for POINTL {}
 unsafe impl ::windows::runtime::Abi for POINTL {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct POINTS {
@@ -5294,22 +5301,22 @@ pub struct POINTS {
     pub y: i16,
 }
 impl POINTS {}
-impl ::std::default::Default for POINTS {
+impl ::core::default::Default for POINTS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for POINTS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for POINTS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("POINTS").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-impl ::std::cmp::PartialEq for POINTS {
+impl ::core::cmp::PartialEq for POINTS {
     fn eq(&self, other: &Self) -> bool {
         self.x == other.x && self.y == other.y
     }
 }
-impl ::std::cmp::Eq for POINTS {}
+impl ::core::cmp::Eq for POINTS {}
 unsafe impl ::windows::runtime::Abi for POINTS {
     type Abi = Self;
 }
@@ -5317,12 +5324,12 @@ unsafe impl ::windows::runtime::Abi for POINTS {
 pub const PRESENTATION_ERROR_LOST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2004811775i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub type PROC = unsafe extern "system" fn() -> isize;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct PSID(pub isize);
-impl ::std::default::Default for PSID {
+impl ::core::default::Default for PSID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for PSID {}
@@ -5337,7 +5344,7 @@ pub const PSINK_E_LARGE_ATTACHMENT: ::windows::runtime::HRESULT = ::windows::run
 pub const PSINK_E_QUERY_ONLY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215472i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const PSINK_S_LARGE_WORD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(268179i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct PSTR(pub *mut u8);
 impl PSTR {
@@ -5345,13 +5352,14 @@ impl PSTR {
         self.0.is_null()
     }
 }
-impl ::std::default::Default for PSTR {
+impl ::core::default::Default for PSTR {
     fn default() -> Self {
-        Self(::std::ptr::null_mut())
+        Self(::core::ptr::null_mut())
     }
 }
 unsafe impl ::windows::runtime::Abi for PSTR {
     type Abi = Self;
+    #[cfg(not(feature = "no_std"))]
     unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
         if let ::windows::runtime::Param::Boxed(value) = param {
             if !value.is_null() {
@@ -5362,17 +5370,19 @@ unsafe impl ::windows::runtime::Abi for PSTR {
         }
     }
 }
+#[cfg(not(feature = "no_std"))]
 impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for &str {
     fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
-        ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::std::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
+        ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
     }
 }
+#[cfg(not(feature = "no_std"))]
 impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for String {
     fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
-        ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::std::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
+        ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct PWSTR(pub *mut u16);
 impl PWSTR {
@@ -5380,13 +5390,14 @@ impl PWSTR {
         self.0.is_null()
     }
 }
-impl ::std::default::Default for PWSTR {
+impl ::core::default::Default for PWSTR {
     fn default() -> Self {
-        Self(::std::ptr::null_mut())
+        Self(::core::ptr::null_mut())
     }
 }
 unsafe impl ::windows::runtime::Abi for PWSTR {
     type Abi = Self;
+    #[cfg(not(feature = "no_std"))]
     unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
         if let ::windows::runtime::Param::Boxed(value) = param {
             if !value.is_null() {
@@ -5397,28 +5408,30 @@ unsafe impl ::windows::runtime::Abi for PWSTR {
         }
     }
 }
+#[cfg(not(feature = "no_std"))]
 impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for &str {
     fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
-        ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::std::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
+        ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
     }
 }
+#[cfg(not(feature = "no_std"))]
 impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for String {
     fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
-        ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::std::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
+        ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
     }
 }
-#[cfg(windows)]
+#[cfg(all(windows, not(feature = "no_std")))]
 impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for &::std::ffi::OsStr {
     fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
         use std::os::windows::ffi::OsStrExt;
-        ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::std::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
+        ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
     }
 }
-#[cfg(windows)]
+#[cfg(all(windows, not(feature = "no_std")))]
 impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for ::std::ffi::OsString {
     fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
         use std::os::windows::ffi::OsStrExt;
-        ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::std::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
+        ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
     }
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
@@ -5531,7 +5544,7 @@ pub const QUERY_S_NO_QUERY: ::windows::runtime::HRESULT = ::windows::runtime::HR
 pub const QUTIL_E_CANT_CONVERT_VROOT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215754i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const QUTIL_E_INVALID_CODEPAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073473928i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct RECT {
@@ -5541,26 +5554,26 @@ pub struct RECT {
     pub bottom: i32,
 }
 impl RECT {}
-impl ::std::default::Default for RECT {
+impl ::core::default::Default for RECT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RECT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RECT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RECT").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
-impl ::std::cmp::PartialEq for RECT {
+impl ::core::cmp::PartialEq for RECT {
     fn eq(&self, other: &Self) -> bool {
         self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
     }
 }
-impl ::std::cmp::Eq for RECT {}
+impl ::core::cmp::Eq for RECT {}
 unsafe impl ::windows::runtime::Abi for RECT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct RECTL {
@@ -5570,22 +5583,22 @@ pub struct RECTL {
     pub bottom: i32,
 }
 impl RECTL {}
-impl ::std::default::Default for RECTL {
+impl ::core::default::Default for RECTL {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RECTL {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RECTL {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RECTL").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
-impl ::std::cmp::PartialEq for RECTL {
+impl ::core::cmp::PartialEq for RECTL {
     fn eq(&self, other: &Self) -> bool {
         self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
     }
 }
-impl ::std::cmp::Eq for RECTL {}
+impl ::core::cmp::Eq for RECTL {}
 unsafe impl ::windows::runtime::Abi for RECTL {
     type Abi = Self;
 }
@@ -6014,7 +6027,7 @@ pub unsafe fn RtlNtStatusToDosError<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
         }
-        ::std::mem::transmute(RtlNtStatusToDosError(status.into_param().abi()))
+        ::core::mem::transmute(RtlNtStatusToDosError(status.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6463,19 +6476,19 @@ pub const SEC_I_SIGNATURE_NEEDED: ::windows::runtime::HRESULT = ::windows::runti
 pub const SEVERITY_ERROR: u32 = 1u32;
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const SEVERITY_SUCCESS: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct SHANDLE_PTR(pub isize);
-impl ::std::default::Default for SHANDLE_PTR {
+impl ::core::default::Default for SHANDLE_PTR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for SHANDLE_PTR {}
 unsafe impl ::windows::runtime::Abi for SHANDLE_PTR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct SIZE {
@@ -6483,22 +6496,22 @@ pub struct SIZE {
     pub cy: i32,
 }
 impl SIZE {}
-impl ::std::default::Default for SIZE {
+impl ::core::default::Default for SIZE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SIZE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SIZE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SIZE").field("cx", &self.cx).field("cy", &self.cy).finish()
     }
 }
-impl ::std::cmp::PartialEq for SIZE {
+impl ::core::cmp::PartialEq for SIZE {
     fn eq(&self, other: &Self) -> bool {
         self.cx == other.cx && self.cy == other.cy
     }
 }
-impl ::std::cmp::Eq for SIZE {}
+impl ::core::cmp::Eq for SIZE {}
 unsafe impl ::windows::runtime::Abi for SIZE {
     type Abi = Self;
 }
@@ -12344,7 +12357,7 @@ pub const STORE_ERROR_UNLICENSED_USER: i32 = 15862i32;
 pub const STRICT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const SUCCESS: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct SYSTEMTIME {
@@ -12358,22 +12371,22 @@ pub struct SYSTEMTIME {
     pub wMilliseconds: u16,
 }
 impl SYSTEMTIME {}
-impl ::std::default::Default for SYSTEMTIME {
+impl ::core::default::Default for SYSTEMTIME {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SYSTEMTIME {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SYSTEMTIME {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).finish()
     }
 }
-impl ::std::cmp::PartialEq for SYSTEMTIME {
+impl ::core::cmp::PartialEq for SYSTEMTIME {
     fn eq(&self, other: &Self) -> bool {
         self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDayOfWeek == other.wDayOfWeek && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond && self.wMilliseconds == other.wMilliseconds
     }
 }
-impl ::std::cmp::Eq for SYSTEMTIME {}
+impl ::core::cmp::Eq for SYSTEMTIME {}
 unsafe impl ::windows::runtime::Abi for SYSTEMTIME {
     type Abi = Self;
 }
@@ -12394,7 +12407,7 @@ pub unsafe fn SetHandleInformation<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
         }
-        ::std::mem::transmute(SetHandleInformation(hobject.into_param().abi(), ::std::mem::transmute(dwmask), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(SetHandleInformation(hobject.into_param().abi(), ::core::mem::transmute(dwmask), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12408,7 +12421,7 @@ pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
         extern "system" {
             fn SetLastError(dwerrcode: WIN32_ERROR);
         }
-        ::std::mem::transmute(SetLastError(::std::mem::transmute(dwerrcode)))
+        ::core::mem::transmute(SetLastError(::core::mem::transmute(dwerrcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12422,7 +12435,7 @@ pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
         extern "system" {
             fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
         }
-        ::std::mem::transmute(SetLastErrorEx(::std::mem::transmute(dwerrcode), ::std::mem::transmute(dwtype)))
+        ::core::mem::transmute(SetLastErrorEx(::core::mem::transmute(dwerrcode), ::core::mem::transmute(dwtype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12434,7 +12447,7 @@ pub unsafe fn SysAddRefString<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysAddRefString(bstrstring: ::std::mem::ManuallyDrop<BSTR>) -> ::windows::runtime::HRESULT;
+            fn SysAddRefString(bstrstring: ::core::mem::ManuallyDrop<BSTR>) -> ::windows::runtime::HRESULT;
         }
         SysAddRefString(bstrstring.into_param().abi()).ok()
     }
@@ -12450,7 +12463,7 @@ pub unsafe fn SysAllocString<'a, Param0: ::windows::runtime::IntoParam<'a, PWSTR
         extern "system" {
             fn SysAllocString(psz: PWSTR) -> BSTR;
         }
-        ::std::mem::transmute(SysAllocString(psz.into_param().abi()))
+        ::core::mem::transmute(SysAllocString(psz.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12464,7 +12477,7 @@ pub unsafe fn SysAllocStringByteLen<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn SysAllocStringByteLen(psz: PSTR, len: u32) -> BSTR;
         }
-        ::std::mem::transmute(SysAllocStringByteLen(psz.into_param().abi(), ::std::mem::transmute(len)))
+        ::core::mem::transmute(SysAllocStringByteLen(psz.into_param().abi(), ::core::mem::transmute(len)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12478,7 +12491,7 @@ pub unsafe fn SysAllocStringLen<'a, Param0: ::windows::runtime::IntoParam<'a, PW
         extern "system" {
             fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
         }
-        ::std::mem::transmute(SysAllocStringLen(strin.into_param().abi(), ::std::mem::transmute(ui)))
+        ::core::mem::transmute(SysAllocStringLen(strin.into_param().abi(), ::core::mem::transmute(ui)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12490,9 +12503,9 @@ pub unsafe fn SysFreeString<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR>>
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysFreeString(bstrstring: ::std::mem::ManuallyDrop<BSTR>);
+            fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
         }
-        ::std::mem::transmute(SysFreeString(bstrstring.into_param().abi()))
+        ::core::mem::transmute(SysFreeString(bstrstring.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12504,9 +12517,9 @@ pub unsafe fn SysReAllocString<'a, Param1: ::windows::runtime::IntoParam<'a, PWS
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysReAllocString(pbstr: *mut ::std::mem::ManuallyDrop<BSTR>, psz: PWSTR) -> i32;
+            fn SysReAllocString(pbstr: *mut ::core::mem::ManuallyDrop<BSTR>, psz: PWSTR) -> i32;
         }
-        ::std::mem::transmute(SysReAllocString(::std::mem::transmute(pbstr), psz.into_param().abi()))
+        ::core::mem::transmute(SysReAllocString(::core::mem::transmute(pbstr), psz.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12518,9 +12531,9 @@ pub unsafe fn SysReAllocStringLen<'a, Param1: ::windows::runtime::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysReAllocStringLen(pbstr: *mut ::std::mem::ManuallyDrop<BSTR>, psz: PWSTR, len: u32) -> i32;
+            fn SysReAllocStringLen(pbstr: *mut ::core::mem::ManuallyDrop<BSTR>, psz: PWSTR, len: u32) -> i32;
         }
-        ::std::mem::transmute(SysReAllocStringLen(::std::mem::transmute(pbstr), psz.into_param().abi(), ::std::mem::transmute(len)))
+        ::core::mem::transmute(SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into_param().abi(), ::core::mem::transmute(len)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12532,9 +12545,9 @@ pub unsafe fn SysReleaseString<'a, Param0: ::windows::runtime::IntoParam<'a, BST
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysReleaseString(bstrstring: ::std::mem::ManuallyDrop<BSTR>);
+            fn SysReleaseString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
         }
-        ::std::mem::transmute(SysReleaseString(bstrstring.into_param().abi()))
+        ::core::mem::transmute(SysReleaseString(bstrstring.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12546,9 +12559,9 @@ pub unsafe fn SysStringByteLen<'a, Param0: ::windows::runtime::IntoParam<'a, BST
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysStringByteLen(bstr: ::std::mem::ManuallyDrop<BSTR>) -> u32;
+            fn SysStringByteLen(bstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
         }
-        ::std::mem::transmute(SysStringByteLen(bstr.into_param().abi()))
+        ::core::mem::transmute(SysStringByteLen(bstr.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12560,9 +12573,9 @@ pub unsafe fn SysStringLen<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR>>(
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysStringLen(pbstr: ::std::mem::ManuallyDrop<BSTR>) -> u32;
+            fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
         }
-        ::std::mem::transmute(SysStringLen(pbstr.into_param().abi()))
+        ::core::mem::transmute(SysStringLen(pbstr.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13463,7 +13476,7 @@ pub const UI_E_VALUE_NOT_SET: ::windows::runtime::HRESULT = ::windows::runtime::
 pub const UI_E_WINDOW_CLOSED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2144730623i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const UI_E_WRONG_THREAD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2144731124i32 as _);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub struct UNICODE_STRING {
@@ -13472,22 +13485,22 @@ pub struct UNICODE_STRING {
     pub Buffer: PWSTR,
 }
 impl UNICODE_STRING {}
-impl ::std::default::Default for UNICODE_STRING {
+impl ::core::default::Default for UNICODE_STRING {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for UNICODE_STRING {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for UNICODE_STRING {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("UNICODE_STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::std::cmp::PartialEq for UNICODE_STRING {
+impl ::core::cmp::PartialEq for UNICODE_STRING {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
     }
 }
-impl ::std::cmp::Eq for UNICODE_STRING {}
+impl ::core::cmp::Eq for UNICODE_STRING {}
 unsafe impl ::windows::runtime::Abi for UNICODE_STRING {
     type Abi = Self;
 }
@@ -13806,7 +13819,7 @@ pub const WHV_E_VP_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runt
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const WHV_E_VP_DOES_NOT_EXIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2143878393i32 as _);
 #[doc = "*Required features: `Win32_Foundation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WIN32_ERROR(pub u32);
 pub const NO_ERROR: WIN32_ERROR = WIN32_ERROR(0u32);
@@ -17005,7 +17018,7 @@ pub const ERROR_VHD_INVALID_CHANGE_TRACKING_ID: WIN32_ERROR = WIN32_ERROR(322502
 pub const ERROR_VHD_CHANGE_TRACKING_DISABLED: WIN32_ERROR = WIN32_ERROR(3225026602u32);
 pub const ERROR_VHD_MISSING_CHANGE_TRACKING_INFORMATION: WIN32_ERROR = WIN32_ERROR(3225026608u32);
 pub const ERROR_QUERY_STORAGE_ERROR: WIN32_ERROR = WIN32_ERROR(2151284737u32);
-impl ::std::convert::From<u32> for WIN32_ERROR {
+impl ::core::convert::From<u32> for WIN32_ERROR {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -17013,35 +17026,35 @@ impl ::std::convert::From<u32> for WIN32_ERROR {
 unsafe impl ::windows::runtime::Abi for WIN32_ERROR {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for WIN32_ERROR {
+impl ::core::ops::BitOr for WIN32_ERROR {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for WIN32_ERROR {
+impl ::core::ops::BitAnd for WIN32_ERROR {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for WIN32_ERROR {
+impl ::core::ops::BitOrAssign for WIN32_ERROR {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for WIN32_ERROR {
+impl ::core::ops::BitAndAssign for WIN32_ERROR {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for WIN32_ERROR {
+impl ::core::ops::Not for WIN32_ERROR {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-impl ::std::convert::From<WIN32_ERROR> for ::windows::runtime::HRESULT {
+impl ::core::convert::From<WIN32_ERROR> for ::windows::runtime::HRESULT {
     fn from(value: WIN32_ERROR) -> Self {
         Self(if value.0 as i32 <= 0 { value.0 } else { (value.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 })
     }
@@ -17296,12 +17309,12 @@ pub const WINML_ERR_VALUE_NOTFOUND: ::windows::runtime::HRESULT = ::windows::run
 pub const WINVER: u32 = 1280u32;
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const WINVER_MAXVER: u32 = 2560u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct WPARAM(pub usize);
-impl ::std::default::Default for WPARAM {
+impl ::core::default::Default for WPARAM {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for WPARAM {}

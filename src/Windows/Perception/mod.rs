@@ -85,7 +85,7 @@ pub struct IPerceptionTimestampHelperStatics2_abi(
 );
 #[doc = "*Required features: `Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PerceptionTimestamp(pub ::windows::runtime::IInspectable);
 impl PerceptionTimestamp {
     #[cfg(feature = "Foundation")]
@@ -93,8 +93,8 @@ impl PerceptionTimestamp {
     pub fn TargetTime(&self) -> ::windows::runtime::Result<super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::DateTime>(result__)
+            let mut result__: super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::DateTime>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -102,8 +102,8 @@ impl PerceptionTimestamp {
     pub fn PredictionAmount(&self) -> ::windows::runtime::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
+            let mut result__: super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -111,8 +111,8 @@ impl PerceptionTimestamp {
     pub fn SystemRelativeTargetTime(&self) -> ::windows::runtime::Result<super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IPerceptionTimestamp2>(self)?;
         unsafe {
-            let mut result__: super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
+            let mut result__: super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -126,12 +126,12 @@ unsafe impl ::windows::runtime::Interface for PerceptionTimestamp {
 impl ::windows::runtime::RuntimeName for PerceptionTimestamp {
     const NAME: &'static str = "Windows.Perception.PerceptionTimestamp";
 }
-impl ::std::convert::From<PerceptionTimestamp> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PerceptionTimestamp> for ::windows::runtime::IUnknown {
     fn from(value: PerceptionTimestamp) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PerceptionTimestamp> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PerceptionTimestamp> for ::windows::runtime::IUnknown {
     fn from(value: &PerceptionTimestamp) -> Self {
         value.0 .0.clone()
     }
@@ -146,12 +146,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PerceptionTimestamp> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PerceptionTimestamp> for ::windows::runtime::IInspectable {
     fn from(value: PerceptionTimestamp) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PerceptionTimestamp> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PerceptionTimestamp> for ::windows::runtime::IInspectable {
     fn from(value: &PerceptionTimestamp) -> Self {
         value.0.clone()
     }
@@ -166,8 +166,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PerceptionTimestamp {}
-unsafe impl ::std::marker::Sync for PerceptionTimestamp {}
+unsafe impl ::core::marker::Send for PerceptionTimestamp {}
+unsafe impl ::core::marker::Sync for PerceptionTimestamp {}
 #[doc = "*Required features: `Perception`*"]
 pub struct PerceptionTimestampHelper {}
 impl PerceptionTimestampHelper {
@@ -175,16 +175,16 @@ impl PerceptionTimestampHelper {
     #[doc = "*Required features: `Perception`, `Foundation`*"]
     pub fn FromHistoricalTargetTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::DateTime>>(targettime: Param0) -> ::windows::runtime::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), targettime.into_param().abi(), &mut result__).from_abi::<PerceptionTimestamp>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), targettime.into_param().abi(), &mut result__).from_abi::<PerceptionTimestamp>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Perception`, `Foundation`*"]
     pub fn FromSystemRelativeTargetTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TimeSpan>>(targettime: Param0) -> ::windows::runtime::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), targettime.into_param().abi(), &mut result__).from_abi::<PerceptionTimestamp>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), targettime.into_param().abi(), &mut result__).from_abi::<PerceptionTimestamp>(result__)
         })
     }
     pub fn IPerceptionTimestampHelperStatics<R, F: FnOnce(&IPerceptionTimestampHelperStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {

@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct Direct3DBindings(pub u32);
 impl Direct3DBindings {
@@ -15,7 +15,7 @@ impl Direct3DBindings {
     pub const Decoder: Direct3DBindings = Direct3DBindings(512u32);
     pub const VideoEncoder: Direct3DBindings = Direct3DBindings(1024u32);
 }
-impl ::std::convert::From<u32> for Direct3DBindings {
+impl ::core::convert::From<u32> for Direct3DBindings {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -29,35 +29,35 @@ unsafe impl ::windows::runtime::RuntimeType for Direct3DBindings {
 impl ::windows::runtime::DefaultType for Direct3DBindings {
     type DefaultType = Self;
 }
-impl ::std::ops::BitOr for Direct3DBindings {
+impl ::core::ops::BitOr for Direct3DBindings {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for Direct3DBindings {
+impl ::core::ops::BitAnd for Direct3DBindings {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for Direct3DBindings {
+impl ::core::ops::BitOrAssign for Direct3DBindings {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for Direct3DBindings {
+impl ::core::ops::BitAndAssign for Direct3DBindings {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for Direct3DBindings {
+impl ::core::ops::Not for Direct3DBindings {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
 pub struct Direct3DMultisampleDescription {
@@ -65,22 +65,22 @@ pub struct Direct3DMultisampleDescription {
     pub Quality: i32,
 }
 impl Direct3DMultisampleDescription {}
-impl ::std::default::Default for Direct3DMultisampleDescription {
+impl ::core::default::Default for Direct3DMultisampleDescription {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for Direct3DMultisampleDescription {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for Direct3DMultisampleDescription {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("Direct3DMultisampleDescription").field("Count", &self.Count).field("Quality", &self.Quality).finish()
     }
 }
-impl ::std::cmp::PartialEq for Direct3DMultisampleDescription {
+impl ::core::cmp::PartialEq for Direct3DMultisampleDescription {
     fn eq(&self, other: &Self) -> bool {
         self.Count == other.Count && self.Quality == other.Quality
     }
 }
-impl ::std::cmp::Eq for Direct3DMultisampleDescription {}
+impl ::core::cmp::Eq for Direct3DMultisampleDescription {}
 unsafe impl ::windows::runtime::Abi for Direct3DMultisampleDescription {
     type Abi = Self;
 }
@@ -90,7 +90,7 @@ unsafe impl ::windows::runtime::RuntimeType for Direct3DMultisampleDescription {
 impl ::windows::runtime::DefaultType for Direct3DMultisampleDescription {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
 pub struct Direct3DSurfaceDescription {
@@ -100,22 +100,22 @@ pub struct Direct3DSurfaceDescription {
     pub MultisampleDescription: Direct3DMultisampleDescription,
 }
 impl Direct3DSurfaceDescription {}
-impl ::std::default::Default for Direct3DSurfaceDescription {
+impl ::core::default::Default for Direct3DSurfaceDescription {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for Direct3DSurfaceDescription {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for Direct3DSurfaceDescription {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("Direct3DSurfaceDescription").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("MultisampleDescription", &self.MultisampleDescription).finish()
     }
 }
-impl ::std::cmp::PartialEq for Direct3DSurfaceDescription {
+impl ::core::cmp::PartialEq for Direct3DSurfaceDescription {
     fn eq(&self, other: &Self) -> bool {
         self.Width == other.Width && self.Height == other.Height && self.Format == other.Format && self.MultisampleDescription == other.MultisampleDescription
     }
 }
-impl ::std::cmp::Eq for Direct3DSurfaceDescription {}
+impl ::core::cmp::Eq for Direct3DSurfaceDescription {}
 unsafe impl ::windows::runtime::Abi for Direct3DSurfaceDescription {
     type Abi = Self;
 }
@@ -126,7 +126,7 @@ impl ::windows::runtime::DefaultType for Direct3DSurfaceDescription {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct Direct3DUsage(pub i32);
 impl Direct3DUsage {
@@ -135,7 +135,7 @@ impl Direct3DUsage {
     pub const Dynamic: Direct3DUsage = Direct3DUsage(2i32);
     pub const Staging: Direct3DUsage = Direct3DUsage(3i32);
 }
-impl ::std::convert::From<i32> for Direct3DUsage {
+impl ::core::convert::From<i32> for Direct3DUsage {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -150,7 +150,7 @@ impl ::windows::runtime::DefaultType for Direct3DUsage {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
 pub struct IDirect3DDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3DDevice {
@@ -161,24 +161,24 @@ impl IDirect3DDevice {
     #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
     pub fn Trim(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_DirectX_Direct3D11`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IDirect3DDevice {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a37624ab-8d5f-4650-9d3e-9eae3d9bc670}");
 }
-impl ::std::convert::From<IDirect3DDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirect3DDevice> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DDevice) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IDirect3DDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirect3DDevice> for ::windows::runtime::IUnknown {
     fn from(value: &IDirect3DDevice) -> Self {
         value.0 .0.clone()
     }
@@ -193,12 +193,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IDirect3DDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IDirect3DDevice> for ::windows::runtime::IInspectable {
     fn from(value: IDirect3DDevice) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirect3DDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IDirect3DDevice> for ::windows::runtime::IInspectable {
     fn from(value: &IDirect3DDevice) -> Self {
         value.0.clone()
     }
@@ -214,14 +214,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<IDirect3DDevice> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<IDirect3DDevice> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IDirect3DDevice) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&IDirect3DDevice> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&IDirect3DDevice> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &IDirect3DDevice) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -236,7 +236,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for &IDirect3DDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[repr(C)]
@@ -251,7 +251,7 @@ pub struct IDirect3DDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
 pub struct IDirect3DSurface(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3DSurface {
@@ -263,26 +263,26 @@ impl IDirect3DSurface {
     pub fn Description(&self) -> ::windows::runtime::Result<Direct3DSurfaceDescription> {
         let this = self;
         unsafe {
-            let mut result__: Direct3DSurfaceDescription = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Direct3DSurfaceDescription>(result__)
+            let mut result__: Direct3DSurfaceDescription = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Direct3DSurfaceDescription>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Graphics_DirectX_Direct3D11`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IDirect3DSurface {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{0bf4a146-13c1-4694-bee3-7abf15eaf586}");
 }
-impl ::std::convert::From<IDirect3DSurface> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDirect3DSurface> for ::windows::runtime::IUnknown {
     fn from(value: IDirect3DSurface) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IDirect3DSurface> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDirect3DSurface> for ::windows::runtime::IUnknown {
     fn from(value: &IDirect3DSurface) -> Self {
         value.0 .0.clone()
     }
@@ -297,12 +297,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IDirect3DSurface> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IDirect3DSurface> for ::windows::runtime::IInspectable {
     fn from(value: IDirect3DSurface) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDirect3DSurface> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IDirect3DSurface> for ::windows::runtime::IInspectable {
     fn from(value: &IDirect3DSurface) -> Self {
         value.0.clone()
     }
@@ -318,14 +318,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<IDirect3DSurface> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<IDirect3DSurface> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IDirect3DSurface) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&IDirect3DSurface> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&IDirect3DSurface> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &IDirect3DSurface) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -340,7 +340,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for &IDirect3DSurface {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[repr(C)]

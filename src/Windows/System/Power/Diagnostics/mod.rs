@@ -6,22 +6,22 @@ impl BackgroundEnergyDiagnostics {
     #[doc = "*Required features: `System_Power_Diagnostics`*"]
     pub fn DeviceSpecificConversionFactor() -> ::windows::runtime::Result<f64> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `System_Power_Diagnostics`*"]
     pub fn ComputeTotalEnergyUsage() -> ::windows::runtime::Result<u64> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `System_Power_Diagnostics`*"]
     pub fn ResetTotalEnergyUsage() -> ::windows::runtime::Result<()> {
-        Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() })
+        Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() })
     }
     pub fn IBackgroundEnergyDiagnosticsStatics<R, F: FnOnce(&IBackgroundEnergyDiagnosticsStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<BackgroundEnergyDiagnostics, IBackgroundEnergyDiagnosticsStatics> = ::windows::runtime::FactoryCache::new();
@@ -38,22 +38,22 @@ impl ForegroundEnergyDiagnostics {
     #[doc = "*Required features: `System_Power_Diagnostics`*"]
     pub fn DeviceSpecificConversionFactor() -> ::windows::runtime::Result<f64> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `System_Power_Diagnostics`*"]
     pub fn ComputeTotalEnergyUsage() -> ::windows::runtime::Result<u64> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         })
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `System_Power_Diagnostics`*"]
     pub fn ResetTotalEnergyUsage() -> ::windows::runtime::Result<()> {
-        Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() })
+        Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() })
     }
     pub fn IForegroundEnergyDiagnosticsStatics<R, F: FnOnce(&IForegroundEnergyDiagnosticsStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<ForegroundEnergyDiagnostics, IForegroundEnergyDiagnosticsStatics> = ::windows::runtime::FactoryCache::new();

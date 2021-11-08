@@ -34,7 +34,7 @@ pub struct IWiFiDirectService_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pin: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pin: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -53,7 +53,7 @@ pub struct IWiFiDirectServiceAdvertiser_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -90,7 +90,7 @@ pub struct IWiFiDirectServiceAdvertiser_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceinfo: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation")))] usize,
-    #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceinfo: ::windows::runtime::RawPtr, pin: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceinfo: ::windows::runtime::RawPtr, pin: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -111,7 +111,7 @@ pub struct IWiFiDirectServiceAdvertiserFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, servicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, servicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -188,13 +188,13 @@ pub struct IWiFiDirectServiceSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WiFiDirectServiceSessionStatus) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WiFiDirectServiceSessionErrorStatus) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Networking")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
@@ -285,15 +285,15 @@ pub struct IWiFiDirectServiceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, servicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, servicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, serviceinfofilter: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, servicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, servicename: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, serviceinfofilter: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WiFiDirectService(pub ::windows::runtime::IInspectable);
 impl WiFiDirectService {
     #[cfg(feature = "Storage_Streams")]
@@ -301,8 +301,8 @@ impl WiFiDirectService {
     pub fn RemoteServiceInfo(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -310,44 +310,44 @@ impl WiFiDirectService {
     pub fn SupportedConfigurationMethods(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<WiFiDirectServiceConfigurationMethod>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<WiFiDirectServiceConfigurationMethod>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<WiFiDirectServiceConfigurationMethod>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn PreferGroupOwnerMode(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn SetPreferGroupOwnerMode(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Storage_Streams`*"]
     pub fn SessionInfo(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Storage_Streams`*"]
     pub fn SetSessionInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn ServiceError(&self) -> ::windows::runtime::Result<WiFiDirectServiceError> {
         let this = self;
         unsafe {
-            let mut result__: WiFiDirectServiceError = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceError>(result__)
+            let mut result__: WiFiDirectServiceError = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceError>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -355,23 +355,23 @@ impl WiFiDirectService {
     pub fn SessionDeferred<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WiFiDirectService, WiFiDirectServiceSessionDeferredEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Foundation`*"]
     pub fn RemoveSessionDeferred<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Foundation`*"]
     pub fn GetProvisioningInfoAsync(&self, selectedconfigurationmethod: WiFiDirectServiceConfigurationMethod) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceProvisioningInfo>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), selectedconfigurationmethod, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceProvisioningInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), selectedconfigurationmethod, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceProvisioningInfo>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -379,8 +379,8 @@ impl WiFiDirectService {
     pub fn ConnectAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -388,31 +388,31 @@ impl WiFiDirectService {
     pub fn ConnectAsyncWithPin<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, pin: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), pin.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), pin.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn GetSelector<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(servicename: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IWiFiDirectServiceStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), servicename.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), servicename.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Storage_Streams`*"]
     pub fn GetSelectorWithFilter<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(servicename: Param0, serviceinfofilter: Param1) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IWiFiDirectServiceStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), servicename.into_param().abi(), serviceinfofilter.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), servicename.into_param().abi(), serviceinfofilter.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectService>> {
         Self::IWiFiDirectServiceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WiFiDirectService>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WiFiDirectService>>(result__)
         })
     }
     pub fn IWiFiDirectServiceStatics<R, F: FnOnce(&IWiFiDirectServiceStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -430,12 +430,12 @@ unsafe impl ::windows::runtime::Interface for WiFiDirectService {
 impl ::windows::runtime::RuntimeName for WiFiDirectService {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectService";
 }
-impl ::std::convert::From<WiFiDirectService> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WiFiDirectService> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectService) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WiFiDirectService> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WiFiDirectService> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectService) -> Self {
         value.0 .0.clone()
     }
@@ -450,12 +450,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WiFiDirectService> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WiFiDirectService> for ::windows::runtime::IInspectable {
     fn from(value: WiFiDirectService) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WiFiDirectService> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WiFiDirectService> for ::windows::runtime::IInspectable {
     fn from(value: &WiFiDirectService) -> Self {
         value.0.clone()
     }
@@ -470,10 +470,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for WiFiDirectService {}
-unsafe impl ::std::marker::Sync for WiFiDirectService {}
+unsafe impl ::core::marker::Send for WiFiDirectService {}
+unsafe impl ::core::marker::Sync for WiFiDirectService {}
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WiFiDirectServiceAdvertisementStatus(pub i32);
 impl WiFiDirectServiceAdvertisementStatus {
@@ -482,7 +482,7 @@ impl WiFiDirectServiceAdvertisementStatus {
     pub const Stopped: WiFiDirectServiceAdvertisementStatus = WiFiDirectServiceAdvertisementStatus(2i32);
     pub const Aborted: WiFiDirectServiceAdvertisementStatus = WiFiDirectServiceAdvertisementStatus(3i32);
 }
-impl ::std::convert::From<i32> for WiFiDirectServiceAdvertisementStatus {
+impl ::core::convert::From<i32> for WiFiDirectServiceAdvertisementStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -498,15 +498,15 @@ impl ::windows::runtime::DefaultType for WiFiDirectServiceAdvertisementStatus {
 }
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WiFiDirectServiceAdvertiser(pub ::windows::runtime::IInspectable);
 impl WiFiDirectServiceAdvertiser {
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn ServiceName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -514,8 +514,8 @@ impl WiFiDirectServiceAdvertiser {
     pub fn ServiceNamePrefixes(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -523,106 +523,106 @@ impl WiFiDirectServiceAdvertiser {
     pub fn ServiceInfo(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Storage_Streams`*"]
     pub fn SetServiceInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn AutoAcceptSession(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn SetAutoAcceptSession(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn PreferGroupOwnerMode(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn SetPreferGroupOwnerMode(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Foundation_Collections`*"]
     pub fn PreferredConfigurationMethods(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<WiFiDirectServiceConfigurationMethod>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<WiFiDirectServiceConfigurationMethod>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<WiFiDirectServiceConfigurationMethod>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn ServiceStatus(&self) -> ::windows::runtime::Result<WiFiDirectServiceStatus> {
         let this = self;
         unsafe {
-            let mut result__: WiFiDirectServiceStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceStatus>(result__)
+            let mut result__: WiFiDirectServiceStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceStatus>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn SetServiceStatus(&self, value: WiFiDirectServiceStatus) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn CustomServiceStatusCode(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn SetCustomServiceStatusCode(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Storage_Streams`*"]
     pub fn DeferredSessionInfo(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Storage_Streams`*"]
     pub fn SetDeferredSessionInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn AdvertisementStatus(&self) -> ::windows::runtime::Result<WiFiDirectServiceAdvertisementStatus> {
         let this = self;
         unsafe {
-            let mut result__: WiFiDirectServiceAdvertisementStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceAdvertisementStatus>(result__)
+            let mut result__: WiFiDirectServiceAdvertisementStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceAdvertisementStatus>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn ServiceError(&self) -> ::windows::runtime::Result<WiFiDirectServiceError> {
         let this = self;
         unsafe {
-            let mut result__: WiFiDirectServiceError = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceError>(result__)
+            let mut result__: WiFiDirectServiceError = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceError>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -630,53 +630,53 @@ impl WiFiDirectServiceAdvertiser {
     pub fn SessionRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceAdvertiser, WiFiDirectServiceSessionRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).23)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Foundation`*"]
     pub fn RemoveSessionRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).24)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Foundation`*"]
     pub fn AutoAcceptSessionConnected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceAdvertiser, WiFiDirectServiceAutoAcceptSessionConnectedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).25)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Foundation`*"]
     pub fn RemoveAutoAcceptSessionConnected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).26)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Foundation`*"]
     pub fn AdvertisementStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceAdvertiser, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).27)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Foundation`*"]
     pub fn RemoveAdvertisementStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).28)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Devices_Enumeration`, `Foundation`*"]
     pub fn ConnectAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Enumeration::DeviceInformation>>(&self, deviceinfo: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), deviceinfo.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).29)(::core::mem::transmute_copy(this), deviceinfo.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>>(result__)
         }
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
@@ -684,25 +684,25 @@ impl WiFiDirectServiceAdvertiser {
     pub fn ConnectAsyncWithPin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Enumeration::DeviceInformation>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, deviceinfo: Param0, pin: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), deviceinfo.into_param().abi(), pin.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).30)(::core::mem::transmute_copy(this), deviceinfo.into_param().abi(), pin.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceSession>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).31)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).32)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn CreateWiFiDirectServiceAdvertiser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(servicename: Param0) -> ::windows::runtime::Result<WiFiDirectServiceAdvertiser> {
         Self::IWiFiDirectServiceAdvertiserFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), servicename.into_param().abi(), &mut result__).from_abi::<WiFiDirectServiceAdvertiser>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), servicename.into_param().abi(), &mut result__).from_abi::<WiFiDirectServiceAdvertiser>(result__)
         })
     }
     pub fn IWiFiDirectServiceAdvertiserFactory<R, F: FnOnce(&IWiFiDirectServiceAdvertiserFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -720,12 +720,12 @@ unsafe impl ::windows::runtime::Interface for WiFiDirectServiceAdvertiser {
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceAdvertiser {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAdvertiser";
 }
-impl ::std::convert::From<WiFiDirectServiceAdvertiser> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WiFiDirectServiceAdvertiser> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectServiceAdvertiser) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceAdvertiser> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WiFiDirectServiceAdvertiser> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectServiceAdvertiser) -> Self {
         value.0 .0.clone()
     }
@@ -740,12 +740,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WiFiDirectServiceAdvertiser> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WiFiDirectServiceAdvertiser> for ::windows::runtime::IInspectable {
     fn from(value: WiFiDirectServiceAdvertiser) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceAdvertiser> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WiFiDirectServiceAdvertiser> for ::windows::runtime::IInspectable {
     fn from(value: &WiFiDirectServiceAdvertiser) -> Self {
         value.0.clone()
     }
@@ -760,19 +760,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for WiFiDirectServiceAdvertiser {}
-unsafe impl ::std::marker::Sync for WiFiDirectServiceAdvertiser {}
+unsafe impl ::core::marker::Send for WiFiDirectServiceAdvertiser {}
+unsafe impl ::core::marker::Sync for WiFiDirectServiceAdvertiser {}
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WiFiDirectServiceAutoAcceptSessionConnectedEventArgs(pub ::windows::runtime::IInspectable);
 impl WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn Session(&self) -> ::windows::runtime::Result<WiFiDirectServiceSession> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceSession>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceSession>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -780,8 +780,8 @@ impl WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
     pub fn SessionInfo(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -795,12 +795,12 @@ unsafe impl ::windows::runtime::Interface for WiFiDirectServiceAutoAcceptSession
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAutoAcceptSessionConnectedEventArgs";
 }
-impl ::std::convert::From<WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectServiceAutoAcceptSessionConnectedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectServiceAutoAcceptSessionConnectedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -815,12 +815,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WiFiDirectServiceAutoAcceptSessionConnectedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WiFiDirectServiceAutoAcceptSessionConnectedEventArgs) -> Self {
         value.0.clone()
     }
@@ -835,10 +835,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
-unsafe impl ::std::marker::Sync for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
+unsafe impl ::core::marker::Send for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
+unsafe impl ::core::marker::Sync for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WiFiDirectServiceConfigurationMethod(pub i32);
 impl WiFiDirectServiceConfigurationMethod {
@@ -846,7 +846,7 @@ impl WiFiDirectServiceConfigurationMethod {
     pub const PinDisplay: WiFiDirectServiceConfigurationMethod = WiFiDirectServiceConfigurationMethod(1i32);
     pub const PinEntry: WiFiDirectServiceConfigurationMethod = WiFiDirectServiceConfigurationMethod(2i32);
 }
-impl ::std::convert::From<i32> for WiFiDirectServiceConfigurationMethod {
+impl ::core::convert::From<i32> for WiFiDirectServiceConfigurationMethod {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -861,7 +861,7 @@ impl ::windows::runtime::DefaultType for WiFiDirectServiceConfigurationMethod {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WiFiDirectServiceError(pub i32);
 impl WiFiDirectServiceError {
@@ -871,7 +871,7 @@ impl WiFiDirectServiceError {
     pub const UnsupportedHardware: WiFiDirectServiceError = WiFiDirectServiceError(3i32);
     pub const NoHardware: WiFiDirectServiceError = WiFiDirectServiceError(4i32);
 }
-impl ::std::convert::From<i32> for WiFiDirectServiceError {
+impl ::core::convert::From<i32> for WiFiDirectServiceError {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -886,14 +886,14 @@ impl ::windows::runtime::DefaultType for WiFiDirectServiceError {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WiFiDirectServiceIPProtocol(pub i32);
 impl WiFiDirectServiceIPProtocol {
     pub const Tcp: WiFiDirectServiceIPProtocol = WiFiDirectServiceIPProtocol(6i32);
     pub const Udp: WiFiDirectServiceIPProtocol = WiFiDirectServiceIPProtocol(17i32);
 }
-impl ::std::convert::From<i32> for WiFiDirectServiceIPProtocol {
+impl ::core::convert::From<i32> for WiFiDirectServiceIPProtocol {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -909,23 +909,23 @@ impl ::windows::runtime::DefaultType for WiFiDirectServiceIPProtocol {
 }
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WiFiDirectServiceProvisioningInfo(pub ::windows::runtime::IInspectable);
 impl WiFiDirectServiceProvisioningInfo {
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn SelectedConfigurationMethod(&self) -> ::windows::runtime::Result<WiFiDirectServiceConfigurationMethod> {
         let this = self;
         unsafe {
-            let mut result__: WiFiDirectServiceConfigurationMethod = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceConfigurationMethod>(result__)
+            let mut result__: WiFiDirectServiceConfigurationMethod = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceConfigurationMethod>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn IsGroupFormationNeeded(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -939,12 +939,12 @@ unsafe impl ::windows::runtime::Interface for WiFiDirectServiceProvisioningInfo 
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceProvisioningInfo {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceProvisioningInfo";
 }
-impl ::std::convert::From<WiFiDirectServiceProvisioningInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WiFiDirectServiceProvisioningInfo> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectServiceProvisioningInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceProvisioningInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WiFiDirectServiceProvisioningInfo> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectServiceProvisioningInfo) -> Self {
         value.0 .0.clone()
     }
@@ -959,12 +959,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WiFiDirectServiceProvisioningInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WiFiDirectServiceProvisioningInfo> for ::windows::runtime::IInspectable {
     fn from(value: WiFiDirectServiceProvisioningInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceProvisioningInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WiFiDirectServiceProvisioningInfo> for ::windows::runtime::IInspectable {
     fn from(value: &WiFiDirectServiceProvisioningInfo) -> Self {
         value.0.clone()
     }
@@ -979,11 +979,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for WiFiDirectServiceProvisioningInfo {}
-unsafe impl ::std::marker::Sync for WiFiDirectServiceProvisioningInfo {}
+unsafe impl ::core::marker::Send for WiFiDirectServiceProvisioningInfo {}
+unsafe impl ::core::marker::Sync for WiFiDirectServiceProvisioningInfo {}
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WiFiDirectServiceRemotePortAddedEventArgs(pub ::windows::runtime::IInspectable);
 impl WiFiDirectServiceRemotePortAddedEventArgs {
     #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
@@ -991,16 +991,16 @@ impl WiFiDirectServiceRemotePortAddedEventArgs {
     pub fn EndpointPairs(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Networking::EndpointPair>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Networking::EndpointPair>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Networking::EndpointPair>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn Protocol(&self) -> ::windows::runtime::Result<WiFiDirectServiceIPProtocol> {
         let this = self;
         unsafe {
-            let mut result__: WiFiDirectServiceIPProtocol = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceIPProtocol>(result__)
+            let mut result__: WiFiDirectServiceIPProtocol = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceIPProtocol>(result__)
         }
     }
 }
@@ -1014,12 +1014,12 @@ unsafe impl ::windows::runtime::Interface for WiFiDirectServiceRemotePortAddedEv
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceRemotePortAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceRemotePortAddedEventArgs";
 }
-impl ::std::convert::From<WiFiDirectServiceRemotePortAddedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WiFiDirectServiceRemotePortAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectServiceRemotePortAddedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceRemotePortAddedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WiFiDirectServiceRemotePortAddedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectServiceRemotePortAddedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1034,12 +1034,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WiFiDirectServiceRemotePortAddedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WiFiDirectServiceRemotePortAddedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WiFiDirectServiceRemotePortAddedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceRemotePortAddedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WiFiDirectServiceRemotePortAddedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WiFiDirectServiceRemotePortAddedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1054,67 +1054,67 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for WiFiDirectServiceRemotePortAddedEventArgs {}
-unsafe impl ::std::marker::Sync for WiFiDirectServiceRemotePortAddedEventArgs {}
+unsafe impl ::core::marker::Send for WiFiDirectServiceRemotePortAddedEventArgs {}
+unsafe impl ::core::marker::Sync for WiFiDirectServiceRemotePortAddedEventArgs {}
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WiFiDirectServiceSession(pub ::windows::runtime::IInspectable);
 impl WiFiDirectServiceSession {
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn ServiceName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<WiFiDirectServiceSessionStatus> {
         let this = self;
         unsafe {
-            let mut result__: WiFiDirectServiceSessionStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceSessionStatus>(result__)
+            let mut result__: WiFiDirectServiceSessionStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceSessionStatus>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn ErrorStatus(&self) -> ::windows::runtime::Result<WiFiDirectServiceSessionErrorStatus> {
         let this = self;
         unsafe {
-            let mut result__: WiFiDirectServiceSessionErrorStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceSessionErrorStatus>(result__)
+            let mut result__: WiFiDirectServiceSessionErrorStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceSessionErrorStatus>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn SessionId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn AdvertisementId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn ServiceAddress(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn SessionAddress(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
@@ -1122,8 +1122,8 @@ impl WiFiDirectServiceSession {
     pub fn GetConnectionEndpointPairs(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Networking::EndpointPair>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Networking::EndpointPair>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Networking::EndpointPair>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1131,23 +1131,23 @@ impl WiFiDirectServiceSession {
     pub fn SessionStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceSession, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Foundation`*"]
     pub fn RemoveSessionStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Foundation`, `Networking_Sockets`*"]
     pub fn AddStreamSocketListenerAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Networking::Sockets::StreamSocketListener>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
@@ -1155,8 +1155,8 @@ impl WiFiDirectServiceSession {
     pub fn AddDatagramSocketAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Networking::Sockets::DatagramSocket>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1164,21 +1164,21 @@ impl WiFiDirectServiceSession {
     pub fn RemotePortAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WiFiDirectServiceSession, WiFiDirectServiceRemotePortAddedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Foundation`*"]
     pub fn RemoveRemotePortAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiDirectServiceSession {
@@ -1191,12 +1191,12 @@ unsafe impl ::windows::runtime::Interface for WiFiDirectServiceSession {
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceSession {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSession";
 }
-impl ::std::convert::From<WiFiDirectServiceSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WiFiDirectServiceSession> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectServiceSession) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WiFiDirectServiceSession> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectServiceSession) -> Self {
         value.0 .0.clone()
     }
@@ -1211,12 +1211,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WiFiDirectServiceSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WiFiDirectServiceSession> for ::windows::runtime::IInspectable {
     fn from(value: WiFiDirectServiceSession) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WiFiDirectServiceSession> for ::windows::runtime::IInspectable {
     fn from(value: &WiFiDirectServiceSession) -> Self {
         value.0.clone()
     }
@@ -1232,14 +1232,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<WiFiDirectServiceSession> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<WiFiDirectServiceSession> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WiFiDirectServiceSession) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&WiFiDirectServiceSession> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&WiFiDirectServiceSession> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WiFiDirectServiceSession) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -1254,14 +1254,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for &WiFiDirectServiceSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for WiFiDirectServiceSession {}
-unsafe impl ::std::marker::Sync for WiFiDirectServiceSession {}
+unsafe impl ::core::marker::Send for WiFiDirectServiceSession {}
+unsafe impl ::core::marker::Sync for WiFiDirectServiceSession {}
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WiFiDirectServiceSessionDeferredEventArgs(pub ::windows::runtime::IInspectable);
 impl WiFiDirectServiceSessionDeferredEventArgs {
     #[cfg(feature = "Storage_Streams")]
@@ -1269,8 +1269,8 @@ impl WiFiDirectServiceSessionDeferredEventArgs {
     pub fn DeferredSessionInfo(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -1284,12 +1284,12 @@ unsafe impl ::windows::runtime::Interface for WiFiDirectServiceSessionDeferredEv
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceSessionDeferredEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionDeferredEventArgs";
 }
-impl ::std::convert::From<WiFiDirectServiceSessionDeferredEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WiFiDirectServiceSessionDeferredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectServiceSessionDeferredEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceSessionDeferredEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WiFiDirectServiceSessionDeferredEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectServiceSessionDeferredEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1304,12 +1304,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WiFiDirectServiceSessionDeferredEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WiFiDirectServiceSessionDeferredEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WiFiDirectServiceSessionDeferredEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceSessionDeferredEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WiFiDirectServiceSessionDeferredEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WiFiDirectServiceSessionDeferredEventArgs) -> Self {
         value.0.clone()
     }
@@ -1324,10 +1324,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for WiFiDirectServiceSessionDeferredEventArgs {}
-unsafe impl ::std::marker::Sync for WiFiDirectServiceSessionDeferredEventArgs {}
+unsafe impl ::core::marker::Send for WiFiDirectServiceSessionDeferredEventArgs {}
+unsafe impl ::core::marker::Sync for WiFiDirectServiceSessionDeferredEventArgs {}
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionErrorStatus(pub i32);
 impl WiFiDirectServiceSessionErrorStatus {
@@ -1338,7 +1338,7 @@ impl WiFiDirectServiceSessionErrorStatus {
     pub const SystemFailure: WiFiDirectServiceSessionErrorStatus = WiFiDirectServiceSessionErrorStatus(4i32);
     pub const NoResponseFromRemote: WiFiDirectServiceSessionErrorStatus = WiFiDirectServiceSessionErrorStatus(5i32);
 }
-impl ::std::convert::From<i32> for WiFiDirectServiceSessionErrorStatus {
+impl ::core::convert::From<i32> for WiFiDirectServiceSessionErrorStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1354,7 +1354,7 @@ impl ::windows::runtime::DefaultType for WiFiDirectServiceSessionErrorStatus {
 }
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WiFiDirectServiceSessionRequest(pub ::windows::runtime::IInspectable);
 impl WiFiDirectServiceSessionRequest {
     #[cfg(feature = "Devices_Enumeration")]
@@ -1362,16 +1362,16 @@ impl WiFiDirectServiceSessionRequest {
     pub fn DeviceInformation(&self) -> ::windows::runtime::Result<super::super::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Enumeration::DeviceInformation>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Enumeration::DeviceInformation>(result__)
         }
     }
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn ProvisioningInfo(&self) -> ::windows::runtime::Result<WiFiDirectServiceProvisioningInfo> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceProvisioningInfo>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceProvisioningInfo>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1379,15 +1379,15 @@ impl WiFiDirectServiceSessionRequest {
     pub fn SessionInfo(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_WiFiDirect_Services`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiDirectServiceSessionRequest {
@@ -1400,12 +1400,12 @@ unsafe impl ::windows::runtime::Interface for WiFiDirectServiceSessionRequest {
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceSessionRequest {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionRequest";
 }
-impl ::std::convert::From<WiFiDirectServiceSessionRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WiFiDirectServiceSessionRequest> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectServiceSessionRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceSessionRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WiFiDirectServiceSessionRequest> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectServiceSessionRequest) -> Self {
         value.0 .0.clone()
     }
@@ -1420,12 +1420,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WiFiDirectServiceSessionRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WiFiDirectServiceSessionRequest> for ::windows::runtime::IInspectable {
     fn from(value: WiFiDirectServiceSessionRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceSessionRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WiFiDirectServiceSessionRequest> for ::windows::runtime::IInspectable {
     fn from(value: &WiFiDirectServiceSessionRequest) -> Self {
         value.0.clone()
     }
@@ -1441,14 +1441,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<WiFiDirectServiceSessionRequest> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<WiFiDirectServiceSessionRequest> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: WiFiDirectServiceSessionRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&WiFiDirectServiceSessionRequest> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&WiFiDirectServiceSessionRequest> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &WiFiDirectServiceSessionRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -1463,22 +1463,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for &WiFiDirectServiceSessionRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for WiFiDirectServiceSessionRequest {}
-unsafe impl ::std::marker::Sync for WiFiDirectServiceSessionRequest {}
+unsafe impl ::core::marker::Send for WiFiDirectServiceSessionRequest {}
+unsafe impl ::core::marker::Sync for WiFiDirectServiceSessionRequest {}
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WiFiDirectServiceSessionRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl WiFiDirectServiceSessionRequestedEventArgs {
     #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
     pub fn GetSessionRequest(&self) -> ::windows::runtime::Result<WiFiDirectServiceSessionRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceSessionRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiDirectServiceSessionRequest>(result__)
         }
     }
 }
@@ -1492,12 +1492,12 @@ unsafe impl ::windows::runtime::Interface for WiFiDirectServiceSessionRequestedE
 impl ::windows::runtime::RuntimeName for WiFiDirectServiceSessionRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionRequestedEventArgs";
 }
-impl ::std::convert::From<WiFiDirectServiceSessionRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<WiFiDirectServiceSessionRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: WiFiDirectServiceSessionRequestedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceSessionRequestedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&WiFiDirectServiceSessionRequestedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &WiFiDirectServiceSessionRequestedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1512,12 +1512,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<WiFiDirectServiceSessionRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<WiFiDirectServiceSessionRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: WiFiDirectServiceSessionRequestedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&WiFiDirectServiceSessionRequestedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&WiFiDirectServiceSessionRequestedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &WiFiDirectServiceSessionRequestedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1532,10 +1532,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for WiFiDirectServiceSessionRequestedEventArgs {}
-unsafe impl ::std::marker::Sync for WiFiDirectServiceSessionRequestedEventArgs {}
+unsafe impl ::core::marker::Send for WiFiDirectServiceSessionRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for WiFiDirectServiceSessionRequestedEventArgs {}
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionStatus(pub i32);
 impl WiFiDirectServiceSessionStatus {
@@ -1544,7 +1544,7 @@ impl WiFiDirectServiceSessionStatus {
     pub const Requested: WiFiDirectServiceSessionStatus = WiFiDirectServiceSessionStatus(2i32);
     pub const Open: WiFiDirectServiceSessionStatus = WiFiDirectServiceSessionStatus(3i32);
 }
-impl ::std::convert::From<i32> for WiFiDirectServiceSessionStatus {
+impl ::core::convert::From<i32> for WiFiDirectServiceSessionStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1559,7 +1559,7 @@ impl ::windows::runtime::DefaultType for WiFiDirectServiceSessionStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFiDirect_Services`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WiFiDirectServiceStatus(pub i32);
 impl WiFiDirectServiceStatus {
@@ -1567,7 +1567,7 @@ impl WiFiDirectServiceStatus {
     pub const Busy: WiFiDirectServiceStatus = WiFiDirectServiceStatus(1i32);
     pub const Custom: WiFiDirectServiceStatus = WiFiDirectServiceStatus(2i32);
 }
-impl ::std::convert::From<i32> for WiFiDirectServiceStatus {
+impl ::core::convert::From<i32> for WiFiDirectServiceStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }

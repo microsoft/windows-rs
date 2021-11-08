@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Devices_Gpio_Provider")]
 pub mod Provider;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Devices_Gpio`, `Foundation`*"]
@@ -12,25 +12,25 @@ pub struct GpioChangeCount {
 #[cfg(feature = "Foundation")]
 impl GpioChangeCount {}
 #[cfg(feature = "Foundation")]
-impl ::std::default::Default for GpioChangeCount {
+impl ::core::default::Default for GpioChangeCount {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::fmt::Debug for GpioChangeCount {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GpioChangeCount {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GpioChangeCount").field("Count", &self.Count).field("RelativeTime", &self.RelativeTime).finish()
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::cmp::PartialEq for GpioChangeCount {
+impl ::core::cmp::PartialEq for GpioChangeCount {
     fn eq(&self, other: &Self) -> bool {
         self.Count == other.Count && self.RelativeTime == other.RelativeTime
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::cmp::Eq for GpioChangeCount {}
+impl ::core::cmp::Eq for GpioChangeCount {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Abi for GpioChangeCount {
     type Abi = Self;
@@ -45,53 +45,53 @@ impl ::windows::runtime::DefaultType for GpioChangeCount {
 }
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GpioChangeCounter(pub ::windows::runtime::IInspectable);
 impl GpioChangeCounter {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Gpio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn SetPolarity(&self, value: GpioChangePolarity) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Polarity(&self) -> ::windows::runtime::Result<GpioChangePolarity> {
         let this = self;
         unsafe {
-            let mut result__: GpioChangePolarity = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GpioChangePolarity>(result__)
+            let mut result__: GpioChangePolarity = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GpioChangePolarity>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn IsStarted(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Gpio`, `Foundation`*"]
     pub fn Read(&self) -> ::windows::runtime::Result<GpioChangeCount> {
         let this = self;
         unsafe {
-            let mut result__: GpioChangeCount = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GpioChangeCount>(result__)
+            let mut result__: GpioChangeCount = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GpioChangeCount>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -99,15 +99,15 @@ impl GpioChangeCounter {
     pub fn Reset(&self) -> ::windows::runtime::Result<GpioChangeCount> {
         let this = self;
         unsafe {
-            let mut result__: GpioChangeCount = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GpioChangeCount>(result__)
+            let mut result__: GpioChangeCount = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GpioChangeCount>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, GpioPin>>(pin: Param0) -> ::windows::runtime::Result<GpioChangeCounter> {
         Self::IGpioChangeCounterFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), pin.into_param().abi(), &mut result__).from_abi::<GpioChangeCounter>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pin.into_param().abi(), &mut result__).from_abi::<GpioChangeCounter>(result__)
         })
     }
     pub fn IGpioChangeCounterFactory<R, F: FnOnce(&IGpioChangeCounterFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -125,12 +125,12 @@ unsafe impl ::windows::runtime::Interface for GpioChangeCounter {
 impl ::windows::runtime::RuntimeName for GpioChangeCounter {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioChangeCounter";
 }
-impl ::std::convert::From<GpioChangeCounter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GpioChangeCounter> for ::windows::runtime::IUnknown {
     fn from(value: GpioChangeCounter) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GpioChangeCounter> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GpioChangeCounter> for ::windows::runtime::IUnknown {
     fn from(value: &GpioChangeCounter) -> Self {
         value.0 .0.clone()
     }
@@ -145,12 +145,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GpioChangeCounter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GpioChangeCounter> for ::windows::runtime::IInspectable {
     fn from(value: GpioChangeCounter) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GpioChangeCounter> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GpioChangeCounter> for ::windows::runtime::IInspectable {
     fn from(value: &GpioChangeCounter) -> Self {
         value.0.clone()
     }
@@ -166,14 +166,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<GpioChangeCounter> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<GpioChangeCounter> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: GpioChangeCounter) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&GpioChangeCounter> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&GpioChangeCounter> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &GpioChangeCounter) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -188,13 +188,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &GpioChangeCounter {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for GpioChangeCounter {}
-unsafe impl ::std::marker::Sync for GpioChangeCounter {}
+unsafe impl ::core::marker::Send for GpioChangeCounter {}
+unsafe impl ::core::marker::Sync for GpioChangeCounter {}
 #[doc = "*Required features: `Devices_Gpio`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GpioChangePolarity(pub i32);
 impl GpioChangePolarity {
@@ -202,7 +202,7 @@ impl GpioChangePolarity {
     pub const Rising: GpioChangePolarity = GpioChangePolarity(1i32);
     pub const Both: GpioChangePolarity = GpioChangePolarity(2i32);
 }
-impl ::std::convert::From<i32> for GpioChangePolarity {
+impl ::core::convert::From<i32> for GpioChangePolarity {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -218,90 +218,90 @@ impl ::windows::runtime::DefaultType for GpioChangePolarity {
 }
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GpioChangeReader(pub ::windows::runtime::IInspectable);
 impl GpioChangeReader {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Gpio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Capacity(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Length(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn IsEmpty(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn IsOverflowed(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn SetPolarity(&self, value: GpioChangePolarity) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Polarity(&self) -> ::windows::runtime::Result<GpioChangePolarity> {
         let this = self;
         unsafe {
-            let mut result__: GpioChangePolarity = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GpioChangePolarity>(result__)
+            let mut result__: GpioChangePolarity = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GpioChangePolarity>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn IsStarted(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Gpio`, `Foundation`*"]
     pub fn GetNextItem(&self) -> ::windows::runtime::Result<GpioChangeRecord> {
         let this = self;
         unsafe {
-            let mut result__: GpioChangeRecord = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GpioChangeRecord>(result__)
+            let mut result__: GpioChangeRecord = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GpioChangeRecord>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -309,8 +309,8 @@ impl GpioChangeReader {
     pub fn PeekNextItem(&self) -> ::windows::runtime::Result<GpioChangeRecord> {
         let this = self;
         unsafe {
-            let mut result__: GpioChangeRecord = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GpioChangeRecord>(result__)
+            let mut result__: GpioChangeRecord = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GpioChangeRecord>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -318,8 +318,8 @@ impl GpioChangeReader {
     pub fn GetAllItems(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<GpioChangeRecord>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<GpioChangeRecord>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<GpioChangeRecord>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -327,22 +327,22 @@ impl GpioChangeReader {
     pub fn WaitForItemsAsync(&self, count: i32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), count, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), count, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, GpioPin>>(pin: Param0) -> ::windows::runtime::Result<GpioChangeReader> {
         Self::IGpioChangeReaderFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), pin.into_param().abi(), &mut result__).from_abi::<GpioChangeReader>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pin.into_param().abi(), &mut result__).from_abi::<GpioChangeReader>(result__)
         })
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn CreateWithCapacity<'a, Param0: ::windows::runtime::IntoParam<'a, GpioPin>>(pin: Param0, mincapacity: i32) -> ::windows::runtime::Result<GpioChangeReader> {
         Self::IGpioChangeReaderFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), pin.into_param().abi(), mincapacity, &mut result__).from_abi::<GpioChangeReader>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), pin.into_param().abi(), mincapacity, &mut result__).from_abi::<GpioChangeReader>(result__)
         })
     }
     pub fn IGpioChangeReaderFactory<R, F: FnOnce(&IGpioChangeReaderFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -360,12 +360,12 @@ unsafe impl ::windows::runtime::Interface for GpioChangeReader {
 impl ::windows::runtime::RuntimeName for GpioChangeReader {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioChangeReader";
 }
-impl ::std::convert::From<GpioChangeReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GpioChangeReader> for ::windows::runtime::IUnknown {
     fn from(value: GpioChangeReader) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GpioChangeReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GpioChangeReader> for ::windows::runtime::IUnknown {
     fn from(value: &GpioChangeReader) -> Self {
         value.0 .0.clone()
     }
@@ -380,12 +380,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GpioChangeReader> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GpioChangeReader> for ::windows::runtime::IInspectable {
     fn from(value: GpioChangeReader) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GpioChangeReader> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GpioChangeReader> for ::windows::runtime::IInspectable {
     fn from(value: &GpioChangeReader) -> Self {
         value.0.clone()
     }
@@ -401,14 +401,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<GpioChangeReader> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<GpioChangeReader> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: GpioChangeReader) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&GpioChangeReader> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&GpioChangeReader> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &GpioChangeReader) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -423,12 +423,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &GpioChangeReader {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for GpioChangeReader {}
-unsafe impl ::std::marker::Sync for GpioChangeReader {}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+unsafe impl ::core::marker::Send for GpioChangeReader {}
+unsafe impl ::core::marker::Sync for GpioChangeReader {}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Devices_Gpio`, `Foundation`*"]
@@ -439,25 +439,25 @@ pub struct GpioChangeRecord {
 #[cfg(feature = "Foundation")]
 impl GpioChangeRecord {}
 #[cfg(feature = "Foundation")]
-impl ::std::default::Default for GpioChangeRecord {
+impl ::core::default::Default for GpioChangeRecord {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::fmt::Debug for GpioChangeRecord {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GpioChangeRecord {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GpioChangeRecord").field("RelativeTime", &self.RelativeTime).field("Edge", &self.Edge).finish()
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::cmp::PartialEq for GpioChangeRecord {
+impl ::core::cmp::PartialEq for GpioChangeRecord {
     fn eq(&self, other: &Self) -> bool {
         self.RelativeTime == other.RelativeTime && self.Edge == other.Edge
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::cmp::Eq for GpioChangeRecord {}
+impl ::core::cmp::Eq for GpioChangeRecord {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Abi for GpioChangeRecord {
     type Abi = Self;
@@ -472,62 +472,62 @@ impl ::windows::runtime::DefaultType for GpioChangeRecord {
 }
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GpioController(pub ::windows::runtime::IInspectable);
 impl GpioController {
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn PinCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn OpenPin(&self, pinnumber: i32) -> ::windows::runtime::Result<GpioPin> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), pinnumber, &mut result__).from_abi::<GpioPin>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), pinnumber, &mut result__).from_abi::<GpioPin>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn OpenPinWithSharingMode(&self, pinnumber: i32, sharingmode: GpioSharingMode) -> ::windows::runtime::Result<GpioPin> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), pinnumber, sharingmode, &mut result__).from_abi::<GpioPin>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), pinnumber, sharingmode, &mut result__).from_abi::<GpioPin>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
-    pub fn TryOpenPin(&self, pinnumber: i32, sharingmode: GpioSharingMode, pin: &mut ::std::option::Option<GpioPin>, openstatus: &mut GpioOpenStatus) -> ::windows::runtime::Result<bool> {
+    pub fn TryOpenPin(&self, pinnumber: i32, sharingmode: GpioSharingMode, pin: &mut ::core::option::Option<GpioPin>, openstatus: &mut GpioOpenStatus) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), pinnumber, sharingmode, pin as *mut _ as _, openstatus, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), pinnumber, sharingmode, pin as *mut _ as _, openstatus, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<GpioController> {
         Self::IGpioControllerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GpioController>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GpioController>(result__)
         })
     }
     #[cfg(all(feature = "Devices_Gpio_Provider", feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `Devices_Gpio`, `Devices_Gpio_Provider`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetControllersAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Provider::IGpioProvider>>(provider: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>> {
         Self::IGpioControllerStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), provider.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), provider.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Gpio`, `Foundation`*"]
     pub fn GetDefaultAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<GpioController>> {
         Self::IGpioControllerStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<GpioController>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<GpioController>>(result__)
         })
     }
     pub fn IGpioControllerStatics<R, F: FnOnce(&IGpioControllerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -549,12 +549,12 @@ unsafe impl ::windows::runtime::Interface for GpioController {
 impl ::windows::runtime::RuntimeName for GpioController {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioController";
 }
-impl ::std::convert::From<GpioController> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GpioController> for ::windows::runtime::IUnknown {
     fn from(value: GpioController) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GpioController> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GpioController> for ::windows::runtime::IUnknown {
     fn from(value: &GpioController) -> Self {
         value.0 .0.clone()
     }
@@ -569,12 +569,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GpioController> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GpioController> for ::windows::runtime::IInspectable {
     fn from(value: GpioController) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GpioController> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GpioController> for ::windows::runtime::IInspectable {
     fn from(value: &GpioController) -> Self {
         value.0.clone()
     }
@@ -589,10 +589,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GpioController {}
-unsafe impl ::std::marker::Sync for GpioController {}
+unsafe impl ::core::marker::Send for GpioController {}
+unsafe impl ::core::marker::Sync for GpioController {}
 #[doc = "*Required features: `Devices_Gpio`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GpioOpenStatus(pub i32);
 impl GpioOpenStatus {
@@ -602,7 +602,7 @@ impl GpioOpenStatus {
     pub const MuxingConflict: GpioOpenStatus = GpioOpenStatus(3i32);
     pub const UnknownError: GpioOpenStatus = GpioOpenStatus(4i32);
 }
-impl ::std::convert::From<i32> for GpioOpenStatus {
+impl ::core::convert::From<i32> for GpioOpenStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -618,7 +618,7 @@ impl ::windows::runtime::DefaultType for GpioOpenStatus {
 }
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GpioPin(pub ::windows::runtime::IInspectable);
 impl GpioPin {
     #[cfg(feature = "Foundation")]
@@ -626,86 +626,86 @@ impl GpioPin {
     pub fn ValueChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Gpio`, `Foundation`*"]
     pub fn RemoveValueChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Gpio`, `Foundation`*"]
     pub fn DebounceTimeout(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Gpio`, `Foundation`*"]
     pub fn SetDebounceTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn PinNumber(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn SharingMode(&self) -> ::windows::runtime::Result<GpioSharingMode> {
         let this = self;
         unsafe {
-            let mut result__: GpioSharingMode = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GpioSharingMode>(result__)
+            let mut result__: GpioSharingMode = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GpioSharingMode>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn IsDriveModeSupported(&self, drivemode: GpioPinDriveMode) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), drivemode, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), drivemode, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn GetDriveMode(&self) -> ::windows::runtime::Result<GpioPinDriveMode> {
         let this = self;
         unsafe {
-            let mut result__: GpioPinDriveMode = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GpioPinDriveMode>(result__)
+            let mut result__: GpioPinDriveMode = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GpioPinDriveMode>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn SetDriveMode(&self, value: GpioPinDriveMode) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Write(&self, value: GpioPinValue) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Read(&self) -> ::windows::runtime::Result<GpioPinValue> {
         let this = self;
         unsafe {
-            let mut result__: GpioPinValue = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GpioPinValue>(result__)
+            let mut result__: GpioPinValue = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GpioPinValue>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Gpio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for GpioPin {
@@ -718,12 +718,12 @@ unsafe impl ::windows::runtime::Interface for GpioPin {
 impl ::windows::runtime::RuntimeName for GpioPin {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioPin";
 }
-impl ::std::convert::From<GpioPin> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GpioPin> for ::windows::runtime::IUnknown {
     fn from(value: GpioPin) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GpioPin> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GpioPin> for ::windows::runtime::IUnknown {
     fn from(value: &GpioPin) -> Self {
         value.0 .0.clone()
     }
@@ -738,12 +738,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GpioPin> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GpioPin> for ::windows::runtime::IInspectable {
     fn from(value: GpioPin) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GpioPin> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GpioPin> for ::windows::runtime::IInspectable {
     fn from(value: &GpioPin) -> Self {
         value.0.clone()
     }
@@ -759,14 +759,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<GpioPin> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<GpioPin> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: GpioPin) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&GpioPin> for super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&GpioPin> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &GpioPin) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -781,13 +781,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &GpioPin {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for GpioPin {}
-unsafe impl ::std::marker::Sync for GpioPin {}
+unsafe impl ::core::marker::Send for GpioPin {}
+unsafe impl ::core::marker::Sync for GpioPin {}
 #[doc = "*Required features: `Devices_Gpio`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GpioPinDriveMode(pub i32);
 impl GpioPinDriveMode {
@@ -800,7 +800,7 @@ impl GpioPinDriveMode {
     pub const OutputOpenSource: GpioPinDriveMode = GpioPinDriveMode(6i32);
     pub const OutputOpenSourcePullDown: GpioPinDriveMode = GpioPinDriveMode(7i32);
 }
-impl ::std::convert::From<i32> for GpioPinDriveMode {
+impl ::core::convert::From<i32> for GpioPinDriveMode {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -815,14 +815,14 @@ impl ::windows::runtime::DefaultType for GpioPinDriveMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Gpio`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GpioPinEdge(pub i32);
 impl GpioPinEdge {
     pub const FallingEdge: GpioPinEdge = GpioPinEdge(0i32);
     pub const RisingEdge: GpioPinEdge = GpioPinEdge(1i32);
 }
-impl ::std::convert::From<i32> for GpioPinEdge {
+impl ::core::convert::From<i32> for GpioPinEdge {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -837,14 +837,14 @@ impl ::windows::runtime::DefaultType for GpioPinEdge {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Gpio`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GpioPinValue(pub i32);
 impl GpioPinValue {
     pub const Low: GpioPinValue = GpioPinValue(0i32);
     pub const High: GpioPinValue = GpioPinValue(1i32);
 }
-impl ::std::convert::From<i32> for GpioPinValue {
+impl ::core::convert::From<i32> for GpioPinValue {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -860,15 +860,15 @@ impl ::windows::runtime::DefaultType for GpioPinValue {
 }
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GpioPinValueChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl GpioPinValueChangedEventArgs {
     #[doc = "*Required features: `Devices_Gpio`*"]
     pub fn Edge(&self) -> ::windows::runtime::Result<GpioPinEdge> {
         let this = self;
         unsafe {
-            let mut result__: GpioPinEdge = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GpioPinEdge>(result__)
+            let mut result__: GpioPinEdge = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GpioPinEdge>(result__)
         }
     }
 }
@@ -882,12 +882,12 @@ unsafe impl ::windows::runtime::Interface for GpioPinValueChangedEventArgs {
 impl ::windows::runtime::RuntimeName for GpioPinValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioPinValueChangedEventArgs";
 }
-impl ::std::convert::From<GpioPinValueChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GpioPinValueChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: GpioPinValueChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GpioPinValueChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GpioPinValueChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &GpioPinValueChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -902,12 +902,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GpioPinValueChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GpioPinValueChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: GpioPinValueChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GpioPinValueChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GpioPinValueChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &GpioPinValueChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -922,17 +922,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GpioPinValueChangedEventArgs {}
-unsafe impl ::std::marker::Sync for GpioPinValueChangedEventArgs {}
+unsafe impl ::core::marker::Send for GpioPinValueChangedEventArgs {}
+unsafe impl ::core::marker::Sync for GpioPinValueChangedEventArgs {}
 #[doc = "*Required features: `Devices_Gpio`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GpioSharingMode(pub i32);
 impl GpioSharingMode {
     pub const Exclusive: GpioSharingMode = GpioSharingMode(0i32);
     pub const SharedReadOnly: GpioSharingMode = GpioSharingMode(1i32);
 }
-impl ::std::convert::From<i32> for GpioSharingMode {
+impl ::core::convert::From<i32> for GpioSharingMode {
     fn from(value: i32) -> Self {
         Self(value)
     }

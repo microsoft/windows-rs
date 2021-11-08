@@ -90,24 +90,24 @@ impl LicenseManager {
     #[doc = "*Required features: `ApplicationModel_Store_LicenseManagement`, `Foundation`, `Storage_Streams`*"]
     pub fn AddLicenseAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(license: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ILicenseManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), license.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), license.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `ApplicationModel_Store_LicenseManagement`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetSatisfactionInfosAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(contentids: Param0, keyids: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>> {
         Self::ILicenseManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), contentids.into_param().abi(), keyids.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), contentids.into_param().abi(), keyids.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Store_LicenseManagement`, `Foundation`*"]
     pub fn RefreshLicensesAsync(refreshoption: LicenseRefreshOption) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ILicenseManagerStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), refreshoption, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), refreshoption, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     pub fn ILicenseManagerStatics<R, F: FnOnce(&ILicenseManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -123,14 +123,14 @@ impl ::windows::runtime::RuntimeName for LicenseManager {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseManagement.LicenseManager";
 }
 #[doc = "*Required features: `ApplicationModel_Store_LicenseManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LicenseRefreshOption(pub i32);
 impl LicenseRefreshOption {
     pub const RunningLicenses: LicenseRefreshOption = LicenseRefreshOption(0i32);
     pub const AllLicenses: LicenseRefreshOption = LicenseRefreshOption(1i32);
 }
-impl ::std::convert::From<i32> for LicenseRefreshOption {
+impl ::core::convert::From<i32> for LicenseRefreshOption {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -146,63 +146,63 @@ impl ::windows::runtime::DefaultType for LicenseRefreshOption {
 }
 #[doc = "*Required features: `ApplicationModel_Store_LicenseManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LicenseSatisfactionInfo(pub ::windows::runtime::IInspectable);
 impl LicenseSatisfactionInfo {
     #[doc = "*Required features: `ApplicationModel_Store_LicenseManagement`*"]
     pub fn SatisfiedByDevice(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Store_LicenseManagement`*"]
     pub fn SatisfiedByOpenLicense(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Store_LicenseManagement`*"]
     pub fn SatisfiedByTrial(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Store_LicenseManagement`*"]
     pub fn SatisfiedByPass(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Store_LicenseManagement`*"]
     pub fn SatisfiedByInstallMedia(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Store_LicenseManagement`*"]
     pub fn SatisfiedBySignedInUser(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Store_LicenseManagement`*"]
     pub fn IsSatisfied(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -216,12 +216,12 @@ unsafe impl ::windows::runtime::Interface for LicenseSatisfactionInfo {
 impl ::windows::runtime::RuntimeName for LicenseSatisfactionInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo";
 }
-impl ::std::convert::From<LicenseSatisfactionInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<LicenseSatisfactionInfo> for ::windows::runtime::IUnknown {
     fn from(value: LicenseSatisfactionInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&LicenseSatisfactionInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&LicenseSatisfactionInfo> for ::windows::runtime::IUnknown {
     fn from(value: &LicenseSatisfactionInfo) -> Self {
         value.0 .0.clone()
     }
@@ -236,12 +236,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<LicenseSatisfactionInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<LicenseSatisfactionInfo> for ::windows::runtime::IInspectable {
     fn from(value: LicenseSatisfactionInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&LicenseSatisfactionInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&LicenseSatisfactionInfo> for ::windows::runtime::IInspectable {
     fn from(value: &LicenseSatisfactionInfo) -> Self {
         value.0.clone()
     }
@@ -256,11 +256,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for LicenseSatisfactionInfo {}
-unsafe impl ::std::marker::Sync for LicenseSatisfactionInfo {}
+unsafe impl ::core::marker::Send for LicenseSatisfactionInfo {}
+unsafe impl ::core::marker::Sync for LicenseSatisfactionInfo {}
 #[doc = "*Required features: `ApplicationModel_Store_LicenseManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LicenseSatisfactionResult(pub ::windows::runtime::IInspectable);
 impl LicenseSatisfactionResult {
     #[cfg(feature = "Foundation_Collections")]
@@ -268,16 +268,16 @@ impl LicenseSatisfactionResult {
     pub fn LicenseSatisfactionInfos(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, LicenseSatisfactionInfo>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, LicenseSatisfactionInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, LicenseSatisfactionInfo>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_Store_LicenseManagement`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
 }
@@ -291,12 +291,12 @@ unsafe impl ::windows::runtime::Interface for LicenseSatisfactionResult {
 impl ::windows::runtime::RuntimeName for LicenseSatisfactionResult {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult";
 }
-impl ::std::convert::From<LicenseSatisfactionResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<LicenseSatisfactionResult> for ::windows::runtime::IUnknown {
     fn from(value: LicenseSatisfactionResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&LicenseSatisfactionResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&LicenseSatisfactionResult> for ::windows::runtime::IUnknown {
     fn from(value: &LicenseSatisfactionResult) -> Self {
         value.0 .0.clone()
     }
@@ -311,12 +311,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<LicenseSatisfactionResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<LicenseSatisfactionResult> for ::windows::runtime::IInspectable {
     fn from(value: LicenseSatisfactionResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&LicenseSatisfactionResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&LicenseSatisfactionResult> for ::windows::runtime::IInspectable {
     fn from(value: &LicenseSatisfactionResult) -> Self {
         value.0.clone()
     }
@@ -331,5 +331,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for LicenseSatisfactionResult {}
-unsafe impl ::std::marker::Sync for LicenseSatisfactionResult {}
+unsafe impl ::core::marker::Send for LicenseSatisfactionResult {}
+unsafe impl ::core::marker::Sync for LicenseSatisfactionResult {}

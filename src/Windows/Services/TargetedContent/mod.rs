@@ -73,10 +73,10 @@ pub struct ITargetedContentCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interaction: TargetedContentInteraction) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, custominteractionname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, custominteractionname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -100,12 +100,12 @@ pub struct ITargetedContentContainer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TargetedContentAvailability) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, path: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, path: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -123,7 +123,7 @@ pub struct ITargetedContentContainerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contentid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contentid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -161,9 +161,9 @@ pub struct ITargetedContentItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, interaction: TargetedContentInteraction) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, custominteractionname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, custominteractionname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
@@ -245,7 +245,7 @@ pub struct ITargetedContentSubscription_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
@@ -277,7 +277,7 @@ pub struct ITargetedContentSubscriptionOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -302,9 +302,9 @@ pub struct ITargetedContentSubscriptionStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, subscriptionid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, subscriptionid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, subscriptionid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, subscriptionid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -323,8 +323,8 @@ pub struct ITargetedContentValue_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TargetedContentValueKind) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
@@ -350,7 +350,7 @@ pub struct ITargetedContentValue_abi(
 );
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TargetedContentAction(pub ::windows::runtime::IInspectable);
 impl TargetedContentAction {
     #[cfg(feature = "Foundation")]
@@ -358,8 +358,8 @@ impl TargetedContentAction {
     pub fn InvokeAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -373,12 +373,12 @@ unsafe impl ::windows::runtime::Interface for TargetedContentAction {
 impl ::windows::runtime::RuntimeName for TargetedContentAction {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAction";
 }
-impl ::std::convert::From<TargetedContentAction> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TargetedContentAction> for ::windows::runtime::IUnknown {
     fn from(value: TargetedContentAction) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TargetedContentAction> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TargetedContentAction> for ::windows::runtime::IUnknown {
     fn from(value: &TargetedContentAction) -> Self {
         value.0 .0.clone()
     }
@@ -393,12 +393,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TargetedContentAction> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TargetedContentAction> for ::windows::runtime::IInspectable {
     fn from(value: TargetedContentAction) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TargetedContentAction> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TargetedContentAction> for ::windows::runtime::IInspectable {
     fn from(value: &TargetedContentAction) -> Self {
         value.0.clone()
     }
@@ -413,10 +413,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TargetedContentAction {}
-unsafe impl ::std::marker::Sync for TargetedContentAction {}
+unsafe impl ::core::marker::Send for TargetedContentAction {}
+unsafe impl ::core::marker::Sync for TargetedContentAction {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TargetedContentAppInstallationState(pub i32);
 impl TargetedContentAppInstallationState {
@@ -424,7 +424,7 @@ impl TargetedContentAppInstallationState {
     pub const NotInstalled: TargetedContentAppInstallationState = TargetedContentAppInstallationState(1i32);
     pub const Installed: TargetedContentAppInstallationState = TargetedContentAppInstallationState(2i32);
 }
-impl ::std::convert::From<i32> for TargetedContentAppInstallationState {
+impl ::core::convert::From<i32> for TargetedContentAppInstallationState {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -439,7 +439,7 @@ impl ::windows::runtime::DefaultType for TargetedContentAppInstallationState {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_TargetedContent`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TargetedContentAvailability(pub i32);
 impl TargetedContentAvailability {
@@ -447,7 +447,7 @@ impl TargetedContentAvailability {
     pub const Partial: TargetedContentAvailability = TargetedContentAvailability(1i32);
     pub const All: TargetedContentAvailability = TargetedContentAvailability(2i32);
 }
-impl ::std::convert::From<i32> for TargetedContentAvailability {
+impl ::core::convert::From<i32> for TargetedContentAvailability {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -463,7 +463,7 @@ impl ::windows::runtime::DefaultType for TargetedContentAvailability {
 }
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TargetedContentAvailabilityChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl TargetedContentAvailabilityChangedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -471,8 +471,8 @@ impl TargetedContentAvailabilityChangedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -486,12 +486,12 @@ unsafe impl ::windows::runtime::Interface for TargetedContentAvailabilityChanged
 impl ::windows::runtime::RuntimeName for TargetedContentAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs";
 }
-impl ::std::convert::From<TargetedContentAvailabilityChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TargetedContentAvailabilityChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: TargetedContentAvailabilityChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TargetedContentAvailabilityChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TargetedContentAvailabilityChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &TargetedContentAvailabilityChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -506,12 +506,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TargetedContentAvailabilityChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TargetedContentAvailabilityChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: TargetedContentAvailabilityChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TargetedContentAvailabilityChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TargetedContentAvailabilityChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &TargetedContentAvailabilityChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -526,11 +526,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TargetedContentAvailabilityChangedEventArgs {}
-unsafe impl ::std::marker::Sync for TargetedContentAvailabilityChangedEventArgs {}
+unsafe impl ::core::marker::Send for TargetedContentAvailabilityChangedEventArgs {}
+unsafe impl ::core::marker::Sync for TargetedContentAvailabilityChangedEventArgs {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TargetedContentChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl TargetedContentChangedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -538,16 +538,16 @@ impl TargetedContentChangedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn HasPreviousContentExpired(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -561,12 +561,12 @@ unsafe impl ::windows::runtime::Interface for TargetedContentChangedEventArgs {
 impl ::windows::runtime::RuntimeName for TargetedContentChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentChangedEventArgs";
 }
-impl ::std::convert::From<TargetedContentChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TargetedContentChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: TargetedContentChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TargetedContentChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TargetedContentChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &TargetedContentChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -581,12 +581,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TargetedContentChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TargetedContentChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: TargetedContentChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TargetedContentChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TargetedContentChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &TargetedContentChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -601,37 +601,37 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TargetedContentChangedEventArgs {}
-unsafe impl ::std::marker::Sync for TargetedContentChangedEventArgs {}
+unsafe impl ::core::marker::Send for TargetedContentChangedEventArgs {}
+unsafe impl ::core::marker::Sync for TargetedContentChangedEventArgs {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TargetedContentCollection(pub ::windows::runtime::IInspectable);
 impl TargetedContentCollection {
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), interaction).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), interaction).ok() }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn ReportCustomInteraction<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, custominteractionname: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), custominteractionname.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), custominteractionname.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Path(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -639,8 +639,8 @@ impl TargetedContentCollection {
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, TargetedContentValue>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, TargetedContentValue>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, TargetedContentValue>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -648,8 +648,8 @@ impl TargetedContentCollection {
     pub fn Collections(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -657,8 +657,8 @@ impl TargetedContentCollection {
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<TargetedContentItem>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentItem>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentItem>>(result__)
         }
     }
 }
@@ -672,12 +672,12 @@ unsafe impl ::windows::runtime::Interface for TargetedContentCollection {
 impl ::windows::runtime::RuntimeName for TargetedContentCollection {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentCollection";
 }
-impl ::std::convert::From<TargetedContentCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TargetedContentCollection> for ::windows::runtime::IUnknown {
     fn from(value: TargetedContentCollection) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TargetedContentCollection> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TargetedContentCollection> for ::windows::runtime::IUnknown {
     fn from(value: &TargetedContentCollection) -> Self {
         value.0 .0.clone()
     }
@@ -692,12 +692,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TargetedContentCollection> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TargetedContentCollection> for ::windows::runtime::IInspectable {
     fn from(value: TargetedContentCollection) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TargetedContentCollection> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TargetedContentCollection> for ::windows::runtime::IInspectable {
     fn from(value: &TargetedContentCollection) -> Self {
         value.0.clone()
     }
@@ -712,19 +712,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TargetedContentCollection {}
-unsafe impl ::std::marker::Sync for TargetedContentCollection {}
+unsafe impl ::core::marker::Send for TargetedContentCollection {}
+unsafe impl ::core::marker::Sync for TargetedContentCollection {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TargetedContentContainer(pub ::windows::runtime::IInspectable);
 impl TargetedContentContainer {
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -732,40 +732,40 @@ impl TargetedContentContainer {
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Availability(&self) -> ::windows::runtime::Result<TargetedContentAvailability> {
         let this = self;
         unsafe {
-            let mut result__: TargetedContentAvailability = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentAvailability>(result__)
+            let mut result__: TargetedContentAvailability = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentAvailability>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<TargetedContentCollection> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentCollection>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentCollection>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn SelectSingleObject<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, path: Param0) -> ::windows::runtime::Result<TargetedContentObject> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), path.into_param().abi(), &mut result__).from_abi::<TargetedContentObject>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), path.into_param().abi(), &mut result__).from_abi::<TargetedContentObject>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Services_TargetedContent`, `Foundation`*"]
     pub fn GetAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(contentid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>> {
         Self::ITargetedContentContainerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), contentid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), contentid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>(result__)
         })
     }
     pub fn ITargetedContentContainerStatics<R, F: FnOnce(&ITargetedContentContainerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -783,12 +783,12 @@ unsafe impl ::windows::runtime::Interface for TargetedContentContainer {
 impl ::windows::runtime::RuntimeName for TargetedContentContainer {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentContainer";
 }
-impl ::std::convert::From<TargetedContentContainer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TargetedContentContainer> for ::windows::runtime::IUnknown {
     fn from(value: TargetedContentContainer) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TargetedContentContainer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TargetedContentContainer> for ::windows::runtime::IUnknown {
     fn from(value: &TargetedContentContainer) -> Self {
         value.0 .0.clone()
     }
@@ -803,12 +803,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TargetedContentContainer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TargetedContentContainer> for ::windows::runtime::IInspectable {
     fn from(value: TargetedContentContainer) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TargetedContentContainer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TargetedContentContainer> for ::windows::runtime::IInspectable {
     fn from(value: &TargetedContentContainer) -> Self {
         value.0.clone()
     }
@@ -823,15 +823,15 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TargetedContentContainer {}
-unsafe impl ::std::marker::Sync for TargetedContentContainer {}
+unsafe impl ::core::marker::Send for TargetedContentContainer {}
+unsafe impl ::core::marker::Sync for TargetedContentContainer {}
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct TargetedContentContract(pub u8);
 #[cfg(feature = "Storage_Streams")]
 #[doc = "*Required features: `Services_TargetedContent`, `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TargetedContentFile(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl TargetedContentFile {
@@ -840,8 +840,8 @@ impl TargetedContentFile {
     pub fn OpenReadAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(result__)
         }
     }
 }
@@ -859,13 +859,13 @@ impl ::windows::runtime::RuntimeName for TargetedContentFile {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentFile";
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<TargetedContentFile> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TargetedContentFile> for ::windows::runtime::IUnknown {
     fn from(value: TargetedContentFile) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<&TargetedContentFile> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TargetedContentFile> for ::windows::runtime::IUnknown {
     fn from(value: &TargetedContentFile) -> Self {
         value.0 .0.clone()
     }
@@ -883,13 +883,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<TargetedContentFile> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TargetedContentFile> for ::windows::runtime::IInspectable {
     fn from(value: TargetedContentFile) -> Self {
         value.0
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<&TargetedContentFile> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TargetedContentFile> for ::windows::runtime::IInspectable {
     fn from(value: &TargetedContentFile) -> Self {
         value.0.clone()
     }
@@ -907,52 +907,52 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<TargetedContentFile> for super::super::Storage::Streams::IRandomAccessStreamReference {
+impl ::core::convert::From<TargetedContentFile> for super::super::Storage::Streams::IRandomAccessStreamReference {
     fn from(value: TargetedContentFile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<&TargetedContentFile> for super::super::Storage::Streams::IRandomAccessStreamReference {
+impl ::core::convert::From<&TargetedContentFile> for super::super::Storage::Streams::IRandomAccessStreamReference {
     fn from(value: &TargetedContentFile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference> for TargetedContentFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IRandomAccessStreamReference> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference> for &TargetedContentFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IRandomAccessStreamReference> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Storage_Streams")]
-unsafe impl ::std::marker::Send for TargetedContentFile {}
+unsafe impl ::core::marker::Send for TargetedContentFile {}
 #[cfg(feature = "Storage_Streams")]
-unsafe impl ::std::marker::Sync for TargetedContentFile {}
+unsafe impl ::core::marker::Sync for TargetedContentFile {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TargetedContentImage(pub ::windows::runtime::IInspectable);
 impl TargetedContentImage {
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Height(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Width(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -960,8 +960,8 @@ impl TargetedContentImage {
     pub fn OpenReadAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStreamReference>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(result__)
         }
     }
 }
@@ -975,12 +975,12 @@ unsafe impl ::windows::runtime::Interface for TargetedContentImage {
 impl ::windows::runtime::RuntimeName for TargetedContentImage {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentImage";
 }
-impl ::std::convert::From<TargetedContentImage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TargetedContentImage> for ::windows::runtime::IUnknown {
     fn from(value: TargetedContentImage) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TargetedContentImage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TargetedContentImage> for ::windows::runtime::IUnknown {
     fn from(value: &TargetedContentImage) -> Self {
         value.0 .0.clone()
     }
@@ -995,12 +995,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TargetedContentImage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TargetedContentImage> for ::windows::runtime::IInspectable {
     fn from(value: TargetedContentImage) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TargetedContentImage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TargetedContentImage> for ::windows::runtime::IInspectable {
     fn from(value: &TargetedContentImage) -> Self {
         value.0.clone()
     }
@@ -1016,14 +1016,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<TargetedContentImage> for super::super::Storage::Streams::IRandomAccessStreamReference {
+impl ::core::convert::TryFrom<TargetedContentImage> for super::super::Storage::Streams::IRandomAccessStreamReference {
     type Error = ::windows::runtime::Error;
     fn try_from(value: TargetedContentImage) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::std::convert::TryFrom<&TargetedContentImage> for super::super::Storage::Streams::IRandomAccessStreamReference {
+impl ::core::convert::TryFrom<&TargetedContentImage> for super::super::Storage::Streams::IRandomAccessStreamReference {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &TargetedContentImage) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -1038,13 +1038,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRand
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference> for &TargetedContentImage {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IRandomAccessStreamReference> {
-        ::std::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStreamReference>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStreamReference>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for TargetedContentImage {}
-unsafe impl ::std::marker::Sync for TargetedContentImage {}
+unsafe impl ::core::marker::Send for TargetedContentImage {}
+unsafe impl ::core::marker::Sync for TargetedContentImage {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TargetedContentInteraction(pub i32);
 impl TargetedContentInteraction {
@@ -1062,7 +1062,7 @@ impl TargetedContentInteraction {
     pub const Conversion: TargetedContentInteraction = TargetedContentInteraction(11i32);
     pub const Opportunity: TargetedContentInteraction = TargetedContentInteraction(12i32);
 }
-impl ::std::convert::From<i32> for TargetedContentInteraction {
+impl ::core::convert::From<i32> for TargetedContentInteraction {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1078,33 +1078,33 @@ impl ::windows::runtime::DefaultType for TargetedContentInteraction {
 }
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TargetedContentItem(pub ::windows::runtime::IInspectable);
 impl TargetedContentItem {
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Path(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), interaction).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), interaction).ok() }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn ReportCustomInteraction<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, custominteractionname: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), custominteractionname.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), custominteractionname.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn State(&self) -> ::windows::runtime::Result<TargetedContentItemState> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentItemState>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentItemState>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1112,8 +1112,8 @@ impl TargetedContentItem {
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, TargetedContentValue>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, TargetedContentValue>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, TargetedContentValue>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1121,8 +1121,8 @@ impl TargetedContentItem {
     pub fn Collections(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>(result__)
         }
     }
 }
@@ -1136,12 +1136,12 @@ unsafe impl ::windows::runtime::Interface for TargetedContentItem {
 impl ::windows::runtime::RuntimeName for TargetedContentItem {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItem";
 }
-impl ::std::convert::From<TargetedContentItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TargetedContentItem> for ::windows::runtime::IUnknown {
     fn from(value: TargetedContentItem) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TargetedContentItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TargetedContentItem> for ::windows::runtime::IUnknown {
     fn from(value: &TargetedContentItem) -> Self {
         value.0 .0.clone()
     }
@@ -1156,12 +1156,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TargetedContentItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TargetedContentItem> for ::windows::runtime::IInspectable {
     fn from(value: TargetedContentItem) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TargetedContentItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TargetedContentItem> for ::windows::runtime::IInspectable {
     fn from(value: &TargetedContentItem) -> Self {
         value.0.clone()
     }
@@ -1176,27 +1176,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TargetedContentItem {}
-unsafe impl ::std::marker::Sync for TargetedContentItem {}
+unsafe impl ::core::marker::Send for TargetedContentItem {}
+unsafe impl ::core::marker::Sync for TargetedContentItem {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TargetedContentItemState(pub ::windows::runtime::IInspectable);
 impl TargetedContentItemState {
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn ShouldDisplay(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn AppInstallationState(&self) -> ::windows::runtime::Result<TargetedContentAppInstallationState> {
         let this = self;
         unsafe {
-            let mut result__: TargetedContentAppInstallationState = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentAppInstallationState>(result__)
+            let mut result__: TargetedContentAppInstallationState = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentAppInstallationState>(result__)
         }
     }
 }
@@ -1210,12 +1210,12 @@ unsafe impl ::windows::runtime::Interface for TargetedContentItemState {
 impl ::windows::runtime::RuntimeName for TargetedContentItemState {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItemState";
 }
-impl ::std::convert::From<TargetedContentItemState> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TargetedContentItemState> for ::windows::runtime::IUnknown {
     fn from(value: TargetedContentItemState) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TargetedContentItemState> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TargetedContentItemState> for ::windows::runtime::IUnknown {
     fn from(value: &TargetedContentItemState) -> Self {
         value.0 .0.clone()
     }
@@ -1230,12 +1230,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TargetedContentItemState> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TargetedContentItemState> for ::windows::runtime::IInspectable {
     fn from(value: TargetedContentItemState) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TargetedContentItemState> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TargetedContentItemState> for ::windows::runtime::IInspectable {
     fn from(value: &TargetedContentItemState) -> Self {
         value.0.clone()
     }
@@ -1250,43 +1250,43 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TargetedContentItemState {}
-unsafe impl ::std::marker::Sync for TargetedContentItemState {}
+unsafe impl ::core::marker::Send for TargetedContentItemState {}
+unsafe impl ::core::marker::Sync for TargetedContentItemState {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TargetedContentObject(pub ::windows::runtime::IInspectable);
 impl TargetedContentObject {
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn ObjectKind(&self) -> ::windows::runtime::Result<TargetedContentObjectKind> {
         let this = self;
         unsafe {
-            let mut result__: TargetedContentObjectKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentObjectKind>(result__)
+            let mut result__: TargetedContentObjectKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentObjectKind>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Collection(&self) -> ::windows::runtime::Result<TargetedContentCollection> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentCollection>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentCollection>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Item(&self) -> ::windows::runtime::Result<TargetedContentItem> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentItem>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentItem>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<TargetedContentValue> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentValue>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentValue>(result__)
         }
     }
 }
@@ -1300,12 +1300,12 @@ unsafe impl ::windows::runtime::Interface for TargetedContentObject {
 impl ::windows::runtime::RuntimeName for TargetedContentObject {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentObject";
 }
-impl ::std::convert::From<TargetedContentObject> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TargetedContentObject> for ::windows::runtime::IUnknown {
     fn from(value: TargetedContentObject) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TargetedContentObject> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TargetedContentObject> for ::windows::runtime::IUnknown {
     fn from(value: &TargetedContentObject) -> Self {
         value.0 .0.clone()
     }
@@ -1320,12 +1320,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TargetedContentObject> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TargetedContentObject> for ::windows::runtime::IInspectable {
     fn from(value: TargetedContentObject) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TargetedContentObject> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TargetedContentObject> for ::windows::runtime::IInspectable {
     fn from(value: &TargetedContentObject) -> Self {
         value.0.clone()
     }
@@ -1340,10 +1340,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TargetedContentObject {}
-unsafe impl ::std::marker::Sync for TargetedContentObject {}
+unsafe impl ::core::marker::Send for TargetedContentObject {}
+unsafe impl ::core::marker::Sync for TargetedContentObject {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TargetedContentObjectKind(pub i32);
 impl TargetedContentObjectKind {
@@ -1351,7 +1351,7 @@ impl TargetedContentObjectKind {
     pub const Item: TargetedContentObjectKind = TargetedContentObjectKind(1i32);
     pub const Value: TargetedContentObjectKind = TargetedContentObjectKind(2i32);
 }
-impl ::std::convert::From<i32> for TargetedContentObjectKind {
+impl ::core::convert::From<i32> for TargetedContentObjectKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1367,7 +1367,7 @@ impl ::windows::runtime::DefaultType for TargetedContentObjectKind {
 }
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TargetedContentStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl TargetedContentStateChangedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -1375,8 +1375,8 @@ impl TargetedContentStateChangedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1390,12 +1390,12 @@ unsafe impl ::windows::runtime::Interface for TargetedContentStateChangedEventAr
 impl ::windows::runtime::RuntimeName for TargetedContentStateChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs";
 }
-impl ::std::convert::From<TargetedContentStateChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TargetedContentStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: TargetedContentStateChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TargetedContentStateChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TargetedContentStateChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &TargetedContentStateChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1410,12 +1410,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TargetedContentStateChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TargetedContentStateChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: TargetedContentStateChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TargetedContentStateChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TargetedContentStateChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &TargetedContentStateChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1430,19 +1430,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TargetedContentStateChangedEventArgs {}
-unsafe impl ::std::marker::Sync for TargetedContentStateChangedEventArgs {}
+unsafe impl ::core::marker::Send for TargetedContentStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for TargetedContentStateChangedEventArgs {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TargetedContentSubscription(pub ::windows::runtime::IInspectable);
 impl TargetedContentSubscription {
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1450,8 +1450,8 @@ impl TargetedContentSubscription {
     pub fn GetContentContainerAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1459,59 +1459,59 @@ impl TargetedContentSubscription {
     pub fn ContentChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Services_TargetedContent`, `Foundation`*"]
     pub fn RemoveContentChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Services_TargetedContent`, `Foundation`*"]
     pub fn AvailabilityChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentAvailabilityChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Services_TargetedContent`, `Foundation`*"]
     pub fn RemoveAvailabilityChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Services_TargetedContent`, `Foundation`*"]
     pub fn StateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentStateChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Services_TargetedContent`, `Foundation`*"]
     pub fn RemoveStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Services_TargetedContent`, `Foundation`*"]
     pub fn GetAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(subscriptionid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>> {
         Self::ITargetedContentSubscriptionStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), subscriptionid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), subscriptionid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>>(result__)
         })
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn GetOptions<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(subscriptionid: Param0) -> ::windows::runtime::Result<TargetedContentSubscriptionOptions> {
         Self::ITargetedContentSubscriptionStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), subscriptionid.into_param().abi(), &mut result__).from_abi::<TargetedContentSubscriptionOptions>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), subscriptionid.into_param().abi(), &mut result__).from_abi::<TargetedContentSubscriptionOptions>(result__)
         })
     }
     pub fn ITargetedContentSubscriptionStatics<R, F: FnOnce(&ITargetedContentSubscriptionStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1529,12 +1529,12 @@ unsafe impl ::windows::runtime::Interface for TargetedContentSubscription {
 impl ::windows::runtime::RuntimeName for TargetedContentSubscription {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscription";
 }
-impl ::std::convert::From<TargetedContentSubscription> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TargetedContentSubscription> for ::windows::runtime::IUnknown {
     fn from(value: TargetedContentSubscription) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TargetedContentSubscription> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TargetedContentSubscription> for ::windows::runtime::IUnknown {
     fn from(value: &TargetedContentSubscription) -> Self {
         value.0 .0.clone()
     }
@@ -1549,12 +1549,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TargetedContentSubscription> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TargetedContentSubscription> for ::windows::runtime::IInspectable {
     fn from(value: TargetedContentSubscription) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TargetedContentSubscription> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TargetedContentSubscription> for ::windows::runtime::IInspectable {
     fn from(value: &TargetedContentSubscription) -> Self {
         value.0.clone()
     }
@@ -1569,41 +1569,41 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TargetedContentSubscription {}
-unsafe impl ::std::marker::Sync for TargetedContentSubscription {}
+unsafe impl ::core::marker::Send for TargetedContentSubscription {}
+unsafe impl ::core::marker::Sync for TargetedContentSubscription {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TargetedContentSubscriptionOptions(pub ::windows::runtime::IInspectable);
 impl TargetedContentSubscriptionOptions {
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn SubscriptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn AllowPartialContentAvailability(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn SetAllowPartialContentAvailability(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Services_TargetedContent`, `Foundation_Collections`*"]
     pub fn CloudQueryParameters(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1611,14 +1611,14 @@ impl TargetedContentSubscriptionOptions {
     pub fn LocalFilters(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Update(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for TargetedContentSubscriptionOptions {
@@ -1631,12 +1631,12 @@ unsafe impl ::windows::runtime::Interface for TargetedContentSubscriptionOptions
 impl ::windows::runtime::RuntimeName for TargetedContentSubscriptionOptions {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscriptionOptions";
 }
-impl ::std::convert::From<TargetedContentSubscriptionOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TargetedContentSubscriptionOptions> for ::windows::runtime::IUnknown {
     fn from(value: TargetedContentSubscriptionOptions) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TargetedContentSubscriptionOptions> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TargetedContentSubscriptionOptions> for ::windows::runtime::IUnknown {
     fn from(value: &TargetedContentSubscriptionOptions) -> Self {
         value.0 .0.clone()
     }
@@ -1651,12 +1651,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TargetedContentSubscriptionOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TargetedContentSubscriptionOptions> for ::windows::runtime::IInspectable {
     fn from(value: TargetedContentSubscriptionOptions) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TargetedContentSubscriptionOptions> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TargetedContentSubscriptionOptions> for ::windows::runtime::IInspectable {
     fn from(value: &TargetedContentSubscriptionOptions) -> Self {
         value.0.clone()
     }
@@ -1671,35 +1671,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TargetedContentSubscriptionOptions {}
-unsafe impl ::std::marker::Sync for TargetedContentSubscriptionOptions {}
+unsafe impl ::core::marker::Send for TargetedContentSubscriptionOptions {}
+unsafe impl ::core::marker::Sync for TargetedContentSubscriptionOptions {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TargetedContentValue(pub ::windows::runtime::IInspectable);
 impl TargetedContentValue {
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn ValueKind(&self) -> ::windows::runtime::Result<TargetedContentValueKind> {
         let this = self;
         unsafe {
-            let mut result__: TargetedContentValueKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentValueKind>(result__)
+            let mut result__: TargetedContentValueKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentValueKind>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Path(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn String(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1707,24 +1707,24 @@ impl TargetedContentValue {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Number(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__: f64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Boolean(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1732,24 +1732,24 @@ impl TargetedContentValue {
     pub fn File(&self) -> ::windows::runtime::Result<TargetedContentFile> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentFile>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentFile>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn ImageFile(&self) -> ::windows::runtime::Result<TargetedContentImage> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentImage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentImage>(result__)
         }
     }
     #[doc = "*Required features: `Services_TargetedContent`*"]
     pub fn Action(&self) -> ::windows::runtime::Result<TargetedContentAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentAction>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1757,8 +1757,8 @@ impl TargetedContentValue {
     pub fn Strings(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -1766,8 +1766,8 @@ impl TargetedContentValue {
     pub fn Uris(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1775,8 +1775,8 @@ impl TargetedContentValue {
     pub fn Numbers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<f64>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<f64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<f64>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1784,8 +1784,8 @@ impl TargetedContentValue {
     pub fn Booleans(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<bool>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
@@ -1793,8 +1793,8 @@ impl TargetedContentValue {
     pub fn Files(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<TargetedContentFile>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentFile>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentFile>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1802,8 +1802,8 @@ impl TargetedContentValue {
     pub fn ImageFiles(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<TargetedContentImage>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentImage>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentImage>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1811,8 +1811,8 @@ impl TargetedContentValue {
     pub fn Actions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<TargetedContentAction>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentAction>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentAction>>(result__)
         }
     }
 }
@@ -1826,12 +1826,12 @@ unsafe impl ::windows::runtime::Interface for TargetedContentValue {
 impl ::windows::runtime::RuntimeName for TargetedContentValue {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentValue";
 }
-impl ::std::convert::From<TargetedContentValue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TargetedContentValue> for ::windows::runtime::IUnknown {
     fn from(value: TargetedContentValue) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TargetedContentValue> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TargetedContentValue> for ::windows::runtime::IUnknown {
     fn from(value: &TargetedContentValue) -> Self {
         value.0 .0.clone()
     }
@@ -1846,12 +1846,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TargetedContentValue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TargetedContentValue> for ::windows::runtime::IInspectable {
     fn from(value: TargetedContentValue) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TargetedContentValue> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TargetedContentValue> for ::windows::runtime::IInspectable {
     fn from(value: &TargetedContentValue) -> Self {
         value.0.clone()
     }
@@ -1866,10 +1866,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TargetedContentValue {}
-unsafe impl ::std::marker::Sync for TargetedContentValue {}
+unsafe impl ::core::marker::Send for TargetedContentValue {}
+unsafe impl ::core::marker::Sync for TargetedContentValue {}
 #[doc = "*Required features: `Services_TargetedContent`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TargetedContentValueKind(pub i32);
 impl TargetedContentValueKind {
@@ -1888,7 +1888,7 @@ impl TargetedContentValueKind {
     pub const ImageFiles: TargetedContentValueKind = TargetedContentValueKind(12i32);
     pub const Actions: TargetedContentValueKind = TargetedContentValueKind(13i32);
 }
-impl ::std::convert::From<i32> for TargetedContentValueKind {
+impl ::core::convert::From<i32> for TargetedContentValueKind {
     fn from(value: i32) -> Self {
         Self(value)
     }

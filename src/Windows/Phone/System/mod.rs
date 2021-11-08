@@ -47,13 +47,13 @@ impl SystemProtection {
     #[doc = "*Required features: `Phone_System`*"]
     pub fn ScreenLocked() -> ::windows::runtime::Result<bool> {
         Self::ISystemProtectionStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Phone_System`*"]
     pub fn RequestScreenUnlock() -> ::windows::runtime::Result<()> {
-        Self::ISystemProtectionUnlockStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() })
+        Self::ISystemProtectionUnlockStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() })
     }
     pub fn ISystemProtectionStatics<R, F: FnOnce(&ISystemProtectionStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<SystemProtection, ISystemProtectionStatics> = ::windows::runtime::FactoryCache::new();

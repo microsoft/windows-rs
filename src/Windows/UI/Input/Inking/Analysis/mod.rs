@@ -15,7 +15,7 @@ pub struct IInkAnalysisInkBullet_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -55,7 +55,7 @@ pub struct IInkAnalysisInkWord_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
@@ -75,7 +75,7 @@ pub struct IInkAnalysisLine_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -94,10 +94,10 @@ pub struct IInkAnalysisListItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 pub struct IInkAnalysisNode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisNode {
@@ -109,16 +109,16 @@ impl IInkAnalysisNode {
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<InkAnalysisNodeKind> {
         let this = self;
         unsafe {
-            let mut result__: InkAnalysisNodeKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -126,8 +126,8 @@ impl IInkAnalysisNode {
     pub fn BoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -135,8 +135,8 @@ impl IInkAnalysisNode {
     pub fn RotatedBoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -144,16 +144,16 @@ impl IInkAnalysisNode {
     pub fn Children(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Parent(&self) -> ::windows::runtime::Result<IInkAnalysisNode> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -161,20 +161,20 @@ impl IInkAnalysisNode {
     pub fn GetStrokeIds(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IInkAnalysisNode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{30831f05-5f64-4a2c-ba37-4f4887879574}");
 }
-impl ::std::convert::From<IInkAnalysisNode> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInkAnalysisNode> for ::windows::runtime::IUnknown {
     fn from(value: IInkAnalysisNode) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IInkAnalysisNode> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInkAnalysisNode> for ::windows::runtime::IUnknown {
     fn from(value: &IInkAnalysisNode) -> Self {
         value.0 .0.clone()
     }
@@ -189,12 +189,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IInkAnalysisNode> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IInkAnalysisNode> for ::windows::runtime::IInspectable {
     fn from(value: IInkAnalysisNode) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IInkAnalysisNode> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IInkAnalysisNode> for ::windows::runtime::IInspectable {
     fn from(value: &IInkAnalysisNode) -> Self {
         value.0.clone()
     }
@@ -246,7 +246,7 @@ pub struct IInkAnalysisParagraph_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -282,7 +282,7 @@ pub struct IInkAnalysisRoot_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodekind: InkAnalysisNodeKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
@@ -302,7 +302,7 @@ pub struct IInkAnalysisWritingRegion_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -335,7 +335,7 @@ pub struct IInkAnalyzer_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 pub struct IInkAnalyzerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalyzerFactory {
@@ -347,20 +347,20 @@ impl IInkAnalyzerFactory {
     pub fn CreateAnalyzer(&self) -> ::windows::runtime::Result<InkAnalyzer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalyzer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalyzer>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IInkAnalyzerFactory {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{29138686-1963-49d8-9589-e14384c769e3}");
 }
-impl ::std::convert::From<IInkAnalyzerFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IInkAnalyzerFactory> for ::windows::runtime::IUnknown {
     fn from(value: IInkAnalyzerFactory) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IInkAnalyzerFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IInkAnalyzerFactory> for ::windows::runtime::IUnknown {
     fn from(value: &IInkAnalyzerFactory) -> Self {
         value.0 .0.clone()
     }
@@ -375,12 +375,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IInkAnalyzerFactory> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IInkAnalyzerFactory> for ::windows::runtime::IInspectable {
     fn from(value: IInkAnalyzerFactory) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IInkAnalyzerFactory> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IInkAnalyzerFactory> for ::windows::runtime::IInspectable {
     fn from(value: &IInkAnalyzerFactory) -> Self {
         value.0.clone()
     }
@@ -407,7 +407,7 @@ pub struct IInkAnalyzerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InkAnalysisDrawingKind(pub i32);
 impl InkAnalysisDrawingKind {
@@ -427,7 +427,7 @@ impl InkAnalysisDrawingKind {
     pub const Pentagon: InkAnalysisDrawingKind = InkAnalysisDrawingKind(13i32);
     pub const Hexagon: InkAnalysisDrawingKind = InkAnalysisDrawingKind(14i32);
 }
-impl ::std::convert::From<i32> for InkAnalysisDrawingKind {
+impl ::core::convert::From<i32> for InkAnalysisDrawingKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -443,31 +443,31 @@ impl ::windows::runtime::DefaultType for InkAnalysisDrawingKind {
 }
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InkAnalysisInkBullet(pub ::windows::runtime::IInspectable);
 impl InkAnalysisInkBullet {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RecognizedText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<InkAnalysisNodeKind> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: InkAnalysisNodeKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -475,8 +475,8 @@ impl InkAnalysisInkBullet {
     pub fn BoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -484,8 +484,8 @@ impl InkAnalysisInkBullet {
     pub fn RotatedBoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -493,16 +493,16 @@ impl InkAnalysisInkBullet {
     pub fn Children(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Parent(&self) -> ::windows::runtime::Result<IInkAnalysisNode> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -510,8 +510,8 @@ impl InkAnalysisInkBullet {
     pub fn GetStrokeIds(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -525,12 +525,12 @@ unsafe impl ::windows::runtime::Interface for InkAnalysisInkBullet {
 impl ::windows::runtime::RuntimeName for InkAnalysisInkBullet {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkBullet";
 }
-impl ::std::convert::From<InkAnalysisInkBullet> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InkAnalysisInkBullet> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisInkBullet) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&InkAnalysisInkBullet> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InkAnalysisInkBullet> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisInkBullet) -> Self {
         value.0 .0.clone()
     }
@@ -545,12 +545,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<InkAnalysisInkBullet> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InkAnalysisInkBullet> for ::windows::runtime::IInspectable {
     fn from(value: InkAnalysisInkBullet) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&InkAnalysisInkBullet> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InkAnalysisInkBullet> for ::windows::runtime::IInspectable {
     fn from(value: &InkAnalysisInkBullet) -> Self {
         value.0.clone()
     }
@@ -565,13 +565,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<InkAnalysisInkBullet> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<InkAnalysisInkBullet> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: InkAnalysisInkBullet) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&InkAnalysisInkBullet> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<&InkAnalysisInkBullet> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &InkAnalysisInkBullet) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -584,22 +584,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for InkAnalysisInkB
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisInkBullet {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInkAnalysisNode> {
-        ::std::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for InkAnalysisInkBullet {}
-unsafe impl ::std::marker::Sync for InkAnalysisInkBullet {}
+unsafe impl ::core::marker::Send for InkAnalysisInkBullet {}
+unsafe impl ::core::marker::Sync for InkAnalysisInkBullet {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InkAnalysisInkDrawing(pub ::windows::runtime::IInspectable);
 impl InkAnalysisInkDrawing {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn DrawingKind(&self) -> ::windows::runtime::Result<InkAnalysisDrawingKind> {
         let this = self;
         unsafe {
-            let mut result__: InkAnalysisDrawingKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisDrawingKind>(result__)
+            let mut result__: InkAnalysisDrawingKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisDrawingKind>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -607,8 +607,8 @@ impl InkAnalysisInkDrawing {
     pub fn Center(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -616,24 +616,24 @@ impl InkAnalysisInkDrawing {
     pub fn Points(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<InkAnalysisNodeKind> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: InkAnalysisNodeKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -641,8 +641,8 @@ impl InkAnalysisInkDrawing {
     pub fn BoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -650,8 +650,8 @@ impl InkAnalysisInkDrawing {
     pub fn RotatedBoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -659,16 +659,16 @@ impl InkAnalysisInkDrawing {
     pub fn Children(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Parent(&self) -> ::windows::runtime::Result<IInkAnalysisNode> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -676,8 +676,8 @@ impl InkAnalysisInkDrawing {
     pub fn GetStrokeIds(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -691,12 +691,12 @@ unsafe impl ::windows::runtime::Interface for InkAnalysisInkDrawing {
 impl ::windows::runtime::RuntimeName for InkAnalysisInkDrawing {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkDrawing";
 }
-impl ::std::convert::From<InkAnalysisInkDrawing> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InkAnalysisInkDrawing> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisInkDrawing) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&InkAnalysisInkDrawing> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InkAnalysisInkDrawing> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisInkDrawing) -> Self {
         value.0 .0.clone()
     }
@@ -711,12 +711,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<InkAnalysisInkDrawing> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InkAnalysisInkDrawing> for ::windows::runtime::IInspectable {
     fn from(value: InkAnalysisInkDrawing) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&InkAnalysisInkDrawing> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InkAnalysisInkDrawing> for ::windows::runtime::IInspectable {
     fn from(value: &InkAnalysisInkDrawing) -> Self {
         value.0.clone()
     }
@@ -731,13 +731,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<InkAnalysisInkDrawing> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<InkAnalysisInkDrawing> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: InkAnalysisInkDrawing) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&InkAnalysisInkDrawing> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<&InkAnalysisInkDrawing> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &InkAnalysisInkDrawing) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -750,22 +750,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for InkAnalysisInkD
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisInkDrawing {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInkAnalysisNode> {
-        ::std::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for InkAnalysisInkDrawing {}
-unsafe impl ::std::marker::Sync for InkAnalysisInkDrawing {}
+unsafe impl ::core::marker::Send for InkAnalysisInkDrawing {}
+unsafe impl ::core::marker::Sync for InkAnalysisInkDrawing {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InkAnalysisInkWord(pub ::windows::runtime::IInspectable);
 impl InkAnalysisInkWord {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RecognizedText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -773,24 +773,24 @@ impl InkAnalysisInkWord {
     pub fn TextAlternates(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<InkAnalysisNodeKind> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: InkAnalysisNodeKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -798,8 +798,8 @@ impl InkAnalysisInkWord {
     pub fn BoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -807,8 +807,8 @@ impl InkAnalysisInkWord {
     pub fn RotatedBoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -816,16 +816,16 @@ impl InkAnalysisInkWord {
     pub fn Children(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Parent(&self) -> ::windows::runtime::Result<IInkAnalysisNode> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -833,8 +833,8 @@ impl InkAnalysisInkWord {
     pub fn GetStrokeIds(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -848,12 +848,12 @@ unsafe impl ::windows::runtime::Interface for InkAnalysisInkWord {
 impl ::windows::runtime::RuntimeName for InkAnalysisInkWord {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkWord";
 }
-impl ::std::convert::From<InkAnalysisInkWord> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InkAnalysisInkWord> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisInkWord) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&InkAnalysisInkWord> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InkAnalysisInkWord> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisInkWord) -> Self {
         value.0 .0.clone()
     }
@@ -868,12 +868,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<InkAnalysisInkWord> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InkAnalysisInkWord> for ::windows::runtime::IInspectable {
     fn from(value: InkAnalysisInkWord) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&InkAnalysisInkWord> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InkAnalysisInkWord> for ::windows::runtime::IInspectable {
     fn from(value: &InkAnalysisInkWord) -> Self {
         value.0.clone()
     }
@@ -888,13 +888,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<InkAnalysisInkWord> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<InkAnalysisInkWord> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: InkAnalysisInkWord) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&InkAnalysisInkWord> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<&InkAnalysisInkWord> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &InkAnalysisInkWord) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -907,46 +907,46 @@ impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for InkAnalysisInkW
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisInkWord {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInkAnalysisNode> {
-        ::std::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for InkAnalysisInkWord {}
-unsafe impl ::std::marker::Sync for InkAnalysisInkWord {}
+unsafe impl ::core::marker::Send for InkAnalysisInkWord {}
+unsafe impl ::core::marker::Sync for InkAnalysisInkWord {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InkAnalysisLine(pub ::windows::runtime::IInspectable);
 impl InkAnalysisLine {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RecognizedText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn IndentLevel(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<InkAnalysisNodeKind> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: InkAnalysisNodeKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -954,8 +954,8 @@ impl InkAnalysisLine {
     pub fn BoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -963,8 +963,8 @@ impl InkAnalysisLine {
     pub fn RotatedBoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -972,16 +972,16 @@ impl InkAnalysisLine {
     pub fn Children(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Parent(&self) -> ::windows::runtime::Result<IInkAnalysisNode> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -989,8 +989,8 @@ impl InkAnalysisLine {
     pub fn GetStrokeIds(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -1004,12 +1004,12 @@ unsafe impl ::windows::runtime::Interface for InkAnalysisLine {
 impl ::windows::runtime::RuntimeName for InkAnalysisLine {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisLine";
 }
-impl ::std::convert::From<InkAnalysisLine> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InkAnalysisLine> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisLine) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&InkAnalysisLine> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InkAnalysisLine> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisLine) -> Self {
         value.0 .0.clone()
     }
@@ -1024,12 +1024,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<InkAnalysisLine> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InkAnalysisLine> for ::windows::runtime::IInspectable {
     fn from(value: InkAnalysisLine) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&InkAnalysisLine> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InkAnalysisLine> for ::windows::runtime::IInspectable {
     fn from(value: &InkAnalysisLine) -> Self {
         value.0.clone()
     }
@@ -1044,13 +1044,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<InkAnalysisLine> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<InkAnalysisLine> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: InkAnalysisLine) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&InkAnalysisLine> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<&InkAnalysisLine> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &InkAnalysisLine) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -1063,38 +1063,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for InkAnalysisLine
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisLine {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInkAnalysisNode> {
-        ::std::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for InkAnalysisLine {}
-unsafe impl ::std::marker::Sync for InkAnalysisLine {}
+unsafe impl ::core::marker::Send for InkAnalysisLine {}
+unsafe impl ::core::marker::Sync for InkAnalysisLine {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InkAnalysisListItem(pub ::windows::runtime::IInspectable);
 impl InkAnalysisListItem {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RecognizedText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<InkAnalysisNodeKind> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: InkAnalysisNodeKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1102,8 +1102,8 @@ impl InkAnalysisListItem {
     pub fn BoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -1111,8 +1111,8 @@ impl InkAnalysisListItem {
     pub fn RotatedBoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1120,16 +1120,16 @@ impl InkAnalysisListItem {
     pub fn Children(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Parent(&self) -> ::windows::runtime::Result<IInkAnalysisNode> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1137,8 +1137,8 @@ impl InkAnalysisListItem {
     pub fn GetStrokeIds(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -1152,12 +1152,12 @@ unsafe impl ::windows::runtime::Interface for InkAnalysisListItem {
 impl ::windows::runtime::RuntimeName for InkAnalysisListItem {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisListItem";
 }
-impl ::std::convert::From<InkAnalysisListItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InkAnalysisListItem> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisListItem) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&InkAnalysisListItem> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InkAnalysisListItem> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisListItem) -> Self {
         value.0 .0.clone()
     }
@@ -1172,12 +1172,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<InkAnalysisListItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InkAnalysisListItem> for ::windows::runtime::IInspectable {
     fn from(value: InkAnalysisListItem) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&InkAnalysisListItem> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InkAnalysisListItem> for ::windows::runtime::IInspectable {
     fn from(value: &InkAnalysisListItem) -> Self {
         value.0.clone()
     }
@@ -1192,13 +1192,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<InkAnalysisListItem> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<InkAnalysisListItem> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: InkAnalysisListItem) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&InkAnalysisListItem> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<&InkAnalysisListItem> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &InkAnalysisListItem) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -1211,30 +1211,30 @@ impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for InkAnalysisList
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisListItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInkAnalysisNode> {
-        ::std::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for InkAnalysisListItem {}
-unsafe impl ::std::marker::Sync for InkAnalysisListItem {}
+unsafe impl ::core::marker::Send for InkAnalysisListItem {}
+unsafe impl ::core::marker::Sync for InkAnalysisListItem {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InkAnalysisNode(pub ::windows::runtime::IInspectable);
 impl InkAnalysisNode {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<InkAnalysisNodeKind> {
         let this = self;
         unsafe {
-            let mut result__: InkAnalysisNodeKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1242,8 +1242,8 @@ impl InkAnalysisNode {
     pub fn BoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -1251,8 +1251,8 @@ impl InkAnalysisNode {
     pub fn RotatedBoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1260,16 +1260,16 @@ impl InkAnalysisNode {
     pub fn Children(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Parent(&self) -> ::windows::runtime::Result<IInkAnalysisNode> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1277,8 +1277,8 @@ impl InkAnalysisNode {
     pub fn GetStrokeIds(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -1292,12 +1292,12 @@ unsafe impl ::windows::runtime::Interface for InkAnalysisNode {
 impl ::windows::runtime::RuntimeName for InkAnalysisNode {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisNode";
 }
-impl ::std::convert::From<InkAnalysisNode> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InkAnalysisNode> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisNode) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&InkAnalysisNode> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InkAnalysisNode> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisNode) -> Self {
         value.0 .0.clone()
     }
@@ -1312,12 +1312,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<InkAnalysisNode> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InkAnalysisNode> for ::windows::runtime::IInspectable {
     fn from(value: InkAnalysisNode) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&InkAnalysisNode> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InkAnalysisNode> for ::windows::runtime::IInspectable {
     fn from(value: &InkAnalysisNode) -> Self {
         value.0.clone()
     }
@@ -1332,30 +1332,30 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<InkAnalysisNode> for IInkAnalysisNode {
+impl ::core::convert::From<InkAnalysisNode> for IInkAnalysisNode {
     fn from(value: InkAnalysisNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&InkAnalysisNode> for IInkAnalysisNode {
+impl ::core::convert::From<&InkAnalysisNode> for IInkAnalysisNode {
     fn from(value: &InkAnalysisNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for InkAnalysisNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInkAnalysisNode> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInkAnalysisNode> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::std::marker::Send for InkAnalysisNode {}
-unsafe impl ::std::marker::Sync for InkAnalysisNode {}
+unsafe impl ::core::marker::Send for InkAnalysisNode {}
+unsafe impl ::core::marker::Sync for InkAnalysisNode {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InkAnalysisNodeKind(pub i32);
 impl InkAnalysisNodeKind {
@@ -1369,7 +1369,7 @@ impl InkAnalysisNodeKind {
     pub const InkDrawing: InkAnalysisNodeKind = InkAnalysisNodeKind(7i32);
     pub const ListItem: InkAnalysisNodeKind = InkAnalysisNodeKind(8i32);
 }
-impl ::std::convert::From<i32> for InkAnalysisNodeKind {
+impl ::core::convert::From<i32> for InkAnalysisNodeKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1385,31 +1385,31 @@ impl ::windows::runtime::DefaultType for InkAnalysisNodeKind {
 }
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InkAnalysisParagraph(pub ::windows::runtime::IInspectable);
 impl InkAnalysisParagraph {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RecognizedText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<InkAnalysisNodeKind> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: InkAnalysisNodeKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1417,8 +1417,8 @@ impl InkAnalysisParagraph {
     pub fn BoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -1426,8 +1426,8 @@ impl InkAnalysisParagraph {
     pub fn RotatedBoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1435,16 +1435,16 @@ impl InkAnalysisParagraph {
     pub fn Children(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Parent(&self) -> ::windows::runtime::Result<IInkAnalysisNode> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1452,8 +1452,8 @@ impl InkAnalysisParagraph {
     pub fn GetStrokeIds(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -1467,12 +1467,12 @@ unsafe impl ::windows::runtime::Interface for InkAnalysisParagraph {
 impl ::windows::runtime::RuntimeName for InkAnalysisParagraph {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisParagraph";
 }
-impl ::std::convert::From<InkAnalysisParagraph> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InkAnalysisParagraph> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisParagraph) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&InkAnalysisParagraph> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InkAnalysisParagraph> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisParagraph) -> Self {
         value.0 .0.clone()
     }
@@ -1487,12 +1487,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<InkAnalysisParagraph> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InkAnalysisParagraph> for ::windows::runtime::IInspectable {
     fn from(value: InkAnalysisParagraph) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&InkAnalysisParagraph> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InkAnalysisParagraph> for ::windows::runtime::IInspectable {
     fn from(value: &InkAnalysisParagraph) -> Self {
         value.0.clone()
     }
@@ -1507,13 +1507,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<InkAnalysisParagraph> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<InkAnalysisParagraph> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: InkAnalysisParagraph) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&InkAnalysisParagraph> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<&InkAnalysisParagraph> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &InkAnalysisParagraph) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -1526,22 +1526,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for InkAnalysisPara
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisParagraph {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInkAnalysisNode> {
-        ::std::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for InkAnalysisParagraph {}
-unsafe impl ::std::marker::Sync for InkAnalysisParagraph {}
+unsafe impl ::core::marker::Send for InkAnalysisParagraph {}
+unsafe impl ::core::marker::Sync for InkAnalysisParagraph {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InkAnalysisResult(pub ::windows::runtime::IInspectable);
 impl InkAnalysisResult {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<InkAnalysisStatus> {
         let this = self;
         unsafe {
-            let mut result__: InkAnalysisStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisStatus>(result__)
+            let mut result__: InkAnalysisStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisStatus>(result__)
         }
     }
 }
@@ -1555,12 +1555,12 @@ unsafe impl ::windows::runtime::Interface for InkAnalysisResult {
 impl ::windows::runtime::RuntimeName for InkAnalysisResult {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisResult";
 }
-impl ::std::convert::From<InkAnalysisResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InkAnalysisResult> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&InkAnalysisResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InkAnalysisResult> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisResult) -> Self {
         value.0 .0.clone()
     }
@@ -1575,12 +1575,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<InkAnalysisResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InkAnalysisResult> for ::windows::runtime::IInspectable {
     fn from(value: InkAnalysisResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&InkAnalysisResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InkAnalysisResult> for ::windows::runtime::IInspectable {
     fn from(value: &InkAnalysisResult) -> Self {
         value.0.clone()
     }
@@ -1595,19 +1595,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for InkAnalysisResult {}
-unsafe impl ::std::marker::Sync for InkAnalysisResult {}
+unsafe impl ::core::marker::Send for InkAnalysisResult {}
+unsafe impl ::core::marker::Sync for InkAnalysisResult {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InkAnalysisRoot(pub ::windows::runtime::IInspectable);
 impl InkAnalysisRoot {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RecognizedText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1615,24 +1615,24 @@ impl InkAnalysisRoot {
     pub fn FindNodes(&self, nodekind: InkAnalysisNodeKind) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), nodekind, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), nodekind, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<InkAnalysisNodeKind> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: InkAnalysisNodeKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1640,8 +1640,8 @@ impl InkAnalysisRoot {
     pub fn BoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -1649,8 +1649,8 @@ impl InkAnalysisRoot {
     pub fn RotatedBoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1658,16 +1658,16 @@ impl InkAnalysisRoot {
     pub fn Children(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Parent(&self) -> ::windows::runtime::Result<IInkAnalysisNode> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1675,8 +1675,8 @@ impl InkAnalysisRoot {
     pub fn GetStrokeIds(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -1690,12 +1690,12 @@ unsafe impl ::windows::runtime::Interface for InkAnalysisRoot {
 impl ::windows::runtime::RuntimeName for InkAnalysisRoot {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisRoot";
 }
-impl ::std::convert::From<InkAnalysisRoot> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InkAnalysisRoot> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisRoot) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&InkAnalysisRoot> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InkAnalysisRoot> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisRoot) -> Self {
         value.0 .0.clone()
     }
@@ -1710,12 +1710,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<InkAnalysisRoot> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InkAnalysisRoot> for ::windows::runtime::IInspectable {
     fn from(value: InkAnalysisRoot) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&InkAnalysisRoot> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InkAnalysisRoot> for ::windows::runtime::IInspectable {
     fn from(value: &InkAnalysisRoot) -> Self {
         value.0.clone()
     }
@@ -1730,13 +1730,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<InkAnalysisRoot> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<InkAnalysisRoot> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: InkAnalysisRoot) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&InkAnalysisRoot> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<&InkAnalysisRoot> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &InkAnalysisRoot) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -1749,20 +1749,20 @@ impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for InkAnalysisRoot
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisRoot {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInkAnalysisNode> {
-        ::std::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for InkAnalysisRoot {}
-unsafe impl ::std::marker::Sync for InkAnalysisRoot {}
+unsafe impl ::core::marker::Send for InkAnalysisRoot {}
+unsafe impl ::core::marker::Sync for InkAnalysisRoot {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InkAnalysisStatus(pub i32);
 impl InkAnalysisStatus {
     pub const Updated: InkAnalysisStatus = InkAnalysisStatus(0i32);
     pub const Unchanged: InkAnalysisStatus = InkAnalysisStatus(1i32);
 }
-impl ::std::convert::From<i32> for InkAnalysisStatus {
+impl ::core::convert::From<i32> for InkAnalysisStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1777,7 +1777,7 @@ impl ::windows::runtime::DefaultType for InkAnalysisStatus {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InkAnalysisStrokeKind(pub i32);
 impl InkAnalysisStrokeKind {
@@ -1785,7 +1785,7 @@ impl InkAnalysisStrokeKind {
     pub const Writing: InkAnalysisStrokeKind = InkAnalysisStrokeKind(1i32);
     pub const Drawing: InkAnalysisStrokeKind = InkAnalysisStrokeKind(2i32);
 }
-impl ::std::convert::From<i32> for InkAnalysisStrokeKind {
+impl ::core::convert::From<i32> for InkAnalysisStrokeKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1801,31 +1801,31 @@ impl ::windows::runtime::DefaultType for InkAnalysisStrokeKind {
 }
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InkAnalysisWritingRegion(pub ::windows::runtime::IInspectable);
 impl InkAnalysisWritingRegion {
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RecognizedText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<InkAnalysisNodeKind> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: InkAnalysisNodeKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
+            let mut result__: InkAnalysisNodeKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisNodeKind>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1833,8 +1833,8 @@ impl InkAnalysisWritingRegion {
     pub fn BoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -1842,8 +1842,8 @@ impl InkAnalysisWritingRegion {
     pub fn RotatedBoundingRect(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1851,16 +1851,16 @@ impl InkAnalysisWritingRegion {
     pub fn Children(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn Parent(&self) -> ::windows::runtime::Result<IInkAnalysisNode> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IInkAnalysisNode>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1868,8 +1868,8 @@ impl InkAnalysisWritingRegion {
     pub fn GetStrokeIds(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::runtime::Interface::cast::<IInkAnalysisNode>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -1883,12 +1883,12 @@ unsafe impl ::windows::runtime::Interface for InkAnalysisWritingRegion {
 impl ::windows::runtime::RuntimeName for InkAnalysisWritingRegion {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisWritingRegion";
 }
-impl ::std::convert::From<InkAnalysisWritingRegion> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InkAnalysisWritingRegion> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalysisWritingRegion) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&InkAnalysisWritingRegion> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InkAnalysisWritingRegion> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalysisWritingRegion) -> Self {
         value.0 .0.clone()
     }
@@ -1903,12 +1903,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<InkAnalysisWritingRegion> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InkAnalysisWritingRegion> for ::windows::runtime::IInspectable {
     fn from(value: InkAnalysisWritingRegion) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&InkAnalysisWritingRegion> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InkAnalysisWritingRegion> for ::windows::runtime::IInspectable {
     fn from(value: &InkAnalysisWritingRegion) -> Self {
         value.0.clone()
     }
@@ -1923,13 +1923,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<InkAnalysisWritingRegion> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<InkAnalysisWritingRegion> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: InkAnalysisWritingRegion) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&InkAnalysisWritingRegion> for IInkAnalysisNode {
+impl ::core::convert::TryFrom<&InkAnalysisWritingRegion> for IInkAnalysisNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &InkAnalysisWritingRegion) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -1942,14 +1942,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for InkAnalysisWrit
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisWritingRegion {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInkAnalysisNode> {
-        ::std::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for InkAnalysisWritingRegion {}
-unsafe impl ::std::marker::Sync for InkAnalysisWritingRegion {}
+unsafe impl ::core::marker::Send for InkAnalysisWritingRegion {}
+unsafe impl ::core::marker::Sync for InkAnalysisWritingRegion {}
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct InkAnalyzer(pub ::windows::runtime::IInspectable);
 impl InkAnalyzer {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1963,62 +1963,62 @@ impl InkAnalyzer {
     pub fn AnalysisRoot(&self) -> ::windows::runtime::Result<InkAnalysisRoot> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisRoot>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkAnalysisRoot>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn IsAnalyzing(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn AddDataForStroke<'a, Param0: ::windows::runtime::IntoParam<'a, super::InkStroke>>(&self, stroke: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), stroke.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), stroke.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Input_Inking_Analysis`, `Foundation_Collections`*"]
     pub fn AddDataForStrokes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::InkStroke>>>(&self, strokes: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), strokes.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), strokes.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn ClearDataForAllStrokes(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn RemoveDataForStroke(&self, strokeid: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), strokeid).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), strokeid).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Input_Inking_Analysis`, `Foundation_Collections`*"]
     pub fn RemoveDataForStrokes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<u32>>>(&self, strokeids: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), strokeids.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), strokeids.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn ReplaceDataForStroke<'a, Param0: ::windows::runtime::IntoParam<'a, super::InkStroke>>(&self, stroke: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), stroke.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), stroke.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
     pub fn SetStrokeDataKind(&self, strokeid: u32, strokekind: InkAnalysisStrokeKind) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), strokeid, strokekind).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), strokeid, strokekind).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Input_Inking_Analysis`, `Foundation`*"]
     pub fn AnalyzeAsync(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<InkAnalysisResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<InkAnalysisResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<InkAnalysisResult>>(result__)
         }
     }
 }
@@ -2032,12 +2032,12 @@ unsafe impl ::windows::runtime::Interface for InkAnalyzer {
 impl ::windows::runtime::RuntimeName for InkAnalyzer {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalyzer";
 }
-impl ::std::convert::From<InkAnalyzer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<InkAnalyzer> for ::windows::runtime::IUnknown {
     fn from(value: InkAnalyzer) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&InkAnalyzer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&InkAnalyzer> for ::windows::runtime::IUnknown {
     fn from(value: &InkAnalyzer) -> Self {
         value.0 .0.clone()
     }
@@ -2052,12 +2052,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<InkAnalyzer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<InkAnalyzer> for ::windows::runtime::IInspectable {
     fn from(value: InkAnalyzer) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&InkAnalyzer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&InkAnalyzer> for ::windows::runtime::IInspectable {
     fn from(value: &InkAnalyzer) -> Self {
         value.0.clone()
     }
@@ -2072,5 +2072,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for InkAnalyzer {}
-unsafe impl ::std::marker::Sync for InkAnalyzer {}
+unsafe impl ::core::marker::Send for InkAnalyzer {}
+unsafe impl ::core::marker::Sync for InkAnalyzer {}

@@ -3,7 +3,7 @@
 pub const ACTIVEOBJECT_STRONG: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const ACTIVEOBJECT_WEAK: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
@@ -15,25 +15,25 @@ pub struct ARRAYDESC {
 #[cfg(feature = "Win32_System_Com")]
 impl ARRAYDESC {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::default::Default for ARRAYDESC {
+impl ::core::default::Default for ARRAYDESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::cmp::PartialEq for ARRAYDESC {
+impl ::core::cmp::PartialEq for ARRAYDESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::cmp::Eq for ARRAYDESC {}
+impl ::core::cmp::Eq for ARRAYDESC {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for ARRAYDESC {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::clone::Clone for BINDPTR {
+impl ::core::clone::Clone for BINDPTR {
     fn clone(&self) -> Self {
         unimplemented!()
     }
@@ -49,22 +49,22 @@ pub union BINDPTR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl BINDPTR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for BINDPTR {
+impl ::core::default::Default for BINDPTR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for BINDPTR {
+impl ::core::cmp::PartialEq for BINDPTR {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for BINDPTR {}
+impl ::core::cmp::Eq for BINDPTR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for BINDPTR {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -74,16 +74,16 @@ pub unsafe fn BstrFromVector(psa: *const super::super::Com::SAFEARRAY) -> ::wind
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BstrFromVector(psa: *const super::super::Com::SAFEARRAY, pbstr: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn BstrFromVector(psa: *const super::super::Com::SAFEARRAY, pbstr: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        BstrFromVector(::std::mem::transmute(psa), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        BstrFromVector(::core::mem::transmute(psa), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CALLCONV(pub i32);
 pub const CC_FASTCALL: CALLCONV = CALLCONV(0i32);
@@ -97,7 +97,7 @@ pub const CC_SYSCALL: CALLCONV = CALLCONV(6i32);
 pub const CC_MPWCDECL: CALLCONV = CALLCONV(7i32);
 pub const CC_MPWPASCAL: CALLCONV = CALLCONV(8i32);
 pub const CC_MAX: CALLCONV = CALLCONV(9i32);
-impl ::std::convert::From<i32> for CALLCONV {
+impl ::core::convert::From<i32> for CALLCONV {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -106,7 +106,7 @@ unsafe impl ::windows::runtime::Abi for CALLCONV {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHANGEKIND(pub i32);
 pub const CHANGEKIND_ADDMEMBER: CHANGEKIND = CHANGEKIND(0i32);
@@ -117,7 +117,7 @@ pub const CHANGEKIND_GENERAL: CHANGEKIND = CHANGEKIND(4i32);
 pub const CHANGEKIND_INVALIDATE: CHANGEKIND = CHANGEKIND(5i32);
 pub const CHANGEKIND_CHANGEFAILED: CHANGEKIND = CHANGEKIND(6i32);
 pub const CHANGEKIND_MAX: CHANGEKIND = CHANGEKIND(7i32);
-impl ::std::convert::From<i32> for CHANGEKIND {
+impl ::core::convert::From<i32> for CHANGEKIND {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -125,35 +125,35 @@ impl ::std::convert::From<i32> for CHANGEKIND {
 unsafe impl ::windows::runtime::Abi for CHANGEKIND {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct CLEANLOCALSTORAGE {
-    pub pInterface: ::std::option::Option<::windows::runtime::IUnknown>,
-    pub pStorage: *mut ::std::ffi::c_void,
+    pub pInterface: ::core::option::Option<::windows::runtime::IUnknown>,
+    pub pStorage: *mut ::core::ffi::c_void,
     pub flags: u32,
 }
 impl CLEANLOCALSTORAGE {}
-impl ::std::default::Default for CLEANLOCALSTORAGE {
+impl ::core::default::Default for CLEANLOCALSTORAGE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CLEANLOCALSTORAGE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CLEANLOCALSTORAGE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CLEANLOCALSTORAGE").field("pInterface", &self.pInterface).field("pStorage", &self.pStorage).field("flags", &self.flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for CLEANLOCALSTORAGE {
+impl ::core::cmp::PartialEq for CLEANLOCALSTORAGE {
     fn eq(&self, other: &Self) -> bool {
         self.pInterface == other.pInterface && self.pStorage == other.pStorage && self.flags == other.flags
     }
 }
-impl ::std::cmp::Eq for CLEANLOCALSTORAGE {}
+impl ::core::cmp::Eq for CLEANLOCALSTORAGE {}
 unsafe impl ::windows::runtime::Abi for CLEANLOCALSTORAGE {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -164,31 +164,31 @@ pub struct CUSTDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl CUSTDATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for CUSTDATA {
+impl ::core::default::Default for CUSTDATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::fmt::Debug for CUSTDATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CUSTDATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CUSTDATA").field("cCustData", &self.cCustData).field("prgCustData", &self.prgCustData).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for CUSTDATA {
+impl ::core::cmp::PartialEq for CUSTDATA {
     fn eq(&self, other: &Self) -> bool {
         self.cCustData == other.cCustData && self.prgCustData == other.prgCustData
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for CUSTDATA {}
+impl ::core::cmp::Eq for CUSTDATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for CUSTDATA {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::clone::Clone for CUSTDATAITEM {
+impl ::core::clone::Clone for CUSTDATAITEM {
     fn clone(&self) -> Self {
         unimplemented!()
     }
@@ -203,22 +203,22 @@ pub struct CUSTDATAITEM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl CUSTDATAITEM {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for CUSTDATAITEM {
+impl ::core::default::Default for CUSTDATAITEM {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for CUSTDATAITEM {
+impl ::core::cmp::PartialEq for CUSTDATAITEM {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for CUSTDATAITEM {}
+impl ::core::cmp::Eq for CUSTDATAITEM {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for CUSTDATAITEM {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -230,7 +230,7 @@ pub unsafe fn ClearCustData(pcustdata: *mut CUSTDATA) {
         extern "system" {
             fn ClearCustData(pcustdata: *mut CUSTDATA);
         }
-        ::std::mem::transmute(ClearCustData(::std::mem::transmute(pcustdata)))
+        ::core::mem::transmute(ClearCustData(::core::mem::transmute(pcustdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -238,14 +238,14 @@ pub unsafe fn ClearCustData(pcustdata: *mut CUSTDATA) {
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDispTypeInfo(pidata: *mut INTERFACEDATA, lcid: u32, pptinfo: *mut ::std::option::Option<ITypeInfo>) -> ::windows::runtime::Result<()> {
+pub unsafe fn CreateDispTypeInfo(pidata: *mut INTERFACEDATA, lcid: u32, pptinfo: *mut ::core::option::Option<ITypeInfo>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateDispTypeInfo(pidata: *mut INTERFACEDATA, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        CreateDispTypeInfo(::std::mem::transmute(pidata), ::std::mem::transmute(lcid), ::std::mem::transmute(pptinfo)).ok()
+        CreateDispTypeInfo(::core::mem::transmute(pidata), ::core::mem::transmute(lcid), ::core::mem::transmute(pptinfo)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -259,7 +259,7 @@ pub unsafe fn CreateErrorInfo() -> ::windows::runtime::Result<ICreateErrorInfo> 
         extern "system" {
             fn CreateErrorInfo(pperrinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <ICreateErrorInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <ICreateErrorInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         CreateErrorInfo(&mut result__).from_abi::<ICreateErrorInfo>(result__)
     }
     #[cfg(not(windows))]
@@ -267,14 +267,14 @@ pub unsafe fn CreateErrorInfo() -> ::windows::runtime::Result<ICreateErrorInfo> 
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
-pub unsafe fn CreateStdDispatch<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, ITypeInfo>>(punkouter: Param0, pvthis: *mut ::std::ffi::c_void, ptinfo: Param2, ppunkstddisp: *mut ::std::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
+pub unsafe fn CreateStdDispatch<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, ITypeInfo>>(punkouter: Param0, pvthis: *mut ::core::ffi::c_void, ptinfo: Param2, ppunkstddisp: *mut ::core::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateStdDispatch(punkouter: ::windows::runtime::RawPtr, pvthis: *mut ::std::ffi::c_void, ptinfo: ::windows::runtime::RawPtr, ppunkstddisp: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn CreateStdDispatch(punkouter: ::windows::runtime::RawPtr, pvthis: *mut ::core::ffi::c_void, ptinfo: ::windows::runtime::RawPtr, ppunkstddisp: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        CreateStdDispatch(punkouter.into_param().abi(), ::std::mem::transmute(pvthis), ptinfo.into_param().abi(), ::std::mem::transmute(ppunkstddisp)).ok()
+        CreateStdDispatch(punkouter.into_param().abi(), ::core::mem::transmute(pvthis), ptinfo.into_param().abi(), ::core::mem::transmute(ppunkstddisp)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -289,8 +289,8 @@ pub unsafe fn CreateTypeLib<'a, Param1: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn CreateTypeLib(syskind: SYSKIND, szfile: super::super::super::Foundation::PWSTR, ppctlib: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <ICreateTypeLib as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        CreateTypeLib(::std::mem::transmute(syskind), szfile.into_param().abi(), &mut result__).from_abi::<ICreateTypeLib>(result__)
+        let mut result__: <ICreateTypeLib as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        CreateTypeLib(::core::mem::transmute(syskind), szfile.into_param().abi(), &mut result__).from_abi::<ICreateTypeLib>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -305,14 +305,14 @@ pub unsafe fn CreateTypeLib2<'a, Param1: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn CreateTypeLib2(syskind: SYSKIND, szfile: super::super::super::Foundation::PWSTR, ppctlib: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <ICreateTypeLib2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        CreateTypeLib2(::std::mem::transmute(syskind), szfile.into_param().abi(), &mut result__).from_abi::<ICreateTypeLib2>(result__)
+        let mut result__: <ICreateTypeLib2 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        CreateTypeLib2(::core::mem::transmute(syskind), szfile.into_param().abi(), &mut result__).from_abi::<ICreateTypeLib2>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DESCKIND(pub i32);
 pub const DESCKIND_NONE: DESCKIND = DESCKIND(0i32);
@@ -321,7 +321,7 @@ pub const DESCKIND_VARDESC: DESCKIND = DESCKIND(2i32);
 pub const DESCKIND_TYPECOMP: DESCKIND = DESCKIND(3i32);
 pub const DESCKIND_IMPLICITAPPOBJ: DESCKIND = DESCKIND(4i32);
 pub const DESCKIND_MAX: DESCKIND = DESCKIND(5i32);
-impl ::std::convert::From<i32> for DESCKIND {
+impl ::core::convert::From<i32> for DESCKIND {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -359,7 +359,7 @@ pub const DISPID_THIS: i32 = -613i32;
 pub const DISPID_UNKNOWN: i32 = -1i32;
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPID_VALUE: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -372,25 +372,25 @@ pub struct DISPPARAMS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl DISPPARAMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for DISPPARAMS {
+impl ::core::default::Default for DISPPARAMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::fmt::Debug for DISPPARAMS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DISPPARAMS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DISPPARAMS").field("rgvarg", &self.rgvarg).field("rgdispidNamedArgs", &self.rgdispidNamedArgs).field("cArgs", &self.cArgs).field("cNamedArgs", &self.cNamedArgs).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for DISPPARAMS {
+impl ::core::cmp::PartialEq for DISPPARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.rgvarg == other.rgvarg && self.rgdispidNamedArgs == other.rgdispidNamedArgs && self.cArgs == other.cArgs && self.cNamedArgs == other.cNamedArgs
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for DISPPARAMS {}
+impl ::core::cmp::Eq for DISPPARAMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for DISPPARAMS {
     type Abi = Self;
@@ -398,15 +398,15 @@ unsafe impl ::windows::runtime::Abi for DISPPARAMS {
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn DispCallFunc(pvinstance: *const ::std::ffi::c_void, ovft: usize, cc: CALLCONV, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
+pub unsafe fn DispCallFunc(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: CALLCONV, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DispCallFunc(pvinstance: *const ::std::ffi::c_void, ovft: usize, cc: CALLCONV, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::super::Com::VARIANT, pvargresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn DispCallFunc(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: CALLCONV, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::super::Com::VARIANT, pvargresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        DispCallFunc(::std::mem::transmute(pvinstance), ::std::mem::transmute(ovft), ::std::mem::transmute(cc), ::std::mem::transmute(vtreturn), ::std::mem::transmute(cactuals), ::std::mem::transmute(prgvt), ::std::mem::transmute(prgpvarg), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        DispCallFunc(::core::mem::transmute(pvinstance), ::core::mem::transmute(ovft), ::core::mem::transmute(cc), ::core::mem::transmute(vtreturn), ::core::mem::transmute(cactuals), ::core::mem::transmute(prgvt), ::core::mem::transmute(prgpvarg), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -421,7 +421,7 @@ pub unsafe fn DispGetIDsOfNames<'a, Param0: ::windows::runtime::IntoParam<'a, IT
         extern "system" {
             fn DispGetIDsOfNames(ptinfo: ::windows::runtime::RawPtr, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        DispGetIDsOfNames(ptinfo.into_param().abi(), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(rgdispid)).ok()
+        DispGetIDsOfNames(ptinfo.into_param().abi(), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -434,9 +434,9 @@ pub unsafe fn DispGetParam(pdispparams: *const DISPPARAMS, position: u32, vttarg
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DispGetParam(pdispparams: *const DISPPARAMS, position: u32, vttarg: u16, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, puargerr: *mut u32) -> ::windows::runtime::HRESULT;
+            fn DispGetParam(pdispparams: *const DISPPARAMS, position: u32, vttarg: u16, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, puargerr: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DispGetParam(::std::mem::transmute(pdispparams), ::std::mem::transmute(position), ::std::mem::transmute(vttarg), ::std::mem::transmute(pvarresult), ::std::mem::transmute(puargerr)).ok()
+        DispGetParam(::core::mem::transmute(pdispparams), ::core::mem::transmute(position), ::core::mem::transmute(vttarg), ::core::mem::transmute(pvarresult), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -444,14 +444,14 @@ pub unsafe fn DispGetParam(pdispparams: *const DISPPARAMS, position: u32, vttarg
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn DispInvoke<'a, Param1: ::windows::runtime::IntoParam<'a, ITypeInfo>>(_this: *mut ::std::ffi::c_void, ptinfo: Param1, dispidmember: i32, wflags: u16, pparams: *mut DISPPARAMS, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+pub unsafe fn DispInvoke<'a, Param1: ::windows::runtime::IntoParam<'a, ITypeInfo>>(_this: *mut ::core::ffi::c_void, ptinfo: Param1, dispidmember: i32, wflags: u16, pparams: *mut DISPPARAMS, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DispInvoke(_this: *mut ::std::ffi::c_void, ptinfo: ::windows::runtime::RawPtr, dispidmember: i32, wflags: u16, pparams: *mut DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT;
+            fn DispInvoke(_this: *mut ::core::ffi::c_void, ptinfo: ::windows::runtime::RawPtr, dispidmember: i32, wflags: u16, pparams: *mut DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DispInvoke(::std::mem::transmute(_this), ptinfo.into_param().abi(), ::std::mem::transmute(dispidmember), ::std::mem::transmute(wflags), ::std::mem::transmute(pparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
+        DispInvoke(::core::mem::transmute(_this), ptinfo.into_param().abi(), ::core::mem::transmute(dispidmember), ::core::mem::transmute(wflags), ::core::mem::transmute(pparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -465,12 +465,12 @@ pub unsafe fn DosDateTimeToVariantTime(wdosdate: u16, wdostime: u16, pvtime: *mu
         extern "system" {
             fn DosDateTimeToVariantTime(wdosdate: u16, wdostime: u16, pvtime: *mut f64) -> i32;
         }
-        ::std::mem::transmute(DosDateTimeToVariantTime(::std::mem::transmute(wdosdate), ::std::mem::transmute(wdostime), ::std::mem::transmute(pvtime)))
+        ::core::mem::transmute(DosDateTimeToVariantTime(::core::mem::transmute(wdosdate), ::core::mem::transmute(wdostime), ::core::mem::transmute(pvtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -481,24 +481,24 @@ pub struct ELEMDESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ELEMDESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for ELEMDESC {
+impl ::core::default::Default for ELEMDESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for ELEMDESC {
+impl ::core::cmp::PartialEq for ELEMDESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for ELEMDESC {}
+impl ::core::cmp::Eq for ELEMDESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for ELEMDESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub union ELEMDESC_0 {
@@ -508,24 +508,24 @@ pub union ELEMDESC_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ELEMDESC_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for ELEMDESC_0 {
+impl ::core::default::Default for ELEMDESC_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for ELEMDESC_0 {
+impl ::core::cmp::PartialEq for ELEMDESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for ELEMDESC_0 {}
+impl ::core::cmp::Eq for ELEMDESC_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for ELEMDESC_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
@@ -536,21 +536,21 @@ pub struct EXCEPINFO {
     pub bstrDescription: super::super::super::Foundation::BSTR,
     pub bstrHelpFile: super::super::super::Foundation::BSTR,
     pub dwHelpContext: u32,
-    pub pvReserved: *mut ::std::ffi::c_void,
-    pub pfnDeferredFillIn: ::std::option::Option<LPEXCEPFINO_DEFERRED_FILLIN>,
+    pub pvReserved: *mut ::core::ffi::c_void,
+    pub pfnDeferredFillIn: ::core::option::Option<LPEXCEPFINO_DEFERRED_FILLIN>,
     pub scode: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl EXCEPINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for EXCEPINFO {
+impl ::core::default::Default for EXCEPINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for EXCEPINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for EXCEPINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("EXCEPINFO")
             .field("wCode", &self.wCode)
             .field("wReserved", &self.wReserved)
@@ -564,16 +564,16 @@ impl ::std::fmt::Debug for EXCEPINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for EXCEPINFO {
+impl ::core::cmp::PartialEq for EXCEPINFO {
     fn eq(&self, other: &Self) -> bool {
         self.wCode == other.wCode && self.wReserved == other.wReserved && self.bstrSource == other.bstrSource && self.bstrDescription == other.bstrDescription && self.bstrHelpFile == other.bstrHelpFile && self.dwHelpContext == other.dwHelpContext && self.pvReserved == other.pvReserved && self.pfnDeferredFillIn.map(|f| f as usize) == other.pfnDeferredFillIn.map(|f| f as usize) && self.scode == other.scode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for EXCEPINFO {}
+impl ::core::cmp::Eq for EXCEPINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EXCEPINFO {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const FADF_AUTO: u32 = 1u32;
@@ -599,7 +599,7 @@ pub const FADF_STATIC: u32 = 2u32;
 pub const FADF_UNKNOWN: u32 = 512u32;
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const FADF_VARIANT: u32 = 2048u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -620,25 +620,25 @@ pub struct FUNCDESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl FUNCDESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for FUNCDESC {
+impl ::core::default::Default for FUNCDESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for FUNCDESC {
+impl ::core::cmp::PartialEq for FUNCDESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for FUNCDESC {}
+impl ::core::cmp::Eq for FUNCDESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for FUNCDESC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FUNCFLAGS(pub i32);
 pub const FUNCFLAG_FRESTRICTED: FUNCFLAGS = FUNCFLAGS(1i32);
@@ -654,7 +654,7 @@ pub const FUNCFLAG_FUIDEFAULT: FUNCFLAGS = FUNCFLAGS(512i32);
 pub const FUNCFLAG_FNONBROWSABLE: FUNCFLAGS = FUNCFLAGS(1024i32);
 pub const FUNCFLAG_FREPLACEABLE: FUNCFLAGS = FUNCFLAGS(2048i32);
 pub const FUNCFLAG_FIMMEDIATEBIND: FUNCFLAGS = FUNCFLAGS(4096i32);
-impl ::std::convert::From<i32> for FUNCFLAGS {
+impl ::core::convert::From<i32> for FUNCFLAGS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -663,7 +663,7 @@ unsafe impl ::windows::runtime::Abi for FUNCFLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FUNCKIND(pub i32);
 pub const FUNC_VIRTUAL: FUNCKIND = FUNCKIND(0i32);
@@ -671,7 +671,7 @@ pub const FUNC_PUREVIRTUAL: FUNCKIND = FUNCKIND(1i32);
 pub const FUNC_NONVIRTUAL: FUNCKIND = FUNCKIND(2i32);
 pub const FUNC_STATIC: FUNCKIND = FUNCKIND(3i32);
 pub const FUNC_DISPATCH: FUNCKIND = FUNCKIND(4i32);
-impl ::std::convert::From<i32> for FUNCKIND {
+impl ::core::convert::From<i32> for FUNCKIND {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -681,14 +681,14 @@ unsafe impl ::windows::runtime::Abi for FUNCKIND {
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
-pub unsafe fn GetActiveObject(rclsid: *const ::windows::runtime::GUID, pvreserved: *mut ::std::ffi::c_void, ppunk: *mut ::std::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetActiveObject(rclsid: *const ::windows::runtime::GUID, pvreserved: *mut ::core::ffi::c_void, ppunk: *mut ::core::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetActiveObject(rclsid: *const ::windows::runtime::GUID, pvreserved: *mut ::std::ffi::c_void, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+            fn GetActiveObject(rclsid: *const ::windows::runtime::GUID, pvreserved: *mut ::core::ffi::c_void, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        GetActiveObject(::std::mem::transmute(rclsid), ::std::mem::transmute(pvreserved), ::std::mem::transmute(ppunk)).ok()
+        GetActiveObject(::core::mem::transmute(rclsid), ::core::mem::transmute(pvreserved), ::core::mem::transmute(ppunk)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -703,8 +703,8 @@ pub unsafe fn GetAltMonthNames(lcid: u32) -> ::windows::runtime::Result<*mut sup
         extern "system" {
             fn GetAltMonthNames(lcid: u32, prgp: *mut *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <*mut super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        GetAltMonthNames(::std::mem::transmute(lcid), &mut result__).from_abi::<*mut super::super::super::Foundation::PWSTR>(result__)
+        let mut result__: <*mut super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        GetAltMonthNames(::core::mem::transmute(lcid), &mut result__).from_abi::<*mut super::super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -718,8 +718,8 @@ pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::runtime::Result<IError
         extern "system" {
             fn GetErrorInfo(dwreserved: u32, pperrinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <IErrorInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        GetErrorInfo(::std::mem::transmute(dwreserved), &mut result__).from_abi::<IErrorInfo>(result__)
+        let mut result__: <IErrorInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        GetErrorInfo(::core::mem::transmute(dwreserved), &mut result__).from_abi::<IErrorInfo>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -733,8 +733,8 @@ pub unsafe fn GetRecordInfoFromGuids(rguidtypelib: *const ::windows::runtime::GU
         extern "system" {
             fn GetRecordInfoFromGuids(rguidtypelib: *const ::windows::runtime::GUID, uvermajor: u32, uverminor: u32, lcid: u32, rguidtypeinfo: *const ::windows::runtime::GUID, pprecinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <IRecordInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        GetRecordInfoFromGuids(::std::mem::transmute(rguidtypelib), ::std::mem::transmute(uvermajor), ::std::mem::transmute(uverminor), ::std::mem::transmute(lcid), ::std::mem::transmute(rguidtypeinfo), &mut result__).from_abi::<IRecordInfo>(result__)
+        let mut result__: <IRecordInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        GetRecordInfoFromGuids(::core::mem::transmute(rguidtypelib), ::core::mem::transmute(uvermajor), ::core::mem::transmute(uverminor), ::core::mem::transmute(lcid), ::core::mem::transmute(rguidtypeinfo), &mut result__).from_abi::<IRecordInfo>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -748,7 +748,7 @@ pub unsafe fn GetRecordInfoFromTypeInfo<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn GetRecordInfoFromTypeInfo(ptypeinfo: ::windows::runtime::RawPtr, pprecinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <IRecordInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <IRecordInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         GetRecordInfoFromTypeInfo(ptypeinfo.into_param().abi(), &mut result__).from_abi::<IRecordInfo>(result__)
     }
     #[cfg(not(windows))]
@@ -756,25 +756,25 @@ pub unsafe fn GetRecordInfoFromTypeInfo<'a, Param0: ::windows::runtime::IntoPara
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ICanHandleException(pub ::windows::runtime::IUnknown);
 impl ICanHandleException {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn CanHandleException(&self, pexcepinfo: *const EXCEPINFO, pvar: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(pvar)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(pvar)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ICanHandleException {
     type Vtable = ICanHandleException_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3310980704, 45831, 4561, [178, 125, 0, 96, 8, 195, 251, 251]);
 }
-impl ::std::convert::From<ICanHandleException> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ICanHandleException> for ::windows::runtime::IUnknown {
     fn from(value: ICanHandleException) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ICanHandleException> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ICanHandleException> for ::windows::runtime::IUnknown {
     fn from(value: &ICanHandleException) -> Self {
         value.0.clone()
     }
@@ -795,48 +795,48 @@ pub struct ICanHandleException_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pexcepinfo: *const ::std::mem::ManuallyDrop<EXCEPINFO>, pvar: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pexcepinfo: *const ::core::mem::ManuallyDrop<EXCEPINFO>, pvar: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ICreateErrorInfo(pub ::windows::runtime::IUnknown);
 impl ICreateErrorInfo {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetGUID(&self, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szsource: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), szsource.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), szsource.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szdescription: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), szdescription.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), szdescription.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetHelpFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szhelpfile: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), szhelpfile.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), szhelpfile.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhelpcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ICreateErrorInfo {
     type Vtable = ICreateErrorInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(586167104, 21629, 4123, [142, 101, 8, 0, 43, 43, 209, 25]);
 }
-impl ::std::convert::From<ICreateErrorInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ICreateErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: ICreateErrorInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ICreateErrorInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ICreateErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: &ICreateErrorInfo) -> Self {
         value.0.clone()
     }
@@ -868,123 +868,123 @@ pub struct ICreateErrorInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ICreateTypeInfo(pub ::windows::runtime::IUnknown);
 impl ICreateTypeInfo {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetGuid(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetTypeFlags(&self, utypeflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(utypeflags)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(utypeflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetDocString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrdoc: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pstrdoc.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pstrdoc.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhelpcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmajorvernum), ::std::mem::transmute(wminorvernum)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn AddRefTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ITypeInfo>>(&self, ptinfo: Param0, phreftype: *const u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ptinfo.into_param().abi(), ::std::mem::transmute(phreftype)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ptinfo.into_param().abi(), ::core::mem::transmute(phreftype)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn AddFuncDesc(&self, index: u32, pfuncdesc: *const FUNCDESC) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pfuncdesc)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pfuncdesc)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn AddImplType(&self, index: u32, hreftype: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(hreftype)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(hreftype)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetImplTypeFlags(&self, index: u32, impltypeflags: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(impltypeflags)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(impltypeflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetAlignment(&self, cbalignment: u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbalignment)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbalignment)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetSchema<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrschema: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pstrschema.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), pstrschema.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn AddVarDesc(&self, index: u32, pvardesc: *const VARDESC) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pvardesc)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pvardesc)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetVarName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szname: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szname.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
     pub unsafe fn SetTypeDescAlias(&self, ptdescalias: *const TYPEDESC) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptdescalias)).ok()
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptdescalias)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn DefineFuncAsDllEntry<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szdllname: Param1, szprocname: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szdllname.into_param().abi(), szprocname.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdllname.into_param().abi(), szprocname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetFuncDocString<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szdocstring: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szdocstring.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdocstring.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetVarDocString<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szdocstring: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szdocstring.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdocstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetFuncHelpContext(&self, index: u32, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(dwhelpcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetVarHelpContext(&self, index: u32, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(dwhelpcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetMops<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, index: u32, bstrmops: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), bstrmops.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), bstrmops.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetTypeIdldesc(&self, pidldesc: *const IDLDESC) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(pidldesc)).ok()
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(pidldesc)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn LayOut(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ICreateTypeInfo {
     type Vtable = ICreateTypeInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132101, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<ICreateTypeInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ICreateTypeInfo> for ::windows::runtime::IUnknown {
     fn from(value: ICreateTypeInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ICreateTypeInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ICreateTypeInfo> for ::windows::runtime::IUnknown {
     fn from(value: &ICreateTypeInfo) -> Self {
         value.0.clone()
     }
@@ -1035,196 +1035,196 @@ pub struct ICreateTypeInfo_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, dwhelpcontext: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, dwhelpcontext: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, bstrmops: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, bstrmops: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pidldesc: *const IDLDESC) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ICreateTypeInfo2(pub ::windows::runtime::IUnknown);
 impl ICreateTypeInfo2 {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetGuid(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetTypeFlags(&self, utypeflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(utypeflags)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(utypeflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetDocString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrdoc: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pstrdoc.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pstrdoc.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhelpcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmajorvernum), ::std::mem::transmute(wminorvernum)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn AddRefTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ITypeInfo>>(&self, ptinfo: Param0, phreftype: *const u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ptinfo.into_param().abi(), ::std::mem::transmute(phreftype)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ptinfo.into_param().abi(), ::core::mem::transmute(phreftype)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn AddFuncDesc(&self, index: u32, pfuncdesc: *const FUNCDESC) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pfuncdesc)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pfuncdesc)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn AddImplType(&self, index: u32, hreftype: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(hreftype)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(hreftype)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetImplTypeFlags(&self, index: u32, impltypeflags: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(impltypeflags)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(impltypeflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetAlignment(&self, cbalignment: u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbalignment)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbalignment)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetSchema<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrschema: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pstrschema.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), pstrschema.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn AddVarDesc(&self, index: u32, pvardesc: *const VARDESC) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pvardesc)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pvardesc)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetVarName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szname: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szname.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
     pub unsafe fn SetTypeDescAlias(&self, ptdescalias: *const TYPEDESC) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptdescalias)).ok()
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptdescalias)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn DefineFuncAsDllEntry<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szdllname: Param1, szprocname: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szdllname.into_param().abi(), szprocname.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdllname.into_param().abi(), szprocname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetFuncDocString<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szdocstring: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szdocstring.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdocstring.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetVarDocString<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szdocstring: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szdocstring.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), szdocstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetFuncHelpContext(&self, index: u32, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(dwhelpcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetVarHelpContext(&self, index: u32, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(dwhelpcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetMops<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, index: u32, bstrmops: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), bstrmops.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), bstrmops.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetTypeIdldesc(&self, pidldesc: *const IDLDESC) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(pidldesc)).ok()
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(pidldesc)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn LayOut(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteFuncDesc(&self, index: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)).ok()
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteFuncDescByMemId(&self, memid: i32, invkind: INVOKEKIND) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(invkind)).ok()
+        (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), ::core::mem::transmute(invkind)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteVarDesc(&self, index: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)).ok()
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteVarDescByMemId(&self, memid: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid)).ok()
+        (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteImplType(&self, index: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)).ok()
+        (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn SetCustData(&self, guid: *const ::windows::runtime::GUID, pvarval: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pvarval)).ok()
+        (::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn SetFuncCustData(&self, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(guid), ::std::mem::transmute(pvarval)).ok()
+        (::windows::runtime::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn SetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const ::windows::runtime::GUID, pvarval: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(indexfunc), ::std::mem::transmute(indexparam), ::std::mem::transmute(guid), ::std::mem::transmute(pvarval)).ok()
+        (::windows::runtime::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexfunc), ::core::mem::transmute(indexparam), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn SetVarCustData(&self, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(guid), ::std::mem::transmute(pvarval)).ok()
+        (::windows::runtime::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn SetImplTypeCustData(&self, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(guid), ::std::mem::transmute(pvarval)).ok()
+        (::windows::runtime::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetHelpStringContext(&self, dwhelpstringcontext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhelpstringcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpstringcontext)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetFuncHelpStringContext(&self, index: u32, dwhelpstringcontext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(dwhelpstringcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).37)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpstringcontext)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetVarHelpStringContext(&self, index: u32, dwhelpstringcontext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(dwhelpstringcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).38)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(dwhelpstringcontext)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invalidate(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).39)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), szname.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).40)(::core::mem::transmute_copy(self), szname.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ICreateTypeInfo2 {
     type Vtable = ICreateTypeInfo2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132110, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<ICreateTypeInfo2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ICreateTypeInfo2> for ::windows::runtime::IUnknown {
     fn from(value: ICreateTypeInfo2) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ICreateTypeInfo2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ICreateTypeInfo2> for ::windows::runtime::IUnknown {
     fn from(value: &ICreateTypeInfo2) -> Self {
         value.0.clone()
     }
@@ -1239,24 +1239,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<ICreateTypeInfo2> for ICreateTypeInfo {
+impl ::core::convert::From<ICreateTypeInfo2> for ICreateTypeInfo {
     fn from(value: ICreateTypeInfo2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&ICreateTypeInfo2> for ICreateTypeInfo {
+impl ::core::convert::From<&ICreateTypeInfo2> for ICreateTypeInfo {
     fn from(value: &ICreateTypeInfo2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICreateTypeInfo> for ICreateTypeInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICreateTypeInfo> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICreateTypeInfo> for &ICreateTypeInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICreateTypeInfo> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1295,7 +1295,7 @@ pub struct ICreateTypeInfo2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, dwhelpcontext: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, dwhelpcontext: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, bstrmops: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, bstrmops: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pidldesc: *const IDLDESC) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -1304,15 +1304,15 @@ pub struct ICreateTypeInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pvarval: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, indexfunc: u32, indexparam: u32, guid: *const ::windows::runtime::GUID, pvarval: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, indexfunc: u32, indexparam: u32, guid: *const ::windows::runtime::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwhelpstringcontext: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, dwhelpstringcontext: u32) -> ::windows::runtime::HRESULT,
@@ -1323,65 +1323,65 @@ pub struct ICreateTypeInfo2_abi(
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ICreateTypeLib(pub ::windows::runtime::IUnknown);
 impl ICreateTypeLib {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn CreateTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0, tkind: TYPEKIND) -> ::windows::runtime::Result<ICreateTypeInfo> {
-        let mut result__: <ICreateTypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), szname.into_param().abi(), ::std::mem::transmute(tkind), &mut result__).from_abi::<ICreateTypeInfo>(result__)
+        let mut result__: <ICreateTypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szname.into_param().abi(), ::core::mem::transmute(tkind), &mut result__).from_abi::<ICreateTypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), szname.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), szname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmajorvernum), ::std::mem::transmute(wminorvernum)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetGuid(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetDocString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szdoc: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), szdoc.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), szdoc.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetHelpFileName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szhelpfilename: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), szhelpfilename.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), szhelpfilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhelpcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetLcid(&self, lcid: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcid)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcid)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetLibFlags(&self, ulibflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulibflags)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulibflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SaveAllChanges(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ICreateTypeLib {
     type Vtable = ICreateTypeLib_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132102, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<ICreateTypeLib> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ICreateTypeLib> for ::windows::runtime::IUnknown {
     fn from(value: ICreateTypeLib) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ICreateTypeLib> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ICreateTypeLib> for ::windows::runtime::IUnknown {
     fn from(value: &ICreateTypeLib) -> Self {
         value.0.clone()
     }
@@ -1419,84 +1419,84 @@ pub struct ICreateTypeLib_abi(
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ICreateTypeLib2(pub ::windows::runtime::IUnknown);
 impl ICreateTypeLib2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn CreateTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0, tkind: TYPEKIND) -> ::windows::runtime::Result<ICreateTypeInfo> {
-        let mut result__: <ICreateTypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), szname.into_param().abi(), ::std::mem::transmute(tkind), &mut result__).from_abi::<ICreateTypeInfo>(result__)
+        let mut result__: <ICreateTypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szname.into_param().abi(), ::core::mem::transmute(tkind), &mut result__).from_abi::<ICreateTypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), szname.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), szname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmajorvernum), ::std::mem::transmute(wminorvernum)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetGuid(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetDocString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szdoc: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), szdoc.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), szdoc.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetHelpFileName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szhelpfilename: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), szhelpfilename.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), szhelpfilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhelpcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpcontext)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetLcid(&self, lcid: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcid)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcid)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetLibFlags(&self, ulibflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulibflags)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulibflags)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SaveAllChanges(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn DeleteTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), szname.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), szname.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn SetCustData(&self, guid: *const ::windows::runtime::GUID, pvarval: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pvarval)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetHelpStringContext(&self, dwhelpstringcontext: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhelpstringcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhelpstringcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetHelpStringDll<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szfilename: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), szfilename.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), szfilename.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ICreateTypeLib2 {
     type Vtable = ICreateTypeLib2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132111, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<ICreateTypeLib2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ICreateTypeLib2> for ::windows::runtime::IUnknown {
     fn from(value: ICreateTypeLib2) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ICreateTypeLib2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ICreateTypeLib2> for ::windows::runtime::IUnknown {
     fn from(value: &ICreateTypeLib2) -> Self {
         value.0.clone()
     }
@@ -1511,24 +1511,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<ICreateTypeLib2> for ICreateTypeLib {
+impl ::core::convert::From<ICreateTypeLib2> for ICreateTypeLib {
     fn from(value: ICreateTypeLib2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&ICreateTypeLib2> for ICreateTypeLib {
+impl ::core::convert::From<&ICreateTypeLib2> for ICreateTypeLib {
     fn from(value: &ICreateTypeLib2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICreateTypeLib> for ICreateTypeLib2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICreateTypeLib> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICreateTypeLib> for &ICreateTypeLib2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICreateTypeLib> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1553,13 +1553,13 @@ pub struct ICreateTypeLib2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szname: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pvarval: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwhelpstringcontext: u32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szfilename: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct IDLDESC {
@@ -1567,22 +1567,22 @@ pub struct IDLDESC {
     pub wIDLFlags: u16,
 }
 impl IDLDESC {}
-impl ::std::default::Default for IDLDESC {
+impl ::core::default::Default for IDLDESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IDLDESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IDLDESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IDLDESC").field("dwReserved", &self.dwReserved).field("wIDLFlags", &self.wIDLFlags).finish()
     }
 }
-impl ::std::cmp::PartialEq for IDLDESC {
+impl ::core::cmp::PartialEq for IDLDESC {
     fn eq(&self, other: &Self) -> bool {
         self.dwReserved == other.dwReserved && self.wIDLFlags == other.wIDLFlags
     }
 }
-impl ::std::cmp::Eq for IDLDESC {}
+impl ::core::cmp::Eq for IDLDESC {}
 unsafe impl ::windows::runtime::Abi for IDLDESC {
     type Abi = Self;
 }
@@ -1600,52 +1600,52 @@ pub const IDLFLAG_NONE: u32 = 0u32;
 pub const ID_DEFAULTINST: i32 = -2i32;
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDispError(pub ::windows::runtime::IUnknown);
 impl IDispError {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn QueryErrorInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, guiderrortype: Param0) -> ::windows::runtime::Result<IDispError> {
-        let mut result__: <IDispError as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), guiderrortype.into_param().abi(), &mut result__).from_abi::<IDispError>(result__)
+        let mut result__: <IDispError as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), guiderrortype.into_param().abi(), &mut result__).from_abi::<IDispError>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetNext(&self) -> ::windows::runtime::Result<IDispError> {
-        let mut result__: <IDispError as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDispError>(result__)
+        let mut result__: <IDispError as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IDispError>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetHresult(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
-        let mut result__: <::windows::runtime::HRESULT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+        let mut result__: <::windows::runtime::HRESULT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetSource(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetHelpInfo(&self, pbstrfilename: *mut super::super::super::Foundation::BSTR, pdwcontext: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbstrfilename), ::std::mem::transmute(pdwcontext)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrfilename), ::core::mem::transmute(pdwcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDispError {
     type Vtable = IDispError_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2800719969, 50976, 4560, [147, 55, 0, 160, 201, 13, 202, 169]);
 }
-impl ::std::convert::From<IDispError> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDispError> for ::windows::runtime::IUnknown {
     fn from(value: IDispError) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDispError> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDispError> for ::windows::runtime::IUnknown {
     fn from(value: &IDispError) -> Self {
         value.0.clone()
     }
@@ -1669,49 +1669,60 @@ pub struct IDispError_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guiderrortype: ::windows::runtime::GUID, ppde: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppde: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phr: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrsource: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrsource: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrfilename: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwcontext: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrfilename: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwcontext: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrdescription: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrdescription: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDispatch(pub ::windows::runtime::IUnknown);
 impl IDispatch {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<ITypeInfo> {
-        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<ITypeInfo>(result__)
+        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const DISPPARAMS, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(dispidmember),
+            ::core::mem::transmute(riid),
+            ::core::mem::transmute(lcid),
+            ::core::mem::transmute(wflags),
+            ::core::mem::transmute(pdispparams),
+            ::core::mem::transmute(pvarresult),
+            ::core::mem::transmute(pexcepinfo),
+            ::core::mem::transmute(puargerr),
+        )
+        .ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDispatch {
     type Vtable = IDispatch_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132096, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<IDispatch> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDispatch> for ::windows::runtime::IUnknown {
     fn from(value: IDispatch) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDispatch> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDispatch> for ::windows::runtime::IUnknown {
     fn from(value: &IDispatch) -> Self {
         value.0.clone()
     }
@@ -1736,66 +1747,66 @@ pub struct IDispatch_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDispatchEx(pub ::windows::runtime::IUnknown);
 impl IDispatchEx {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDispID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrname: Param0, grfdex: u32) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrname.into_param().abi(), ::std::mem::transmute(grfdex), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(grfdex), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn InvokeEx<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Com::IServiceProvider>>(&self, id: i32, lcid: u32, wflags: u16, pdp: *const DISPPARAMS, pvarres: *mut super::super::Com::VARIANT, pei: *mut EXCEPINFO, pspcaller: Param6) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdp), ::std::mem::transmute(pvarres), ::std::mem::transmute(pei), pspcaller.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdp), ::core::mem::transmute(pvarres), ::core::mem::transmute(pei), pspcaller.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn DeleteMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrname: Param0, grfdex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrname.into_param().abi(), ::std::mem::transmute(grfdex)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(grfdex)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteMemberByDispID(&self, id: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(id)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetMemberProperties(&self, id: i32, grfdexfetch: u32) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), ::std::mem::transmute(grfdexfetch), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(grfdexfetch), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberName(&self, id: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetNextDispID(&self, grfdex: u32, id: i32) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfdex), ::std::mem::transmute(id), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfdex), ::core::mem::transmute(id), &mut result__).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetNameSpaceParent(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDispatchEx {
     type Vtable = IDispatchEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2800719968, 50976, 4560, [147, 55, 0, 160, 201, 13, 202, 169]);
 }
-impl ::std::convert::From<IDispatchEx> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IDispatchEx> for ::windows::runtime::IUnknown {
     fn from(value: IDispatchEx) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IDispatchEx> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IDispatchEx> for ::windows::runtime::IUnknown {
     fn from(value: &IDispatchEx) -> Self {
         value.0.clone()
     }
@@ -1810,24 +1821,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IDispatchEx> for IDispatch {
+impl ::core::convert::From<IDispatchEx> for IDispatch {
     fn from(value: IDispatchEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IDispatchEx> for IDispatch {
+impl ::core::convert::From<&IDispatchEx> for IDispatch {
     fn from(value: &IDispatchEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDispatch> for IDispatchEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDispatch> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDispatch> for &IDispatchEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDispatch> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1840,55 +1851,55 @@ pub struct IDispatchEx_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrname: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, grfdex: u32, pid: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, grfdex: u32, pid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32, lcid: u32, wflags: u16, pdp: *const DISPPARAMS, pvarres: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pei: *mut ::std::mem::ManuallyDrop<EXCEPINFO>, pspcaller: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32, lcid: u32, wflags: u16, pdp: *const DISPPARAMS, pvarres: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pei: *mut ::core::mem::ManuallyDrop<EXCEPINFO>, pspcaller: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrname: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, grfdex: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, grfdex: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32, grfdexfetch: u32, pgrfdex: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32, pbstrname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, grfdex: u32, id: i32, pid: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IEnumVARIANT(pub ::windows::runtime::IUnknown);
 impl IEnumVARIANT {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn Next(&self, celt: u32, rgvar: *mut super::super::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(rgvar), ::std::mem::transmute(pceltfetched)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgvar), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumVARIANT> {
-        let mut result__: <IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumVARIANT>(result__)
+        let mut result__: <IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumVARIANT>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IEnumVARIANT {
     type Vtable = IEnumVARIANT_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132100, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<IEnumVARIANT> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEnumVARIANT> for ::windows::runtime::IUnknown {
     fn from(value: IEnumVARIANT) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IEnumVARIANT> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEnumVARIANT> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumVARIANT) -> Self {
         value.0.clone()
     }
@@ -1909,7 +1920,7 @@ pub struct IEnumVARIANT_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, rgvar: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, rgvar: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -1917,48 +1928,48 @@ pub struct IEnumVARIANT_abi(
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IErrorInfo(pub ::windows::runtime::IUnknown);
 impl IErrorInfo {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetGUID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetSource(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetHelpFile(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetHelpContext(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IErrorInfo {
     type Vtable = IErrorInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(485667104, 21629, 4123, [142, 101, 8, 0, 43, 43, 209, 25]);
 }
-impl ::std::convert::From<IErrorInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: IErrorInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IErrorInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IErrorInfo) -> Self {
         value.0.clone()
     }
@@ -1980,35 +1991,35 @@ pub struct IErrorInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrsource: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrsource: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrdescription: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrdescription: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrhelpfile: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrhelpfile: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwhelpcontext: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IErrorLog(pub ::windows::runtime::IUnknown);
 impl IErrorLog {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn AddError<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pszpropname: Param0, pexcepinfo: *const EXCEPINFO) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pexcepinfo)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszpropname.into_param().abi(), ::core::mem::transmute(pexcepinfo)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IErrorLog {
     type Vtable = IErrorLog_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(824691264, 17518, 4558, [129, 53, 0, 170, 0, 75, 184, 81]);
 }
-impl ::std::convert::From<IErrorLog> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IErrorLog> for ::windows::runtime::IUnknown {
     fn from(value: IErrorLog) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IErrorLog> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IErrorLog> for ::windows::runtime::IUnknown {
     fn from(value: &IErrorLog) -> Self {
         value.0.clone()
     }
@@ -2029,7 +2040,7 @@ pub struct IErrorLog_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszpropname: super::super::super::Foundation::PWSTR, pexcepinfo: *const ::std::mem::ManuallyDrop<EXCEPINFO>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszpropname: super::super::super::Foundation::PWSTR, pexcepinfo: *const ::core::mem::ManuallyDrop<EXCEPINFO>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
@@ -2040,7 +2051,7 @@ pub const IMPLTYPEFLAG_FDEFAULTVTABLE: u32 = 8u32;
 pub const IMPLTYPEFLAG_FRESTRICTED: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const IMPLTYPEFLAG_FSOURCE: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
@@ -2051,38 +2062,38 @@ pub struct INTERFACEDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl INTERFACEDATA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for INTERFACEDATA {
+impl ::core::default::Default for INTERFACEDATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for INTERFACEDATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for INTERFACEDATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("INTERFACEDATA").field("pmethdata", &self.pmethdata).field("cMembers", &self.cMembers).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for INTERFACEDATA {
+impl ::core::cmp::PartialEq for INTERFACEDATA {
     fn eq(&self, other: &Self) -> bool {
         self.pmethdata == other.pmethdata && self.cMembers == other.cMembers
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for INTERFACEDATA {}
+impl ::core::cmp::Eq for INTERFACEDATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERFACEDATA {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INVOKEKIND(pub i32);
 pub const INVOKE_FUNC: INVOKEKIND = INVOKEKIND(1i32);
 pub const INVOKE_PROPERTYGET: INVOKEKIND = INVOKEKIND(2i32);
 pub const INVOKE_PROPERTYPUT: INVOKEKIND = INVOKEKIND(4i32);
 pub const INVOKE_PROPERTYPUTREF: INVOKEKIND = INVOKEKIND(8i32);
-impl ::std::convert::From<i32> for INVOKEKIND {
+impl ::core::convert::From<i32> for INVOKEKIND {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2092,24 +2103,24 @@ unsafe impl ::windows::runtime::Abi for INVOKEKIND {
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IObjectIdentity(pub ::windows::runtime::IUnknown);
 impl IObjectIdentity {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn IsEqualObject<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punk: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), punk.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IObjectIdentity {
     type Vtable = IObjectIdentity_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3389306854, 3361, 4561, [140, 197, 0, 192, 79, 194, 176, 133]);
 }
-impl ::std::convert::From<IObjectIdentity> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IObjectIdentity> for ::windows::runtime::IUnknown {
     fn from(value: IObjectIdentity) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IObjectIdentity> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IObjectIdentity> for ::windows::runtime::IUnknown {
     fn from(value: &IObjectIdentity) -> Self {
         value.0.clone()
     }
@@ -2134,30 +2145,30 @@ pub struct IObjectIdentity_abi(
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPropertyBag(pub ::windows::runtime::IUnknown);
 impl IPropertyBag {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn Read<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IErrorLog>>(&self, pszpropname: Param0, pvar: *mut super::super::Com::VARIANT, perrorlog: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pvar), perrorlog.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszpropname.into_param().abi(), ::core::mem::transmute(pvar), perrorlog.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn Write<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pszpropname: Param0, pvar: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pvar)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszpropname.into_param().abi(), ::core::mem::transmute(pvar)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IPropertyBag {
     type Vtable = IPropertyBag_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1428630016, 17099, 4558, [129, 53, 0, 170, 0, 75, 184, 81]);
 }
-impl ::std::convert::From<IPropertyBag> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPropertyBag> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyBag) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPropertyBag> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPropertyBag> for ::windows::runtime::IUnknown {
     fn from(value: &IPropertyBag) -> Self {
         value.0.clone()
     }
@@ -2178,31 +2189,31 @@ pub struct IPropertyBag_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszpropname: super::super::super::Foundation::PWSTR, pvar: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, perrorlog: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszpropname: super::super::super::Foundation::PWSTR, pvar: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, perrorlog: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszpropname: super::super::super::Foundation::PWSTR, pvar: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszpropname: super::super::super::Foundation::PWSTR, pvar: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IProvideRuntimeContext(pub ::windows::runtime::IUnknown);
 impl IProvideRuntimeContext {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetCurrentSourceContext(&self, pdwcontext: *mut usize, pfexecutingglobalcode: *mut i16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcontext), ::std::mem::transmute(pfexecutingglobalcode)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwcontext), ::core::mem::transmute(pfexecutingglobalcode)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IProvideRuntimeContext {
     type Vtable = IProvideRuntimeContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(283263306, 60505, 18898, [188, 81, 90, 221, 44, 54, 254, 188]);
 }
-impl ::std::convert::From<IProvideRuntimeContext> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IProvideRuntimeContext> for ::windows::runtime::IUnknown {
     fn from(value: IProvideRuntimeContext) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IProvideRuntimeContext> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IProvideRuntimeContext> for ::windows::runtime::IUnknown {
     fn from(value: &IProvideRuntimeContext) -> Self {
         value.0.clone()
     }
@@ -2227,96 +2238,96 @@ pub struct IProvideRuntimeContext_abi(
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IRecordInfo(pub ::windows::runtime::IUnknown);
 impl IRecordInfo {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-    pub unsafe fn RecordInit(&self, pvnew: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvnew)).ok()
+    pub unsafe fn RecordInit(&self, pvnew: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvnew)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-    pub unsafe fn RecordClear(&self, pvexisting: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvexisting)).ok()
+    pub unsafe fn RecordClear(&self, pvexisting: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvexisting)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-    pub unsafe fn RecordCopy(&self, pvexisting: *const ::std::ffi::c_void, pvnew: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvexisting), ::std::mem::transmute(pvnew)).ok()
+    pub unsafe fn RecordCopy(&self, pvexisting: *const ::core::ffi::c_void, pvnew: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvexisting), ::core::mem::transmute(pvnew)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetSize(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self) -> ::windows::runtime::Result<ITypeInfo> {
-        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITypeInfo>(result__)
+        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITypeInfo>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn GetField<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pvdata: *const ::std::ffi::c_void, szfieldname: Param1) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvdata), szfieldname.into_param().abi(), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+    pub unsafe fn GetField<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pvdata: *const ::core::ffi::c_void, szfieldname: Param1) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvdata), szfieldname.into_param().abi(), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn GetFieldNoCopy<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pvdata: *const ::std::ffi::c_void, szfieldname: Param1, pvarfield: *mut super::super::Com::VARIANT, ppvdatacarray: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvdata), szfieldname.into_param().abi(), ::std::mem::transmute(pvarfield), ::std::mem::transmute(ppvdatacarray)).ok()
+    pub unsafe fn GetFieldNoCopy<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pvdata: *const ::core::ffi::c_void, szfieldname: Param1, pvarfield: *mut super::super::Com::VARIANT, ppvdatacarray: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvdata), szfieldname.into_param().abi(), ::core::mem::transmute(pvarfield), ::core::mem::transmute(ppvdatacarray)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn PutField<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, wflags: u32, pvdata: *mut ::std::ffi::c_void, szfieldname: Param2, pvarfield: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(wflags), ::std::mem::transmute(pvdata), szfieldname.into_param().abi(), ::std::mem::transmute(pvarfield)).ok()
+    pub unsafe fn PutField<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: Param2, pvarfield: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(wflags), ::core::mem::transmute(pvdata), szfieldname.into_param().abi(), ::core::mem::transmute(pvarfield)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn PutFieldNoCopy<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, wflags: u32, pvdata: *mut ::std::ffi::c_void, szfieldname: Param2, pvarfield: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(wflags), ::std::mem::transmute(pvdata), szfieldname.into_param().abi(), ::std::mem::transmute(pvarfield)).ok()
+    pub unsafe fn PutFieldNoCopy<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: Param2, pvarfield: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(wflags), ::core::mem::transmute(pvdata), szfieldname.into_param().abi(), ::core::mem::transmute(pvarfield)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetFieldNames(&self, pcnames: *mut u32, rgbstrnames: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcnames), ::std::mem::transmute(rgbstrnames)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcnames), ::core::mem::transmute(rgbstrnames)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn IsMatchingType<'a, Param0: ::windows::runtime::IntoParam<'a, IRecordInfo>>(&self, precordinfo: Param0) -> super::super::super::Foundation::BOOL {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), precordinfo.into_param().abi()))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), precordinfo.into_param().abi()))
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-    pub unsafe fn RecordCreate(&self) -> *mut ::std::ffi::c_void {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
+    pub unsafe fn RecordCreate(&self) -> *mut ::core::ffi::c_void {
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-    pub unsafe fn RecordCreateCopy(&self, pvsource: *const ::std::ffi::c_void, ppvdest: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvsource), ::std::mem::transmute(ppvdest)).ok()
+    pub unsafe fn RecordCreateCopy(&self, pvsource: *const ::core::ffi::c_void, ppvdest: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvsource), ::core::mem::transmute(ppvdest)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-    pub unsafe fn RecordDestroy(&self, pvrecord: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvrecord)).ok()
+    pub unsafe fn RecordDestroy(&self, pvrecord: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvrecord)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IRecordInfo {
     type Vtable = IRecordInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(47, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<IRecordInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IRecordInfo> for ::windows::runtime::IUnknown {
     fn from(value: IRecordInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IRecordInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IRecordInfo> for ::windows::runtime::IUnknown {
     fn from(value: &IRecordInfo) -> Self {
         value.0.clone()
     }
@@ -2337,50 +2348,50 @@ pub struct IRecordInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvnew: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvexisting: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvexisting: *const ::std::ffi::c_void, pvnew: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvnew: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvexisting: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvexisting: *const ::core::ffi::c_void, pvnew: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcbsize: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptypeinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvdata: *const ::std::ffi::c_void, szfieldname: super::super::super::Foundation::PWSTR, pvarfield: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvdata: *const ::core::ffi::c_void, szfieldname: super::super::super::Foundation::PWSTR, pvarfield: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvdata: *const ::std::ffi::c_void, szfieldname: super::super::super::Foundation::PWSTR, pvarfield: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, ppvdatacarray: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvdata: *const ::core::ffi::c_void, szfieldname: super::super::super::Foundation::PWSTR, pvarfield: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, ppvdatacarray: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wflags: u32, pvdata: *mut ::std::ffi::c_void, szfieldname: super::super::super::Foundation::PWSTR, pvarfield: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: super::super::super::Foundation::PWSTR, pvarfield: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wflags: u32, pvdata: *mut ::std::ffi::c_void, szfieldname: super::super::super::Foundation::PWSTR, pvarfield: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wflags: u32, pvdata: *mut ::core::ffi::c_void, szfieldname: super::super::super::Foundation::PWSTR, pvarfield: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcnames: *mut u32, rgbstrnames: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcnames: *mut u32, rgbstrnames: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, precordinfo: ::windows::runtime::RawPtr) -> super::super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> *mut ::std::ffi::c_void,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvsource: *const ::std::ffi::c_void, ppvdest: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvrecord: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> *mut ::core::ffi::c_void,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvsource: *const ::core::ffi::c_void, ppvdest: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvrecord: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ISupportErrorInfo(pub ::windows::runtime::IUnknown);
 impl ISupportErrorInfo {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn InterfaceSupportsErrorInfo(&self, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ISupportErrorInfo {
     type Vtable = ISupportErrorInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742055776, 21647, 4123, [142, 101, 8, 0, 43, 43, 209, 25]);
 }
-impl ::std::convert::From<ISupportErrorInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ISupportErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: ISupportErrorInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ISupportErrorInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ISupportErrorInfo> for ::windows::runtime::IUnknown {
     fn from(value: &ISupportErrorInfo) -> Self {
         value.0.clone()
     }
@@ -2405,31 +2416,31 @@ pub struct ISupportErrorInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITypeChangeEvents(pub ::windows::runtime::IUnknown);
 impl ITypeChangeEvents {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn RequestTypeChange<'a, Param1: ::windows::runtime::IntoParam<'a, ITypeInfo>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, changekind: CHANGEKIND, ptinfobefore: Param1, pstrname: Param2) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(changekind), ptinfobefore.into_param().abi(), pstrname.into_param().abi(), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(changekind), ptinfobefore.into_param().abi(), pstrname.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn AfterTypeChange<'a, Param1: ::windows::runtime::IntoParam<'a, ITypeInfo>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, changekind: CHANGEKIND, ptinfoafter: Param1, pstrname: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(changekind), ptinfoafter.into_param().abi(), pstrname.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(changekind), ptinfoafter.into_param().abi(), pstrname.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ITypeChangeEvents {
     type Vtable = ITypeChangeEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132112, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<ITypeChangeEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ITypeChangeEvents> for ::windows::runtime::IUnknown {
     fn from(value: ITypeChangeEvents) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ITypeChangeEvents> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ITypeChangeEvents> for ::windows::runtime::IUnknown {
     fn from(value: &ITypeChangeEvents) -> Self {
         value.0.clone()
     }
@@ -2457,30 +2468,30 @@ pub struct ITypeChangeEvents_abi(
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITypeComp(pub ::windows::runtime::IUnknown);
 impl ITypeComp {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn Bind<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0, lhashval: u32, wflags: u16, pptinfo: *mut ::std::option::Option<ITypeInfo>, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), szname.into_param().abi(), ::std::mem::transmute(lhashval), ::std::mem::transmute(wflags), ::std::mem::transmute(pptinfo), ::std::mem::transmute(pdesckind), ::std::mem::transmute(pbindptr)).ok()
+    pub unsafe fn Bind<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0, lhashval: u32, wflags: u16, pptinfo: *mut ::core::option::Option<ITypeInfo>, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szname.into_param().abi(), ::core::mem::transmute(lhashval), ::core::mem::transmute(wflags), ::core::mem::transmute(pptinfo), ::core::mem::transmute(pdesckind), ::core::mem::transmute(pbindptr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
-    pub unsafe fn BindType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0, lhashval: u32, pptinfo: *mut ::std::option::Option<ITypeInfo>, pptcomp: *mut ::std::option::Option<ITypeComp>) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), szname.into_param().abi(), ::std::mem::transmute(lhashval), ::std::mem::transmute(pptinfo), ::std::mem::transmute(pptcomp)).ok()
+    pub unsafe fn BindType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0, lhashval: u32, pptinfo: *mut ::core::option::Option<ITypeInfo>, pptcomp: *mut ::core::option::Option<ITypeComp>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), szname.into_param().abi(), ::core::mem::transmute(lhashval), ::core::mem::transmute(pptinfo), ::core::mem::transmute(pptcomp)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ITypeComp {
     type Vtable = ITypeComp_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132099, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<ITypeComp> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ITypeComp> for ::windows::runtime::IUnknown {
     fn from(value: ITypeComp) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ITypeComp> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ITypeComp> for ::windows::runtime::IUnknown {
     fn from(value: &ITypeComp) -> Self {
         value.0.clone()
     }
@@ -2501,32 +2512,32 @@ pub struct ITypeComp_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szname: super::super::super::Foundation::PWSTR, lhashval: u32, wflags: u16, pptinfo: *mut ::windows::runtime::RawPtr, pdesckind: *mut DESCKIND, pbindptr: *mut ::std::mem::ManuallyDrop<BINDPTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szname: super::super::super::Foundation::PWSTR, lhashval: u32, wflags: u16, pptinfo: *mut ::windows::runtime::RawPtr, pdesckind: *mut DESCKIND, pbindptr: *mut ::core::mem::ManuallyDrop<BINDPTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szname: super::super::super::Foundation::PWSTR, lhashval: u32, pptinfo: *mut ::windows::runtime::RawPtr, pptcomp: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITypeFactory(pub ::windows::runtime::IUnknown);
 impl ITypeFactory {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateFromTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ITypeInfo>>(&self, ptypeinfo: Param0, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ptypeinfo.into_param().abi(), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ptypeinfo.into_param().abi(), ::core::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ITypeFactory {
     type Vtable = ITypeFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(46, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<ITypeFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ITypeFactory> for ::windows::runtime::IUnknown {
     fn from(value: ITypeFactory) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ITypeFactory> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ITypeFactory> for ::windows::runtime::IUnknown {
     fn from(value: &ITypeFactory) -> Self {
         value.0.clone()
     }
@@ -2551,117 +2562,117 @@ pub struct ITypeFactory_abi(
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITypeInfo(pub ::windows::runtime::IUnknown);
 impl ITypeInfo {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeAttr(&self) -> ::windows::runtime::Result<*mut TYPEATTR> {
-        let mut result__: <*mut TYPEATTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut TYPEATTR>(result__)
+        let mut result__: <*mut TYPEATTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut TYPEATTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeComp(&self) -> ::windows::runtime::Result<ITypeComp> {
-        let mut result__: <ITypeComp as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITypeComp>(result__)
+        let mut result__: <ITypeComp as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITypeComp>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetFuncDesc(&self, index: u32) -> ::windows::runtime::Result<*mut FUNCDESC> {
-        let mut result__: <*mut FUNCDESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<*mut FUNCDESC>(result__)
+        let mut result__: <*mut FUNCDESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<*mut FUNCDESC>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetVarDesc(&self, index: u32) -> ::windows::runtime::Result<*mut VARDESC> {
-        let mut result__: <*mut VARDESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<*mut VARDESC>(result__)
+        let mut result__: <*mut VARDESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<*mut VARDESC>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetNames(&self, memid: i32, rgbstrnames: *mut super::super::super::Foundation::BSTR, cmaxnames: u32, pcnames: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(rgbstrnames), ::std::mem::transmute(cmaxnames), ::std::mem::transmute(pcnames)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), ::core::mem::transmute(rgbstrnames), ::core::mem::transmute(cmaxnames), ::core::mem::transmute(pcnames)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetRefTypeOfImplType(&self, index: u32) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetImplTypeFlags(&self, index: u32) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, pmemid: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(pmemid)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(pmemid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn Invoke(&self, pvinstance: *const ::std::ffi::c_void, memid: i32, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvinstance), ::std::mem::transmute(memid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
+    pub unsafe fn Invoke(&self, pvinstance: *const ::core::ffi::c_void, memid: i32, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvinstance), ::core::mem::transmute(memid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDocumentation(&self, memid: i32, pbstrname: *mut super::super::super::Foundation::BSTR, pbstrdocstring: *mut super::super::super::Foundation::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pbstrdocstring), ::std::mem::transmute(pdwhelpcontext), ::std::mem::transmute(pbstrhelpfile)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrdocstring), ::core::mem::transmute(pdwhelpcontext), ::core::mem::transmute(pbstrhelpfile)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDllEntry(&self, memid: i32, invkind: INVOKEKIND, pbstrdllname: *mut super::super::super::Foundation::BSTR, pbstrname: *mut super::super::super::Foundation::BSTR, pwordinal: *mut u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(invkind), ::std::mem::transmute(pbstrdllname), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pwordinal)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), ::core::mem::transmute(invkind), ::core::mem::transmute(pbstrdllname), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pwordinal)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetRefTypeInfo(&self, hreftype: u32) -> ::windows::runtime::Result<ITypeInfo> {
-        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(hreftype), &mut result__).from_abi::<ITypeInfo>(result__)
+        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hreftype), &mut result__).from_abi::<ITypeInfo>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-    pub unsafe fn AddressOfMember(&self, memid: i32, invkind: INVOKEKIND, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(invkind), ::std::mem::transmute(ppv)).ok()
+    pub unsafe fn AddressOfMember(&self, memid: i32, invkind: INVOKEKIND, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), ::core::mem::transmute(invkind), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(&self, punkouter: Param0) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), punkouter.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), punkouter.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetMops(&self, memid: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-    pub unsafe fn GetContainingTypeLib(&self, pptlib: *mut ::std::option::Option<ITypeLib>, pindex: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pptlib), ::std::mem::transmute(pindex)).ok()
+    pub unsafe fn GetContainingTypeLib(&self, pptlib: *mut ::core::option::Option<ITypeLib>, pindex: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(pptlib), ::core::mem::transmute(pindex)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ReleaseTypeAttr(&self, ptypeattr: *const TYPEATTR) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptypeattr)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptypeattr)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ReleaseFuncDesc(&self, pfuncdesc: *const FUNCDESC) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfuncdesc)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfuncdesc)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ReleaseVarDesc(&self, pvardesc: *const VARDESC) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvardesc)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvardesc)))
     }
 }
 unsafe impl ::windows::runtime::Interface for ITypeInfo {
     type Vtable = ITypeInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132097, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<ITypeInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ITypeInfo> for ::windows::runtime::IUnknown {
     fn from(value: ITypeInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ITypeInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ITypeInfo> for ::windows::runtime::IUnknown {
     fn from(value: &ITypeInfo) -> Self {
         value.0.clone()
     }
@@ -2689,22 +2700,22 @@ pub struct ITypeInfo_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, ppvardesc: *mut *mut VARDESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, rgbstrnames: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, cmaxnames: u32, pcnames: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, rgbstrnames: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, cmaxnames: u32, pcnames: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, preftype: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, pimpltypeflags: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, pmemid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvinstance: *const ::std::ffi::c_void, memid: i32, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvinstance: *const ::core::ffi::c_void, memid: i32, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, pbstrname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrdocstring: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrdocstring: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, invkind: INVOKEKIND, pbstrdllname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pwordinal: *mut u16) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, invkind: INVOKEKIND, pbstrdllname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pwordinal: *mut u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hreftype: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, invkind: INVOKEKIND, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, pbstrmops: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, invkind: INVOKEKIND, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, pbstrmops: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptlib: *mut ::windows::runtime::RawPtr, pindex: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptypeattr: *const TYPEATTR),
@@ -2716,202 +2727,202 @@ pub struct ITypeInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITypeInfo2(pub ::windows::runtime::IUnknown);
 impl ITypeInfo2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeAttr(&self) -> ::windows::runtime::Result<*mut TYPEATTR> {
-        let mut result__: <*mut TYPEATTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut TYPEATTR>(result__)
+        let mut result__: <*mut TYPEATTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut TYPEATTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeComp(&self) -> ::windows::runtime::Result<ITypeComp> {
-        let mut result__: <ITypeComp as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITypeComp>(result__)
+        let mut result__: <ITypeComp as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITypeComp>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetFuncDesc(&self, index: u32) -> ::windows::runtime::Result<*mut FUNCDESC> {
-        let mut result__: <*mut FUNCDESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<*mut FUNCDESC>(result__)
+        let mut result__: <*mut FUNCDESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<*mut FUNCDESC>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetVarDesc(&self, index: u32) -> ::windows::runtime::Result<*mut VARDESC> {
-        let mut result__: <*mut VARDESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<*mut VARDESC>(result__)
+        let mut result__: <*mut VARDESC as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<*mut VARDESC>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetNames(&self, memid: i32, rgbstrnames: *mut super::super::super::Foundation::BSTR, cmaxnames: u32, pcnames: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(rgbstrnames), ::std::mem::transmute(cmaxnames), ::std::mem::transmute(pcnames)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), ::core::mem::transmute(rgbstrnames), ::core::mem::transmute(cmaxnames), ::core::mem::transmute(pcnames)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetRefTypeOfImplType(&self, index: u32) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetImplTypeFlags(&self, index: u32) -> ::windows::runtime::Result<i32> {
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, pmemid: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(pmemid)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(pmemid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
-    pub unsafe fn Invoke(&self, pvinstance: *const ::std::ffi::c_void, memid: i32, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvinstance), ::std::mem::transmute(memid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
+    pub unsafe fn Invoke(&self, pvinstance: *const ::core::ffi::c_void, memid: i32, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvinstance), ::core::mem::transmute(memid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDocumentation(&self, memid: i32, pbstrname: *mut super::super::super::Foundation::BSTR, pbstrdocstring: *mut super::super::super::Foundation::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pbstrdocstring), ::std::mem::transmute(pdwhelpcontext), ::std::mem::transmute(pbstrhelpfile)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrdocstring), ::core::mem::transmute(pdwhelpcontext), ::core::mem::transmute(pbstrhelpfile)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDllEntry(&self, memid: i32, invkind: INVOKEKIND, pbstrdllname: *mut super::super::super::Foundation::BSTR, pbstrname: *mut super::super::super::Foundation::BSTR, pwordinal: *mut u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(invkind), ::std::mem::transmute(pbstrdllname), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pwordinal)).ok()
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), ::core::mem::transmute(invkind), ::core::mem::transmute(pbstrdllname), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pwordinal)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetRefTypeInfo(&self, hreftype: u32) -> ::windows::runtime::Result<ITypeInfo> {
-        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(hreftype), &mut result__).from_abi::<ITypeInfo>(result__)
+        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hreftype), &mut result__).from_abi::<ITypeInfo>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-    pub unsafe fn AddressOfMember(&self, memid: i32, invkind: INVOKEKIND, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(invkind), ::std::mem::transmute(ppv)).ok()
+    pub unsafe fn AddressOfMember(&self, memid: i32, invkind: INVOKEKIND, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), ::core::mem::transmute(invkind), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(&self, punkouter: Param0) -> ::windows::runtime::Result<T> {
-        let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), punkouter.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::option::Option::None;
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), punkouter.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetMops(&self, memid: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-    pub unsafe fn GetContainingTypeLib(&self, pptlib: *mut ::std::option::Option<ITypeLib>, pindex: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pptlib), ::std::mem::transmute(pindex)).ok()
+    pub unsafe fn GetContainingTypeLib(&self, pptlib: *mut ::core::option::Option<ITypeLib>, pindex: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(pptlib), ::core::mem::transmute(pindex)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ReleaseTypeAttr(&self, ptypeattr: *const TYPEATTR) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptypeattr)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptypeattr)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ReleaseFuncDesc(&self, pfuncdesc: *const FUNCDESC) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfuncdesc)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfuncdesc)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ReleaseVarDesc(&self, pvardesc: *const VARDESC) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvardesc)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvardesc)))
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeKind(&self) -> ::windows::runtime::Result<TYPEKIND> {
-        let mut result__: <TYPEKIND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TYPEKIND>(result__)
+        let mut result__: <TYPEKIND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<TYPEKIND>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeFlags(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetFuncIndexOfMemId(&self, memid: i32, invkind: INVOKEKIND) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(invkind), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), ::core::mem::transmute(invkind), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetVarIndexOfMemId(&self, memid: i32) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetCustData(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetFuncCustData(&self, index: u32, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).27)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(indexfunc), ::std::mem::transmute(indexparam), ::std::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexfunc), ::core::mem::transmute(indexparam), ::core::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetVarCustData(&self, index: u32, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetImplTypeCustData(&self, index: u32, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDocumentation2(&self, memid: i32, lcid: u32, pbstrhelpstring: *mut super::super::super::Foundation::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(lcid), ::std::mem::transmute(pbstrhelpstring), ::std::mem::transmute(pdwhelpstringcontext), ::std::mem::transmute(pbstrhelpstringdll)).ok()
+        (::windows::runtime::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(memid), ::core::mem::transmute(lcid), ::core::mem::transmute(pbstrhelpstring), ::core::mem::transmute(pdwhelpstringcontext), ::core::mem::transmute(pbstrhelpstringdll)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetAllCustData(&self) -> ::windows::runtime::Result<CUSTDATA> {
-        let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), &mut result__).from_abi::<CUSTDATA>(result__)
+        let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<CUSTDATA>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetAllFuncCustData(&self, index: u32) -> ::windows::runtime::Result<CUSTDATA> {
-        let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<CUSTDATA>(result__)
+        let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<CUSTDATA>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetAllParamCustData(&self, indexfunc: u32, indexparam: u32) -> ::windows::runtime::Result<CUSTDATA> {
-        let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(indexfunc), ::std::mem::transmute(indexparam), &mut result__).from_abi::<CUSTDATA>(result__)
+        let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexfunc), ::core::mem::transmute(indexparam), &mut result__).from_abi::<CUSTDATA>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetAllVarCustData(&self, index: u32) -> ::windows::runtime::Result<CUSTDATA> {
-        let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<CUSTDATA>(result__)
+        let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<CUSTDATA>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetAllImplTypeCustData(&self, index: u32) -> ::windows::runtime::Result<CUSTDATA> {
-        let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<CUSTDATA>(result__)
+        let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<CUSTDATA>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ITypeInfo2 {
     type Vtable = ITypeInfo2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132114, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<ITypeInfo2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ITypeInfo2> for ::windows::runtime::IUnknown {
     fn from(value: ITypeInfo2) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ITypeInfo2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ITypeInfo2> for ::windows::runtime::IUnknown {
     fn from(value: &ITypeInfo2) -> Self {
         value.0.clone()
     }
@@ -2926,24 +2937,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<ITypeInfo2> for ITypeInfo {
+impl ::core::convert::From<ITypeInfo2> for ITypeInfo {
     fn from(value: ITypeInfo2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&ITypeInfo2> for ITypeInfo {
+impl ::core::convert::From<&ITypeInfo2> for ITypeInfo {
     fn from(value: &ITypeInfo2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITypeInfo> for ITypeInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITypeInfo> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITypeInfo> for &ITypeInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITypeInfo> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2959,22 +2970,22 @@ pub struct ITypeInfo2_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, ppvardesc: *mut *mut VARDESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, rgbstrnames: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, cmaxnames: u32, pcnames: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, rgbstrnames: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, cmaxnames: u32, pcnames: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, preftype: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, pimpltypeflags: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, pmemid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvinstance: *const ::std::ffi::c_void, memid: i32, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvinstance: *const ::core::ffi::c_void, memid: i32, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, pbstrname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrdocstring: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrdocstring: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, invkind: INVOKEKIND, pbstrdllname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pwordinal: *mut u16) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, invkind: INVOKEKIND, pbstrdllname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pwordinal: *mut u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hreftype: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, invkind: INVOKEKIND, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, pbstrmops: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, invkind: INVOKEKIND, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, pbstrmops: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptlib: *mut ::windows::runtime::RawPtr, pindex: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptypeattr: *const TYPEATTR),
@@ -2987,17 +2998,17 @@ pub struct ITypeInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptypeflags: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, invkind: INVOKEKIND, pfuncindex: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, pvarindex: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pvarval: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pvarval: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, indexfunc: u32, indexparam: u32, guid: *const ::windows::runtime::GUID, pvarval: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, indexfunc: u32, indexparam: u32, guid: *const ::windows::runtime::GUID, pvarval: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, lcid: u32, pbstrhelpstring: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, memid: i32, lcid: u32, pbstrhelpstring: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcustdata: *mut CUSTDATA) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
@@ -3012,68 +3023,68 @@ pub struct ITypeInfo2_abi(
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITypeLib(pub ::windows::runtime::IUnknown);
 impl ITypeLib {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> u32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, index: u32) -> ::windows::runtime::Result<ITypeInfo> {
-        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<ITypeInfo>(result__)
+        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<ITypeInfo>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfoType(&self, index: u32) -> ::windows::runtime::Result<TYPEKIND> {
-        let mut result__: <TYPEKIND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<TYPEKIND>(result__)
+        let mut result__: <TYPEKIND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<TYPEKIND>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfoOfGuid(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ITypeInfo> {
-        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), &mut result__).from_abi::<ITypeInfo>(result__)
+        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), &mut result__).from_abi::<ITypeInfo>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetLibAttr(&self) -> ::windows::runtime::Result<*mut TLIBATTR> {
-        let mut result__: <*mut TLIBATTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut TLIBATTR>(result__)
+        let mut result__: <*mut TLIBATTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut TLIBATTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeComp(&self) -> ::windows::runtime::Result<ITypeComp> {
-        let mut result__: <ITypeComp as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITypeComp>(result__)
+        let mut result__: <ITypeComp as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITypeComp>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDocumentation(&self, index: i32, pbstrname: *mut super::super::super::Foundation::BSTR, pbstrdocstring: *mut super::super::super::Foundation::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pbstrdocstring), ::std::mem::transmute(pdwhelpcontext), ::std::mem::transmute(pbstrhelpfile)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrdocstring), ::core::mem::transmute(pdwhelpcontext), ::core::mem::transmute(pbstrhelpfile)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn IsName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, sznamebuf: Param0, lhashval: u32, pfname: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), sznamebuf.into_param().abi(), ::std::mem::transmute(lhashval), ::std::mem::transmute(pfname)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), sznamebuf.into_param().abi(), ::core::mem::transmute(lhashval), ::core::mem::transmute(pfname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
-    pub unsafe fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, sznamebuf: Param0, lhashval: u32, pptinfo: *mut ::std::option::Option<ITypeInfo>, rgmemid: *mut i32, pcfound: *mut u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), sznamebuf.into_param().abi(), ::std::mem::transmute(lhashval), ::std::mem::transmute(pptinfo), ::std::mem::transmute(rgmemid), ::std::mem::transmute(pcfound)).ok()
+    pub unsafe fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, sznamebuf: Param0, lhashval: u32, pptinfo: *mut ::core::option::Option<ITypeInfo>, rgmemid: *mut i32, pcfound: *mut u16) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), sznamebuf.into_param().abi(), ::core::mem::transmute(lhashval), ::core::mem::transmute(pptinfo), ::core::mem::transmute(rgmemid), ::core::mem::transmute(pcfound)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn ReleaseTLibAttr(&self, ptlibattr: *const TLIBATTR) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptlibattr)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptlibattr)))
     }
 }
 unsafe impl ::windows::runtime::Interface for ITypeLib {
     type Vtable = ITypeLib_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132098, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<ITypeLib> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ITypeLib> for ::windows::runtime::IUnknown {
     fn from(value: ITypeLib) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ITypeLib> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ITypeLib> for ::windows::runtime::IUnknown {
     fn from(value: &ITypeLib) -> Self {
         value.0.clone()
     }
@@ -3100,7 +3111,7 @@ pub struct ITypeLib_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptlibattr: *mut *mut TLIBATTR) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptcomp: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32, pbstrname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrdocstring: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrdocstring: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sznamebuf: super::super::super::Foundation::PWSTR, lhashval: u32, pfname: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -3110,89 +3121,89 @@ pub struct ITypeLib_abi(
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITypeLib2(pub ::windows::runtime::IUnknown);
 impl ITypeLib2 {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> u32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, index: u32) -> ::windows::runtime::Result<ITypeInfo> {
-        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<ITypeInfo>(result__)
+        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<ITypeInfo>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfoType(&self, index: u32) -> ::windows::runtime::Result<TYPEKIND> {
-        let mut result__: <TYPEKIND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<TYPEKIND>(result__)
+        let mut result__: <TYPEKIND as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<TYPEKIND>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfoOfGuid(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ITypeInfo> {
-        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), &mut result__).from_abi::<ITypeInfo>(result__)
+        let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), &mut result__).from_abi::<ITypeInfo>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetLibAttr(&self) -> ::windows::runtime::Result<*mut TLIBATTR> {
-        let mut result__: <*mut TLIBATTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut TLIBATTR>(result__)
+        let mut result__: <*mut TLIBATTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut TLIBATTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeComp(&self) -> ::windows::runtime::Result<ITypeComp> {
-        let mut result__: <ITypeComp as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITypeComp>(result__)
+        let mut result__: <ITypeComp as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<ITypeComp>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDocumentation(&self, index: i32, pbstrname: *mut super::super::super::Foundation::BSTR, pbstrdocstring: *mut super::super::super::Foundation::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pbstrdocstring), ::std::mem::transmute(pdwhelpcontext), ::std::mem::transmute(pbstrhelpfile)).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrdocstring), ::core::mem::transmute(pdwhelpcontext), ::core::mem::transmute(pbstrhelpfile)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn IsName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, sznamebuf: Param0, lhashval: u32, pfname: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), sznamebuf.into_param().abi(), ::std::mem::transmute(lhashval), ::std::mem::transmute(pfname)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), sznamebuf.into_param().abi(), ::core::mem::transmute(lhashval), ::core::mem::transmute(pfname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
-    pub unsafe fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, sznamebuf: Param0, lhashval: u32, pptinfo: *mut ::std::option::Option<ITypeInfo>, rgmemid: *mut i32, pcfound: *mut u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), sznamebuf.into_param().abi(), ::std::mem::transmute(lhashval), ::std::mem::transmute(pptinfo), ::std::mem::transmute(rgmemid), ::std::mem::transmute(pcfound)).ok()
+    pub unsafe fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, sznamebuf: Param0, lhashval: u32, pptinfo: *mut ::core::option::Option<ITypeInfo>, rgmemid: *mut i32, pcfound: *mut u16) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), sznamebuf.into_param().abi(), ::core::mem::transmute(lhashval), ::core::mem::transmute(pptinfo), ::core::mem::transmute(rgmemid), ::core::mem::transmute(pcfound)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn ReleaseTLibAttr(&self, ptlibattr: *const TLIBATTR) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptlibattr)))
+        ::core::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptlibattr)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetCustData(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetLibStatistics(&self, pcuniquenames: *mut u32, pcchuniquenames: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcuniquenames), ::std::mem::transmute(pcchuniquenames)).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcuniquenames), ::core::mem::transmute(pcchuniquenames)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDocumentation2(&self, index: i32, lcid: u32, pbstrhelpstring: *mut super::super::super::Foundation::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(lcid), ::std::mem::transmute(pbstrhelpstring), ::std::mem::transmute(pdwhelpstringcontext), ::std::mem::transmute(pbstrhelpstringdll)).ok()
+        (::windows::runtime::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(lcid), ::core::mem::transmute(pbstrhelpstring), ::core::mem::transmute(pdwhelpstringcontext), ::core::mem::transmute(pbstrhelpstringdll)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetAllCustData(&self) -> ::windows::runtime::Result<CUSTDATA> {
-        let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<CUSTDATA>(result__)
+        let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<CUSTDATA>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ITypeLib2 {
     type Vtable = ITypeLib2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132113, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<ITypeLib2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ITypeLib2> for ::windows::runtime::IUnknown {
     fn from(value: ITypeLib2) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ITypeLib2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ITypeLib2> for ::windows::runtime::IUnknown {
     fn from(value: &ITypeLib2) -> Self {
         value.0.clone()
     }
@@ -3207,24 +3218,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<ITypeLib2> for ITypeLib {
+impl ::core::convert::From<ITypeLib2> for ITypeLib {
     fn from(value: ITypeLib2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&ITypeLib2> for ITypeLib {
+impl ::core::convert::From<&ITypeLib2> for ITypeLib {
     fn from(value: &ITypeLib2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITypeLib> for ITypeLib2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITypeLib> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITypeLib> for &ITypeLib2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITypeLib> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3239,82 +3250,82 @@ pub struct ITypeLib2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptlibattr: *mut *mut TLIBATTR) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptcomp: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32, pbstrname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrdocstring: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrdocstring: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sznamebuf: super::super::super::Foundation::PWSTR, lhashval: u32, pfname: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sznamebuf: super::super::super::Foundation::PWSTR, lhashval: u32, pptinfo: *mut ::windows::runtime::RawPtr, rgmemid: *mut i32, pcfound: *mut u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptlibattr: *const TLIBATTR),
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pvarval: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pvarval: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcuniquenames: *mut u32, pcchuniquenames: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32, lcid: u32, pbstrhelpstring: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32, lcid: u32, pbstrhelpstring: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcustdata: *mut CUSTDATA) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITypeLibRegistration(pub ::windows::runtime::IUnknown);
 impl ITypeLibRegistration {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetLcid(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetWin32Path(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetWin64Path(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetFlags(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetHelpDir(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ITypeLibRegistration {
     type Vtable = ITypeLibRegistration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1990453045, 735, 18962, [152, 235, 4, 58, 211, 96, 10, 243]);
 }
-impl ::std::convert::From<ITypeLibRegistration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ITypeLibRegistration> for ::windows::runtime::IUnknown {
     fn from(value: ITypeLibRegistration) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ITypeLibRegistration> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ITypeLibRegistration> for ::windows::runtime::IUnknown {
     fn from(value: &ITypeLibRegistration) -> Self {
         value.0.clone()
     }
@@ -3336,41 +3347,41 @@ pub struct ITypeLibRegistration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pversion: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pversion: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plcid: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwin32path: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwin32path: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwin64path: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwin64path: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdisplayname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdisplayname: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phelpdir: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phelpdir: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITypeLibRegistrationReader(pub ::windows::runtime::IUnknown);
 impl ITypeLibRegistrationReader {
     #[cfg(feature = "Win32_System_Com")]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
     pub unsafe fn EnumTypeLibRegistrations(&self) -> ::windows::runtime::Result<super::super::Com::IEnumUnknown> {
-        let mut result__: <super::super::Com::IEnumUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Com::IEnumUnknown>(result__)
+        let mut result__: <super::super::Com::IEnumUnknown as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Com::IEnumUnknown>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ITypeLibRegistrationReader {
     type Vtable = ITypeLibRegistrationReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3983182378, 45408, 20087, [143, 115, 170, 116, 53, 205, 92, 39]);
 }
-impl ::std::convert::From<ITypeLibRegistrationReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ITypeLibRegistrationReader> for ::windows::runtime::IUnknown {
     fn from(value: ITypeLibRegistrationReader) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ITypeLibRegistrationReader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ITypeLibRegistrationReader> for ::windows::runtime::IUnknown {
     fn from(value: &ITypeLibRegistrationReader) -> Self {
         value.0.clone()
     }
@@ -3396,37 +3407,37 @@ pub struct ITypeLibRegistrationReader_abi(
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITypeMarshal(pub ::windows::runtime::IUnknown);
 impl ITypeMarshal {
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-    pub unsafe fn Size(&self, pvtype: *const ::std::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvtype), ::std::mem::transmute(dwdestcontext), ::std::mem::transmute(pvdestcontext), &mut result__).from_abi::<u32>(result__)
+    pub unsafe fn Size(&self, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvtype), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-    pub unsafe fn Marshal(&self, pvtype: *const ::std::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::std::ffi::c_void, cbbufferlength: u32, pbuffer: *mut u8, pcbwritten: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvtype), ::std::mem::transmute(dwdestcontext), ::std::mem::transmute(pvdestcontext), ::std::mem::transmute(cbbufferlength), ::std::mem::transmute(pbuffer), ::std::mem::transmute(pcbwritten)).ok()
+    pub unsafe fn Marshal(&self, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, cbbufferlength: u32, pbuffer: *mut u8, pcbwritten: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvtype), ::core::mem::transmute(dwdestcontext), ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbwritten)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-    pub unsafe fn Unmarshal(&self, pvtype: *mut ::std::ffi::c_void, dwflags: u32, cbbufferlength: u32, pbuffer: *const u8, pcbread: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvtype), ::std::mem::transmute(dwflags), ::std::mem::transmute(cbbufferlength), ::std::mem::transmute(pbuffer), ::std::mem::transmute(pcbread)).ok()
+    pub unsafe fn Unmarshal(&self, pvtype: *mut ::core::ffi::c_void, dwflags: u32, cbbufferlength: u32, pbuffer: *const u8, pcbread: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvtype), ::core::mem::transmute(dwflags), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbread)).ok()
     }
     #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-    pub unsafe fn Free(&self, pvtype: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvtype)).ok()
+    pub unsafe fn Free(&self, pvtype: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvtype)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ITypeMarshal {
     type Vtable = ITypeMarshal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(45, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<ITypeMarshal> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ITypeMarshal> for ::windows::runtime::IUnknown {
     fn from(value: ITypeMarshal) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ITypeMarshal> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ITypeMarshal> for ::windows::runtime::IUnknown {
     fn from(value: &ITypeMarshal) -> Self {
         value.0.clone()
     }
@@ -3447,32 +3458,32 @@ pub struct ITypeMarshal_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvtype: *const ::std::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::std::ffi::c_void, psize: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvtype: *const ::std::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::std::ffi::c_void, cbbufferlength: u32, pbuffer: *mut u8, pcbwritten: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvtype: *mut ::std::ffi::c_void, dwflags: u32, cbbufferlength: u32, pbuffer: *const u8, pcbread: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvtype: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, psize: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, cbbufferlength: u32, pbuffer: *mut u8, pcbwritten: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvtype: *mut ::core::ffi::c_void, dwflags: u32, cbbufferlength: u32, pbuffer: *const u8, pcbread: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvtype: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IVariantChangeType(pub ::windows::runtime::IUnknown);
 impl IVariantChangeType {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ChangeType(&self, pvardst: *mut super::super::Com::VARIANT, pvarsrc: *const super::super::Com::VARIANT, lcid: u32, vtnew: u16) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvardst), ::std::mem::transmute(pvarsrc), ::std::mem::transmute(lcid), ::std::mem::transmute(vtnew)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvardst), ::core::mem::transmute(pvarsrc), ::core::mem::transmute(lcid), ::core::mem::transmute(vtnew)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IVariantChangeType {
     type Vtable = IVariantChangeType_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2800719970, 50976, 4560, [147, 55, 0, 160, 201, 13, 202, 169]);
 }
-impl ::std::convert::From<IVariantChangeType> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IVariantChangeType> for ::windows::runtime::IUnknown {
     fn from(value: IVariantChangeType) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IVariantChangeType> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IVariantChangeType> for ::windows::runtime::IUnknown {
     fn from(value: &IVariantChangeType) -> Self {
         value.0.clone()
     }
@@ -3493,7 +3504,7 @@ pub struct IVariantChangeType_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvardst: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarsrc: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, lcid: u32, vtnew: u16) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvardst: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarsrc: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, lcid: u32, vtnew: u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
@@ -3506,7 +3517,7 @@ pub unsafe fn LHashValOfNameSys<'a, Param2: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn LHashValOfNameSys(syskind: SYSKIND, lcid: u32, szname: super::super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(LHashValOfNameSys(::std::mem::transmute(syskind), ::std::mem::transmute(lcid), szname.into_param().abi()))
+        ::core::mem::transmute(LHashValOfNameSys(::core::mem::transmute(syskind), ::core::mem::transmute(lcid), szname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3521,20 +3532,20 @@ pub unsafe fn LHashValOfNameSysA<'a, Param2: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn LHashValOfNameSysA(syskind: SYSKIND, lcid: u32, szname: super::super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(LHashValOfNameSysA(::std::mem::transmute(syskind), ::std::mem::transmute(lcid), szname.into_param().abi()))
+        ::core::mem::transmute(LHashValOfNameSysA(::core::mem::transmute(syskind), ::core::mem::transmute(lcid), szname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LIBFLAGS(pub i32);
 pub const LIBFLAG_FRESTRICTED: LIBFLAGS = LIBFLAGS(1i32);
 pub const LIBFLAG_FCONTROL: LIBFLAGS = LIBFLAGS(2i32);
 pub const LIBFLAG_FHIDDEN: LIBFLAGS = LIBFLAGS(4i32);
 pub const LIBFLAG_FHASDISKIMAGE: LIBFLAGS = LIBFLAGS(8i32);
-impl ::std::convert::From<i32> for LIBFLAGS {
+impl ::core::convert::From<i32> for LIBFLAGS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3550,7 +3561,7 @@ pub const LOAD_TLB_AS_64BIT: u32 = 64u32;
 pub const LOCALE_USE_NLS: u32 = 268435456u32;
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPEXCEPFINO_DEFERRED_FILLIN = unsafe extern "system" fn(pexcepinfo: *mut ::std::mem::ManuallyDrop<EXCEPINFO>) -> ::windows::runtime::HRESULT;
+pub type LPEXCEPFINO_DEFERRED_FILLIN = unsafe extern "system" fn(pexcepinfo: *mut ::core::mem::ManuallyDrop<EXCEPINFO>) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn LoadRegTypeLib(rguid: *const ::windows::runtime::GUID, wvermajor: u16, wverminor: u16, lcid: u32) -> ::windows::runtime::Result<ITypeLib> {
@@ -3560,8 +3571,8 @@ pub unsafe fn LoadRegTypeLib(rguid: *const ::windows::runtime::GUID, wvermajor: 
         extern "system" {
             fn LoadRegTypeLib(rguid: *const ::windows::runtime::GUID, wvermajor: u16, wverminor: u16, lcid: u32, pptlib: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <ITypeLib as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        LoadRegTypeLib(::std::mem::transmute(rguid), ::std::mem::transmute(wvermajor), ::std::mem::transmute(wverminor), ::std::mem::transmute(lcid), &mut result__).from_abi::<ITypeLib>(result__)
+        let mut result__: <ITypeLib as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        LoadRegTypeLib(::core::mem::transmute(rguid), ::core::mem::transmute(wvermajor), ::core::mem::transmute(wverminor), ::core::mem::transmute(lcid), &mut result__).from_abi::<ITypeLib>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3576,7 +3587,7 @@ pub unsafe fn LoadTypeLib<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn LoadTypeLib(szfile: super::super::super::Foundation::PWSTR, pptlib: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <ITypeLib as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <ITypeLib as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         LoadTypeLib(szfile.into_param().abi(), &mut result__).from_abi::<ITypeLib>(result__)
     }
     #[cfg(not(windows))]
@@ -3592,15 +3603,15 @@ pub unsafe fn LoadTypeLibEx<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn LoadTypeLibEx(szfile: super::super::super::Foundation::PWSTR, regkind: REGKIND, pptlib: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <ITypeLib as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        LoadTypeLibEx(szfile.into_param().abi(), ::std::mem::transmute(regkind), &mut result__).from_abi::<ITypeLib>(result__)
+        let mut result__: <ITypeLib as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        LoadTypeLibEx(szfile.into_param().abi(), ::core::mem::transmute(regkind), &mut result__).from_abi::<ITypeLib>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const MEMBERID_NIL: i32 = -1i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
@@ -3617,30 +3628,30 @@ pub struct METHODDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl METHODDATA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for METHODDATA {
+impl ::core::default::Default for METHODDATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for METHODDATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for METHODDATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("METHODDATA").field("szName", &self.szName).field("ppdata", &self.ppdata).field("dispid", &self.dispid).field("iMeth", &self.iMeth).field("cc", &self.cc).field("cArgs", &self.cArgs).field("wFlags", &self.wFlags).field("vtReturn", &self.vtReturn).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for METHODDATA {
+impl ::core::cmp::PartialEq for METHODDATA {
     fn eq(&self, other: &Self) -> bool {
         self.szName == other.szName && self.ppdata == other.ppdata && self.dispid == other.dispid && self.iMeth == other.iMeth && self.cc == other.cc && self.cArgs == other.cArgs && self.wFlags == other.wFlags && self.vtReturn == other.vtReturn
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for METHODDATA {}
+impl ::core::cmp::Eq for METHODDATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for METHODDATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct NUMPARSE {
@@ -3652,22 +3663,22 @@ pub struct NUMPARSE {
     pub nPwr10: i32,
 }
 impl NUMPARSE {}
-impl ::std::default::Default for NUMPARSE {
+impl ::core::default::Default for NUMPARSE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NUMPARSE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NUMPARSE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NUMPARSE").field("cDig", &self.cDig).field("dwInFlags", &self.dwInFlags).field("dwOutFlags", &self.dwOutFlags).field("cchUsed", &self.cchUsed).field("nBaseShift", &self.nBaseShift).field("nPwr10", &self.nPwr10).finish()
     }
 }
-impl ::std::cmp::PartialEq for NUMPARSE {
+impl ::core::cmp::PartialEq for NUMPARSE {
     fn eq(&self, other: &Self) -> bool {
         self.cDig == other.cDig && self.dwInFlags == other.dwInFlags && self.dwOutFlags == other.dwOutFlags && self.cchUsed == other.cchUsed && self.nBaseShift == other.nBaseShift && self.nPwr10 == other.nPwr10
     }
 }
-impl ::std::cmp::Eq for NUMPARSE {}
+impl ::core::cmp::Eq for NUMPARSE {}
 unsafe impl ::windows::runtime::Abi for NUMPARSE {
     type Abi = Self;
 }
@@ -3712,7 +3723,7 @@ pub unsafe fn OaBuildVersion() -> u32 {
         extern "system" {
             fn OaBuildVersion() -> u32;
         }
-        ::std::mem::transmute(OaBuildVersion())
+        ::core::mem::transmute(OaBuildVersion())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3726,12 +3737,12 @@ pub unsafe fn OaEnablePerUserTLibRegistration() {
         extern "system" {
             fn OaEnablePerUserTLibRegistration();
         }
-        ::std::mem::transmute(OaEnablePerUserTLibRegistration())
+        ::core::mem::transmute(OaEnablePerUserTLibRegistration())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
@@ -3742,30 +3753,30 @@ pub struct PARAMDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl PARAMDATA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for PARAMDATA {
+impl ::core::default::Default for PARAMDATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for PARAMDATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for PARAMDATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("PARAMDATA").field("szName", &self.szName).field("vt", &self.vt).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for PARAMDATA {
+impl ::core::cmp::PartialEq for PARAMDATA {
     fn eq(&self, other: &Self) -> bool {
         self.szName == other.szName && self.vt == other.vt
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for PARAMDATA {}
+impl ::core::cmp::Eq for PARAMDATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PARAMDATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -3776,31 +3787,31 @@ pub struct PARAMDESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl PARAMDESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for PARAMDESC {
+impl ::core::default::Default for PARAMDESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::fmt::Debug for PARAMDESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for PARAMDESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("PARAMDESC").field("pparamdescex", &self.pparamdescex).field("wParamFlags", &self.wParamFlags).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for PARAMDESC {
+impl ::core::cmp::PartialEq for PARAMDESC {
     fn eq(&self, other: &Self) -> bool {
         self.pparamdescex == other.pparamdescex && self.wParamFlags == other.wParamFlags
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for PARAMDESC {}
+impl ::core::cmp::Eq for PARAMDESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for PARAMDESC {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::clone::Clone for PARAMDESCEX {
+impl ::core::clone::Clone for PARAMDESCEX {
     fn clone(&self) -> Self {
         unimplemented!()
     }
@@ -3815,22 +3826,22 @@ pub struct PARAMDESCEX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl PARAMDESCEX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for PARAMDESCEX {
+impl ::core::default::Default for PARAMDESCEX {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for PARAMDESCEX {
+impl ::core::cmp::PartialEq for PARAMDESCEX {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for PARAMDESCEX {}
+impl ::core::cmp::Eq for PARAMDESCEX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for PARAMDESCEX {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const PARAMFLAG_FHASCUSTDATA: u32 = 64u32;
@@ -3857,20 +3868,20 @@ pub unsafe fn QueryPathOfRegTypeLib(guid: *const ::windows::runtime::GUID, wmaj:
         extern "system" {
             fn QueryPathOfRegTypeLib(guid: *const ::windows::runtime::GUID, wmaj: u16, wmin: u16, lcid: u32, lpbstrpathname: *mut *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        QueryPathOfRegTypeLib(::std::mem::transmute(guid), ::std::mem::transmute(wmaj), ::std::mem::transmute(wmin), ::std::mem::transmute(lcid), &mut result__).from_abi::<*mut u16>(result__)
+        let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        QueryPathOfRegTypeLib(::core::mem::transmute(guid), ::core::mem::transmute(wmaj), ::core::mem::transmute(wmin), ::core::mem::transmute(lcid), &mut result__).from_abi::<*mut u16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REGKIND(pub i32);
 pub const REGKIND_DEFAULT: REGKIND = REGKIND(0i32);
 pub const REGKIND_REGISTER: REGKIND = REGKIND(1i32);
 pub const REGKIND_NONE: REGKIND = REGKIND(2i32);
-impl ::std::convert::From<i32> for REGKIND {
+impl ::core::convert::From<i32> for REGKIND {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3887,7 +3898,7 @@ pub unsafe fn RegisterActiveObject<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn RegisterActiveObject(punk: ::windows::runtime::RawPtr, rclsid: *const ::windows::runtime::GUID, dwflags: u32, pdwregister: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        RegisterActiveObject(punk.into_param().abi(), ::std::mem::transmute(rclsid), ::std::mem::transmute(dwflags), ::std::mem::transmute(pdwregister)).ok()
+        RegisterActiveObject(punk.into_param().abi(), ::core::mem::transmute(rclsid), ::core::mem::transmute(dwflags), ::core::mem::transmute(pdwregister)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3924,20 +3935,20 @@ pub unsafe fn RegisterTypeLibForUser<'a, Param0: ::windows::runtime::IntoParam<'
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
-pub unsafe fn RevokeActiveObject(dwregister: u32, pvreserved: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn RevokeActiveObject(dwregister: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RevokeActiveObject(dwregister: u32, pvreserved: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn RevokeActiveObject(dwregister: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        RevokeActiveObject(::std::mem::transmute(dwregister), ::std::mem::transmute(pvreserved)).ok()
+        RevokeActiveObject(::core::mem::transmute(dwregister), ::core::mem::transmute(pvreserved)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SF_TYPE(pub i32);
 pub const SF_ERROR: SF_TYPE = SF_TYPE(10i32);
@@ -3951,7 +3962,7 @@ pub const SF_DISPATCH: SF_TYPE = SF_TYPE(9i32);
 pub const SF_VARIANT: SF_TYPE = SF_TYPE(12i32);
 pub const SF_RECORD: SF_TYPE = SF_TYPE(36i32);
 pub const SF_HAVEIID: SF_TYPE = SF_TYPE(32781i32);
-impl ::std::convert::From<i32> for SF_TYPE {
+impl ::core::convert::From<i32> for SF_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3975,14 +3986,14 @@ pub const STDOLE_MAJORVERNUM: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const STDOLE_MINORVERNUM: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SYSKIND(pub i32);
 pub const SYS_WIN16: SYSKIND = SYSKIND(0i32);
 pub const SYS_WIN32: SYSKIND = SYSKIND(1i32);
 pub const SYS_MAC: SYSKIND = SYSKIND(2i32);
 pub const SYS_WIN64: SYSKIND = SYSKIND(3i32);
-impl ::std::convert::From<i32> for SYSKIND {
+impl ::core::convert::From<i32> for SYSKIND {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3993,14 +4004,14 @@ unsafe impl ::windows::runtime::Abi for SYSKIND {
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn SafeArrayAccessData(psa: *const super::super::Com::SAFEARRAY, ppvdata: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn SafeArrayAccessData(psa: *const super::super::Com::SAFEARRAY, ppvdata: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SafeArrayAccessData(psa: *const super::super::Com::SAFEARRAY, ppvdata: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn SafeArrayAccessData(psa: *const super::super::Com::SAFEARRAY, ppvdata: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        SafeArrayAccessData(::std::mem::transmute(psa), ::std::mem::transmute(ppvdata)).ok()
+        SafeArrayAccessData(::core::mem::transmute(psa), ::core::mem::transmute(ppvdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4008,14 +4019,14 @@ pub unsafe fn SafeArrayAccessData(psa: *const super::super::Com::SAFEARRAY, ppvd
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn SafeArrayAddRef(psa: *const super::super::Com::SAFEARRAY, ppdatatorelease: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn SafeArrayAddRef(psa: *const super::super::Com::SAFEARRAY, ppdatatorelease: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SafeArrayAddRef(psa: *const super::super::Com::SAFEARRAY, ppdatatorelease: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn SafeArrayAddRef(psa: *const super::super::Com::SAFEARRAY, ppdatatorelease: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        SafeArrayAddRef(::std::mem::transmute(psa), ::std::mem::transmute(ppdatatorelease)).ok()
+        SafeArrayAddRef(::core::mem::transmute(psa), ::core::mem::transmute(ppdatatorelease)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4030,7 +4041,7 @@ pub unsafe fn SafeArrayAllocData(psa: *const super::super::Com::SAFEARRAY) -> ::
         extern "system" {
             fn SafeArrayAllocData(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
-        SafeArrayAllocData(::std::mem::transmute(psa)).ok()
+        SafeArrayAllocData(::core::mem::transmute(psa)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4045,8 +4056,8 @@ pub unsafe fn SafeArrayAllocDescriptor(cdims: u32) -> ::windows::runtime::Result
         extern "system" {
             fn SafeArrayAllocDescriptor(cdims: u32, ppsaout: *mut *mut super::super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <*mut super::super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        SafeArrayAllocDescriptor(::std::mem::transmute(cdims), &mut result__).from_abi::<*mut super::super::Com::SAFEARRAY>(result__)
+        let mut result__: <*mut super::super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        SafeArrayAllocDescriptor(::core::mem::transmute(cdims), &mut result__).from_abi::<*mut super::super::Com::SAFEARRAY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4061,8 +4072,8 @@ pub unsafe fn SafeArrayAllocDescriptorEx(vt: u16, cdims: u32) -> ::windows::runt
         extern "system" {
             fn SafeArrayAllocDescriptorEx(vt: u16, cdims: u32, ppsaout: *mut *mut super::super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <*mut super::super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        SafeArrayAllocDescriptorEx(::std::mem::transmute(vt), ::std::mem::transmute(cdims), &mut result__).from_abi::<*mut super::super::Com::SAFEARRAY>(result__)
+        let mut result__: <*mut super::super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        SafeArrayAllocDescriptorEx(::core::mem::transmute(vt), ::core::mem::transmute(cdims), &mut result__).from_abi::<*mut super::super::Com::SAFEARRAY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4077,8 +4088,8 @@ pub unsafe fn SafeArrayCopy(psa: *const super::super::Com::SAFEARRAY) -> ::windo
         extern "system" {
             fn SafeArrayCopy(psa: *const super::super::Com::SAFEARRAY, ppsaout: *mut *mut super::super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <*mut super::super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        SafeArrayCopy(::std::mem::transmute(psa), &mut result__).from_abi::<*mut super::super::Com::SAFEARRAY>(result__)
+        let mut result__: <*mut super::super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        SafeArrayCopy(::core::mem::transmute(psa), &mut result__).from_abi::<*mut super::super::Com::SAFEARRAY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4093,7 +4104,7 @@ pub unsafe fn SafeArrayCopyData(psasource: *const super::super::Com::SAFEARRAY, 
         extern "system" {
             fn SafeArrayCopyData(psasource: *const super::super::Com::SAFEARRAY, psatarget: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
-        SafeArrayCopyData(::std::mem::transmute(psasource), ::std::mem::transmute(psatarget)).ok()
+        SafeArrayCopyData(::core::mem::transmute(psasource), ::core::mem::transmute(psatarget)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4108,7 +4119,7 @@ pub unsafe fn SafeArrayCreate(vt: u16, cdims: u32, rgsabound: *const super::supe
         extern "system" {
             fn SafeArrayCreate(vt: u16, cdims: u32, rgsabound: *const super::super::Com::SAFEARRAYBOUND) -> *mut super::super::Com::SAFEARRAY;
         }
-        ::std::mem::transmute(SafeArrayCreate(::std::mem::transmute(vt), ::std::mem::transmute(cdims), ::std::mem::transmute(rgsabound)))
+        ::core::mem::transmute(SafeArrayCreate(::core::mem::transmute(vt), ::core::mem::transmute(cdims), ::core::mem::transmute(rgsabound)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4116,14 +4127,14 @@ pub unsafe fn SafeArrayCreate(vt: u16, cdims: u32, rgsabound: *const super::supe
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn SafeArrayCreateEx(vt: u16, cdims: u32, rgsabound: *const super::super::Com::SAFEARRAYBOUND, pvextra: *const ::std::ffi::c_void) -> *mut super::super::Com::SAFEARRAY {
+pub unsafe fn SafeArrayCreateEx(vt: u16, cdims: u32, rgsabound: *const super::super::Com::SAFEARRAYBOUND, pvextra: *const ::core::ffi::c_void) -> *mut super::super::Com::SAFEARRAY {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SafeArrayCreateEx(vt: u16, cdims: u32, rgsabound: *const super::super::Com::SAFEARRAYBOUND, pvextra: *const ::std::ffi::c_void) -> *mut super::super::Com::SAFEARRAY;
+            fn SafeArrayCreateEx(vt: u16, cdims: u32, rgsabound: *const super::super::Com::SAFEARRAYBOUND, pvextra: *const ::core::ffi::c_void) -> *mut super::super::Com::SAFEARRAY;
         }
-        ::std::mem::transmute(SafeArrayCreateEx(::std::mem::transmute(vt), ::std::mem::transmute(cdims), ::std::mem::transmute(rgsabound), ::std::mem::transmute(pvextra)))
+        ::core::mem::transmute(SafeArrayCreateEx(::core::mem::transmute(vt), ::core::mem::transmute(cdims), ::core::mem::transmute(rgsabound), ::core::mem::transmute(pvextra)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4138,7 +4149,7 @@ pub unsafe fn SafeArrayCreateVector(vt: u16, llbound: i32, celements: u32) -> *m
         extern "system" {
             fn SafeArrayCreateVector(vt: u16, llbound: i32, celements: u32) -> *mut super::super::Com::SAFEARRAY;
         }
-        ::std::mem::transmute(SafeArrayCreateVector(::std::mem::transmute(vt), ::std::mem::transmute(llbound), ::std::mem::transmute(celements)))
+        ::core::mem::transmute(SafeArrayCreateVector(::core::mem::transmute(vt), ::core::mem::transmute(llbound), ::core::mem::transmute(celements)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4146,14 +4157,14 @@ pub unsafe fn SafeArrayCreateVector(vt: u16, llbound: i32, celements: u32) -> *m
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn SafeArrayCreateVectorEx(vt: u16, llbound: i32, celements: u32, pvextra: *const ::std::ffi::c_void) -> *mut super::super::Com::SAFEARRAY {
+pub unsafe fn SafeArrayCreateVectorEx(vt: u16, llbound: i32, celements: u32, pvextra: *const ::core::ffi::c_void) -> *mut super::super::Com::SAFEARRAY {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SafeArrayCreateVectorEx(vt: u16, llbound: i32, celements: u32, pvextra: *const ::std::ffi::c_void) -> *mut super::super::Com::SAFEARRAY;
+            fn SafeArrayCreateVectorEx(vt: u16, llbound: i32, celements: u32, pvextra: *const ::core::ffi::c_void) -> *mut super::super::Com::SAFEARRAY;
         }
-        ::std::mem::transmute(SafeArrayCreateVectorEx(::std::mem::transmute(vt), ::std::mem::transmute(llbound), ::std::mem::transmute(celements), ::std::mem::transmute(pvextra)))
+        ::core::mem::transmute(SafeArrayCreateVectorEx(::core::mem::transmute(vt), ::core::mem::transmute(llbound), ::core::mem::transmute(celements), ::core::mem::transmute(pvextra)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4168,7 +4179,7 @@ pub unsafe fn SafeArrayDestroy(psa: *const super::super::Com::SAFEARRAY) -> ::wi
         extern "system" {
             fn SafeArrayDestroy(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
-        SafeArrayDestroy(::std::mem::transmute(psa)).ok()
+        SafeArrayDestroy(::core::mem::transmute(psa)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4183,7 +4194,7 @@ pub unsafe fn SafeArrayDestroyData(psa: *const super::super::Com::SAFEARRAY) -> 
         extern "system" {
             fn SafeArrayDestroyData(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
-        SafeArrayDestroyData(::std::mem::transmute(psa)).ok()
+        SafeArrayDestroyData(::core::mem::transmute(psa)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4198,7 +4209,7 @@ pub unsafe fn SafeArrayDestroyDescriptor(psa: *const super::super::Com::SAFEARRA
         extern "system" {
             fn SafeArrayDestroyDescriptor(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
-        SafeArrayDestroyDescriptor(::std::mem::transmute(psa)).ok()
+        SafeArrayDestroyDescriptor(::core::mem::transmute(psa)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4213,7 +4224,7 @@ pub unsafe fn SafeArrayGetDim(psa: *const super::super::Com::SAFEARRAY) -> u32 {
         extern "system" {
             fn SafeArrayGetDim(psa: *const super::super::Com::SAFEARRAY) -> u32;
         }
-        ::std::mem::transmute(SafeArrayGetDim(::std::mem::transmute(psa)))
+        ::core::mem::transmute(SafeArrayGetDim(::core::mem::transmute(psa)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4221,14 +4232,14 @@ pub unsafe fn SafeArrayGetDim(psa: *const super::super::Com::SAFEARRAY) -> u32 {
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn SafeArrayGetElement(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, pv: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn SafeArrayGetElement(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, pv: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SafeArrayGetElement(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, pv: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn SafeArrayGetElement(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, pv: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        SafeArrayGetElement(::std::mem::transmute(psa), ::std::mem::transmute(rgindices), ::std::mem::transmute(pv)).ok()
+        SafeArrayGetElement(::core::mem::transmute(psa), ::core::mem::transmute(rgindices), ::core::mem::transmute(pv)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4243,7 +4254,7 @@ pub unsafe fn SafeArrayGetElemsize(psa: *const super::super::Com::SAFEARRAY) -> 
         extern "system" {
             fn SafeArrayGetElemsize(psa: *const super::super::Com::SAFEARRAY) -> u32;
         }
-        ::std::mem::transmute(SafeArrayGetElemsize(::std::mem::transmute(psa)))
+        ::core::mem::transmute(SafeArrayGetElemsize(::core::mem::transmute(psa)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4258,8 +4269,8 @@ pub unsafe fn SafeArrayGetIID(psa: *const super::super::Com::SAFEARRAY) -> ::win
         extern "system" {
             fn SafeArrayGetIID(psa: *const super::super::Com::SAFEARRAY, pguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        SafeArrayGetIID(::std::mem::transmute(psa), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        SafeArrayGetIID(::core::mem::transmute(psa), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4274,8 +4285,8 @@ pub unsafe fn SafeArrayGetLBound(psa: *const super::super::Com::SAFEARRAY, ndim:
         extern "system" {
             fn SafeArrayGetLBound(psa: *const super::super::Com::SAFEARRAY, ndim: u32, pllbound: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        SafeArrayGetLBound(::std::mem::transmute(psa), ::std::mem::transmute(ndim), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        SafeArrayGetLBound(::core::mem::transmute(psa), ::core::mem::transmute(ndim), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4290,8 +4301,8 @@ pub unsafe fn SafeArrayGetRecordInfo(psa: *const super::super::Com::SAFEARRAY) -
         extern "system" {
             fn SafeArrayGetRecordInfo(psa: *const super::super::Com::SAFEARRAY, prinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <IRecordInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        SafeArrayGetRecordInfo(::std::mem::transmute(psa), &mut result__).from_abi::<IRecordInfo>(result__)
+        let mut result__: <IRecordInfo as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        SafeArrayGetRecordInfo(::core::mem::transmute(psa), &mut result__).from_abi::<IRecordInfo>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4306,8 +4317,8 @@ pub unsafe fn SafeArrayGetUBound(psa: *const super::super::Com::SAFEARRAY, ndim:
         extern "system" {
             fn SafeArrayGetUBound(psa: *const super::super::Com::SAFEARRAY, ndim: u32, plubound: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        SafeArrayGetUBound(::std::mem::transmute(psa), ::std::mem::transmute(ndim), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        SafeArrayGetUBound(::core::mem::transmute(psa), ::core::mem::transmute(ndim), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4322,8 +4333,8 @@ pub unsafe fn SafeArrayGetVartype(psa: *const super::super::Com::SAFEARRAY) -> :
         extern "system" {
             fn SafeArrayGetVartype(psa: *const super::super::Com::SAFEARRAY, pvt: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        SafeArrayGetVartype(::std::mem::transmute(psa), &mut result__).from_abi::<u16>(result__)
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        SafeArrayGetVartype(::core::mem::transmute(psa), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4338,7 +4349,7 @@ pub unsafe fn SafeArrayLock(psa: *const super::super::Com::SAFEARRAY) -> ::windo
         extern "system" {
             fn SafeArrayLock(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
-        SafeArrayLock(::std::mem::transmute(psa)).ok()
+        SafeArrayLock(::core::mem::transmute(psa)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4346,14 +4357,14 @@ pub unsafe fn SafeArrayLock(psa: *const super::super::Com::SAFEARRAY) -> ::windo
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn SafeArrayPtrOfIndex(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, ppvdata: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn SafeArrayPtrOfIndex(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, ppvdata: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SafeArrayPtrOfIndex(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, ppvdata: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn SafeArrayPtrOfIndex(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, ppvdata: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        SafeArrayPtrOfIndex(::std::mem::transmute(psa), ::std::mem::transmute(rgindices), ::std::mem::transmute(ppvdata)).ok()
+        SafeArrayPtrOfIndex(::core::mem::transmute(psa), ::core::mem::transmute(rgindices), ::core::mem::transmute(ppvdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4361,14 +4372,14 @@ pub unsafe fn SafeArrayPtrOfIndex(psa: *const super::super::Com::SAFEARRAY, rgin
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn SafeArrayPutElement(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, pv: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+pub unsafe fn SafeArrayPutElement(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, pv: *const ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SafeArrayPutElement(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, pv: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+            fn SafeArrayPutElement(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, pv: *const ::core::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        SafeArrayPutElement(::std::mem::transmute(psa), ::std::mem::transmute(rgindices), ::std::mem::transmute(pv)).ok()
+        SafeArrayPutElement(::core::mem::transmute(psa), ::core::mem::transmute(rgindices), ::core::mem::transmute(pv)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4383,21 +4394,21 @@ pub unsafe fn SafeArrayRedim(psa: *mut super::super::Com::SAFEARRAY, psaboundnew
         extern "system" {
             fn SafeArrayRedim(psa: *mut super::super::Com::SAFEARRAY, psaboundnew: *const super::super::Com::SAFEARRAYBOUND) -> ::windows::runtime::HRESULT;
         }
-        SafeArrayRedim(::std::mem::transmute(psa), ::std::mem::transmute(psaboundnew)).ok()
+        SafeArrayRedim(::core::mem::transmute(psa), ::core::mem::transmute(psaboundnew)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
-pub unsafe fn SafeArrayReleaseData(pdata: *const ::std::ffi::c_void) {
+pub unsafe fn SafeArrayReleaseData(pdata: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SafeArrayReleaseData(pdata: *const ::std::ffi::c_void);
+            fn SafeArrayReleaseData(pdata: *const ::core::ffi::c_void);
         }
-        ::std::mem::transmute(SafeArrayReleaseData(::std::mem::transmute(pdata)))
+        ::core::mem::transmute(SafeArrayReleaseData(::core::mem::transmute(pdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4412,7 +4423,7 @@ pub unsafe fn SafeArrayReleaseDescriptor(psa: *const super::super::Com::SAFEARRA
         extern "system" {
             fn SafeArrayReleaseDescriptor(psa: *const super::super::Com::SAFEARRAY);
         }
-        ::std::mem::transmute(SafeArrayReleaseDescriptor(::std::mem::transmute(psa)))
+        ::core::mem::transmute(SafeArrayReleaseDescriptor(::core::mem::transmute(psa)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4427,7 +4438,7 @@ pub unsafe fn SafeArraySetIID(psa: *const super::super::Com::SAFEARRAY, guid: *c
         extern "system" {
             fn SafeArraySetIID(psa: *const super::super::Com::SAFEARRAY, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        SafeArraySetIID(::std::mem::transmute(psa), ::std::mem::transmute(guid)).ok()
+        SafeArraySetIID(::core::mem::transmute(psa), ::core::mem::transmute(guid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4442,7 +4453,7 @@ pub unsafe fn SafeArraySetRecordInfo<'a, Param1: ::windows::runtime::IntoParam<'
         extern "system" {
             fn SafeArraySetRecordInfo(psa: *const super::super::Com::SAFEARRAY, prinfo: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        SafeArraySetRecordInfo(::std::mem::transmute(psa), prinfo.into_param().abi()).ok()
+        SafeArraySetRecordInfo(::core::mem::transmute(psa), prinfo.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4457,7 +4468,7 @@ pub unsafe fn SafeArrayUnaccessData(psa: *const super::super::Com::SAFEARRAY) ->
         extern "system" {
             fn SafeArrayUnaccessData(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
-        SafeArrayUnaccessData(::std::mem::transmute(psa)).ok()
+        SafeArrayUnaccessData(::core::mem::transmute(psa)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4472,7 +4483,7 @@ pub unsafe fn SafeArrayUnlock(psa: *const super::super::Com::SAFEARRAY) -> ::win
         extern "system" {
             fn SafeArrayUnlock(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
-        SafeArrayUnlock(::std::mem::transmute(psa)).ok()
+        SafeArrayUnlock(::core::mem::transmute(psa)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4486,7 +4497,7 @@ pub unsafe fn SetErrorInfo<'a, Param1: ::windows::runtime::IntoParam<'a, IErrorI
         extern "system" {
             fn SetErrorInfo(dwreserved: u32, perrinfo: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        SetErrorInfo(::std::mem::transmute(dwreserved), perrinfo.into_param().abi()).ok()
+        SetErrorInfo(::core::mem::transmute(dwreserved), perrinfo.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4501,12 +4512,12 @@ pub unsafe fn SystemTimeToVariantTime(lpsystemtime: *const super::super::super::
         extern "system" {
             fn SystemTimeToVariantTime(lpsystemtime: *const super::super::super::Foundation::SYSTEMTIME, pvtime: *mut f64) -> i32;
         }
-        ::std::mem::transmute(SystemTimeToVariantTime(::std::mem::transmute(lpsystemtime), ::std::mem::transmute(pvtime)))
+        ::core::mem::transmute(SystemTimeToVariantTime(::core::mem::transmute(lpsystemtime), ::core::mem::transmute(pvtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct TLIBATTR {
@@ -4518,26 +4529,26 @@ pub struct TLIBATTR {
     pub wLibFlags: u16,
 }
 impl TLIBATTR {}
-impl ::std::default::Default for TLIBATTR {
+impl ::core::default::Default for TLIBATTR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TLIBATTR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TLIBATTR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TLIBATTR").field("guid", &self.guid).field("lcid", &self.lcid).field("syskind", &self.syskind).field("wMajorVerNum", &self.wMajorVerNum).field("wMinorVerNum", &self.wMinorVerNum).field("wLibFlags", &self.wLibFlags).finish()
     }
 }
-impl ::std::cmp::PartialEq for TLIBATTR {
+impl ::core::cmp::PartialEq for TLIBATTR {
     fn eq(&self, other: &Self) -> bool {
         self.guid == other.guid && self.lcid == other.lcid && self.syskind == other.syskind && self.wMajorVerNum == other.wMajorVerNum && self.wMinorVerNum == other.wMinorVerNum && self.wLibFlags == other.wLibFlags
     }
 }
-impl ::std::cmp::Eq for TLIBATTR {}
+impl ::core::cmp::Eq for TLIBATTR {}
 unsafe impl ::windows::runtime::Abi for TLIBATTR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -4564,24 +4575,24 @@ pub struct TYPEATTR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl TYPEATTR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for TYPEATTR {
+impl ::core::default::Default for TYPEATTR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for TYPEATTR {
+impl ::core::cmp::PartialEq for TYPEATTR {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for TYPEATTR {}
+impl ::core::cmp::Eq for TYPEATTR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for TYPEATTR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
@@ -4592,24 +4603,24 @@ pub struct TYPEDESC {
 #[cfg(feature = "Win32_System_Com")]
 impl TYPEDESC {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::default::Default for TYPEDESC {
+impl ::core::default::Default for TYPEDESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::cmp::PartialEq for TYPEDESC {
+impl ::core::cmp::PartialEq for TYPEDESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::cmp::Eq for TYPEDESC {}
+impl ::core::cmp::Eq for TYPEDESC {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for TYPEDESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub union TYPEDESC_0 {
@@ -4620,25 +4631,25 @@ pub union TYPEDESC_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl TYPEDESC_0 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::default::Default for TYPEDESC_0 {
+impl ::core::default::Default for TYPEDESC_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::cmp::PartialEq for TYPEDESC_0 {
+impl ::core::cmp::PartialEq for TYPEDESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::cmp::Eq for TYPEDESC_0 {}
+impl ::core::cmp::Eq for TYPEDESC_0 {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for TYPEDESC_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TYPEFLAGS(pub i32);
 pub const TYPEFLAG_FAPPOBJECT: TYPEFLAGS = TYPEFLAGS(1i32);
@@ -4656,7 +4667,7 @@ pub const TYPEFLAG_FREPLACEABLE: TYPEFLAGS = TYPEFLAGS(2048i32);
 pub const TYPEFLAG_FDISPATCHABLE: TYPEFLAGS = TYPEFLAGS(4096i32);
 pub const TYPEFLAG_FREVERSEBIND: TYPEFLAGS = TYPEFLAGS(8192i32);
 pub const TYPEFLAG_FPROXY: TYPEFLAGS = TYPEFLAGS(16384i32);
-impl ::std::convert::From<i32> for TYPEFLAGS {
+impl ::core::convert::From<i32> for TYPEFLAGS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4665,7 +4676,7 @@ unsafe impl ::windows::runtime::Abi for TYPEFLAGS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TYPEKIND(pub i32);
 pub const TKIND_ENUM: TYPEKIND = TYPEKIND(0i32);
@@ -4677,7 +4688,7 @@ pub const TKIND_COCLASS: TYPEKIND = TYPEKIND(5i32);
 pub const TKIND_ALIAS: TYPEKIND = TYPEKIND(6i32);
 pub const TKIND_UNION: TYPEKIND = TYPEKIND(7i32);
 pub const TKIND_MAX: TYPEKIND = TYPEKIND(8i32);
-impl ::std::convert::From<i32> for TYPEKIND {
+impl ::core::convert::From<i32> for TYPEKIND {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4685,7 +4696,7 @@ impl ::std::convert::From<i32> for TYPEKIND {
 unsafe impl ::windows::runtime::Abi for TYPEKIND {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
@@ -4696,25 +4707,25 @@ pub struct UDATE {
 #[cfg(feature = "Win32_Foundation")]
 impl UDATE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for UDATE {
+impl ::core::default::Default for UDATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for UDATE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for UDATE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("UDATE").field("st", &self.st).field("wDayOfYear", &self.wDayOfYear).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for UDATE {
+impl ::core::cmp::PartialEq for UDATE {
     fn eq(&self, other: &Self) -> bool {
         self.st == other.st && self.wDayOfYear == other.wDayOfYear
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for UDATE {}
+impl ::core::cmp::Eq for UDATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for UDATE {
     type Abi = Self;
@@ -4728,7 +4739,7 @@ pub unsafe fn UnRegisterTypeLib(libid: *const ::windows::runtime::GUID, wvermajo
         extern "system" {
             fn UnRegisterTypeLib(libid: *const ::windows::runtime::GUID, wvermajor: u16, wverminor: u16, lcid: u32, syskind: SYSKIND) -> ::windows::runtime::HRESULT;
         }
-        UnRegisterTypeLib(::std::mem::transmute(libid), ::std::mem::transmute(wvermajor), ::std::mem::transmute(wverminor), ::std::mem::transmute(lcid), ::std::mem::transmute(syskind)).ok()
+        UnRegisterTypeLib(::core::mem::transmute(libid), ::core::mem::transmute(wvermajor), ::core::mem::transmute(wverminor), ::core::mem::transmute(lcid), ::core::mem::transmute(syskind)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4742,7 +4753,7 @@ pub unsafe fn UnRegisterTypeLibForUser(libid: *const ::windows::runtime::GUID, w
         extern "system" {
             fn UnRegisterTypeLibForUser(libid: *const ::windows::runtime::GUID, wmajorvernum: u16, wminorvernum: u16, lcid: u32, syskind: SYSKIND) -> ::windows::runtime::HRESULT;
         }
-        UnRegisterTypeLibForUser(::std::mem::transmute(libid), ::std::mem::transmute(wmajorvernum), ::std::mem::transmute(wminorvernum), ::std::mem::transmute(lcid), ::std::mem::transmute(syskind)).ok()
+        UnRegisterTypeLibForUser(::core::mem::transmute(libid), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum), ::core::mem::transmute(lcid), ::core::mem::transmute(syskind)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4755,7 +4766,7 @@ pub const VARCMP_GT: u32 = 2u32;
 pub const VARCMP_LT: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VARCMP_NULL: u32 = 3u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -4770,52 +4781,52 @@ pub struct VARDESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl VARDESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for VARDESC {
+impl ::core::default::Default for VARDESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for VARDESC {
+impl ::core::cmp::PartialEq for VARDESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for VARDESC {}
+impl ::core::cmp::Eq for VARDESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for VARDESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub union VARDESC_0 {
     pub oInst: u32,
-    pub lpvarValue: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>,
+    pub lpvarValue: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl VARDESC_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for VARDESC_0 {
+impl ::core::default::Default for VARDESC_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for VARDESC_0 {
+impl ::core::cmp::PartialEq for VARDESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for VARDESC_0 {}
+impl ::core::cmp::Eq for VARDESC_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for VARDESC_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VARENUM(pub i32);
 pub const VT_EMPTY: VARENUM = VARENUM(0i32);
@@ -4870,7 +4881,7 @@ pub const VT_RESERVED: VARENUM = VARENUM(32768i32);
 pub const VT_ILLEGAL: VARENUM = VARENUM(65535i32);
 pub const VT_ILLEGALMASKED: VARENUM = VARENUM(4095i32);
 pub const VT_TYPEMASK: VARENUM = VARENUM(4095i32);
-impl ::std::convert::From<i32> for VARENUM {
+impl ::core::convert::From<i32> for VARENUM {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4879,7 +4890,7 @@ unsafe impl ::windows::runtime::Abi for VARENUM {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VARFLAGS(pub i32);
 pub const VARFLAG_FREADONLY: VARFLAGS = VARFLAGS(1i32);
@@ -4895,7 +4906,7 @@ pub const VARFLAG_FUIDEFAULT: VARFLAGS = VARFLAGS(512i32);
 pub const VARFLAG_FNONBROWSABLE: VARFLAGS = VARFLAGS(1024i32);
 pub const VARFLAG_FREPLACEABLE: VARFLAGS = VARFLAGS(2048i32);
 pub const VARFLAG_FIMMEDIATEBIND: VARFLAGS = VARFLAGS(4096i32);
-impl ::std::convert::From<i32> for VARFLAGS {
+impl ::core::convert::From<i32> for VARFLAGS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4920,14 +4931,14 @@ pub const VARIANT_NOVALUEPROP: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VARIANT_USE_NLS: u32 = 128u32;
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VARKIND(pub i32);
 pub const VAR_PERINSTANCE: VARKIND = VARKIND(0i32);
 pub const VAR_STATIC: VARKIND = VARKIND(1i32);
 pub const VAR_CONST: VARKIND = VARKIND(2i32);
 pub const VAR_DISPATCH: VARKIND = VARKIND(3i32);
-impl ::std::convert::From<i32> for VARKIND {
+impl ::core::convert::From<i32> for VARKIND {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4947,10 +4958,10 @@ pub unsafe fn VarAbs(pvarin: *const super::super::Com::VARIANT) -> ::windows::ru
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarAbs(pvarin: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarAbs(pvarin: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarAbs(::std::mem::transmute(pvarin), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarAbs(::core::mem::transmute(pvarin), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4963,10 +4974,10 @@ pub unsafe fn VarAdd(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarAdd(pvarleft: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarAdd(pvarleft: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarAdd(::std::mem::transmute(pvarleft), ::std::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarAdd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4979,10 +4990,10 @@ pub unsafe fn VarAnd(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarAnd(pvarleft: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarAnd(pvarleft: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarAnd(::std::mem::transmute(pvarleft), ::std::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarAnd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4997,7 +5008,7 @@ pub unsafe fn VarBoolFromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn VarBoolFromCy(cyin: super::super::Com::CY, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarBoolFromCy(cyin.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
@@ -5012,8 +5023,8 @@ pub unsafe fn VarBoolFromDate(datein: f64) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarBoolFromDate(datein: f64, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBoolFromDate(::std::mem::transmute(datein), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBoolFromDate(::core::mem::transmute(datein), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5028,8 +5039,8 @@ pub unsafe fn VarBoolFromDec(pdecin: *const super::super::super::Foundation::DEC
         extern "system" {
             fn VarBoolFromDec(pdecin: *const super::super::super::Foundation::DECIMAL, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBoolFromDec(::std::mem::transmute(pdecin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBoolFromDec(::core::mem::transmute(pdecin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5043,8 +5054,8 @@ pub unsafe fn VarBoolFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDis
         extern "system" {
             fn VarBoolFromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBoolFromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBoolFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5059,7 +5070,7 @@ pub unsafe fn VarBoolFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn VarBoolFromI1(cin: super::super::super::Foundation::CHAR, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarBoolFromI1(cin.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
@@ -5074,8 +5085,8 @@ pub unsafe fn VarBoolFromI2(sin: i16) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarBoolFromI2(sin: i16, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBoolFromI2(::std::mem::transmute(sin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBoolFromI2(::core::mem::transmute(sin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5089,8 +5100,8 @@ pub unsafe fn VarBoolFromI4(lin: i32) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarBoolFromI4(lin: i32, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBoolFromI4(::std::mem::transmute(lin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBoolFromI4(::core::mem::transmute(lin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5104,8 +5115,8 @@ pub unsafe fn VarBoolFromI8(i64in: i64) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarBoolFromI8(i64in: i64, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBoolFromI8(::std::mem::transmute(i64in), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBoolFromI8(::core::mem::transmute(i64in), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5119,8 +5130,8 @@ pub unsafe fn VarBoolFromR4(fltin: f32) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarBoolFromR4(fltin: f32, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBoolFromR4(::std::mem::transmute(fltin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBoolFromR4(::core::mem::transmute(fltin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5134,8 +5145,8 @@ pub unsafe fn VarBoolFromR8(dblin: f64) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarBoolFromR8(dblin: f64, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBoolFromR8(::std::mem::transmute(dblin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBoolFromR8(::core::mem::transmute(dblin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5150,8 +5161,8 @@ pub unsafe fn VarBoolFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn VarBoolFromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBoolFromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBoolFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5165,8 +5176,8 @@ pub unsafe fn VarBoolFromUI1(bin: u8) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarBoolFromUI1(bin: u8, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBoolFromUI1(::std::mem::transmute(bin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBoolFromUI1(::core::mem::transmute(bin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5180,8 +5191,8 @@ pub unsafe fn VarBoolFromUI2(uiin: u16) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarBoolFromUI2(uiin: u16, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBoolFromUI2(::std::mem::transmute(uiin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBoolFromUI2(::core::mem::transmute(uiin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5195,8 +5206,8 @@ pub unsafe fn VarBoolFromUI4(ulin: u32) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarBoolFromUI4(ulin: u32, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBoolFromUI4(::std::mem::transmute(ulin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBoolFromUI4(::core::mem::transmute(ulin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5210,8 +5221,8 @@ pub unsafe fn VarBoolFromUI8(i64in: u64) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarBoolFromUI8(i64in: u64, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBoolFromUI8(::std::mem::transmute(i64in), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBoolFromUI8(::core::mem::transmute(i64in), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5224,9 +5235,9 @@ pub unsafe fn VarBstrCat<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrCat(bstrleft: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrright: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrresult: *mut *mut u16) -> ::windows::runtime::HRESULT;
+            fn VarBstrCat(bstrleft: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrright: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrresult: *mut *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarBstrCat(bstrleft.into_param().abi(), bstrright.into_param().abi(), &mut result__).from_abi::<*mut u16>(result__)
     }
     #[cfg(not(windows))]
@@ -5240,9 +5251,9 @@ pub unsafe fn VarBstrCmp<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrCmp(bstrleft: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrright: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, lcid: u32, dwflags: u32) -> ::windows::runtime::HRESULT;
+            fn VarBstrCmp(bstrleft: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrright: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, lcid: u32, dwflags: u32) -> ::windows::runtime::HRESULT;
         }
-        VarBstrCmp(bstrleft.into_param().abi(), bstrright.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags)).ok()
+        VarBstrCmp(bstrleft.into_param().abi(), bstrright.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5255,10 +5266,10 @@ pub unsafe fn VarBstrFromBool(boolin: i16, lcid: u32, dwflags: u32) -> ::windows
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromBool(boolin: i16, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromBool(boolin: i16, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromBool(::std::mem::transmute(boolin), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromBool(::core::mem::transmute(boolin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5271,10 +5282,10 @@ pub unsafe fn VarBstrFromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromCy(cyin: super::super::Com::CY, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromCy(cyin: super::super::Com::CY, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromCy(cyin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromCy(cyin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5287,10 +5298,10 @@ pub unsafe fn VarBstrFromDate(datein: f64, lcid: u32, dwflags: u32) -> ::windows
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromDate(datein: f64, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromDate(datein: f64, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromDate(::std::mem::transmute(datein), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromDate(::core::mem::transmute(datein), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5303,10 +5314,10 @@ pub unsafe fn VarBstrFromDec(pdecin: *const super::super::super::Foundation::DEC
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromDec(pdecin: *const super::super::super::Foundation::DECIMAL, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromDec(pdecin: *const super::super::super::Foundation::DECIMAL, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromDec(::std::mem::transmute(pdecin), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5319,10 +5330,10 @@ pub unsafe fn VarBstrFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDis
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5335,10 +5346,10 @@ pub unsafe fn VarBstrFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromI1(cin: super::super::super::Foundation::CHAR, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromI1(cin: super::super::super::Foundation::CHAR, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromI1(cin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromI1(cin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5351,10 +5362,10 @@ pub unsafe fn VarBstrFromI2(ival: i16, lcid: u32, dwflags: u32) -> ::windows::ru
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromI2(ival: i16, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromI2(ival: i16, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromI2(::std::mem::transmute(ival), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromI2(::core::mem::transmute(ival), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5367,10 +5378,10 @@ pub unsafe fn VarBstrFromI4(lin: i32, lcid: u32, dwflags: u32) -> ::windows::run
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromI4(lin: i32, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromI4(lin: i32, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromI4(::std::mem::transmute(lin), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromI4(::core::mem::transmute(lin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5383,10 +5394,10 @@ pub unsafe fn VarBstrFromI8(i64in: i64, lcid: u32, dwflags: u32) -> ::windows::r
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromI8(i64in: i64, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromI8(i64in: i64, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromI8(::std::mem::transmute(i64in), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromI8(::core::mem::transmute(i64in), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5399,10 +5410,10 @@ pub unsafe fn VarBstrFromR4(fltin: f32, lcid: u32, dwflags: u32) -> ::windows::r
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromR4(fltin: f32, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromR4(fltin: f32, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromR4(::std::mem::transmute(fltin), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromR4(::core::mem::transmute(fltin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5415,10 +5426,10 @@ pub unsafe fn VarBstrFromR8(dblin: f64, lcid: u32, dwflags: u32) -> ::windows::r
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromR8(dblin: f64, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromR8(dblin: f64, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromR8(::std::mem::transmute(dblin), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromR8(::core::mem::transmute(dblin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5431,10 +5442,10 @@ pub unsafe fn VarBstrFromUI1(bval: u8, lcid: u32, dwflags: u32) -> ::windows::ru
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromUI1(bval: u8, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromUI1(bval: u8, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromUI1(::std::mem::transmute(bval), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromUI1(::core::mem::transmute(bval), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5447,10 +5458,10 @@ pub unsafe fn VarBstrFromUI2(uiin: u16, lcid: u32, dwflags: u32) -> ::windows::r
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromUI2(uiin: u16, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromUI2(uiin: u16, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromUI2(::std::mem::transmute(uiin), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5463,10 +5474,10 @@ pub unsafe fn VarBstrFromUI4(ulin: u32, lcid: u32, dwflags: u32) -> ::windows::r
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromUI4(ulin: u32, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromUI4(ulin: u32, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromUI4(::std::mem::transmute(ulin), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5479,10 +5490,10 @@ pub unsafe fn VarBstrFromUI8(ui64in: u64, lcid: u32, dwflags: u32) -> ::windows:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarBstrFromUI8(ui64in: u64, lcid: u32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarBstrFromUI8(ui64in: u64, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarBstrFromUI8(::std::mem::transmute(ui64in), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarBstrFromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5495,10 +5506,10 @@ pub unsafe fn VarCat(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarCat(pvarleft: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarCat(pvarleft: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCat(::std::mem::transmute(pvarleft), ::std::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCat(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5511,9 +5522,9 @@ pub unsafe fn VarCmp(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarCmp(pvarleft: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, lcid: u32, dwflags: u32) -> ::windows::runtime::HRESULT;
+            fn VarCmp(pvarleft: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, lcid: u32, dwflags: u32) -> ::windows::runtime::HRESULT;
         }
-        VarCmp(::std::mem::transmute(pvarleft), ::std::mem::transmute(pvarright), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags)).ok()
+        VarCmp(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5528,7 +5539,7 @@ pub unsafe fn VarCyAbs<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn VarCyAbs(cyin: super::super::Com::CY, pcyresult: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarCyAbs(cyin.into_param().abi(), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
@@ -5544,7 +5555,7 @@ pub unsafe fn VarCyAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn VarCyAdd(cyleft: super::super::Com::CY, cyright: super::super::Com::CY, pcyresult: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarCyAdd(cyleft.into_param().abi(), cyright.into_param().abi(), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
@@ -5575,7 +5586,7 @@ pub unsafe fn VarCyCmpR8<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn VarCyCmpR8(cyleft: super::super::Com::CY, dblright: f64) -> ::windows::runtime::HRESULT;
         }
-        VarCyCmpR8(cyleft.into_param().abi(), ::std::mem::transmute(dblright)).ok()
+        VarCyCmpR8(cyleft.into_param().abi(), ::core::mem::transmute(dblright)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5590,7 +5601,7 @@ pub unsafe fn VarCyFix<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn VarCyFix(cyin: super::super::Com::CY, pcyresult: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarCyFix(cyin.into_param().abi(), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
@@ -5606,8 +5617,8 @@ pub unsafe fn VarCyFromBool(boolin: i16) -> ::windows::runtime::Result<super::su
         extern "system" {
             fn VarCyFromBool(boolin: i16, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyFromBool(::std::mem::transmute(boolin), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyFromBool(::core::mem::transmute(boolin), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5622,8 +5633,8 @@ pub unsafe fn VarCyFromDate(datein: f64) -> ::windows::runtime::Result<super::su
         extern "system" {
             fn VarCyFromDate(datein: f64, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyFromDate(::std::mem::transmute(datein), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyFromDate(::core::mem::transmute(datein), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5638,8 +5649,8 @@ pub unsafe fn VarCyFromDec(pdecin: *const super::super::super::Foundation::DECIM
         extern "system" {
             fn VarCyFromDec(pdecin: *const super::super::super::Foundation::DECIMAL, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyFromDec(::std::mem::transmute(pdecin), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyFromDec(::core::mem::transmute(pdecin), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5654,8 +5665,8 @@ pub unsafe fn VarCyFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
         extern "system" {
             fn VarCyFromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyFromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5670,7 +5681,7 @@ pub unsafe fn VarCyFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn VarCyFromI1(cin: super::super::super::Foundation::CHAR, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarCyFromI1(cin.into_param().abi(), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
@@ -5686,8 +5697,8 @@ pub unsafe fn VarCyFromI2(sin: i16) -> ::windows::runtime::Result<super::super::
         extern "system" {
             fn VarCyFromI2(sin: i16, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyFromI2(::std::mem::transmute(sin), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyFromI2(::core::mem::transmute(sin), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5702,8 +5713,8 @@ pub unsafe fn VarCyFromI4(lin: i32) -> ::windows::runtime::Result<super::super::
         extern "system" {
             fn VarCyFromI4(lin: i32, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyFromI4(::std::mem::transmute(lin), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyFromI4(::core::mem::transmute(lin), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5718,8 +5729,8 @@ pub unsafe fn VarCyFromI8(i64in: i64) -> ::windows::runtime::Result<super::super
         extern "system" {
             fn VarCyFromI8(i64in: i64, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyFromI8(::std::mem::transmute(i64in), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyFromI8(::core::mem::transmute(i64in), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5734,8 +5745,8 @@ pub unsafe fn VarCyFromR4(fltin: f32) -> ::windows::runtime::Result<super::super
         extern "system" {
             fn VarCyFromR4(fltin: f32, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyFromR4(::std::mem::transmute(fltin), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyFromR4(::core::mem::transmute(fltin), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5750,8 +5761,8 @@ pub unsafe fn VarCyFromR8(dblin: f64) -> ::windows::runtime::Result<super::super
         extern "system" {
             fn VarCyFromR8(dblin: f64, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyFromR8(::std::mem::transmute(dblin), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyFromR8(::core::mem::transmute(dblin), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5766,8 +5777,8 @@ pub unsafe fn VarCyFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarCyFromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyFromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5782,8 +5793,8 @@ pub unsafe fn VarCyFromUI1(bin: u8) -> ::windows::runtime::Result<super::super::
         extern "system" {
             fn VarCyFromUI1(bin: u8, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyFromUI1(::std::mem::transmute(bin), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyFromUI1(::core::mem::transmute(bin), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5798,8 +5809,8 @@ pub unsafe fn VarCyFromUI2(uiin: u16) -> ::windows::runtime::Result<super::super
         extern "system" {
             fn VarCyFromUI2(uiin: u16, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyFromUI2(::std::mem::transmute(uiin), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyFromUI2(::core::mem::transmute(uiin), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5814,8 +5825,8 @@ pub unsafe fn VarCyFromUI4(ulin: u32) -> ::windows::runtime::Result<super::super
         extern "system" {
             fn VarCyFromUI4(ulin: u32, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyFromUI4(::std::mem::transmute(ulin), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyFromUI4(::core::mem::transmute(ulin), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5830,8 +5841,8 @@ pub unsafe fn VarCyFromUI8(ui64in: u64) -> ::windows::runtime::Result<super::sup
         extern "system" {
             fn VarCyFromUI8(ui64in: u64, pcyout: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyFromUI8(::std::mem::transmute(ui64in), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyFromUI8(::core::mem::transmute(ui64in), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5846,7 +5857,7 @@ pub unsafe fn VarCyInt<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn VarCyInt(cyin: super::super::Com::CY, pcyresult: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarCyInt(cyin.into_param().abi(), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
@@ -5862,7 +5873,7 @@ pub unsafe fn VarCyMul<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn VarCyMul(cyleft: super::super::Com::CY, cyright: super::super::Com::CY, pcyresult: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarCyMul(cyleft.into_param().abi(), cyright.into_param().abi(), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
@@ -5878,8 +5889,8 @@ pub unsafe fn VarCyMulI4<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn VarCyMulI4(cyleft: super::super::Com::CY, lright: i32, pcyresult: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyMulI4(cyleft.into_param().abi(), ::std::mem::transmute(lright), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyMulI4(cyleft.into_param().abi(), ::core::mem::transmute(lright), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5894,8 +5905,8 @@ pub unsafe fn VarCyMulI8<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn VarCyMulI8(cyleft: super::super::Com::CY, lright: i64, pcyresult: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyMulI8(cyleft.into_param().abi(), ::std::mem::transmute(lright), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyMulI8(cyleft.into_param().abi(), ::core::mem::transmute(lright), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5910,7 +5921,7 @@ pub unsafe fn VarCyNeg<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn VarCyNeg(cyin: super::super::Com::CY, pcyresult: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarCyNeg(cyin.into_param().abi(), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
@@ -5926,8 +5937,8 @@ pub unsafe fn VarCyRound<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn VarCyRound(cyin: super::super::Com::CY, cdecimals: i32, pcyresult: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarCyRound(cyin.into_param().abi(), ::std::mem::transmute(cdecimals), &mut result__).from_abi::<super::super::Com::CY>(result__)
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarCyRound(cyin.into_param().abi(), ::core::mem::transmute(cdecimals), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5942,7 +5953,7 @@ pub unsafe fn VarCySub<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn VarCySub(cyleft: super::super::Com::CY, cyright: super::super::Com::CY, pcyresult: *mut super::super::Com::CY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Com::CY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarCySub(cyleft.into_param().abi(), cyright.into_param().abi(), &mut result__).from_abi::<super::super::Com::CY>(result__)
     }
     #[cfg(not(windows))]
@@ -5957,8 +5968,8 @@ pub unsafe fn VarDateFromBool(boolin: i16) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarDateFromBool(boolin: i16, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromBool(::std::mem::transmute(boolin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromBool(::core::mem::transmute(boolin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5973,7 +5984,7 @@ pub unsafe fn VarDateFromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn VarDateFromCy(cyin: super::super::Com::CY, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarDateFromCy(cyin.into_param().abi(), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
@@ -5989,8 +6000,8 @@ pub unsafe fn VarDateFromDec(pdecin: *const super::super::super::Foundation::DEC
         extern "system" {
             fn VarDateFromDec(pdecin: *const super::super::super::Foundation::DECIMAL, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromDec(::std::mem::transmute(pdecin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromDec(::core::mem::transmute(pdecin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6004,8 +6015,8 @@ pub unsafe fn VarDateFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDis
         extern "system" {
             fn VarDateFromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6020,7 +6031,7 @@ pub unsafe fn VarDateFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn VarDateFromI1(cin: super::super::super::Foundation::CHAR, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarDateFromI1(cin.into_param().abi(), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
@@ -6035,8 +6046,8 @@ pub unsafe fn VarDateFromI2(sin: i16) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarDateFromI2(sin: i16, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromI2(::std::mem::transmute(sin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromI2(::core::mem::transmute(sin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6050,8 +6061,8 @@ pub unsafe fn VarDateFromI4(lin: i32) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarDateFromI4(lin: i32, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromI4(::std::mem::transmute(lin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromI4(::core::mem::transmute(lin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6065,8 +6076,8 @@ pub unsafe fn VarDateFromI8(i64in: i64) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarDateFromI8(i64in: i64, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromI8(::std::mem::transmute(i64in), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromI8(::core::mem::transmute(i64in), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6080,8 +6091,8 @@ pub unsafe fn VarDateFromR4(fltin: f32) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarDateFromR4(fltin: f32, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromR4(::std::mem::transmute(fltin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromR4(::core::mem::transmute(fltin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6095,8 +6106,8 @@ pub unsafe fn VarDateFromR8(dblin: f64) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarDateFromR8(dblin: f64, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromR8(::std::mem::transmute(dblin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromR8(::core::mem::transmute(dblin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6111,8 +6122,8 @@ pub unsafe fn VarDateFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn VarDateFromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6126,8 +6137,8 @@ pub unsafe fn VarDateFromUI1(bin: u8) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarDateFromUI1(bin: u8, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromUI1(::std::mem::transmute(bin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromUI1(::core::mem::transmute(bin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6141,8 +6152,8 @@ pub unsafe fn VarDateFromUI2(uiin: u16) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarDateFromUI2(uiin: u16, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromUI2(::std::mem::transmute(uiin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromUI2(::core::mem::transmute(uiin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6156,8 +6167,8 @@ pub unsafe fn VarDateFromUI4(ulin: u32) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarDateFromUI4(ulin: u32, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromUI4(::std::mem::transmute(ulin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromUI4(::core::mem::transmute(ulin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6171,8 +6182,8 @@ pub unsafe fn VarDateFromUI8(ui64in: u64) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarDateFromUI8(ui64in: u64, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromUI8(::std::mem::transmute(ui64in), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromUI8(::core::mem::transmute(ui64in), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6187,8 +6198,8 @@ pub unsafe fn VarDateFromUdate(pudatein: *const UDATE, dwflags: u32) -> ::window
         extern "system" {
             fn VarDateFromUdate(pudatein: *const UDATE, dwflags: u32, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromUdate(::std::mem::transmute(pudatein), ::std::mem::transmute(dwflags), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromUdate(::core::mem::transmute(pudatein), ::core::mem::transmute(dwflags), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6203,8 +6214,8 @@ pub unsafe fn VarDateFromUdateEx(pudatein: *const UDATE, lcid: u32, dwflags: u32
         extern "system" {
             fn VarDateFromUdateEx(pudatein: *const UDATE, lcid: u32, dwflags: u32, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDateFromUdateEx(::std::mem::transmute(pudatein), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDateFromUdateEx(::core::mem::transmute(pudatein), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6219,8 +6230,8 @@ pub unsafe fn VarDecAbs(pdecin: *const super::super::super::Foundation::DECIMAL)
         extern "system" {
             fn VarDecAbs(pdecin: *const super::super::super::Foundation::DECIMAL, pdecresult: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecAbs(::std::mem::transmute(pdecin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecAbs(::core::mem::transmute(pdecin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6235,8 +6246,8 @@ pub unsafe fn VarDecAdd(pdecleft: *const super::super::super::Foundation::DECIMA
         extern "system" {
             fn VarDecAdd(pdecleft: *const super::super::super::Foundation::DECIMAL, pdecright: *const super::super::super::Foundation::DECIMAL, pdecresult: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecAdd(::std::mem::transmute(pdecleft), ::std::mem::transmute(pdecright), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecAdd(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6251,7 +6262,7 @@ pub unsafe fn VarDecCmp(pdecleft: *const super::super::super::Foundation::DECIMA
         extern "system" {
             fn VarDecCmp(pdecleft: *const super::super::super::Foundation::DECIMAL, pdecright: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        VarDecCmp(::std::mem::transmute(pdecleft), ::std::mem::transmute(pdecright)).ok()
+        VarDecCmp(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6266,7 +6277,7 @@ pub unsafe fn VarDecCmpR8(pdecleft: *const super::super::super::Foundation::DECI
         extern "system" {
             fn VarDecCmpR8(pdecleft: *const super::super::super::Foundation::DECIMAL, dblright: f64) -> ::windows::runtime::HRESULT;
         }
-        VarDecCmpR8(::std::mem::transmute(pdecleft), ::std::mem::transmute(dblright)).ok()
+        VarDecCmpR8(::core::mem::transmute(pdecleft), ::core::mem::transmute(dblright)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6281,8 +6292,8 @@ pub unsafe fn VarDecDiv(pdecleft: *const super::super::super::Foundation::DECIMA
         extern "system" {
             fn VarDecDiv(pdecleft: *const super::super::super::Foundation::DECIMAL, pdecright: *const super::super::super::Foundation::DECIMAL, pdecresult: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecDiv(::std::mem::transmute(pdecleft), ::std::mem::transmute(pdecright), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecDiv(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6297,8 +6308,8 @@ pub unsafe fn VarDecFix(pdecin: *const super::super::super::Foundation::DECIMAL)
         extern "system" {
             fn VarDecFix(pdecin: *const super::super::super::Foundation::DECIMAL, pdecresult: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecFix(::std::mem::transmute(pdecin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecFix(::core::mem::transmute(pdecin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6313,8 +6324,8 @@ pub unsafe fn VarDecFromBool(boolin: i16) -> ::windows::runtime::Result<super::s
         extern "system" {
             fn VarDecFromBool(boolin: i16, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecFromBool(::std::mem::transmute(boolin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecFromBool(::core::mem::transmute(boolin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6329,7 +6340,7 @@ pub unsafe fn VarDecFromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarDecFromCy(cyin: super::super::Com::CY, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarDecFromCy(cyin.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
@@ -6345,8 +6356,8 @@ pub unsafe fn VarDecFromDate(datein: f64) -> ::windows::runtime::Result<super::s
         extern "system" {
             fn VarDecFromDate(datein: f64, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecFromDate(::std::mem::transmute(datein), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecFromDate(::core::mem::transmute(datein), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6361,8 +6372,8 @@ pub unsafe fn VarDecFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
         extern "system" {
             fn VarDecFromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecFromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6377,7 +6388,7 @@ pub unsafe fn VarDecFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarDecFromI1(cin: super::super::super::Foundation::CHAR, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarDecFromI1(cin.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
@@ -6393,8 +6404,8 @@ pub unsafe fn VarDecFromI2(uiin: i16) -> ::windows::runtime::Result<super::super
         extern "system" {
             fn VarDecFromI2(uiin: i16, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecFromI2(::std::mem::transmute(uiin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecFromI2(::core::mem::transmute(uiin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6409,8 +6420,8 @@ pub unsafe fn VarDecFromI4(lin: i32) -> ::windows::runtime::Result<super::super:
         extern "system" {
             fn VarDecFromI4(lin: i32, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecFromI4(::std::mem::transmute(lin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecFromI4(::core::mem::transmute(lin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6425,8 +6436,8 @@ pub unsafe fn VarDecFromI8(i64in: i64) -> ::windows::runtime::Result<super::supe
         extern "system" {
             fn VarDecFromI8(i64in: i64, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecFromI8(::std::mem::transmute(i64in), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecFromI8(::core::mem::transmute(i64in), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6441,8 +6452,8 @@ pub unsafe fn VarDecFromR4(fltin: f32) -> ::windows::runtime::Result<super::supe
         extern "system" {
             fn VarDecFromR4(fltin: f32, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecFromR4(::std::mem::transmute(fltin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecFromR4(::core::mem::transmute(fltin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6457,8 +6468,8 @@ pub unsafe fn VarDecFromR8(dblin: f64) -> ::windows::runtime::Result<super::supe
         extern "system" {
             fn VarDecFromR8(dblin: f64, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecFromR8(::std::mem::transmute(dblin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecFromR8(::core::mem::transmute(dblin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6473,8 +6484,8 @@ pub unsafe fn VarDecFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn VarDecFromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecFromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6489,8 +6500,8 @@ pub unsafe fn VarDecFromUI1(bin: u8) -> ::windows::runtime::Result<super::super:
         extern "system" {
             fn VarDecFromUI1(bin: u8, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecFromUI1(::std::mem::transmute(bin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecFromUI1(::core::mem::transmute(bin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6505,8 +6516,8 @@ pub unsafe fn VarDecFromUI2(uiin: u16) -> ::windows::runtime::Result<super::supe
         extern "system" {
             fn VarDecFromUI2(uiin: u16, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecFromUI2(::std::mem::transmute(uiin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecFromUI2(::core::mem::transmute(uiin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6521,8 +6532,8 @@ pub unsafe fn VarDecFromUI4(ulin: u32) -> ::windows::runtime::Result<super::supe
         extern "system" {
             fn VarDecFromUI4(ulin: u32, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecFromUI4(::std::mem::transmute(ulin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecFromUI4(::core::mem::transmute(ulin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6537,8 +6548,8 @@ pub unsafe fn VarDecFromUI8(ui64in: u64) -> ::windows::runtime::Result<super::su
         extern "system" {
             fn VarDecFromUI8(ui64in: u64, pdecout: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecFromUI8(::std::mem::transmute(ui64in), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecFromUI8(::core::mem::transmute(ui64in), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6553,8 +6564,8 @@ pub unsafe fn VarDecInt(pdecin: *const super::super::super::Foundation::DECIMAL)
         extern "system" {
             fn VarDecInt(pdecin: *const super::super::super::Foundation::DECIMAL, pdecresult: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecInt(::std::mem::transmute(pdecin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecInt(::core::mem::transmute(pdecin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6569,8 +6580,8 @@ pub unsafe fn VarDecMul(pdecleft: *const super::super::super::Foundation::DECIMA
         extern "system" {
             fn VarDecMul(pdecleft: *const super::super::super::Foundation::DECIMAL, pdecright: *const super::super::super::Foundation::DECIMAL, pdecresult: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecMul(::std::mem::transmute(pdecleft), ::std::mem::transmute(pdecright), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecMul(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6585,8 +6596,8 @@ pub unsafe fn VarDecNeg(pdecin: *const super::super::super::Foundation::DECIMAL)
         extern "system" {
             fn VarDecNeg(pdecin: *const super::super::super::Foundation::DECIMAL, pdecresult: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecNeg(::std::mem::transmute(pdecin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecNeg(::core::mem::transmute(pdecin), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6601,8 +6612,8 @@ pub unsafe fn VarDecRound(pdecin: *const super::super::super::Foundation::DECIMA
         extern "system" {
             fn VarDecRound(pdecin: *const super::super::super::Foundation::DECIMAL, cdecimals: i32, pdecresult: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecRound(::std::mem::transmute(pdecin), ::std::mem::transmute(cdecimals), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecRound(::core::mem::transmute(pdecin), ::core::mem::transmute(cdecimals), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6617,8 +6628,8 @@ pub unsafe fn VarDecSub(pdecleft: *const super::super::super::Foundation::DECIMA
         extern "system" {
             fn VarDecSub(pdecleft: *const super::super::super::Foundation::DECIMAL, pdecright: *const super::super::super::Foundation::DECIMAL, pdecresult: *mut super::super::super::Foundation::DECIMAL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDecSub(::std::mem::transmute(pdecleft), ::std::mem::transmute(pdecright), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
+        let mut result__: <super::super::super::Foundation::DECIMAL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDecSub(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), &mut result__).from_abi::<super::super::super::Foundation::DECIMAL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6631,10 +6642,10 @@ pub unsafe fn VarDiv(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarDiv(pvarleft: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarDiv(pvarleft: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarDiv(::std::mem::transmute(pvarleft), ::std::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarDiv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6647,10 +6658,10 @@ pub unsafe fn VarEqv(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarEqv(pvarleft: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarEqv(pvarleft: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarEqv(::std::mem::transmute(pvarleft), ::std::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarEqv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6663,10 +6674,10 @@ pub unsafe fn VarFix(pvarin: *const super::super::Com::VARIANT) -> ::windows::ru
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarFix(pvarin: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarFix(pvarin: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarFix(::std::mem::transmute(pvarin), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarFix(::core::mem::transmute(pvarin), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6679,10 +6690,10 @@ pub unsafe fn VarFormat<'a, Param1: ::windows::runtime::IntoParam<'a, super::sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarFormat(pvarin: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pstrformat: super::super::super::Foundation::PWSTR, ifirstday: i32, ifirstweek: i32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarFormat(pvarin: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pstrformat: super::super::super::Foundation::PWSTR, ifirstday: i32, ifirstweek: i32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarFormat(::std::mem::transmute(pvarin), pstrformat.into_param().abi(), ::std::mem::transmute(ifirstday), ::std::mem::transmute(ifirstweek), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarFormat(::core::mem::transmute(pvarin), pstrformat.into_param().abi(), ::core::mem::transmute(ifirstday), ::core::mem::transmute(ifirstweek), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6695,10 +6706,10 @@ pub unsafe fn VarFormatCurrency(pvarin: *const super::super::Com::VARIANT, inumd
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarFormatCurrency(pvarin: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarFormatCurrency(pvarin: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarFormatCurrency(::std::mem::transmute(pvarin), ::std::mem::transmute(inumdig), ::std::mem::transmute(iinclead), ::std::mem::transmute(iuseparens), ::std::mem::transmute(igroup), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarFormatCurrency(::core::mem::transmute(pvarin), ::core::mem::transmute(inumdig), ::core::mem::transmute(iinclead), ::core::mem::transmute(iuseparens), ::core::mem::transmute(igroup), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6711,10 +6722,10 @@ pub unsafe fn VarFormatDateTime(pvarin: *const super::super::Com::VARIANT, iname
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarFormatDateTime(pvarin: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, inamedformat: i32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarFormatDateTime(pvarin: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, inamedformat: i32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarFormatDateTime(::std::mem::transmute(pvarin), ::std::mem::transmute(inamedformat), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarFormatDateTime(::core::mem::transmute(pvarin), ::core::mem::transmute(inamedformat), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6727,9 +6738,9 @@ pub unsafe fn VarFormatFromTokens<'a, Param1: ::windows::runtime::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarFormatFromTokens(pvarin: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pstrformat: super::super::super::Foundation::PWSTR, pbtokcur: *const u8, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, lcid: u32) -> ::windows::runtime::HRESULT;
+            fn VarFormatFromTokens(pvarin: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pstrformat: super::super::super::Foundation::PWSTR, pbtokcur: *const u8, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, lcid: u32) -> ::windows::runtime::HRESULT;
         }
-        VarFormatFromTokens(::std::mem::transmute(pvarin), pstrformat.into_param().abi(), ::std::mem::transmute(pbtokcur), ::std::mem::transmute(dwflags), ::std::mem::transmute(pbstrout), ::std::mem::transmute(lcid)).ok()
+        VarFormatFromTokens(::core::mem::transmute(pvarin), pstrformat.into_param().abi(), ::core::mem::transmute(pbtokcur), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbstrout), ::core::mem::transmute(lcid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6742,10 +6753,10 @@ pub unsafe fn VarFormatNumber(pvarin: *const super::super::Com::VARIANT, inumdig
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarFormatNumber(pvarin: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarFormatNumber(pvarin: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarFormatNumber(::std::mem::transmute(pvarin), ::std::mem::transmute(inumdig), ::std::mem::transmute(iinclead), ::std::mem::transmute(iuseparens), ::std::mem::transmute(igroup), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarFormatNumber(::core::mem::transmute(pvarin), ::core::mem::transmute(inumdig), ::core::mem::transmute(iinclead), ::core::mem::transmute(iuseparens), ::core::mem::transmute(igroup), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6758,10 +6769,10 @@ pub unsafe fn VarFormatPercent(pvarin: *const super::super::Com::VARIANT, inumdi
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarFormatPercent(pvarin: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarFormatPercent(pvarin: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarFormatPercent(::std::mem::transmute(pvarin), ::std::mem::transmute(inumdig), ::std::mem::transmute(iinclead), ::std::mem::transmute(iuseparens), ::std::mem::transmute(igroup), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarFormatPercent(::core::mem::transmute(pvarin), ::core::mem::transmute(inumdig), ::core::mem::transmute(iinclead), ::core::mem::transmute(iuseparens), ::core::mem::transmute(igroup), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6776,7 +6787,7 @@ pub unsafe fn VarI1FromBool(boolin: i16, pcout: super::super::super::Foundation:
         extern "system" {
             fn VarI1FromBool(boolin: i16, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromBool(::std::mem::transmute(boolin), ::std::mem::transmute(pcout)).ok()
+        VarI1FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6791,7 +6802,7 @@ pub unsafe fn VarI1FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn VarI1FromCy(cyin: super::super::Com::CY, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromCy(cyin.into_param().abi(), ::std::mem::transmute(pcout)).ok()
+        VarI1FromCy(cyin.into_param().abi(), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6806,7 +6817,7 @@ pub unsafe fn VarI1FromDate(datein: f64, pcout: super::super::super::Foundation:
         extern "system" {
             fn VarI1FromDate(datein: f64, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromDate(::std::mem::transmute(datein), ::std::mem::transmute(pcout)).ok()
+        VarI1FromDate(::core::mem::transmute(datein), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6821,7 +6832,7 @@ pub unsafe fn VarI1FromDec(pdecin: *const super::super::super::Foundation::DECIM
         extern "system" {
             fn VarI1FromDec(pdecin: *const super::super::super::Foundation::DECIMAL, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromDec(::std::mem::transmute(pdecin), ::std::mem::transmute(pcout)).ok()
+        VarI1FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6836,7 +6847,7 @@ pub unsafe fn VarI1FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
         extern "system" {
             fn VarI1FromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(pcout)).ok()
+        VarI1FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6851,7 +6862,7 @@ pub unsafe fn VarI1FromI2(uiin: i16, pcout: super::super::super::Foundation::PST
         extern "system" {
             fn VarI1FromI2(uiin: i16, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromI2(::std::mem::transmute(uiin), ::std::mem::transmute(pcout)).ok()
+        VarI1FromI2(::core::mem::transmute(uiin), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6866,7 +6877,7 @@ pub unsafe fn VarI1FromI4(lin: i32, pcout: super::super::super::Foundation::PSTR
         extern "system" {
             fn VarI1FromI4(lin: i32, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromI4(::std::mem::transmute(lin), ::std::mem::transmute(pcout)).ok()
+        VarI1FromI4(::core::mem::transmute(lin), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6881,7 +6892,7 @@ pub unsafe fn VarI1FromI8(i64in: i64, pcout: super::super::super::Foundation::PS
         extern "system" {
             fn VarI1FromI8(i64in: i64, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromI8(::std::mem::transmute(i64in), ::std::mem::transmute(pcout)).ok()
+        VarI1FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6896,7 +6907,7 @@ pub unsafe fn VarI1FromR4(fltin: f32, pcout: super::super::super::Foundation::PS
         extern "system" {
             fn VarI1FromR4(fltin: f32, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromR4(::std::mem::transmute(fltin), ::std::mem::transmute(pcout)).ok()
+        VarI1FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6911,7 +6922,7 @@ pub unsafe fn VarI1FromR8(dblin: f64, pcout: super::super::super::Foundation::PS
         extern "system" {
             fn VarI1FromR8(dblin: f64, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromR8(::std::mem::transmute(dblin), ::std::mem::transmute(pcout)).ok()
+        VarI1FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6926,7 +6937,7 @@ pub unsafe fn VarI1FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarI1FromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), ::std::mem::transmute(pcout)).ok()
+        VarI1FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6941,7 +6952,7 @@ pub unsafe fn VarI1FromUI1(bin: u8, pcout: super::super::super::Foundation::PSTR
         extern "system" {
             fn VarI1FromUI1(bin: u8, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromUI1(::std::mem::transmute(bin), ::std::mem::transmute(pcout)).ok()
+        VarI1FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6956,7 +6967,7 @@ pub unsafe fn VarI1FromUI2(uiin: u16, pcout: super::super::super::Foundation::PS
         extern "system" {
             fn VarI1FromUI2(uiin: u16, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromUI2(::std::mem::transmute(uiin), ::std::mem::transmute(pcout)).ok()
+        VarI1FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6971,7 +6982,7 @@ pub unsafe fn VarI1FromUI4(ulin: u32, pcout: super::super::super::Foundation::PS
         extern "system" {
             fn VarI1FromUI4(ulin: u32, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromUI4(::std::mem::transmute(ulin), ::std::mem::transmute(pcout)).ok()
+        VarI1FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6986,7 +6997,7 @@ pub unsafe fn VarI1FromUI8(i64in: u64, pcout: super::super::super::Foundation::P
         extern "system" {
             fn VarI1FromUI8(i64in: u64, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
-        VarI1FromUI8(::std::mem::transmute(i64in), ::std::mem::transmute(pcout)).ok()
+        VarI1FromUI8(::core::mem::transmute(i64in), ::core::mem::transmute(pcout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7000,8 +7011,8 @@ pub unsafe fn VarI2FromBool(boolin: i16) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarI2FromBool(boolin: i16, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI2FromBool(::std::mem::transmute(boolin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI2FromBool(::core::mem::transmute(boolin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7016,7 +7027,7 @@ pub unsafe fn VarI2FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn VarI2FromCy(cyin: super::super::Com::CY, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        VarI2FromCy(cyin.into_param().abi(), ::std::mem::transmute(psout)).ok()
+        VarI2FromCy(cyin.into_param().abi(), ::core::mem::transmute(psout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7030,8 +7041,8 @@ pub unsafe fn VarI2FromDate(datein: f64) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarI2FromDate(datein: f64, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI2FromDate(::std::mem::transmute(datein), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI2FromDate(::core::mem::transmute(datein), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7046,8 +7057,8 @@ pub unsafe fn VarI2FromDec(pdecin: *const super::super::super::Foundation::DECIM
         extern "system" {
             fn VarI2FromDec(pdecin: *const super::super::super::Foundation::DECIMAL, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI2FromDec(::std::mem::transmute(pdecin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI2FromDec(::core::mem::transmute(pdecin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7061,8 +7072,8 @@ pub unsafe fn VarI2FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
         extern "system" {
             fn VarI2FromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI2FromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI2FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7077,7 +7088,7 @@ pub unsafe fn VarI2FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn VarI2FromI1(cin: super::super::super::Foundation::CHAR, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarI2FromI1(cin.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
@@ -7092,8 +7103,8 @@ pub unsafe fn VarI2FromI4(lin: i32) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarI2FromI4(lin: i32, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI2FromI4(::std::mem::transmute(lin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI2FromI4(::core::mem::transmute(lin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7107,8 +7118,8 @@ pub unsafe fn VarI2FromI8(i64in: i64) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarI2FromI8(i64in: i64, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI2FromI8(::std::mem::transmute(i64in), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI2FromI8(::core::mem::transmute(i64in), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7122,8 +7133,8 @@ pub unsafe fn VarI2FromR4(fltin: f32) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarI2FromR4(fltin: f32, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI2FromR4(::std::mem::transmute(fltin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI2FromR4(::core::mem::transmute(fltin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7137,8 +7148,8 @@ pub unsafe fn VarI2FromR8(dblin: f64) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarI2FromR8(dblin: f64, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI2FromR8(::std::mem::transmute(dblin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI2FromR8(::core::mem::transmute(dblin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7153,8 +7164,8 @@ pub unsafe fn VarI2FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarI2FromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI2FromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI2FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7168,8 +7179,8 @@ pub unsafe fn VarI2FromUI1(bin: u8) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarI2FromUI1(bin: u8, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI2FromUI1(::std::mem::transmute(bin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI2FromUI1(::core::mem::transmute(bin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7183,8 +7194,8 @@ pub unsafe fn VarI2FromUI2(uiin: u16) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarI2FromUI2(uiin: u16, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI2FromUI2(::std::mem::transmute(uiin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI2FromUI2(::core::mem::transmute(uiin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7198,8 +7209,8 @@ pub unsafe fn VarI2FromUI4(ulin: u32) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarI2FromUI4(ulin: u32, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI2FromUI4(::std::mem::transmute(ulin), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI2FromUI4(::core::mem::transmute(ulin), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7213,8 +7224,8 @@ pub unsafe fn VarI2FromUI8(ui64in: u64) -> ::windows::runtime::Result<i16> {
         extern "system" {
             fn VarI2FromUI8(ui64in: u64, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI2FromUI8(::std::mem::transmute(ui64in), &mut result__).from_abi::<i16>(result__)
+        let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI2FromUI8(::core::mem::transmute(ui64in), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7228,8 +7239,8 @@ pub unsafe fn VarI4FromBool(boolin: i16) -> ::windows::runtime::Result<i32> {
         extern "system" {
             fn VarI4FromBool(boolin: i16, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI4FromBool(::std::mem::transmute(boolin), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI4FromBool(::core::mem::transmute(boolin), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7244,7 +7255,7 @@ pub unsafe fn VarI4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn VarI4FromCy(cyin: super::super::Com::CY, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarI4FromCy(cyin.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
@@ -7259,8 +7270,8 @@ pub unsafe fn VarI4FromDate(datein: f64) -> ::windows::runtime::Result<i32> {
         extern "system" {
             fn VarI4FromDate(datein: f64, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI4FromDate(::std::mem::transmute(datein), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI4FromDate(::core::mem::transmute(datein), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7275,8 +7286,8 @@ pub unsafe fn VarI4FromDec(pdecin: *const super::super::super::Foundation::DECIM
         extern "system" {
             fn VarI4FromDec(pdecin: *const super::super::super::Foundation::DECIMAL, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI4FromDec(::std::mem::transmute(pdecin), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI4FromDec(::core::mem::transmute(pdecin), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7290,8 +7301,8 @@ pub unsafe fn VarI4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
         extern "system" {
             fn VarI4FromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI4FromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI4FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7306,7 +7317,7 @@ pub unsafe fn VarI4FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn VarI4FromI1(cin: super::super::super::Foundation::CHAR, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarI4FromI1(cin.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
@@ -7321,8 +7332,8 @@ pub unsafe fn VarI4FromI2(sin: i16) -> ::windows::runtime::Result<i32> {
         extern "system" {
             fn VarI4FromI2(sin: i16, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI4FromI2(::std::mem::transmute(sin), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI4FromI2(::core::mem::transmute(sin), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7336,8 +7347,8 @@ pub unsafe fn VarI4FromI8(i64in: i64) -> ::windows::runtime::Result<i32> {
         extern "system" {
             fn VarI4FromI8(i64in: i64, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI4FromI8(::std::mem::transmute(i64in), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI4FromI8(::core::mem::transmute(i64in), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7351,8 +7362,8 @@ pub unsafe fn VarI4FromR4(fltin: f32) -> ::windows::runtime::Result<i32> {
         extern "system" {
             fn VarI4FromR4(fltin: f32, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI4FromR4(::std::mem::transmute(fltin), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI4FromR4(::core::mem::transmute(fltin), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7366,8 +7377,8 @@ pub unsafe fn VarI4FromR8(dblin: f64) -> ::windows::runtime::Result<i32> {
         extern "system" {
             fn VarI4FromR8(dblin: f64, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI4FromR8(::std::mem::transmute(dblin), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI4FromR8(::core::mem::transmute(dblin), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7382,8 +7393,8 @@ pub unsafe fn VarI4FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarI4FromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI4FromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI4FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7397,8 +7408,8 @@ pub unsafe fn VarI4FromUI1(bin: u8) -> ::windows::runtime::Result<i32> {
         extern "system" {
             fn VarI4FromUI1(bin: u8, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI4FromUI1(::std::mem::transmute(bin), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI4FromUI1(::core::mem::transmute(bin), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7412,8 +7423,8 @@ pub unsafe fn VarI4FromUI2(uiin: u16) -> ::windows::runtime::Result<i32> {
         extern "system" {
             fn VarI4FromUI2(uiin: u16, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI4FromUI2(::std::mem::transmute(uiin), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI4FromUI2(::core::mem::transmute(uiin), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7427,8 +7438,8 @@ pub unsafe fn VarI4FromUI4(ulin: u32) -> ::windows::runtime::Result<i32> {
         extern "system" {
             fn VarI4FromUI4(ulin: u32, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI4FromUI4(::std::mem::transmute(ulin), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI4FromUI4(::core::mem::transmute(ulin), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7442,8 +7453,8 @@ pub unsafe fn VarI4FromUI8(ui64in: u64) -> ::windows::runtime::Result<i32> {
         extern "system" {
             fn VarI4FromUI8(ui64in: u64, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI4FromUI8(::std::mem::transmute(ui64in), &mut result__).from_abi::<i32>(result__)
+        let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI4FromUI8(::core::mem::transmute(ui64in), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7457,8 +7468,8 @@ pub unsafe fn VarI8FromBool(boolin: i16) -> ::windows::runtime::Result<i64> {
         extern "system" {
             fn VarI8FromBool(boolin: i16, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI8FromBool(::std::mem::transmute(boolin), &mut result__).from_abi::<i64>(result__)
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI8FromBool(::core::mem::transmute(boolin), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7473,7 +7484,7 @@ pub unsafe fn VarI8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn VarI8FromCy(cyin: super::super::Com::CY, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarI8FromCy(cyin.into_param().abi(), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
@@ -7488,8 +7499,8 @@ pub unsafe fn VarI8FromDate(datein: f64) -> ::windows::runtime::Result<i64> {
         extern "system" {
             fn VarI8FromDate(datein: f64, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI8FromDate(::std::mem::transmute(datein), &mut result__).from_abi::<i64>(result__)
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI8FromDate(::core::mem::transmute(datein), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7504,8 +7515,8 @@ pub unsafe fn VarI8FromDec(pdecin: *const super::super::super::Foundation::DECIM
         extern "system" {
             fn VarI8FromDec(pdecin: *const super::super::super::Foundation::DECIMAL, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI8FromDec(::std::mem::transmute(pdecin), &mut result__).from_abi::<i64>(result__)
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI8FromDec(::core::mem::transmute(pdecin), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7519,8 +7530,8 @@ pub unsafe fn VarI8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
         extern "system" {
             fn VarI8FromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI8FromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), &mut result__).from_abi::<i64>(result__)
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI8FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7535,7 +7546,7 @@ pub unsafe fn VarI8FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn VarI8FromI1(cin: super::super::super::Foundation::CHAR, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarI8FromI1(cin.into_param().abi(), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
@@ -7550,8 +7561,8 @@ pub unsafe fn VarI8FromI2(sin: i16) -> ::windows::runtime::Result<i64> {
         extern "system" {
             fn VarI8FromI2(sin: i16, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI8FromI2(::std::mem::transmute(sin), &mut result__).from_abi::<i64>(result__)
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI8FromI2(::core::mem::transmute(sin), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7565,8 +7576,8 @@ pub unsafe fn VarI8FromR4(fltin: f32) -> ::windows::runtime::Result<i64> {
         extern "system" {
             fn VarI8FromR4(fltin: f32, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI8FromR4(::std::mem::transmute(fltin), &mut result__).from_abi::<i64>(result__)
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI8FromR4(::core::mem::transmute(fltin), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7580,8 +7591,8 @@ pub unsafe fn VarI8FromR8(dblin: f64) -> ::windows::runtime::Result<i64> {
         extern "system" {
             fn VarI8FromR8(dblin: f64, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI8FromR8(::std::mem::transmute(dblin), &mut result__).from_abi::<i64>(result__)
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI8FromR8(::core::mem::transmute(dblin), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7596,8 +7607,8 @@ pub unsafe fn VarI8FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarI8FromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI8FromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<i64>(result__)
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI8FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7611,8 +7622,8 @@ pub unsafe fn VarI8FromUI1(bin: u8) -> ::windows::runtime::Result<i64> {
         extern "system" {
             fn VarI8FromUI1(bin: u8, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI8FromUI1(::std::mem::transmute(bin), &mut result__).from_abi::<i64>(result__)
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI8FromUI1(::core::mem::transmute(bin), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7626,8 +7637,8 @@ pub unsafe fn VarI8FromUI2(uiin: u16) -> ::windows::runtime::Result<i64> {
         extern "system" {
             fn VarI8FromUI2(uiin: u16, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI8FromUI2(::std::mem::transmute(uiin), &mut result__).from_abi::<i64>(result__)
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI8FromUI2(::core::mem::transmute(uiin), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7641,8 +7652,8 @@ pub unsafe fn VarI8FromUI4(ulin: u32) -> ::windows::runtime::Result<i64> {
         extern "system" {
             fn VarI8FromUI4(ulin: u32, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI8FromUI4(::std::mem::transmute(ulin), &mut result__).from_abi::<i64>(result__)
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI8FromUI4(::core::mem::transmute(ulin), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7656,8 +7667,8 @@ pub unsafe fn VarI8FromUI8(ui64in: u64) -> ::windows::runtime::Result<i64> {
         extern "system" {
             fn VarI8FromUI8(ui64in: u64, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarI8FromUI8(::std::mem::transmute(ui64in), &mut result__).from_abi::<i64>(result__)
+        let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarI8FromUI8(::core::mem::transmute(ui64in), &mut result__).from_abi::<i64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7670,10 +7681,10 @@ pub unsafe fn VarIdiv(pvarleft: *const super::super::Com::VARIANT, pvarright: *c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarIdiv(pvarleft: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarIdiv(pvarleft: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarIdiv(::std::mem::transmute(pvarleft), ::std::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarIdiv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7686,10 +7697,10 @@ pub unsafe fn VarImp(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarImp(pvarleft: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarImp(pvarleft: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarImp(::std::mem::transmute(pvarleft), ::std::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarImp(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7702,10 +7713,10 @@ pub unsafe fn VarInt(pvarin: *const super::super::Com::VARIANT) -> ::windows::ru
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarInt(pvarin: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarInt(pvarin: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarInt(::std::mem::transmute(pvarin), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarInt(::core::mem::transmute(pvarin), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7718,10 +7729,10 @@ pub unsafe fn VarMod(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarMod(pvarleft: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarMod(pvarleft: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarMod(::std::mem::transmute(pvarleft), ::std::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarMod(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7734,10 +7745,10 @@ pub unsafe fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: u32) -> ::windows
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarMonthName(::std::mem::transmute(imonth), ::std::mem::transmute(fabbrev), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarMonthName(::core::mem::transmute(imonth), ::core::mem::transmute(fabbrev), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7750,10 +7761,10 @@ pub unsafe fn VarMul(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarMul(pvarleft: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarMul(pvarleft: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarMul(::std::mem::transmute(pvarleft), ::std::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarMul(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7766,10 +7777,10 @@ pub unsafe fn VarNeg(pvarin: *const super::super::Com::VARIANT) -> ::windows::ru
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarNeg(pvarin: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarNeg(pvarin: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarNeg(::std::mem::transmute(pvarin), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarNeg(::core::mem::transmute(pvarin), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7782,10 +7793,10 @@ pub unsafe fn VarNot(pvarin: *const super::super::Com::VARIANT) -> ::windows::ru
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarNot(pvarin: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarNot(pvarin: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarNot(::std::mem::transmute(pvarin), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarNot(::core::mem::transmute(pvarin), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7798,10 +7809,10 @@ pub unsafe fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dw
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dwvtbits: u32, pvar: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dwvtbits: u32, pvar: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarNumFromParseNum(::std::mem::transmute(pnumprs), ::std::mem::transmute(rgbdig), ::std::mem::transmute(dwvtbits), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarNumFromParseNum(::core::mem::transmute(pnumprs), ::core::mem::transmute(rgbdig), ::core::mem::transmute(dwvtbits), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7814,10 +7825,10 @@ pub unsafe fn VarOr(pvarleft: *const super::super::Com::VARIANT, pvarright: *con
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarOr(pvarleft: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarOr(pvarleft: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarOr(::std::mem::transmute(pvarleft), ::std::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarOr(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7832,7 +7843,7 @@ pub unsafe fn VarParseNumFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn VarParseNumFromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, pnumprs: *mut NUMPARSE, rgbdig: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        VarParseNumFromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), ::std::mem::transmute(pnumprs), ::std::mem::transmute(rgbdig)).ok()
+        VarParseNumFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(pnumprs), ::core::mem::transmute(rgbdig)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7845,10 +7856,10 @@ pub unsafe fn VarPow(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarPow(pvarleft: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarPow(pvarleft: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarPow(::std::mem::transmute(pvarleft), ::std::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarPow(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7862,7 +7873,7 @@ pub unsafe fn VarR4CmpR8(fltleft: f32, dblright: f64) -> ::windows::runtime::Res
         extern "system" {
             fn VarR4CmpR8(fltleft: f32, dblright: f64) -> ::windows::runtime::HRESULT;
         }
-        VarR4CmpR8(::std::mem::transmute(fltleft), ::std::mem::transmute(dblright)).ok()
+        VarR4CmpR8(::core::mem::transmute(fltleft), ::core::mem::transmute(dblright)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7876,8 +7887,8 @@ pub unsafe fn VarR4FromBool(boolin: i16) -> ::windows::runtime::Result<f32> {
         extern "system" {
             fn VarR4FromBool(boolin: i16, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR4FromBool(::std::mem::transmute(boolin), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR4FromBool(::core::mem::transmute(boolin), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7892,7 +7903,7 @@ pub unsafe fn VarR4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn VarR4FromCy(cyin: super::super::Com::CY, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        VarR4FromCy(cyin.into_param().abi(), ::std::mem::transmute(pfltout)).ok()
+        VarR4FromCy(cyin.into_param().abi(), ::core::mem::transmute(pfltout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7906,8 +7917,8 @@ pub unsafe fn VarR4FromDate(datein: f64) -> ::windows::runtime::Result<f32> {
         extern "system" {
             fn VarR4FromDate(datein: f64, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR4FromDate(::std::mem::transmute(datein), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR4FromDate(::core::mem::transmute(datein), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7922,8 +7933,8 @@ pub unsafe fn VarR4FromDec(pdecin: *const super::super::super::Foundation::DECIM
         extern "system" {
             fn VarR4FromDec(pdecin: *const super::super::super::Foundation::DECIMAL, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR4FromDec(::std::mem::transmute(pdecin), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR4FromDec(::core::mem::transmute(pdecin), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7937,8 +7948,8 @@ pub unsafe fn VarR4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
         extern "system" {
             fn VarR4FromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR4FromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR4FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7953,7 +7964,7 @@ pub unsafe fn VarR4FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn VarR4FromI1(cin: super::super::super::Foundation::CHAR, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarR4FromI1(cin.into_param().abi(), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
@@ -7968,8 +7979,8 @@ pub unsafe fn VarR4FromI2(sin: i16) -> ::windows::runtime::Result<f32> {
         extern "system" {
             fn VarR4FromI2(sin: i16, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR4FromI2(::std::mem::transmute(sin), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR4FromI2(::core::mem::transmute(sin), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7983,8 +7994,8 @@ pub unsafe fn VarR4FromI4(lin: i32) -> ::windows::runtime::Result<f32> {
         extern "system" {
             fn VarR4FromI4(lin: i32, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR4FromI4(::std::mem::transmute(lin), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR4FromI4(::core::mem::transmute(lin), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7998,8 +8009,8 @@ pub unsafe fn VarR4FromI8(i64in: i64) -> ::windows::runtime::Result<f32> {
         extern "system" {
             fn VarR4FromI8(i64in: i64, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR4FromI8(::std::mem::transmute(i64in), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR4FromI8(::core::mem::transmute(i64in), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8013,8 +8024,8 @@ pub unsafe fn VarR4FromR8(dblin: f64) -> ::windows::runtime::Result<f32> {
         extern "system" {
             fn VarR4FromR8(dblin: f64, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR4FromR8(::std::mem::transmute(dblin), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR4FromR8(::core::mem::transmute(dblin), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8029,8 +8040,8 @@ pub unsafe fn VarR4FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarR4FromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR4FromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR4FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8044,8 +8055,8 @@ pub unsafe fn VarR4FromUI1(bin: u8) -> ::windows::runtime::Result<f32> {
         extern "system" {
             fn VarR4FromUI1(bin: u8, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR4FromUI1(::std::mem::transmute(bin), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR4FromUI1(::core::mem::transmute(bin), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8059,8 +8070,8 @@ pub unsafe fn VarR4FromUI2(uiin: u16) -> ::windows::runtime::Result<f32> {
         extern "system" {
             fn VarR4FromUI2(uiin: u16, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR4FromUI2(::std::mem::transmute(uiin), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR4FromUI2(::core::mem::transmute(uiin), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8074,8 +8085,8 @@ pub unsafe fn VarR4FromUI4(ulin: u32) -> ::windows::runtime::Result<f32> {
         extern "system" {
             fn VarR4FromUI4(ulin: u32, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR4FromUI4(::std::mem::transmute(ulin), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR4FromUI4(::core::mem::transmute(ulin), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8089,8 +8100,8 @@ pub unsafe fn VarR4FromUI8(ui64in: u64) -> ::windows::runtime::Result<f32> {
         extern "system" {
             fn VarR4FromUI8(ui64in: u64, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR4FromUI8(::std::mem::transmute(ui64in), &mut result__).from_abi::<f32>(result__)
+        let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR4FromUI8(::core::mem::transmute(ui64in), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8104,8 +8115,8 @@ pub unsafe fn VarR8FromBool(boolin: i16) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarR8FromBool(boolin: i16, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8FromBool(::std::mem::transmute(boolin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8FromBool(::core::mem::transmute(boolin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8120,7 +8131,7 @@ pub unsafe fn VarR8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn VarR8FromCy(cyin: super::super::Com::CY, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        VarR8FromCy(cyin.into_param().abi(), ::std::mem::transmute(pdblout)).ok()
+        VarR8FromCy(cyin.into_param().abi(), ::core::mem::transmute(pdblout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8134,8 +8145,8 @@ pub unsafe fn VarR8FromDate(datein: f64) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarR8FromDate(datein: f64, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8FromDate(::std::mem::transmute(datein), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8FromDate(::core::mem::transmute(datein), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8150,8 +8161,8 @@ pub unsafe fn VarR8FromDec(pdecin: *const super::super::super::Foundation::DECIM
         extern "system" {
             fn VarR8FromDec(pdecin: *const super::super::super::Foundation::DECIMAL, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8FromDec(::std::mem::transmute(pdecin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8FromDec(::core::mem::transmute(pdecin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8165,8 +8176,8 @@ pub unsafe fn VarR8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
         extern "system" {
             fn VarR8FromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8FromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8181,7 +8192,7 @@ pub unsafe fn VarR8FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn VarR8FromI1(cin: super::super::super::Foundation::CHAR, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        VarR8FromI1(cin.into_param().abi(), ::std::mem::transmute(pdblout)).ok()
+        VarR8FromI1(cin.into_param().abi(), ::core::mem::transmute(pdblout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8195,8 +8206,8 @@ pub unsafe fn VarR8FromI2(sin: i16) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarR8FromI2(sin: i16, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8FromI2(::std::mem::transmute(sin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8FromI2(::core::mem::transmute(sin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8210,8 +8221,8 @@ pub unsafe fn VarR8FromI4(lin: i32) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarR8FromI4(lin: i32, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8FromI4(::std::mem::transmute(lin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8FromI4(::core::mem::transmute(lin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8225,8 +8236,8 @@ pub unsafe fn VarR8FromI8(i64in: i64) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarR8FromI8(i64in: i64, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8FromI8(::std::mem::transmute(i64in), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8FromI8(::core::mem::transmute(i64in), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8240,8 +8251,8 @@ pub unsafe fn VarR8FromR4(fltin: f32) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarR8FromR4(fltin: f32, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8FromR4(::std::mem::transmute(fltin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8FromR4(::core::mem::transmute(fltin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8256,8 +8267,8 @@ pub unsafe fn VarR8FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarR8FromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8FromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8271,8 +8282,8 @@ pub unsafe fn VarR8FromUI1(bin: u8) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarR8FromUI1(bin: u8, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8FromUI1(::std::mem::transmute(bin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8FromUI1(::core::mem::transmute(bin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8286,8 +8297,8 @@ pub unsafe fn VarR8FromUI2(uiin: u16) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarR8FromUI2(uiin: u16, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8FromUI2(::std::mem::transmute(uiin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8FromUI2(::core::mem::transmute(uiin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8301,8 +8312,8 @@ pub unsafe fn VarR8FromUI4(ulin: u32) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarR8FromUI4(ulin: u32, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8FromUI4(::std::mem::transmute(ulin), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8FromUI4(::core::mem::transmute(ulin), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8316,8 +8327,8 @@ pub unsafe fn VarR8FromUI8(ui64in: u64) -> ::windows::runtime::Result<f64> {
         extern "system" {
             fn VarR8FromUI8(ui64in: u64, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8FromUI8(::std::mem::transmute(ui64in), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8FromUI8(::core::mem::transmute(ui64in), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8331,8 +8342,8 @@ pub unsafe fn VarR8Pow(dblleft: f64, dblright: f64) -> ::windows::runtime::Resul
         extern "system" {
             fn VarR8Pow(dblleft: f64, dblright: f64, pdblresult: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8Pow(::std::mem::transmute(dblleft), ::std::mem::transmute(dblright), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8Pow(::core::mem::transmute(dblleft), ::core::mem::transmute(dblright), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8346,8 +8357,8 @@ pub unsafe fn VarR8Round(dblin: f64, cdecimals: i32) -> ::windows::runtime::Resu
         extern "system" {
             fn VarR8Round(dblin: f64, cdecimals: i32, pdblresult: *mut f64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarR8Round(::std::mem::transmute(dblin), ::std::mem::transmute(cdecimals), &mut result__).from_abi::<f64>(result__)
+        let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarR8Round(::core::mem::transmute(dblin), ::core::mem::transmute(cdecimals), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8360,10 +8371,10 @@ pub unsafe fn VarRound(pvarin: *const super::super::Com::VARIANT, cdecimals: i32
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarRound(pvarin: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, cdecimals: i32, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarRound(pvarin: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, cdecimals: i32, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarRound(::std::mem::transmute(pvarin), ::std::mem::transmute(cdecimals), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarRound(::core::mem::transmute(pvarin), ::core::mem::transmute(cdecimals), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8376,10 +8387,10 @@ pub unsafe fn VarSub(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarSub(pvarleft: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarSub(pvarleft: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarSub(::std::mem::transmute(pvarleft), ::std::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarSub(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8394,7 +8405,7 @@ pub unsafe fn VarTokenizeFormatString<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn VarTokenizeFormatString(pstrformat: super::super::super::Foundation::PWSTR, rgbtok: *mut u8, cbtok: i32, ifirstday: i32, ifirstweek: i32, lcid: u32, pcbactual: *const i32) -> ::windows::runtime::HRESULT;
         }
-        VarTokenizeFormatString(pstrformat.into_param().abi(), ::std::mem::transmute(rgbtok), ::std::mem::transmute(cbtok), ::std::mem::transmute(ifirstday), ::std::mem::transmute(ifirstweek), ::std::mem::transmute(lcid), ::std::mem::transmute(pcbactual)).ok()
+        VarTokenizeFormatString(pstrformat.into_param().abi(), ::core::mem::transmute(rgbtok), ::core::mem::transmute(cbtok), ::core::mem::transmute(ifirstday), ::core::mem::transmute(ifirstweek), ::core::mem::transmute(lcid), ::core::mem::transmute(pcbactual)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8408,8 +8419,8 @@ pub unsafe fn VarUI1FromBool(boolin: i16) -> ::windows::runtime::Result<u8> {
         extern "system" {
             fn VarUI1FromBool(boolin: i16, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI1FromBool(::std::mem::transmute(boolin), &mut result__).from_abi::<u8>(result__)
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI1FromBool(::core::mem::transmute(boolin), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8424,7 +8435,7 @@ pub unsafe fn VarUI1FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarUI1FromCy(cyin: super::super::Com::CY, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarUI1FromCy(cyin.into_param().abi(), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
@@ -8439,8 +8450,8 @@ pub unsafe fn VarUI1FromDate(datein: f64) -> ::windows::runtime::Result<u8> {
         extern "system" {
             fn VarUI1FromDate(datein: f64, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI1FromDate(::std::mem::transmute(datein), &mut result__).from_abi::<u8>(result__)
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI1FromDate(::core::mem::transmute(datein), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8455,8 +8466,8 @@ pub unsafe fn VarUI1FromDec(pdecin: *const super::super::super::Foundation::DECI
         extern "system" {
             fn VarUI1FromDec(pdecin: *const super::super::super::Foundation::DECIMAL, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI1FromDec(::std::mem::transmute(pdecin), &mut result__).from_abi::<u8>(result__)
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI1FromDec(::core::mem::transmute(pdecin), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8470,8 +8481,8 @@ pub unsafe fn VarUI1FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
         extern "system" {
             fn VarUI1FromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI1FromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), &mut result__).from_abi::<u8>(result__)
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI1FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8486,7 +8497,7 @@ pub unsafe fn VarUI1FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarUI1FromI1(cin: super::super::super::Foundation::CHAR, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarUI1FromI1(cin.into_param().abi(), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
@@ -8501,8 +8512,8 @@ pub unsafe fn VarUI1FromI2(sin: i16) -> ::windows::runtime::Result<u8> {
         extern "system" {
             fn VarUI1FromI2(sin: i16, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI1FromI2(::std::mem::transmute(sin), &mut result__).from_abi::<u8>(result__)
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI1FromI2(::core::mem::transmute(sin), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8516,8 +8527,8 @@ pub unsafe fn VarUI1FromI4(lin: i32) -> ::windows::runtime::Result<u8> {
         extern "system" {
             fn VarUI1FromI4(lin: i32, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI1FromI4(::std::mem::transmute(lin), &mut result__).from_abi::<u8>(result__)
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI1FromI4(::core::mem::transmute(lin), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8531,8 +8542,8 @@ pub unsafe fn VarUI1FromI8(i64in: i64) -> ::windows::runtime::Result<u8> {
         extern "system" {
             fn VarUI1FromI8(i64in: i64, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI1FromI8(::std::mem::transmute(i64in), &mut result__).from_abi::<u8>(result__)
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI1FromI8(::core::mem::transmute(i64in), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8546,8 +8557,8 @@ pub unsafe fn VarUI1FromR4(fltin: f32) -> ::windows::runtime::Result<u8> {
         extern "system" {
             fn VarUI1FromR4(fltin: f32, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI1FromR4(::std::mem::transmute(fltin), &mut result__).from_abi::<u8>(result__)
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI1FromR4(::core::mem::transmute(fltin), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8561,8 +8572,8 @@ pub unsafe fn VarUI1FromR8(dblin: f64) -> ::windows::runtime::Result<u8> {
         extern "system" {
             fn VarUI1FromR8(dblin: f64, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI1FromR8(::std::mem::transmute(dblin), &mut result__).from_abi::<u8>(result__)
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI1FromR8(::core::mem::transmute(dblin), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8577,8 +8588,8 @@ pub unsafe fn VarUI1FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn VarUI1FromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI1FromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<u8>(result__)
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI1FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8592,8 +8603,8 @@ pub unsafe fn VarUI1FromUI2(uiin: u16) -> ::windows::runtime::Result<u8> {
         extern "system" {
             fn VarUI1FromUI2(uiin: u16, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI1FromUI2(::std::mem::transmute(uiin), &mut result__).from_abi::<u8>(result__)
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI1FromUI2(::core::mem::transmute(uiin), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8607,8 +8618,8 @@ pub unsafe fn VarUI1FromUI4(ulin: u32) -> ::windows::runtime::Result<u8> {
         extern "system" {
             fn VarUI1FromUI4(ulin: u32, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI1FromUI4(::std::mem::transmute(ulin), &mut result__).from_abi::<u8>(result__)
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI1FromUI4(::core::mem::transmute(ulin), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8622,8 +8633,8 @@ pub unsafe fn VarUI1FromUI8(ui64in: u64) -> ::windows::runtime::Result<u8> {
         extern "system" {
             fn VarUI1FromUI8(ui64in: u64, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI1FromUI8(::std::mem::transmute(ui64in), &mut result__).from_abi::<u8>(result__)
+        let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI1FromUI8(::core::mem::transmute(ui64in), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8637,8 +8648,8 @@ pub unsafe fn VarUI2FromBool(boolin: i16) -> ::windows::runtime::Result<u16> {
         extern "system" {
             fn VarUI2FromBool(boolin: i16, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI2FromBool(::std::mem::transmute(boolin), &mut result__).from_abi::<u16>(result__)
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI2FromBool(::core::mem::transmute(boolin), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8653,7 +8664,7 @@ pub unsafe fn VarUI2FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarUI2FromCy(cyin: super::super::Com::CY, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarUI2FromCy(cyin.into_param().abi(), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
@@ -8668,8 +8679,8 @@ pub unsafe fn VarUI2FromDate(datein: f64) -> ::windows::runtime::Result<u16> {
         extern "system" {
             fn VarUI2FromDate(datein: f64, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI2FromDate(::std::mem::transmute(datein), &mut result__).from_abi::<u16>(result__)
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI2FromDate(::core::mem::transmute(datein), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8684,8 +8695,8 @@ pub unsafe fn VarUI2FromDec(pdecin: *const super::super::super::Foundation::DECI
         extern "system" {
             fn VarUI2FromDec(pdecin: *const super::super::super::Foundation::DECIMAL, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI2FromDec(::std::mem::transmute(pdecin), &mut result__).from_abi::<u16>(result__)
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI2FromDec(::core::mem::transmute(pdecin), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8699,8 +8710,8 @@ pub unsafe fn VarUI2FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
         extern "system" {
             fn VarUI2FromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI2FromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), &mut result__).from_abi::<u16>(result__)
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI2FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8715,7 +8726,7 @@ pub unsafe fn VarUI2FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarUI2FromI1(cin: super::super::super::Foundation::CHAR, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarUI2FromI1(cin.into_param().abi(), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
@@ -8730,8 +8741,8 @@ pub unsafe fn VarUI2FromI2(uiin: i16) -> ::windows::runtime::Result<u16> {
         extern "system" {
             fn VarUI2FromI2(uiin: i16, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI2FromI2(::std::mem::transmute(uiin), &mut result__).from_abi::<u16>(result__)
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI2FromI2(::core::mem::transmute(uiin), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8745,8 +8756,8 @@ pub unsafe fn VarUI2FromI4(lin: i32) -> ::windows::runtime::Result<u16> {
         extern "system" {
             fn VarUI2FromI4(lin: i32, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI2FromI4(::std::mem::transmute(lin), &mut result__).from_abi::<u16>(result__)
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI2FromI4(::core::mem::transmute(lin), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8760,8 +8771,8 @@ pub unsafe fn VarUI2FromI8(i64in: i64) -> ::windows::runtime::Result<u16> {
         extern "system" {
             fn VarUI2FromI8(i64in: i64, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI2FromI8(::std::mem::transmute(i64in), &mut result__).from_abi::<u16>(result__)
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI2FromI8(::core::mem::transmute(i64in), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8775,8 +8786,8 @@ pub unsafe fn VarUI2FromR4(fltin: f32) -> ::windows::runtime::Result<u16> {
         extern "system" {
             fn VarUI2FromR4(fltin: f32, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI2FromR4(::std::mem::transmute(fltin), &mut result__).from_abi::<u16>(result__)
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI2FromR4(::core::mem::transmute(fltin), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8790,7 +8801,7 @@ pub unsafe fn VarUI2FromR8(dblin: f64, puiout: *mut u16) -> ::windows::runtime::
         extern "system" {
             fn VarUI2FromR8(dblin: f64, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        VarUI2FromR8(::std::mem::transmute(dblin), ::std::mem::transmute(puiout)).ok()
+        VarUI2FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(puiout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8805,8 +8816,8 @@ pub unsafe fn VarUI2FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn VarUI2FromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI2FromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<u16>(result__)
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI2FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8820,8 +8831,8 @@ pub unsafe fn VarUI2FromUI1(bin: u8) -> ::windows::runtime::Result<u16> {
         extern "system" {
             fn VarUI2FromUI1(bin: u8, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI2FromUI1(::std::mem::transmute(bin), &mut result__).from_abi::<u16>(result__)
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI2FromUI1(::core::mem::transmute(bin), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8835,8 +8846,8 @@ pub unsafe fn VarUI2FromUI4(ulin: u32) -> ::windows::runtime::Result<u16> {
         extern "system" {
             fn VarUI2FromUI4(ulin: u32, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI2FromUI4(::std::mem::transmute(ulin), &mut result__).from_abi::<u16>(result__)
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI2FromUI4(::core::mem::transmute(ulin), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8850,8 +8861,8 @@ pub unsafe fn VarUI2FromUI8(i64in: u64) -> ::windows::runtime::Result<u16> {
         extern "system" {
             fn VarUI2FromUI8(i64in: u64, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI2FromUI8(::std::mem::transmute(i64in), &mut result__).from_abi::<u16>(result__)
+        let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI2FromUI8(::core::mem::transmute(i64in), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8865,8 +8876,8 @@ pub unsafe fn VarUI4FromBool(boolin: i16) -> ::windows::runtime::Result<u32> {
         extern "system" {
             fn VarUI4FromBool(boolin: i16, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI4FromBool(::std::mem::transmute(boolin), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI4FromBool(::core::mem::transmute(boolin), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8881,7 +8892,7 @@ pub unsafe fn VarUI4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarUI4FromCy(cyin: super::super::Com::CY, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarUI4FromCy(cyin.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
@@ -8896,8 +8907,8 @@ pub unsafe fn VarUI4FromDate(datein: f64) -> ::windows::runtime::Result<u32> {
         extern "system" {
             fn VarUI4FromDate(datein: f64, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI4FromDate(::std::mem::transmute(datein), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI4FromDate(::core::mem::transmute(datein), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8912,8 +8923,8 @@ pub unsafe fn VarUI4FromDec(pdecin: *const super::super::super::Foundation::DECI
         extern "system" {
             fn VarUI4FromDec(pdecin: *const super::super::super::Foundation::DECIMAL, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI4FromDec(::std::mem::transmute(pdecin), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI4FromDec(::core::mem::transmute(pdecin), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8927,8 +8938,8 @@ pub unsafe fn VarUI4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
         extern "system" {
             fn VarUI4FromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI4FromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI4FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8943,7 +8954,7 @@ pub unsafe fn VarUI4FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarUI4FromI1(cin: super::super::super::Foundation::CHAR, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarUI4FromI1(cin.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
@@ -8958,8 +8969,8 @@ pub unsafe fn VarUI4FromI2(uiin: i16) -> ::windows::runtime::Result<u32> {
         extern "system" {
             fn VarUI4FromI2(uiin: i16, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI4FromI2(::std::mem::transmute(uiin), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI4FromI2(::core::mem::transmute(uiin), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8973,8 +8984,8 @@ pub unsafe fn VarUI4FromI4(lin: i32) -> ::windows::runtime::Result<u32> {
         extern "system" {
             fn VarUI4FromI4(lin: i32, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI4FromI4(::std::mem::transmute(lin), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI4FromI4(::core::mem::transmute(lin), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8988,8 +8999,8 @@ pub unsafe fn VarUI4FromI8(i64in: i64) -> ::windows::runtime::Result<u32> {
         extern "system" {
             fn VarUI4FromI8(i64in: i64, plout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI4FromI8(::std::mem::transmute(i64in), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI4FromI8(::core::mem::transmute(i64in), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9003,8 +9014,8 @@ pub unsafe fn VarUI4FromR4(fltin: f32) -> ::windows::runtime::Result<u32> {
         extern "system" {
             fn VarUI4FromR4(fltin: f32, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI4FromR4(::std::mem::transmute(fltin), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI4FromR4(::core::mem::transmute(fltin), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9018,8 +9029,8 @@ pub unsafe fn VarUI4FromR8(dblin: f64) -> ::windows::runtime::Result<u32> {
         extern "system" {
             fn VarUI4FromR8(dblin: f64, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI4FromR8(::std::mem::transmute(dblin), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI4FromR8(::core::mem::transmute(dblin), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9034,8 +9045,8 @@ pub unsafe fn VarUI4FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn VarUI4FromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI4FromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI4FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9049,8 +9060,8 @@ pub unsafe fn VarUI4FromUI1(bin: u8) -> ::windows::runtime::Result<u32> {
         extern "system" {
             fn VarUI4FromUI1(bin: u8, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI4FromUI1(::std::mem::transmute(bin), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI4FromUI1(::core::mem::transmute(bin), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9064,8 +9075,8 @@ pub unsafe fn VarUI4FromUI2(uiin: u16) -> ::windows::runtime::Result<u32> {
         extern "system" {
             fn VarUI4FromUI2(uiin: u16, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI4FromUI2(::std::mem::transmute(uiin), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI4FromUI2(::core::mem::transmute(uiin), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9079,8 +9090,8 @@ pub unsafe fn VarUI4FromUI8(ui64in: u64) -> ::windows::runtime::Result<u32> {
         extern "system" {
             fn VarUI4FromUI8(ui64in: u64, plout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI4FromUI8(::std::mem::transmute(ui64in), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI4FromUI8(::core::mem::transmute(ui64in), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9094,8 +9105,8 @@ pub unsafe fn VarUI8FromBool(boolin: i16) -> ::windows::runtime::Result<u64> {
         extern "system" {
             fn VarUI8FromBool(boolin: i16, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI8FromBool(::std::mem::transmute(boolin), &mut result__).from_abi::<u64>(result__)
+        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI8FromBool(::core::mem::transmute(boolin), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9110,7 +9121,7 @@ pub unsafe fn VarUI8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarUI8FromCy(cyin: super::super::Com::CY, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarUI8FromCy(cyin.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
@@ -9125,8 +9136,8 @@ pub unsafe fn VarUI8FromDate(datein: f64) -> ::windows::runtime::Result<u64> {
         extern "system" {
             fn VarUI8FromDate(datein: f64, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI8FromDate(::std::mem::transmute(datein), &mut result__).from_abi::<u64>(result__)
+        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI8FromDate(::core::mem::transmute(datein), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9141,8 +9152,8 @@ pub unsafe fn VarUI8FromDec(pdecin: *const super::super::super::Foundation::DECI
         extern "system" {
             fn VarUI8FromDec(pdecin: *const super::super::super::Foundation::DECIMAL, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI8FromDec(::std::mem::transmute(pdecin), &mut result__).from_abi::<u64>(result__)
+        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI8FromDec(::core::mem::transmute(pdecin), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9156,8 +9167,8 @@ pub unsafe fn VarUI8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
         extern "system" {
             fn VarUI8FromDisp(pdispin: ::windows::runtime::RawPtr, lcid: u32, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI8FromDisp(pdispin.into_param().abi(), ::std::mem::transmute(lcid), &mut result__).from_abi::<u64>(result__)
+        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI8FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9172,7 +9183,7 @@ pub unsafe fn VarUI8FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VarUI8FromI1(cin: super::super::super::Foundation::CHAR, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VarUI8FromI1(cin.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
@@ -9187,8 +9198,8 @@ pub unsafe fn VarUI8FromI2(sin: i16) -> ::windows::runtime::Result<u64> {
         extern "system" {
             fn VarUI8FromI2(sin: i16, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI8FromI2(::std::mem::transmute(sin), &mut result__).from_abi::<u64>(result__)
+        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI8FromI2(::core::mem::transmute(sin), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9202,8 +9213,8 @@ pub unsafe fn VarUI8FromI8(ui64in: i64) -> ::windows::runtime::Result<u64> {
         extern "system" {
             fn VarUI8FromI8(ui64in: i64, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI8FromI8(::std::mem::transmute(ui64in), &mut result__).from_abi::<u64>(result__)
+        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI8FromI8(::core::mem::transmute(ui64in), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9217,8 +9228,8 @@ pub unsafe fn VarUI8FromR4(fltin: f32) -> ::windows::runtime::Result<u64> {
         extern "system" {
             fn VarUI8FromR4(fltin: f32, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI8FromR4(::std::mem::transmute(fltin), &mut result__).from_abi::<u64>(result__)
+        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI8FromR4(::core::mem::transmute(fltin), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9232,8 +9243,8 @@ pub unsafe fn VarUI8FromR8(dblin: f64) -> ::windows::runtime::Result<u64> {
         extern "system" {
             fn VarUI8FromR8(dblin: f64, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI8FromR8(::std::mem::transmute(dblin), &mut result__).from_abi::<u64>(result__)
+        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI8FromR8(::core::mem::transmute(dblin), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9248,8 +9259,8 @@ pub unsafe fn VarUI8FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn VarUI8FromStr(strin: super::super::super::Foundation::PWSTR, lcid: u32, dwflags: u32, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI8FromStr(strin.into_param().abi(), ::std::mem::transmute(lcid), ::std::mem::transmute(dwflags), &mut result__).from_abi::<u64>(result__)
+        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI8FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9263,8 +9274,8 @@ pub unsafe fn VarUI8FromUI1(bin: u8) -> ::windows::runtime::Result<u64> {
         extern "system" {
             fn VarUI8FromUI1(bin: u8, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI8FromUI1(::std::mem::transmute(bin), &mut result__).from_abi::<u64>(result__)
+        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI8FromUI1(::core::mem::transmute(bin), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9278,8 +9289,8 @@ pub unsafe fn VarUI8FromUI2(uiin: u16) -> ::windows::runtime::Result<u64> {
         extern "system" {
             fn VarUI8FromUI2(uiin: u16, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI8FromUI2(::std::mem::transmute(uiin), &mut result__).from_abi::<u64>(result__)
+        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI8FromUI2(::core::mem::transmute(uiin), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9293,8 +9304,8 @@ pub unsafe fn VarUI8FromUI4(ulin: u32) -> ::windows::runtime::Result<u64> {
         extern "system" {
             fn VarUI8FromUI4(ulin: u32, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUI8FromUI4(::std::mem::transmute(ulin), &mut result__).from_abi::<u64>(result__)
+        let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUI8FromUI4(::core::mem::transmute(ulin), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9309,8 +9320,8 @@ pub unsafe fn VarUdateFromDate(datein: f64, dwflags: u32) -> ::windows::runtime:
         extern "system" {
             fn VarUdateFromDate(datein: f64, dwflags: u32, pudateout: *mut UDATE) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <UDATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarUdateFromDate(::std::mem::transmute(datein), ::std::mem::transmute(dwflags), &mut result__).from_abi::<UDATE>(result__)
+        let mut result__: <UDATE as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarUdateFromDate(::core::mem::transmute(datein), ::core::mem::transmute(dwflags), &mut result__).from_abi::<UDATE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9323,10 +9334,10 @@ pub unsafe fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflag
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflags: u32, pbstrout: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
+            fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarWeekdayName(::std::mem::transmute(iweekday), ::std::mem::transmute(fabbrev), ::std::mem::transmute(ifirstday), ::std::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
+        let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarWeekdayName(::core::mem::transmute(iweekday), ::core::mem::transmute(fabbrev), ::core::mem::transmute(ifirstday), ::core::mem::transmute(dwflags), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9339,10 +9350,10 @@ pub unsafe fn VarXor(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VarXor(pvarleft: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VarXor(pvarleft: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        VarXor(::std::mem::transmute(pvarleft), ::std::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
+        let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        VarXor(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9355,9 +9366,9 @@ pub unsafe fn VariantChangeType(pvargdest: *mut super::super::Com::VARIANT, pvar
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VariantChangeType(pvargdest: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarsrc: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, wflags: u16, vt: u16) -> ::windows::runtime::HRESULT;
+            fn VariantChangeType(pvargdest: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarsrc: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, wflags: u16, vt: u16) -> ::windows::runtime::HRESULT;
         }
-        VariantChangeType(::std::mem::transmute(pvargdest), ::std::mem::transmute(pvarsrc), ::std::mem::transmute(wflags), ::std::mem::transmute(vt)).ok()
+        VariantChangeType(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvarsrc), ::core::mem::transmute(wflags), ::core::mem::transmute(vt)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9370,9 +9381,9 @@ pub unsafe fn VariantChangeTypeEx(pvargdest: *mut super::super::Com::VARIANT, pv
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VariantChangeTypeEx(pvargdest: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarsrc: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, lcid: u32, wflags: u16, vt: u16) -> ::windows::runtime::HRESULT;
+            fn VariantChangeTypeEx(pvargdest: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvarsrc: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, lcid: u32, wflags: u16, vt: u16) -> ::windows::runtime::HRESULT;
         }
-        VariantChangeTypeEx(::std::mem::transmute(pvargdest), ::std::mem::transmute(pvarsrc), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(vt)).ok()
+        VariantChangeTypeEx(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvarsrc), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(vt)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9385,9 +9396,9 @@ pub unsafe fn VariantClear(pvarg: *mut super::super::Com::VARIANT) -> ::windows:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VariantClear(pvarg: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VariantClear(pvarg: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        VariantClear(::std::mem::transmute(pvarg)).ok()
+        VariantClear(::core::mem::transmute(pvarg)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9400,9 +9411,9 @@ pub unsafe fn VariantCopy(pvargdest: *mut super::super::Com::VARIANT, pvargsrc: 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VariantCopy(pvargdest: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvargsrc: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VariantCopy(pvargdest: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvargsrc: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        VariantCopy(::std::mem::transmute(pvargdest), ::std::mem::transmute(pvargsrc)).ok()
+        VariantCopy(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvargsrc)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9415,9 +9426,9 @@ pub unsafe fn VariantCopyInd(pvardest: *mut super::super::Com::VARIANT, pvargsrc
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VariantCopyInd(pvardest: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pvargsrc: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+            fn VariantCopyInd(pvardest: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pvargsrc: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT;
         }
-        VariantCopyInd(::std::mem::transmute(pvardest), ::std::mem::transmute(pvargsrc)).ok()
+        VariantCopyInd(::core::mem::transmute(pvardest), ::core::mem::transmute(pvargsrc)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9430,9 +9441,9 @@ pub unsafe fn VariantInit(pvarg: *mut super::super::Com::VARIANT) {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VariantInit(pvarg: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>);
+            fn VariantInit(pvarg: *mut ::core::mem::ManuallyDrop<super::super::Com::VARIANT>);
         }
-        ::std::mem::transmute(VariantInit(::std::mem::transmute(pvarg)))
+        ::core::mem::transmute(VariantInit(::core::mem::transmute(pvarg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9446,7 +9457,7 @@ pub unsafe fn VariantTimeToDosDateTime(vtime: f64, pwdosdate: *mut u16, pwdostim
         extern "system" {
             fn VariantTimeToDosDateTime(vtime: f64, pwdosdate: *mut u16, pwdostime: *mut u16) -> i32;
         }
-        ::std::mem::transmute(VariantTimeToDosDateTime(::std::mem::transmute(vtime), ::std::mem::transmute(pwdosdate), ::std::mem::transmute(pwdostime)))
+        ::core::mem::transmute(VariantTimeToDosDateTime(::core::mem::transmute(vtime), ::core::mem::transmute(pwdosdate), ::core::mem::transmute(pwdostime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9461,7 +9472,7 @@ pub unsafe fn VariantTimeToSystemTime(vtime: f64, lpsystemtime: *mut super::supe
         extern "system" {
             fn VariantTimeToSystemTime(vtime: f64, lpsystemtime: *mut super::super::super::Foundation::SYSTEMTIME) -> i32;
         }
-        ::std::mem::transmute(VariantTimeToSystemTime(::std::mem::transmute(vtime), ::std::mem::transmute(lpsystemtime)))
+        ::core::mem::transmute(VariantTimeToSystemTime(::core::mem::transmute(vtime), ::core::mem::transmute(lpsystemtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9474,44 +9485,44 @@ pub unsafe fn VectorFromBstr<'a, Param0: ::windows::runtime::IntoParam<'a, super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VectorFromBstr(bstr: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppsa: *mut *mut super::super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT;
+            fn VectorFromBstr(bstr: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppsa: *mut *mut super::super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <*mut super::super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <*mut super::super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         VectorFromBstr(bstr.into_param().abi(), &mut result__).from_abi::<*mut super::super::Com::SAFEARRAY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct _wireBRECORD {
     pub fFlags: u32,
     pub clSize: u32,
-    pub pRecInfo: ::std::option::Option<IRecordInfo>,
+    pub pRecInfo: ::core::option::Option<IRecordInfo>,
     pub pRecord: *mut u8,
 }
 impl _wireBRECORD {}
-impl ::std::default::Default for _wireBRECORD {
+impl ::core::default::Default for _wireBRECORD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for _wireBRECORD {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for _wireBRECORD {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_wireBRECORD").field("fFlags", &self.fFlags).field("clSize", &self.clSize).field("pRecInfo", &self.pRecInfo).field("pRecord", &self.pRecord).finish()
     }
 }
-impl ::std::cmp::PartialEq for _wireBRECORD {
+impl ::core::cmp::PartialEq for _wireBRECORD {
     fn eq(&self, other: &Self) -> bool {
         self.fFlags == other.fFlags && self.clSize == other.clSize && self.pRecInfo == other.pRecInfo && self.pRecord == other.pRecord
     }
 }
-impl ::std::cmp::Eq for _wireBRECORD {}
+impl ::core::cmp::Eq for _wireBRECORD {}
 unsafe impl ::windows::runtime::Abi for _wireBRECORD {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -9526,24 +9537,24 @@ pub struct _wireSAFEARRAY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl _wireSAFEARRAY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for _wireSAFEARRAY {
+impl ::core::default::Default for _wireSAFEARRAY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for _wireSAFEARRAY {
+impl ::core::cmp::PartialEq for _wireSAFEARRAY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for _wireSAFEARRAY {}
+impl ::core::cmp::Eq for _wireSAFEARRAY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for _wireSAFEARRAY {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -9554,24 +9565,24 @@ pub struct _wireSAFEARRAY_UNION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl _wireSAFEARRAY_UNION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for _wireSAFEARRAY_UNION {
+impl ::core::default::Default for _wireSAFEARRAY_UNION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for _wireSAFEARRAY_UNION {
+impl ::core::cmp::PartialEq for _wireSAFEARRAY_UNION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for _wireSAFEARRAY_UNION {}
+impl ::core::cmp::Eq for _wireSAFEARRAY_UNION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for _wireSAFEARRAY_UNION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub union _wireSAFEARRAY_UNION_0 {
@@ -9589,24 +9600,24 @@ pub union _wireSAFEARRAY_UNION_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl _wireSAFEARRAY_UNION_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for _wireSAFEARRAY_UNION_0 {
+impl ::core::default::Default for _wireSAFEARRAY_UNION_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for _wireSAFEARRAY_UNION_0 {
+impl ::core::cmp::PartialEq for _wireSAFEARRAY_UNION_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for _wireSAFEARRAY_UNION_0 {}
+impl ::core::cmp::Eq for _wireSAFEARRAY_UNION_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for _wireSAFEARRAY_UNION_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct _wireSAFEARR_BRECORD {
@@ -9614,26 +9625,26 @@ pub struct _wireSAFEARR_BRECORD {
     pub aRecord: *mut *mut _wireBRECORD,
 }
 impl _wireSAFEARR_BRECORD {}
-impl ::std::default::Default for _wireSAFEARR_BRECORD {
+impl ::core::default::Default for _wireSAFEARR_BRECORD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for _wireSAFEARR_BRECORD {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for _wireSAFEARR_BRECORD {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_wireSAFEARR_BRECORD").field("Size", &self.Size).field("aRecord", &self.aRecord).finish()
     }
 }
-impl ::std::cmp::PartialEq for _wireSAFEARR_BRECORD {
+impl ::core::cmp::PartialEq for _wireSAFEARR_BRECORD {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.aRecord == other.aRecord
     }
 }
-impl ::std::cmp::Eq for _wireSAFEARR_BRECORD {}
+impl ::core::cmp::Eq for _wireSAFEARR_BRECORD {}
 unsafe impl ::windows::runtime::Abi for _wireSAFEARR_BRECORD {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
@@ -9644,112 +9655,112 @@ pub struct _wireSAFEARR_BSTR {
 #[cfg(feature = "Win32_System_Com")]
 impl _wireSAFEARR_BSTR {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::default::Default for _wireSAFEARR_BSTR {
+impl ::core::default::Default for _wireSAFEARR_BSTR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::fmt::Debug for _wireSAFEARR_BSTR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for _wireSAFEARR_BSTR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_wireSAFEARR_BSTR").field("Size", &self.Size).field("aBstr", &self.aBstr).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::cmp::PartialEq for _wireSAFEARR_BSTR {
+impl ::core::cmp::PartialEq for _wireSAFEARR_BSTR {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.aBstr == other.aBstr
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::std::cmp::Eq for _wireSAFEARR_BSTR {}
+impl ::core::cmp::Eq for _wireSAFEARR_BSTR {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for _wireSAFEARR_BSTR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct _wireSAFEARR_DISPATCH {
     pub Size: u32,
-    pub apDispatch: *mut ::std::option::Option<IDispatch>,
+    pub apDispatch: *mut ::core::option::Option<IDispatch>,
 }
 impl _wireSAFEARR_DISPATCH {}
-impl ::std::default::Default for _wireSAFEARR_DISPATCH {
+impl ::core::default::Default for _wireSAFEARR_DISPATCH {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for _wireSAFEARR_DISPATCH {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for _wireSAFEARR_DISPATCH {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_wireSAFEARR_DISPATCH").field("Size", &self.Size).field("apDispatch", &self.apDispatch).finish()
     }
 }
-impl ::std::cmp::PartialEq for _wireSAFEARR_DISPATCH {
+impl ::core::cmp::PartialEq for _wireSAFEARR_DISPATCH {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.apDispatch == other.apDispatch
     }
 }
-impl ::std::cmp::Eq for _wireSAFEARR_DISPATCH {}
+impl ::core::cmp::Eq for _wireSAFEARR_DISPATCH {}
 unsafe impl ::windows::runtime::Abi for _wireSAFEARR_DISPATCH {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct _wireSAFEARR_HAVEIID {
     pub Size: u32,
-    pub apUnknown: *mut ::std::option::Option<::windows::runtime::IUnknown>,
+    pub apUnknown: *mut ::core::option::Option<::windows::runtime::IUnknown>,
     pub iid: ::windows::runtime::GUID,
 }
 impl _wireSAFEARR_HAVEIID {}
-impl ::std::default::Default for _wireSAFEARR_HAVEIID {
+impl ::core::default::Default for _wireSAFEARR_HAVEIID {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for _wireSAFEARR_HAVEIID {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for _wireSAFEARR_HAVEIID {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_wireSAFEARR_HAVEIID").field("Size", &self.Size).field("apUnknown", &self.apUnknown).field("iid", &self.iid).finish()
     }
 }
-impl ::std::cmp::PartialEq for _wireSAFEARR_HAVEIID {
+impl ::core::cmp::PartialEq for _wireSAFEARR_HAVEIID {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.apUnknown == other.apUnknown && self.iid == other.iid
     }
 }
-impl ::std::cmp::Eq for _wireSAFEARR_HAVEIID {}
+impl ::core::cmp::Eq for _wireSAFEARR_HAVEIID {}
 unsafe impl ::windows::runtime::Abi for _wireSAFEARR_HAVEIID {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct _wireSAFEARR_UNKNOWN {
     pub Size: u32,
-    pub apUnknown: *mut ::std::option::Option<::windows::runtime::IUnknown>,
+    pub apUnknown: *mut ::core::option::Option<::windows::runtime::IUnknown>,
 }
 impl _wireSAFEARR_UNKNOWN {}
-impl ::std::default::Default for _wireSAFEARR_UNKNOWN {
+impl ::core::default::Default for _wireSAFEARR_UNKNOWN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for _wireSAFEARR_UNKNOWN {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for _wireSAFEARR_UNKNOWN {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_wireSAFEARR_UNKNOWN").field("Size", &self.Size).field("apUnknown", &self.apUnknown).finish()
     }
 }
-impl ::std::cmp::PartialEq for _wireSAFEARR_UNKNOWN {
+impl ::core::cmp::PartialEq for _wireSAFEARR_UNKNOWN {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.apUnknown == other.apUnknown
     }
 }
-impl ::std::cmp::Eq for _wireSAFEARR_UNKNOWN {}
+impl ::core::cmp::Eq for _wireSAFEARR_UNKNOWN {}
 unsafe impl ::windows::runtime::Abi for _wireSAFEARR_UNKNOWN {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -9760,31 +9771,31 @@ pub struct _wireSAFEARR_VARIANT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl _wireSAFEARR_VARIANT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for _wireSAFEARR_VARIANT {
+impl ::core::default::Default for _wireSAFEARR_VARIANT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::fmt::Debug for _wireSAFEARR_VARIANT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for _wireSAFEARR_VARIANT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_wireSAFEARR_VARIANT").field("Size", &self.Size).field("aVariant", &self.aVariant).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for _wireSAFEARR_VARIANT {
+impl ::core::cmp::PartialEq for _wireSAFEARR_VARIANT {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.aVariant == other.aVariant
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for _wireSAFEARR_VARIANT {}
+impl ::core::cmp::Eq for _wireSAFEARR_VARIANT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for _wireSAFEARR_VARIANT {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::clone::Clone for _wireVARIANT {
+impl ::core::clone::Clone for _wireVARIANT {
     fn clone(&self) -> Self {
         unimplemented!()
     }
@@ -9804,25 +9815,25 @@ pub struct _wireVARIANT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl _wireVARIANT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for _wireVARIANT {
+impl ::core::default::Default for _wireVARIANT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for _wireVARIANT {
+impl ::core::cmp::PartialEq for _wireVARIANT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for _wireVARIANT {}
+impl ::core::cmp::Eq for _wireVARIANT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for _wireVARIANT {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::clone::Clone for _wireVARIANT_0 {
+impl ::core::clone::Clone for _wireVARIANT_0 {
     fn clone(&self) -> Self {
         unimplemented!()
     }
@@ -9844,7 +9855,7 @@ pub union _wireVARIANT_0 {
     pub punkVal: ::windows::runtime::RawPtr,
     pub pdispVal: ::windows::runtime::RawPtr,
     pub parray: *mut *mut _wireSAFEARRAY,
-    pub brecVal: *mut ::std::mem::ManuallyDrop<_wireBRECORD>,
+    pub brecVal: *mut ::core::mem::ManuallyDrop<_wireBRECORD>,
     pub pbVal: *mut u8,
     pub piVal: *mut i16,
     pub plVal: *mut i32,
@@ -9859,7 +9870,7 @@ pub union _wireVARIANT_0 {
     pub ppunkVal: *mut ::windows::runtime::RawPtr,
     pub ppdispVal: *mut ::windows::runtime::RawPtr,
     pub pparray: *mut *mut *mut _wireSAFEARRAY,
-    pub pvarVal: *mut *mut ::std::mem::ManuallyDrop<_wireVARIANT>,
+    pub pvarVal: *mut *mut ::core::mem::ManuallyDrop<_wireVARIANT>,
     pub cVal: super::super::super::Foundation::CHAR,
     pub uiVal: u16,
     pub ulVal: u32,
@@ -9878,20 +9889,20 @@ pub union _wireVARIANT_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl _wireVARIANT_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::default::Default for _wireVARIANT_0 {
+impl ::core::default::Default for _wireVARIANT_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::PartialEq for _wireVARIANT_0 {
+impl ::core::cmp::PartialEq for _wireVARIANT_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::std::cmp::Eq for _wireVARIANT_0 {}
+impl ::core::cmp::Eq for _wireVARIANT_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for _wireVARIANT_0 {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }

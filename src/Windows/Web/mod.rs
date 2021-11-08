@@ -8,7 +8,7 @@ pub mod Syndication;
 #[cfg(feature = "Web_UI")]
 pub mod UI;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Web`*"]
 pub struct IUriToStreamResolver(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUriToStreamResolver {
@@ -21,20 +21,20 @@ impl IUriToStreamResolver {
     pub fn UriToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IUriToStreamResolver {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{b0aba86a-9aeb-4d3a-9590-003e3ca7e290}");
 }
-impl ::std::convert::From<IUriToStreamResolver> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IUriToStreamResolver> for ::windows::runtime::IUnknown {
     fn from(value: IUriToStreamResolver) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IUriToStreamResolver> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IUriToStreamResolver> for ::windows::runtime::IUnknown {
     fn from(value: &IUriToStreamResolver) -> Self {
         value.0 .0.clone()
     }
@@ -49,12 +49,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IUriToStreamResolver> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IUriToStreamResolver> for ::windows::runtime::IInspectable {
     fn from(value: IUriToStreamResolver) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IUriToStreamResolver> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IUriToStreamResolver> for ::windows::runtime::IInspectable {
     fn from(value: &IUriToStreamResolver) -> Self {
         value.0.clone()
     }
@@ -105,8 +105,8 @@ impl WebError {
     #[doc = "*Required features: `Web`*"]
     pub fn GetStatus(hresult: i32) -> ::windows::runtime::Result<WebErrorStatus> {
         Self::IWebErrorStatics(|this| unsafe {
-            let mut result__: WebErrorStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), hresult, &mut result__).from_abi::<WebErrorStatus>(result__)
+            let mut result__: WebErrorStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), hresult, &mut result__).from_abi::<WebErrorStatus>(result__)
         })
     }
     pub fn IWebErrorStatics<R, F: FnOnce(&IWebErrorStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -118,7 +118,7 @@ impl ::windows::runtime::RuntimeName for WebError {
     const NAME: &'static str = "Windows.Web.WebError";
 }
 #[doc = "*Required features: `Web`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WebErrorStatus(pub i32);
 impl WebErrorStatus {
@@ -178,7 +178,7 @@ impl WebErrorStatus {
     pub const GatewayTimeout: WebErrorStatus = WebErrorStatus(504i32);
     pub const HttpVersionNotSupported: WebErrorStatus = WebErrorStatus(505i32);
 }
-impl ::std::convert::From<i32> for WebErrorStatus {
+impl ::core::convert::From<i32> for WebErrorStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }

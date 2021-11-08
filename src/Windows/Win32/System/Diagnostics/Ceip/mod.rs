@@ -9,7 +9,7 @@ pub unsafe fn CeipIsOptedIn() -> super::super::super::Foundation::BOOL {
         extern "system" {
             fn CeipIsOptedIn() -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CeipIsOptedIn())
+        ::core::mem::transmute(CeipIsOptedIn())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

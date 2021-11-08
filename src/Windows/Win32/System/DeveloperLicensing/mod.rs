@@ -9,7 +9,7 @@ pub unsafe fn AcquireDeveloperLicense<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn AcquireDeveloperLicense(hwndparent: super::super::Foundation::HWND, pexpiration: *mut super::super::Foundation::FILETIME) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Foundation::FILETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Foundation::FILETIME as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         AcquireDeveloperLicense(hwndparent.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(not(windows))]
@@ -25,7 +25,7 @@ pub unsafe fn CheckDeveloperLicense() -> ::windows::runtime::Result<super::super
         extern "system" {
             fn CheckDeveloperLicense(pexpiration: *mut super::super::Foundation::FILETIME) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Foundation::FILETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Foundation::FILETIME as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         CheckDeveloperLicense(&mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(not(windows))]

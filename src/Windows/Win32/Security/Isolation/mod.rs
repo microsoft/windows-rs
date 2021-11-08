@@ -9,8 +9,8 @@ pub unsafe fn CreateAppContainerProfile<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn CreateAppContainerProfile(pszappcontainername: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, pszdescription: super::super::Foundation::PWSTR, pcapabilities: *const super::SID_AND_ATTRIBUTES, dwcapabilitycount: u32, ppsidappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PSID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        CreateAppContainerProfile(pszappcontainername.into_param().abi(), pszdisplayname.into_param().abi(), pszdescription.into_param().abi(), ::std::mem::transmute(pcapabilities), ::std::mem::transmute(dwcapabilitycount), &mut result__).from_abi::<super::super::Foundation::PSID>(result__)
+        let mut result__: <super::super::Foundation::PSID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        CreateAppContainerProfile(pszappcontainername.into_param().abi(), pszdisplayname.into_param().abi(), pszdescription.into_param().abi(), ::core::mem::transmute(pcapabilities), ::core::mem::transmute(dwcapabilitycount), &mut result__).from_abi::<super::super::Foundation::PSID>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -40,7 +40,7 @@ pub unsafe fn DeriveAppContainerSidFromAppContainerName<'a, Param0: ::windows::r
         extern "system" {
             fn DeriveAppContainerSidFromAppContainerName(pszappcontainername: super::super::Foundation::PWSTR, ppsidappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PSID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Foundation::PSID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         DeriveAppContainerSidFromAppContainerName(pszappcontainername.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PSID>(result__)
     }
     #[cfg(not(windows))]
@@ -56,7 +56,7 @@ pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedNam
         extern "system" {
             fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid: super::super::Foundation::PSID, pszrestrictedappcontainername: super::super::Foundation::PWSTR, ppsidrestrictedappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PSID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Foundation::PSID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid.into_param().abi(), pszrestrictedappcontainername.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PSID>(result__)
     }
     #[cfg(not(windows))]
@@ -72,7 +72,7 @@ pub unsafe fn GetAppContainerFolderPath<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn GetAppContainerFolderPath(pszappcontainersid: super::super::Foundation::PWSTR, ppszpath: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         GetAppContainerFolderPath(pszappcontainersid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
@@ -88,7 +88,7 @@ pub unsafe fn GetAppContainerNamedObjectPath<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn GetAppContainerNamedObjectPath(token: super::super::Foundation::HANDLE, appcontainersid: super::super::Foundation::PSID, objectpathlength: u32, objectpath: super::super::Foundation::PWSTR, returnlength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetAppContainerNamedObjectPath(token.into_param().abi(), appcontainersid.into_param().abi(), ::std::mem::transmute(objectpathlength), ::std::mem::transmute(objectpath), ::std::mem::transmute(returnlength)))
+        ::core::mem::transmute(GetAppContainerNamedObjectPath(token.into_param().abi(), appcontainersid.into_param().abi(), ::core::mem::transmute(objectpathlength), ::core::mem::transmute(objectpath), ::core::mem::transmute(returnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -103,33 +103,33 @@ pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: u32) -> ::windows::
         extern "system" {
             fn GetAppContainerRegistryLocation(desiredaccess: u32, phappcontainerkey: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::System::Registry::HKEY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        GetAppContainerRegistryLocation(::std::mem::transmute(desiredaccess), &mut result__).from_abi::<super::super::System::Registry::HKEY>(result__)
+        let mut result__: <super::super::System::Registry::HKEY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        GetAppContainerRegistryLocation(::core::mem::transmute(desiredaccess), &mut result__).from_abi::<super::super::System::Registry::HKEY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IIsolatedAppLauncher(pub ::windows::runtime::IUnknown);
 impl IIsolatedAppLauncher {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
     pub unsafe fn Launch<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, appusermodelid: Param0, arguments: Param1, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), appusermodelid.into_param().abi(), arguments.into_param().abi(), ::std::mem::transmute(telemetryparameters)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), appusermodelid.into_param().abi(), arguments.into_param().abi(), ::core::mem::transmute(telemetryparameters)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IIsolatedAppLauncher {
     type Vtable = IIsolatedAppLauncher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4136011663, 31554, 19652, [150, 251, 244, 243, 182, 227, 210, 77]);
 }
-impl ::std::convert::From<IIsolatedAppLauncher> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IIsolatedAppLauncher> for ::windows::runtime::IUnknown {
     fn from(value: IIsolatedAppLauncher) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IIsolatedAppLauncher> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IIsolatedAppLauncher> for ::windows::runtime::IUnknown {
     fn from(value: &IIsolatedAppLauncher) -> Self {
         value.0.clone()
     }
@@ -163,7 +163,7 @@ pub unsafe fn IsProcessInIsolatedContainer() -> ::windows::runtime::Result<super
         extern "system" {
             fn IsProcessInIsolatedContainer(isprocessinisolatedcontainer: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         IsProcessInIsolatedContainer(&mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
@@ -179,7 +179,7 @@ pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> ::windows::runtime::Res
         extern "system" {
             fn IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         IsProcessInIsolatedWindowsEnvironment(&mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
@@ -188,21 +188,21 @@ pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> ::windows::runtime::Res
 #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsProcessInWDAGContainer(reserved: *const ::std::ffi::c_void) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+pub unsafe fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IsProcessInWDAGContainer(reserved: *const ::std::ffi::c_void, isprocessinwdagcontainer: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+            fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void, isprocessinwdagcontainer: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        IsProcessInWDAGContainer(::std::mem::transmute(reserved), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        IsProcessInWDAGContainer(::core::mem::transmute(reserved), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 pub const IsolatedAppLauncher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3162580016, 59230, 20433, [150, 65, 31, 159, 30, 45, 154, 31]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
@@ -213,25 +213,25 @@ pub struct IsolatedAppLauncherTelemetryParameters {
 #[cfg(feature = "Win32_Foundation")]
 impl IsolatedAppLauncherTelemetryParameters {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for IsolatedAppLauncherTelemetryParameters {
+impl ::core::default::Default for IsolatedAppLauncherTelemetryParameters {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for IsolatedAppLauncherTelemetryParameters {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IsolatedAppLauncherTelemetryParameters {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IsolatedAppLauncherTelemetryParameters").field("EnableForLaunch", &self.EnableForLaunch).field("CorrelationGUID", &self.CorrelationGUID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for IsolatedAppLauncherTelemetryParameters {
+impl ::core::cmp::PartialEq for IsolatedAppLauncherTelemetryParameters {
     fn eq(&self, other: &Self) -> bool {
         self.EnableForLaunch == other.EnableForLaunch && self.CorrelationGUID == other.CorrelationGUID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for IsolatedAppLauncherTelemetryParameters {}
+impl ::core::cmp::Eq for IsolatedAppLauncherTelemetryParameters {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IsolatedAppLauncherTelemetryParameters {
     type Abi = Self;

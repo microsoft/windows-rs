@@ -1,15 +1,15 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameSaveBlobGetResult(pub ::windows::runtime::IInspectable);
 impl GameSaveBlobGetResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
-            let mut result__: GameSaveErrorStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveErrorStatus>(result__)
+            let mut result__: GameSaveErrorStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveErrorStatus>(result__)
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
@@ -17,8 +17,8 @@ impl GameSaveBlobGetResult {
     pub fn Value(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, super::super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, super::super::super::Storage::Streams::IBuffer>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, super::super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
 }
@@ -32,12 +32,12 @@ unsafe impl ::windows::runtime::Interface for GameSaveBlobGetResult {
 impl ::windows::runtime::RuntimeName for GameSaveBlobGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobGetResult";
 }
-impl ::std::convert::From<GameSaveBlobGetResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameSaveBlobGetResult> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveBlobGetResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameSaveBlobGetResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameSaveBlobGetResult> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveBlobGetResult) -> Self {
         value.0 .0.clone()
     }
@@ -52,12 +52,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameSaveBlobGetResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameSaveBlobGetResult> for ::windows::runtime::IInspectable {
     fn from(value: GameSaveBlobGetResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameSaveBlobGetResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameSaveBlobGetResult> for ::windows::runtime::IInspectable {
     fn from(value: &GameSaveBlobGetResult) -> Self {
         value.0.clone()
     }
@@ -72,27 +72,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GameSaveBlobGetResult {}
-unsafe impl ::std::marker::Sync for GameSaveBlobGetResult {}
+unsafe impl ::core::marker::Send for GameSaveBlobGetResult {}
+unsafe impl ::core::marker::Sync for GameSaveBlobGetResult {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameSaveBlobInfo(pub ::windows::runtime::IInspectable);
 impl GameSaveBlobInfo {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -106,12 +106,12 @@ unsafe impl ::windows::runtime::Interface for GameSaveBlobInfo {
 impl ::windows::runtime::RuntimeName for GameSaveBlobInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfo";
 }
-impl ::std::convert::From<GameSaveBlobInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameSaveBlobInfo> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveBlobInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameSaveBlobInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameSaveBlobInfo> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveBlobInfo) -> Self {
         value.0 .0.clone()
     }
@@ -126,12 +126,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameSaveBlobInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameSaveBlobInfo> for ::windows::runtime::IInspectable {
     fn from(value: GameSaveBlobInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameSaveBlobInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameSaveBlobInfo> for ::windows::runtime::IInspectable {
     fn from(value: &GameSaveBlobInfo) -> Self {
         value.0.clone()
     }
@@ -146,19 +146,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GameSaveBlobInfo {}
-unsafe impl ::std::marker::Sync for GameSaveBlobInfo {}
+unsafe impl ::core::marker::Send for GameSaveBlobInfo {}
+unsafe impl ::core::marker::Sync for GameSaveBlobInfo {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameSaveBlobInfoGetResult(pub ::windows::runtime::IInspectable);
 impl GameSaveBlobInfoGetResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
-            let mut result__: GameSaveErrorStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveErrorStatus>(result__)
+            let mut result__: GameSaveErrorStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveErrorStatus>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -166,8 +166,8 @@ impl GameSaveBlobInfoGetResult {
     pub fn Value(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<GameSaveBlobInfo>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GameSaveBlobInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GameSaveBlobInfo>>(result__)
         }
     }
 }
@@ -181,12 +181,12 @@ unsafe impl ::windows::runtime::Interface for GameSaveBlobInfoGetResult {
 impl ::windows::runtime::RuntimeName for GameSaveBlobInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoGetResult";
 }
-impl ::std::convert::From<GameSaveBlobInfoGetResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameSaveBlobInfoGetResult> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveBlobInfoGetResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameSaveBlobInfoGetResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameSaveBlobInfoGetResult> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveBlobInfoGetResult) -> Self {
         value.0 .0.clone()
     }
@@ -201,12 +201,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameSaveBlobInfoGetResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameSaveBlobInfoGetResult> for ::windows::runtime::IInspectable {
     fn from(value: GameSaveBlobInfoGetResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameSaveBlobInfoGetResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameSaveBlobInfoGetResult> for ::windows::runtime::IInspectable {
     fn from(value: &GameSaveBlobInfoGetResult) -> Self {
         value.0.clone()
     }
@@ -221,11 +221,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GameSaveBlobInfoGetResult {}
-unsafe impl ::std::marker::Sync for GameSaveBlobInfoGetResult {}
+unsafe impl ::core::marker::Send for GameSaveBlobInfoGetResult {}
+unsafe impl ::core::marker::Sync for GameSaveBlobInfoGetResult {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameSaveBlobInfoQuery(pub ::windows::runtime::IInspectable);
 impl GameSaveBlobInfoQuery {
     #[cfg(feature = "Foundation")]
@@ -233,8 +233,8 @@ impl GameSaveBlobInfoQuery {
     pub fn GetBlobInfoAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -242,8 +242,8 @@ impl GameSaveBlobInfoQuery {
     pub fn GetBlobInfoWithIndexAndMaxAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), startindex, maxnumberofitems, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), startindex, maxnumberofitems, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -251,8 +251,8 @@ impl GameSaveBlobInfoQuery {
     pub fn GetItemCountAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
 }
@@ -266,12 +266,12 @@ unsafe impl ::windows::runtime::Interface for GameSaveBlobInfoQuery {
 impl ::windows::runtime::RuntimeName for GameSaveBlobInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoQuery";
 }
-impl ::std::convert::From<GameSaveBlobInfoQuery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameSaveBlobInfoQuery> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveBlobInfoQuery) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameSaveBlobInfoQuery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameSaveBlobInfoQuery> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveBlobInfoQuery) -> Self {
         value.0 .0.clone()
     }
@@ -286,12 +286,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameSaveBlobInfoQuery> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameSaveBlobInfoQuery> for ::windows::runtime::IInspectable {
     fn from(value: GameSaveBlobInfoQuery) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameSaveBlobInfoQuery> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameSaveBlobInfoQuery> for ::windows::runtime::IInspectable {
     fn from(value: &GameSaveBlobInfoQuery) -> Self {
         value.0.clone()
     }
@@ -306,27 +306,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GameSaveBlobInfoQuery {}
-unsafe impl ::std::marker::Sync for GameSaveBlobInfoQuery {}
+unsafe impl ::core::marker::Send for GameSaveBlobInfoQuery {}
+unsafe impl ::core::marker::Sync for GameSaveBlobInfoQuery {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameSaveContainer(pub ::windows::runtime::IInspectable);
 impl GameSaveContainer {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Provider(&self) -> ::windows::runtime::Result<GameSaveProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveProvider>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
@@ -339,8 +339,8 @@ impl GameSaveContainer {
     ) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), blobstowrite.into_param().abi(), blobstodelete.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), blobstowrite.into_param().abi(), blobstodelete.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
@@ -348,8 +348,8 @@ impl GameSaveContainer {
     pub fn ReadAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, super::super::super::Storage::Streams::IBuffer>>>(&self, blobstoread: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), blobstoread.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), blobstoread.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -357,8 +357,8 @@ impl GameSaveContainer {
     pub fn GetAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, blobstoread: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), blobstoread.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), blobstoread.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -371,16 +371,16 @@ impl GameSaveContainer {
     ) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), blobstowrite.into_param().abi(), blobstodelete.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), blobstowrite.into_param().abi(), blobstodelete.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn CreateBlobInfoQuery<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, blobnameprefix: Param0) -> ::windows::runtime::Result<GameSaveBlobInfoQuery> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), blobnameprefix.into_param().abi(), &mut result__).from_abi::<GameSaveBlobInfoQuery>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), blobnameprefix.into_param().abi(), &mut result__).from_abi::<GameSaveBlobInfoQuery>(result__)
         }
     }
 }
@@ -394,12 +394,12 @@ unsafe impl ::windows::runtime::Interface for GameSaveContainer {
 impl ::windows::runtime::RuntimeName for GameSaveContainer {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainer";
 }
-impl ::std::convert::From<GameSaveContainer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameSaveContainer> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveContainer) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameSaveContainer> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameSaveContainer> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveContainer) -> Self {
         value.0 .0.clone()
     }
@@ -414,12 +414,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameSaveContainer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameSaveContainer> for ::windows::runtime::IInspectable {
     fn from(value: GameSaveContainer) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameSaveContainer> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameSaveContainer> for ::windows::runtime::IInspectable {
     fn from(value: &GameSaveContainer) -> Self {
         value.0.clone()
     }
@@ -434,35 +434,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GameSaveContainer {}
-unsafe impl ::std::marker::Sync for GameSaveContainer {}
+unsafe impl ::core::marker::Send for GameSaveContainer {}
+unsafe impl ::core::marker::Sync for GameSaveContainer {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameSaveContainerInfo(pub ::windows::runtime::IInspectable);
 impl GameSaveContainerInfo {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn TotalSize(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__: u64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -470,16 +470,16 @@ impl GameSaveContainerInfo {
     pub fn LastModifiedTime(&self) -> ::windows::runtime::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn NeedsSync(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -493,12 +493,12 @@ unsafe impl ::windows::runtime::Interface for GameSaveContainerInfo {
 impl ::windows::runtime::RuntimeName for GameSaveContainerInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfo";
 }
-impl ::std::convert::From<GameSaveContainerInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameSaveContainerInfo> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveContainerInfo) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameSaveContainerInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameSaveContainerInfo> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveContainerInfo) -> Self {
         value.0 .0.clone()
     }
@@ -513,12 +513,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameSaveContainerInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameSaveContainerInfo> for ::windows::runtime::IInspectable {
     fn from(value: GameSaveContainerInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameSaveContainerInfo> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameSaveContainerInfo> for ::windows::runtime::IInspectable {
     fn from(value: &GameSaveContainerInfo) -> Self {
         value.0.clone()
     }
@@ -533,19 +533,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GameSaveContainerInfo {}
-unsafe impl ::std::marker::Sync for GameSaveContainerInfo {}
+unsafe impl ::core::marker::Send for GameSaveContainerInfo {}
+unsafe impl ::core::marker::Sync for GameSaveContainerInfo {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameSaveContainerInfoGetResult(pub ::windows::runtime::IInspectable);
 impl GameSaveContainerInfoGetResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
-            let mut result__: GameSaveErrorStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveErrorStatus>(result__)
+            let mut result__: GameSaveErrorStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveErrorStatus>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -553,8 +553,8 @@ impl GameSaveContainerInfoGetResult {
     pub fn Value(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<GameSaveContainerInfo>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GameSaveContainerInfo>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GameSaveContainerInfo>>(result__)
         }
     }
 }
@@ -568,12 +568,12 @@ unsafe impl ::windows::runtime::Interface for GameSaveContainerInfoGetResult {
 impl ::windows::runtime::RuntimeName for GameSaveContainerInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoGetResult";
 }
-impl ::std::convert::From<GameSaveContainerInfoGetResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameSaveContainerInfoGetResult> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveContainerInfoGetResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameSaveContainerInfoGetResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameSaveContainerInfoGetResult> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveContainerInfoGetResult) -> Self {
         value.0 .0.clone()
     }
@@ -588,12 +588,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameSaveContainerInfoGetResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameSaveContainerInfoGetResult> for ::windows::runtime::IInspectable {
     fn from(value: GameSaveContainerInfoGetResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameSaveContainerInfoGetResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameSaveContainerInfoGetResult> for ::windows::runtime::IInspectable {
     fn from(value: &GameSaveContainerInfoGetResult) -> Self {
         value.0.clone()
     }
@@ -608,11 +608,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GameSaveContainerInfoGetResult {}
-unsafe impl ::std::marker::Sync for GameSaveContainerInfoGetResult {}
+unsafe impl ::core::marker::Send for GameSaveContainerInfoGetResult {}
+unsafe impl ::core::marker::Sync for GameSaveContainerInfoGetResult {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameSaveContainerInfoQuery(pub ::windows::runtime::IInspectable);
 impl GameSaveContainerInfoQuery {
     #[cfg(feature = "Foundation")]
@@ -620,8 +620,8 @@ impl GameSaveContainerInfoQuery {
     pub fn GetContainerInfoAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -629,8 +629,8 @@ impl GameSaveContainerInfoQuery {
     pub fn GetContainerInfoWithIndexAndMaxAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), startindex, maxnumberofitems, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), startindex, maxnumberofitems, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -638,8 +638,8 @@ impl GameSaveContainerInfoQuery {
     pub fn GetItemCountAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
 }
@@ -653,12 +653,12 @@ unsafe impl ::windows::runtime::Interface for GameSaveContainerInfoQuery {
 impl ::windows::runtime::RuntimeName for GameSaveContainerInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoQuery";
 }
-impl ::std::convert::From<GameSaveContainerInfoQuery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameSaveContainerInfoQuery> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveContainerInfoQuery) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameSaveContainerInfoQuery> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameSaveContainerInfoQuery> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveContainerInfoQuery) -> Self {
         value.0 .0.clone()
     }
@@ -673,12 +673,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameSaveContainerInfoQuery> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameSaveContainerInfoQuery> for ::windows::runtime::IInspectable {
     fn from(value: GameSaveContainerInfoQuery) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameSaveContainerInfoQuery> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameSaveContainerInfoQuery> for ::windows::runtime::IInspectable {
     fn from(value: &GameSaveContainerInfoQuery) -> Self {
         value.0.clone()
     }
@@ -693,10 +693,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GameSaveContainerInfoQuery {}
-unsafe impl ::std::marker::Sync for GameSaveContainerInfoQuery {}
+unsafe impl ::core::marker::Send for GameSaveContainerInfoQuery {}
+unsafe impl ::core::marker::Sync for GameSaveContainerInfoQuery {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GameSaveErrorStatus(pub i32);
 impl GameSaveErrorStatus {
@@ -716,7 +716,7 @@ impl GameSaveErrorStatus {
     pub const UserHasNoXboxLiveInfo: GameSaveErrorStatus = GameSaveErrorStatus(-2138898420i32);
     pub const ObjectExpired: GameSaveErrorStatus = GameSaveErrorStatus(-2138898419i32);
 }
-impl ::std::convert::From<i32> for GameSaveErrorStatus {
+impl ::core::convert::From<i32> for GameSaveErrorStatus {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -732,15 +732,15 @@ impl ::windows::runtime::DefaultType for GameSaveErrorStatus {
 }
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameSaveOperationResult(pub ::windows::runtime::IInspectable);
 impl GameSaveOperationResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
-            let mut result__: GameSaveErrorStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveErrorStatus>(result__)
+            let mut result__: GameSaveErrorStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveErrorStatus>(result__)
         }
     }
 }
@@ -754,12 +754,12 @@ unsafe impl ::windows::runtime::Interface for GameSaveOperationResult {
 impl ::windows::runtime::RuntimeName for GameSaveOperationResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveOperationResult";
 }
-impl ::std::convert::From<GameSaveOperationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameSaveOperationResult> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveOperationResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameSaveOperationResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameSaveOperationResult> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveOperationResult) -> Self {
         value.0 .0.clone()
     }
@@ -774,12 +774,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameSaveOperationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameSaveOperationResult> for ::windows::runtime::IInspectable {
     fn from(value: GameSaveOperationResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameSaveOperationResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameSaveOperationResult> for ::windows::runtime::IInspectable {
     fn from(value: &GameSaveOperationResult) -> Self {
         value.0.clone()
     }
@@ -794,11 +794,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GameSaveOperationResult {}
-unsafe impl ::std::marker::Sync for GameSaveOperationResult {}
+unsafe impl ::core::marker::Send for GameSaveOperationResult {}
+unsafe impl ::core::marker::Sync for GameSaveOperationResult {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameSaveProvider(pub ::windows::runtime::IInspectable);
 impl GameSaveProvider {
     #[cfg(feature = "System")]
@@ -806,16 +806,16 @@ impl GameSaveProvider {
     pub fn User(&self) -> ::windows::runtime::Result<super::super::super::System::User> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::System::User>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn CreateContainer<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<GameSaveContainer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<GameSaveContainer>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<GameSaveContainer>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -823,24 +823,24 @@ impl GameSaveProvider {
     pub fn DeleteContainerAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn CreateContainerInfoQuery(&self) -> ::windows::runtime::Result<GameSaveContainerInfoQuery> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveContainerInfoQuery>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveContainerInfoQuery>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn CreateContainerInfoQueryWithName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, containernameprefix: Param0) -> ::windows::runtime::Result<GameSaveContainerInfoQuery> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), containernameprefix.into_param().abi(), &mut result__).from_abi::<GameSaveContainerInfoQuery>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), containernameprefix.into_param().abi(), &mut result__).from_abi::<GameSaveContainerInfoQuery>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -848,8 +848,8 @@ impl GameSaveProvider {
     pub fn GetRemainingBytesInQuotaAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<i64>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<i64>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<i64>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -857,24 +857,24 @@ impl GameSaveProvider {
     pub fn ContainersChangedSinceLastSync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "System"))]
     #[doc = "*Required features: `Gaming_XboxLive_Storage`, `Foundation`, `System`*"]
     pub fn GetForUserAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::User>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(user: Param0, serviceconfigid: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>> {
         Self::IGameSaveProviderStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), user.into_param().abi(), serviceconfigid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), user.into_param().abi(), serviceconfigid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "System"))]
     #[doc = "*Required features: `Gaming_XboxLive_Storage`, `Foundation`, `System`*"]
     pub fn GetSyncOnDemandForUserAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::User>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(user: Param0, serviceconfigid: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>> {
         Self::IGameSaveProviderStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), user.into_param().abi(), serviceconfigid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), user.into_param().abi(), serviceconfigid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>(result__)
         })
     }
     pub fn IGameSaveProviderStatics<R, F: FnOnce(&IGameSaveProviderStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -892,12 +892,12 @@ unsafe impl ::windows::runtime::Interface for GameSaveProvider {
 impl ::windows::runtime::RuntimeName for GameSaveProvider {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProvider";
 }
-impl ::std::convert::From<GameSaveProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameSaveProvider> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveProvider) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameSaveProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameSaveProvider> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveProvider) -> Self {
         value.0 .0.clone()
     }
@@ -912,12 +912,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameSaveProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameSaveProvider> for ::windows::runtime::IInspectable {
     fn from(value: GameSaveProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameSaveProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameSaveProvider> for ::windows::runtime::IInspectable {
     fn from(value: &GameSaveProvider) -> Self {
         value.0.clone()
     }
@@ -932,27 +932,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GameSaveProvider {}
-unsafe impl ::std::marker::Sync for GameSaveProvider {}
+unsafe impl ::core::marker::Send for GameSaveProvider {}
+unsafe impl ::core::marker::Sync for GameSaveProvider {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameSaveProviderGetResult(pub ::windows::runtime::IInspectable);
 impl GameSaveProviderGetResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
-            let mut result__: GameSaveErrorStatus = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveErrorStatus>(result__)
+            let mut result__: GameSaveErrorStatus = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveErrorStatus>(result__)
         }
     }
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<GameSaveProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameSaveProvider>(result__)
         }
     }
 }
@@ -966,12 +966,12 @@ unsafe impl ::windows::runtime::Interface for GameSaveProviderGetResult {
 impl ::windows::runtime::RuntimeName for GameSaveProviderGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProviderGetResult";
 }
-impl ::std::convert::From<GameSaveProviderGetResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<GameSaveProviderGetResult> for ::windows::runtime::IUnknown {
     fn from(value: GameSaveProviderGetResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&GameSaveProviderGetResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&GameSaveProviderGetResult> for ::windows::runtime::IUnknown {
     fn from(value: &GameSaveProviderGetResult) -> Self {
         value.0 .0.clone()
     }
@@ -986,12 +986,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<GameSaveProviderGetResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<GameSaveProviderGetResult> for ::windows::runtime::IInspectable {
     fn from(value: GameSaveProviderGetResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&GameSaveProviderGetResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&GameSaveProviderGetResult> for ::windows::runtime::IInspectable {
     fn from(value: &GameSaveProviderGetResult) -> Self {
         value.0.clone()
     }
@@ -1006,8 +1006,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for GameSaveProviderGetResult {}
-unsafe impl ::std::marker::Sync for GameSaveProviderGetResult {}
+unsafe impl ::core::marker::Send for GameSaveProviderGetResult {}
+unsafe impl ::core::marker::Sync for GameSaveProviderGetResult {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IGameSaveBlobGetResult(pub ::windows::runtime::IInspectable);
@@ -1044,7 +1044,7 @@ pub struct IGameSaveBlobInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -1106,17 +1106,17 @@ pub struct IGameSaveContainer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blobstowrite: ::windows::runtime::RawPtr, blobstodelete: ::windows::runtime::RawPtr, displayname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blobstowrite: ::windows::runtime::RawPtr, blobstodelete: ::windows::runtime::RawPtr, displayname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blobstoread: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blobstoread: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blobstowrite: ::windows::runtime::RawPtr, blobstodelete: ::windows::runtime::RawPtr, displayname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blobstowrite: ::windows::runtime::RawPtr, blobstodelete: ::windows::runtime::RawPtr, displayname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blobnameprefix: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blobnameprefix: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -1134,9 +1134,9 @@ pub struct IGameSaveContainerInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
@@ -1220,11 +1220,11 @@ pub struct IGameSaveProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "System")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "System"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, containernameprefix: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, containernameprefix: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -1265,8 +1265,8 @@ pub struct IGameSaveProviderStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, serviceconfigid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, serviceconfigid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, serviceconfigid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, serviceconfigid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
 );

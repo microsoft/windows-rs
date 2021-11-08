@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACTIVATE_KEYBOARD_LAYOUT_FLAGS(pub u32);
 pub const KLF_REORDER: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(8u32);
@@ -11,7 +11,7 @@ pub const KLF_ACTIVATE: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOU
 pub const KLF_NOTELLSHELL: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(128u32);
 pub const KLF_REPLACELANG: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(16u32);
 pub const KLF_SUBSTITUTE_OK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(2u32);
-impl ::std::convert::From<u32> for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
+impl ::core::convert::From<u32> for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -19,29 +19,29 @@ impl ::std::convert::From<u32> for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
 unsafe impl ::windows::runtime::Abi for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
+impl ::core::ops::BitOr for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
+impl ::core::ops::BitAnd for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
+impl ::core::ops::BitOrAssign for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
+impl ::core::ops::BitAndAssign for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
+impl ::core::ops::Not for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -61,7 +61,7 @@ pub unsafe fn ActivateKeyboardLayout<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn ActivateKeyboardLayout(hkl: super::super::TextServices::HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
         }
-        ::std::mem::transmute(ActivateKeyboardLayout(hkl.into_param().abi(), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(ActivateKeyboardLayout(hkl.into_param().abi(), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -78,7 +78,7 @@ pub unsafe fn BlockInput<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn BlockInput(fblockit: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BlockInput(fblockit.into_param().abi()))
+        ::core::mem::transmute(BlockInput(fblockit.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -91,7 +91,7 @@ pub const CAPLOKALTGR: u32 = 4u32;
 pub const CEDILLA: u32 = 807u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const CIRCUMFLEX: u32 = 770u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct DEADKEY {
@@ -100,22 +100,22 @@ pub struct DEADKEY {
     pub uFlags: u16,
 }
 impl DEADKEY {}
-impl ::std::default::Default for DEADKEY {
+impl ::core::default::Default for DEADKEY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DEADKEY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DEADKEY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DEADKEY").field("dwBoth", &self.dwBoth).field("wchComposed", &self.wchComposed).field("uFlags", &self.uFlags).finish()
     }
 }
-impl ::std::cmp::PartialEq for DEADKEY {
+impl ::core::cmp::PartialEq for DEADKEY {
     fn eq(&self, other: &Self) -> bool {
         self.dwBoth == other.dwBoth && self.wchComposed == other.wchComposed && self.uFlags == other.uFlags
     }
 }
-impl ::std::cmp::Eq for DEADKEY {}
+impl ::core::cmp::Eq for DEADKEY {}
 unsafe impl ::windows::runtime::Abi for DEADKEY {
     type Abi = Self;
 }
@@ -145,7 +145,7 @@ pub unsafe fn DragDetect<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn DragDetect(hwnd: super::super::super::Foundation::HWND, pt: super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DragDetect(hwnd.into_param().abi(), pt.into_param().abi()))
+        ::core::mem::transmute(DragDetect(hwnd.into_param().abi(), pt.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -162,7 +162,7 @@ pub unsafe fn EnableWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn EnableWindow(hwnd: super::super::super::Foundation::HWND, benable: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EnableWindow(hwnd.into_param().abi(), benable.into_param().abi()))
+        ::core::mem::transmute(EnableWindow(hwnd.into_param().abi(), benable.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -176,12 +176,12 @@ pub const FMR_KBD_OASYS_TYPE: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const FMV_KBD_OASYS_TYPE: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(pub u32);
 pub const GMMP_USE_DISPLAY_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(1u32);
 pub const GMMP_USE_HIGH_RESOLUTION_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(2u32);
-impl ::std::convert::From<u32> for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+impl ::core::convert::From<u32> for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -189,29 +189,29 @@ impl ::std::convert::From<u32> for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
 unsafe impl ::windows::runtime::Abi for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+impl ::core::ops::BitOr for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+impl ::core::ops::BitAnd for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+impl ::core::ops::BitOrAssign for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+impl ::core::ops::BitAndAssign for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+impl ::core::ops::Not for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -231,7 +231,7 @@ pub unsafe fn GetActiveWindow() -> super::super::super::Foundation::HWND {
         extern "system" {
             fn GetActiveWindow() -> super::super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(GetActiveWindow())
+        ::core::mem::transmute(GetActiveWindow())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -245,7 +245,7 @@ pub unsafe fn GetAsyncKeyState(vkey: i32) -> i16 {
         extern "system" {
             fn GetAsyncKeyState(vkey: i32) -> i16;
         }
-        ::std::mem::transmute(GetAsyncKeyState(::std::mem::transmute(vkey)))
+        ::core::mem::transmute(GetAsyncKeyState(::core::mem::transmute(vkey)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -260,7 +260,7 @@ pub unsafe fn GetCapture() -> super::super::super::Foundation::HWND {
         extern "system" {
             fn GetCapture() -> super::super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(GetCapture())
+        ::core::mem::transmute(GetCapture())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -274,7 +274,7 @@ pub unsafe fn GetDoubleClickTime() -> u32 {
         extern "system" {
             fn GetDoubleClickTime() -> u32;
         }
-        ::std::mem::transmute(GetDoubleClickTime())
+        ::core::mem::transmute(GetDoubleClickTime())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -289,7 +289,7 @@ pub unsafe fn GetFocus() -> super::super::super::Foundation::HWND {
         extern "system" {
             fn GetFocus() -> super::super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(GetFocus())
+        ::core::mem::transmute(GetFocus())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -303,7 +303,7 @@ pub unsafe fn GetKBCodePage() -> u32 {
         extern "system" {
             fn GetKBCodePage() -> u32;
         }
-        ::std::mem::transmute(GetKBCodePage())
+        ::core::mem::transmute(GetKBCodePage())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -318,7 +318,7 @@ pub unsafe fn GetKeyNameTextA(lparam: i32, lpstring: super::super::super::Founda
         extern "system" {
             fn GetKeyNameTextA(lparam: i32, lpstring: super::super::super::Foundation::PSTR, cchsize: i32) -> i32;
         }
-        ::std::mem::transmute(GetKeyNameTextA(::std::mem::transmute(lparam), ::std::mem::transmute(lpstring), ::std::mem::transmute(cchsize)))
+        ::core::mem::transmute(GetKeyNameTextA(::core::mem::transmute(lparam), ::core::mem::transmute(lpstring), ::core::mem::transmute(cchsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -333,7 +333,7 @@ pub unsafe fn GetKeyNameTextW(lparam: i32, lpstring: super::super::super::Founda
         extern "system" {
             fn GetKeyNameTextW(lparam: i32, lpstring: super::super::super::Foundation::PWSTR, cchsize: i32) -> i32;
         }
-        ::std::mem::transmute(GetKeyNameTextW(::std::mem::transmute(lparam), ::std::mem::transmute(lpstring), ::std::mem::transmute(cchsize)))
+        ::core::mem::transmute(GetKeyNameTextW(::core::mem::transmute(lparam), ::core::mem::transmute(lpstring), ::core::mem::transmute(cchsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -347,7 +347,7 @@ pub unsafe fn GetKeyState(nvirtkey: i32) -> i16 {
         extern "system" {
             fn GetKeyState(nvirtkey: i32) -> i16;
         }
-        ::std::mem::transmute(GetKeyState(::std::mem::transmute(nvirtkey)))
+        ::core::mem::transmute(GetKeyState(::core::mem::transmute(nvirtkey)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -362,7 +362,7 @@ pub unsafe fn GetKeyboardLayout(idthread: u32) -> super::super::TextServices::HK
         extern "system" {
             fn GetKeyboardLayout(idthread: u32) -> super::super::TextServices::HKL;
         }
-        ::std::mem::transmute(GetKeyboardLayout(::std::mem::transmute(idthread)))
+        ::core::mem::transmute(GetKeyboardLayout(::core::mem::transmute(idthread)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -377,7 +377,7 @@ pub unsafe fn GetKeyboardLayoutList(nbuff: i32, lplist: *mut super::super::TextS
         extern "system" {
             fn GetKeyboardLayoutList(nbuff: i32, lplist: *mut super::super::TextServices::HKL) -> i32;
         }
-        ::std::mem::transmute(GetKeyboardLayoutList(::std::mem::transmute(nbuff), ::std::mem::transmute(lplist)))
+        ::core::mem::transmute(GetKeyboardLayoutList(::core::mem::transmute(nbuff), ::core::mem::transmute(lplist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -392,7 +392,7 @@ pub unsafe fn GetKeyboardLayoutNameA(pwszklid: super::super::super::Foundation::
         extern "system" {
             fn GetKeyboardLayoutNameA(pwszklid: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetKeyboardLayoutNameA(::std::mem::transmute(pwszklid)))
+        ::core::mem::transmute(GetKeyboardLayoutNameA(::core::mem::transmute(pwszklid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -407,7 +407,7 @@ pub unsafe fn GetKeyboardLayoutNameW(pwszklid: super::super::super::Foundation::
         extern "system" {
             fn GetKeyboardLayoutNameW(pwszklid: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetKeyboardLayoutNameW(::std::mem::transmute(pwszklid)))
+        ::core::mem::transmute(GetKeyboardLayoutNameW(::core::mem::transmute(pwszklid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -422,7 +422,7 @@ pub unsafe fn GetKeyboardState(lpkeystate: *mut u8) -> super::super::super::Foun
         extern "system" {
             fn GetKeyboardState(lpkeystate: *mut u8) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetKeyboardState(::std::mem::transmute(lpkeystate)))
+        ::core::mem::transmute(GetKeyboardState(::core::mem::transmute(lpkeystate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -436,7 +436,7 @@ pub unsafe fn GetKeyboardType(ntypeflag: i32) -> i32 {
         extern "system" {
             fn GetKeyboardType(ntypeflag: i32) -> i32;
         }
-        ::std::mem::transmute(GetKeyboardType(::std::mem::transmute(ntypeflag)))
+        ::core::mem::transmute(GetKeyboardType(::core::mem::transmute(ntypeflag)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -451,7 +451,7 @@ pub unsafe fn GetLastInputInfo(plii: *mut LASTINPUTINFO) -> super::super::super:
         extern "system" {
             fn GetLastInputInfo(plii: *mut LASTINPUTINFO) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetLastInputInfo(::std::mem::transmute(plii)))
+        ::core::mem::transmute(GetLastInputInfo(::core::mem::transmute(plii)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -465,14 +465,14 @@ pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpp
         extern "system" {
             fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpptbuf: *mut MOUSEMOVEPOINT, nbufpoints: i32, resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32;
         }
-        ::std::mem::transmute(GetMouseMovePointsEx(::std::mem::transmute(cbsize), ::std::mem::transmute(lppt), ::std::mem::transmute(lpptbuf), ::std::mem::transmute(nbufpoints), ::std::mem::transmute(resolution)))
+        ::core::mem::transmute(GetMouseMovePointsEx(::core::mem::transmute(cbsize), ::core::mem::transmute(lppt), ::core::mem::transmute(lpptbuf), ::core::mem::transmute(nbufpoints), ::core::mem::transmute(resolution)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const HACEK: u32 = 780u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct HARDWAREINPUT {
@@ -481,29 +481,29 @@ pub struct HARDWAREINPUT {
     pub wParamH: u16,
 }
 impl HARDWAREINPUT {}
-impl ::std::default::Default for HARDWAREINPUT {
+impl ::core::default::Default for HARDWAREINPUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HARDWAREINPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HARDWAREINPUT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HARDWAREINPUT").field("uMsg", &self.uMsg).field("wParamL", &self.wParamL).field("wParamH", &self.wParamH).finish()
     }
 }
-impl ::std::cmp::PartialEq for HARDWAREINPUT {
+impl ::core::cmp::PartialEq for HARDWAREINPUT {
     fn eq(&self, other: &Self) -> bool {
         self.uMsg == other.uMsg && self.wParamL == other.wParamL && self.wParamH == other.wParamH
     }
 }
-impl ::std::cmp::Eq for HARDWAREINPUT {}
+impl ::core::cmp::Eq for HARDWAREINPUT {}
 unsafe impl ::windows::runtime::Abi for HARDWAREINPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const HOOK_ABOVE: u32 = 777u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HOT_KEY_MODIFIERS(pub u32);
 pub const MOD_ALT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(1u32);
@@ -511,7 +511,7 @@ pub const MOD_CONTROL: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(2u32);
 pub const MOD_NOREPEAT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(16384u32);
 pub const MOD_SHIFT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(4u32);
 pub const MOD_WIN: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(8u32);
-impl ::std::convert::From<u32> for HOT_KEY_MODIFIERS {
+impl ::core::convert::From<u32> for HOT_KEY_MODIFIERS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -519,35 +519,35 @@ impl ::std::convert::From<u32> for HOT_KEY_MODIFIERS {
 unsafe impl ::windows::runtime::Abi for HOT_KEY_MODIFIERS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for HOT_KEY_MODIFIERS {
+impl ::core::ops::BitOr for HOT_KEY_MODIFIERS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for HOT_KEY_MODIFIERS {
+impl ::core::ops::BitAnd for HOT_KEY_MODIFIERS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for HOT_KEY_MODIFIERS {
+impl ::core::ops::BitOrAssign for HOT_KEY_MODIFIERS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for HOT_KEY_MODIFIERS {
+impl ::core::ops::BitAndAssign for HOT_KEY_MODIFIERS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for HOT_KEY_MODIFIERS {
+impl ::core::ops::Not for HOT_KEY_MODIFIERS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct INPUT {
@@ -555,21 +555,21 @@ pub struct INPUT {
     pub Anonymous: INPUT_0,
 }
 impl INPUT {}
-impl ::std::default::Default for INPUT {
+impl ::core::default::Default for INPUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for INPUT {
+impl ::core::cmp::PartialEq for INPUT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for INPUT {}
+impl ::core::cmp::Eq for INPUT {}
 unsafe impl ::windows::runtime::Abi for INPUT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub union INPUT_0 {
@@ -578,28 +578,28 @@ pub union INPUT_0 {
     pub hi: HARDWAREINPUT,
 }
 impl INPUT_0 {}
-impl ::std::default::Default for INPUT_0 {
+impl ::core::default::Default for INPUT_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for INPUT_0 {
+impl ::core::cmp::PartialEq for INPUT_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for INPUT_0 {}
+impl ::core::cmp::Eq for INPUT_0 {}
 unsafe impl ::windows::runtime::Abi for INPUT_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INPUT_TYPE(pub u32);
 pub const INPUT_MOUSE: INPUT_TYPE = INPUT_TYPE(0u32);
 pub const INPUT_KEYBOARD: INPUT_TYPE = INPUT_TYPE(1u32);
 pub const INPUT_HARDWARE: INPUT_TYPE = INPUT_TYPE(2u32);
-impl ::std::convert::From<u32> for INPUT_TYPE {
+impl ::core::convert::From<u32> for INPUT_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -607,29 +607,29 @@ impl ::std::convert::From<u32> for INPUT_TYPE {
 unsafe impl ::windows::runtime::Abi for INPUT_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for INPUT_TYPE {
+impl ::core::ops::BitOr for INPUT_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for INPUT_TYPE {
+impl ::core::ops::BitAnd for INPUT_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for INPUT_TYPE {
+impl ::core::ops::BitOrAssign for INPUT_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for INPUT_TYPE {
+impl ::core::ops::BitAndAssign for INPUT_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for INPUT_TYPE {
+impl ::core::ops::Not for INPUT_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -645,7 +645,7 @@ pub unsafe fn IsWindowEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn IsWindowEnabled(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsWindowEnabled(hwnd.into_param().abi()))
+        ::core::mem::transmute(IsWindowEnabled(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -710,7 +710,7 @@ pub const KBDNLS_TYPE_TOGGLE: u32 = 2u32;
 pub const KBDROYA: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const KBDSHIFT: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct KBDTABLE_DESC {
@@ -719,26 +719,26 @@ pub struct KBDTABLE_DESC {
     pub dwSubType: u32,
 }
 impl KBDTABLE_DESC {}
-impl ::std::default::Default for KBDTABLE_DESC {
+impl ::core::default::Default for KBDTABLE_DESC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KBDTABLE_DESC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KBDTABLE_DESC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KBDTABLE_DESC").field("wszDllName", &self.wszDllName).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
     }
 }
-impl ::std::cmp::PartialEq for KBDTABLE_DESC {
+impl ::core::cmp::PartialEq for KBDTABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.wszDllName == other.wszDllName && self.dwType == other.dwType && self.dwSubType == other.dwSubType
     }
 }
-impl ::std::cmp::Eq for KBDTABLE_DESC {}
+impl ::core::cmp::Eq for KBDTABLE_DESC {}
 unsafe impl ::windows::runtime::Abi for KBDTABLE_DESC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct KBDTABLE_MULTI {
@@ -746,22 +746,22 @@ pub struct KBDTABLE_MULTI {
     pub aKbdTables: [KBDTABLE_DESC; 8],
 }
 impl KBDTABLE_MULTI {}
-impl ::std::default::Default for KBDTABLE_MULTI {
+impl ::core::default::Default for KBDTABLE_MULTI {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KBDTABLE_MULTI {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KBDTABLE_MULTI {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KBDTABLE_MULTI").field("nTables", &self.nTables).field("aKbdTables", &self.aKbdTables).finish()
     }
 }
-impl ::std::cmp::PartialEq for KBDTABLE_MULTI {
+impl ::core::cmp::PartialEq for KBDTABLE_MULTI {
     fn eq(&self, other: &Self) -> bool {
         self.nTables == other.nTables && self.aKbdTables == other.aKbdTables
     }
 }
-impl ::std::cmp::Eq for KBDTABLE_MULTI {}
+impl ::core::cmp::Eq for KBDTABLE_MULTI {}
 unsafe impl ::windows::runtime::Abi for KBDTABLE_MULTI {
     type Abi = Self;
 }
@@ -769,7 +769,7 @@ unsafe impl ::windows::runtime::Abi for KBDTABLE_MULTI {
 pub const KBDTABLE_MULTI_MAX: u32 = 8u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const KBD_TYPE: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct KBD_TYPE_INFO {
@@ -778,28 +778,28 @@ pub struct KBD_TYPE_INFO {
     pub dwSubType: u32,
 }
 impl KBD_TYPE_INFO {}
-impl ::std::default::Default for KBD_TYPE_INFO {
+impl ::core::default::Default for KBD_TYPE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KBD_TYPE_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KBD_TYPE_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KBD_TYPE_INFO").field("dwVersion", &self.dwVersion).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
     }
 }
-impl ::std::cmp::PartialEq for KBD_TYPE_INFO {
+impl ::core::cmp::PartialEq for KBD_TYPE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwVersion == other.dwVersion && self.dwType == other.dwType && self.dwSubType == other.dwSubType
     }
 }
-impl ::std::cmp::Eq for KBD_TYPE_INFO {}
+impl ::core::cmp::Eq for KBD_TYPE_INFO {}
 unsafe impl ::windows::runtime::Abi for KBD_TYPE_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const KBD_VERSION: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct KEYBDINPUT {
@@ -810,34 +810,34 @@ pub struct KEYBDINPUT {
     pub dwExtraInfo: usize,
 }
 impl KEYBDINPUT {}
-impl ::std::default::Default for KEYBDINPUT {
+impl ::core::default::Default for KEYBDINPUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for KEYBDINPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for KEYBDINPUT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("KEYBDINPUT").field("wVk", &self.wVk).field("wScan", &self.wScan).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
-impl ::std::cmp::PartialEq for KEYBDINPUT {
+impl ::core::cmp::PartialEq for KEYBDINPUT {
     fn eq(&self, other: &Self) -> bool {
         self.wVk == other.wVk && self.wScan == other.wScan && self.dwFlags == other.dwFlags && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
     }
 }
-impl ::std::cmp::Eq for KEYBDINPUT {}
+impl ::core::cmp::Eq for KEYBDINPUT {}
 unsafe impl ::windows::runtime::Abi for KEYBDINPUT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KEYBD_EVENT_FLAGS(pub u32);
 pub const KEYEVENTF_EXTENDEDKEY: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(1u32);
 pub const KEYEVENTF_KEYUP: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(2u32);
 pub const KEYEVENTF_SCANCODE: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(8u32);
 pub const KEYEVENTF_UNICODE: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(4u32);
-impl ::std::convert::From<u32> for KEYBD_EVENT_FLAGS {
+impl ::core::convert::From<u32> for KEYBD_EVENT_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -845,29 +845,29 @@ impl ::std::convert::From<u32> for KEYBD_EVENT_FLAGS {
 unsafe impl ::windows::runtime::Abi for KEYBD_EVENT_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for KEYBD_EVENT_FLAGS {
+impl ::core::ops::BitOr for KEYBD_EVENT_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for KEYBD_EVENT_FLAGS {
+impl ::core::ops::BitAnd for KEYBD_EVENT_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for KEYBD_EVENT_FLAGS {
+impl ::core::ops::BitOrAssign for KEYBD_EVENT_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for KEYBD_EVENT_FLAGS {
+impl ::core::ops::BitAndAssign for KEYBD_EVENT_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for KEYBD_EVENT_FLAGS {
+impl ::core::ops::Not for KEYBD_EVENT_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -889,7 +889,7 @@ pub const KLLF_GLOBAL_ATTRS: u32 = 2u32;
 pub const KLLF_LRM_RLM: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const KLLF_SHIFTLOCK: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct LASTINPUTINFO {
@@ -897,26 +897,26 @@ pub struct LASTINPUTINFO {
     pub dwTime: u32,
 }
 impl LASTINPUTINFO {}
-impl ::std::default::Default for LASTINPUTINFO {
+impl ::core::default::Default for LASTINPUTINFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for LASTINPUTINFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LASTINPUTINFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LASTINPUTINFO").field("cbSize", &self.cbSize).field("dwTime", &self.dwTime).finish()
     }
 }
-impl ::std::cmp::PartialEq for LASTINPUTINFO {
+impl ::core::cmp::PartialEq for LASTINPUTINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.dwTime == other.dwTime
     }
 }
-impl ::std::cmp::Eq for LASTINPUTINFO {}
+impl ::core::cmp::Eq for LASTINPUTINFO {}
 unsafe impl ::windows::runtime::Abi for LASTINPUTINFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct LIGATURE1 {
@@ -925,26 +925,26 @@ pub struct LIGATURE1 {
     pub wch: [u16; 1],
 }
 impl LIGATURE1 {}
-impl ::std::default::Default for LIGATURE1 {
+impl ::core::default::Default for LIGATURE1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for LIGATURE1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LIGATURE1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LIGATURE1").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for LIGATURE1 {
+impl ::core::cmp::PartialEq for LIGATURE1 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for LIGATURE1 {}
+impl ::core::cmp::Eq for LIGATURE1 {}
 unsafe impl ::windows::runtime::Abi for LIGATURE1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct LIGATURE2 {
@@ -953,26 +953,26 @@ pub struct LIGATURE2 {
     pub wch: [u16; 2],
 }
 impl LIGATURE2 {}
-impl ::std::default::Default for LIGATURE2 {
+impl ::core::default::Default for LIGATURE2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for LIGATURE2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LIGATURE2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LIGATURE2").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for LIGATURE2 {
+impl ::core::cmp::PartialEq for LIGATURE2 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for LIGATURE2 {}
+impl ::core::cmp::Eq for LIGATURE2 {}
 unsafe impl ::windows::runtime::Abi for LIGATURE2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct LIGATURE3 {
@@ -981,26 +981,26 @@ pub struct LIGATURE3 {
     pub wch: [u16; 3],
 }
 impl LIGATURE3 {}
-impl ::std::default::Default for LIGATURE3 {
+impl ::core::default::Default for LIGATURE3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for LIGATURE3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LIGATURE3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LIGATURE3").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for LIGATURE3 {
+impl ::core::cmp::PartialEq for LIGATURE3 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for LIGATURE3 {}
+impl ::core::cmp::Eq for LIGATURE3 {}
 unsafe impl ::windows::runtime::Abi for LIGATURE3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct LIGATURE4 {
@@ -1009,26 +1009,26 @@ pub struct LIGATURE4 {
     pub wch: [u16; 4],
 }
 impl LIGATURE4 {}
-impl ::std::default::Default for LIGATURE4 {
+impl ::core::default::Default for LIGATURE4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for LIGATURE4 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LIGATURE4 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LIGATURE4").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for LIGATURE4 {
+impl ::core::cmp::PartialEq for LIGATURE4 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for LIGATURE4 {}
+impl ::core::cmp::Eq for LIGATURE4 {}
 unsafe impl ::windows::runtime::Abi for LIGATURE4 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct LIGATURE5 {
@@ -1037,22 +1037,22 @@ pub struct LIGATURE5 {
     pub wch: [u16; 5],
 }
 impl LIGATURE5 {}
-impl ::std::default::Default for LIGATURE5 {
+impl ::core::default::Default for LIGATURE5 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for LIGATURE5 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LIGATURE5 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LIGATURE5").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for LIGATURE5 {
+impl ::core::cmp::PartialEq for LIGATURE5 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for LIGATURE5 {}
+impl ::core::cmp::Eq for LIGATURE5 {}
 unsafe impl ::windows::runtime::Abi for LIGATURE5 {
     type Abi = Self;
 }
@@ -1066,7 +1066,7 @@ pub unsafe fn LoadKeyboardLayoutA<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn LoadKeyboardLayoutA(pwszklid: super::super::super::Foundation::PSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
         }
-        ::std::mem::transmute(LoadKeyboardLayoutA(pwszklid.into_param().abi(), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(LoadKeyboardLayoutA(pwszklid.into_param().abi(), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1081,7 +1081,7 @@ pub unsafe fn LoadKeyboardLayoutW<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn LoadKeyboardLayoutW(pwszklid: super::super::super::Foundation::PWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
         }
-        ::std::mem::transmute(LoadKeyboardLayoutW(pwszklid.into_param().abi(), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(LoadKeyboardLayoutW(pwszklid.into_param().abi(), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1108,7 +1108,7 @@ pub const MICROSOFT_KBD_106_TYPE: u32 = 2u32;
 pub const MICROSOFT_KBD_AX_TYPE: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const MICROSOFT_KBD_FUNC: u32 = 12u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct MODIFIERS {
@@ -1117,26 +1117,26 @@ pub struct MODIFIERS {
     pub ModNumber: [u8; 1],
 }
 impl MODIFIERS {}
-impl ::std::default::Default for MODIFIERS {
+impl ::core::default::Default for MODIFIERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MODIFIERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MODIFIERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MODIFIERS").field("pVkToBit", &self.pVkToBit).field("wMaxModBits", &self.wMaxModBits).field("ModNumber", &self.ModNumber).finish()
     }
 }
-impl ::std::cmp::PartialEq for MODIFIERS {
+impl ::core::cmp::PartialEq for MODIFIERS {
     fn eq(&self, other: &Self) -> bool {
         self.pVkToBit == other.pVkToBit && self.wMaxModBits == other.wMaxModBits && self.ModNumber == other.ModNumber
     }
 }
-impl ::std::cmp::Eq for MODIFIERS {}
+impl ::core::cmp::Eq for MODIFIERS {}
 unsafe impl ::windows::runtime::Abi for MODIFIERS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct MOUSEINPUT {
@@ -1148,26 +1148,26 @@ pub struct MOUSEINPUT {
     pub dwExtraInfo: usize,
 }
 impl MOUSEINPUT {}
-impl ::std::default::Default for MOUSEINPUT {
+impl ::core::default::Default for MOUSEINPUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MOUSEINPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MOUSEINPUT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MOUSEINPUT").field("dx", &self.dx).field("dy", &self.dy).field("mouseData", &self.mouseData).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
-impl ::std::cmp::PartialEq for MOUSEINPUT {
+impl ::core::cmp::PartialEq for MOUSEINPUT {
     fn eq(&self, other: &Self) -> bool {
         self.dx == other.dx && self.dy == other.dy && self.mouseData == other.mouseData && self.dwFlags == other.dwFlags && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
     }
 }
-impl ::std::cmp::Eq for MOUSEINPUT {}
+impl ::core::cmp::Eq for MOUSEINPUT {}
 unsafe impl ::windows::runtime::Abi for MOUSEINPUT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct MOUSEMOVEPOINT {
@@ -1177,27 +1177,27 @@ pub struct MOUSEMOVEPOINT {
     pub dwExtraInfo: usize,
 }
 impl MOUSEMOVEPOINT {}
-impl ::std::default::Default for MOUSEMOVEPOINT {
+impl ::core::default::Default for MOUSEMOVEPOINT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MOUSEMOVEPOINT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MOUSEMOVEPOINT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MOUSEMOVEPOINT").field("x", &self.x).field("y", &self.y).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
-impl ::std::cmp::PartialEq for MOUSEMOVEPOINT {
+impl ::core::cmp::PartialEq for MOUSEMOVEPOINT {
     fn eq(&self, other: &Self) -> bool {
         self.x == other.x && self.y == other.y && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
     }
 }
-impl ::std::cmp::Eq for MOUSEMOVEPOINT {}
+impl ::core::cmp::Eq for MOUSEMOVEPOINT {}
 unsafe impl ::windows::runtime::Abi for MOUSEMOVEPOINT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MOUSE_EVENT_FLAGS(pub u32);
 pub const MOUSEEVENTF_ABSOLUTE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(32768u32);
@@ -1214,7 +1214,7 @@ pub const MOUSEEVENTF_XUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(256u32);
 pub const MOUSEEVENTF_HWHEEL: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(4096u32);
 pub const MOUSEEVENTF_MOVE_NOCOALESCE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(8192u32);
 pub const MOUSEEVENTF_VIRTUALDESK: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(16384u32);
-impl ::std::convert::From<u32> for MOUSE_EVENT_FLAGS {
+impl ::core::convert::From<u32> for MOUSE_EVENT_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1222,29 +1222,29 @@ impl ::std::convert::From<u32> for MOUSE_EVENT_FLAGS {
 unsafe impl ::windows::runtime::Abi for MOUSE_EVENT_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for MOUSE_EVENT_FLAGS {
+impl ::core::ops::BitOr for MOUSE_EVENT_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for MOUSE_EVENT_FLAGS {
+impl ::core::ops::BitAnd for MOUSE_EVENT_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for MOUSE_EVENT_FLAGS {
+impl ::core::ops::BitOrAssign for MOUSE_EVENT_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for MOUSE_EVENT_FLAGS {
+impl ::core::ops::BitAndAssign for MOUSE_EVENT_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for MOUSE_EVENT_FLAGS {
+impl ::core::ops::Not for MOUSE_EVENT_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -1259,7 +1259,7 @@ pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32 {
         extern "system" {
             fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32;
         }
-        ::std::mem::transmute(MapVirtualKeyA(::std::mem::transmute(ucode), ::std::mem::transmute(umaptype)))
+        ::core::mem::transmute(MapVirtualKeyA(::core::mem::transmute(ucode), ::core::mem::transmute(umaptype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1274,7 +1274,7 @@ pub unsafe fn MapVirtualKeyExA<'a, Param2: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn MapVirtualKeyExA(ucode: u32, umaptype: u32, dwhkl: super::super::TextServices::HKL) -> u32;
         }
-        ::std::mem::transmute(MapVirtualKeyExA(::std::mem::transmute(ucode), ::std::mem::transmute(umaptype), dwhkl.into_param().abi()))
+        ::core::mem::transmute(MapVirtualKeyExA(::core::mem::transmute(ucode), ::core::mem::transmute(umaptype), dwhkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1289,7 +1289,7 @@ pub unsafe fn MapVirtualKeyExW<'a, Param2: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn MapVirtualKeyExW(ucode: u32, umaptype: u32, dwhkl: super::super::TextServices::HKL) -> u32;
         }
-        ::std::mem::transmute(MapVirtualKeyExW(::std::mem::transmute(ucode), ::std::mem::transmute(umaptype), dwhkl.into_param().abi()))
+        ::core::mem::transmute(MapVirtualKeyExW(::core::mem::transmute(ucode), ::core::mem::transmute(umaptype), dwhkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1303,7 +1303,7 @@ pub unsafe fn MapVirtualKeyW(ucode: u32, umaptype: u32) -> u32 {
         extern "system" {
             fn MapVirtualKeyW(ucode: u32, umaptype: u32) -> u32;
         }
-        ::std::mem::transmute(MapVirtualKeyW(::std::mem::transmute(ucode), ::std::mem::transmute(umaptype)))
+        ::core::mem::transmute(MapVirtualKeyW(::core::mem::transmute(ucode), ::core::mem::transmute(umaptype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1357,7 +1357,7 @@ pub unsafe fn OemKeyScan(woemchar: u16) -> u32 {
         extern "system" {
             fn OemKeyScan(woemchar: u16) -> u32;
         }
-        ::std::mem::transmute(OemKeyScan(::std::mem::transmute(woemchar)))
+        ::core::mem::transmute(OemKeyScan(::core::mem::transmute(woemchar)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1374,7 +1374,7 @@ pub unsafe fn RegisterHotKey<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn RegisterHotKey(hwnd: super::super::super::Foundation::HWND, id: i32, fsmodifiers: HOT_KEY_MODIFIERS, vk: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RegisterHotKey(hwnd.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(fsmodifiers), ::std::mem::transmute(vk)))
+        ::core::mem::transmute(RegisterHotKey(hwnd.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(fsmodifiers), ::core::mem::transmute(vk)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1389,7 +1389,7 @@ pub unsafe fn ReleaseCapture() -> super::super::super::Foundation::BOOL {
         extern "system" {
             fn ReleaseCapture() -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReleaseCapture())
+        ::core::mem::transmute(ReleaseCapture())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1425,7 +1425,7 @@ pub unsafe fn SendInput(cinputs: u32, pinputs: *const INPUT, cbsize: i32) -> u32
         extern "system" {
             fn SendInput(cinputs: u32, pinputs: *const INPUT, cbsize: i32) -> u32;
         }
-        ::std::mem::transmute(SendInput(::std::mem::transmute(cinputs), ::std::mem::transmute(pinputs), ::std::mem::transmute(cbsize)))
+        ::core::mem::transmute(SendInput(::core::mem::transmute(cinputs), ::core::mem::transmute(pinputs), ::core::mem::transmute(cbsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1440,7 +1440,7 @@ pub unsafe fn SetActiveWindow<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn SetActiveWindow(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(SetActiveWindow(hwnd.into_param().abi()))
+        ::core::mem::transmute(SetActiveWindow(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1455,7 +1455,7 @@ pub unsafe fn SetCapture<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn SetCapture(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(SetCapture(hwnd.into_param().abi()))
+        ::core::mem::transmute(SetCapture(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1470,7 +1470,7 @@ pub unsafe fn SetDoubleClickTime(param0: u32) -> super::super::super::Foundation
         extern "system" {
             fn SetDoubleClickTime(param0: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetDoubleClickTime(::std::mem::transmute(param0)))
+        ::core::mem::transmute(SetDoubleClickTime(::core::mem::transmute(param0)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1485,7 +1485,7 @@ pub unsafe fn SetFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
         extern "system" {
             fn SetFocus(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(SetFocus(hwnd.into_param().abi()))
+        ::core::mem::transmute(SetFocus(hwnd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1500,7 +1500,7 @@ pub unsafe fn SetKeyboardState(lpkeystate: *const u8) -> super::super::super::Fo
         extern "system" {
             fn SetKeyboardState(lpkeystate: *const u8) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetKeyboardState(::std::mem::transmute(lpkeystate)))
+        ::core::mem::transmute(SetKeyboardState(::core::mem::transmute(lpkeystate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1515,7 +1515,7 @@ pub unsafe fn SwapMouseButton<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn SwapMouseButton(fswap: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SwapMouseButton(fswap.into_param().abi()))
+        ::core::mem::transmute(SwapMouseButton(fswap.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1528,7 +1528,7 @@ pub const TONOS: u32 = 900u32;
 pub const TOSHIBA_KBD_DESKTOP_TYPE: u32 = 13u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const TOSHIBA_KBD_LAPTOP_TYPE: u32 = 15u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
@@ -1541,31 +1541,31 @@ pub struct TRACKMOUSEEVENT {
 #[cfg(feature = "Win32_Foundation")]
 impl TRACKMOUSEEVENT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TRACKMOUSEEVENT {
+impl ::core::default::Default for TRACKMOUSEEVENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TRACKMOUSEEVENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TRACKMOUSEEVENT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TRACKMOUSEEVENT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("hwndTrack", &self.hwndTrack).field("dwHoverTime", &self.dwHoverTime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TRACKMOUSEEVENT {
+impl ::core::cmp::PartialEq for TRACKMOUSEEVENT {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.hwndTrack == other.hwndTrack && self.dwHoverTime == other.dwHoverTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TRACKMOUSEEVENT {}
+impl ::core::cmp::Eq for TRACKMOUSEEVENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TRACKMOUSEEVENT {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRACKMOUSEEVENT_FLAGS(pub u32);
 pub const TME_CANCEL: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(2147483648u32);
@@ -1573,7 +1573,7 @@ pub const TME_HOVER: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(1u32);
 pub const TME_LEAVE: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(2u32);
 pub const TME_NONCLIENT: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(16u32);
 pub const TME_QUERY: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(1073741824u32);
-impl ::std::convert::From<u32> for TRACKMOUSEEVENT_FLAGS {
+impl ::core::convert::From<u32> for TRACKMOUSEEVENT_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -1581,29 +1581,29 @@ impl ::std::convert::From<u32> for TRACKMOUSEEVENT_FLAGS {
 unsafe impl ::windows::runtime::Abi for TRACKMOUSEEVENT_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for TRACKMOUSEEVENT_FLAGS {
+impl ::core::ops::BitOr for TRACKMOUSEEVENT_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for TRACKMOUSEEVENT_FLAGS {
+impl ::core::ops::BitAnd for TRACKMOUSEEVENT_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for TRACKMOUSEEVENT_FLAGS {
+impl ::core::ops::BitOrAssign for TRACKMOUSEEVENT_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for TRACKMOUSEEVENT_FLAGS {
+impl ::core::ops::BitAndAssign for TRACKMOUSEEVENT_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for TRACKMOUSEEVENT_FLAGS {
+impl ::core::ops::Not for TRACKMOUSEEVENT_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -1618,7 +1618,7 @@ pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpch
         extern "system" {
             fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32) -> i32;
         }
-        ::std::mem::transmute(ToAscii(::std::mem::transmute(uvirtkey), ::std::mem::transmute(uscancode), ::std::mem::transmute(lpkeystate), ::std::mem::transmute(lpchar), ::std::mem::transmute(uflags)))
+        ::core::mem::transmute(ToAscii(::core::mem::transmute(uvirtkey), ::core::mem::transmute(uscancode), ::core::mem::transmute(lpkeystate), ::core::mem::transmute(lpchar), ::core::mem::transmute(uflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1633,7 +1633,7 @@ pub unsafe fn ToAsciiEx<'a, Param5: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn ToAsciiEx(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
         }
-        ::std::mem::transmute(ToAsciiEx(::std::mem::transmute(uvirtkey), ::std::mem::transmute(uscancode), ::std::mem::transmute(lpkeystate), ::std::mem::transmute(lpchar), ::std::mem::transmute(uflags), dwhkl.into_param().abi()))
+        ::core::mem::transmute(ToAsciiEx(::core::mem::transmute(uvirtkey), ::core::mem::transmute(uscancode), ::core::mem::transmute(lpkeystate), ::core::mem::transmute(lpchar), ::core::mem::transmute(uflags), dwhkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1648,7 +1648,7 @@ pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pw
         extern "system" {
             fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: super::super::super::Foundation::PWSTR, cchbuff: i32, wflags: u32) -> i32;
         }
-        ::std::mem::transmute(ToUnicode(::std::mem::transmute(wvirtkey), ::std::mem::transmute(wscancode), ::std::mem::transmute(lpkeystate), ::std::mem::transmute(pwszbuff), ::std::mem::transmute(cchbuff), ::std::mem::transmute(wflags)))
+        ::core::mem::transmute(ToUnicode(::core::mem::transmute(wvirtkey), ::core::mem::transmute(wscancode), ::core::mem::transmute(lpkeystate), ::core::mem::transmute(pwszbuff), ::core::mem::transmute(cchbuff), ::core::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1663,7 +1663,7 @@ pub unsafe fn ToUnicodeEx<'a, Param6: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn ToUnicodeEx(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: super::super::super::Foundation::PWSTR, cchbuff: i32, wflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
         }
-        ::std::mem::transmute(ToUnicodeEx(::std::mem::transmute(wvirtkey), ::std::mem::transmute(wscancode), ::std::mem::transmute(lpkeystate), ::std::mem::transmute(pwszbuff), ::std::mem::transmute(cchbuff), ::std::mem::transmute(wflags), dwhkl.into_param().abi()))
+        ::core::mem::transmute(ToUnicodeEx(::core::mem::transmute(wvirtkey), ::core::mem::transmute(wscancode), ::core::mem::transmute(lpkeystate), ::core::mem::transmute(pwszbuff), ::core::mem::transmute(cchbuff), ::core::mem::transmute(wflags), dwhkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1678,7 +1678,7 @@ pub unsafe fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::supe
         extern "system" {
             fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TrackMouseEvent(::std::mem::transmute(lpeventtrack)))
+        ::core::mem::transmute(TrackMouseEvent(::core::mem::transmute(lpeventtrack)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1695,7 +1695,7 @@ pub unsafe fn UnloadKeyboardLayout<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn UnloadKeyboardLayout(hkl: super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnloadKeyboardLayout(hkl.into_param().abi()))
+        ::core::mem::transmute(UnloadKeyboardLayout(hkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1710,13 +1710,13 @@ pub unsafe fn UnregisterHotKey<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn UnregisterHotKey(hwnd: super::super::super::Foundation::HWND, id: i32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnregisterHotKey(hwnd.into_param().abi(), ::std::mem::transmute(id)))
+        ::core::mem::transmute(UnregisterHotKey(hwnd.into_param().abi(), ::core::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIRTUAL_KEY(pub u16);
 pub const VK_0: VIRTUAL_KEY = VIRTUAL_KEY(48u16);
@@ -1949,7 +1949,7 @@ pub const VK_ZOOM: VIRTUAL_KEY = VIRTUAL_KEY(251u16);
 pub const VK_NONAME: VIRTUAL_KEY = VIRTUAL_KEY(252u16);
 pub const VK_PA1: VIRTUAL_KEY = VIRTUAL_KEY(253u16);
 pub const VK_OEM_CLEAR: VIRTUAL_KEY = VIRTUAL_KEY(254u16);
-impl ::std::convert::From<u16> for VIRTUAL_KEY {
+impl ::core::convert::From<u16> for VIRTUAL_KEY {
     fn from(value: u16) -> Self {
         Self(value)
     }
@@ -1989,7 +1989,7 @@ pub const VK_DBE_NOROMAN: u32 = 246u32;
 pub const VK_DBE_ROMAN: u32 = 245u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const VK_DBE_SBCSCHAR: u32 = 243u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct VK_TO_BIT {
@@ -1997,26 +1997,26 @@ pub struct VK_TO_BIT {
     pub ModBits: u8,
 }
 impl VK_TO_BIT {}
-impl ::std::default::Default for VK_TO_BIT {
+impl ::core::default::Default for VK_TO_BIT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VK_TO_BIT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VK_TO_BIT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VK_TO_BIT").field("Vk", &self.Vk).field("ModBits", &self.ModBits).finish()
     }
 }
-impl ::std::cmp::PartialEq for VK_TO_BIT {
+impl ::core::cmp::PartialEq for VK_TO_BIT {
     fn eq(&self, other: &Self) -> bool {
         self.Vk == other.Vk && self.ModBits == other.ModBits
     }
 }
-impl ::std::cmp::Eq for VK_TO_BIT {}
+impl ::core::cmp::Eq for VK_TO_BIT {}
 unsafe impl ::windows::runtime::Abi for VK_TO_BIT {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct VK_TO_WCHARS1 {
@@ -2025,26 +2025,26 @@ pub struct VK_TO_WCHARS1 {
     pub wch: [u16; 1],
 }
 impl VK_TO_WCHARS1 {}
-impl ::std::default::Default for VK_TO_WCHARS1 {
+impl ::core::default::Default for VK_TO_WCHARS1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VK_TO_WCHARS1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VK_TO_WCHARS1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VK_TO_WCHARS1").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for VK_TO_WCHARS1 {
+impl ::core::cmp::PartialEq for VK_TO_WCHARS1 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for VK_TO_WCHARS1 {}
+impl ::core::cmp::Eq for VK_TO_WCHARS1 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct VK_TO_WCHARS10 {
@@ -2053,26 +2053,26 @@ pub struct VK_TO_WCHARS10 {
     pub wch: [u16; 10],
 }
 impl VK_TO_WCHARS10 {}
-impl ::std::default::Default for VK_TO_WCHARS10 {
+impl ::core::default::Default for VK_TO_WCHARS10 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VK_TO_WCHARS10 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VK_TO_WCHARS10 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VK_TO_WCHARS10").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for VK_TO_WCHARS10 {
+impl ::core::cmp::PartialEq for VK_TO_WCHARS10 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for VK_TO_WCHARS10 {}
+impl ::core::cmp::Eq for VK_TO_WCHARS10 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS10 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct VK_TO_WCHARS2 {
@@ -2081,26 +2081,26 @@ pub struct VK_TO_WCHARS2 {
     pub wch: [u16; 2],
 }
 impl VK_TO_WCHARS2 {}
-impl ::std::default::Default for VK_TO_WCHARS2 {
+impl ::core::default::Default for VK_TO_WCHARS2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VK_TO_WCHARS2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VK_TO_WCHARS2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VK_TO_WCHARS2").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for VK_TO_WCHARS2 {
+impl ::core::cmp::PartialEq for VK_TO_WCHARS2 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for VK_TO_WCHARS2 {}
+impl ::core::cmp::Eq for VK_TO_WCHARS2 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct VK_TO_WCHARS3 {
@@ -2109,26 +2109,26 @@ pub struct VK_TO_WCHARS3 {
     pub wch: [u16; 3],
 }
 impl VK_TO_WCHARS3 {}
-impl ::std::default::Default for VK_TO_WCHARS3 {
+impl ::core::default::Default for VK_TO_WCHARS3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VK_TO_WCHARS3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VK_TO_WCHARS3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VK_TO_WCHARS3").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for VK_TO_WCHARS3 {
+impl ::core::cmp::PartialEq for VK_TO_WCHARS3 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for VK_TO_WCHARS3 {}
+impl ::core::cmp::Eq for VK_TO_WCHARS3 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct VK_TO_WCHARS4 {
@@ -2137,26 +2137,26 @@ pub struct VK_TO_WCHARS4 {
     pub wch: [u16; 4],
 }
 impl VK_TO_WCHARS4 {}
-impl ::std::default::Default for VK_TO_WCHARS4 {
+impl ::core::default::Default for VK_TO_WCHARS4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VK_TO_WCHARS4 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VK_TO_WCHARS4 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VK_TO_WCHARS4").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for VK_TO_WCHARS4 {
+impl ::core::cmp::PartialEq for VK_TO_WCHARS4 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for VK_TO_WCHARS4 {}
+impl ::core::cmp::Eq for VK_TO_WCHARS4 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS4 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct VK_TO_WCHARS5 {
@@ -2165,26 +2165,26 @@ pub struct VK_TO_WCHARS5 {
     pub wch: [u16; 5],
 }
 impl VK_TO_WCHARS5 {}
-impl ::std::default::Default for VK_TO_WCHARS5 {
+impl ::core::default::Default for VK_TO_WCHARS5 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VK_TO_WCHARS5 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VK_TO_WCHARS5 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VK_TO_WCHARS5").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for VK_TO_WCHARS5 {
+impl ::core::cmp::PartialEq for VK_TO_WCHARS5 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for VK_TO_WCHARS5 {}
+impl ::core::cmp::Eq for VK_TO_WCHARS5 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS5 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct VK_TO_WCHARS6 {
@@ -2193,26 +2193,26 @@ pub struct VK_TO_WCHARS6 {
     pub wch: [u16; 6],
 }
 impl VK_TO_WCHARS6 {}
-impl ::std::default::Default for VK_TO_WCHARS6 {
+impl ::core::default::Default for VK_TO_WCHARS6 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VK_TO_WCHARS6 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VK_TO_WCHARS6 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VK_TO_WCHARS6").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for VK_TO_WCHARS6 {
+impl ::core::cmp::PartialEq for VK_TO_WCHARS6 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for VK_TO_WCHARS6 {}
+impl ::core::cmp::Eq for VK_TO_WCHARS6 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS6 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct VK_TO_WCHARS7 {
@@ -2221,26 +2221,26 @@ pub struct VK_TO_WCHARS7 {
     pub wch: [u16; 7],
 }
 impl VK_TO_WCHARS7 {}
-impl ::std::default::Default for VK_TO_WCHARS7 {
+impl ::core::default::Default for VK_TO_WCHARS7 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VK_TO_WCHARS7 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VK_TO_WCHARS7 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VK_TO_WCHARS7").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for VK_TO_WCHARS7 {
+impl ::core::cmp::PartialEq for VK_TO_WCHARS7 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for VK_TO_WCHARS7 {}
+impl ::core::cmp::Eq for VK_TO_WCHARS7 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS7 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct VK_TO_WCHARS8 {
@@ -2249,26 +2249,26 @@ pub struct VK_TO_WCHARS8 {
     pub wch: [u16; 8],
 }
 impl VK_TO_WCHARS8 {}
-impl ::std::default::Default for VK_TO_WCHARS8 {
+impl ::core::default::Default for VK_TO_WCHARS8 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VK_TO_WCHARS8 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VK_TO_WCHARS8 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VK_TO_WCHARS8").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for VK_TO_WCHARS8 {
+impl ::core::cmp::PartialEq for VK_TO_WCHARS8 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for VK_TO_WCHARS8 {}
+impl ::core::cmp::Eq for VK_TO_WCHARS8 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS8 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct VK_TO_WCHARS9 {
@@ -2277,26 +2277,26 @@ pub struct VK_TO_WCHARS9 {
     pub wch: [u16; 9],
 }
 impl VK_TO_WCHARS9 {}
-impl ::std::default::Default for VK_TO_WCHARS9 {
+impl ::core::default::Default for VK_TO_WCHARS9 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VK_TO_WCHARS9 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VK_TO_WCHARS9 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VK_TO_WCHARS9").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::std::cmp::PartialEq for VK_TO_WCHARS9 {
+impl ::core::cmp::PartialEq for VK_TO_WCHARS9 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
-impl ::std::cmp::Eq for VK_TO_WCHARS9 {}
+impl ::core::cmp::Eq for VK_TO_WCHARS9 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS9 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct VK_TO_WCHAR_TABLE {
@@ -2305,26 +2305,26 @@ pub struct VK_TO_WCHAR_TABLE {
     pub cbSize: u8,
 }
 impl VK_TO_WCHAR_TABLE {}
-impl ::std::default::Default for VK_TO_WCHAR_TABLE {
+impl ::core::default::Default for VK_TO_WCHAR_TABLE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VK_TO_WCHAR_TABLE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VK_TO_WCHAR_TABLE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VK_TO_WCHAR_TABLE").field("pVkToWchars", &self.pVkToWchars).field("nModifications", &self.nModifications).field("cbSize", &self.cbSize).finish()
     }
 }
-impl ::std::cmp::PartialEq for VK_TO_WCHAR_TABLE {
+impl ::core::cmp::PartialEq for VK_TO_WCHAR_TABLE {
     fn eq(&self, other: &Self) -> bool {
         self.pVkToWchars == other.pVkToWchars && self.nModifications == other.nModifications && self.cbSize == other.cbSize
     }
 }
-impl ::std::cmp::Eq for VK_TO_WCHAR_TABLE {}
+impl ::core::cmp::Eq for VK_TO_WCHAR_TABLE {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHAR_TABLE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct VK_VSC {
@@ -2332,28 +2332,28 @@ pub struct VK_VSC {
     pub Vsc: u8,
 }
 impl VK_VSC {}
-impl ::std::default::Default for VK_VSC {
+impl ::core::default::Default for VK_VSC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VK_VSC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VK_VSC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VK_VSC").field("Vk", &self.Vk).field("Vsc", &self.Vsc).finish()
     }
 }
-impl ::std::cmp::PartialEq for VK_VSC {
+impl ::core::cmp::PartialEq for VK_VSC {
     fn eq(&self, other: &Self) -> bool {
         self.Vk == other.Vk && self.Vsc == other.Vsc
     }
 }
-impl ::std::cmp::Eq for VK_VSC {}
+impl ::core::cmp::Eq for VK_VSC {}
 unsafe impl ::windows::runtime::Abi for VK_VSC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const VK__none_: u32 = 255u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
@@ -2364,30 +2364,30 @@ pub struct VSC_LPWSTR {
 #[cfg(feature = "Win32_Foundation")]
 impl VSC_LPWSTR {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for VSC_LPWSTR {
+impl ::core::default::Default for VSC_LPWSTR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for VSC_LPWSTR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VSC_LPWSTR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VSC_LPWSTR").field("vsc", &self.vsc).field("pwsz", &self.pwsz).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for VSC_LPWSTR {
+impl ::core::cmp::PartialEq for VSC_LPWSTR {
     fn eq(&self, other: &Self) -> bool {
         self.vsc == other.vsc && self.pwsz == other.pwsz
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for VSC_LPWSTR {}
+impl ::core::cmp::Eq for VSC_LPWSTR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VSC_LPWSTR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct VSC_VK {
@@ -2395,22 +2395,22 @@ pub struct VSC_VK {
     pub Vk: u16,
 }
 impl VSC_VK {}
-impl ::std::default::Default for VSC_VK {
+impl ::core::default::Default for VSC_VK {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for VSC_VK {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for VSC_VK {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("VSC_VK").field("Vsc", &self.Vsc).field("Vk", &self.Vk).finish()
     }
 }
-impl ::std::cmp::PartialEq for VSC_VK {
+impl ::core::cmp::PartialEq for VSC_VK {
     fn eq(&self, other: &Self) -> bool {
         self.Vsc == other.Vsc && self.Vk == other.Vk
     }
 }
-impl ::std::cmp::Eq for VSC_VK {}
+impl ::core::cmp::Eq for VSC_VK {}
 unsafe impl ::windows::runtime::Abi for VSC_VK {
     type Abi = Self;
 }
@@ -2424,7 +2424,7 @@ pub unsafe fn VkKeyScanA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn VkKeyScanA(ch: super::super::super::Foundation::CHAR) -> i16;
         }
-        ::std::mem::transmute(VkKeyScanA(ch.into_param().abi()))
+        ::core::mem::transmute(VkKeyScanA(ch.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2439,7 +2439,7 @@ pub unsafe fn VkKeyScanExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VkKeyScanExA(ch: super::super::super::Foundation::CHAR, dwhkl: super::super::TextServices::HKL) -> i16;
         }
-        ::std::mem::transmute(VkKeyScanExA(ch.into_param().abi(), dwhkl.into_param().abi()))
+        ::core::mem::transmute(VkKeyScanExA(ch.into_param().abi(), dwhkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2454,7 +2454,7 @@ pub unsafe fn VkKeyScanExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn VkKeyScanExW(ch: u16, dwhkl: super::super::TextServices::HKL) -> i16;
         }
-        ::std::mem::transmute(VkKeyScanExW(::std::mem::transmute(ch), dwhkl.into_param().abi()))
+        ::core::mem::transmute(VkKeyScanExW(::core::mem::transmute(ch), dwhkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2468,7 +2468,7 @@ pub unsafe fn VkKeyScanW(ch: u16) -> i16 {
         extern "system" {
             fn VkKeyScanW(ch: u16) -> i16;
         }
-        ::std::mem::transmute(VkKeyScanW(::std::mem::transmute(ch)))
+        ::core::mem::transmute(VkKeyScanW(::core::mem::transmute(ch)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2489,12 +2489,12 @@ pub unsafe fn _TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::sup
         extern "system" {
             fn _TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(_TrackMouseEvent(::std::mem::transmute(lpeventtrack)))
+        ::core::mem::transmute(_TrackMouseEvent(::core::mem::transmute(lpeventtrack)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct _VK_FUNCTION_PARAM {
@@ -2502,26 +2502,26 @@ pub struct _VK_FUNCTION_PARAM {
     pub NLSFEProcParam: u32,
 }
 impl _VK_FUNCTION_PARAM {}
-impl ::std::default::Default for _VK_FUNCTION_PARAM {
+impl ::core::default::Default for _VK_FUNCTION_PARAM {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for _VK_FUNCTION_PARAM {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for _VK_FUNCTION_PARAM {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_VK_FUNCTION_PARAM").field("NLSFEProcIndex", &self.NLSFEProcIndex).field("NLSFEProcParam", &self.NLSFEProcParam).finish()
     }
 }
-impl ::std::cmp::PartialEq for _VK_FUNCTION_PARAM {
+impl ::core::cmp::PartialEq for _VK_FUNCTION_PARAM {
     fn eq(&self, other: &Self) -> bool {
         self.NLSFEProcIndex == other.NLSFEProcIndex && self.NLSFEProcParam == other.NLSFEProcParam
     }
 }
-impl ::std::cmp::Eq for _VK_FUNCTION_PARAM {}
+impl ::core::cmp::Eq for _VK_FUNCTION_PARAM {}
 unsafe impl ::windows::runtime::Abi for _VK_FUNCTION_PARAM {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct _VK_TO_FUNCTION_TABLE {
@@ -2533,22 +2533,22 @@ pub struct _VK_TO_FUNCTION_TABLE {
     pub NLSFEProcAlt: [_VK_FUNCTION_PARAM; 8],
 }
 impl _VK_TO_FUNCTION_TABLE {}
-impl ::std::default::Default for _VK_TO_FUNCTION_TABLE {
+impl ::core::default::Default for _VK_TO_FUNCTION_TABLE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for _VK_TO_FUNCTION_TABLE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for _VK_TO_FUNCTION_TABLE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_VK_TO_FUNCTION_TABLE").field("Vk", &self.Vk).field("NLSFEProcType", &self.NLSFEProcType).field("NLSFEProcCurrent", &self.NLSFEProcCurrent).field("NLSFEProcSwitch", &self.NLSFEProcSwitch).field("NLSFEProc", &self.NLSFEProc).field("NLSFEProcAlt", &self.NLSFEProcAlt).finish()
     }
 }
-impl ::std::cmp::PartialEq for _VK_TO_FUNCTION_TABLE {
+impl ::core::cmp::PartialEq for _VK_TO_FUNCTION_TABLE {
     fn eq(&self, other: &Self) -> bool {
         self.Vk == other.Vk && self.NLSFEProcType == other.NLSFEProcType && self.NLSFEProcCurrent == other.NLSFEProcCurrent && self.NLSFEProcSwitch == other.NLSFEProcSwitch && self.NLSFEProc == other.NLSFEProc && self.NLSFEProcAlt == other.NLSFEProcAlt
     }
 }
-impl ::std::cmp::Eq for _VK_TO_FUNCTION_TABLE {}
+impl ::core::cmp::Eq for _VK_TO_FUNCTION_TABLE {}
 unsafe impl ::windows::runtime::Abi for _VK_TO_FUNCTION_TABLE {
     type Abi = Self;
 }
@@ -2561,7 +2561,7 @@ pub unsafe fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextr
         extern "system" {
             fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: usize);
         }
-        ::std::mem::transmute(keybd_event(::std::mem::transmute(bvk), ::std::mem::transmute(bscan), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwextrainfo)))
+        ::core::mem::transmute(keybd_event(::core::mem::transmute(bvk), ::core::mem::transmute(bscan), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwextrainfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2575,12 +2575,12 @@ pub unsafe fn mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: i32, dy: i32, dwdata: 
         extern "system" {
             fn mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: i32, dy: i32, dwdata: u32, dwextrainfo: usize);
         }
-        ::std::mem::transmute(mouse_event(::std::mem::transmute(dwflags), ::std::mem::transmute(dx), ::std::mem::transmute(dy), ::std::mem::transmute(dwdata), ::std::mem::transmute(dwextrainfo)))
+        ::core::mem::transmute(mouse_event(::core::mem::transmute(dwflags), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(dwdata), ::core::mem::transmute(dwextrainfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
@@ -2605,14 +2605,14 @@ pub struct tagKbdLayer {
 #[cfg(feature = "Win32_Foundation")]
 impl tagKbdLayer {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for tagKbdLayer {
+impl ::core::default::Default for tagKbdLayer {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for tagKbdLayer {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for tagKbdLayer {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("tagKbdLayer")
             .field("pCharModifiers", &self.pCharModifiers)
             .field("pVkToWcharTable", &self.pVkToWcharTable)
@@ -2634,7 +2634,7 @@ impl ::std::fmt::Debug for tagKbdLayer {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for tagKbdLayer {
+impl ::core::cmp::PartialEq for tagKbdLayer {
     fn eq(&self, other: &Self) -> bool {
         self.pCharModifiers == other.pCharModifiers
             && self.pVkToWcharTable == other.pVkToWcharTable
@@ -2655,12 +2655,12 @@ impl ::std::cmp::PartialEq for tagKbdLayer {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for tagKbdLayer {}
+impl ::core::cmp::Eq for tagKbdLayer {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for tagKbdLayer {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub struct tagKbdNlsLayer {
@@ -2672,22 +2672,22 @@ pub struct tagKbdNlsLayer {
     pub pusMouseVKey: *mut u16,
 }
 impl tagKbdNlsLayer {}
-impl ::std::default::Default for tagKbdNlsLayer {
+impl ::core::default::Default for tagKbdNlsLayer {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for tagKbdNlsLayer {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for tagKbdNlsLayer {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("tagKbdNlsLayer").field("OEMIdentifier", &self.OEMIdentifier).field("LayoutInformation", &self.LayoutInformation).field("NumOfVkToF", &self.NumOfVkToF).field("pVkToF", &self.pVkToF).field("NumOfMouseVKey", &self.NumOfMouseVKey).field("pusMouseVKey", &self.pusMouseVKey).finish()
     }
 }
-impl ::std::cmp::PartialEq for tagKbdNlsLayer {
+impl ::core::cmp::PartialEq for tagKbdNlsLayer {
     fn eq(&self, other: &Self) -> bool {
         self.OEMIdentifier == other.OEMIdentifier && self.LayoutInformation == other.LayoutInformation && self.NumOfVkToF == other.NumOfVkToF && self.pVkToF == other.pVkToF && self.NumOfMouseVKey == other.NumOfMouseVKey && self.pusMouseVKey == other.pusMouseVKey
     }
 }
-impl ::std::cmp::Eq for tagKbdNlsLayer {}
+impl ::core::cmp::Eq for tagKbdNlsLayer {}
 unsafe impl ::windows::runtime::Abi for tagKbdNlsLayer {
     type Abi = Self;
 }

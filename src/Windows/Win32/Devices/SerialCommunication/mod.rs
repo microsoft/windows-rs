@@ -16,7 +16,7 @@ pub unsafe fn ComDBClaimNextFreePort<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: *mut u32) -> i32;
         }
-        ::std::mem::transmute(ComDBClaimNextFreePort(hcomdb.into_param().abi(), ::std::mem::transmute(comnumber)))
+        ::core::mem::transmute(ComDBClaimNextFreePort(hcomdb.into_param().abi(), ::core::mem::transmute(comnumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -31,7 +31,7 @@ pub unsafe fn ComDBClaimPort<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMD
         extern "system" {
             fn ComDBClaimPort(hcomdb: HCOMDB, comnumber: u32, forceclaim: super::super::Foundation::BOOL, forced: *mut super::super::Foundation::BOOL) -> i32;
         }
-        ::std::mem::transmute(ComDBClaimPort(hcomdb.into_param().abi(), ::std::mem::transmute(comnumber), forceclaim.into_param().abi(), ::std::mem::transmute(forced)))
+        ::core::mem::transmute(ComDBClaimPort(hcomdb.into_param().abi(), ::core::mem::transmute(comnumber), forceclaim.into_param().abi(), ::core::mem::transmute(forced)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -45,7 +45,7 @@ pub unsafe fn ComDBClose<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>>(
         extern "system" {
             fn ComDBClose(hcomdb: HCOMDB) -> i32;
         }
-        ::std::mem::transmute(ComDBClose(hcomdb.into_param().abi()))
+        ::core::mem::transmute(ComDBClose(hcomdb.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -59,7 +59,7 @@ pub unsafe fn ComDBGetCurrentPortUsage<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn ComDBGetCurrentPortUsage(hcomdb: HCOMDB, buffer: *mut u8, buffersize: u32, reporttype: u32, maxportsreported: *mut u32) -> i32;
         }
-        ::std::mem::transmute(ComDBGetCurrentPortUsage(hcomdb.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(buffersize), ::std::mem::transmute(reporttype), ::std::mem::transmute(maxportsreported)))
+        ::core::mem::transmute(ComDBGetCurrentPortUsage(hcomdb.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(reporttype), ::core::mem::transmute(maxportsreported)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -73,7 +73,7 @@ pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
         extern "system" {
             fn ComDBOpen(phcomdb: *mut isize) -> i32;
         }
-        ::std::mem::transmute(ComDBOpen(::std::mem::transmute(phcomdb)))
+        ::core::mem::transmute(ComDBOpen(::core::mem::transmute(phcomdb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -87,7 +87,7 @@ pub unsafe fn ComDBReleasePort<'a, Param0: ::windows::runtime::IntoParam<'a, HCO
         extern "system" {
             fn ComDBReleasePort(hcomdb: HCOMDB, comnumber: u32) -> i32;
         }
-        ::std::mem::transmute(ComDBReleasePort(hcomdb.into_param().abi(), ::std::mem::transmute(comnumber)))
+        ::core::mem::transmute(ComDBReleasePort(hcomdb.into_param().abi(), ::core::mem::transmute(comnumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -101,17 +101,17 @@ pub unsafe fn ComDBResizeDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn ComDBResizeDatabase(hcomdb: HCOMDB, newsize: u32) -> i32;
         }
-        ::std::mem::transmute(ComDBResizeDatabase(hcomdb.into_param().abi(), ::std::mem::transmute(newsize)))
+        ::core::mem::transmute(ComDBResizeDatabase(hcomdb.into_param().abi(), ::core::mem::transmute(newsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HCOMDB(pub isize);
-impl ::std::default::Default for HCOMDB {
+impl ::core::default::Default for HCOMDB {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for HCOMDB {}

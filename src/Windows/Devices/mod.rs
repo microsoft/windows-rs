@@ -62,10 +62,10 @@ pub mod WiFi;
 #[cfg(feature = "Devices_WiFiDirect")]
 pub mod WiFiDirect;
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct DevicesLowLevelContract(pub u8);
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Devices`*"]
 pub struct ILowLevelDevicesAggregateProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLevelDevicesAggregateProvider {
@@ -78,8 +78,8 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn AdcControllerProvider(&self) -> ::windows::runtime::Result<Adc::Provider::IAdcControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Adc::Provider::IAdcControllerProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Adc::Provider::IAdcControllerProvider>(result__)
         }
     }
     #[cfg(feature = "Devices_Pwm_Provider")]
@@ -87,8 +87,8 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn PwmControllerProvider(&self) -> ::windows::runtime::Result<Pwm::Provider::IPwmControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Pwm::Provider::IPwmControllerProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Pwm::Provider::IPwmControllerProvider>(result__)
         }
     }
     #[cfg(feature = "Devices_Gpio_Provider")]
@@ -96,8 +96,8 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn GpioControllerProvider(&self) -> ::windows::runtime::Result<Gpio::Provider::IGpioControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Gpio::Provider::IGpioControllerProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Gpio::Provider::IGpioControllerProvider>(result__)
         }
     }
     #[cfg(feature = "Devices_I2c_Provider")]
@@ -105,8 +105,8 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn I2cControllerProvider(&self) -> ::windows::runtime::Result<I2c::Provider::II2cControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<I2c::Provider::II2cControllerProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<I2c::Provider::II2cControllerProvider>(result__)
         }
     }
     #[cfg(feature = "Devices_Spi_Provider")]
@@ -114,20 +114,20 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn SpiControllerProvider(&self) -> ::windows::runtime::Result<Spi::Provider::ISpiControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Spi::Provider::ISpiControllerProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Spi::Provider::ISpiControllerProvider>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ILowLevelDevicesAggregateProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a73e561c-aac1-4ec7-a852-479f7060d01f}");
 }
-impl ::std::convert::From<ILowLevelDevicesAggregateProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ILowLevelDevicesAggregateProvider> for ::windows::runtime::IUnknown {
     fn from(value: ILowLevelDevicesAggregateProvider) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ILowLevelDevicesAggregateProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ILowLevelDevicesAggregateProvider> for ::windows::runtime::IUnknown {
     fn from(value: &ILowLevelDevicesAggregateProvider) -> Self {
         value.0 .0.clone()
     }
@@ -142,12 +142,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ILowLevelDevicesAggregateProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ILowLevelDevicesAggregateProvider> for ::windows::runtime::IInspectable {
     fn from(value: ILowLevelDevicesAggregateProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ILowLevelDevicesAggregateProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ILowLevelDevicesAggregateProvider> for ::windows::runtime::IInspectable {
     fn from(value: &ILowLevelDevicesAggregateProvider) -> Self {
         value.0.clone()
     }
@@ -239,7 +239,7 @@ pub struct ILowLevelDevicesControllerStatics_abi(
 );
 #[doc = "*Required features: `Devices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LowLevelDevicesAggregateProvider(pub ::windows::runtime::IInspectable);
 impl LowLevelDevicesAggregateProvider {
     #[cfg(feature = "Devices_Adc_Provider")]
@@ -247,8 +247,8 @@ impl LowLevelDevicesAggregateProvider {
     pub fn AdcControllerProvider(&self) -> ::windows::runtime::Result<Adc::Provider::IAdcControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Adc::Provider::IAdcControllerProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Adc::Provider::IAdcControllerProvider>(result__)
         }
     }
     #[cfg(feature = "Devices_Pwm_Provider")]
@@ -256,8 +256,8 @@ impl LowLevelDevicesAggregateProvider {
     pub fn PwmControllerProvider(&self) -> ::windows::runtime::Result<Pwm::Provider::IPwmControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Pwm::Provider::IPwmControllerProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Pwm::Provider::IPwmControllerProvider>(result__)
         }
     }
     #[cfg(feature = "Devices_Gpio_Provider")]
@@ -265,8 +265,8 @@ impl LowLevelDevicesAggregateProvider {
     pub fn GpioControllerProvider(&self) -> ::windows::runtime::Result<Gpio::Provider::IGpioControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Gpio::Provider::IGpioControllerProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Gpio::Provider::IGpioControllerProvider>(result__)
         }
     }
     #[cfg(feature = "Devices_I2c_Provider")]
@@ -274,8 +274,8 @@ impl LowLevelDevicesAggregateProvider {
     pub fn I2cControllerProvider(&self) -> ::windows::runtime::Result<I2c::Provider::II2cControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<I2c::Provider::II2cControllerProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<I2c::Provider::II2cControllerProvider>(result__)
         }
     }
     #[cfg(feature = "Devices_Spi_Provider")]
@@ -283,8 +283,8 @@ impl LowLevelDevicesAggregateProvider {
     pub fn SpiControllerProvider(&self) -> ::windows::runtime::Result<Spi::Provider::ISpiControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Spi::Provider::ISpiControllerProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Spi::Provider::ISpiControllerProvider>(result__)
         }
     }
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
@@ -297,8 +297,8 @@ impl LowLevelDevicesAggregateProvider {
         spi: Param4,
     ) -> ::windows::runtime::Result<LowLevelDevicesAggregateProvider> {
         Self::ILowLevelDevicesAggregateProviderFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), adc.into_param().abi(), pwm.into_param().abi(), gpio.into_param().abi(), i2c.into_param().abi(), spi.into_param().abi(), &mut result__).from_abi::<LowLevelDevicesAggregateProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), adc.into_param().abi(), pwm.into_param().abi(), gpio.into_param().abi(), i2c.into_param().abi(), spi.into_param().abi(), &mut result__).from_abi::<LowLevelDevicesAggregateProvider>(result__)
         })
     }
     pub fn ILowLevelDevicesAggregateProviderFactory<R, F: FnOnce(&ILowLevelDevicesAggregateProviderFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -316,12 +316,12 @@ unsafe impl ::windows::runtime::Interface for LowLevelDevicesAggregateProvider {
 impl ::windows::runtime::RuntimeName for LowLevelDevicesAggregateProvider {
     const NAME: &'static str = "Windows.Devices.LowLevelDevicesAggregateProvider";
 }
-impl ::std::convert::From<LowLevelDevicesAggregateProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<LowLevelDevicesAggregateProvider> for ::windows::runtime::IUnknown {
     fn from(value: LowLevelDevicesAggregateProvider) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&LowLevelDevicesAggregateProvider> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&LowLevelDevicesAggregateProvider> for ::windows::runtime::IUnknown {
     fn from(value: &LowLevelDevicesAggregateProvider) -> Self {
         value.0 .0.clone()
     }
@@ -336,12 +336,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<LowLevelDevicesAggregateProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<LowLevelDevicesAggregateProvider> for ::windows::runtime::IInspectable {
     fn from(value: LowLevelDevicesAggregateProvider) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&LowLevelDevicesAggregateProvider> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&LowLevelDevicesAggregateProvider> for ::windows::runtime::IInspectable {
     fn from(value: &LowLevelDevicesAggregateProvider) -> Self {
         value.0.clone()
     }
@@ -356,43 +356,43 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<LowLevelDevicesAggregateProvider> for ILowLevelDevicesAggregateProvider {
+impl ::core::convert::From<LowLevelDevicesAggregateProvider> for ILowLevelDevicesAggregateProvider {
     fn from(value: LowLevelDevicesAggregateProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&LowLevelDevicesAggregateProvider> for ILowLevelDevicesAggregateProvider {
+impl ::core::convert::From<&LowLevelDevicesAggregateProvider> for ILowLevelDevicesAggregateProvider {
     fn from(value: &LowLevelDevicesAggregateProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILowLevelDevicesAggregateProvider> for LowLevelDevicesAggregateProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILowLevelDevicesAggregateProvider> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILowLevelDevicesAggregateProvider> for &LowLevelDevicesAggregateProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILowLevelDevicesAggregateProvider> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::std::marker::Send for LowLevelDevicesAggregateProvider {}
-unsafe impl ::std::marker::Sync for LowLevelDevicesAggregateProvider {}
+unsafe impl ::core::marker::Send for LowLevelDevicesAggregateProvider {}
+unsafe impl ::core::marker::Sync for LowLevelDevicesAggregateProvider {}
 #[doc = "*Required features: `Devices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LowLevelDevicesController(pub ::windows::runtime::IInspectable);
 impl LowLevelDevicesController {
     #[doc = "*Required features: `Devices`*"]
     pub fn DefaultProvider() -> ::windows::runtime::Result<ILowLevelDevicesAggregateProvider> {
         Self::ILowLevelDevicesControllerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ILowLevelDevicesAggregateProvider>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ILowLevelDevicesAggregateProvider>(result__)
         })
     }
     #[doc = "*Required features: `Devices`*"]
     pub fn SetDefaultProvider<'a, Param0: ::windows::runtime::IntoParam<'a, ILowLevelDevicesAggregateProvider>>(value: Param0) -> ::windows::runtime::Result<()> {
-        Self::ILowLevelDevicesControllerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() })
+        Self::ILowLevelDevicesControllerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
     pub fn ILowLevelDevicesControllerStatics<R, F: FnOnce(&ILowLevelDevicesControllerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<LowLevelDevicesController, ILowLevelDevicesControllerStatics> = ::windows::runtime::FactoryCache::new();
@@ -409,12 +409,12 @@ unsafe impl ::windows::runtime::Interface for LowLevelDevicesController {
 impl ::windows::runtime::RuntimeName for LowLevelDevicesController {
     const NAME: &'static str = "Windows.Devices.LowLevelDevicesController";
 }
-impl ::std::convert::From<LowLevelDevicesController> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<LowLevelDevicesController> for ::windows::runtime::IUnknown {
     fn from(value: LowLevelDevicesController) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&LowLevelDevicesController> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&LowLevelDevicesController> for ::windows::runtime::IUnknown {
     fn from(value: &LowLevelDevicesController) -> Self {
         value.0 .0.clone()
     }
@@ -429,12 +429,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<LowLevelDevicesController> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<LowLevelDevicesController> for ::windows::runtime::IInspectable {
     fn from(value: LowLevelDevicesController) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&LowLevelDevicesController> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&LowLevelDevicesController> for ::windows::runtime::IInspectable {
     fn from(value: &LowLevelDevicesController) -> Self {
         value.0.clone()
     }
@@ -449,5 +449,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for LowLevelDevicesController {}
-unsafe impl ::std::marker::Sync for LowLevelDevicesController {}
+unsafe impl ::core::marker::Send for LowLevelDevicesController {}
+unsafe impl ::core::marker::Sync for LowLevelDevicesController {}

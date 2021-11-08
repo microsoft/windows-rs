@@ -62,7 +62,7 @@ pub struct INDClientFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, downloadengine: ::windows::runtime::RawPtr, streamparser: ::windows::runtime::RawPtr, pmessenger: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDClosedCaptionDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDClosedCaptionDataReceivedEventArgs {
@@ -75,8 +75,8 @@ impl INDClosedCaptionDataReceivedEventArgs {
     pub fn ClosedCaptionDataFormat(&self) -> ::windows::runtime::Result<NDClosedCaptionFormat> {
         let this = self;
         unsafe {
-            let mut result__: NDClosedCaptionFormat = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NDClosedCaptionFormat>(result__)
+            let mut result__: NDClosedCaptionFormat = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NDClosedCaptionFormat>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -84,8 +84,8 @@ impl INDClosedCaptionDataReceivedEventArgs {
     pub fn PresentationTimestamp(&self) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__: i64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            let mut result__: i64 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -93,20 +93,20 @@ impl INDClosedCaptionDataReceivedEventArgs {
     pub fn ClosedCaptionData(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDClosedCaptionDataReceivedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{4738d29f-c345-4649-8468-b8c5fc357190}");
 }
-impl ::std::convert::From<INDClosedCaptionDataReceivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDClosedCaptionDataReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: INDClosedCaptionDataReceivedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDClosedCaptionDataReceivedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDClosedCaptionDataReceivedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &INDClosedCaptionDataReceivedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -121,12 +121,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDClosedCaptionDataReceivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDClosedCaptionDataReceivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: INDClosedCaptionDataReceivedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDClosedCaptionDataReceivedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDClosedCaptionDataReceivedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &INDClosedCaptionDataReceivedEventArgs) -> Self {
         value.0.clone()
     }
@@ -155,7 +155,7 @@ pub struct INDClosedCaptionDataReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDCustomData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDCustomData {
@@ -168,8 +168,8 @@ impl INDCustomData {
     pub fn CustomDataTypeID(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -177,20 +177,20 @@ impl INDCustomData {
     pub fn CustomData(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDCustomData {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{f5cb0fdc-2d09-4f19-b5e1-76a0b3ee9267}");
 }
-impl ::std::convert::From<INDCustomData> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDCustomData> for ::windows::runtime::IUnknown {
     fn from(value: INDCustomData) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDCustomData> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDCustomData> for ::windows::runtime::IUnknown {
     fn from(value: &INDCustomData) -> Self {
         value.0 .0.clone()
     }
@@ -205,12 +205,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDCustomData> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDCustomData> for ::windows::runtime::IInspectable {
     fn from(value: INDCustomData) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDCustomData> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDCustomData> for ::windows::runtime::IInspectable {
     fn from(value: &INDCustomData) -> Self {
         value.0.clone()
     }
@@ -256,7 +256,7 @@ pub struct INDCustomDataFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, customDataTypeIDBytes_array_size: u32, customdatatypeidbytes: *const u8, customDataBytes_array_size: u32, customdatabytes: *const u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDDownloadEngine(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDDownloadEngine {
@@ -269,40 +269,40 @@ impl INDDownloadEngine {
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, uri: Param0, sessionidbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), uri.into_param().abi(), sessionidbytes.len() as u32, ::std::mem::transmute(sessionidbytes.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), uri.into_param().abi(), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr())).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Pause(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Resume(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn Seek<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, startposition: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), startposition.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), startposition.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn CanSeek(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -310,8 +310,8 @@ impl INDDownloadEngine {
     pub fn BufferFullMinThresholdInSamples(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -319,8 +319,8 @@ impl INDDownloadEngine {
     pub fn BufferFullMaxThresholdInSamples(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -328,20 +328,20 @@ impl INDDownloadEngine {
     pub fn Notifier(&self) -> ::windows::runtime::Result<NDDownloadEngineNotifier> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NDDownloadEngineNotifier>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NDDownloadEngineNotifier>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDDownloadEngine {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{2d223d65-c4b6-4438-8d46-b96e6d0fb21f}");
 }
-impl ::std::convert::From<INDDownloadEngine> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDDownloadEngine> for ::windows::runtime::IUnknown {
     fn from(value: INDDownloadEngine) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDDownloadEngine> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDDownloadEngine> for ::windows::runtime::IUnknown {
     fn from(value: &INDDownloadEngine) -> Self {
         value.0 .0.clone()
     }
@@ -356,12 +356,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDDownloadEngine> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDDownloadEngine> for ::windows::runtime::IInspectable {
     fn from(value: INDDownloadEngine) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDDownloadEngine> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDDownloadEngine> for ::windows::runtime::IInspectable {
     fn from(value: &INDDownloadEngine) -> Self {
         value.0.clone()
     }
@@ -398,7 +398,7 @@ pub struct INDDownloadEngine_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDDownloadEngineNotifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDDownloadEngineNotifier {
@@ -410,48 +410,48 @@ impl INDDownloadEngineNotifier {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn OnStreamOpened(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn OnPlayReadyObjectReceived(&self, databytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), databytes.len() as u32, ::std::mem::transmute(databytes.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), databytes.len() as u32, ::core::mem::transmute(databytes.as_ptr())).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn OnContentIDReceived<'a, Param0: ::windows::runtime::IntoParam<'a, INDLicenseFetchDescriptor>>(&self, licensefetchdescriptor: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), licensefetchdescriptor.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), licensefetchdescriptor.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn OnDataReceived(&self, databytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], bytesreceived: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), databytes.len() as u32, ::std::mem::transmute(databytes.as_ptr()), bytesreceived).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), databytes.len() as u32, ::core::mem::transmute(databytes.as_ptr()), bytesreceived).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn OnEndOfStream(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn OnNetworkError(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDDownloadEngineNotifier {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{d720b4d4-f4b8-4530-a809-9193a571e7fc}");
 }
-impl ::std::convert::From<INDDownloadEngineNotifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDDownloadEngineNotifier> for ::windows::runtime::IUnknown {
     fn from(value: INDDownloadEngineNotifier) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDDownloadEngineNotifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDDownloadEngineNotifier> for ::windows::runtime::IUnknown {
     fn from(value: &INDDownloadEngineNotifier) -> Self {
         value.0 .0.clone()
     }
@@ -466,12 +466,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDDownloadEngineNotifier> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDDownloadEngineNotifier> for ::windows::runtime::IInspectable {
     fn from(value: INDDownloadEngineNotifier) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDDownloadEngineNotifier> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDDownloadEngineNotifier> for ::windows::runtime::IInspectable {
     fn from(value: &INDDownloadEngineNotifier) -> Self {
         value.0.clone()
     }
@@ -503,7 +503,7 @@ pub struct INDDownloadEngineNotifier_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDLicenseFetchCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDLicenseFetchCompletedEventArgs {
@@ -516,20 +516,20 @@ impl INDLicenseFetchCompletedEventArgs {
     pub fn ResponseCustomData(&self) -> ::windows::runtime::Result<INDCustomData> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<INDCustomData>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<INDCustomData>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDLicenseFetchCompletedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1ee30a1a-11b2-4558-8865-e3a516922517}");
 }
-impl ::std::convert::From<INDLicenseFetchCompletedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDLicenseFetchCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: INDLicenseFetchCompletedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDLicenseFetchCompletedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDLicenseFetchCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &INDLicenseFetchCompletedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -544,12 +544,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDLicenseFetchCompletedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDLicenseFetchCompletedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: INDLicenseFetchCompletedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDLicenseFetchCompletedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDLicenseFetchCompletedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &INDLicenseFetchCompletedEventArgs) -> Self {
         value.0.clone()
     }
@@ -576,7 +576,7 @@ pub struct INDLicenseFetchCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDLicenseFetchDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDLicenseFetchDescriptor {
@@ -589,8 +589,8 @@ impl INDLicenseFetchDescriptor {
     pub fn ContentIDType(&self) -> ::windows::runtime::Result<NDContentIDType> {
         let this = self;
         unsafe {
-            let mut result__: NDContentIDType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NDContentIDType>(result__)
+            let mut result__: NDContentIDType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NDContentIDType>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -598,8 +598,8 @@ impl INDLicenseFetchDescriptor {
     pub fn ContentID(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -607,26 +607,26 @@ impl INDLicenseFetchDescriptor {
     pub fn LicenseFetchChallengeCustomData(&self) -> ::windows::runtime::Result<INDCustomData> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<INDCustomData>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<INDCustomData>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetLicenseFetchChallengeCustomData<'a, Param0: ::windows::runtime::IntoParam<'a, INDCustomData>>(&self, licensefetchchallengecustomdata: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), licensefetchchallengecustomdata.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), licensefetchchallengecustomdata.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDLicenseFetchDescriptor {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{5498d33a-e686-4935-a567-7ca77ad20fa4}");
 }
-impl ::std::convert::From<INDLicenseFetchDescriptor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDLicenseFetchDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: INDLicenseFetchDescriptor) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDLicenseFetchDescriptor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDLicenseFetchDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: &INDLicenseFetchDescriptor) -> Self {
         value.0 .0.clone()
     }
@@ -641,12 +641,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDLicenseFetchDescriptor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDLicenseFetchDescriptor> for ::windows::runtime::IInspectable {
     fn from(value: INDLicenseFetchDescriptor) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDLicenseFetchDescriptor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDLicenseFetchDescriptor> for ::windows::runtime::IInspectable {
     fn from(value: &INDLicenseFetchDescriptor) -> Self {
         value.0.clone()
     }
@@ -694,7 +694,7 @@ pub struct INDLicenseFetchDescriptorFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contentidtype: NDContentIDType, contentIDBytes_array_size: u32, contentidbytes: *const u8, licensefetchchallengecustomdata: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDLicenseFetchResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDLicenseFetchResult {
@@ -707,20 +707,20 @@ impl INDLicenseFetchResult {
     pub fn ResponseCustomData(&self) -> ::windows::runtime::Result<INDCustomData> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<INDCustomData>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<INDCustomData>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDLicenseFetchResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{21d39698-aa62-45ff-a5ff-8037e5433825}");
 }
-impl ::std::convert::From<INDLicenseFetchResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDLicenseFetchResult> for ::windows::runtime::IUnknown {
     fn from(value: INDLicenseFetchResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDLicenseFetchResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDLicenseFetchResult> for ::windows::runtime::IUnknown {
     fn from(value: &INDLicenseFetchResult) -> Self {
         value.0 .0.clone()
     }
@@ -735,12 +735,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDLicenseFetchResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDLicenseFetchResult> for ::windows::runtime::IInspectable {
     fn from(value: INDLicenseFetchResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDLicenseFetchResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDLicenseFetchResult> for ::windows::runtime::IInspectable {
     fn from(value: &INDLicenseFetchResult) -> Self {
         value.0.clone()
     }
@@ -767,7 +767,7 @@ pub struct INDLicenseFetchResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDMessenger(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDMessenger {
@@ -781,8 +781,8 @@ impl INDMessenger {
     pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), sessionidbytes.len() as u32, ::std::mem::transmute(sessionidbytes.as_ptr()), challengedatabytes.len() as u32, ::std::mem::transmute(challengedatabytes.as_ptr()), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), challengedatabytes.len() as u32, ::core::mem::transmute(challengedatabytes.as_ptr()), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -791,16 +791,16 @@ impl INDMessenger {
     pub fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], sessionidbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
+                ::core::mem::transmute_copy(this),
                 pdtype,
                 transmitterchannelbytes.len() as u32,
-                ::std::mem::transmute(transmitterchannelbytes.as_ptr()),
+                ::core::mem::transmute(transmitterchannelbytes.as_ptr()),
                 sessionidbytes.len() as u32,
-                ::std::mem::transmute(sessionidbytes.as_ptr()),
+                ::core::mem::transmute(sessionidbytes.as_ptr()),
                 challengedatabytes.len() as u32,
-                ::std::mem::transmute(challengedatabytes.as_ptr()),
+                ::core::mem::transmute(challengedatabytes.as_ptr()),
                 &mut result__,
             )
             .from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
@@ -812,16 +812,16 @@ impl INDMessenger {
     pub fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], sessionidbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], responsedatabytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(
-                ::std::mem::transmute_copy(this),
+                ::core::mem::transmute_copy(this),
                 pdtype,
                 transmitterchannelbytes.len() as u32,
-                ::std::mem::transmute(transmitterchannelbytes.as_ptr()),
+                ::core::mem::transmute(transmitterchannelbytes.as_ptr()),
                 sessionidbytes.len() as u32,
-                ::std::mem::transmute(sessionidbytes.as_ptr()),
+                ::core::mem::transmute(sessionidbytes.as_ptr()),
                 responsedatabytes.len() as u32,
-                ::std::mem::transmute(responsedatabytes.as_ptr()),
+                ::core::mem::transmute(responsedatabytes.as_ptr()),
                 &mut result__,
             )
             .from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
@@ -833,20 +833,20 @@ impl INDMessenger {
     pub fn SendLicenseFetchRequestAsync(&self, sessionidbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), sessionidbytes.len() as u32, ::std::mem::transmute(sessionidbytes.as_ptr()), challengedatabytes.len() as u32, ::std::mem::transmute(challengedatabytes.as_ptr()), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), challengedatabytes.len() as u32, ::core::mem::transmute(challengedatabytes.as_ptr()), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDMessenger {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{d42df95d-a75b-47bf-8249-bc83820da38a}");
 }
-impl ::std::convert::From<INDMessenger> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDMessenger> for ::windows::runtime::IUnknown {
     fn from(value: INDMessenger) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDMessenger> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDMessenger> for ::windows::runtime::IUnknown {
     fn from(value: &INDMessenger) -> Self {
         value.0 .0.clone()
     }
@@ -861,12 +861,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDMessenger> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDMessenger> for ::windows::runtime::IInspectable {
     fn from(value: INDMessenger) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDMessenger> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDMessenger> for ::windows::runtime::IInspectable {
     fn from(value: &INDMessenger) -> Self {
         value.0.clone()
     }
@@ -900,7 +900,7 @@ pub struct INDMessenger_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDProximityDetectionCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDProximityDetectionCompletedEventArgs {
@@ -913,20 +913,20 @@ impl INDProximityDetectionCompletedEventArgs {
     pub fn ProximityDetectionRetryCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDProximityDetectionCompletedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{2a706328-da25-4f8c-9eb7-5d0fc3658bca}");
 }
-impl ::std::convert::From<INDProximityDetectionCompletedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDProximityDetectionCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: INDProximityDetectionCompletedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDProximityDetectionCompletedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDProximityDetectionCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &INDProximityDetectionCompletedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -941,12 +941,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDProximityDetectionCompletedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDProximityDetectionCompletedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: INDProximityDetectionCompletedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDProximityDetectionCompletedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDProximityDetectionCompletedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &INDProximityDetectionCompletedEventArgs) -> Self {
         value.0.clone()
     }
@@ -973,7 +973,7 @@ pub struct INDProximityDetectionCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDRegistrationCompletedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDRegistrationCompletedEventArgs {
@@ -986,8 +986,8 @@ impl INDRegistrationCompletedEventArgs {
     pub fn ResponseCustomData(&self) -> ::windows::runtime::Result<INDCustomData> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<INDCustomData>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<INDCustomData>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -995,8 +995,8 @@ impl INDRegistrationCompletedEventArgs {
     pub fn TransmitterProperties(&self) -> ::windows::runtime::Result<INDTransmitterProperties> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<INDTransmitterProperties>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<INDTransmitterProperties>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1004,26 +1004,26 @@ impl INDRegistrationCompletedEventArgs {
     pub fn TransmitterCertificateAccepted(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetTransmitterCertificateAccepted(&self, accept: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), accept).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), accept).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDRegistrationCompletedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{9e39b64d-ab5b-4905-acdc-787a77c6374d}");
 }
-impl ::std::convert::From<INDRegistrationCompletedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDRegistrationCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: INDRegistrationCompletedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDRegistrationCompletedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDRegistrationCompletedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &INDRegistrationCompletedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1038,12 +1038,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDRegistrationCompletedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDRegistrationCompletedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: INDRegistrationCompletedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDRegistrationCompletedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDRegistrationCompletedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &INDRegistrationCompletedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1073,7 +1073,7 @@ pub struct INDRegistrationCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, accept: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDSendResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDSendResult {
@@ -1086,20 +1086,20 @@ impl INDSendResult {
     pub fn Response(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDSendResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e3685517-a584-479d-90b7-d689c7bf7c80}");
 }
-impl ::std::convert::From<INDSendResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDSendResult> for ::windows::runtime::IUnknown {
     fn from(value: INDSendResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDSendResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDSendResult> for ::windows::runtime::IUnknown {
     fn from(value: &INDSendResult) -> Self {
         value.0 .0.clone()
     }
@@ -1114,12 +1114,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDSendResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDSendResult> for ::windows::runtime::IInspectable {
     fn from(value: INDSendResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDSendResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDSendResult> for ::windows::runtime::IInspectable {
     fn from(value: &INDSendResult) -> Self {
         value.0.clone()
     }
@@ -1146,7 +1146,7 @@ pub struct INDSendResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDStartResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDStartResult {
@@ -1160,20 +1160,20 @@ impl INDStartResult {
     pub fn MediaStreamSource(&self) -> ::windows::runtime::Result<super::super::Core::MediaStreamSource> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::MediaStreamSource>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::MediaStreamSource>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDStartResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{79f6e96e-f50f-4015-8ba4-c2bc344ebd4e}");
 }
-impl ::std::convert::From<INDStartResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDStartResult> for ::windows::runtime::IUnknown {
     fn from(value: INDStartResult) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDStartResult> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDStartResult> for ::windows::runtime::IUnknown {
     fn from(value: &INDStartResult) -> Self {
         value.0 .0.clone()
     }
@@ -1188,12 +1188,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDStartResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDStartResult> for ::windows::runtime::IInspectable {
     fn from(value: INDStartResult) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDStartResult> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDStartResult> for ::windows::runtime::IInspectable {
     fn from(value: &INDStartResult) -> Self {
         value.0.clone()
     }
@@ -1221,7 +1221,7 @@ pub struct INDStartResult_abi(
     #[cfg(not(feature = "Media_Core"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDStorageFileHelper(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDStorageFileHelper {
@@ -1235,20 +1235,20 @@ impl INDStorageFileHelper {
     pub fn GetFileURLs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::IStorageFile>>(&self, file: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDStorageFileHelper {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{d8f0bef8-91d2-4d47-a3f9-eaff4edb729f}");
 }
-impl ::std::convert::From<INDStorageFileHelper> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDStorageFileHelper> for ::windows::runtime::IUnknown {
     fn from(value: INDStorageFileHelper) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDStorageFileHelper> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDStorageFileHelper> for ::windows::runtime::IUnknown {
     fn from(value: &INDStorageFileHelper) -> Self {
         value.0 .0.clone()
     }
@@ -1263,12 +1263,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDStorageFileHelper> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDStorageFileHelper> for ::windows::runtime::IInspectable {
     fn from(value: INDStorageFileHelper) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDStorageFileHelper> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDStorageFileHelper> for ::windows::runtime::IInspectable {
     fn from(value: &INDStorageFileHelper) -> Self {
         value.0.clone()
     }
@@ -1296,7 +1296,7 @@ pub struct INDStorageFileHelper_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDStreamParser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDStreamParser {
@@ -1308,7 +1308,7 @@ impl INDStreamParser {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ParseData(&self, databytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), databytes.len() as u32, ::std::mem::transmute(databytes.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), databytes.len() as u32, ::core::mem::transmute(databytes.as_ptr())).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Media_Core")]
@@ -1316,41 +1316,41 @@ impl INDStreamParser {
     pub fn GetStreamInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Core::IMediaStreamDescriptor>>(&self, descriptor: Param0, streamtype: &mut NDMediaStreamType) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), descriptor.into_param().abi(), streamtype, &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), descriptor.into_param().abi(), streamtype, &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn BeginOfStream(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn EndOfStream(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Notifier(&self) -> ::windows::runtime::Result<NDStreamParserNotifier> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NDStreamParserNotifier>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NDStreamParserNotifier>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDStreamParser {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e0baa198-9796-41c9-8695-59437e67e66a}");
 }
-impl ::std::convert::From<INDStreamParser> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDStreamParser> for ::windows::runtime::IUnknown {
     fn from(value: INDStreamParser) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDStreamParser> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDStreamParser> for ::windows::runtime::IUnknown {
     fn from(value: &INDStreamParser) -> Self {
         value.0 .0.clone()
     }
@@ -1365,12 +1365,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDStreamParser> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDStreamParser> for ::windows::runtime::IInspectable {
     fn from(value: INDStreamParser) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDStreamParser> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDStreamParser> for ::windows::runtime::IInspectable {
     fn from(value: &INDStreamParser) -> Self {
         value.0.clone()
     }
@@ -1402,7 +1402,7 @@ pub struct INDStreamParser_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDStreamParserNotifier(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDStreamParserNotifier {
@@ -1414,39 +1414,39 @@ impl INDStreamParserNotifier {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn OnContentIDReceived<'a, Param0: ::windows::runtime::IntoParam<'a, INDLicenseFetchDescriptor>>(&self, licensefetchdescriptor: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), licensefetchdescriptor.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), licensefetchdescriptor.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation_Collections`, `Media_Core`*"]
     pub fn OnMediaStreamDescriptorCreated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>>(&self, audiostreamdescriptors: Param0, videostreamdescriptors: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), audiostreamdescriptors.into_param().abi(), videostreamdescriptors.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), audiostreamdescriptors.into_param().abi(), videostreamdescriptors.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Media_Core")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Media_Core`*"]
     pub fn OnSampleParsed<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Core::MediaStreamSample>>(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: Param2, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), streamid, streamtype, streamsample.into_param().abi(), pts, ccformat, ccdatabytes.len() as u32, ::std::mem::transmute(ccdatabytes.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), streamid, streamtype, streamsample.into_param().abi(), pts, ccformat, ccdatabytes.len() as u32, ::core::mem::transmute(ccdatabytes.as_ptr())).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Media_Core")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Media_Core`*"]
     pub fn OnBeginSetupDecryptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Core::IMediaStreamDescriptor>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, descriptor: Param0, keyid: Param1, probytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), descriptor.into_param().abi(), keyid.into_param().abi(), probytes.len() as u32, ::std::mem::transmute(probytes.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), descriptor.into_param().abi(), keyid.into_param().abi(), probytes.len() as u32, ::core::mem::transmute(probytes.as_ptr())).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDStreamParserNotifier {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{c167acd0-2ce6-426c-ace5-5e9275fea715}");
 }
-impl ::std::convert::From<INDStreamParserNotifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDStreamParserNotifier> for ::windows::runtime::IUnknown {
     fn from(value: INDStreamParserNotifier) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDStreamParserNotifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDStreamParserNotifier> for ::windows::runtime::IUnknown {
     fn from(value: &INDStreamParserNotifier) -> Self {
         value.0 .0.clone()
     }
@@ -1461,12 +1461,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDStreamParserNotifier> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDStreamParserNotifier> for ::windows::runtime::IInspectable {
     fn from(value: INDStreamParserNotifier) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDStreamParserNotifier> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDStreamParserNotifier> for ::windows::runtime::IInspectable {
     fn from(value: &INDStreamParserNotifier) -> Self {
         value.0.clone()
     }
@@ -1514,10 +1514,10 @@ pub struct INDTCPMessengerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, remotehostport: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotehostname: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, remotehostport: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct INDTransmitterProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDTransmitterProperties {
@@ -1530,8 +1530,8 @@ impl INDTransmitterProperties {
     pub fn CertificateType(&self) -> ::windows::runtime::Result<NDCertificateType> {
         let this = self;
         unsafe {
-            let mut result__: NDCertificateType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NDCertificateType>(result__)
+            let mut result__: NDCertificateType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NDCertificateType>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1539,8 +1539,8 @@ impl INDTransmitterProperties {
     pub fn PlatformIdentifier(&self) -> ::windows::runtime::Result<NDCertificatePlatformID> {
         let this = self;
         unsafe {
-            let mut result__: NDCertificatePlatformID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NDCertificatePlatformID>(result__)
+            let mut result__: NDCertificatePlatformID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NDCertificatePlatformID>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1548,8 +1548,8 @@ impl INDTransmitterProperties {
     pub fn SupportedFeatures(&self) -> ::windows::runtime::Result<::windows::runtime::Array<NDCertificateFeature>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<NDCertificateFeature> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<NDCertificateFeature>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<NDCertificateFeature> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<NDCertificateFeature>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1557,8 +1557,8 @@ impl INDTransmitterProperties {
     pub fn SecurityLevel(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1566,8 +1566,8 @@ impl INDTransmitterProperties {
     pub fn SecurityVersion(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1576,8 +1576,8 @@ impl INDTransmitterProperties {
     pub fn ExpirationDate(&self) -> ::windows::runtime::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1585,8 +1585,8 @@ impl INDTransmitterProperties {
     pub fn ClientID(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1594,8 +1594,8 @@ impl INDTransmitterProperties {
     pub fn ModelDigest(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1603,8 +1603,8 @@ impl INDTransmitterProperties {
     pub fn ModelManufacturerName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1612,8 +1612,8 @@ impl INDTransmitterProperties {
     pub fn ModelName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1621,20 +1621,20 @@ impl INDTransmitterProperties {
     pub fn ModelNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for INDTransmitterProperties {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e536af23-ac4f-4adc-8c66-4ff7c2702dd6}");
 }
-impl ::std::convert::From<INDTransmitterProperties> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INDTransmitterProperties> for ::windows::runtime::IUnknown {
     fn from(value: INDTransmitterProperties) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&INDTransmitterProperties> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INDTransmitterProperties> for ::windows::runtime::IUnknown {
     fn from(value: &INDTransmitterProperties) -> Self {
         value.0 .0.clone()
     }
@@ -1649,12 +1649,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<INDTransmitterProperties> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<INDTransmitterProperties> for ::windows::runtime::IInspectable {
     fn from(value: INDTransmitterProperties) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INDTransmitterProperties> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&INDTransmitterProperties> for ::windows::runtime::IInspectable {
     fn from(value: &INDTransmitterProperties) -> Self {
         value.0.clone()
     }
@@ -1687,9 +1687,9 @@ pub struct INDTransmitterProperties_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -1708,14 +1708,14 @@ pub struct IPlayReadyContentHeader_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PlayReadyEncryptionAlgorithm) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PlayReadyDecryptorSetup) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -1737,7 +1737,7 @@ pub struct IPlayReadyContentHeader2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result_size__: *mut u32, result__: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result_size__: *mut u32, result__: *mut *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result_size__: *mut u32, result__: *mut *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[doc(hidden)]
@@ -1755,17 +1755,17 @@ pub struct IPlayReadyContentHeaderFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, headerBytes_array_size: u32, headerbytes: *const u8, licenseacquisitionurl: ::windows::runtime::RawPtr, licenseacquisitionuserinterfaceurl: ::windows::runtime::RawPtr, customattributes: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, domainserviceid: ::windows::runtime::GUID, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, headerBytes_array_size: u32, headerbytes: *const u8, licenseacquisitionurl: ::windows::runtime::RawPtr, licenseacquisitionuserinterfaceurl: ::windows::runtime::RawPtr, customattributes: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, domainserviceid: ::windows::runtime::GUID, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         contentkeyid: ::windows::runtime::GUID,
-        contentkeyidstring: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
+        contentkeyidstring: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
         contentencryptionalgorithm: PlayReadyEncryptionAlgorithm,
         licenseacquisitionurl: ::windows::runtime::RawPtr,
         licenseacquisitionuserinterfaceurl: ::windows::runtime::RawPtr,
-        customattributes: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
+        customattributes: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
         domainserviceid: ::windows::runtime::GUID,
         result__: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
@@ -1795,11 +1795,11 @@ pub struct IPlayReadyContentHeaderFactory2_abi(
         contentKeyIds_array_size: u32,
         contentkeyids: *const ::windows::runtime::GUID,
         contentKeyIdStrings_array_size: u32,
-        contentkeyidstrings: *const ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
+        contentkeyidstrings: *const ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
         contentencryptionalgorithm: PlayReadyEncryptionAlgorithm,
         licenseacquisitionurl: ::windows::runtime::RawPtr,
         licenseacquisitionuserinterfaceurl: ::windows::runtime::RawPtr,
-        customattributes: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
+        customattributes: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>,
         domainserviceid: ::windows::runtime::GUID,
         result__: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
@@ -1824,7 +1824,7 @@ pub struct IPlayReadyContentResolver_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contentheader: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct IPlayReadyDomain(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyDomain {
@@ -1836,32 +1836,32 @@ impl IPlayReadyDomain {
     pub fn AccountId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ServiceId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Revision(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn FriendlyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1869,20 +1869,20 @@ impl IPlayReadyDomain {
     pub fn DomainJoinUrl(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IPlayReadyDomain {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{adcc93ac-97e6-43ef-95e4-d7868f3b16a9}");
 }
-impl ::std::convert::From<IPlayReadyDomain> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPlayReadyDomain> for ::windows::runtime::IUnknown {
     fn from(value: IPlayReadyDomain) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IPlayReadyDomain> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPlayReadyDomain> for ::windows::runtime::IUnknown {
     fn from(value: &IPlayReadyDomain) -> Self {
         value.0 .0.clone()
     }
@@ -1897,12 +1897,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IPlayReadyDomain> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPlayReadyDomain> for ::windows::runtime::IInspectable {
     fn from(value: IPlayReadyDomain) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPlayReadyDomain> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPlayReadyDomain> for ::windows::runtime::IInspectable {
     fn from(value: &IPlayReadyDomain) -> Self {
         value.0.clone()
     }
@@ -1929,7 +1929,7 @@ pub struct IPlayReadyDomain_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
@@ -1970,8 +1970,8 @@ pub struct IPlayReadyDomainJoinServiceRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
@@ -2033,7 +2033,7 @@ pub struct IPlayReadyIndividualizationServiceRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct IPlayReadyLicense(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicense {
@@ -2045,16 +2045,16 @@ impl IPlayReadyLicense {
     pub fn FullyEvaluated(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn UsableForPlay(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2062,52 +2062,52 @@ impl IPlayReadyLicense {
     pub fn ExpirationDate(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ExpireAfterFirstPlay(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn DomainAccountID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ChainDepth(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn GetKIDAtChainDepth(&self, chaindepth: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), chaindepth, &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), chaindepth, &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IPlayReadyLicense {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4}");
 }
-impl ::std::convert::From<IPlayReadyLicense> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPlayReadyLicense> for ::windows::runtime::IUnknown {
     fn from(value: IPlayReadyLicense) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IPlayReadyLicense> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPlayReadyLicense> for ::windows::runtime::IUnknown {
     fn from(value: &IPlayReadyLicense) -> Self {
         value.0 .0.clone()
     }
@@ -2122,12 +2122,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IPlayReadyLicense> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPlayReadyLicense> for ::windows::runtime::IInspectable {
     fn from(value: IPlayReadyLicense) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPlayReadyLicense> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPlayReadyLicense> for ::windows::runtime::IInspectable {
     fn from(value: &IPlayReadyLicense) -> Self {
         value.0.clone()
     }
@@ -2182,7 +2182,7 @@ pub struct IPlayReadyLicense2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct IPlayReadyLicenseAcquisitionServiceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseAcquisitionServiceRequest {
@@ -2194,42 +2194,42 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
     pub fn ContentHeader(&self) -> ::windows::runtime::Result<PlayReadyContentHeader> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadyContentHeader>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadyContentHeader>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetContentHeader<'a, Param0: ::windows::runtime::IntoParam<'a, PlayReadyContentHeader>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn DomainServiceId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetDomainServiceId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProtectionSystem(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2237,80 +2237,80 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn SetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ResponseCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ChallengeCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetChallengeCustomData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn BeginServiceRequest(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn NextServiceRequest(&self) -> ::windows::runtime::Result<IPlayReadyServiceRequest> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn GenerateManualEnablingChallenge(&self) -> ::windows::runtime::Result<PlayReadySoapMessage> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProcessManualEnablingResponse(&self, responsebytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), responsebytes.len() as u32, ::std::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), responsebytes.len() as u32, ::core::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IPlayReadyLicenseAcquisitionServiceRequest {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{5d85ff45-3e9f-4f48-93e1-9530c8d58c3e}");
 }
-impl ::std::convert::From<IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: IPlayReadyLicenseAcquisitionServiceRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: &IPlayReadyLicenseAcquisitionServiceRequest) -> Self {
         value.0 .0.clone()
     }
@@ -2325,12 +2325,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: IPlayReadyLicenseAcquisitionServiceRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: &IPlayReadyLicenseAcquisitionServiceRequest) -> Self {
         value.0.clone()
     }
@@ -2345,13 +2345,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<IPlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<IPlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IPlayReadyLicenseAcquisitionServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&IPlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<&IPlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &IPlayReadyLicenseAcquisitionServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2364,16 +2364,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest> for &IPlayReadyLicenseAcquisitionServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::std::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<IPlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<IPlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IPlayReadyLicenseAcquisitionServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&IPlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<&IPlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &IPlayReadyLicenseAcquisitionServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2386,7 +2386,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for IPlayRe
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for &IPlayReadyLicenseAcquisitionServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyServiceRequest> {
-        ::std::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[repr(C)]
@@ -2479,7 +2479,7 @@ pub struct IPlayReadyLicenseManagement_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct IPlayReadyLicenseSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseSession {
@@ -2491,25 +2491,25 @@ impl IPlayReadyLicenseSession {
     pub fn CreateLAServiceRequest(&self) -> ::windows::runtime::Result<IPlayReadyLicenseAcquisitionServiceRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyLicenseAcquisitionServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyLicenseAcquisitionServiceRequest>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ConfigureMediaProtectionManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::MediaProtectionManager>>(&self, mpm: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), mpm.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), mpm.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IPlayReadyLicenseSession {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a1723a39-87fa-4fdd-abbb-a9720e845259}");
 }
-impl ::std::convert::From<IPlayReadyLicenseSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPlayReadyLicenseSession> for ::windows::runtime::IUnknown {
     fn from(value: IPlayReadyLicenseSession) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IPlayReadyLicenseSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPlayReadyLicenseSession> for ::windows::runtime::IUnknown {
     fn from(value: &IPlayReadyLicenseSession) -> Self {
         value.0 .0.clone()
     }
@@ -2524,12 +2524,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IPlayReadyLicenseSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPlayReadyLicenseSession> for ::windows::runtime::IInspectable {
     fn from(value: IPlayReadyLicenseSession) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPlayReadyLicenseSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPlayReadyLicenseSession> for ::windows::runtime::IInspectable {
     fn from(value: &IPlayReadyLicenseSession) -> Self {
         value.0.clone()
     }
@@ -2557,7 +2557,7 @@ pub struct IPlayReadyLicenseSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mpm: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct IPlayReadyLicenseSession2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseSession2 {
@@ -2569,34 +2569,34 @@ impl IPlayReadyLicenseSession2 {
     pub fn CreateLAServiceRequest(&self) -> ::windows::runtime::Result<IPlayReadyLicenseAcquisitionServiceRequest> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyLicenseSession>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyLicenseAcquisitionServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyLicenseAcquisitionServiceRequest>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ConfigureMediaProtectionManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::MediaProtectionManager>>(&self, mpm: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyLicenseSession>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), mpm.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), mpm.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation_Collections`*"]
     pub fn CreateLicenseIterable<'a, Param0: ::windows::runtime::IntoParam<'a, PlayReadyContentHeader>>(&self, contentheader: Param0, fullyevaluated: bool) -> ::windows::runtime::Result<PlayReadyLicenseIterable> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), contentheader.into_param().abi(), fullyevaluated, &mut result__).from_abi::<PlayReadyLicenseIterable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), contentheader.into_param().abi(), fullyevaluated, &mut result__).from_abi::<PlayReadyLicenseIterable>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IPlayReadyLicenseSession2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{4909be3a-3aed-4656-8ad7-ee0fd7799510}");
 }
-impl ::std::convert::From<IPlayReadyLicenseSession2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPlayReadyLicenseSession2> for ::windows::runtime::IUnknown {
     fn from(value: IPlayReadyLicenseSession2) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IPlayReadyLicenseSession2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPlayReadyLicenseSession2> for ::windows::runtime::IUnknown {
     fn from(value: &IPlayReadyLicenseSession2) -> Self {
         value.0 .0.clone()
     }
@@ -2611,12 +2611,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IPlayReadyLicenseSession2> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPlayReadyLicenseSession2> for ::windows::runtime::IInspectable {
     fn from(value: IPlayReadyLicenseSession2) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPlayReadyLicenseSession2> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPlayReadyLicenseSession2> for ::windows::runtime::IInspectable {
     fn from(value: &IPlayReadyLicenseSession2) -> Self {
         value.0.clone()
     }
@@ -2631,13 +2631,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<IPlayReadyLicenseSession2> for IPlayReadyLicenseSession {
+impl ::core::convert::TryFrom<IPlayReadyLicenseSession2> for IPlayReadyLicenseSession {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IPlayReadyLicenseSession2) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&IPlayReadyLicenseSession2> for IPlayReadyLicenseSession {
+impl ::core::convert::TryFrom<&IPlayReadyLicenseSession2> for IPlayReadyLicenseSession {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &IPlayReadyLicenseSession2) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2650,7 +2650,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicenseSession> for IPlayRe
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicenseSession> for &IPlayReadyLicenseSession2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyLicenseSession> {
-        ::std::convert::TryInto::<IPlayReadyLicenseSession>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPlayReadyLicenseSession>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[repr(C)]
@@ -2740,7 +2740,7 @@ pub struct IPlayReadySecureStopIterableFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct IPlayReadySecureStopServiceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadySecureStopServiceRequest {
@@ -2752,8 +2752,8 @@ impl IPlayReadySecureStopServiceRequest {
     pub fn SessionID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2761,8 +2761,8 @@ impl IPlayReadySecureStopServiceRequest {
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2770,40 +2770,40 @@ impl IPlayReadySecureStopServiceRequest {
     pub fn UpdateTime(&self) -> ::windows::runtime::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Stopped(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn PublisherCertificate(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProtectionSystem(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -2811,80 +2811,80 @@ impl IPlayReadySecureStopServiceRequest {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn SetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ResponseCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ChallengeCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetChallengeCustomData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn BeginServiceRequest(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn NextServiceRequest(&self) -> ::windows::runtime::Result<IPlayReadyServiceRequest> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn GenerateManualEnablingChallenge(&self) -> ::windows::runtime::Result<PlayReadySoapMessage> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProcessManualEnablingResponse(&self, responsebytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), responsebytes.len() as u32, ::std::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), responsebytes.len() as u32, ::core::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IPlayReadySecureStopServiceRequest {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{b5501ee5-01bf-4401-9677-05630a6a4cc8}");
 }
-impl ::std::convert::From<IPlayReadySecureStopServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPlayReadySecureStopServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: IPlayReadySecureStopServiceRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IPlayReadySecureStopServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPlayReadySecureStopServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: &IPlayReadySecureStopServiceRequest) -> Self {
         value.0 .0.clone()
     }
@@ -2899,12 +2899,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IPlayReadySecureStopServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPlayReadySecureStopServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: IPlayReadySecureStopServiceRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPlayReadySecureStopServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPlayReadySecureStopServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: &IPlayReadySecureStopServiceRequest) -> Self {
         value.0.clone()
     }
@@ -2919,13 +2919,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<IPlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<IPlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IPlayReadySecureStopServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&IPlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<&IPlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &IPlayReadySecureStopServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2938,16 +2938,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest> for &IPlayReadySecureStopServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::std::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<IPlayReadySecureStopServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<IPlayReadySecureStopServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IPlayReadySecureStopServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&IPlayReadySecureStopServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<&IPlayReadySecureStopServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &IPlayReadySecureStopServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -2960,7 +2960,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for IPlayRe
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for &IPlayReadySecureStopServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyServiceRequest> {
-        ::std::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[repr(C)]
@@ -3000,7 +3000,7 @@ pub struct IPlayReadySecureStopServiceRequestFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sessionid: ::windows::runtime::GUID, publisherCertBytes_array_size: u32, publishercertbytes: *const u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 pub struct IPlayReadyServiceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyServiceRequest {
@@ -3013,96 +3013,96 @@ impl IPlayReadyServiceRequest {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn SetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ResponseCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ChallengeCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetChallengeCustomData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn BeginServiceRequest(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn NextServiceRequest(&self) -> ::windows::runtime::Result<IPlayReadyServiceRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn GenerateManualEnablingChallenge(&self) -> ::windows::runtime::Result<PlayReadySoapMessage> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProcessManualEnablingResponse(&self, responsebytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), responsebytes.len() as u32, ::std::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), responsebytes.len() as u32, ::core::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProtectionSystem(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IPlayReadyServiceRequest {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{8bad2836-a703-45a6-a180-76f3565aa725}");
 }
-impl ::std::convert::From<IPlayReadyServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IPlayReadyServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: IPlayReadyServiceRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IPlayReadyServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IPlayReadyServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: &IPlayReadyServiceRequest) -> Self {
         value.0 .0.clone()
     }
@@ -3117,12 +3117,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IPlayReadyServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IPlayReadyServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: IPlayReadyServiceRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IPlayReadyServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IPlayReadyServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: &IPlayReadyServiceRequest) -> Self {
         value.0.clone()
     }
@@ -3137,13 +3137,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<IPlayReadyServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<IPlayReadyServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IPlayReadyServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&IPlayReadyServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<&IPlayReadyServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &IPlayReadyServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -3156,7 +3156,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest> for &IPlayReadyServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::std::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[repr(C)]
@@ -3172,9 +3172,9 @@ pub struct IPlayReadyServiceRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -3281,7 +3281,7 @@ pub struct IPlayReadyStatics4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -3307,7 +3307,7 @@ pub struct IPlayReadyStatics5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDCertificateFeature(pub i32);
 impl NDCertificateFeature {
@@ -3319,7 +3319,7 @@ impl NDCertificateFeature {
     pub const CRLS: NDCertificateFeature = NDCertificateFeature(9i32);
     pub const PlayReady3Features: NDCertificateFeature = NDCertificateFeature(13i32);
 }
-impl ::std::convert::From<i32> for NDCertificateFeature {
+impl ::core::convert::From<i32> for NDCertificateFeature {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3334,7 +3334,7 @@ impl ::windows::runtime::DefaultType for NDCertificateFeature {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDCertificatePlatformID(pub i32);
 impl NDCertificatePlatformID {
@@ -3351,7 +3351,7 @@ impl NDCertificatePlatformID {
     pub const WindowsPhone81OnARM: NDCertificatePlatformID = NDCertificatePlatformID(12i32);
     pub const WindowsPhone81OnX86: NDCertificatePlatformID = NDCertificatePlatformID(13i32);
 }
-impl ::std::convert::From<i32> for NDCertificatePlatformID {
+impl ::core::convert::From<i32> for NDCertificatePlatformID {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3366,7 +3366,7 @@ impl ::windows::runtime::DefaultType for NDCertificatePlatformID {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDCertificateType(pub i32);
 impl NDCertificateType {
@@ -3384,7 +3384,7 @@ impl NDCertificateType {
     pub const Server: NDCertificateType = NDCertificateType(11i32);
     pub const LicenseSigner: NDCertificateType = NDCertificateType(12i32);
 }
-impl ::std::convert::From<i32> for NDCertificateType {
+impl ::core::convert::From<i32> for NDCertificateType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3400,7 +3400,7 @@ impl ::windows::runtime::DefaultType for NDCertificateType {
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct NDClient(pub ::windows::runtime::IInspectable);
 impl NDClient {
     #[cfg(feature = "deprecated")]
@@ -3409,8 +3409,8 @@ impl NDClient {
     pub fn RegistrationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDRegistrationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -3418,7 +3418,7 @@ impl NDClient {
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn RemoveRegistrationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -3426,8 +3426,8 @@ impl NDClient {
     pub fn ProximityDetectionCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDProximityDetectionCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -3435,7 +3435,7 @@ impl NDClient {
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn RemoveProximityDetectionCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -3443,8 +3443,8 @@ impl NDClient {
     pub fn LicenseFetchCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDLicenseFetchCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -3452,7 +3452,7 @@ impl NDClient {
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn RemoveLicenseFetchCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -3460,8 +3460,8 @@ impl NDClient {
     pub fn ReRegistrationNeeded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -3469,7 +3469,7 @@ impl NDClient {
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn RemoveReRegistrationNeeded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -3477,8 +3477,8 @@ impl NDClient {
     pub fn ClosedCaptionDataReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDClosedCaptionDataReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -3486,7 +3486,7 @@ impl NDClient {
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn RemoveClosedCaptionDataReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
@@ -3494,8 +3494,8 @@ impl NDClient {
     pub fn StartAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>, Param2: ::windows::runtime::IntoParam<'a, INDCustomData>, Param3: ::windows::runtime::IntoParam<'a, INDLicenseFetchDescriptor>>(&self, contenturl: Param0, startasyncoptions: u32, registrationcustomdata: Param2, licensefetchdescriptor: Param3) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<INDStartResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), contenturl.into_param().abi(), startasyncoptions, registrationcustomdata.into_param().abi(), licensefetchdescriptor.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDStartResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).16)(::core::mem::transmute_copy(this), contenturl.into_param().abi(), startasyncoptions, registrationcustomdata.into_param().abi(), licensefetchdescriptor.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDStartResult>>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -3504,8 +3504,8 @@ impl NDClient {
     pub fn LicenseFetchAsync<'a, Param0: ::windows::runtime::IntoParam<'a, INDLicenseFetchDescriptor>>(&self, licensefetchdescriptor: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), licensefetchdescriptor.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).17)(::core::mem::transmute_copy(this), licensefetchdescriptor.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -3514,22 +3514,22 @@ impl NDClient {
     pub fn ReRegistrationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, INDCustomData>>(&self, registrationcustomdata: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), registrationcustomdata.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).18)(::core::mem::transmute_copy(this), registrationcustomdata.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).19)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, INDDownloadEngine>, Param1: ::windows::runtime::IntoParam<'a, INDStreamParser>, Param2: ::windows::runtime::IntoParam<'a, INDMessenger>>(downloadengine: Param0, streamparser: Param1, pmessenger: Param2) -> ::windows::runtime::Result<NDClient> {
         Self::INDClientFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), downloadengine.into_param().abi(), streamparser.into_param().abi(), pmessenger.into_param().abi(), &mut result__).from_abi::<NDClient>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), downloadengine.into_param().abi(), streamparser.into_param().abi(), pmessenger.into_param().abi(), &mut result__).from_abi::<NDClient>(result__)
         })
     }
     pub fn INDClientFactory<R, F: FnOnce(&INDClientFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -3547,12 +3547,12 @@ unsafe impl ::windows::runtime::Interface for NDClient {
 impl ::windows::runtime::RuntimeName for NDClient {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDClient";
 }
-impl ::std::convert::From<NDClient> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<NDClient> for ::windows::runtime::IUnknown {
     fn from(value: NDClient) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&NDClient> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&NDClient> for ::windows::runtime::IUnknown {
     fn from(value: &NDClient) -> Self {
         value.0 .0.clone()
     }
@@ -3567,12 +3567,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<NDClient> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<NDClient> for ::windows::runtime::IInspectable {
     fn from(value: NDClient) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&NDClient> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&NDClient> for ::windows::runtime::IInspectable {
     fn from(value: &NDClient) -> Self {
         value.0.clone()
     }
@@ -3588,7 +3588,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDClosedCaptionFormat(pub i32);
 impl NDClosedCaptionFormat {
@@ -3596,7 +3596,7 @@ impl NDClosedCaptionFormat {
     pub const SCTE20: NDClosedCaptionFormat = NDClosedCaptionFormat(1i32);
     pub const Unknown: NDClosedCaptionFormat = NDClosedCaptionFormat(2i32);
 }
-impl ::std::convert::From<i32> for NDClosedCaptionFormat {
+impl ::core::convert::From<i32> for NDClosedCaptionFormat {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3611,7 +3611,7 @@ impl ::windows::runtime::DefaultType for NDClosedCaptionFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDContentIDType(pub i32);
 impl NDContentIDType {
@@ -3619,7 +3619,7 @@ impl NDContentIDType {
     pub const PlayReadyObject: NDContentIDType = NDContentIDType(2i32);
     pub const Custom: NDContentIDType = NDContentIDType(3i32);
 }
-impl ::std::convert::From<i32> for NDContentIDType {
+impl ::core::convert::From<i32> for NDContentIDType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -3635,7 +3635,7 @@ impl ::windows::runtime::DefaultType for NDContentIDType {
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct NDCustomData(pub ::windows::runtime::IInspectable);
 impl NDCustomData {
     #[cfg(feature = "deprecated")]
@@ -3643,8 +3643,8 @@ impl NDCustomData {
     pub fn CustomDataTypeID(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -3652,16 +3652,16 @@ impl NDCustomData {
     pub fn CustomData(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn CreateInstance(customdatatypeidbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], customdatabytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<NDCustomData> {
         Self::INDCustomDataFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), customdatatypeidbytes.len() as u32, ::std::mem::transmute(customdatatypeidbytes.as_ptr()), customdatabytes.len() as u32, ::std::mem::transmute(customdatabytes.as_ptr()), &mut result__).from_abi::<NDCustomData>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), customdatatypeidbytes.len() as u32, ::core::mem::transmute(customdatatypeidbytes.as_ptr()), customdatabytes.len() as u32, ::core::mem::transmute(customdatabytes.as_ptr()), &mut result__).from_abi::<NDCustomData>(result__)
         })
     }
     pub fn INDCustomDataFactory<R, F: FnOnce(&INDCustomDataFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -3679,12 +3679,12 @@ unsafe impl ::windows::runtime::Interface for NDCustomData {
 impl ::windows::runtime::RuntimeName for NDCustomData {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDCustomData";
 }
-impl ::std::convert::From<NDCustomData> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<NDCustomData> for ::windows::runtime::IUnknown {
     fn from(value: NDCustomData) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&NDCustomData> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&NDCustomData> for ::windows::runtime::IUnknown {
     fn from(value: &NDCustomData) -> Self {
         value.0 .0.clone()
     }
@@ -3699,12 +3699,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<NDCustomData> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<NDCustomData> for ::windows::runtime::IInspectable {
     fn from(value: NDCustomData) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&NDCustomData> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&NDCustomData> for ::windows::runtime::IInspectable {
     fn from(value: &NDCustomData) -> Self {
         value.0.clone()
     }
@@ -3719,29 +3719,29 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<NDCustomData> for INDCustomData {
+impl ::core::convert::From<NDCustomData> for INDCustomData {
     fn from(value: NDCustomData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&NDCustomData> for INDCustomData {
+impl ::core::convert::From<&NDCustomData> for INDCustomData {
     fn from(value: &NDCustomData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDCustomData> for NDCustomData {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDCustomData> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDCustomData> for &NDCustomData {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDCustomData> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct NDDownloadEngineNotifier(pub ::windows::runtime::IInspectable);
 impl NDDownloadEngineNotifier {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3755,37 +3755,37 @@ impl NDDownloadEngineNotifier {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn OnStreamOpened(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn OnPlayReadyObjectReceived(&self, databytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), databytes.len() as u32, ::std::mem::transmute(databytes.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), databytes.len() as u32, ::core::mem::transmute(databytes.as_ptr())).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn OnContentIDReceived<'a, Param0: ::windows::runtime::IntoParam<'a, INDLicenseFetchDescriptor>>(&self, licensefetchdescriptor: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), licensefetchdescriptor.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), licensefetchdescriptor.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn OnDataReceived(&self, databytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], bytesreceived: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), databytes.len() as u32, ::std::mem::transmute(databytes.as_ptr()), bytesreceived).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), databytes.len() as u32, ::core::mem::transmute(databytes.as_ptr()), bytesreceived).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn OnEndOfStream(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn OnNetworkError(&self) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for NDDownloadEngineNotifier {
@@ -3798,12 +3798,12 @@ unsafe impl ::windows::runtime::Interface for NDDownloadEngineNotifier {
 impl ::windows::runtime::RuntimeName for NDDownloadEngineNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier";
 }
-impl ::std::convert::From<NDDownloadEngineNotifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<NDDownloadEngineNotifier> for ::windows::runtime::IUnknown {
     fn from(value: NDDownloadEngineNotifier) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&NDDownloadEngineNotifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&NDDownloadEngineNotifier> for ::windows::runtime::IUnknown {
     fn from(value: &NDDownloadEngineNotifier) -> Self {
         value.0 .0.clone()
     }
@@ -3818,12 +3818,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<NDDownloadEngineNotifier> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<NDDownloadEngineNotifier> for ::windows::runtime::IInspectable {
     fn from(value: NDDownloadEngineNotifier) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&NDDownloadEngineNotifier> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&NDDownloadEngineNotifier> for ::windows::runtime::IInspectable {
     fn from(value: &NDDownloadEngineNotifier) -> Self {
         value.0.clone()
     }
@@ -3838,29 +3838,29 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<NDDownloadEngineNotifier> for INDDownloadEngineNotifier {
+impl ::core::convert::From<NDDownloadEngineNotifier> for INDDownloadEngineNotifier {
     fn from(value: NDDownloadEngineNotifier) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&NDDownloadEngineNotifier> for INDDownloadEngineNotifier {
+impl ::core::convert::From<&NDDownloadEngineNotifier> for INDDownloadEngineNotifier {
     fn from(value: &NDDownloadEngineNotifier) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDDownloadEngineNotifier> for NDDownloadEngineNotifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDDownloadEngineNotifier> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDDownloadEngineNotifier> for &NDDownloadEngineNotifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDDownloadEngineNotifier> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct NDLicenseFetchDescriptor(pub ::windows::runtime::IInspectable);
 impl NDLicenseFetchDescriptor {
     #[cfg(feature = "deprecated")]
@@ -3868,8 +3868,8 @@ impl NDLicenseFetchDescriptor {
     pub fn ContentIDType(&self) -> ::windows::runtime::Result<NDContentIDType> {
         let this = self;
         unsafe {
-            let mut result__: NDContentIDType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NDContentIDType>(result__)
+            let mut result__: NDContentIDType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NDContentIDType>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -3877,8 +3877,8 @@ impl NDLicenseFetchDescriptor {
     pub fn ContentID(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -3886,22 +3886,22 @@ impl NDLicenseFetchDescriptor {
     pub fn LicenseFetchChallengeCustomData(&self) -> ::windows::runtime::Result<INDCustomData> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<INDCustomData>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<INDCustomData>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetLicenseFetchChallengeCustomData<'a, Param0: ::windows::runtime::IntoParam<'a, INDCustomData>>(&self, licensefetchchallengecustomdata: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), licensefetchchallengecustomdata.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), licensefetchchallengecustomdata.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn CreateInstance<'a, Param2: ::windows::runtime::IntoParam<'a, INDCustomData>>(contentidtype: NDContentIDType, contentidbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], licensefetchchallengecustomdata: Param2) -> ::windows::runtime::Result<NDLicenseFetchDescriptor> {
         Self::INDLicenseFetchDescriptorFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), contentidtype, contentidbytes.len() as u32, ::std::mem::transmute(contentidbytes.as_ptr()), licensefetchchallengecustomdata.into_param().abi(), &mut result__).from_abi::<NDLicenseFetchDescriptor>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), contentidtype, contentidbytes.len() as u32, ::core::mem::transmute(contentidbytes.as_ptr()), licensefetchchallengecustomdata.into_param().abi(), &mut result__).from_abi::<NDLicenseFetchDescriptor>(result__)
         })
     }
     pub fn INDLicenseFetchDescriptorFactory<R, F: FnOnce(&INDLicenseFetchDescriptorFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -3919,12 +3919,12 @@ unsafe impl ::windows::runtime::Interface for NDLicenseFetchDescriptor {
 impl ::windows::runtime::RuntimeName for NDLicenseFetchDescriptor {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor";
 }
-impl ::std::convert::From<NDLicenseFetchDescriptor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<NDLicenseFetchDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: NDLicenseFetchDescriptor) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&NDLicenseFetchDescriptor> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&NDLicenseFetchDescriptor> for ::windows::runtime::IUnknown {
     fn from(value: &NDLicenseFetchDescriptor) -> Self {
         value.0 .0.clone()
     }
@@ -3939,12 +3939,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<NDLicenseFetchDescriptor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<NDLicenseFetchDescriptor> for ::windows::runtime::IInspectable {
     fn from(value: NDLicenseFetchDescriptor) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&NDLicenseFetchDescriptor> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&NDLicenseFetchDescriptor> for ::windows::runtime::IInspectable {
     fn from(value: &NDLicenseFetchDescriptor) -> Self {
         value.0.clone()
     }
@@ -3959,35 +3959,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<NDLicenseFetchDescriptor> for INDLicenseFetchDescriptor {
+impl ::core::convert::From<NDLicenseFetchDescriptor> for INDLicenseFetchDescriptor {
     fn from(value: NDLicenseFetchDescriptor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&NDLicenseFetchDescriptor> for INDLicenseFetchDescriptor {
+impl ::core::convert::From<&NDLicenseFetchDescriptor> for INDLicenseFetchDescriptor {
     fn from(value: &NDLicenseFetchDescriptor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDLicenseFetchDescriptor> for NDLicenseFetchDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDLicenseFetchDescriptor> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDLicenseFetchDescriptor> for &NDLicenseFetchDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDLicenseFetchDescriptor> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDMediaStreamType(pub i32);
 impl NDMediaStreamType {
     pub const Audio: NDMediaStreamType = NDMediaStreamType(1i32);
     pub const Video: NDMediaStreamType = NDMediaStreamType(2i32);
 }
-impl ::std::convert::From<i32> for NDMediaStreamType {
+impl ::core::convert::From<i32> for NDMediaStreamType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4002,7 +4002,7 @@ impl ::windows::runtime::DefaultType for NDMediaStreamType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDProximityDetectionType(pub i32);
 impl NDProximityDetectionType {
@@ -4010,7 +4010,7 @@ impl NDProximityDetectionType {
     pub const TCP: NDProximityDetectionType = NDProximityDetectionType(2i32);
     pub const TransportAgnostic: NDProximityDetectionType = NDProximityDetectionType(4i32);
 }
-impl ::std::convert::From<i32> for NDProximityDetectionType {
+impl ::core::convert::From<i32> for NDProximityDetectionType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4025,14 +4025,14 @@ impl ::windows::runtime::DefaultType for NDProximityDetectionType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDStartAsyncOptions(pub i32);
 impl NDStartAsyncOptions {
     pub const MutualAuthentication: NDStartAsyncOptions = NDStartAsyncOptions(1i32);
     pub const WaitForLicenseDescriptor: NDStartAsyncOptions = NDStartAsyncOptions(2i32);
 }
-impl ::std::convert::From<i32> for NDStartAsyncOptions {
+impl ::core::convert::From<i32> for NDStartAsyncOptions {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4048,7 +4048,7 @@ impl ::windows::runtime::DefaultType for NDStartAsyncOptions {
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct NDStorageFileHelper(pub ::windows::runtime::IInspectable);
 impl NDStorageFileHelper {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -4064,8 +4064,8 @@ impl NDStorageFileHelper {
     pub fn GetFileURLs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::IStorageFile>>(&self, file: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
 }
@@ -4079,12 +4079,12 @@ unsafe impl ::windows::runtime::Interface for NDStorageFileHelper {
 impl ::windows::runtime::RuntimeName for NDStorageFileHelper {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDStorageFileHelper";
 }
-impl ::std::convert::From<NDStorageFileHelper> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<NDStorageFileHelper> for ::windows::runtime::IUnknown {
     fn from(value: NDStorageFileHelper) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&NDStorageFileHelper> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&NDStorageFileHelper> for ::windows::runtime::IUnknown {
     fn from(value: &NDStorageFileHelper) -> Self {
         value.0 .0.clone()
     }
@@ -4099,12 +4099,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<NDStorageFileHelper> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<NDStorageFileHelper> for ::windows::runtime::IInspectable {
     fn from(value: NDStorageFileHelper) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&NDStorageFileHelper> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&NDStorageFileHelper> for ::windows::runtime::IInspectable {
     fn from(value: &NDStorageFileHelper) -> Self {
         value.0.clone()
     }
@@ -4119,29 +4119,29 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<NDStorageFileHelper> for INDStorageFileHelper {
+impl ::core::convert::From<NDStorageFileHelper> for INDStorageFileHelper {
     fn from(value: NDStorageFileHelper) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&NDStorageFileHelper> for INDStorageFileHelper {
+impl ::core::convert::From<&NDStorageFileHelper> for INDStorageFileHelper {
     fn from(value: &NDStorageFileHelper) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDStorageFileHelper> for NDStorageFileHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDStorageFileHelper> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDStorageFileHelper> for &NDStorageFileHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDStorageFileHelper> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct NDStreamParserNotifier(pub ::windows::runtime::IInspectable);
 impl NDStreamParserNotifier {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -4155,28 +4155,28 @@ impl NDStreamParserNotifier {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn OnContentIDReceived<'a, Param0: ::windows::runtime::IntoParam<'a, INDLicenseFetchDescriptor>>(&self, licensefetchdescriptor: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), licensefetchdescriptor.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), licensefetchdescriptor.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation_Collections`, `Media_Core`*"]
     pub fn OnMediaStreamDescriptorCreated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>>(&self, audiostreamdescriptors: Param0, videostreamdescriptors: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), audiostreamdescriptors.into_param().abi(), videostreamdescriptors.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), audiostreamdescriptors.into_param().abi(), videostreamdescriptors.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Media_Core")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Media_Core`*"]
     pub fn OnSampleParsed<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Core::MediaStreamSample>>(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: Param2, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), streamid, streamtype, streamsample.into_param().abi(), pts, ccformat, ccdatabytes.len() as u32, ::std::mem::transmute(ccdatabytes.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), streamid, streamtype, streamsample.into_param().abi(), pts, ccformat, ccdatabytes.len() as u32, ::core::mem::transmute(ccdatabytes.as_ptr())).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Media_Core")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Media_Core`*"]
     pub fn OnBeginSetupDecryptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Core::IMediaStreamDescriptor>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, descriptor: Param0, keyid: Param1, probytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), descriptor.into_param().abi(), keyid.into_param().abi(), probytes.len() as u32, ::std::mem::transmute(probytes.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), descriptor.into_param().abi(), keyid.into_param().abi(), probytes.len() as u32, ::core::mem::transmute(probytes.as_ptr())).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for NDStreamParserNotifier {
@@ -4189,12 +4189,12 @@ unsafe impl ::windows::runtime::Interface for NDStreamParserNotifier {
 impl ::windows::runtime::RuntimeName for NDStreamParserNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDStreamParserNotifier";
 }
-impl ::std::convert::From<NDStreamParserNotifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<NDStreamParserNotifier> for ::windows::runtime::IUnknown {
     fn from(value: NDStreamParserNotifier) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&NDStreamParserNotifier> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&NDStreamParserNotifier> for ::windows::runtime::IUnknown {
     fn from(value: &NDStreamParserNotifier) -> Self {
         value.0 .0.clone()
     }
@@ -4209,12 +4209,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<NDStreamParserNotifier> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<NDStreamParserNotifier> for ::windows::runtime::IInspectable {
     fn from(value: NDStreamParserNotifier) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&NDStreamParserNotifier> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&NDStreamParserNotifier> for ::windows::runtime::IInspectable {
     fn from(value: &NDStreamParserNotifier) -> Self {
         value.0.clone()
     }
@@ -4229,29 +4229,29 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<NDStreamParserNotifier> for INDStreamParserNotifier {
+impl ::core::convert::From<NDStreamParserNotifier> for INDStreamParserNotifier {
     fn from(value: NDStreamParserNotifier) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&NDStreamParserNotifier> for INDStreamParserNotifier {
+impl ::core::convert::From<&NDStreamParserNotifier> for INDStreamParserNotifier {
     fn from(value: &NDStreamParserNotifier) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDStreamParserNotifier> for NDStreamParserNotifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDStreamParserNotifier> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDStreamParserNotifier> for &NDStreamParserNotifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDStreamParserNotifier> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct NDTCPMessenger(pub ::windows::runtime::IInspectable);
 impl NDTCPMessenger {
     #[cfg(feature = "deprecated")]
@@ -4260,8 +4260,8 @@ impl NDTCPMessenger {
     pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), sessionidbytes.len() as u32, ::std::mem::transmute(sessionidbytes.as_ptr()), challengedatabytes.len() as u32, ::std::mem::transmute(challengedatabytes.as_ptr()), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), challengedatabytes.len() as u32, ::core::mem::transmute(challengedatabytes.as_ptr()), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
@@ -4270,16 +4270,16 @@ impl NDTCPMessenger {
     pub fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], sessionidbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
+                ::core::mem::transmute_copy(this),
                 pdtype,
                 transmitterchannelbytes.len() as u32,
-                ::std::mem::transmute(transmitterchannelbytes.as_ptr()),
+                ::core::mem::transmute(transmitterchannelbytes.as_ptr()),
                 sessionidbytes.len() as u32,
-                ::std::mem::transmute(sessionidbytes.as_ptr()),
+                ::core::mem::transmute(sessionidbytes.as_ptr()),
                 challengedatabytes.len() as u32,
-                ::std::mem::transmute(challengedatabytes.as_ptr()),
+                ::core::mem::transmute(challengedatabytes.as_ptr()),
                 &mut result__,
             )
             .from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
@@ -4291,16 +4291,16 @@ impl NDTCPMessenger {
     pub fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], sessionidbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], responsedatabytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(
-                ::std::mem::transmute_copy(this),
+                ::core::mem::transmute_copy(this),
                 pdtype,
                 transmitterchannelbytes.len() as u32,
-                ::std::mem::transmute(transmitterchannelbytes.as_ptr()),
+                ::core::mem::transmute(transmitterchannelbytes.as_ptr()),
                 sessionidbytes.len() as u32,
-                ::std::mem::transmute(sessionidbytes.as_ptr()),
+                ::core::mem::transmute(sessionidbytes.as_ptr()),
                 responsedatabytes.len() as u32,
-                ::std::mem::transmute(responsedatabytes.as_ptr()),
+                ::core::mem::transmute(responsedatabytes.as_ptr()),
                 &mut result__,
             )
             .from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
@@ -4312,16 +4312,16 @@ impl NDTCPMessenger {
     pub fn SendLicenseFetchRequestAsync(&self, sessionidbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], challengedatabytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), sessionidbytes.len() as u32, ::std::mem::transmute(sessionidbytes.as_ptr()), challengedatabytes.len() as u32, ::std::mem::transmute(challengedatabytes.as_ptr()), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr()), challengedatabytes.len() as u32, ::core::mem::transmute(challengedatabytes.as_ptr()), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<INDSendResult>>(result__)
         }
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(remotehostname: Param0, remotehostport: u32) -> ::windows::runtime::Result<NDTCPMessenger> {
         Self::INDTCPMessengerFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), remotehostname.into_param().abi(), remotehostport, &mut result__).from_abi::<NDTCPMessenger>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), remotehostname.into_param().abi(), remotehostport, &mut result__).from_abi::<NDTCPMessenger>(result__)
         })
     }
     pub fn INDTCPMessengerFactory<R, F: FnOnce(&INDTCPMessengerFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -4339,12 +4339,12 @@ unsafe impl ::windows::runtime::Interface for NDTCPMessenger {
 impl ::windows::runtime::RuntimeName for NDTCPMessenger {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDTCPMessenger";
 }
-impl ::std::convert::From<NDTCPMessenger> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<NDTCPMessenger> for ::windows::runtime::IUnknown {
     fn from(value: NDTCPMessenger) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&NDTCPMessenger> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&NDTCPMessenger> for ::windows::runtime::IUnknown {
     fn from(value: &NDTCPMessenger) -> Self {
         value.0 .0.clone()
     }
@@ -4359,12 +4359,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<NDTCPMessenger> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<NDTCPMessenger> for ::windows::runtime::IInspectable {
     fn from(value: NDTCPMessenger) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&NDTCPMessenger> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&NDTCPMessenger> for ::windows::runtime::IInspectable {
     fn from(value: &NDTCPMessenger) -> Self {
         value.0.clone()
     }
@@ -4379,45 +4379,45 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<NDTCPMessenger> for INDMessenger {
+impl ::core::convert::From<NDTCPMessenger> for INDMessenger {
     fn from(value: NDTCPMessenger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&NDTCPMessenger> for INDMessenger {
+impl ::core::convert::From<&NDTCPMessenger> for INDMessenger {
     fn from(value: &NDTCPMessenger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDMessenger> for NDTCPMessenger {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDMessenger> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDMessenger> for &NDTCPMessenger {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDMessenger> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyContentHeader(pub ::windows::runtime::IInspectable);
 impl PlayReadyContentHeader {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn KeyId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn KeyIdString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -4425,8 +4425,8 @@ impl PlayReadyContentHeader {
     pub fn LicenseAcquisitionUrl(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -4434,72 +4434,72 @@ impl PlayReadyContentHeader {
     pub fn LicenseAcquisitionUserInterfaceUrl(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn DomainServiceId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn EncryptionType(&self) -> ::windows::runtime::Result<PlayReadyEncryptionAlgorithm> {
         let this = self;
         unsafe {
-            let mut result__: PlayReadyEncryptionAlgorithm = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadyEncryptionAlgorithm>(result__)
+            let mut result__: PlayReadyEncryptionAlgorithm = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadyEncryptionAlgorithm>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn CustomAttributes(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn DecryptorSetup(&self) -> ::windows::runtime::Result<PlayReadyDecryptorSetup> {
         let this = self;
         unsafe {
-            let mut result__: PlayReadyDecryptorSetup = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadyDecryptorSetup>(result__)
+            let mut result__: PlayReadyDecryptorSetup = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadyDecryptorSetup>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn GetSerializedHeader(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn HeaderWithEmbeddedUpdates(&self) -> ::windows::runtime::Result<PlayReadyContentHeader> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadyContentHeader>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadyContentHeader>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn KeyIds(&self) -> ::windows::runtime::Result<::windows::runtime::Array<::windows::runtime::GUID>> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyContentHeader2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::Array<::windows::runtime::GUID> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<::windows::runtime::GUID>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<::windows::runtime::GUID> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<::windows::runtime::GUID>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn KeyIdStrings(&self) -> ::windows::runtime::Result<::windows::runtime::Array<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyContentHeader2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::Array<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<::windows::runtime::HSTRING>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<::windows::runtime::HSTRING>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -4512,8 +4512,8 @@ impl PlayReadyContentHeader {
         domainserviceid: Param4,
     ) -> ::windows::runtime::Result<PlayReadyContentHeader> {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), headerbytes.len() as u32, ::std::mem::transmute(headerbytes.as_ptr()), licenseacquisitionurl.into_param().abi(), licenseacquisitionuserinterfaceurl.into_param().abi(), customattributes.into_param().abi(), domainserviceid.into_param().abi(), &mut result__).from_abi::<PlayReadyContentHeader>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), headerbytes.len() as u32, ::core::mem::transmute(headerbytes.as_ptr()), licenseacquisitionurl.into_param().abi(), licenseacquisitionuserinterfaceurl.into_param().abi(), customattributes.into_param().abi(), domainserviceid.into_param().abi(), &mut result__).from_abi::<PlayReadyContentHeader>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
@@ -4528,9 +4528,9 @@ impl PlayReadyContentHeader {
         domainserviceid: Param6,
     ) -> ::windows::runtime::Result<PlayReadyContentHeader> {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
+                ::core::mem::transmute_copy(this),
                 contentkeyid.into_param().abi(),
                 contentkeyidstring.into_param().abi(),
                 contentencryptionalgorithm,
@@ -4546,8 +4546,8 @@ impl PlayReadyContentHeader {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn CreateInstanceFromPlayReadyHeader(headerbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<PlayReadyContentHeader> {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), headerbytes.len() as u32, ::std::mem::transmute(headerbytes.as_ptr()), &mut result__).from_abi::<PlayReadyContentHeader>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), headerbytes.len() as u32, ::core::mem::transmute(headerbytes.as_ptr()), &mut result__).from_abi::<PlayReadyContentHeader>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
@@ -4563,14 +4563,14 @@ impl PlayReadyContentHeader {
         domainserviceid: Param7,
     ) -> ::windows::runtime::Result<PlayReadyContentHeader> {
         Self::IPlayReadyContentHeaderFactory2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
+                ::core::mem::transmute_copy(this),
                 dwflags,
                 contentkeyids.len() as u32,
-                ::std::mem::transmute(contentkeyids.as_ptr()),
+                ::core::mem::transmute(contentkeyids.as_ptr()),
                 contentkeyidstrings.len() as u32,
-                ::std::mem::transmute(contentkeyidstrings.as_ptr()),
+                ::core::mem::transmute(contentkeyidstrings.as_ptr()),
                 contentencryptionalgorithm,
                 licenseacquisitionurl.into_param().abi(),
                 licenseacquisitionuserinterfaceurl.into_param().abi(),
@@ -4600,12 +4600,12 @@ unsafe impl ::windows::runtime::Interface for PlayReadyContentHeader {
 impl ::windows::runtime::RuntimeName for PlayReadyContentHeader {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyContentHeader";
 }
-impl ::std::convert::From<PlayReadyContentHeader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyContentHeader> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyContentHeader) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PlayReadyContentHeader> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyContentHeader> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyContentHeader) -> Self {
         value.0 .0.clone()
     }
@@ -4620,12 +4620,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PlayReadyContentHeader> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyContentHeader> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyContentHeader) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PlayReadyContentHeader> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyContentHeader> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyContentHeader) -> Self {
         value.0.clone()
     }
@@ -4646,8 +4646,8 @@ impl PlayReadyContentResolver {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ServiceRequest<'a, Param0: ::windows::runtime::IntoParam<'a, PlayReadyContentHeader>>(contentheader: Param0) -> ::windows::runtime::Result<IPlayReadyServiceRequest> {
         Self::IPlayReadyContentResolver(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), contentheader.into_param().abi(), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), contentheader.into_param().abi(), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
         })
     }
     pub fn IPlayReadyContentResolver<R, F: FnOnce(&IPlayReadyContentResolver) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -4659,14 +4659,14 @@ impl ::windows::runtime::RuntimeName for PlayReadyContentResolver {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyContentResolver";
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PlayReadyDecryptorSetup(pub i32);
 impl PlayReadyDecryptorSetup {
     pub const Uninitialized: PlayReadyDecryptorSetup = PlayReadyDecryptorSetup(0i32);
     pub const OnDemand: PlayReadyDecryptorSetup = PlayReadyDecryptorSetup(1i32);
 }
-impl ::std::convert::From<i32> for PlayReadyDecryptorSetup {
+impl ::core::convert::From<i32> for PlayReadyDecryptorSetup {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4682,39 +4682,39 @@ impl ::windows::runtime::DefaultType for PlayReadyDecryptorSetup {
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyDomain(pub ::windows::runtime::IInspectable);
 impl PlayReadyDomain {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn AccountId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ServiceId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Revision(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn FriendlyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -4722,8 +4722,8 @@ impl PlayReadyDomain {
     pub fn DomainJoinUrl(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
 }
@@ -4737,12 +4737,12 @@ unsafe impl ::windows::runtime::Interface for PlayReadyDomain {
 impl ::windows::runtime::RuntimeName for PlayReadyDomain {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomain";
 }
-impl ::std::convert::From<PlayReadyDomain> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyDomain> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyDomain) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PlayReadyDomain> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyDomain> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyDomain) -> Self {
         value.0 .0.clone()
     }
@@ -4757,12 +4757,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PlayReadyDomain> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyDomain> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyDomain) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PlayReadyDomain> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyDomain> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyDomain) -> Self {
         value.0.clone()
     }
@@ -4777,30 +4777,30 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<PlayReadyDomain> for IPlayReadyDomain {
+impl ::core::convert::From<PlayReadyDomain> for IPlayReadyDomain {
     fn from(value: PlayReadyDomain) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&PlayReadyDomain> for IPlayReadyDomain {
+impl ::core::convert::From<&PlayReadyDomain> for IPlayReadyDomain {
     fn from(value: &PlayReadyDomain) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyDomain> for PlayReadyDomain {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyDomain> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyDomain> for &PlayReadyDomain {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyDomain> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyDomainIterable(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadyDomainIterable {
@@ -4809,16 +4809,16 @@ impl PlayReadyDomainIterable {
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation_Collections`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(domainaccountid: Param0) -> ::windows::runtime::Result<PlayReadyDomainIterable> {
         Self::IPlayReadyDomainIterableFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), domainaccountid.into_param().abi(), &mut result__).from_abi::<PlayReadyDomainIterable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), domainaccountid.into_param().abi(), &mut result__).from_abi::<PlayReadyDomainIterable>(result__)
         })
     }
     pub fn IPlayReadyDomainIterableFactory<R, F: FnOnce(&IPlayReadyDomainIterableFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -4840,13 +4840,13 @@ impl ::windows::runtime::RuntimeName for PlayReadyDomainIterable {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainIterable";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadyDomainIterable> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyDomainIterable> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyDomainIterable) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadyDomainIterable> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyDomainIterable> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyDomainIterable) -> Self {
         value.0 .0.clone()
     }
@@ -4864,13 +4864,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadyDomainIterable> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyDomainIterable> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyDomainIterable) -> Self {
         value.0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadyDomainIterable> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyDomainIterable> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyDomainIterable) -> Self {
         value.0.clone()
     }
@@ -4888,39 +4888,39 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadyDomainIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain> {
+impl ::core::convert::From<PlayReadyDomainIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain> {
     fn from(value: PlayReadyDomainIterable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadyDomainIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain> {
+impl ::core::convert::From<&PlayReadyDomainIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain> {
     fn from(value: &PlayReadyDomainIterable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> for PlayReadyDomainIterable {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> for &PlayReadyDomainIterable {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(all(feature = "Foundation_Collections"))]
-impl ::std::iter::IntoIterator for PlayReadyDomainIterable {
+impl ::core::iter::IntoIterator for PlayReadyDomainIterable {
     type Item = IPlayReadyDomain;
     type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        ::std::iter::IntoIterator::into_iter(&self)
+        ::core::iter::IntoIterator::into_iter(&self)
     }
 }
 #[cfg(all(feature = "Foundation_Collections"))]
-impl ::std::iter::IntoIterator for &PlayReadyDomainIterable {
+impl ::core::iter::IntoIterator for &PlayReadyDomainIterable {
     type Item = IPlayReadyDomain;
     type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
@@ -4930,7 +4930,7 @@ impl ::std::iter::IntoIterator for &PlayReadyDomainIterable {
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyDomainIterator(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadyDomainIterator {
@@ -4939,8 +4939,8 @@ impl PlayReadyDomainIterator {
     pub fn Current(&self) -> ::windows::runtime::Result<IPlayReadyDomain> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyDomain>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyDomain>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -4948,8 +4948,8 @@ impl PlayReadyDomainIterator {
     pub fn HasCurrent(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -4957,8 +4957,8 @@ impl PlayReadyDomainIterator {
     pub fn MoveNext(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -4966,8 +4966,8 @@ impl PlayReadyDomainIterator {
     pub fn GetMany(&self, items: &mut [<IPlayReadyDomain as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -4985,13 +4985,13 @@ impl ::windows::runtime::RuntimeName for PlayReadyDomainIterator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainIterator";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadyDomainIterator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyDomainIterator> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyDomainIterator) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadyDomainIterator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyDomainIterator> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyDomainIterator) -> Self {
         value.0 .0.clone()
     }
@@ -5009,13 +5009,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadyDomainIterator> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyDomainIterator> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyDomainIterator) -> Self {
         value.0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadyDomainIterator> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyDomainIterator> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyDomainIterator) -> Self {
         value.0.clone()
     }
@@ -5033,32 +5033,32 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadyDomainIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain> {
+impl ::core::convert::From<PlayReadyDomainIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain> {
     fn from(value: PlayReadyDomainIterator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadyDomainIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain> {
+impl ::core::convert::From<&PlayReadyDomainIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain> {
     fn from(value: &PlayReadyDomainIterator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> for PlayReadyDomainIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> for &PlayReadyDomainIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyDomainJoinServiceRequest(pub ::windows::runtime::IInspectable);
 impl PlayReadyDomainJoinServiceRequest {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5072,55 +5072,55 @@ impl PlayReadyDomainJoinServiceRequest {
     pub fn DomainAccountId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetDomainAccountId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn DomainFriendlyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetDomainFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn DomainServiceId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetDomainServiceId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProtectionSystem(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -5128,68 +5128,68 @@ impl PlayReadyDomainJoinServiceRequest {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn SetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ResponseCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ChallengeCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetChallengeCustomData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn BeginServiceRequest(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn NextServiceRequest(&self) -> ::windows::runtime::Result<IPlayReadyServiceRequest> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn GenerateManualEnablingChallenge(&self) -> ::windows::runtime::Result<PlayReadySoapMessage> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProcessManualEnablingResponse(&self, responsebytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), responsebytes.len() as u32, ::std::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), responsebytes.len() as u32, ::core::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
 }
@@ -5203,12 +5203,12 @@ unsafe impl ::windows::runtime::Interface for PlayReadyDomainJoinServiceRequest 
 impl ::windows::runtime::RuntimeName for PlayReadyDomainJoinServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainJoinServiceRequest";
 }
-impl ::std::convert::From<PlayReadyDomainJoinServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyDomainJoinServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyDomainJoinServiceRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PlayReadyDomainJoinServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyDomainJoinServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyDomainJoinServiceRequest) -> Self {
         value.0 .0.clone()
     }
@@ -5223,12 +5223,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PlayReadyDomainJoinServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyDomainJoinServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyDomainJoinServiceRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PlayReadyDomainJoinServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyDomainJoinServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyDomainJoinServiceRequest) -> Self {
         value.0.clone()
     }
@@ -5243,13 +5243,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<PlayReadyDomainJoinServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<PlayReadyDomainJoinServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadyDomainJoinServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadyDomainJoinServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<&PlayReadyDomainJoinServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadyDomainJoinServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5262,16 +5262,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest> for &PlayReadyDomainJoinServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::std::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PlayReadyDomainJoinServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<PlayReadyDomainJoinServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadyDomainJoinServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadyDomainJoinServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<&PlayReadyDomainJoinServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadyDomainJoinServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5284,12 +5284,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for PlayRea
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReadyDomainJoinServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyServiceRequest> {
-        ::std::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyDomainLeaveServiceRequest(pub ::windows::runtime::IInspectable);
 impl PlayReadyDomainLeaveServiceRequest {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5303,42 +5303,42 @@ impl PlayReadyDomainLeaveServiceRequest {
     pub fn DomainAccountId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetDomainAccountId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn DomainServiceId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetDomainServiceId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProtectionSystem(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -5346,68 +5346,68 @@ impl PlayReadyDomainLeaveServiceRequest {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn SetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ResponseCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ChallengeCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetChallengeCustomData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn BeginServiceRequest(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn NextServiceRequest(&self) -> ::windows::runtime::Result<IPlayReadyServiceRequest> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn GenerateManualEnablingChallenge(&self) -> ::windows::runtime::Result<PlayReadySoapMessage> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProcessManualEnablingResponse(&self, responsebytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), responsebytes.len() as u32, ::std::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), responsebytes.len() as u32, ::core::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
 }
@@ -5421,12 +5421,12 @@ unsafe impl ::windows::runtime::Interface for PlayReadyDomainLeaveServiceRequest
 impl ::windows::runtime::RuntimeName for PlayReadyDomainLeaveServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainLeaveServiceRequest";
 }
-impl ::std::convert::From<PlayReadyDomainLeaveServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyDomainLeaveServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyDomainLeaveServiceRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PlayReadyDomainLeaveServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyDomainLeaveServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyDomainLeaveServiceRequest) -> Self {
         value.0 .0.clone()
     }
@@ -5441,12 +5441,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PlayReadyDomainLeaveServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyDomainLeaveServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyDomainLeaveServiceRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PlayReadyDomainLeaveServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyDomainLeaveServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyDomainLeaveServiceRequest) -> Self {
         value.0.clone()
     }
@@ -5461,13 +5461,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<PlayReadyDomainLeaveServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<PlayReadyDomainLeaveServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadyDomainLeaveServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadyDomainLeaveServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<&PlayReadyDomainLeaveServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadyDomainLeaveServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5480,16 +5480,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest> for &PlayReadyDomainLeaveServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::std::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PlayReadyDomainLeaveServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<PlayReadyDomainLeaveServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadyDomainLeaveServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadyDomainLeaveServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<&PlayReadyDomainLeaveServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadyDomainLeaveServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5502,11 +5502,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for PlayRea
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReadyDomainLeaveServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyServiceRequest> {
-        ::std::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PlayReadyEncryptionAlgorithm(pub i32);
 impl PlayReadyEncryptionAlgorithm {
@@ -5517,7 +5517,7 @@ impl PlayReadyEncryptionAlgorithm {
     pub const Unspecified: PlayReadyEncryptionAlgorithm = PlayReadyEncryptionAlgorithm(65535i32);
     pub const Uninitialized: PlayReadyEncryptionAlgorithm = PlayReadyEncryptionAlgorithm(2147483647i32);
 }
-impl ::std::convert::From<i32> for PlayReadyEncryptionAlgorithm {
+impl ::core::convert::From<i32> for PlayReadyEncryptionAlgorithm {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5532,7 +5532,7 @@ impl ::windows::runtime::DefaultType for PlayReadyEncryptionAlgorithm {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PlayReadyHardwareDRMFeatures(pub i32);
 impl PlayReadyHardwareDRMFeatures {
@@ -5540,7 +5540,7 @@ impl PlayReadyHardwareDRMFeatures {
     pub const HEVC: PlayReadyHardwareDRMFeatures = PlayReadyHardwareDRMFeatures(2i32);
     pub const Aes128Cbc: PlayReadyHardwareDRMFeatures = PlayReadyHardwareDRMFeatures(3i32);
 }
-impl ::std::convert::From<i32> for PlayReadyHardwareDRMFeatures {
+impl ::core::convert::From<i32> for PlayReadyHardwareDRMFeatures {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5555,14 +5555,14 @@ impl ::windows::runtime::DefaultType for PlayReadyHardwareDRMFeatures {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PlayReadyITADataFormat(pub i32);
 impl PlayReadyITADataFormat {
     pub const SerializedProperties: PlayReadyITADataFormat = PlayReadyITADataFormat(0i32);
     pub const SerializedProperties_WithContentProtectionWrapper: PlayReadyITADataFormat = PlayReadyITADataFormat(1i32);
 }
-impl ::std::convert::From<i32> for PlayReadyITADataFormat {
+impl ::core::convert::From<i32> for PlayReadyITADataFormat {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5578,7 +5578,7 @@ impl ::windows::runtime::DefaultType for PlayReadyITADataFormat {
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyITADataGenerator(pub ::windows::runtime::IInspectable);
 impl PlayReadyITADataGenerator {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5593,8 +5593,8 @@ impl PlayReadyITADataGenerator {
     pub fn GenerateData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IPropertySet>>(&self, guidcpsystemid: Param0, countofstreams: u32, configuration: Param2, format: PlayReadyITADataFormat) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), guidcpsystemid.into_param().abi(), countofstreams, configuration.into_param().abi(), format, ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), guidcpsystemid.into_param().abi(), countofstreams, configuration.into_param().abi(), format, ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
 }
@@ -5608,12 +5608,12 @@ unsafe impl ::windows::runtime::Interface for PlayReadyITADataGenerator {
 impl ::windows::runtime::RuntimeName for PlayReadyITADataGenerator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator";
 }
-impl ::std::convert::From<PlayReadyITADataGenerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyITADataGenerator> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyITADataGenerator) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PlayReadyITADataGenerator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyITADataGenerator> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyITADataGenerator) -> Self {
         value.0 .0.clone()
     }
@@ -5628,12 +5628,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PlayReadyITADataGenerator> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyITADataGenerator> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyITADataGenerator) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PlayReadyITADataGenerator> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyITADataGenerator> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyITADataGenerator) -> Self {
         value.0.clone()
     }
@@ -5650,7 +5650,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyIndividualizationServiceRequest(pub ::windows::runtime::IInspectable);
 impl PlayReadyIndividualizationServiceRequest {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5664,16 +5664,16 @@ impl PlayReadyIndividualizationServiceRequest {
     pub fn ProtectionSystem(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -5681,68 +5681,68 @@ impl PlayReadyIndividualizationServiceRequest {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn SetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ResponseCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ChallengeCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetChallengeCustomData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn BeginServiceRequest(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn NextServiceRequest(&self) -> ::windows::runtime::Result<IPlayReadyServiceRequest> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn GenerateManualEnablingChallenge(&self) -> ::windows::runtime::Result<PlayReadySoapMessage> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProcessManualEnablingResponse(&self, responsebytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), responsebytes.len() as u32, ::std::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), responsebytes.len() as u32, ::core::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
 }
@@ -5756,12 +5756,12 @@ unsafe impl ::windows::runtime::Interface for PlayReadyIndividualizationServiceR
 impl ::windows::runtime::RuntimeName for PlayReadyIndividualizationServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest";
 }
-impl ::std::convert::From<PlayReadyIndividualizationServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyIndividualizationServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyIndividualizationServiceRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PlayReadyIndividualizationServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyIndividualizationServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyIndividualizationServiceRequest) -> Self {
         value.0 .0.clone()
     }
@@ -5776,12 +5776,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PlayReadyIndividualizationServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyIndividualizationServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyIndividualizationServiceRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PlayReadyIndividualizationServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyIndividualizationServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyIndividualizationServiceRequest) -> Self {
         value.0.clone()
     }
@@ -5796,13 +5796,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<PlayReadyIndividualizationServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<PlayReadyIndividualizationServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadyIndividualizationServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadyIndividualizationServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<&PlayReadyIndividualizationServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadyIndividualizationServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5815,16 +5815,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest> for &PlayReadyIndividualizationServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::std::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PlayReadyIndividualizationServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<PlayReadyIndividualizationServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadyIndividualizationServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadyIndividualizationServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<&PlayReadyIndividualizationServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadyIndividualizationServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -5837,28 +5837,28 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for PlayRea
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReadyIndividualizationServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyServiceRequest> {
-        ::std::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyLicense(pub ::windows::runtime::IInspectable);
 impl PlayReadyLicense {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn FullyEvaluated(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn UsableForPlay(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -5866,72 +5866,72 @@ impl PlayReadyLicense {
     pub fn ExpirationDate(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ExpireAfterFirstPlay(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn DomainAccountID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ChainDepth(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn GetKIDAtChainDepth(&self, chaindepth: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), chaindepth, &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), chaindepth, &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SecureStopId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyLicense2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SecurityLevel(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyLicense2>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn InMemoryOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyLicense2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ExpiresInRealTime(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyLicense2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -5945,12 +5945,12 @@ unsafe impl ::windows::runtime::Interface for PlayReadyLicense {
 impl ::windows::runtime::RuntimeName for PlayReadyLicense {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicense";
 }
-impl ::std::convert::From<PlayReadyLicense> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyLicense> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyLicense) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PlayReadyLicense> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyLicense> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyLicense) -> Self {
         value.0 .0.clone()
     }
@@ -5965,12 +5965,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PlayReadyLicense> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyLicense> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyLicense) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PlayReadyLicense> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyLicense> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyLicense) -> Self {
         value.0.clone()
     }
@@ -5985,29 +5985,29 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<PlayReadyLicense> for IPlayReadyLicense {
+impl ::core::convert::From<PlayReadyLicense> for IPlayReadyLicense {
     fn from(value: PlayReadyLicense) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&PlayReadyLicense> for IPlayReadyLicense {
+impl ::core::convert::From<&PlayReadyLicense> for IPlayReadyLicense {
     fn from(value: &PlayReadyLicense) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicense> for PlayReadyLicense {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyLicense> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicense> for &PlayReadyLicense {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyLicense> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyLicenseAcquisitionServiceRequest(pub ::windows::runtime::IInspectable);
 impl PlayReadyLicenseAcquisitionServiceRequest {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6021,42 +6021,42 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
     pub fn ContentHeader(&self) -> ::windows::runtime::Result<PlayReadyContentHeader> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadyContentHeader>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadyContentHeader>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetContentHeader<'a, Param0: ::windows::runtime::IntoParam<'a, PlayReadyContentHeader>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn DomainServiceId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetDomainServiceId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProtectionSystem(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -6064,76 +6064,76 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn SetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ResponseCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ChallengeCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetChallengeCustomData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn BeginServiceRequest(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn NextServiceRequest(&self) -> ::windows::runtime::Result<IPlayReadyServiceRequest> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn GenerateManualEnablingChallenge(&self) -> ::windows::runtime::Result<PlayReadySoapMessage> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProcessManualEnablingResponse(&self, responsebytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), responsebytes.len() as u32, ::std::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), responsebytes.len() as u32, ::core::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SessionId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyLicenseAcquisitionServiceRequest2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -6141,8 +6141,8 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
     pub fn CreateLicenseIterable<'a, Param0: ::windows::runtime::IntoParam<'a, PlayReadyContentHeader>>(&self, contentheader: Param0, fullyevaluated: bool) -> ::windows::runtime::Result<PlayReadyLicenseIterable> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyLicenseAcquisitionServiceRequest3>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), contentheader.into_param().abi(), fullyevaluated, &mut result__).from_abi::<PlayReadyLicenseIterable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), contentheader.into_param().abi(), fullyevaluated, &mut result__).from_abi::<PlayReadyLicenseIterable>(result__)
         }
     }
 }
@@ -6156,12 +6156,12 @@ unsafe impl ::windows::runtime::Interface for PlayReadyLicenseAcquisitionService
 impl ::windows::runtime::RuntimeName for PlayReadyLicenseAcquisitionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest";
 }
-impl ::std::convert::From<PlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyLicenseAcquisitionServiceRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> Self {
         value.0 .0.clone()
     }
@@ -6176,12 +6176,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyLicenseAcquisitionServiceRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> Self {
         value.0.clone()
     }
@@ -6196,33 +6196,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<PlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyLicenseAcquisitionServiceRequest {
+impl ::core::convert::From<PlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyLicenseAcquisitionServiceRequest {
     fn from(value: PlayReadyLicenseAcquisitionServiceRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyLicenseAcquisitionServiceRequest {
+impl ::core::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyLicenseAcquisitionServiceRequest {
     fn from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicenseAcquisitionServiceRequest> for PlayReadyLicenseAcquisitionServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyLicenseAcquisitionServiceRequest> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicenseAcquisitionServiceRequest> for &PlayReadyLicenseAcquisitionServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyLicenseAcquisitionServiceRequest> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::TryFrom<PlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<PlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadyLicenseAcquisitionServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6235,16 +6235,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest> for &PlayReadyLicenseAcquisitionServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::std::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<PlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadyLicenseAcquisitionServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<&PlayReadyLicenseAcquisitionServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6257,13 +6257,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for PlayRea
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReadyLicenseAcquisitionServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyServiceRequest> {
-        ::std::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyLicenseIterable(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadyLicenseIterable {
@@ -6279,16 +6279,16 @@ impl PlayReadyLicenseIterable {
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation_Collections`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, PlayReadyContentHeader>>(contentheader: Param0, fullyevaluated: bool) -> ::windows::runtime::Result<PlayReadyLicenseIterable> {
         Self::IPlayReadyLicenseIterableFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), contentheader.into_param().abi(), fullyevaluated, &mut result__).from_abi::<PlayReadyLicenseIterable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), contentheader.into_param().abi(), fullyevaluated, &mut result__).from_abi::<PlayReadyLicenseIterable>(result__)
         })
     }
     pub fn IPlayReadyLicenseIterableFactory<R, F: FnOnce(&IPlayReadyLicenseIterableFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -6310,13 +6310,13 @@ impl ::windows::runtime::RuntimeName for PlayReadyLicenseIterable {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadyLicenseIterable> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyLicenseIterable> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyLicenseIterable) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadyLicenseIterable> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyLicenseIterable> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyLicenseIterable) -> Self {
         value.0 .0.clone()
     }
@@ -6334,13 +6334,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadyLicenseIterable> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyLicenseIterable> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyLicenseIterable) -> Self {
         value.0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadyLicenseIterable> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyLicenseIterable> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyLicenseIterable) -> Self {
         value.0.clone()
     }
@@ -6358,39 +6358,39 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadyLicenseIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense> {
+impl ::core::convert::From<PlayReadyLicenseIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense> {
     fn from(value: PlayReadyLicenseIterable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadyLicenseIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense> {
+impl ::core::convert::From<&PlayReadyLicenseIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense> {
     fn from(value: &PlayReadyLicenseIterable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> for PlayReadyLicenseIterable {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> for &PlayReadyLicenseIterable {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(all(feature = "Foundation_Collections"))]
-impl ::std::iter::IntoIterator for PlayReadyLicenseIterable {
+impl ::core::iter::IntoIterator for PlayReadyLicenseIterable {
     type Item = IPlayReadyLicense;
     type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        ::std::iter::IntoIterator::into_iter(&self)
+        ::core::iter::IntoIterator::into_iter(&self)
     }
 }
 #[cfg(all(feature = "Foundation_Collections"))]
-impl ::std::iter::IntoIterator for &PlayReadyLicenseIterable {
+impl ::core::iter::IntoIterator for &PlayReadyLicenseIterable {
     type Item = IPlayReadyLicense;
     type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
@@ -6400,7 +6400,7 @@ impl ::std::iter::IntoIterator for &PlayReadyLicenseIterable {
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyLicenseIterator(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadyLicenseIterator {
@@ -6409,8 +6409,8 @@ impl PlayReadyLicenseIterator {
     pub fn Current(&self) -> ::windows::runtime::Result<IPlayReadyLicense> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyLicense>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyLicense>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -6418,8 +6418,8 @@ impl PlayReadyLicenseIterator {
     pub fn HasCurrent(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -6427,8 +6427,8 @@ impl PlayReadyLicenseIterator {
     pub fn MoveNext(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -6436,8 +6436,8 @@ impl PlayReadyLicenseIterator {
     pub fn GetMany(&self, items: &mut [<IPlayReadyLicense as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -6455,13 +6455,13 @@ impl ::windows::runtime::RuntimeName for PlayReadyLicenseIterator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseIterator";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadyLicenseIterator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyLicenseIterator> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyLicenseIterator) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadyLicenseIterator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyLicenseIterator> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyLicenseIterator) -> Self {
         value.0 .0.clone()
     }
@@ -6479,13 +6479,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadyLicenseIterator> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyLicenseIterator> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyLicenseIterator) -> Self {
         value.0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadyLicenseIterator> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyLicenseIterator> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyLicenseIterator) -> Self {
         value.0.clone()
     }
@@ -6503,27 +6503,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadyLicenseIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense> {
+impl ::core::convert::From<PlayReadyLicenseIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense> {
     fn from(value: PlayReadyLicenseIterator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadyLicenseIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense> {
+impl ::core::convert::From<&PlayReadyLicenseIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense> {
     fn from(value: &PlayReadyLicenseIterator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> for PlayReadyLicenseIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> for &PlayReadyLicenseIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -6533,8 +6533,8 @@ impl PlayReadyLicenseManagement {
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn DeleteLicenses<'a, Param0: ::windows::runtime::IntoParam<'a, PlayReadyContentHeader>>(contentheader: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IPlayReadyLicenseManagement(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), contentheader.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), contentheader.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     pub fn IPlayReadyLicenseManagement<R, F: FnOnce(&IPlayReadyLicenseManagement) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -6547,28 +6547,28 @@ impl ::windows::runtime::RuntimeName for PlayReadyLicenseManagement {
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyLicenseSession(pub ::windows::runtime::IInspectable);
 impl PlayReadyLicenseSession {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn CreateLAServiceRequest(&self) -> ::windows::runtime::Result<IPlayReadyLicenseAcquisitionServiceRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyLicenseAcquisitionServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyLicenseAcquisitionServiceRequest>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ConfigureMediaProtectionManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::MediaProtectionManager>>(&self, mpm: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), mpm.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), mpm.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation_Collections`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IPropertySet>>(configuration: Param0) -> ::windows::runtime::Result<PlayReadyLicenseSession> {
         Self::IPlayReadyLicenseSessionFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), configuration.into_param().abi(), &mut result__).from_abi::<PlayReadyLicenseSession>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), configuration.into_param().abi(), &mut result__).from_abi::<PlayReadyLicenseSession>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -6576,8 +6576,8 @@ impl PlayReadyLicenseSession {
     pub fn CreateLicenseIterable<'a, Param0: ::windows::runtime::IntoParam<'a, PlayReadyContentHeader>>(&self, contentheader: Param0, fullyevaluated: bool) -> ::windows::runtime::Result<PlayReadyLicenseIterable> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyLicenseSession2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), contentheader.into_param().abi(), fullyevaluated, &mut result__).from_abi::<PlayReadyLicenseIterable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), contentheader.into_param().abi(), fullyevaluated, &mut result__).from_abi::<PlayReadyLicenseIterable>(result__)
         }
     }
     pub fn IPlayReadyLicenseSessionFactory<R, F: FnOnce(&IPlayReadyLicenseSessionFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -6595,12 +6595,12 @@ unsafe impl ::windows::runtime::Interface for PlayReadyLicenseSession {
 impl ::windows::runtime::RuntimeName for PlayReadyLicenseSession {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseSession";
 }
-impl ::std::convert::From<PlayReadyLicenseSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyLicenseSession> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyLicenseSession) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PlayReadyLicenseSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyLicenseSession> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyLicenseSession) -> Self {
         value.0 .0.clone()
     }
@@ -6615,12 +6615,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PlayReadyLicenseSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyLicenseSession> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyLicenseSession) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PlayReadyLicenseSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyLicenseSession> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyLicenseSession) -> Self {
         value.0.clone()
     }
@@ -6635,33 +6635,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<PlayReadyLicenseSession> for IPlayReadyLicenseSession {
+impl ::core::convert::From<PlayReadyLicenseSession> for IPlayReadyLicenseSession {
     fn from(value: PlayReadyLicenseSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&PlayReadyLicenseSession> for IPlayReadyLicenseSession {
+impl ::core::convert::From<&PlayReadyLicenseSession> for IPlayReadyLicenseSession {
     fn from(value: &PlayReadyLicenseSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicenseSession> for PlayReadyLicenseSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyLicenseSession> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicenseSession> for &PlayReadyLicenseSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyLicenseSession> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::TryFrom<PlayReadyLicenseSession> for IPlayReadyLicenseSession2 {
+impl ::core::convert::TryFrom<PlayReadyLicenseSession> for IPlayReadyLicenseSession2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadyLicenseSession) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadyLicenseSession> for IPlayReadyLicenseSession2 {
+impl ::core::convert::TryFrom<&PlayReadyLicenseSession> for IPlayReadyLicenseSession2 {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadyLicenseSession) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6674,12 +6674,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicenseSession2> for PlayRe
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicenseSession2> for &PlayReadyLicenseSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyLicenseSession2> {
-        ::std::convert::TryInto::<IPlayReadyLicenseSession2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPlayReadyLicenseSession2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyMeteringReportServiceRequest(pub ::windows::runtime::IInspectable);
 impl PlayReadyMeteringReportServiceRequest {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6693,29 +6693,29 @@ impl PlayReadyMeteringReportServiceRequest {
     pub fn MeteringCertificate(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetMeteringCertificate(&self, meteringcertbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), meteringcertbytes.len() as u32, ::std::mem::transmute(meteringcertbytes.as_ptr())).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), meteringcertbytes.len() as u32, ::core::mem::transmute(meteringcertbytes.as_ptr())).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProtectionSystem(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -6723,68 +6723,68 @@ impl PlayReadyMeteringReportServiceRequest {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn SetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ResponseCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ChallengeCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetChallengeCustomData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn BeginServiceRequest(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn NextServiceRequest(&self) -> ::windows::runtime::Result<IPlayReadyServiceRequest> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn GenerateManualEnablingChallenge(&self) -> ::windows::runtime::Result<PlayReadySoapMessage> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProcessManualEnablingResponse(&self, responsebytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), responsebytes.len() as u32, ::std::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), responsebytes.len() as u32, ::core::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
 }
@@ -6798,12 +6798,12 @@ unsafe impl ::windows::runtime::Interface for PlayReadyMeteringReportServiceRequ
 impl ::windows::runtime::RuntimeName for PlayReadyMeteringReportServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyMeteringReportServiceRequest";
 }
-impl ::std::convert::From<PlayReadyMeteringReportServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyMeteringReportServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyMeteringReportServiceRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PlayReadyMeteringReportServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyMeteringReportServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyMeteringReportServiceRequest) -> Self {
         value.0 .0.clone()
     }
@@ -6818,12 +6818,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PlayReadyMeteringReportServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyMeteringReportServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyMeteringReportServiceRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PlayReadyMeteringReportServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyMeteringReportServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyMeteringReportServiceRequest) -> Self {
         value.0.clone()
     }
@@ -6838,13 +6838,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<PlayReadyMeteringReportServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<PlayReadyMeteringReportServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadyMeteringReportServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadyMeteringReportServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<&PlayReadyMeteringReportServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadyMeteringReportServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6857,16 +6857,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest> for &PlayReadyMeteringReportServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::std::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PlayReadyMeteringReportServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<PlayReadyMeteringReportServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadyMeteringReportServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadyMeteringReportServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<&PlayReadyMeteringReportServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadyMeteringReportServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -6879,12 +6879,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for PlayRea
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReadyMeteringReportServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyServiceRequest> {
-        ::std::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadyRevocationServiceRequest(pub ::windows::runtime::IInspectable);
 impl PlayReadyRevocationServiceRequest {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6898,16 +6898,16 @@ impl PlayReadyRevocationServiceRequest {
     pub fn ProtectionSystem(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -6915,68 +6915,68 @@ impl PlayReadyRevocationServiceRequest {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn SetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ResponseCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ChallengeCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetChallengeCustomData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn BeginServiceRequest(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn NextServiceRequest(&self) -> ::windows::runtime::Result<IPlayReadyServiceRequest> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn GenerateManualEnablingChallenge(&self) -> ::windows::runtime::Result<PlayReadySoapMessage> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProcessManualEnablingResponse(&self, responsebytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), responsebytes.len() as u32, ::std::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), responsebytes.len() as u32, ::core::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
 }
@@ -6990,12 +6990,12 @@ unsafe impl ::windows::runtime::Interface for PlayReadyRevocationServiceRequest 
 impl ::windows::runtime::RuntimeName for PlayReadyRevocationServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest";
 }
-impl ::std::convert::From<PlayReadyRevocationServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadyRevocationServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadyRevocationServiceRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PlayReadyRevocationServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadyRevocationServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadyRevocationServiceRequest) -> Self {
         value.0 .0.clone()
     }
@@ -7010,12 +7010,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PlayReadyRevocationServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadyRevocationServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadyRevocationServiceRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PlayReadyRevocationServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadyRevocationServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadyRevocationServiceRequest) -> Self {
         value.0.clone()
     }
@@ -7030,13 +7030,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::TryFrom<PlayReadyRevocationServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<PlayReadyRevocationServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadyRevocationServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadyRevocationServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<&PlayReadyRevocationServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadyRevocationServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7049,16 +7049,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest> for &PlayReadyRevocationServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::std::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PlayReadyRevocationServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<PlayReadyRevocationServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadyRevocationServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadyRevocationServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<&PlayReadyRevocationServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadyRevocationServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7071,13 +7071,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for PlayRea
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReadyRevocationServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyServiceRequest> {
-        ::std::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadySecureStopIterable(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadySecureStopIterable {
@@ -7086,16 +7086,16 @@ impl PlayReadySecureStopIterable {
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation_Collections`*"]
     pub fn CreateInstance(publishercertbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<PlayReadySecureStopIterable> {
         Self::IPlayReadySecureStopIterableFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), publishercertbytes.len() as u32, ::std::mem::transmute(publishercertbytes.as_ptr()), &mut result__).from_abi::<PlayReadySecureStopIterable>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), publishercertbytes.len() as u32, ::core::mem::transmute(publishercertbytes.as_ptr()), &mut result__).from_abi::<PlayReadySecureStopIterable>(result__)
         })
     }
     pub fn IPlayReadySecureStopIterableFactory<R, F: FnOnce(&IPlayReadySecureStopIterableFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -7117,13 +7117,13 @@ impl ::windows::runtime::RuntimeName for PlayReadySecureStopIterable {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadySecureStopIterable> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadySecureStopIterable> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadySecureStopIterable) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadySecureStopIterable> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadySecureStopIterable> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadySecureStopIterable) -> Self {
         value.0 .0.clone()
     }
@@ -7141,13 +7141,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadySecureStopIterable> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadySecureStopIterable> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadySecureStopIterable) -> Self {
         value.0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadySecureStopIterable> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadySecureStopIterable> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadySecureStopIterable) -> Self {
         value.0.clone()
     }
@@ -7165,39 +7165,39 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadySecureStopIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest> {
+impl ::core::convert::From<PlayReadySecureStopIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest> {
     fn from(value: PlayReadySecureStopIterable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadySecureStopIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest> {
+impl ::core::convert::From<&PlayReadySecureStopIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest> {
     fn from(value: &PlayReadySecureStopIterable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> for PlayReadySecureStopIterable {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> for &PlayReadySecureStopIterable {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(all(feature = "Foundation_Collections"))]
-impl ::std::iter::IntoIterator for PlayReadySecureStopIterable {
+impl ::core::iter::IntoIterator for PlayReadySecureStopIterable {
     type Item = IPlayReadySecureStopServiceRequest;
     type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        ::std::iter::IntoIterator::into_iter(&self)
+        ::core::iter::IntoIterator::into_iter(&self)
     }
 }
 #[cfg(all(feature = "Foundation_Collections"))]
-impl ::std::iter::IntoIterator for &PlayReadySecureStopIterable {
+impl ::core::iter::IntoIterator for &PlayReadySecureStopIterable {
     type Item = IPlayReadySecureStopServiceRequest;
     type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
@@ -7207,7 +7207,7 @@ impl ::std::iter::IntoIterator for &PlayReadySecureStopIterable {
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadySecureStopIterator(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadySecureStopIterator {
@@ -7216,8 +7216,8 @@ impl PlayReadySecureStopIterator {
     pub fn Current(&self) -> ::windows::runtime::Result<IPlayReadySecureStopServiceRequest> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadySecureStopServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadySecureStopServiceRequest>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -7225,8 +7225,8 @@ impl PlayReadySecureStopIterator {
     pub fn HasCurrent(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -7234,8 +7234,8 @@ impl PlayReadySecureStopIterator {
     pub fn MoveNext(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -7243,8 +7243,8 @@ impl PlayReadySecureStopIterator {
     pub fn GetMany(&self, items: &mut [<IPlayReadySecureStopServiceRequest as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -7262,13 +7262,13 @@ impl ::windows::runtime::RuntimeName for PlayReadySecureStopIterator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySecureStopIterator";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadySecureStopIterator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadySecureStopIterator> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadySecureStopIterator) -> Self {
         value.0 .0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadySecureStopIterator> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadySecureStopIterator> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadySecureStopIterator) -> Self {
         value.0 .0.clone()
     }
@@ -7286,13 +7286,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadySecureStopIterator> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadySecureStopIterator> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadySecureStopIterator) -> Self {
         value.0
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadySecureStopIterator> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadySecureStopIterator> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadySecureStopIterator) -> Self {
         value.0.clone()
     }
@@ -7310,40 +7310,40 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PlayReadySecureStopIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest> {
+impl ::core::convert::From<PlayReadySecureStopIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest> {
     fn from(value: PlayReadySecureStopIterator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PlayReadySecureStopIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest> {
+impl ::core::convert::From<&PlayReadySecureStopIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest> {
     fn from(value: &PlayReadySecureStopIterator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> for PlayReadySecureStopIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> for &PlayReadySecureStopIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadySecureStopServiceRequest(pub ::windows::runtime::IInspectable);
 impl PlayReadySecureStopServiceRequest {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SessionID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -7351,8 +7351,8 @@ impl PlayReadySecureStopServiceRequest {
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -7360,40 +7360,40 @@ impl PlayReadySecureStopServiceRequest {
     pub fn UpdateTime(&self) -> ::windows::runtime::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::DateTime = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::super::Foundation::DateTime = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Stopped(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn PublisherCertificate(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProtectionSystem(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -7401,82 +7401,82 @@ impl PlayReadySecureStopServiceRequest {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn SetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ResponseCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ChallengeCustomData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SetChallengeCustomData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn BeginServiceRequest(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn NextServiceRequest(&self) -> ::windows::runtime::Result<IPlayReadyServiceRequest> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IPlayReadyServiceRequest>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn GenerateManualEnablingChallenge(&self) -> ::windows::runtime::Result<PlayReadySoapMessage> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlayReadySoapMessage>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProcessManualEnablingResponse(&self, responsebytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), responsebytes.len() as u32, ::std::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
+            let mut result__: ::windows::runtime::HRESULT = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), responsebytes.len() as u32, ::core::mem::transmute(responsebytes.as_ptr()), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn CreateInstance(publishercertbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<PlayReadySecureStopServiceRequest> {
         Self::IPlayReadySecureStopServiceRequestFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), publishercertbytes.len() as u32, ::std::mem::transmute(publishercertbytes.as_ptr()), &mut result__).from_abi::<PlayReadySecureStopServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), publishercertbytes.len() as u32, ::core::mem::transmute(publishercertbytes.as_ptr()), &mut result__).from_abi::<PlayReadySecureStopServiceRequest>(result__)
         })
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn CreateInstanceFromSessionID<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(sessionid: Param0, publishercertbytes: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<PlayReadySecureStopServiceRequest> {
         Self::IPlayReadySecureStopServiceRequestFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), sessionid.into_param().abi(), publishercertbytes.len() as u32, ::std::mem::transmute(publishercertbytes.as_ptr()), &mut result__).from_abi::<PlayReadySecureStopServiceRequest>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), sessionid.into_param().abi(), publishercertbytes.len() as u32, ::core::mem::transmute(publishercertbytes.as_ptr()), &mut result__).from_abi::<PlayReadySecureStopServiceRequest>(result__)
         })
     }
     pub fn IPlayReadySecureStopServiceRequestFactory<R, F: FnOnce(&IPlayReadySecureStopServiceRequestFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -7494,12 +7494,12 @@ unsafe impl ::windows::runtime::Interface for PlayReadySecureStopServiceRequest 
 impl ::windows::runtime::RuntimeName for PlayReadySecureStopServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySecureStopServiceRequest";
 }
-impl ::std::convert::From<PlayReadySecureStopServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadySecureStopServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadySecureStopServiceRequest) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PlayReadySecureStopServiceRequest> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadySecureStopServiceRequest> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadySecureStopServiceRequest) -> Self {
         value.0 .0.clone()
     }
@@ -7514,12 +7514,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PlayReadySecureStopServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadySecureStopServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadySecureStopServiceRequest) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PlayReadySecureStopServiceRequest> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadySecureStopServiceRequest> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadySecureStopServiceRequest) -> Self {
         value.0.clone()
     }
@@ -7534,33 +7534,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<PlayReadySecureStopServiceRequest> for IPlayReadySecureStopServiceRequest {
+impl ::core::convert::From<PlayReadySecureStopServiceRequest> for IPlayReadySecureStopServiceRequest {
     fn from(value: PlayReadySecureStopServiceRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&PlayReadySecureStopServiceRequest> for IPlayReadySecureStopServiceRequest {
+impl ::core::convert::From<&PlayReadySecureStopServiceRequest> for IPlayReadySecureStopServiceRequest {
     fn from(value: &PlayReadySecureStopServiceRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadySecureStopServiceRequest> for PlayReadySecureStopServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadySecureStopServiceRequest> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadySecureStopServiceRequest> for &PlayReadySecureStopServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadySecureStopServiceRequest> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::std::convert::TryFrom<PlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<PlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadySecureStopServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {
+impl ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadySecureStopServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7573,16 +7573,16 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IMediaProtectionServiceRequest> for &PlayReadySecureStopServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IMediaProtectionServiceRequest> {
-        ::std::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::IMediaProtectionServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-impl ::std::convert::TryFrom<PlayReadySecureStopServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<PlayReadySecureStopServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: PlayReadySecureStopServiceRequest) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
-impl ::std::convert::TryFrom<&PlayReadySecureStopServiceRequest> for IPlayReadyServiceRequest {
+impl ::core::convert::TryFrom<&PlayReadySecureStopServiceRequest> for IPlayReadyServiceRequest {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &PlayReadySecureStopServiceRequest) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -7595,20 +7595,20 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for PlayRea
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReadySecureStopServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyServiceRequest> {
-        ::std::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlayReadySoapMessage(pub ::windows::runtime::IInspectable);
 impl PlayReadySoapMessage {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn GetMessageBody(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::Array<u8> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__: ::windows::runtime::Array<u8> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -7616,8 +7616,8 @@ impl PlayReadySoapMessage {
     pub fn MessageHeaders(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IPropertySet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -7625,8 +7625,8 @@ impl PlayReadySoapMessage {
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
 }
@@ -7640,12 +7640,12 @@ unsafe impl ::windows::runtime::Interface for PlayReadySoapMessage {
 impl ::windows::runtime::RuntimeName for PlayReadySoapMessage {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySoapMessage";
 }
-impl ::std::convert::From<PlayReadySoapMessage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PlayReadySoapMessage> for ::windows::runtime::IUnknown {
     fn from(value: PlayReadySoapMessage) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PlayReadySoapMessage> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PlayReadySoapMessage> for ::windows::runtime::IUnknown {
     fn from(value: &PlayReadySoapMessage) -> Self {
         value.0 .0.clone()
     }
@@ -7660,12 +7660,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PlayReadySoapMessage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PlayReadySoapMessage> for ::windows::runtime::IInspectable {
     fn from(value: PlayReadySoapMessage) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PlayReadySoapMessage> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PlayReadySoapMessage> for ::windows::runtime::IInspectable {
     fn from(value: &PlayReadySoapMessage) -> Self {
         value.0.clone()
     }
@@ -7686,113 +7686,113 @@ impl PlayReadyStatics {
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn DomainJoinServiceRequestType() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IPlayReadyStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn DomainLeaveServiceRequestType() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IPlayReadyStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn IndividualizationServiceRequestType() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IPlayReadyStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn LicenseAcquirerServiceRequestType() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IPlayReadyStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn MeteringReportServiceRequestType() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IPlayReadyStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn RevocationServiceRequestType() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IPlayReadyStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn MediaProtectionSystemId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IPlayReadyStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn PlayReadySecurityVersion() -> ::windows::runtime::Result<u32> {
         Self::IPlayReadyStatics(|this| unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn PlayReadyCertificateSecurityLevel() -> ::windows::runtime::Result<u32> {
         Self::IPlayReadyStatics2(|this| unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn SecureStopServiceRequestType() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IPlayReadyStatics3(|this| unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn CheckSupportedHardware(hwdrmfeature: PlayReadyHardwareDRMFeatures) -> ::windows::runtime::Result<bool> {
         Self::IPlayReadyStatics3(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), hwdrmfeature, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), hwdrmfeature, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn InputTrustAuthorityToCreate() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IPlayReadyStatics4(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ProtectionSystemId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IPlayReadyStatics4(|this| unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn HardwareDRMDisabledAtTime() -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         Self::IPlayReadyStatics5(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Protection_PlayReady`, `Foundation`*"]
     pub fn HardwareDRMDisabledUntilTime() -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         Self::IPlayReadyStatics5(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         })
     }
     #[doc = "*Required features: `Media_Protection_PlayReady`*"]
     pub fn ResetHardwareDRMDisabled() -> ::windows::runtime::Result<()> {
-        Self::IPlayReadyStatics5(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() })
+        Self::IPlayReadyStatics5(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() })
     }
     pub fn IPlayReadyStatics<R, F: FnOnce(&IPlayReadyStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<PlayReadyStatics, IPlayReadyStatics> = ::windows::runtime::FactoryCache::new();

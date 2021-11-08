@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreFrameworkInputView(pub ::windows::runtime::IInspectable);
 impl CoreFrameworkInputView {
     #[cfg(feature = "Foundation")]
@@ -9,43 +9,43 @@ impl CoreFrameworkInputView {
     pub fn PrimaryViewAnimationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewAnimationStartingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemovePrimaryViewAnimationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn OcclusionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewOcclusionsChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemoveOcclusionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn GetForUIContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UIContext>>(context: Param0) -> ::windows::runtime::Result<CoreFrameworkInputView> {
         Self::ICoreFrameworkInputViewStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), context.into_param().abi(), &mut result__).from_abi::<CoreFrameworkInputView>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), context.into_param().abi(), &mut result__).from_abi::<CoreFrameworkInputView>(result__)
         })
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<CoreFrameworkInputView> {
         Self::ICoreFrameworkInputViewStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreFrameworkInputView>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreFrameworkInputView>(result__)
         })
     }
     pub fn ICoreFrameworkInputViewStatics<R, F: FnOnce(&ICoreFrameworkInputViewStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -63,12 +63,12 @@ unsafe impl ::windows::runtime::Interface for CoreFrameworkInputView {
 impl ::windows::runtime::RuntimeName for CoreFrameworkInputView {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputView";
 }
-impl ::std::convert::From<CoreFrameworkInputView> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreFrameworkInputView> for ::windows::runtime::IUnknown {
     fn from(value: CoreFrameworkInputView) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreFrameworkInputView> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreFrameworkInputView> for ::windows::runtime::IUnknown {
     fn from(value: &CoreFrameworkInputView) -> Self {
         value.0 .0.clone()
     }
@@ -83,12 +83,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreFrameworkInputView> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreFrameworkInputView> for ::windows::runtime::IInspectable {
     fn from(value: CoreFrameworkInputView) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreFrameworkInputView> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreFrameworkInputView> for ::windows::runtime::IInspectable {
     fn from(value: &CoreFrameworkInputView) -> Self {
         value.0.clone()
     }
@@ -103,11 +103,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreFrameworkInputView {}
-unsafe impl ::std::marker::Sync for CoreFrameworkInputView {}
+unsafe impl ::core::marker::Send for CoreFrameworkInputView {}
+unsafe impl ::core::marker::Sync for CoreFrameworkInputView {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreFrameworkInputViewAnimationStartingEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreFrameworkInputViewAnimationStartingEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -115,16 +115,16 @@ impl CoreFrameworkInputViewAnimationStartingEventArgs {
     pub fn Occlusions(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn FrameworkAnimationRecommended(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -132,8 +132,8 @@ impl CoreFrameworkInputViewAnimationStartingEventArgs {
     pub fn AnimationDuration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -147,12 +147,12 @@ unsafe impl ::windows::runtime::Interface for CoreFrameworkInputViewAnimationSta
 impl ::windows::runtime::RuntimeName for CoreFrameworkInputViewAnimationStartingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputViewAnimationStartingEventArgs";
 }
-impl ::std::convert::From<CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreFrameworkInputViewAnimationStartingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreFrameworkInputViewAnimationStartingEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -167,12 +167,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreFrameworkInputViewAnimationStartingEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreFrameworkInputViewAnimationStartingEventArgs) -> Self {
         value.0.clone()
     }
@@ -187,11 +187,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreFrameworkInputViewAnimationStartingEventArgs {}
-unsafe impl ::std::marker::Sync for CoreFrameworkInputViewAnimationStartingEventArgs {}
+unsafe impl ::core::marker::Send for CoreFrameworkInputViewAnimationStartingEventArgs {}
+unsafe impl ::core::marker::Sync for CoreFrameworkInputViewAnimationStartingEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreFrameworkInputViewOcclusionsChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -199,16 +199,16 @@ impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
     pub fn Occlusions(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -222,12 +222,12 @@ unsafe impl ::windows::runtime::Interface for CoreFrameworkInputViewOcclusionsCh
 impl ::windows::runtime::RuntimeName for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputViewOcclusionsChangedEventArgs";
 }
-impl ::std::convert::From<CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreFrameworkInputViewOcclusionsChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreFrameworkInputViewOcclusionsChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -242,12 +242,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreFrameworkInputViewOcclusionsChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreFrameworkInputViewOcclusionsChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -262,11 +262,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
-unsafe impl ::std::marker::Sync for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
+unsafe impl ::core::marker::Send for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
+unsafe impl ::core::marker::Sync for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreInputView(pub ::windows::runtime::IInspectable);
 impl CoreInputView {
     #[cfg(feature = "Foundation")]
@@ -274,46 +274,46 @@ impl CoreInputView {
     pub fn OcclusionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewOcclusionsChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemoveOcclusionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation_Collections`*"]
     pub fn GetCoreInputViewOcclusions(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TryShowPrimaryView(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TryHidePrimaryView(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<CoreInputView> {
         Self::ICoreInputViewStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreInputView>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreInputView>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
@@ -321,69 +321,69 @@ impl CoreInputView {
     pub fn XYFocusTransferringFromPrimaryView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewTransferringXYFocusEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView2>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemoveXYFocusTransferringFromPrimaryView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn XYFocusTransferredToPrimaryView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreInputView, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView2>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemoveXYFocusTransferredToPrimaryView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView2>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn TryTransferXYFocusToPrimaryView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, origin: Param0, direction: CoreInputViewXYFocusTransferDirection) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView2>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), origin.into_param().abi(), direction, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), origin.into_param().abi(), direction, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TryShow(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView3>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TryShowWithKind(&self, r#type: CoreInputViewKind) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView3>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), r#type, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TryHide(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView3>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn GetForUIContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UIContext>>(context: Param0) -> ::windows::runtime::Result<CoreInputView> {
         Self::ICoreInputViewStatics2(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), context.into_param().abi(), &mut result__).from_abi::<CoreInputView>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), context.into_param().abi(), &mut result__).from_abi::<CoreInputView>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
@@ -391,37 +391,37 @@ impl CoreInputView {
     pub fn PrimaryViewShowing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewShowingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView4>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemovePrimaryViewShowing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView4>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn PrimaryViewHiding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewHidingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView4>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemovePrimaryViewHiding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView4>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn IsKindSupported(&self, r#type: CoreInputViewKind) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView5>(self)?;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), r#type, &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -429,30 +429,30 @@ impl CoreInputView {
     pub fn SupportedKindsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreInputView, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView5>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemoveSupportedKindsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView5>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn PrimaryViewAnimationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewAnimationStartingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView5>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemovePrimaryViewAnimationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView5>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     pub fn ICoreInputViewStatics<R, F: FnOnce(&ICoreInputViewStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
         static mut SHARED: ::windows::runtime::FactoryCache<CoreInputView, ICoreInputViewStatics> = ::windows::runtime::FactoryCache::new();
@@ -473,12 +473,12 @@ unsafe impl ::windows::runtime::Interface for CoreInputView {
 impl ::windows::runtime::RuntimeName for CoreInputView {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputView";
 }
-impl ::std::convert::From<CoreInputView> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreInputView> for ::windows::runtime::IUnknown {
     fn from(value: CoreInputView) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreInputView> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreInputView> for ::windows::runtime::IUnknown {
     fn from(value: &CoreInputView) -> Self {
         value.0 .0.clone()
     }
@@ -493,12 +493,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreInputView> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreInputView> for ::windows::runtime::IInspectable {
     fn from(value: CoreInputView) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreInputView> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreInputView> for ::windows::runtime::IInspectable {
     fn from(value: &CoreInputView) -> Self {
         value.0.clone()
     }
@@ -513,11 +513,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreInputView {}
-unsafe impl ::std::marker::Sync for CoreInputView {}
+unsafe impl ::core::marker::Send for CoreInputView {}
+unsafe impl ::core::marker::Sync for CoreInputView {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreInputViewAnimationStartingEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreInputViewAnimationStartingEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -525,30 +525,30 @@ impl CoreInputViewAnimationStartingEventArgs {
     pub fn Occlusions(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn AnimationDuration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -562,12 +562,12 @@ unsafe impl ::windows::runtime::Interface for CoreInputViewAnimationStartingEven
 impl ::windows::runtime::RuntimeName for CoreInputViewAnimationStartingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewAnimationStartingEventArgs";
 }
-impl ::std::convert::From<CoreInputViewAnimationStartingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreInputViewAnimationStartingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreInputViewAnimationStartingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreInputViewAnimationStartingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreInputViewAnimationStartingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreInputViewAnimationStartingEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -582,12 +582,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreInputViewAnimationStartingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreInputViewAnimationStartingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreInputViewAnimationStartingEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreInputViewAnimationStartingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreInputViewAnimationStartingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreInputViewAnimationStartingEventArgs) -> Self {
         value.0.clone()
     }
@@ -602,19 +602,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreInputViewAnimationStartingEventArgs {}
-unsafe impl ::std::marker::Sync for CoreInputViewAnimationStartingEventArgs {}
+unsafe impl ::core::marker::Send for CoreInputViewAnimationStartingEventArgs {}
+unsafe impl ::core::marker::Sync for CoreInputViewAnimationStartingEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreInputViewHidingEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreInputViewHidingEventArgs {
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TryCancel(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -628,12 +628,12 @@ unsafe impl ::windows::runtime::Interface for CoreInputViewHidingEventArgs {
 impl ::windows::runtime::RuntimeName for CoreInputViewHidingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewHidingEventArgs";
 }
-impl ::std::convert::From<CoreInputViewHidingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreInputViewHidingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreInputViewHidingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreInputViewHidingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreInputViewHidingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreInputViewHidingEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -648,12 +648,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreInputViewHidingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreInputViewHidingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreInputViewHidingEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreInputViewHidingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreInputViewHidingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreInputViewHidingEventArgs) -> Self {
         value.0.clone()
     }
@@ -668,10 +668,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreInputViewHidingEventArgs {}
-unsafe impl ::std::marker::Sync for CoreInputViewHidingEventArgs {}
+unsafe impl ::core::marker::Send for CoreInputViewHidingEventArgs {}
+unsafe impl ::core::marker::Sync for CoreInputViewHidingEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreInputViewKind(pub i32);
 impl CoreInputViewKind {
@@ -683,7 +683,7 @@ impl CoreInputViewKind {
     pub const Clipboard: CoreInputViewKind = CoreInputViewKind(5i32);
     pub const Dictation: CoreInputViewKind = CoreInputViewKind(6i32);
 }
-impl ::std::convert::From<i32> for CoreInputViewKind {
+impl ::core::convert::From<i32> for CoreInputViewKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -699,7 +699,7 @@ impl ::windows::runtime::DefaultType for CoreInputViewKind {
 }
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreInputViewOcclusion(pub ::windows::runtime::IInspectable);
 impl CoreInputViewOcclusion {
     #[cfg(feature = "Foundation")]
@@ -707,16 +707,16 @@ impl CoreInputViewOcclusion {
     pub fn OccludingRect(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn OcclusionKind(&self) -> ::windows::runtime::Result<CoreInputViewOcclusionKind> {
         let this = self;
         unsafe {
-            let mut result__: CoreInputViewOcclusionKind = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreInputViewOcclusionKind>(result__)
+            let mut result__: CoreInputViewOcclusionKind = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreInputViewOcclusionKind>(result__)
         }
     }
 }
@@ -730,12 +730,12 @@ unsafe impl ::windows::runtime::Interface for CoreInputViewOcclusion {
 impl ::windows::runtime::RuntimeName for CoreInputViewOcclusion {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewOcclusion";
 }
-impl ::std::convert::From<CoreInputViewOcclusion> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreInputViewOcclusion> for ::windows::runtime::IUnknown {
     fn from(value: CoreInputViewOcclusion) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreInputViewOcclusion> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreInputViewOcclusion> for ::windows::runtime::IUnknown {
     fn from(value: &CoreInputViewOcclusion) -> Self {
         value.0 .0.clone()
     }
@@ -750,12 +750,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreInputViewOcclusion> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreInputViewOcclusion> for ::windows::runtime::IInspectable {
     fn from(value: CoreInputViewOcclusion) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreInputViewOcclusion> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreInputViewOcclusion> for ::windows::runtime::IInspectable {
     fn from(value: &CoreInputViewOcclusion) -> Self {
         value.0.clone()
     }
@@ -770,10 +770,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreInputViewOcclusion {}
-unsafe impl ::std::marker::Sync for CoreInputViewOcclusion {}
+unsafe impl ::core::marker::Send for CoreInputViewOcclusion {}
+unsafe impl ::core::marker::Sync for CoreInputViewOcclusion {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreInputViewOcclusionKind(pub i32);
 impl CoreInputViewOcclusionKind {
@@ -781,7 +781,7 @@ impl CoreInputViewOcclusionKind {
     pub const Floating: CoreInputViewOcclusionKind = CoreInputViewOcclusionKind(1i32);
     pub const Overlay: CoreInputViewOcclusionKind = CoreInputViewOcclusionKind(2i32);
 }
-impl ::std::convert::From<i32> for CoreInputViewOcclusionKind {
+impl ::core::convert::From<i32> for CoreInputViewOcclusionKind {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -797,7 +797,7 @@ impl ::windows::runtime::DefaultType for CoreInputViewOcclusionKind {
 }
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreInputViewOcclusionsChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreInputViewOcclusionsChangedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -805,22 +805,22 @@ impl CoreInputViewOcclusionsChangedEventArgs {
     pub fn Occlusions(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreInputViewOcclusionsChangedEventArgs {
@@ -833,12 +833,12 @@ unsafe impl ::windows::runtime::Interface for CoreInputViewOcclusionsChangedEven
 impl ::windows::runtime::RuntimeName for CoreInputViewOcclusionsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewOcclusionsChangedEventArgs";
 }
-impl ::std::convert::From<CoreInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreInputViewOcclusionsChangedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreInputViewOcclusionsChangedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -853,12 +853,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreInputViewOcclusionsChangedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreInputViewOcclusionsChangedEventArgs) -> Self {
         value.0.clone()
     }
@@ -873,19 +873,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreInputViewOcclusionsChangedEventArgs {}
-unsafe impl ::std::marker::Sync for CoreInputViewOcclusionsChangedEventArgs {}
+unsafe impl ::core::marker::Send for CoreInputViewOcclusionsChangedEventArgs {}
+unsafe impl ::core::marker::Sync for CoreInputViewOcclusionsChangedEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreInputViewShowingEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreInputViewShowingEventArgs {
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TryCancel(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -899,12 +899,12 @@ unsafe impl ::windows::runtime::Interface for CoreInputViewShowingEventArgs {
 impl ::windows::runtime::RuntimeName for CoreInputViewShowingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewShowingEventArgs";
 }
-impl ::std::convert::From<CoreInputViewShowingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreInputViewShowingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreInputViewShowingEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreInputViewShowingEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreInputViewShowingEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreInputViewShowingEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -919,12 +919,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreInputViewShowingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreInputViewShowingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreInputViewShowingEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreInputViewShowingEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreInputViewShowingEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreInputViewShowingEventArgs) -> Self {
         value.0.clone()
     }
@@ -939,11 +939,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreInputViewShowingEventArgs {}
-unsafe impl ::std::marker::Sync for CoreInputViewShowingEventArgs {}
+unsafe impl ::core::marker::Send for CoreInputViewShowingEventArgs {}
+unsafe impl ::core::marker::Sync for CoreInputViewShowingEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreInputViewTransferringXYFocusEventArgs(pub ::windows::runtime::IInspectable);
 impl CoreInputViewTransferringXYFocusEventArgs {
     #[cfg(feature = "Foundation")]
@@ -951,42 +951,42 @@ impl CoreInputViewTransferringXYFocusEventArgs {
     pub fn Origin(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn Direction(&self) -> ::windows::runtime::Result<CoreInputViewXYFocusTransferDirection> {
         let this = self;
         unsafe {
-            let mut result__: CoreInputViewXYFocusTransferDirection = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreInputViewXYFocusTransferDirection>(result__)
+            let mut result__: CoreInputViewXYFocusTransferDirection = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreInputViewXYFocusTransferDirection>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetTransferHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TransferHandled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetKeepPrimaryViewVisible(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn KeepPrimaryViewVisible(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -1000,12 +1000,12 @@ unsafe impl ::windows::runtime::Interface for CoreInputViewTransferringXYFocusEv
 impl ::windows::runtime::RuntimeName for CoreInputViewTransferringXYFocusEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewTransferringXYFocusEventArgs";
 }
-impl ::std::convert::From<CoreInputViewTransferringXYFocusEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CoreInputViewTransferringXYFocusEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: CoreInputViewTransferringXYFocusEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CoreInputViewTransferringXYFocusEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CoreInputViewTransferringXYFocusEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &CoreInputViewTransferringXYFocusEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1020,12 +1020,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CoreInputViewTransferringXYFocusEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CoreInputViewTransferringXYFocusEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: CoreInputViewTransferringXYFocusEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CoreInputViewTransferringXYFocusEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CoreInputViewTransferringXYFocusEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &CoreInputViewTransferringXYFocusEventArgs) -> Self {
         value.0.clone()
     }
@@ -1040,10 +1040,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CoreInputViewTransferringXYFocusEventArgs {}
-unsafe impl ::std::marker::Sync for CoreInputViewTransferringXYFocusEventArgs {}
+unsafe impl ::core::marker::Send for CoreInputViewTransferringXYFocusEventArgs {}
+unsafe impl ::core::marker::Sync for CoreInputViewTransferringXYFocusEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreInputViewXYFocusTransferDirection(pub i32);
 impl CoreInputViewXYFocusTransferDirection {
@@ -1052,7 +1052,7 @@ impl CoreInputViewXYFocusTransferDirection {
     pub const Down: CoreInputViewXYFocusTransferDirection = CoreInputViewXYFocusTransferDirection(2i32);
     pub const Left: CoreInputViewXYFocusTransferDirection = CoreInputViewXYFocusTransferDirection(3i32);
 }
-impl ::std::convert::From<i32> for CoreInputViewXYFocusTransferDirection {
+impl ::core::convert::From<i32> for CoreInputViewXYFocusTransferDirection {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1478,40 +1478,40 @@ pub struct IUISettingsControllerStatics_abi(
 );
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UISettingsController(pub ::windows::runtime::IInspectable);
 impl UISettingsController {
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetAdvancedEffectsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetAnimationsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetAutoHideScrollBars(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetMessageDuration(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetTextScaleFactor(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RequestDefaultAsync() -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<UISettingsController>> {
         Self::IUISettingsControllerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<UISettingsController>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<UISettingsController>>(result__)
         })
     }
     pub fn IUISettingsControllerStatics<R, F: FnOnce(&IUISettingsControllerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1529,12 +1529,12 @@ unsafe impl ::windows::runtime::Interface for UISettingsController {
 impl ::windows::runtime::RuntimeName for UISettingsController {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.UISettingsController";
 }
-impl ::std::convert::From<UISettingsController> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<UISettingsController> for ::windows::runtime::IUnknown {
     fn from(value: UISettingsController) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&UISettingsController> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&UISettingsController> for ::windows::runtime::IUnknown {
     fn from(value: &UISettingsController) -> Self {
         value.0 .0.clone()
     }
@@ -1549,12 +1549,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<UISettingsController> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<UISettingsController> for ::windows::runtime::IInspectable {
     fn from(value: UISettingsController) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&UISettingsController> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&UISettingsController> for ::windows::runtime::IInspectable {
     fn from(value: &UISettingsController) -> Self {
         value.0.clone()
     }
@@ -1569,5 +1569,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for UISettingsController {}
-unsafe impl ::std::marker::Sync for UISettingsController {}
+unsafe impl ::core::marker::Send for UISettingsController {}
+unsafe impl ::core::marker::Sync for UISettingsController {}

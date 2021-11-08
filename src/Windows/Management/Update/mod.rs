@@ -61,28 +61,28 @@ pub struct IPreviewBuildsState_abi(
 );
 #[doc = "*Required features: `Management_Update`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PreviewBuildsManager(pub ::windows::runtime::IInspectable);
 impl PreviewBuildsManager {
     #[doc = "*Required features: `Management_Update`*"]
     pub fn ArePreviewBuildsAllowed(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Management_Update`*"]
     pub fn SetArePreviewBuildsAllowed(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Management_Update`*"]
     pub fn GetCurrentState(&self) -> ::windows::runtime::Result<PreviewBuildsState> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PreviewBuildsState>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PreviewBuildsState>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -90,22 +90,22 @@ impl PreviewBuildsManager {
     pub fn SyncAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `Management_Update`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<PreviewBuildsManager> {
         Self::IPreviewBuildsManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PreviewBuildsManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PreviewBuildsManager>(result__)
         })
     }
     #[doc = "*Required features: `Management_Update`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::IPreviewBuildsManagerStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     pub fn IPreviewBuildsManagerStatics<R, F: FnOnce(&IPreviewBuildsManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -123,12 +123,12 @@ unsafe impl ::windows::runtime::Interface for PreviewBuildsManager {
 impl ::windows::runtime::RuntimeName for PreviewBuildsManager {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsManager";
 }
-impl ::std::convert::From<PreviewBuildsManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PreviewBuildsManager> for ::windows::runtime::IUnknown {
     fn from(value: PreviewBuildsManager) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PreviewBuildsManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PreviewBuildsManager> for ::windows::runtime::IUnknown {
     fn from(value: &PreviewBuildsManager) -> Self {
         value.0 .0.clone()
     }
@@ -143,12 +143,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PreviewBuildsManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PreviewBuildsManager> for ::windows::runtime::IInspectable {
     fn from(value: PreviewBuildsManager) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PreviewBuildsManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PreviewBuildsManager> for ::windows::runtime::IInspectable {
     fn from(value: &PreviewBuildsManager) -> Self {
         value.0.clone()
     }
@@ -163,11 +163,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PreviewBuildsManager {}
-unsafe impl ::std::marker::Sync for PreviewBuildsManager {}
+unsafe impl ::core::marker::Send for PreviewBuildsManager {}
+unsafe impl ::core::marker::Sync for PreviewBuildsManager {}
 #[doc = "*Required features: `Management_Update`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PreviewBuildsState(pub ::windows::runtime::IInspectable);
 impl PreviewBuildsState {
     #[cfg(feature = "Foundation_Collections")]
@@ -175,8 +175,8 @@ impl PreviewBuildsState {
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
 }
@@ -190,12 +190,12 @@ unsafe impl ::windows::runtime::Interface for PreviewBuildsState {
 impl ::windows::runtime::RuntimeName for PreviewBuildsState {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsState";
 }
-impl ::std::convert::From<PreviewBuildsState> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PreviewBuildsState> for ::windows::runtime::IUnknown {
     fn from(value: PreviewBuildsState) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PreviewBuildsState> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PreviewBuildsState> for ::windows::runtime::IUnknown {
     fn from(value: &PreviewBuildsState) -> Self {
         value.0 .0.clone()
     }
@@ -210,12 +210,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PreviewBuildsState> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PreviewBuildsState> for ::windows::runtime::IInspectable {
     fn from(value: PreviewBuildsState) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PreviewBuildsState> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PreviewBuildsState> for ::windows::runtime::IInspectable {
     fn from(value: &PreviewBuildsState) -> Self {
         value.0.clone()
     }
@@ -230,5 +230,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PreviewBuildsState {}
-unsafe impl ::std::marker::Sync for PreviewBuildsState {}
+unsafe impl ::core::marker::Send for PreviewBuildsState {}
+unsafe impl ::core::marker::Sync for PreviewBuildsState {}

@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Devices_Custom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CustomDevice(pub ::windows::runtime::IInspectable);
 impl CustomDevice {
     #[cfg(feature = "Storage_Streams")]
@@ -9,8 +9,8 @@ impl CustomDevice {
     pub fn InputStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -18,8 +18,8 @@ impl CustomDevice {
     pub fn OutputStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -27,8 +27,8 @@ impl CustomDevice {
     pub fn SendIOControlAsync<'a, Param0: ::windows::runtime::IntoParam<'a, IIOControlCode>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param2: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, iocontrolcode: Param0, inputbuffer: Param1, outputbuffer: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), iocontrolcode.into_param().abi(), inputbuffer.into_param().abi(), outputbuffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), iocontrolcode.into_param().abi(), inputbuffer.into_param().abi(), outputbuffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -36,23 +36,23 @@ impl CustomDevice {
     pub fn TrySendIOControlAsync<'a, Param0: ::windows::runtime::IntoParam<'a, IIOControlCode>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param2: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, iocontrolcode: Param0, inputbuffer: Param1, outputbuffer: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), iocontrolcode.into_param().abi(), inputbuffer.into_param().abi(), outputbuffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), iocontrolcode.into_param().abi(), inputbuffer.into_param().abi(), outputbuffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Custom`*"]
     pub fn GetDeviceSelector<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(classguid: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICustomDeviceStatics(|this| unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), classguid.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), classguid.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Custom`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CustomDevice>> {
         Self::ICustomDeviceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), desiredaccess, sharingmode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<CustomDevice>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), desiredaccess, sharingmode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<CustomDevice>>(result__)
         })
     }
     pub fn ICustomDeviceStatics<R, F: FnOnce(&ICustomDeviceStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -70,12 +70,12 @@ unsafe impl ::windows::runtime::Interface for CustomDevice {
 impl ::windows::runtime::RuntimeName for CustomDevice {
     const NAME: &'static str = "Windows.Devices.Custom.CustomDevice";
 }
-impl ::std::convert::From<CustomDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<CustomDevice> for ::windows::runtime::IUnknown {
     fn from(value: CustomDevice) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&CustomDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&CustomDevice> for ::windows::runtime::IUnknown {
     fn from(value: &CustomDevice) -> Self {
         value.0 .0.clone()
     }
@@ -90,12 +90,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<CustomDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<CustomDevice> for ::windows::runtime::IInspectable {
     fn from(value: CustomDevice) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&CustomDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&CustomDevice> for ::windows::runtime::IInspectable {
     fn from(value: &CustomDevice) -> Self {
         value.0.clone()
     }
@@ -110,13 +110,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for CustomDevice {}
-unsafe impl ::std::marker::Sync for CustomDevice {}
+unsafe impl ::core::marker::Send for CustomDevice {}
+unsafe impl ::core::marker::Sync for CustomDevice {}
 #[repr(C)]
-#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct CustomDeviceContract(pub u8);
 #[doc = "*Required features: `Devices_Custom`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeviceAccessMode(pub i32);
 impl DeviceAccessMode {
@@ -124,7 +124,7 @@ impl DeviceAccessMode {
     pub const Write: DeviceAccessMode = DeviceAccessMode(1i32);
     pub const ReadWrite: DeviceAccessMode = DeviceAccessMode(2i32);
 }
-impl ::std::convert::From<i32> for DeviceAccessMode {
+impl ::core::convert::From<i32> for DeviceAccessMode {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -139,14 +139,14 @@ impl ::windows::runtime::DefaultType for DeviceAccessMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Custom`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeviceSharingMode(pub i32);
 impl DeviceSharingMode {
     pub const Shared: DeviceSharingMode = DeviceSharingMode(0i32);
     pub const Exclusive: DeviceSharingMode = DeviceSharingMode(1i32);
 }
-impl ::std::convert::From<i32> for DeviceSharingMode {
+impl ::core::convert::From<i32> for DeviceSharingMode {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -201,12 +201,12 @@ pub struct ICustomDeviceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, classguid: ::windows::runtime::GUID, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, classguid: ::windows::runtime::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Custom`*"]
 pub struct IIOControlCode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIOControlCode {
@@ -218,52 +218,52 @@ impl IIOControlCode {
     pub fn AccessMode(&self) -> ::windows::runtime::Result<IOControlAccessMode> {
         let this = self;
         unsafe {
-            let mut result__: IOControlAccessMode = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IOControlAccessMode>(result__)
+            let mut result__: IOControlAccessMode = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IOControlAccessMode>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Custom`*"]
     pub fn BufferingMethod(&self) -> ::windows::runtime::Result<IOControlBufferingMethod> {
         let this = self;
         unsafe {
-            let mut result__: IOControlBufferingMethod = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IOControlBufferingMethod>(result__)
+            let mut result__: IOControlBufferingMethod = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IOControlBufferingMethod>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Custom`*"]
     pub fn Function(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Custom`*"]
     pub fn DeviceType(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Custom`*"]
     pub fn ControlCode(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IIOControlCode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{0e9559e7-60c8-4375-a761-7f8808066c60}");
 }
-impl ::std::convert::From<IIOControlCode> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IIOControlCode> for ::windows::runtime::IUnknown {
     fn from(value: IIOControlCode) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IIOControlCode> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IIOControlCode> for ::windows::runtime::IUnknown {
     fn from(value: &IIOControlCode) -> Self {
         value.0 .0.clone()
     }
@@ -278,12 +278,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IIOControlCode> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IIOControlCode> for ::windows::runtime::IInspectable {
     fn from(value: IIOControlCode) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IIOControlCode> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IIOControlCode> for ::windows::runtime::IInspectable {
     fn from(value: &IIOControlCode) -> Self {
         value.0.clone()
     }
@@ -350,7 +350,7 @@ pub struct IKnownDeviceTypesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Devices_Custom`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IOControlAccessMode(pub i32);
 impl IOControlAccessMode {
@@ -359,7 +359,7 @@ impl IOControlAccessMode {
     pub const Write: IOControlAccessMode = IOControlAccessMode(2i32);
     pub const ReadWrite: IOControlAccessMode = IOControlAccessMode(3i32);
 }
-impl ::std::convert::From<i32> for IOControlAccessMode {
+impl ::core::convert::From<i32> for IOControlAccessMode {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -374,7 +374,7 @@ impl ::windows::runtime::DefaultType for IOControlAccessMode {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Custom`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IOControlBufferingMethod(pub i32);
 impl IOControlBufferingMethod {
@@ -383,7 +383,7 @@ impl IOControlBufferingMethod {
     pub const DirectOutput: IOControlBufferingMethod = IOControlBufferingMethod(2i32);
     pub const Neither: IOControlBufferingMethod = IOControlBufferingMethod(3i32);
 }
-impl ::std::convert::From<i32> for IOControlBufferingMethod {
+impl ::core::convert::From<i32> for IOControlBufferingMethod {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -399,54 +399,54 @@ impl ::windows::runtime::DefaultType for IOControlBufferingMethod {
 }
 #[doc = "*Required features: `Devices_Custom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IOControlCode(pub ::windows::runtime::IInspectable);
 impl IOControlCode {
     #[doc = "*Required features: `Devices_Custom`*"]
     pub fn AccessMode(&self) -> ::windows::runtime::Result<IOControlAccessMode> {
         let this = self;
         unsafe {
-            let mut result__: IOControlAccessMode = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IOControlAccessMode>(result__)
+            let mut result__: IOControlAccessMode = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IOControlAccessMode>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Custom`*"]
     pub fn BufferingMethod(&self) -> ::windows::runtime::Result<IOControlBufferingMethod> {
         let this = self;
         unsafe {
-            let mut result__: IOControlBufferingMethod = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IOControlBufferingMethod>(result__)
+            let mut result__: IOControlBufferingMethod = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IOControlBufferingMethod>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Custom`*"]
     pub fn Function(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Custom`*"]
     pub fn DeviceType(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Custom`*"]
     pub fn ControlCode(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Custom`*"]
     pub fn CreateIOControlCode(devicetype: u16, function: u16, accessmode: IOControlAccessMode, bufferingmethod: IOControlBufferingMethod) -> ::windows::runtime::Result<IOControlCode> {
         Self::IIOControlCodeFactory(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), devicetype, function, accessmode, bufferingmethod, &mut result__).from_abi::<IOControlCode>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), devicetype, function, accessmode, bufferingmethod, &mut result__).from_abi::<IOControlCode>(result__)
         })
     }
     pub fn IIOControlCodeFactory<R, F: FnOnce(&IIOControlCodeFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -464,12 +464,12 @@ unsafe impl ::windows::runtime::Interface for IOControlCode {
 impl ::windows::runtime::RuntimeName for IOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IOControlCode";
 }
-impl ::std::convert::From<IOControlCode> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IOControlCode> for ::windows::runtime::IUnknown {
     fn from(value: IOControlCode) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IOControlCode> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IOControlCode> for ::windows::runtime::IUnknown {
     fn from(value: &IOControlCode) -> Self {
         value.0 .0.clone()
     }
@@ -484,12 +484,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IOControlCode> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IOControlCode> for ::windows::runtime::IInspectable {
     fn from(value: IOControlCode) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IOControlCode> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IOControlCode> for ::windows::runtime::IInspectable {
     fn from(value: &IOControlCode) -> Self {
         value.0.clone()
     }
@@ -504,36 +504,36 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<IOControlCode> for IIOControlCode {
+impl ::core::convert::From<IOControlCode> for IIOControlCode {
     fn from(value: IOControlCode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&IOControlCode> for IIOControlCode {
+impl ::core::convert::From<&IOControlCode> for IIOControlCode {
     fn from(value: &IOControlCode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IIOControlCode> for IOControlCode {
     fn into_param(self) -> ::windows::runtime::Param<'a, IIOControlCode> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IIOControlCode> for &IOControlCode {
     fn into_param(self) -> ::windows::runtime::Param<'a, IIOControlCode> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-unsafe impl ::std::marker::Send for IOControlCode {}
-unsafe impl ::std::marker::Sync for IOControlCode {}
+unsafe impl ::core::marker::Send for IOControlCode {}
+unsafe impl ::core::marker::Sync for IOControlCode {}
 #[doc = "*Required features: `Devices_Custom`*"]
 pub struct KnownDeviceTypes {}
 impl KnownDeviceTypes {
     #[doc = "*Required features: `Devices_Custom`*"]
     pub fn Unknown() -> ::windows::runtime::Result<u16> {
         Self::IKnownDeviceTypesStatics(|this| unsafe {
-            let mut result__: u16 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__: u16 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
     pub fn IKnownDeviceTypesStatics<R, F: FnOnce(&IKnownDeviceTypesStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {

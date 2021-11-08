@@ -1,5 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub struct ACTION_HEADER {
@@ -8,26 +8,26 @@ pub struct ACTION_HEADER {
     pub reserved: u16,
 }
 impl ACTION_HEADER {}
-impl ::std::default::Default for ACTION_HEADER {
+impl ::core::default::Default for ACTION_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACTION_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACTION_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACTION_HEADER").field("transport_id", &self.transport_id).field("action_code", &self.action_code).field("reserved", &self.reserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACTION_HEADER {
+impl ::core::cmp::PartialEq for ACTION_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.transport_id == other.transport_id && self.action_code == other.action_code && self.reserved == other.reserved
     }
 }
-impl ::std::cmp::Eq for ACTION_HEADER {}
+impl ::core::cmp::Eq for ACTION_HEADER {}
 unsafe impl ::windows::runtime::Abi for ACTION_HEADER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub struct ADAPTER_STATUS {
@@ -60,13 +60,13 @@ pub struct ADAPTER_STATUS {
     pub name_count: u16,
 }
 impl ADAPTER_STATUS {}
-impl ::std::default::Default for ADAPTER_STATUS {
+impl ::core::default::Default for ADAPTER_STATUS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ADAPTER_STATUS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ADAPTER_STATUS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ADAPTER_STATUS")
             .field("adapter_address", &self.adapter_address)
             .field("rev_major", &self.rev_major)
@@ -98,7 +98,7 @@ impl ::std::fmt::Debug for ADAPTER_STATUS {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for ADAPTER_STATUS {
+impl ::core::cmp::PartialEq for ADAPTER_STATUS {
     fn eq(&self, other: &Self) -> bool {
         self.adapter_address == other.adapter_address
             && self.rev_major == other.rev_major
@@ -129,7 +129,7 @@ impl ::std::cmp::PartialEq for ADAPTER_STATUS {
             && self.name_count == other.name_count
     }
 }
-impl ::std::cmp::Eq for ADAPTER_STATUS {}
+impl ::core::cmp::Eq for ADAPTER_STATUS {}
 unsafe impl ::windows::runtime::Abi for ADAPTER_STATUS {
     type Abi = Self;
 }
@@ -143,7 +143,7 @@ pub const DEREGISTERED: u32 = 5u32;
 pub const DUPLICATE: u32 = 6u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const DUPLICATE_DEREG: u32 = 7u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub struct FIND_NAME_BUFFER {
@@ -155,26 +155,26 @@ pub struct FIND_NAME_BUFFER {
     pub routing_info: [u8; 18],
 }
 impl FIND_NAME_BUFFER {}
-impl ::std::default::Default for FIND_NAME_BUFFER {
+impl ::core::default::Default for FIND_NAME_BUFFER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FIND_NAME_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FIND_NAME_BUFFER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FIND_NAME_BUFFER").field("length", &self.length).field("access_control", &self.access_control).field("frame_control", &self.frame_control).field("destination_addr", &self.destination_addr).field("source_addr", &self.source_addr).field("routing_info", &self.routing_info).finish()
     }
 }
-impl ::std::cmp::PartialEq for FIND_NAME_BUFFER {
+impl ::core::cmp::PartialEq for FIND_NAME_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.length == other.length && self.access_control == other.access_control && self.frame_control == other.frame_control && self.destination_addr == other.destination_addr && self.source_addr == other.source_addr && self.routing_info == other.routing_info
     }
 }
-impl ::std::cmp::Eq for FIND_NAME_BUFFER {}
+impl ::core::cmp::Eq for FIND_NAME_BUFFER {}
 unsafe impl ::windows::runtime::Abi for FIND_NAME_BUFFER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub struct FIND_NAME_HEADER {
@@ -183,22 +183,22 @@ pub struct FIND_NAME_HEADER {
     pub unique_group: u8,
 }
 impl FIND_NAME_HEADER {}
-impl ::std::default::Default for FIND_NAME_HEADER {
+impl ::core::default::Default for FIND_NAME_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FIND_NAME_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FIND_NAME_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FIND_NAME_HEADER").field("node_count", &self.node_count).field("reserved", &self.reserved).field("unique_group", &self.unique_group).finish()
     }
 }
-impl ::std::cmp::PartialEq for FIND_NAME_HEADER {
+impl ::core::cmp::PartialEq for FIND_NAME_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.node_count == other.node_count && self.reserved == other.reserved && self.unique_group == other.unique_group
     }
 }
-impl ::std::cmp::Eq for FIND_NAME_HEADER {}
+impl ::core::cmp::Eq for FIND_NAME_HEADER {}
 unsafe impl ::windows::runtime::Abi for FIND_NAME_HEADER {
     type Abi = Self;
 }
@@ -208,7 +208,7 @@ pub const GROUP_NAME: u32 = 128u32;
 pub const HANGUP_COMPLETE: u32 = 5u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const HANGUP_PENDING: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub struct LANA_ENUM {
@@ -216,22 +216,22 @@ pub struct LANA_ENUM {
     pub lana: [u8; 255],
 }
 impl LANA_ENUM {}
-impl ::std::default::Default for LANA_ENUM {
+impl ::core::default::Default for LANA_ENUM {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for LANA_ENUM {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LANA_ENUM {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LANA_ENUM").field("length", &self.length).field("lana", &self.lana).finish()
     }
 }
-impl ::std::cmp::PartialEq for LANA_ENUM {
+impl ::core::cmp::PartialEq for LANA_ENUM {
     fn eq(&self, other: &Self) -> bool {
         self.length == other.length && self.lana == other.lana
     }
 }
-impl ::std::cmp::Eq for LANA_ENUM {}
+impl ::core::cmp::Eq for LANA_ENUM {}
 unsafe impl ::windows::runtime::Abi for LANA_ENUM {
     type Abi = Self;
 }
@@ -239,7 +239,7 @@ unsafe impl ::windows::runtime::Abi for LANA_ENUM {
 pub const LISTEN_OUTSTANDING: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const MAX_LANA: u32 = 254u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub struct NAME_BUFFER {
@@ -248,28 +248,28 @@ pub struct NAME_BUFFER {
     pub name_flags: u8,
 }
 impl NAME_BUFFER {}
-impl ::std::default::Default for NAME_BUFFER {
+impl ::core::default::Default for NAME_BUFFER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NAME_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NAME_BUFFER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NAME_BUFFER").field("name", &self.name).field("name_num", &self.name_num).field("name_flags", &self.name_flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for NAME_BUFFER {
+impl ::core::cmp::PartialEq for NAME_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.name == other.name && self.name_num == other.name_num && self.name_flags == other.name_flags
     }
 }
-impl ::std::cmp::Eq for NAME_BUFFER {}
+impl ::core::cmp::Eq for NAME_BUFFER {}
 unsafe impl ::windows::runtime::Abi for NAME_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const NAME_FLAGS_MASK: u32 = 135u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -296,15 +296,15 @@ pub struct NCB {
 impl NCB {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NCB {
+impl ::core::default::Default for NCB {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NCB {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NCB {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NCB")
             .field("ncb_command", &self.ncb_command)
             .field("ncb_retcode", &self.ncb_retcode)
@@ -326,7 +326,7 @@ impl ::std::fmt::Debug for NCB {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NCB {
+impl ::core::cmp::PartialEq for NCB {
     fn eq(&self, other: &Self) -> bool {
         self.ncb_command == other.ncb_command
             && self.ncb_retcode == other.ncb_retcode
@@ -347,13 +347,13 @@ impl ::std::cmp::PartialEq for NCB {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NCB {}
+impl ::core::cmp::Eq for NCB {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NCB {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -380,15 +380,15 @@ pub struct NCB {
 impl NCB {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NCB {
+impl ::core::default::Default for NCB {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NCB {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NCB {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NCB")
             .field("ncb_command", &self.ncb_command)
             .field("ncb_retcode", &self.ncb_retcode)
@@ -410,7 +410,7 @@ impl ::std::fmt::Debug for NCB {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NCB {
+impl ::core::cmp::PartialEq for NCB {
     fn eq(&self, other: &Self) -> bool {
         self.ncb_command == other.ncb_command
             && self.ncb_retcode == other.ncb_retcode
@@ -431,7 +431,7 @@ impl ::std::cmp::PartialEq for NCB {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NCB {}
+impl ::core::cmp::Eq for NCB {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NCB {
@@ -579,7 +579,7 @@ pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
         extern "system" {
             fn Netbios(pncb: *mut NCB) -> u8;
         }
-        ::std::mem::transmute(Netbios(::std::mem::transmute(pncb)))
+        ::core::mem::transmute(Netbios(::core::mem::transmute(pncb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -590,7 +590,7 @@ pub const REGISTERED: u32 = 4u32;
 pub const REGISTERING: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const SESSION_ABORTED: u32 = 6u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub struct SESSION_BUFFER {
@@ -602,28 +602,28 @@ pub struct SESSION_BUFFER {
     pub sends_outstanding: u8,
 }
 impl SESSION_BUFFER {}
-impl ::std::default::Default for SESSION_BUFFER {
+impl ::core::default::Default for SESSION_BUFFER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SESSION_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SESSION_BUFFER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SESSION_BUFFER").field("lsn", &self.lsn).field("state", &self.state).field("local_name", &self.local_name).field("remote_name", &self.remote_name).field("rcvs_outstanding", &self.rcvs_outstanding).field("sends_outstanding", &self.sends_outstanding).finish()
     }
 }
-impl ::std::cmp::PartialEq for SESSION_BUFFER {
+impl ::core::cmp::PartialEq for SESSION_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.lsn == other.lsn && self.state == other.state && self.local_name == other.local_name && self.remote_name == other.remote_name && self.rcvs_outstanding == other.rcvs_outstanding && self.sends_outstanding == other.sends_outstanding
     }
 }
-impl ::std::cmp::Eq for SESSION_BUFFER {}
+impl ::core::cmp::Eq for SESSION_BUFFER {}
 unsafe impl ::windows::runtime::Abi for SESSION_BUFFER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const SESSION_ESTABLISHED: u32 = 3u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub struct SESSION_HEADER {
@@ -633,22 +633,22 @@ pub struct SESSION_HEADER {
     pub rcv_any_outstanding: u8,
 }
 impl SESSION_HEADER {}
-impl ::std::default::Default for SESSION_HEADER {
+impl ::core::default::Default for SESSION_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SESSION_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SESSION_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SESSION_HEADER").field("sess_name", &self.sess_name).field("num_sess", &self.num_sess).field("rcv_dg_outstanding", &self.rcv_dg_outstanding).field("rcv_any_outstanding", &self.rcv_any_outstanding).finish()
     }
 }
-impl ::std::cmp::PartialEq for SESSION_HEADER {
+impl ::core::cmp::PartialEq for SESSION_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.sess_name == other.sess_name && self.num_sess == other.num_sess && self.rcv_dg_outstanding == other.rcv_dg_outstanding && self.rcv_any_outstanding == other.rcv_any_outstanding
     }
 }
-impl ::std::cmp::Eq for SESSION_HEADER {}
+impl ::core::cmp::Eq for SESSION_HEADER {}
 unsafe impl ::windows::runtime::Abi for SESSION_HEADER {
     type Abi = Self;
 }

@@ -57,7 +57,7 @@ pub const ACCESS_FAIL_SHIFT: u32 = 4u32;
 pub const ACCESS_FAIL_WRITE: u32 = 512u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const ACCESS_GROUP: u32 = 32768u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -67,30 +67,30 @@ pub struct ACCESS_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ACCESS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ACCESS_INFO_0 {
+impl ::core::default::Default for ACCESS_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for ACCESS_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACCESS_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACCESS_INFO_0").field("acc0_resource_name", &self.acc0_resource_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ACCESS_INFO_0 {
+impl ::core::cmp::PartialEq for ACCESS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.acc0_resource_name == other.acc0_resource_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ACCESS_INFO_0 {}
+impl ::core::cmp::Eq for ACCESS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACCESS_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -102,56 +102,56 @@ pub struct ACCESS_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ACCESS_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ACCESS_INFO_1 {
+impl ::core::default::Default for ACCESS_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for ACCESS_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACCESS_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACCESS_INFO_1").field("acc1_resource_name", &self.acc1_resource_name).field("acc1_attr", &self.acc1_attr).field("acc1_count", &self.acc1_count).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ACCESS_INFO_1 {
+impl ::core::cmp::PartialEq for ACCESS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.acc1_resource_name == other.acc1_resource_name && self.acc1_attr == other.acc1_attr && self.acc1_count == other.acc1_count
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ACCESS_INFO_1 {}
+impl ::core::cmp::Eq for ACCESS_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACCESS_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct ACCESS_INFO_1002 {
     pub acc1002_attr: u32,
 }
 impl ACCESS_INFO_1002 {}
-impl ::std::default::Default for ACCESS_INFO_1002 {
+impl ::core::default::Default for ACCESS_INFO_1002 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ACCESS_INFO_1002 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACCESS_INFO_1002 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACCESS_INFO_1002").field("acc1002_attr", &self.acc1002_attr).finish()
     }
 }
-impl ::std::cmp::PartialEq for ACCESS_INFO_1002 {
+impl ::core::cmp::PartialEq for ACCESS_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
         self.acc1002_attr == other.acc1002_attr
     }
 }
-impl ::std::cmp::Eq for ACCESS_INFO_1002 {}
+impl ::core::cmp::Eq for ACCESS_INFO_1002 {}
 unsafe impl ::windows::runtime::Abi for ACCESS_INFO_1002 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -162,25 +162,25 @@ pub struct ACCESS_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ACCESS_LIST {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ACCESS_LIST {
+impl ::core::default::Default for ACCESS_LIST {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for ACCESS_LIST {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ACCESS_LIST {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ACCESS_LIST").field("acl_ugname", &self.acl_ugname).field("acl_access", &self.acl_access).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ACCESS_LIST {
+impl ::core::cmp::PartialEq for ACCESS_LIST {
     fn eq(&self, other: &Self) -> bool {
         self.acl_ugname == other.acl_ugname && self.acl_access == other.acl_access
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ACCESS_LIST {}
+impl ::core::cmp::Eq for ACCESS_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACCESS_LIST {
     type Abi = Self;
@@ -203,7 +203,7 @@ pub const ACCESS_SUCCESS_WRITE: u32 = 32u32;
 pub const ACTION_ADMINUNLOCK: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const ACTION_LOCKOUT: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct ADMIN_OTHER_INFO {
@@ -211,26 +211,26 @@ pub struct ADMIN_OTHER_INFO {
     pub alrtad_numstrings: u32,
 }
 impl ADMIN_OTHER_INFO {}
-impl ::std::default::Default for ADMIN_OTHER_INFO {
+impl ::core::default::Default for ADMIN_OTHER_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ADMIN_OTHER_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ADMIN_OTHER_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ADMIN_OTHER_INFO").field("alrtad_errcode", &self.alrtad_errcode).field("alrtad_numstrings", &self.alrtad_numstrings).finish()
     }
 }
-impl ::std::cmp::PartialEq for ADMIN_OTHER_INFO {
+impl ::core::cmp::PartialEq for ADMIN_OTHER_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.alrtad_errcode == other.alrtad_errcode && self.alrtad_numstrings == other.alrtad_numstrings
     }
 }
-impl ::std::cmp::Eq for ADMIN_OTHER_INFO {}
+impl ::core::cmp::Eq for ADMIN_OTHER_INFO {}
 unsafe impl ::windows::runtime::Abi for ADMIN_OTHER_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_ACCLIM {
@@ -240,22 +240,22 @@ pub struct AE_ACCLIM {
     pub ae_al_limit: u32,
 }
 impl AE_ACCLIM {}
-impl ::std::default::Default for AE_ACCLIM {
+impl ::core::default::Default for AE_ACCLIM {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_ACCLIM {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_ACCLIM {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_ACCLIM").field("ae_al_compname", &self.ae_al_compname).field("ae_al_username", &self.ae_al_username).field("ae_al_resname", &self.ae_al_resname).field("ae_al_limit", &self.ae_al_limit).finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_ACCLIM {
+impl ::core::cmp::PartialEq for AE_ACCLIM {
     fn eq(&self, other: &Self) -> bool {
         self.ae_al_compname == other.ae_al_compname && self.ae_al_username == other.ae_al_username && self.ae_al_resname == other.ae_al_resname && self.ae_al_limit == other.ae_al_limit
     }
 }
-impl ::std::cmp::Eq for AE_ACCLIM {}
+impl ::core::cmp::Eq for AE_ACCLIM {}
 unsafe impl ::windows::runtime::Abi for AE_ACCLIM {
     type Abi = Self;
 }
@@ -265,7 +265,7 @@ pub const AE_ACCLIMITEXCD: u32 = 17u32;
 pub const AE_ACCRESTRICT: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_ACLMOD: u32 = 12u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_ACLMOD {
@@ -276,22 +276,22 @@ pub struct AE_ACLMOD {
     pub ae_am_datalen: u32,
 }
 impl AE_ACLMOD {}
-impl ::std::default::Default for AE_ACLMOD {
+impl ::core::default::Default for AE_ACLMOD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_ACLMOD {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_ACLMOD {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_ACLMOD").field("ae_am_compname", &self.ae_am_compname).field("ae_am_username", &self.ae_am_username).field("ae_am_resname", &self.ae_am_resname).field("ae_am_action", &self.ae_am_action).field("ae_am_datalen", &self.ae_am_datalen).finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_ACLMOD {
+impl ::core::cmp::PartialEq for AE_ACLMOD {
     fn eq(&self, other: &Self) -> bool {
         self.ae_am_compname == other.ae_am_compname && self.ae_am_username == other.ae_am_username && self.ae_am_resname == other.ae_am_resname && self.ae_am_action == other.ae_am_action && self.ae_am_datalen == other.ae_am_datalen
     }
 }
-impl ::std::cmp::Eq for AE_ACLMOD {}
+impl ::core::cmp::Eq for AE_ACLMOD {}
 unsafe impl ::windows::runtime::Abi for AE_ACLMOD {
     type Abi = Self;
 }
@@ -313,7 +313,7 @@ pub const AE_AUTODIS: u32 = 2u32;
 pub const AE_BADPW: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_CLOSEFILE: u32 = 9u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_CLOSEFILE {
@@ -325,13 +325,13 @@ pub struct AE_CLOSEFILE {
     pub ae_cf_reason: u32,
 }
 impl AE_CLOSEFILE {}
-impl ::std::default::Default for AE_CLOSEFILE {
+impl ::core::default::Default for AE_CLOSEFILE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_CLOSEFILE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_CLOSEFILE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_CLOSEFILE")
             .field("ae_cf_compname", &self.ae_cf_compname)
             .field("ae_cf_username", &self.ae_cf_username)
@@ -342,18 +342,18 @@ impl ::std::fmt::Debug for AE_CLOSEFILE {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_CLOSEFILE {
+impl ::core::cmp::PartialEq for AE_CLOSEFILE {
     fn eq(&self, other: &Self) -> bool {
         self.ae_cf_compname == other.ae_cf_compname && self.ae_cf_username == other.ae_cf_username && self.ae_cf_resname == other.ae_cf_resname && self.ae_cf_fileid == other.ae_cf_fileid && self.ae_cf_duration == other.ae_cf_duration && self.ae_cf_reason == other.ae_cf_reason
     }
 }
-impl ::std::cmp::Eq for AE_CLOSEFILE {}
+impl ::core::cmp::Eq for AE_CLOSEFILE {}
 unsafe impl ::windows::runtime::Abi for AE_CLOSEFILE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_CONNREJ: u32 = 6u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_CONNREJ {
@@ -363,28 +363,28 @@ pub struct AE_CONNREJ {
     pub ae_cr_reason: u32,
 }
 impl AE_CONNREJ {}
-impl ::std::default::Default for AE_CONNREJ {
+impl ::core::default::Default for AE_CONNREJ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_CONNREJ {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_CONNREJ {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_CONNREJ").field("ae_cr_compname", &self.ae_cr_compname).field("ae_cr_username", &self.ae_cr_username).field("ae_cr_netname", &self.ae_cr_netname).field("ae_cr_reason", &self.ae_cr_reason).finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_CONNREJ {
+impl ::core::cmp::PartialEq for AE_CONNREJ {
     fn eq(&self, other: &Self) -> bool {
         self.ae_cr_compname == other.ae_cr_compname && self.ae_cr_username == other.ae_cr_username && self.ae_cr_netname == other.ae_cr_netname && self.ae_cr_reason == other.ae_cr_reason
     }
 }
-impl ::std::cmp::Eq for AE_CONNREJ {}
+impl ::core::cmp::Eq for AE_CONNREJ {}
 unsafe impl ::windows::runtime::Abi for AE_CONNREJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_CONNSTART: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_CONNSTART {
@@ -394,28 +394,28 @@ pub struct AE_CONNSTART {
     pub ae_ct_connid: u32,
 }
 impl AE_CONNSTART {}
-impl ::std::default::Default for AE_CONNSTART {
+impl ::core::default::Default for AE_CONNSTART {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_CONNSTART {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_CONNSTART {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_CONNSTART").field("ae_ct_compname", &self.ae_ct_compname).field("ae_ct_username", &self.ae_ct_username).field("ae_ct_netname", &self.ae_ct_netname).field("ae_ct_connid", &self.ae_ct_connid).finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_CONNSTART {
+impl ::core::cmp::PartialEq for AE_CONNSTART {
     fn eq(&self, other: &Self) -> bool {
         self.ae_ct_compname == other.ae_ct_compname && self.ae_ct_username == other.ae_ct_username && self.ae_ct_netname == other.ae_ct_netname && self.ae_ct_connid == other.ae_ct_connid
     }
 }
-impl ::std::cmp::Eq for AE_CONNSTART {}
+impl ::core::cmp::Eq for AE_CONNSTART {}
 unsafe impl ::windows::runtime::Abi for AE_CONNSTART {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_CONNSTOP: u32 = 5u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_CONNSTOP {
@@ -426,22 +426,22 @@ pub struct AE_CONNSTOP {
     pub ae_cp_reason: u32,
 }
 impl AE_CONNSTOP {}
-impl ::std::default::Default for AE_CONNSTOP {
+impl ::core::default::Default for AE_CONNSTOP {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_CONNSTOP {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_CONNSTOP {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_CONNSTOP").field("ae_cp_compname", &self.ae_cp_compname).field("ae_cp_username", &self.ae_cp_username).field("ae_cp_netname", &self.ae_cp_netname).field("ae_cp_connid", &self.ae_cp_connid).field("ae_cp_reason", &self.ae_cp_reason).finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_CONNSTOP {
+impl ::core::cmp::PartialEq for AE_CONNSTOP {
     fn eq(&self, other: &Self) -> bool {
         self.ae_cp_compname == other.ae_cp_compname && self.ae_cp_username == other.ae_cp_username && self.ae_cp_netname == other.ae_cp_netname && self.ae_cp_connid == other.ae_cp_connid && self.ae_cp_reason == other.ae_cp_reason
     }
 }
-impl ::std::cmp::Eq for AE_CONNSTOP {}
+impl ::core::cmp::Eq for AE_CONNSTOP {}
 unsafe impl ::windows::runtime::Abi for AE_CONNSTOP {
     type Abi = Self;
 }
@@ -451,7 +451,7 @@ pub const AE_DELETE: u32 = 1u32;
 pub const AE_ERROR: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_GENERAL: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_GENERIC {
@@ -469,13 +469,13 @@ pub struct AE_GENERIC {
     pub ae_ge_param9: u32,
 }
 impl AE_GENERIC {}
-impl ::std::default::Default for AE_GENERIC {
+impl ::core::default::Default for AE_GENERIC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_GENERIC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_GENERIC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_GENERIC")
             .field("ae_ge_msgfile", &self.ae_ge_msgfile)
             .field("ae_ge_msgnum", &self.ae_ge_msgnum)
@@ -492,7 +492,7 @@ impl ::std::fmt::Debug for AE_GENERIC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_GENERIC {
+impl ::core::cmp::PartialEq for AE_GENERIC {
     fn eq(&self, other: &Self) -> bool {
         self.ae_ge_msgfile == other.ae_ge_msgfile
             && self.ae_ge_msgnum == other.ae_ge_msgnum
@@ -508,7 +508,7 @@ impl ::std::cmp::PartialEq for AE_GENERIC {
             && self.ae_ge_param9 == other.ae_ge_param9
     }
 }
-impl ::std::cmp::Eq for AE_GENERIC {}
+impl ::core::cmp::Eq for AE_GENERIC {}
 unsafe impl ::windows::runtime::Abi for AE_GENERIC {
     type Abi = Self;
 }
@@ -530,7 +530,7 @@ pub const AE_LIM_LOGONHOURS: u32 = 1u32;
 pub const AE_LIM_UNKNOWN: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_LOCKOUT: u32 = 20u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_LOCKOUT {
@@ -540,22 +540,22 @@ pub struct AE_LOCKOUT {
     pub ae_lk_bad_pw_count: u32,
 }
 impl AE_LOCKOUT {}
-impl ::std::default::Default for AE_LOCKOUT {
+impl ::core::default::Default for AE_LOCKOUT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_LOCKOUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_LOCKOUT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_LOCKOUT").field("ae_lk_compname", &self.ae_lk_compname).field("ae_lk_username", &self.ae_lk_username).field("ae_lk_action", &self.ae_lk_action).field("ae_lk_bad_pw_count", &self.ae_lk_bad_pw_count).finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_LOCKOUT {
+impl ::core::cmp::PartialEq for AE_LOCKOUT {
     fn eq(&self, other: &Self) -> bool {
         self.ae_lk_compname == other.ae_lk_compname && self.ae_lk_username == other.ae_lk_username && self.ae_lk_action == other.ae_lk_action && self.ae_lk_bad_pw_count == other.ae_lk_bad_pw_count
     }
 }
-impl ::std::cmp::Eq for AE_LOCKOUT {}
+impl ::core::cmp::Eq for AE_LOCKOUT {}
 unsafe impl ::windows::runtime::Abi for AE_LOCKOUT {
     type Abi = Self;
 }
@@ -565,7 +565,7 @@ pub const AE_MOD: u32 = 0u32;
 pub const AE_NETLOGDENIED: u32 = 16u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_NETLOGOFF: u32 = 15u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_NETLOGOFF {
@@ -575,28 +575,28 @@ pub struct AE_NETLOGOFF {
     pub ae_nf_reserved2: u32,
 }
 impl AE_NETLOGOFF {}
-impl ::std::default::Default for AE_NETLOGOFF {
+impl ::core::default::Default for AE_NETLOGOFF {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_NETLOGOFF {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_NETLOGOFF {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_NETLOGOFF").field("ae_nf_compname", &self.ae_nf_compname).field("ae_nf_username", &self.ae_nf_username).field("ae_nf_reserved1", &self.ae_nf_reserved1).field("ae_nf_reserved2", &self.ae_nf_reserved2).finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_NETLOGOFF {
+impl ::core::cmp::PartialEq for AE_NETLOGOFF {
     fn eq(&self, other: &Self) -> bool {
         self.ae_nf_compname == other.ae_nf_compname && self.ae_nf_username == other.ae_nf_username && self.ae_nf_reserved1 == other.ae_nf_reserved1 && self.ae_nf_reserved2 == other.ae_nf_reserved2
     }
 }
-impl ::std::cmp::Eq for AE_NETLOGOFF {}
+impl ::core::cmp::Eq for AE_NETLOGOFF {}
 unsafe impl ::windows::runtime::Abi for AE_NETLOGOFF {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_NETLOGON: u32 = 14u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_NETLOGON {
@@ -606,22 +606,22 @@ pub struct AE_NETLOGON {
     pub ae_no_authflags: u32,
 }
 impl AE_NETLOGON {}
-impl ::std::default::Default for AE_NETLOGON {
+impl ::core::default::Default for AE_NETLOGON {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_NETLOGON {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_NETLOGON {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_NETLOGON").field("ae_no_compname", &self.ae_no_compname).field("ae_no_username", &self.ae_no_username).field("ae_no_privilege", &self.ae_no_privilege).field("ae_no_authflags", &self.ae_no_authflags).finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_NETLOGON {
+impl ::core::cmp::PartialEq for AE_NETLOGON {
     fn eq(&self, other: &Self) -> bool {
         self.ae_no_compname == other.ae_no_compname && self.ae_no_username == other.ae_no_username && self.ae_no_privilege == other.ae_no_privilege && self.ae_no_authflags == other.ae_no_authflags
     }
 }
-impl ::std::cmp::Eq for AE_NETLOGON {}
+impl ::core::cmp::Eq for AE_NETLOGON {}
 unsafe impl ::windows::runtime::Abi for AE_NETLOGON {
     type Abi = Self;
 }
@@ -633,7 +633,7 @@ pub const AE_NORMAL: u32 = 0u32;
 pub const AE_NORMAL_CLOSE: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_RESACCESS: u32 = 7u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_RESACCESS {
@@ -646,13 +646,13 @@ pub struct AE_RESACCESS {
     pub ae_ra_fileid: u32,
 }
 impl AE_RESACCESS {}
-impl ::std::default::Default for AE_RESACCESS {
+impl ::core::default::Default for AE_RESACCESS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_RESACCESS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_RESACCESS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_RESACCESS")
             .field("ae_ra_compname", &self.ae_ra_compname)
             .field("ae_ra_username", &self.ae_ra_username)
@@ -664,12 +664,12 @@ impl ::std::fmt::Debug for AE_RESACCESS {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_RESACCESS {
+impl ::core::cmp::PartialEq for AE_RESACCESS {
     fn eq(&self, other: &Self) -> bool {
         self.ae_ra_compname == other.ae_ra_compname && self.ae_ra_username == other.ae_ra_username && self.ae_ra_resname == other.ae_ra_resname && self.ae_ra_operation == other.ae_ra_operation && self.ae_ra_returncode == other.ae_ra_returncode && self.ae_ra_restype == other.ae_ra_restype && self.ae_ra_fileid == other.ae_ra_fileid
     }
 }
-impl ::std::cmp::Eq for AE_RESACCESS {}
+impl ::core::cmp::Eq for AE_RESACCESS {}
 unsafe impl ::windows::runtime::Abi for AE_RESACCESS {
     type Abi = Self;
 }
@@ -677,7 +677,7 @@ unsafe impl ::windows::runtime::Abi for AE_RESACCESS {
 pub const AE_RESACCESS2: u32 = 18u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_RESACCESSREJ: u32 = 8u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_RESACCESSREJ {
@@ -687,28 +687,28 @@ pub struct AE_RESACCESSREJ {
     pub ae_rr_operation: u32,
 }
 impl AE_RESACCESSREJ {}
-impl ::std::default::Default for AE_RESACCESSREJ {
+impl ::core::default::Default for AE_RESACCESSREJ {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_RESACCESSREJ {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_RESACCESSREJ {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_RESACCESSREJ").field("ae_rr_compname", &self.ae_rr_compname).field("ae_rr_username", &self.ae_rr_username).field("ae_rr_resname", &self.ae_rr_resname).field("ae_rr_operation", &self.ae_rr_operation).finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_RESACCESSREJ {
+impl ::core::cmp::PartialEq for AE_RESACCESSREJ {
     fn eq(&self, other: &Self) -> bool {
         self.ae_rr_compname == other.ae_rr_compname && self.ae_rr_username == other.ae_rr_username && self.ae_rr_resname == other.ae_rr_resname && self.ae_rr_operation == other.ae_rr_operation
     }
 }
-impl ::std::cmp::Eq for AE_RESACCESSREJ {}
+impl ::core::cmp::Eq for AE_RESACCESSREJ {}
 unsafe impl ::windows::runtime::Abi for AE_RESACCESSREJ {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SERVICESTAT: u32 = 11u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_SERVICESTAT {
@@ -721,13 +721,13 @@ pub struct AE_SERVICESTAT {
     pub ae_ss_returnval: u32,
 }
 impl AE_SERVICESTAT {}
-impl ::std::default::Default for AE_SERVICESTAT {
+impl ::core::default::Default for AE_SERVICESTAT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_SERVICESTAT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_SERVICESTAT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_SERVICESTAT")
             .field("ae_ss_compname", &self.ae_ss_compname)
             .field("ae_ss_username", &self.ae_ss_username)
@@ -739,12 +739,12 @@ impl ::std::fmt::Debug for AE_SERVICESTAT {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_SERVICESTAT {
+impl ::core::cmp::PartialEq for AE_SERVICESTAT {
     fn eq(&self, other: &Self) -> bool {
         self.ae_ss_compname == other.ae_ss_compname && self.ae_ss_username == other.ae_ss_username && self.ae_ss_svcname == other.ae_ss_svcname && self.ae_ss_status == other.ae_ss_status && self.ae_ss_code == other.ae_ss_code && self.ae_ss_text == other.ae_ss_text && self.ae_ss_returnval == other.ae_ss_returnval
     }
 }
-impl ::std::cmp::Eq for AE_SERVICESTAT {}
+impl ::core::cmp::Eq for AE_SERVICESTAT {}
 unsafe impl ::windows::runtime::Abi for AE_SERVICESTAT {
     type Abi = Self;
 }
@@ -752,7 +752,7 @@ unsafe impl ::windows::runtime::Abi for AE_SERVICESTAT {
 pub const AE_SESSDIS: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SESSLOGOFF: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_SESSLOGOFF {
@@ -761,28 +761,28 @@ pub struct AE_SESSLOGOFF {
     pub ae_sf_reason: u32,
 }
 impl AE_SESSLOGOFF {}
-impl ::std::default::Default for AE_SESSLOGOFF {
+impl ::core::default::Default for AE_SESSLOGOFF {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_SESSLOGOFF {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_SESSLOGOFF {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_SESSLOGOFF").field("ae_sf_compname", &self.ae_sf_compname).field("ae_sf_username", &self.ae_sf_username).field("ae_sf_reason", &self.ae_sf_reason).finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_SESSLOGOFF {
+impl ::core::cmp::PartialEq for AE_SESSLOGOFF {
     fn eq(&self, other: &Self) -> bool {
         self.ae_sf_compname == other.ae_sf_compname && self.ae_sf_username == other.ae_sf_username && self.ae_sf_reason == other.ae_sf_reason
     }
 }
-impl ::std::cmp::Eq for AE_SESSLOGOFF {}
+impl ::core::cmp::Eq for AE_SESSLOGOFF {}
 unsafe impl ::windows::runtime::Abi for AE_SESSLOGOFF {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SESSLOGON: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_SESSLOGON {
@@ -791,28 +791,28 @@ pub struct AE_SESSLOGON {
     pub ae_so_privilege: u32,
 }
 impl AE_SESSLOGON {}
-impl ::std::default::Default for AE_SESSLOGON {
+impl ::core::default::Default for AE_SESSLOGON {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_SESSLOGON {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_SESSLOGON {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_SESSLOGON").field("ae_so_compname", &self.ae_so_compname).field("ae_so_username", &self.ae_so_username).field("ae_so_privilege", &self.ae_so_privilege).finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_SESSLOGON {
+impl ::core::cmp::PartialEq for AE_SESSLOGON {
     fn eq(&self, other: &Self) -> bool {
         self.ae_so_compname == other.ae_so_compname && self.ae_so_username == other.ae_so_username && self.ae_so_privilege == other.ae_so_privilege
     }
 }
-impl ::std::cmp::Eq for AE_SESSLOGON {}
+impl ::core::cmp::Eq for AE_SESSLOGON {}
 unsafe impl ::windows::runtime::Abi for AE_SESSLOGON {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SESSPWERR: u32 = 3u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_SESSPWERR {
@@ -820,22 +820,22 @@ pub struct AE_SESSPWERR {
     pub ae_sp_username: u32,
 }
 impl AE_SESSPWERR {}
-impl ::std::default::Default for AE_SESSPWERR {
+impl ::core::default::Default for AE_SESSPWERR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_SESSPWERR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_SESSPWERR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_SESSPWERR").field("ae_sp_compname", &self.ae_sp_compname).field("ae_sp_username", &self.ae_sp_username).finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_SESSPWERR {
+impl ::core::cmp::PartialEq for AE_SESSPWERR {
     fn eq(&self, other: &Self) -> bool {
         self.ae_sp_compname == other.ae_sp_compname && self.ae_sp_username == other.ae_sp_username
     }
 }
-impl ::std::cmp::Eq for AE_SESSPWERR {}
+impl ::core::cmp::Eq for AE_SESSPWERR {}
 unsafe impl ::windows::runtime::Abi for AE_SESSPWERR {
     type Abi = Self;
 }
@@ -849,29 +849,29 @@ pub const AE_SRVPAUSED: u32 = 1u32;
 pub const AE_SRVSTART: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SRVSTATUS: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_SRVSTATUS {
     pub ae_sv_status: u32,
 }
 impl AE_SRVSTATUS {}
-impl ::std::default::Default for AE_SRVSTATUS {
+impl ::core::default::Default for AE_SRVSTATUS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_SRVSTATUS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_SRVSTATUS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_SRVSTATUS").field("ae_sv_status", &self.ae_sv_status).finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_SRVSTATUS {
+impl ::core::cmp::PartialEq for AE_SRVSTATUS {
     fn eq(&self, other: &Self) -> bool {
         self.ae_sv_status == other.ae_sv_status
     }
 }
-impl ::std::cmp::Eq for AE_SRVSTATUS {}
+impl ::core::cmp::Eq for AE_SRVSTATUS {}
 unsafe impl ::windows::runtime::Abi for AE_SRVSTATUS {
     type Abi = Self;
 }
@@ -879,7 +879,7 @@ unsafe impl ::windows::runtime::Abi for AE_SRVSTATUS {
 pub const AE_SRVSTOP: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_UASMOD: u32 = 13u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AE_UASMOD {
@@ -891,13 +891,13 @@ pub struct AE_UASMOD {
     pub ae_um_datalen: u32,
 }
 impl AE_UASMOD {}
-impl ::std::default::Default for AE_UASMOD {
+impl ::core::default::Default for AE_UASMOD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AE_UASMOD {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AE_UASMOD {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AE_UASMOD")
             .field("ae_um_compname", &self.ae_um_compname)
             .field("ae_um_username", &self.ae_um_username)
@@ -908,12 +908,12 @@ impl ::std::fmt::Debug for AE_UASMOD {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for AE_UASMOD {
+impl ::core::cmp::PartialEq for AE_UASMOD {
     fn eq(&self, other: &Self) -> bool {
         self.ae_um_compname == other.ae_um_compname && self.ae_um_username == other.ae_um_username && self.ae_um_resname == other.ae_um_resname && self.ae_um_rectype == other.ae_um_rectype && self.ae_um_action == other.ae_um_action && self.ae_um_datalen == other.ae_um_datalen
     }
 }
-impl ::std::cmp::Eq for AE_UASMOD {}
+impl ::core::cmp::Eq for AE_UASMOD {}
 unsafe impl ::windows::runtime::Abi for AE_UASMOD {
     type Abi = Self;
 }
@@ -930,14 +930,14 @@ pub const AE_USER: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_USERLIMIT: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AF_OP(pub u32);
 pub const AF_OP_PRINT: AF_OP = AF_OP(1u32);
 pub const AF_OP_COMM: AF_OP = AF_OP(2u32);
 pub const AF_OP_SERVER: AF_OP = AF_OP(4u32);
 pub const AF_OP_ACCOUNTS: AF_OP = AF_OP(8u32);
-impl ::std::convert::From<u32> for AF_OP {
+impl ::core::convert::From<u32> for AF_OP {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -945,29 +945,29 @@ impl ::std::convert::From<u32> for AF_OP {
 unsafe impl ::windows::runtime::Abi for AF_OP {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for AF_OP {
+impl ::core::ops::BitOr for AF_OP {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for AF_OP {
+impl ::core::ops::BitAnd for AF_OP {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for AF_OP {
+impl ::core::ops::BitOrAssign for AF_OP {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for AF_OP {
+impl ::core::ops::BitAndAssign for AF_OP {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for AF_OP {
+impl ::core::ops::Not for AF_OP {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -979,7 +979,7 @@ pub const ALERTSZ: u32 = 128u32;
 pub const ALIGN_SIZE: u32 = 8u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const ALLOCATE_RESPONSE: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -994,30 +994,30 @@ pub struct AT_ENUM {
 #[cfg(feature = "Win32_Foundation")]
 impl AT_ENUM {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for AT_ENUM {
+impl ::core::default::Default for AT_ENUM {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for AT_ENUM {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AT_ENUM {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AT_ENUM").field("JobId", &self.JobId).field("JobTime", &self.JobTime).field("DaysOfMonth", &self.DaysOfMonth).field("DaysOfWeek", &self.DaysOfWeek).field("Flags", &self.Flags).field("Command", &self.Command).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for AT_ENUM {
+impl ::core::cmp::PartialEq for AT_ENUM {
     fn eq(&self, other: &Self) -> bool {
         self.JobId == other.JobId && self.JobTime == other.JobTime && self.DaysOfMonth == other.DaysOfMonth && self.DaysOfWeek == other.DaysOfWeek && self.Flags == other.Flags && self.Command == other.Command
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for AT_ENUM {}
+impl ::core::cmp::Eq for AT_ENUM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AT_ENUM {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -1031,30 +1031,30 @@ pub struct AT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl AT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for AT_INFO {
+impl ::core::default::Default for AT_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for AT_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AT_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AT_INFO").field("JobTime", &self.JobTime).field("DaysOfMonth", &self.DaysOfMonth).field("DaysOfWeek", &self.DaysOfWeek).field("Flags", &self.Flags).field("Command", &self.Command).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for AT_INFO {
+impl ::core::cmp::PartialEq for AT_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.JobTime == other.JobTime && self.DaysOfMonth == other.DaysOfMonth && self.DaysOfWeek == other.DaysOfWeek && self.Flags == other.Flags && self.Command == other.Command
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for AT_INFO {}
+impl ::core::cmp::Eq for AT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AT_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct AUDIT_ENTRY {
@@ -1066,27 +1066,27 @@ pub struct AUDIT_ENTRY {
     pub ae_data_size: u32,
 }
 impl AUDIT_ENTRY {}
-impl ::std::default::Default for AUDIT_ENTRY {
+impl ::core::default::Default for AUDIT_ENTRY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AUDIT_ENTRY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AUDIT_ENTRY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AUDIT_ENTRY").field("ae_len", &self.ae_len).field("ae_reserved", &self.ae_reserved).field("ae_time", &self.ae_time).field("ae_type", &self.ae_type).field("ae_data_offset", &self.ae_data_offset).field("ae_data_size", &self.ae_data_size).finish()
     }
 }
-impl ::std::cmp::PartialEq for AUDIT_ENTRY {
+impl ::core::cmp::PartialEq for AUDIT_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         self.ae_len == other.ae_len && self.ae_reserved == other.ae_reserved && self.ae_time == other.ae_time && self.ae_type == other.ae_type && self.ae_data_offset == other.ae_data_offset && self.ae_data_size == other.ae_data_size
     }
 }
-impl ::std::cmp::Eq for AUDIT_ENTRY {}
+impl ::core::cmp::Eq for AUDIT_ENTRY {}
 unsafe impl ::windows::runtime::Abi for AUDIT_ENTRY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BIND_FLAGS1(pub i32);
 pub const NCN_ADD: BIND_FLAGS1 = BIND_FLAGS1(1i32);
@@ -1100,7 +1100,7 @@ pub const NCN_NET: BIND_FLAGS1 = BIND_FLAGS1(65536i32);
 pub const NCN_NETTRANS: BIND_FLAGS1 = BIND_FLAGS1(131072i32);
 pub const NCN_NETCLIENT: BIND_FLAGS1 = BIND_FLAGS1(262144i32);
 pub const NCN_NETSERVICE: BIND_FLAGS1 = BIND_FLAGS1(524288i32);
-impl ::std::convert::From<i32> for BIND_FLAGS1 {
+impl ::core::convert::From<i32> for BIND_FLAGS1 {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1113,7 +1113,7 @@ pub const CLTYPE_LEN: u32 = 12u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const CNLEN: u32 = 15u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMPONENT_CHARACTERISTICS(pub i32);
 pub const NCF_VIRTUAL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(1i32);
@@ -1131,7 +1131,7 @@ pub const NCF_HIDE_BINDING: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTIC
 pub const NCF_NDIS_PROTOCOL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(16384i32);
 pub const NCF_FIXED_BINDING: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(131072i32);
 pub const NCF_LW_FILTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(262144i32);
-impl ::std::convert::From<i32> for COMPONENT_CHARACTERISTICS {
+impl ::core::convert::From<i32> for COMPONENT_CHARACTERISTICS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1139,7 +1139,7 @@ impl ::std::convert::From<i32> for COMPONENT_CHARACTERISTICS {
 unsafe impl ::windows::runtime::Abi for COMPONENT_CHARACTERISTICS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -1150,25 +1150,25 @@ pub struct CONFIG_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl CONFIG_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CONFIG_INFO_0 {
+impl ::core::default::Default for CONFIG_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CONFIG_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CONFIG_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CONFIG_INFO_0").field("cfgi0_key", &self.cfgi0_key).field("cfgi0_data", &self.cfgi0_data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CONFIG_INFO_0 {
+impl ::core::cmp::PartialEq for CONFIG_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.cfgi0_key == other.cfgi0_key && self.cfgi0_data == other.cfgi0_data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CONFIG_INFO_0 {}
+impl ::core::cmp::Eq for CONFIG_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONFIG_INFO_0 {
     type Abi = Self;
@@ -1196,11 +1196,11 @@ pub const CRYPT_KEY_LEN: u32 = 7u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const CRYPT_TXT_LEN: u32 = 8u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEFAULT_PAGES(pub i32);
 pub const DPP_ADVANCED: DEFAULT_PAGES = DEFAULT_PAGES(1i32);
-impl ::std::convert::From<i32> for DEFAULT_PAGES {
+impl ::core::convert::From<i32> for DEFAULT_PAGES {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1328,7 +1328,7 @@ pub const DFS_WARN_METADATA_LINK_INFO_INVALID: i32 = -2147469106i32;
 pub const DFS_WARN_METADATA_LINK_TYPE_INCORRECT: i32 = -2147469107i32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const DNLEN: u32 = 15u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
@@ -1349,14 +1349,14 @@ pub struct DSREG_JOIN_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl DSREG_JOIN_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::std::default::Default for DSREG_JOIN_INFO {
+impl ::core::default::Default for DSREG_JOIN_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::std::fmt::Debug for DSREG_JOIN_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DSREG_JOIN_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DSREG_JOIN_INFO")
             .field("joinType", &self.joinType)
             .field("pJoinCertificate", &self.pJoinCertificate)
@@ -1374,7 +1374,7 @@ impl ::std::fmt::Debug for DSREG_JOIN_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::std::cmp::PartialEq for DSREG_JOIN_INFO {
+impl ::core::cmp::PartialEq for DSREG_JOIN_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.joinType == other.joinType
             && self.pJoinCertificate == other.pJoinCertificate
@@ -1391,19 +1391,19 @@ impl ::std::cmp::PartialEq for DSREG_JOIN_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::std::cmp::Eq for DSREG_JOIN_INFO {}
+impl ::core::cmp::Eq for DSREG_JOIN_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for DSREG_JOIN_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DSREG_JOIN_TYPE(pub i32);
 pub const DSREG_UNKNOWN_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(0i32);
 pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(1i32);
 pub const DSREG_WORKPLACE_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(2i32);
-impl ::std::convert::From<i32> for DSREG_JOIN_TYPE {
+impl ::core::convert::From<i32> for DSREG_JOIN_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1411,7 +1411,7 @@ impl ::std::convert::From<i32> for DSREG_JOIN_TYPE {
 unsafe impl ::windows::runtime::Abi for DSREG_JOIN_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -1423,25 +1423,25 @@ pub struct DSREG_USER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl DSREG_USER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DSREG_USER_INFO {
+impl ::core::default::Default for DSREG_USER_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DSREG_USER_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DSREG_USER_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DSREG_USER_INFO").field("pszUserEmail", &self.pszUserEmail).field("pszUserKeyId", &self.pszUserKeyId).field("pszUserKeyName", &self.pszUserKeyName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DSREG_USER_INFO {
+impl ::core::cmp::PartialEq for DSREG_USER_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pszUserEmail == other.pszUserEmail && self.pszUserKeyId == other.pszUserKeyId && self.pszUserKeyName == other.pszUserKeyName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DSREG_USER_INFO {}
+impl ::core::cmp::Eq for DSREG_USER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSREG_USER_INFO {
     type Abi = Self;
@@ -1449,12 +1449,12 @@ unsafe impl ::windows::runtime::Abi for DSREG_USER_INFO {
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const ENCRYPTED_PWLEN: u32 = 16u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENUM_BINDING_PATHS_FLAGS(pub i32);
 pub const EBP_ABOVE: ENUM_BINDING_PATHS_FLAGS = ENUM_BINDING_PATHS_FLAGS(1i32);
 pub const EBP_BELOW: ENUM_BINDING_PATHS_FLAGS = ENUM_BINDING_PATHS_FLAGS(2i32);
-impl ::std::convert::From<i32> for ENUM_BINDING_PATHS_FLAGS {
+impl ::core::convert::From<i32> for ENUM_BINDING_PATHS_FLAGS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1466,7 +1466,7 @@ unsafe impl ::windows::runtime::Abi for ENUM_BINDING_PATHS_FLAGS {
 pub const ERRLOG2_BASE: u32 = 5700u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const ERRLOG_BASE: u32 = 3100u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct ERRLOG_OTHER_INFO {
@@ -1474,26 +1474,26 @@ pub struct ERRLOG_OTHER_INFO {
     pub alrter_offset: u32,
 }
 impl ERRLOG_OTHER_INFO {}
-impl ::std::default::Default for ERRLOG_OTHER_INFO {
+impl ::core::default::Default for ERRLOG_OTHER_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ERRLOG_OTHER_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ERRLOG_OTHER_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ERRLOG_OTHER_INFO").field("alrter_errcode", &self.alrter_errcode).field("alrter_offset", &self.alrter_offset).finish()
     }
 }
-impl ::std::cmp::PartialEq for ERRLOG_OTHER_INFO {
+impl ::core::cmp::PartialEq for ERRLOG_OTHER_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.alrter_errcode == other.alrter_errcode && self.alrter_offset == other.alrter_offset
     }
 }
-impl ::std::cmp::Eq for ERRLOG_OTHER_INFO {}
+impl ::core::cmp::Eq for ERRLOG_OTHER_INFO {}
 unsafe impl ::windows::runtime::Abi for ERRLOG_OTHER_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -1511,14 +1511,14 @@ pub struct ERROR_LOG {
 #[cfg(feature = "Win32_Foundation")]
 impl ERROR_LOG {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for ERROR_LOG {
+impl ::core::default::Default for ERROR_LOG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for ERROR_LOG {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ERROR_LOG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ERROR_LOG")
             .field("el_len", &self.el_len)
             .field("el_reserved", &self.el_reserved)
@@ -1533,13 +1533,13 @@ impl ::std::fmt::Debug for ERROR_LOG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for ERROR_LOG {
+impl ::core::cmp::PartialEq for ERROR_LOG {
     fn eq(&self, other: &Self) -> bool {
         self.el_len == other.el_len && self.el_reserved == other.el_reserved && self.el_time == other.el_time && self.el_error == other.el_error && self.el_name == other.el_name && self.el_text == other.el_text && self.el_data == other.el_data && self.el_data_size == other.el_data_size && self.el_nstrings == other.el_nstrings
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for ERROR_LOG {}
+impl ::core::cmp::Eq for ERROR_LOG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ERROR_LOG {
     type Abi = Self;
@@ -2530,7 +2530,7 @@ pub const EXTRA_VOLUME: i32 = -1073727521i32;
 pub const EXTRA_VOLUME_DELETED: i32 = -1073727514i32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const EXTRA_VOLUME_NOT_DELETED: i32 = -1073727513i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2542,37 +2542,37 @@ pub struct FLAT_STRING {
 #[cfg(feature = "Win32_Foundation")]
 impl FLAT_STRING {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FLAT_STRING {
+impl ::core::default::Default for FLAT_STRING {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FLAT_STRING {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FLAT_STRING {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FLAT_STRING").field("MaximumLength", &self.MaximumLength).field("Length", &self.Length).field("Buffer", &self.Buffer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FLAT_STRING {
+impl ::core::cmp::PartialEq for FLAT_STRING {
     fn eq(&self, other: &Self) -> bool {
         self.MaximumLength == other.MaximumLength && self.Length == other.Length && self.Buffer == other.Buffer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FLAT_STRING {}
+impl ::core::cmp::Eq for FLAT_STRING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FLAT_STRING {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FORCE_LEVEL_FLAGS(pub u32);
 pub const USE_NOFORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(0u32);
 pub const USE_FORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(1u32);
 pub const USE_LOTS_OF_FORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(2u32);
-impl ::std::convert::From<u32> for FORCE_LEVEL_FLAGS {
+impl ::core::convert::From<u32> for FORCE_LEVEL_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -2580,29 +2580,29 @@ impl ::std::convert::From<u32> for FORCE_LEVEL_FLAGS {
 unsafe impl ::windows::runtime::Abi for FORCE_LEVEL_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for FORCE_LEVEL_FLAGS {
+impl ::core::ops::BitOr for FORCE_LEVEL_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for FORCE_LEVEL_FLAGS {
+impl ::core::ops::BitAnd for FORCE_LEVEL_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for FORCE_LEVEL_FLAGS {
+impl ::core::ops::BitOrAssign for FORCE_LEVEL_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for FORCE_LEVEL_FLAGS {
+impl ::core::ops::BitAndAssign for FORCE_LEVEL_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for FORCE_LEVEL_FLAGS {
+impl ::core::ops::Not for FORCE_LEVEL_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -2618,7 +2618,7 @@ pub const GROUP_ALL_PARMNUM: u32 = 0u32;
 pub const GROUP_ATTRIBUTES_PARMNUM: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const GROUP_COMMENT_PARMNUM: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2628,30 +2628,30 @@ pub struct GROUP_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl GROUP_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for GROUP_INFO_0 {
+impl ::core::default::Default for GROUP_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for GROUP_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GROUP_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GROUP_INFO_0").field("grpi0_name", &self.grpi0_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for GROUP_INFO_0 {
+impl ::core::cmp::PartialEq for GROUP_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.grpi0_name == other.grpi0_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for GROUP_INFO_0 {}
+impl ::core::cmp::Eq for GROUP_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GROUP_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2662,30 +2662,30 @@ pub struct GROUP_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl GROUP_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for GROUP_INFO_1 {
+impl ::core::default::Default for GROUP_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for GROUP_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GROUP_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GROUP_INFO_1").field("grpi1_name", &self.grpi1_name).field("grpi1_comment", &self.grpi1_comment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for GROUP_INFO_1 {
+impl ::core::cmp::PartialEq for GROUP_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.grpi1_name == other.grpi1_name && self.grpi1_comment == other.grpi1_comment
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for GROUP_INFO_1 {}
+impl ::core::cmp::Eq for GROUP_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GROUP_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2695,56 +2695,56 @@ pub struct GROUP_INFO_1002 {
 #[cfg(feature = "Win32_Foundation")]
 impl GROUP_INFO_1002 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for GROUP_INFO_1002 {
+impl ::core::default::Default for GROUP_INFO_1002 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for GROUP_INFO_1002 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GROUP_INFO_1002 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GROUP_INFO_1002").field("grpi1002_comment", &self.grpi1002_comment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for GROUP_INFO_1002 {
+impl ::core::cmp::PartialEq for GROUP_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
         self.grpi1002_comment == other.grpi1002_comment
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for GROUP_INFO_1002 {}
+impl ::core::cmp::Eq for GROUP_INFO_1002 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GROUP_INFO_1002 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct GROUP_INFO_1005 {
     pub grpi1005_attributes: u32,
 }
 impl GROUP_INFO_1005 {}
-impl ::std::default::Default for GROUP_INFO_1005 {
+impl ::core::default::Default for GROUP_INFO_1005 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for GROUP_INFO_1005 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GROUP_INFO_1005 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GROUP_INFO_1005").field("grpi1005_attributes", &self.grpi1005_attributes).finish()
     }
 }
-impl ::std::cmp::PartialEq for GROUP_INFO_1005 {
+impl ::core::cmp::PartialEq for GROUP_INFO_1005 {
     fn eq(&self, other: &Self) -> bool {
         self.grpi1005_attributes == other.grpi1005_attributes
     }
 }
-impl ::std::cmp::Eq for GROUP_INFO_1005 {}
+impl ::core::cmp::Eq for GROUP_INFO_1005 {}
 unsafe impl ::windows::runtime::Abi for GROUP_INFO_1005 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2757,30 +2757,30 @@ pub struct GROUP_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl GROUP_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for GROUP_INFO_2 {
+impl ::core::default::Default for GROUP_INFO_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for GROUP_INFO_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GROUP_INFO_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GROUP_INFO_2").field("grpi2_name", &self.grpi2_name).field("grpi2_comment", &self.grpi2_comment).field("grpi2_group_id", &self.grpi2_group_id).field("grpi2_attributes", &self.grpi2_attributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for GROUP_INFO_2 {
+impl ::core::cmp::PartialEq for GROUP_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.grpi2_name == other.grpi2_name && self.grpi2_comment == other.grpi2_comment && self.grpi2_group_id == other.grpi2_group_id && self.grpi2_attributes == other.grpi2_attributes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for GROUP_INFO_2 {}
+impl ::core::cmp::Eq for GROUP_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GROUP_INFO_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2793,32 +2793,32 @@ pub struct GROUP_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl GROUP_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for GROUP_INFO_3 {
+impl ::core::default::Default for GROUP_INFO_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for GROUP_INFO_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GROUP_INFO_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GROUP_INFO_3").field("grpi3_name", &self.grpi3_name).field("grpi3_comment", &self.grpi3_comment).field("grpi3_group_sid", &self.grpi3_group_sid).field("grpi3_attributes", &self.grpi3_attributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for GROUP_INFO_3 {
+impl ::core::cmp::PartialEq for GROUP_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
         self.grpi3_name == other.grpi3_name && self.grpi3_comment == other.grpi3_comment && self.grpi3_group_sid == other.grpi3_group_sid && self.grpi3_attributes == other.grpi3_attributes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for GROUP_INFO_3 {}
+impl ::core::cmp::Eq for GROUP_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GROUP_INFO_3 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const GROUP_NAME_PARMNUM: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2828,30 +2828,30 @@ pub struct GROUP_USERS_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl GROUP_USERS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for GROUP_USERS_INFO_0 {
+impl ::core::default::Default for GROUP_USERS_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for GROUP_USERS_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GROUP_USERS_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GROUP_USERS_INFO_0").field("grui0_name", &self.grui0_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for GROUP_USERS_INFO_0 {
+impl ::core::cmp::PartialEq for GROUP_USERS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.grui0_name == other.grui0_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for GROUP_USERS_INFO_0 {}
+impl ::core::cmp::Eq for GROUP_USERS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GROUP_USERS_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2862,25 +2862,25 @@ pub struct GROUP_USERS_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl GROUP_USERS_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for GROUP_USERS_INFO_1 {
+impl ::core::default::Default for GROUP_USERS_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for GROUP_USERS_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GROUP_USERS_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GROUP_USERS_INFO_1").field("grui1_name", &self.grui1_name).field("grui1_attributes", &self.grui1_attributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for GROUP_USERS_INFO_1 {
+impl ::core::cmp::PartialEq for GROUP_USERS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.grui1_name == other.grui1_name && self.grui1_attributes == other.grui1_attributes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for GROUP_USERS_INFO_1 {}
+impl ::core::cmp::Eq for GROUP_USERS_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GROUP_USERS_INFO_1 {
     type Abi = Self;
@@ -2895,40 +2895,40 @@ pub unsafe fn GetNetScheduleAccountInformation<'a, Param0: ::windows::runtime::I
         extern "system" {
             fn GetNetScheduleAccountInformation(pwszservername: super::super::Foundation::PWSTR, ccaccount: u32, wszaccount: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        GetNetScheduleAccountInformation(pwszservername.into_param().abi(), ::std::mem::transmute(ccaccount), ::std::mem::transmute(wszaccount)).ok()
+        GetNetScheduleAccountInformation(pwszservername.into_param().abi(), ::core::mem::transmute(ccaccount), ::core::mem::transmute(wszaccount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct HARDWARE_ADDRESS {
     pub Address: [u8; 6],
 }
 impl HARDWARE_ADDRESS {}
-impl ::std::default::Default for HARDWARE_ADDRESS {
+impl ::core::default::Default for HARDWARE_ADDRESS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HARDWARE_ADDRESS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HARDWARE_ADDRESS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HARDWARE_ADDRESS").field("Address", &self.Address).finish()
     }
 }
-impl ::std::cmp::PartialEq for HARDWARE_ADDRESS {
+impl ::core::cmp::PartialEq for HARDWARE_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
         self.Address == other.Address
     }
 }
-impl ::std::cmp::Eq for HARDWARE_ADDRESS {}
+impl ::core::cmp::Eq for HARDWARE_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for HARDWARE_ADDRESS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const HARDWARE_ADDRESS_LENGTH: u32 = 6u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct HLOG {
@@ -2938,58 +2938,58 @@ pub struct HLOG {
     pub rec_offset: u32,
 }
 impl HLOG {}
-impl ::std::default::Default for HLOG {
+impl ::core::default::Default for HLOG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for HLOG {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for HLOG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("HLOG").field("time", &self.time).field("last_flags", &self.last_flags).field("offset", &self.offset).field("rec_offset", &self.rec_offset).finish()
     }
 }
-impl ::std::cmp::PartialEq for HLOG {
+impl ::core::cmp::PartialEq for HLOG {
     fn eq(&self, other: &Self) -> bool {
         self.time == other.time && self.last_flags == other.last_flags && self.offset == other.offset && self.rec_offset == other.rec_offset
     }
 }
-impl ::std::cmp::Eq for HLOG {}
+impl ::core::cmp::Eq for HLOG {}
 unsafe impl ::windows::runtime::Abi for HLOG {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IEnumNetCfgBindingInterface(pub ::windows::runtime::IUnknown);
 impl IEnumNetCfgBindingInterface {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<INetCfgBindingInterface>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(rgelt), ::std::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingInterface>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumNetCfgBindingInterface> {
-        let mut result__: <IEnumNetCfgBindingInterface as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgBindingInterface>(result__)
+        let mut result__: <IEnumNetCfgBindingInterface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgBindingInterface>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IEnumNetCfgBindingInterface {
     type Vtable = IEnumNetCfgBindingInterface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474512, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<IEnumNetCfgBindingInterface> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEnumNetCfgBindingInterface> for ::windows::runtime::IUnknown {
     fn from(value: IEnumNetCfgBindingInterface) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IEnumNetCfgBindingInterface> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEnumNetCfgBindingInterface> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumNetCfgBindingInterface) -> Self {
         value.0.clone()
     }
@@ -3017,37 +3017,37 @@ pub struct IEnumNetCfgBindingInterface_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IEnumNetCfgBindingPath(pub ::windows::runtime::IUnknown);
 impl IEnumNetCfgBindingPath {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<INetCfgBindingPath>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(rgelt), ::std::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingPath>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumNetCfgBindingPath> {
-        let mut result__: <IEnumNetCfgBindingPath as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgBindingPath>(result__)
+        let mut result__: <IEnumNetCfgBindingPath as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgBindingPath>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IEnumNetCfgBindingPath {
     type Vtable = IEnumNetCfgBindingPath_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474513, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<IEnumNetCfgBindingPath> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEnumNetCfgBindingPath> for ::windows::runtime::IUnknown {
     fn from(value: IEnumNetCfgBindingPath) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IEnumNetCfgBindingPath> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEnumNetCfgBindingPath> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumNetCfgBindingPath) -> Self {
         value.0.clone()
     }
@@ -3075,37 +3075,37 @@ pub struct IEnumNetCfgBindingPath_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IEnumNetCfgComponent(pub ::windows::runtime::IUnknown);
 impl IEnumNetCfgComponent {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<INetCfgComponent>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(rgelt), ::std::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgComponent>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumNetCfgComponent> {
-        let mut result__: <IEnumNetCfgComponent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgComponent>(result__)
+        let mut result__: <IEnumNetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgComponent>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IEnumNetCfgComponent {
     type Vtable = IEnumNetCfgComponent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474514, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<IEnumNetCfgComponent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IEnumNetCfgComponent> for ::windows::runtime::IUnknown {
     fn from(value: IEnumNetCfgComponent) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IEnumNetCfgComponent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IEnumNetCfgComponent> for ::windows::runtime::IUnknown {
     fn from(value: &IEnumNetCfgComponent) -> Self {
         value.0.clone()
     }
@@ -3137,51 +3137,51 @@ pub const INTERFACE_INFO_REVISION_1: u32 = 1u32;
 pub const INVALID_TRACEID: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfg(pub ::windows::runtime::IUnknown);
 impl INetCfg {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn Initialize(&self, pvreserved: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvreserved)).ok()
+    pub unsafe fn Initialize(&self, pvreserved: *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvreserved)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Uninitialize(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Apply(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn EnumComponents(&self, pguidclass: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IEnumNetCfgComponent> {
-        let mut result__: <IEnumNetCfgComponent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidclass), &mut result__).from_abi::<IEnumNetCfgComponent>(result__)
+        let mut result__: <IEnumNetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidclass), &mut result__).from_abi::<IEnumNetCfgComponent>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn FindComponent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwinfid: Param0) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pszwinfid.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
+        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-    pub unsafe fn QueryNetCfgClass(&self, pguidclass: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidclass), ::std::mem::transmute(riid), ::std::mem::transmute(ppvobject)).ok()
+    pub unsafe fn QueryNetCfgClass(&self, pguidclass: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidclass), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfg {
     type Vtable = INetCfg_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474515, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetCfg> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfg> for ::windows::runtime::IUnknown {
     fn from(value: INetCfg) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfg> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfg> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfg) -> Self {
         value.0.clone()
     }
@@ -3202,47 +3202,47 @@ pub struct INetCfg_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvreserved: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvreserved: *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidclass: *const ::windows::runtime::GUID, ppenumcomponent: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwinfid: super::super::Foundation::PWSTR, pcomponent: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidclass: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidclass: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgBindingInterface(pub ::windows::runtime::IUnknown);
 impl INetCfgBindingInterface {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetUpperComponent(&self) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<INetCfgComponent>(result__)
+        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetLowerComponent(&self) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<INetCfgComponent>(result__)
+        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgBindingInterface {
     type Vtable = INetCfgBindingInterface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474516, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetCfgBindingInterface> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgBindingInterface> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgBindingInterface) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgBindingInterface> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgBindingInterface> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgBindingInterface) -> Self {
         value.0.clone()
     }
@@ -3270,58 +3270,58 @@ pub struct INetCfgBindingInterface_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgBindingPath(pub ::windows::runtime::IUnknown);
 impl INetCfgBindingPath {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn IsSamePathAs<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, ppath: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ppath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ppath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn IsSubPathOf<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, ppath: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ppath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ppath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn IsEnabled(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn Enable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetPathToken(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<INetCfgComponent>(result__)
+        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetDepth(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn EnumBindingInterfaces(&self) -> ::windows::runtime::Result<IEnumNetCfgBindingInterface> {
-        let mut result__: <IEnumNetCfgBindingInterface as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgBindingInterface>(result__)
+        let mut result__: <IEnumNetCfgBindingInterface as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgBindingInterface>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgBindingPath {
     type Vtable = INetCfgBindingPath_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474518, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetCfgBindingPath> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgBindingPath> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgBindingPath) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgBindingPath> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgBindingPath> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgBindingPath) -> Self {
         value.0.clone()
     }
@@ -3355,31 +3355,31 @@ pub struct INetCfgBindingPath_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgClass(pub ::windows::runtime::IUnknown);
 impl INetCfgClass {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn FindComponent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwinfid: Param0) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszwinfid.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
+        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn EnumComponents(&self) -> ::windows::runtime::Result<IEnumNetCfgComponent> {
-        let mut result__: <IEnumNetCfgComponent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgComponent>(result__)
+        let mut result__: <IEnumNetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetCfgComponent>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgClass {
     type Vtable = INetCfgClass_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474519, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetCfgClass> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgClass> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgClass) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgClass> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgClass> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgClass) -> Self {
         value.0.clone()
     }
@@ -3406,37 +3406,37 @@ pub struct INetCfgClass_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgClassSetup(pub ::windows::runtime::IUnknown);
 impl INetCfgClassSetup {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn SelectAndInstall<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, pobotoken: *const OBO_TOKEN) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(pobotoken), &mut result__).from_abi::<INetCfgComponent>(result__)
+        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(pobotoken), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn Install<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwinfid: Param0, pobotoken: *const OBO_TOKEN, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: Param4, pszwanswersections: Param5) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszwinfid.into_param().abi(), ::std::mem::transmute(pobotoken), ::std::mem::transmute(dwsetupflags), ::std::mem::transmute(dwupgradefrombuildno), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
+        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn DeInstall<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, pcomponent: Param0, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pcomponent.into_param().abi(), ::std::mem::transmute(pobotoken), ::std::mem::transmute(pmszwrefs)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pcomponent.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(pmszwrefs)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgClassSetup {
     type Vtable = INetCfgClassSetup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474525, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetCfgClassSetup> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgClassSetup> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgClassSetup) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgClassSetup> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgClassSetup> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgClassSetup) -> Self {
         value.0.clone()
     }
@@ -3457,50 +3457,50 @@ pub struct INetCfgClassSetup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: super::super::Foundation::HWND, pobotoken: *const ::std::mem::ManuallyDrop<OBO_TOKEN>, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: super::super::Foundation::HWND, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwinfid: super::super::Foundation::PWSTR, pobotoken: *const ::std::mem::ManuallyDrop<OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersections: super::super::Foundation::PWSTR, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwinfid: super::super::Foundation::PWSTR, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersections: super::super::Foundation::PWSTR, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcomponent: ::windows::runtime::RawPtr, pobotoken: *const ::std::mem::ManuallyDrop<OBO_TOKEN>, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcomponent: ::windows::runtime::RawPtr, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgClassSetup2(pub ::windows::runtime::IUnknown);
 impl INetCfgClassSetup2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn SelectAndInstall<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, pobotoken: *const OBO_TOKEN) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(pobotoken), &mut result__).from_abi::<INetCfgComponent>(result__)
+        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(pobotoken), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn Install<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwinfid: Param0, pobotoken: *const OBO_TOKEN, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: Param4, pszwanswersections: Param5) -> ::windows::runtime::Result<INetCfgComponent> {
-        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszwinfid.into_param().abi(), ::std::mem::transmute(pobotoken), ::std::mem::transmute(dwsetupflags), ::std::mem::transmute(dwupgradefrombuildno), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
+        let mut result__: <INetCfgComponent as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi(), &mut result__).from_abi::<INetCfgComponent>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn DeInstall<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, pcomponent: Param0, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pcomponent.into_param().abi(), ::std::mem::transmute(pobotoken), ::std::mem::transmute(pmszwrefs)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pcomponent.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(pmszwrefs)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn UpdateNonEnumeratedComponent<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, picomp: Param0, dwsetupflags: u32, dwupgradefrombuildno: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), picomp.into_param().abi(), ::std::mem::transmute(dwsetupflags), ::std::mem::transmute(dwupgradefrombuildno)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), picomp.into_param().abi(), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgClassSetup2 {
     type Vtable = INetCfgClassSetup2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474528, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetCfgClassSetup2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgClassSetup2> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgClassSetup2) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgClassSetup2> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgClassSetup2> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgClassSetup2) -> Self {
         value.0.clone()
     }
@@ -3515,24 +3515,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-impl ::std::convert::From<INetCfgClassSetup2> for INetCfgClassSetup {
+impl ::core::convert::From<INetCfgClassSetup2> for INetCfgClassSetup {
     fn from(value: INetCfgClassSetup2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
+        unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::std::convert::From<&INetCfgClassSetup2> for INetCfgClassSetup {
+impl ::core::convert::From<&INetCfgClassSetup2> for INetCfgClassSetup {
     fn from(value: &INetCfgClassSetup2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INetCfgClassSetup> for INetCfgClassSetup2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INetCfgClassSetup> {
-        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INetCfgClassSetup> for &INetCfgClassSetup2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INetCfgClassSetup> {
-        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+        ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3541,96 +3541,96 @@ pub struct INetCfgClassSetup2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: super::super::Foundation::HWND, pobotoken: *const ::std::mem::ManuallyDrop<OBO_TOKEN>, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: super::super::Foundation::HWND, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwinfid: super::super::Foundation::PWSTR, pobotoken: *const ::std::mem::ManuallyDrop<OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersections: super::super::Foundation::PWSTR, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszwinfid: super::super::Foundation::PWSTR, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersections: super::super::Foundation::PWSTR, ppnccitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcomponent: ::windows::runtime::RawPtr, pobotoken: *const ::std::mem::ManuallyDrop<OBO_TOKEN>, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcomponent: ::windows::runtime::RawPtr, pobotoken: *const ::core::mem::ManuallyDrop<OBO_TOKEN>, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, picomp: ::windows::runtime::RawPtr, dwsetupflags: u32, dwupgradefrombuildno: u32) -> ::windows::runtime::HRESULT,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgComponent(pub ::windows::runtime::IUnknown);
 impl INetCfgComponent {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwdisplayname: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszwdisplayname.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwdisplayname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetHelpText(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetId(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetCharacteristics(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetInstanceGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetPnpDevNodeId(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetClassGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetBindName(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetDeviceStatus(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Registry")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_System_Registry`*"]
     pub unsafe fn OpenParamKey(&self) -> ::windows::runtime::Result<super::super::System::Registry::HKEY> {
-        let mut result__: <super::super::System::Registry::HKEY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Registry::HKEY>(result__)
+        let mut result__: <super::super::System::Registry::HKEY as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Registry::HKEY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn RaisePropertyUi<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, hwndparent: Param0, dwflags: u32, punkcontext: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(dwflags), punkcontext.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).14)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), punkcontext.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponent {
     type Vtable = INetCfgComponent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474521, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetCfgComponent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponent> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponent) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgComponent> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponent> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgComponent) -> Self {
         value.0.clone()
     }
@@ -3674,54 +3674,54 @@ pub struct INetCfgComponent_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgComponentBindings(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentBindings {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn BindTo<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn UnbindFrom<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn SupportsBindingInterface<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwflags: u32, pszwinterfacename: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pszwinterfacename.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pszwinterfacename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn IsBoundTo<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn IsBindableTo<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn EnumBindingPaths(&self, dwflags: u32) -> ::windows::runtime::Result<IEnumNetCfgBindingPath> {
-        let mut result__: <IEnumNetCfgBindingPath as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), &mut result__).from_abi::<IEnumNetCfgBindingPath>(result__)
+        let mut result__: <IEnumNetCfgBindingPath as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), &mut result__).from_abi::<IEnumNetCfgBindingPath>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn MoveBefore<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>, Param1: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, pncbitemsrc: Param0, pncbitemdest: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pncbitemsrc.into_param().abi(), pncbitemdest.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), pncbitemsrc.into_param().abi(), pncbitemdest.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn MoveAfter<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>, Param1: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, pncbitemsrc: Param0, pncbitemdest: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pncbitemsrc.into_param().abi(), pncbitemdest.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pncbitemsrc.into_param().abi(), pncbitemdest.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentBindings {
     type Vtable = INetCfgComponentBindings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474526, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetCfgComponentBindings> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentBindings> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentBindings) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgComponentBindings> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentBindings> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgComponentBindings) -> Self {
         value.0.clone()
     }
@@ -3754,37 +3754,37 @@ pub struct INetCfgComponentBindings_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgComponentControl(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentControl {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>, Param1: ::windows::runtime::IntoParam<'a, INetCfg>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, picomp: Param0, pinetcfg: Param1, finstalling: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), picomp.into_param().abi(), pinetcfg.into_param().abi(), finstalling.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), picomp.into_param().abi(), pinetcfg.into_param().abi(), finstalling.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn ApplyRegistryChanges(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn ApplyPnpChanges<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgPnpReconfigCallback>>(&self, picallback: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), picallback.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), picallback.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn CancelChanges(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentControl {
     type Vtable = INetCfgComponentControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493535, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
-impl ::std::convert::From<INetCfgComponentControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentControl> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentControl) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgComponentControl> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentControl> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgComponentControl) -> Self {
         value.0.clone()
     }
@@ -3813,28 +3813,28 @@ pub struct INetCfgComponentControl_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgComponentNotifyBinding(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentNotifyBinding {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn QueryBindingPath<'a, Param1: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn NotifyBindingPath<'a, Param1: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentNotifyBinding {
     type Vtable = INetCfgComponentNotifyBinding_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493537, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
-impl ::std::convert::From<INetCfgComponentNotifyBinding> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentNotifyBinding> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentNotifyBinding) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgComponentNotifyBinding> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentNotifyBinding> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgComponentNotifyBinding) -> Self {
         value.0.clone()
     }
@@ -3860,37 +3860,37 @@ pub struct INetCfgComponentNotifyBinding_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgComponentNotifyGlobal(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentNotifyGlobal {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetSupportedNotifications(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn SysQueryBindingPath<'a, Param1: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn SysNotifyBindingPath<'a, Param1: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn SysNotifyComponent<'a, Param1: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, dwchangeflag: u32, picomp: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchangeflag), picomp.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), picomp.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentNotifyGlobal {
     type Vtable = INetCfgComponentNotifyGlobal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493538, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
-impl ::std::convert::From<INetCfgComponentNotifyGlobal> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentNotifyGlobal> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentNotifyGlobal) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgComponentNotifyGlobal> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentNotifyGlobal> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgComponentNotifyGlobal) -> Self {
         value.0.clone()
     }
@@ -3918,46 +3918,46 @@ pub struct INetCfgComponentNotifyGlobal_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgComponentPropertyUi(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentPropertyUi {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn QueryPropertyUi<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkreserved: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), punkreserved.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), punkreserved.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn SetContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkreserved: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), punkreserved.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), punkreserved.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn MergePropPages<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, pdwdefpages: *mut u32, pahpspprivate: *mut *mut u8, pcpages: *mut u32, hwndparent: Param3, pszstartpage: *const super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwdefpages), ::std::mem::transmute(pahpspprivate), ::std::mem::transmute(pcpages), hwndparent.into_param().abi(), ::std::mem::transmute(pszstartpage)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwdefpages), ::core::mem::transmute(pahpspprivate), ::core::mem::transmute(pcpages), hwndparent.into_param().abi(), ::core::mem::transmute(pszstartpage)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn ValidateProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndsheet: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwndsheet.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), hwndsheet.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn ApplyProperties(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn CancelProperties(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentPropertyUi {
     type Vtable = INetCfgComponentPropertyUi_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493536, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
-impl ::std::convert::From<INetCfgComponentPropertyUi> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentPropertyUi> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentPropertyUi) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgComponentPropertyUi> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentPropertyUi> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgComponentPropertyUi) -> Self {
         value.0.clone()
     }
@@ -3989,37 +3989,37 @@ pub struct INetCfgComponentPropertyUi_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgComponentSetup(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentSetup {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Install(&self, dwsetupflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsetupflags)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsetupflags)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Upgrade(&self, dwsetupflags: u32, dwupgradefombuildno: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsetupflags), ::std::mem::transmute(dwupgradefombuildno)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefombuildno)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn ReadAnswerFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwanswerfile: Param0, pszwanswersections: Param1) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Removing(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentSetup {
     type Vtable = INetCfgComponentSetup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493539, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
-impl ::std::convert::From<INetCfgComponentSetup> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentSetup> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentSetup) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgComponentSetup> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentSetup> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgComponentSetup) -> Self {
         value.0.clone()
     }
@@ -4048,30 +4048,30 @@ pub struct INetCfgComponentSetup_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgComponentSysPrep(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentSysPrep {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn SaveAdapterParameters<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgSysPrep>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pncsp: Param0, pszwanswersections: Param1, padapterinstanceguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pncsp.into_param().abi(), pszwanswersections.into_param().abi(), ::std::mem::transmute(padapterinstanceguid)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pncsp.into_param().abi(), pszwanswersections.into_param().abi(), ::core::mem::transmute(padapterinstanceguid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn RestoreAdapterParameters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwanswerfile: Param0, pszwanswersection: Param1, padapterinstanceguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszwanswerfile.into_param().abi(), pszwanswersection.into_param().abi(), ::std::mem::transmute(padapterinstanceguid)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwanswerfile.into_param().abi(), pszwanswersection.into_param().abi(), ::core::mem::transmute(padapterinstanceguid)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentSysPrep {
     type Vtable = INetCfgComponentSysPrep_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474522, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetCfgComponentSysPrep> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentSysPrep> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentSysPrep) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgComponentSysPrep> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentSysPrep> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgComponentSysPrep) -> Self {
         value.0.clone()
     }
@@ -4099,32 +4099,32 @@ pub struct INetCfgComponentSysPrep_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgComponentUpperEdge(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentUpperEdge {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetInterfaceIdsForAdapter<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), padapter.into_param().abi(), ::std::mem::transmute(pdwnuminterfaces), ::std::mem::transmute(ppguidinterfaceids)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), padapter.into_param().abi(), ::core::mem::transmute(pdwnuminterfaces), ::core::mem::transmute(ppguidinterfaceids)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn AddInterfacesToAdapter<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, dwnuminterfaces: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), padapter.into_param().abi(), ::std::mem::transmute(dwnuminterfaces)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), padapter.into_param().abi(), ::core::mem::transmute(dwnuminterfaces)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn RemoveInterfacesFromAdapter<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), padapter.into_param().abi(), ::std::mem::transmute(dwnuminterfaces), ::std::mem::transmute(pguidinterfaceids)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), padapter.into_param().abi(), ::core::mem::transmute(dwnuminterfaces), ::core::mem::transmute(pguidinterfaceids)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgComponentUpperEdge {
     type Vtable = INetCfgComponentUpperEdge_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493540, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
-impl ::std::convert::From<INetCfgComponentUpperEdge> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgComponentUpperEdge> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgComponentUpperEdge) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgComponentUpperEdge> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgComponentUpperEdge> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgComponentUpperEdge) -> Self {
         value.0.clone()
     }
@@ -4151,36 +4151,36 @@ pub struct INetCfgComponentUpperEdge_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgLock(pub ::windows::runtime::IUnknown);
 impl INetCfgLock {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn AcquireWriteLock<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cmstimeout: u32, pszwclientdescription: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(cmstimeout), pszwclientdescription.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(cmstimeout), pszwclientdescription.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn ReleaseWriteLock(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn IsWriteLocked(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgLock {
     type Vtable = INetCfgLock_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474527, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetCfgLock> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgLock> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgLock) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgLock> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgLock> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgLock) -> Self {
         value.0.clone()
     }
@@ -4209,25 +4209,25 @@ pub struct INetCfgLock_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgPnpReconfigCallback(pub ::windows::runtime::IUnknown);
 impl INetCfgPnpReconfigCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
-    pub unsafe fn SendPnpReconfig<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, layer: NCPNP_RECONFIG_LAYER, pszwupper: Param1, pszwlower: Param2, pvdata: *const ::std::ffi::c_void, dwsizeofdata: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(layer), pszwupper.into_param().abi(), pszwlower.into_param().abi(), ::std::mem::transmute(pvdata), ::std::mem::transmute(dwsizeofdata)).ok()
+    pub unsafe fn SendPnpReconfig<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, layer: NCPNP_RECONFIG_LAYER, pszwupper: Param1, pszwlower: Param2, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(layer), pszwupper.into_param().abi(), pszwlower.into_param().abi(), ::core::mem::transmute(pvdata), ::core::mem::transmute(dwsizeofdata)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgPnpReconfigCallback {
     type Vtable = INetCfgPnpReconfigCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2374286645, 57895, 4562, [183, 0, 0, 160, 201, 138, 106, 133]);
 }
-impl ::std::convert::From<INetCfgPnpReconfigCallback> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgPnpReconfigCallback> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgPnpReconfigCallback) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgPnpReconfigCallback> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgPnpReconfigCallback> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgPnpReconfigCallback) -> Self {
         value.0.clone()
     }
@@ -4248,45 +4248,45 @@ pub struct INetCfgPnpReconfigCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layer: NCPNP_RECONFIG_LAYER, pszwupper: super::super::Foundation::PWSTR, pszwlower: super::super::Foundation::PWSTR, pvdata: *const ::std::ffi::c_void, dwsizeofdata: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layer: NCPNP_RECONFIG_LAYER, pszwupper: super::super::Foundation::PWSTR, pszwlower: super::super::Foundation::PWSTR, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetCfgSysPrep(pub ::windows::runtime::IUnknown);
 impl INetCfgSysPrep {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn HrSetupSetFirstDword<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszsection: Param0, pwszkey: Param1, dwvalue: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), ::std::mem::transmute(dwvalue)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), ::core::mem::transmute(dwvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn HrSetupSetFirstString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszsection: Param0, pwszkey: Param1, pwszvalue: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), pwszvalue.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), pwszvalue.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn HrSetupSetFirstStringAsBool<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pwszsection: Param0, pwszkey: Param1, fvalue: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), fvalue.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), fvalue.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn HrSetupSetFirstMultiSzField<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszsection: Param0, pwszkey: Param1, pmszvalue: Param2) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), pmszvalue.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), pmszvalue.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for INetCfgSysPrep {
     type Vtable = INetCfgSysPrep_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474520, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetCfgSysPrep> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetCfgSysPrep> for ::windows::runtime::IUnknown {
     fn from(value: INetCfgSysPrep) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetCfgSysPrep> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetCfgSysPrep> for ::windows::runtime::IUnknown {
     fn from(value: &INetCfgSysPrep) -> Self {
         value.0.clone()
     }
@@ -4318,25 +4318,25 @@ pub struct INetCfgSysPrep_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetLanConnectionUiInfo(pub ::windows::runtime::IUnknown);
 impl INetLanConnectionUiInfo {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetDeviceGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for INetLanConnectionUiInfo {
     type Vtable = INetLanConnectionUiInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226086, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetLanConnectionUiInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetLanConnectionUiInfo> for ::windows::runtime::IUnknown {
     fn from(value: INetLanConnectionUiInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetLanConnectionUiInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetLanConnectionUiInfo> for ::windows::runtime::IUnknown {
     fn from(value: &INetLanConnectionUiInfo) -> Self {
         value.0.clone()
     }
@@ -4361,26 +4361,26 @@ pub struct INetLanConnectionUiInfo_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetRasConnectionIpUiInfo(pub ::windows::runtime::IUnknown);
 impl INetRasConnectionIpUiInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn GetUiInfo(&self) -> ::windows::runtime::Result<RASCON_IPUI> {
-        let mut result__: <RASCON_IPUI as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RASCON_IPUI>(result__)
+        let mut result__: <RASCON_IPUI as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<RASCON_IPUI>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for INetRasConnectionIpUiInfo {
     type Vtable = INetRasConnectionIpUiInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4209889112, 12798, 4561, [170, 210, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetRasConnectionIpUiInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<INetRasConnectionIpUiInfo> for ::windows::runtime::IUnknown {
     fn from(value: INetRasConnectionIpUiInfo) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&INetRasConnectionIpUiInfo> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&INetRasConnectionIpUiInfo> for ::windows::runtime::IUnknown {
     fn from(value: &INetRasConnectionIpUiInfo) -> Self {
         value.0.clone()
     }
@@ -4410,31 +4410,31 @@ pub const IPX_PROTOCOL_BASE: u32 = 131071u32;
 pub const IPX_PROTOCOL_RIP: u32 = 131072u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IProvisioningDomain(pub ::windows::runtime::IUnknown);
 impl IProvisioningDomain {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwpathtofolder: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszwpathtofolder.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszwpathtofolder.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Query<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszwdomain: Param0, pszwlanguage: Param1, pszwxpathquery: Param2) -> ::windows::runtime::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList> {
-        let mut result__: <super::super::Data::Xml::MsXml::IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszwdomain.into_param().abi(), pszwlanguage.into_param().abi(), pszwxpathquery.into_param().abi(), &mut result__).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMNodeList>(result__)
+        let mut result__: <super::super::Data::Xml::MsXml::IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszwdomain.into_param().abi(), pszwlanguage.into_param().abi(), pszwxpathquery.into_param().abi(), &mut result__).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMNodeList>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IProvisioningDomain {
     type Vtable = IProvisioningDomain_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3379543376, 9437, 4568, [137, 251, 0, 144, 75, 46, 169, 198]);
 }
-impl ::std::convert::From<IProvisioningDomain> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IProvisioningDomain> for ::windows::runtime::IUnknown {
     fn from(value: IProvisioningDomain) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IProvisioningDomain> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IProvisioningDomain> for ::windows::runtime::IUnknown {
     fn from(value: &IProvisioningDomain) -> Self {
         value.0.clone()
     }
@@ -4462,26 +4462,26 @@ pub struct IProvisioningDomain_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IProvisioningProfileWireless(pub ::windows::runtime::IUnknown);
 impl IProvisioningProfileWireless {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
     pub unsafe fn CreateProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrxmlwirelessconfigprofile: Param0, bstrxmlconnectionconfigprofile: Param1, padapterinstanceguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrxmlwirelessconfigprofile.into_param().abi(), bstrxmlconnectionconfigprofile.into_param().abi(), ::std::mem::transmute(padapterinstanceguid), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrxmlwirelessconfigprofile.into_param().abi(), bstrxmlconnectionconfigprofile.into_param().abi(), ::core::mem::transmute(padapterinstanceguid), &mut result__).from_abi::<u32>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IProvisioningProfileWireless {
     type Vtable = IProvisioningProfileWireless_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3379543377, 9437, 4568, [137, 251, 0, 144, 75, 46, 169, 198]);
 }
-impl ::std::convert::From<IProvisioningProfileWireless> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IProvisioningProfileWireless> for ::windows::runtime::IUnknown {
     fn from(value: IProvisioningProfileWireless) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IProvisioningProfileWireless> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IProvisioningProfileWireless> for ::windows::runtime::IUnknown {
     fn from(value: &IProvisioningProfileWireless) -> Self {
         value.0.clone()
     }
@@ -4502,7 +4502,7 @@ pub struct IProvisioningProfileWireless_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrxmlwirelessconfigprofile: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrxmlconnectionconfigprofile: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, padapterinstanceguid: *const ::windows::runtime::GUID, pulstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrxmlwirelessconfigprofile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrxmlconnectionconfigprofile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, padapterinstanceguid: *const ::windows::runtime::GUID, pulstatus: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -4519,7 +4519,7 @@ pub unsafe fn I_NetLogonControl2<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn I_NetLogonControl2(servername: super::super::Foundation::PWSTR, functioncode: u32, querylevel: u32, data: *const u8, buffer: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(I_NetLogonControl2(servername.into_param().abi(), ::std::mem::transmute(functioncode), ::std::mem::transmute(querylevel), ::std::mem::transmute(data), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(I_NetLogonControl2(servername.into_param().abi(), ::core::mem::transmute(functioncode), ::core::mem::transmute(querylevel), ::core::mem::transmute(data), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4576,7 +4576,7 @@ pub const LM20_UNLEN: u32 = 20u32;
 pub const LM_REDIR_FAILURE: i32 = 1073756225i32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const LOCALGROUP_COMMENT_PARMNUM: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -4586,30 +4586,30 @@ pub struct LOCALGROUP_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl LOCALGROUP_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for LOCALGROUP_INFO_0 {
+impl ::core::default::Default for LOCALGROUP_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for LOCALGROUP_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LOCALGROUP_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LOCALGROUP_INFO_0").field("lgrpi0_name", &self.lgrpi0_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for LOCALGROUP_INFO_0 {
+impl ::core::cmp::PartialEq for LOCALGROUP_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.lgrpi0_name == other.lgrpi0_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for LOCALGROUP_INFO_0 {}
+impl ::core::cmp::Eq for LOCALGROUP_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LOCALGROUP_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -4620,30 +4620,30 @@ pub struct LOCALGROUP_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl LOCALGROUP_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for LOCALGROUP_INFO_1 {
+impl ::core::default::Default for LOCALGROUP_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for LOCALGROUP_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LOCALGROUP_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LOCALGROUP_INFO_1").field("lgrpi1_name", &self.lgrpi1_name).field("lgrpi1_comment", &self.lgrpi1_comment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for LOCALGROUP_INFO_1 {
+impl ::core::cmp::PartialEq for LOCALGROUP_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.lgrpi1_name == other.lgrpi1_name && self.lgrpi1_comment == other.lgrpi1_comment
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for LOCALGROUP_INFO_1 {}
+impl ::core::cmp::Eq for LOCALGROUP_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LOCALGROUP_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -4653,30 +4653,30 @@ pub struct LOCALGROUP_INFO_1002 {
 #[cfg(feature = "Win32_Foundation")]
 impl LOCALGROUP_INFO_1002 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for LOCALGROUP_INFO_1002 {
+impl ::core::default::Default for LOCALGROUP_INFO_1002 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for LOCALGROUP_INFO_1002 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LOCALGROUP_INFO_1002 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LOCALGROUP_INFO_1002").field("lgrpi1002_comment", &self.lgrpi1002_comment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for LOCALGROUP_INFO_1002 {
+impl ::core::cmp::PartialEq for LOCALGROUP_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
         self.lgrpi1002_comment == other.lgrpi1002_comment
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for LOCALGROUP_INFO_1002 {}
+impl ::core::cmp::Eq for LOCALGROUP_INFO_1002 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LOCALGROUP_INFO_1002 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -4686,30 +4686,30 @@ pub struct LOCALGROUP_MEMBERS_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl LOCALGROUP_MEMBERS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for LOCALGROUP_MEMBERS_INFO_0 {
+impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for LOCALGROUP_MEMBERS_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LOCALGROUP_MEMBERS_INFO_0").field("lgrmi0_sid", &self.lgrmi0_sid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_0 {
+impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.lgrmi0_sid == other.lgrmi0_sid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for LOCALGROUP_MEMBERS_INFO_0 {}
+impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LOCALGROUP_MEMBERS_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`, `Win32_Security`*"]
@@ -4721,30 +4721,30 @@ pub struct LOCALGROUP_MEMBERS_INFO_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl LOCALGROUP_MEMBERS_INFO_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for LOCALGROUP_MEMBERS_INFO_1 {
+impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for LOCALGROUP_MEMBERS_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LOCALGROUP_MEMBERS_INFO_1").field("lgrmi1_sid", &self.lgrmi1_sid).field("lgrmi1_sidusage", &self.lgrmi1_sidusage).field("lgrmi1_name", &self.lgrmi1_name).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_1 {
+impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.lgrmi1_sid == other.lgrmi1_sid && self.lgrmi1_sidusage == other.lgrmi1_sidusage && self.lgrmi1_name == other.lgrmi1_name
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for LOCALGROUP_MEMBERS_INFO_1 {}
+impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for LOCALGROUP_MEMBERS_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`, `Win32_Security`*"]
@@ -4756,30 +4756,30 @@ pub struct LOCALGROUP_MEMBERS_INFO_2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl LOCALGROUP_MEMBERS_INFO_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::default::Default for LOCALGROUP_MEMBERS_INFO_2 {
+impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::fmt::Debug for LOCALGROUP_MEMBERS_INFO_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LOCALGROUP_MEMBERS_INFO_2").field("lgrmi2_sid", &self.lgrmi2_sid).field("lgrmi2_sidusage", &self.lgrmi2_sidusage).field("lgrmi2_domainandname", &self.lgrmi2_domainandname).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_2 {
+impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.lgrmi2_sid == other.lgrmi2_sid && self.lgrmi2_sidusage == other.lgrmi2_sidusage && self.lgrmi2_domainandname == other.lgrmi2_domainandname
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::std::cmp::Eq for LOCALGROUP_MEMBERS_INFO_2 {}
+impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for LOCALGROUP_MEMBERS_INFO_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -4789,32 +4789,32 @@ pub struct LOCALGROUP_MEMBERS_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl LOCALGROUP_MEMBERS_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for LOCALGROUP_MEMBERS_INFO_3 {
+impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for LOCALGROUP_MEMBERS_INFO_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LOCALGROUP_MEMBERS_INFO_3").field("lgrmi3_domainandname", &self.lgrmi3_domainandname).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_3 {
+impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
         self.lgrmi3_domainandname == other.lgrmi3_domainandname
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for LOCALGROUP_MEMBERS_INFO_3 {}
+impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LOCALGROUP_MEMBERS_INFO_3 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const LOCALGROUP_NAME_PARMNUM: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -4824,25 +4824,25 @@ pub struct LOCALGROUP_USERS_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl LOCALGROUP_USERS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for LOCALGROUP_USERS_INFO_0 {
+impl ::core::default::Default for LOCALGROUP_USERS_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for LOCALGROUP_USERS_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LOCALGROUP_USERS_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LOCALGROUP_USERS_INFO_0").field("lgrui0_name", &self.lgrui0_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for LOCALGROUP_USERS_INFO_0 {
+impl ::core::cmp::PartialEq for LOCALGROUP_USERS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.lgrui0_name == other.lgrui0_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for LOCALGROUP_USERS_INFO_0 {}
+impl ::core::cmp::Eq for LOCALGROUP_USERS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LOCALGROUP_USERS_INFO_0 {
     type Abi = Self;
@@ -4867,7 +4867,7 @@ pub unsafe fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstri
         extern "system" {
             fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PSTR, dwerrorcode: u32);
         }
-        ::std::mem::transmute(LogErrorA(::std::mem::transmute(dwmessageid), ::std::mem::transmute(cnumberofsubstrings), ::std::mem::transmute(plpwssubstrings), ::std::mem::transmute(dwerrorcode)))
+        ::core::mem::transmute(LogErrorA(::core::mem::transmute(dwmessageid), ::core::mem::transmute(cnumberofsubstrings), ::core::mem::transmute(plpwssubstrings), ::core::mem::transmute(dwerrorcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4882,7 +4882,7 @@ pub unsafe fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstri
         extern "system" {
             fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PWSTR, dwerrorcode: u32);
         }
-        ::std::mem::transmute(LogErrorW(::std::mem::transmute(dwmessageid), ::std::mem::transmute(cnumberofsubstrings), ::std::mem::transmute(plpwssubstrings), ::std::mem::transmute(dwerrorcode)))
+        ::core::mem::transmute(LogErrorW(::core::mem::transmute(dwmessageid), ::core::mem::transmute(cnumberofsubstrings), ::core::mem::transmute(plpwssubstrings), ::core::mem::transmute(dwerrorcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4897,7 +4897,7 @@ pub unsafe fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: 
         extern "system" {
             fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PSTR);
         }
-        ::std::mem::transmute(LogEventA(::std::mem::transmute(weventtype), ::std::mem::transmute(dwmessageid), ::std::mem::transmute(cnumberofsubstrings), ::std::mem::transmute(plpwssubstrings)))
+        ::core::mem::transmute(LogEventA(::core::mem::transmute(weventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(cnumberofsubstrings), ::core::mem::transmute(plpwssubstrings)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4912,7 +4912,7 @@ pub unsafe fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: 
         extern "system" {
             fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PWSTR);
         }
-        ::std::mem::transmute(LogEventW(::std::mem::transmute(weventtype), ::std::mem::transmute(dwmessageid), ::std::mem::transmute(cnumberofsubstrings), ::std::mem::transmute(plpwssubstrings)))
+        ::core::mem::transmute(LogEventW(::core::mem::transmute(weventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(cnumberofsubstrings), ::core::mem::transmute(plpwssubstrings)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5003,7 +5003,7 @@ pub const MODALS_PASSWD_HIST_LEN_PARMNUM: u32 = 5u32;
 pub const MODALS_PRIMARY_PARMNUM: u32 = 7u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const MODALS_ROLE_PARMNUM: u32 = 6u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct MPR_PROTOCOL_0 {
@@ -5012,22 +5012,22 @@ pub struct MPR_PROTOCOL_0 {
     pub wszDLLName: [u16; 49],
 }
 impl MPR_PROTOCOL_0 {}
-impl ::std::default::Default for MPR_PROTOCOL_0 {
+impl ::core::default::Default for MPR_PROTOCOL_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MPR_PROTOCOL_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MPR_PROTOCOL_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MPR_PROTOCOL_0").field("dwProtocolId", &self.dwProtocolId).field("wszProtocol", &self.wszProtocol).field("wszDLLName", &self.wszDLLName).finish()
     }
 }
-impl ::std::cmp::PartialEq for MPR_PROTOCOL_0 {
+impl ::core::cmp::PartialEq for MPR_PROTOCOL_0 {
     fn eq(&self, other: &Self) -> bool {
         self.dwProtocolId == other.dwProtocolId && self.wszProtocol == other.wszProtocol && self.wszDLLName == other.wszDLLName
     }
 }
-impl ::std::cmp::Eq for MPR_PROTOCOL_0 {}
+impl ::core::cmp::Eq for MPR_PROTOCOL_0 {}
 unsafe impl ::windows::runtime::Abi for MPR_PROTOCOL_0 {
     type Abi = Self;
 }
@@ -5043,39 +5043,39 @@ pub const MRINFO_PIM_FLAG: u32 = 4u32;
 pub const MRINFO_QUERIER_FLAG: u32 = 64u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const MRINFO_TUNNEL_FLAG: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct MSA_INFO_0 {
     pub State: MSA_INFO_STATE,
 }
 impl MSA_INFO_0 {}
-impl ::std::default::Default for MSA_INFO_0 {
+impl ::core::default::Default for MSA_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MSA_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MSA_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MSA_INFO_0").field("State", &self.State).finish()
     }
 }
-impl ::std::cmp::PartialEq for MSA_INFO_0 {
+impl ::core::cmp::PartialEq for MSA_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.State == other.State
     }
 }
-impl ::std::cmp::Eq for MSA_INFO_0 {}
+impl ::core::cmp::Eq for MSA_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for MSA_INFO_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSA_INFO_LEVEL(pub i32);
 pub const MsaInfoLevel0: MSA_INFO_LEVEL = MSA_INFO_LEVEL(0i32);
 pub const MsaInfoLevelMax: MSA_INFO_LEVEL = MSA_INFO_LEVEL(1i32);
-impl ::std::convert::From<i32> for MSA_INFO_LEVEL {
+impl ::core::convert::From<i32> for MSA_INFO_LEVEL {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5084,7 +5084,7 @@ unsafe impl ::windows::runtime::Abi for MSA_INFO_LEVEL {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSA_INFO_STATE(pub i32);
 pub const MsaInfoNotExist: MSA_INFO_STATE = MSA_INFO_STATE(1i32);
@@ -5092,7 +5092,7 @@ pub const MsaInfoNotService: MSA_INFO_STATE = MSA_INFO_STATE(2i32);
 pub const MsaInfoCannotInstall: MSA_INFO_STATE = MSA_INFO_STATE(3i32);
 pub const MsaInfoCanInstall: MSA_INFO_STATE = MSA_INFO_STATE(4i32);
 pub const MsaInfoInstalled: MSA_INFO_STATE = MSA_INFO_STATE(5i32);
-impl ::std::convert::From<i32> for MSA_INFO_STATE {
+impl ::core::convert::From<i32> for MSA_INFO_STATE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5106,7 +5106,7 @@ pub const MSGNAME_FORWARDED_FROM: u32 = 16u32;
 pub const MSGNAME_FORWARDED_TO: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const MSGNAME_NOT_FORWARDED: u32 = 0u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -5116,30 +5116,30 @@ pub struct MSG_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl MSG_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MSG_INFO_0 {
+impl ::core::default::Default for MSG_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MSG_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MSG_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MSG_INFO_0").field("msgi0_name", &self.msgi0_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MSG_INFO_0 {
+impl ::core::cmp::PartialEq for MSG_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.msgi0_name == other.msgi0_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MSG_INFO_0 {}
+impl ::core::cmp::Eq for MSG_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MSG_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -5151,25 +5151,25 @@ pub struct MSG_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl MSG_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MSG_INFO_1 {
+impl ::core::default::Default for MSG_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MSG_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MSG_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MSG_INFO_1").field("msgi1_name", &self.msgi1_name).field("msgi1_forward_flag", &self.msgi1_forward_flag).field("msgi1_forward", &self.msgi1_forward).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MSG_INFO_1 {
+impl ::core::cmp::PartialEq for MSG_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.msgi1_name == other.msgi1_name && self.msgi1_forward_flag == other.msgi1_forward_flag && self.msgi1_forward == other.msgi1_forward
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MSG_INFO_1 {}
+impl ::core::cmp::Eq for MSG_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MSG_INFO_1 {
     type Abi = Self;
@@ -5185,32 +5185,32 @@ pub unsafe fn MprSetupProtocolEnum(dwtransportid: u32, lplpbuffer: *mut *mut u8,
         extern "system" {
             fn MprSetupProtocolEnum(dwtransportid: u32, lplpbuffer: *mut *mut u8, lpdwentriesread: *mut u32) -> u32;
         }
-        ::std::mem::transmute(MprSetupProtocolEnum(::std::mem::transmute(dwtransportid), ::std::mem::transmute(lplpbuffer), ::std::mem::transmute(lpdwentriesread)))
+        ::core::mem::transmute(MprSetupProtocolEnum(::core::mem::transmute(dwtransportid), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(lpdwentriesread)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[inline]
-pub unsafe fn MprSetupProtocolFree(lpbuffer: *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn MprSetupProtocolFree(lpbuffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MprSetupProtocolFree(lpbuffer: *mut ::std::ffi::c_void) -> u32;
+            fn MprSetupProtocolFree(lpbuffer: *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(MprSetupProtocolFree(::std::mem::transmute(lpbuffer)))
+        ::core::mem::transmute(MprSetupProtocolFree(::core::mem::transmute(lpbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NCPNP_RECONFIG_LAYER(pub i32);
 pub const NCRL_NDIS: NCPNP_RECONFIG_LAYER = NCPNP_RECONFIG_LAYER(1i32);
 pub const NCRL_TDI: NCPNP_RECONFIG_LAYER = NCPNP_RECONFIG_LAYER(2i32);
-impl ::std::convert::From<i32> for NCPNP_RECONFIG_LAYER {
+impl ::core::convert::From<i32> for NCPNP_RECONFIG_LAYER {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -5219,12 +5219,12 @@ unsafe impl ::windows::runtime::Abi for NCPNP_RECONFIG_LAYER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NCRP_FLAGS(pub i32);
 pub const NCRP_QUERY_PROPERTY_UI: NCRP_FLAGS = NCRP_FLAGS(1i32);
 pub const NCRP_SHOW_PROPERTY_UI: NCRP_FLAGS = NCRP_FLAGS(2i32);
-impl ::std::convert::From<i32> for NCRP_FLAGS {
+impl ::core::convert::From<i32> for NCRP_FLAGS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6448,7 +6448,7 @@ pub const NETLOGON_FULL_SYNC_REPLICATION: u32 = 4u32;
 pub const NETLOGON_HAS_IP: u32 = 16u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const NETLOGON_HAS_TIMESERV: u32 = 32u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct NETLOGON_INFO_1 {
@@ -6456,26 +6456,26 @@ pub struct NETLOGON_INFO_1 {
     pub netlog1_pdc_connection_status: u32,
 }
 impl NETLOGON_INFO_1 {}
-impl ::std::default::Default for NETLOGON_INFO_1 {
+impl ::core::default::Default for NETLOGON_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NETLOGON_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NETLOGON_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NETLOGON_INFO_1").field("netlog1_flags", &self.netlog1_flags).field("netlog1_pdc_connection_status", &self.netlog1_pdc_connection_status).finish()
     }
 }
-impl ::std::cmp::PartialEq for NETLOGON_INFO_1 {
+impl ::core::cmp::PartialEq for NETLOGON_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.netlog1_flags == other.netlog1_flags && self.netlog1_pdc_connection_status == other.netlog1_pdc_connection_status
     }
 }
-impl ::std::cmp::Eq for NETLOGON_INFO_1 {}
+impl ::core::cmp::Eq for NETLOGON_INFO_1 {}
 unsafe impl ::windows::runtime::Abi for NETLOGON_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -6488,14 +6488,14 @@ pub struct NETLOGON_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl NETLOGON_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NETLOGON_INFO_2 {
+impl ::core::default::Default for NETLOGON_INFO_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NETLOGON_INFO_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NETLOGON_INFO_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NETLOGON_INFO_2")
             .field("netlog2_flags", &self.netlog2_flags)
             .field("netlog2_pdc_connection_status", &self.netlog2_pdc_connection_status)
@@ -6505,18 +6505,18 @@ impl ::std::fmt::Debug for NETLOGON_INFO_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NETLOGON_INFO_2 {
+impl ::core::cmp::PartialEq for NETLOGON_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.netlog2_flags == other.netlog2_flags && self.netlog2_pdc_connection_status == other.netlog2_pdc_connection_status && self.netlog2_trusted_dc_name == other.netlog2_trusted_dc_name && self.netlog2_tc_connection_status == other.netlog2_tc_connection_status
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NETLOGON_INFO_2 {}
+impl ::core::cmp::Eq for NETLOGON_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NETLOGON_INFO_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct NETLOGON_INFO_3 {
@@ -6529,13 +6529,13 @@ pub struct NETLOGON_INFO_3 {
     pub netlog3_reserved5: u32,
 }
 impl NETLOGON_INFO_3 {}
-impl ::std::default::Default for NETLOGON_INFO_3 {
+impl ::core::default::Default for NETLOGON_INFO_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NETLOGON_INFO_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NETLOGON_INFO_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NETLOGON_INFO_3")
             .field("netlog3_flags", &self.netlog3_flags)
             .field("netlog3_logon_attempts", &self.netlog3_logon_attempts)
@@ -6547,16 +6547,16 @@ impl ::std::fmt::Debug for NETLOGON_INFO_3 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for NETLOGON_INFO_3 {
+impl ::core::cmp::PartialEq for NETLOGON_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
         self.netlog3_flags == other.netlog3_flags && self.netlog3_logon_attempts == other.netlog3_logon_attempts && self.netlog3_reserved1 == other.netlog3_reserved1 && self.netlog3_reserved2 == other.netlog3_reserved2 && self.netlog3_reserved3 == other.netlog3_reserved3 && self.netlog3_reserved4 == other.netlog3_reserved4 && self.netlog3_reserved5 == other.netlog3_reserved5
     }
 }
-impl ::std::cmp::Eq for NETLOGON_INFO_3 {}
+impl ::core::cmp::Eq for NETLOGON_INFO_3 {}
 unsafe impl ::windows::runtime::Abi for NETLOGON_INFO_3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -6567,25 +6567,25 @@ pub struct NETLOGON_INFO_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl NETLOGON_INFO_4 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NETLOGON_INFO_4 {
+impl ::core::default::Default for NETLOGON_INFO_4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NETLOGON_INFO_4 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NETLOGON_INFO_4 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NETLOGON_INFO_4").field("netlog4_trusted_dc_name", &self.netlog4_trusted_dc_name).field("netlog4_trusted_domain_name", &self.netlog4_trusted_domain_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NETLOGON_INFO_4 {
+impl ::core::cmp::PartialEq for NETLOGON_INFO_4 {
     fn eq(&self, other: &Self) -> bool {
         self.netlog4_trusted_dc_name == other.netlog4_trusted_dc_name && self.netlog4_trusted_domain_name == other.netlog4_trusted_domain_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NETLOGON_INFO_4 {}
+impl ::core::cmp::Eq for NETLOGON_INFO_4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NETLOGON_INFO_4 {
     type Abi = Self;
@@ -6625,14 +6625,14 @@ pub const NETSETUP_DNS_NAME_CHANGES_ONLY: u32 = 4096u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const NETSETUP_INSTALL_INVOCATION: u32 = 262144u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NETSETUP_JOIN_STATUS(pub i32);
 pub const NetSetupUnknownStatus: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(0i32);
 pub const NetSetupUnjoined: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(1i32);
 pub const NetSetupWorkgroupName: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(2i32);
 pub const NetSetupDomainName: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(3i32);
-impl ::std::convert::From<i32> for NETSETUP_JOIN_STATUS {
+impl ::core::convert::From<i32> for NETSETUP_JOIN_STATUS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6641,7 +6641,7 @@ unsafe impl ::windows::runtime::Abi for NETSETUP_JOIN_STATUS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NETSETUP_NAME_TYPE(pub i32);
 pub const NetSetupUnknown: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(0i32);
@@ -6650,7 +6650,7 @@ pub const NetSetupWorkgroup: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(2i32);
 pub const NetSetupDomain: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(3i32);
 pub const NetSetupNonExistentDomain: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(4i32);
 pub const NetSetupDnsMachine: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(5i32);
-impl ::std::convert::From<i32> for NETSETUP_NAME_TYPE {
+impl ::core::convert::From<i32> for NETSETUP_NAME_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6659,7 +6659,7 @@ unsafe impl ::windows::runtime::Abi for NETSETUP_NAME_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NETSETUP_PROVISION(pub u32);
 pub const NETSETUP_PROVISION_DOWNLEVEL_PRIV_SUPPORT: NETSETUP_PROVISION = NETSETUP_PROVISION(1u32);
@@ -6667,7 +6667,7 @@ pub const NETSETUP_PROVISION_REUSE_ACCOUNT: NETSETUP_PROVISION = NETSETUP_PROVIS
 pub const NETSETUP_PROVISION_USE_DEFAULT_PASSWORD: NETSETUP_PROVISION = NETSETUP_PROVISION(4u32);
 pub const NETSETUP_PROVISION_SKIP_ACCOUNT_SEARCH: NETSETUP_PROVISION = NETSETUP_PROVISION(8u32);
 pub const NETSETUP_PROVISION_ROOT_CA_CERTS: NETSETUP_PROVISION = NETSETUP_PROVISION(16u32);
-impl ::std::convert::From<u32> for NETSETUP_PROVISION {
+impl ::core::convert::From<u32> for NETSETUP_PROVISION {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -6675,35 +6675,35 @@ impl ::std::convert::From<u32> for NETSETUP_PROVISION {
 unsafe impl ::windows::runtime::Abi for NETSETUP_PROVISION {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for NETSETUP_PROVISION {
+impl ::core::ops::BitOr for NETSETUP_PROVISION {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for NETSETUP_PROVISION {
+impl ::core::ops::BitAnd for NETSETUP_PROVISION {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for NETSETUP_PROVISION {
+impl ::core::ops::BitOrAssign for NETSETUP_PROVISION {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for NETSETUP_PROVISION {
+impl ::core::ops::BitAndAssign for NETSETUP_PROVISION {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for NETSETUP_PROVISION {
+impl ::core::ops::Not for NETSETUP_PROVISION {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -6727,14 +6727,14 @@ pub struct NETSETUP_PROVISIONING_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl NETSETUP_PROVISIONING_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NETSETUP_PROVISIONING_PARAMS {
+impl ::core::default::Default for NETSETUP_PROVISIONING_PARAMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NETSETUP_PROVISIONING_PARAMS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NETSETUP_PROVISIONING_PARAMS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NETSETUP_PROVISIONING_PARAMS")
             .field("dwVersion", &self.dwVersion)
             .field("lpDomain", &self.lpDomain)
@@ -6755,7 +6755,7 @@ impl ::std::fmt::Debug for NETSETUP_PROVISIONING_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NETSETUP_PROVISIONING_PARAMS {
+impl ::core::cmp::PartialEq for NETSETUP_PROVISIONING_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.dwVersion == other.dwVersion
             && self.lpDomain == other.lpDomain
@@ -6775,7 +6775,7 @@ impl ::std::cmp::PartialEq for NETSETUP_PROVISIONING_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NETSETUP_PROVISIONING_PARAMS {}
+impl ::core::cmp::Eq for NETSETUP_PROVISIONING_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NETSETUP_PROVISIONING_PARAMS {
     type Abi = Self;
@@ -6789,12 +6789,12 @@ pub const NETSETUP_PROVISION_CHECK_PWD_ONLY: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const NETSETUP_PROVISION_PERSISTENTSITE: u32 = 32u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NETWORK_INSTALL_TIME(pub i32);
 pub const NSF_PRIMARYINSTALL: NETWORK_INSTALL_TIME = NETWORK_INSTALL_TIME(1i32);
 pub const NSF_POSTSYSINSTALL: NETWORK_INSTALL_TIME = NETWORK_INSTALL_TIME(2i32);
-impl ::std::convert::From<i32> for NETWORK_INSTALL_TIME {
+impl ::core::convert::From<i32> for NETWORK_INSTALL_TIME {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6802,7 +6802,7 @@ impl ::std::convert::From<i32> for NETWORK_INSTALL_TIME {
 unsafe impl ::windows::runtime::Abi for NETWORK_INSTALL_TIME {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -6812,31 +6812,31 @@ pub struct NETWORK_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl NETWORK_NAME {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NETWORK_NAME {
+impl ::core::default::Default for NETWORK_NAME {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NETWORK_NAME {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NETWORK_NAME {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NETWORK_NAME").field("Name", &self.Name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NETWORK_NAME {
+impl ::core::cmp::PartialEq for NETWORK_NAME {
     fn eq(&self, other: &Self) -> bool {
         self.Name == other.Name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NETWORK_NAME {}
+impl ::core::cmp::Eq for NETWORK_NAME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NETWORK_NAME {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NETWORK_UPGRADE_TYPE(pub i32);
 pub const NSF_WIN16_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(16i32);
@@ -6845,7 +6845,7 @@ pub const NSF_WINNT_WKS_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(64i
 pub const NSF_WINNT_SVR_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(128i32);
 pub const NSF_WINNT_SBS_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(256i32);
 pub const NSF_COMPONENT_UPDATE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(512i32);
-impl ::std::convert::From<i32> for NETWORK_UPGRADE_TYPE {
+impl ::core::convert::From<i32> for NETWORK_UPGRADE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6854,14 +6854,14 @@ unsafe impl ::windows::runtime::Abi for NETWORK_UPGRADE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_COMPUTER_NAME_TYPE(pub i32);
 pub const NetPrimaryComputerName: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(0i32);
 pub const NetAlternateComputerNames: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(1i32);
 pub const NetAllComputerNames: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(2i32);
 pub const NetComputerNameTypeMax: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(3i32);
-impl ::std::convert::From<i32> for NET_COMPUTER_NAME_TYPE {
+impl ::core::convert::From<i32> for NET_COMPUTER_NAME_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -6873,7 +6873,7 @@ unsafe impl ::windows::runtime::Abi for NET_COMPUTER_NAME_TYPE {
 pub const NET_DFS_ENUM: i32 = 1073756324i32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const NET_DFS_ENUMEX: i32 = 1073756325i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -6887,30 +6887,30 @@ pub struct NET_DISPLAY_GROUP {
 #[cfg(feature = "Win32_Foundation")]
 impl NET_DISPLAY_GROUP {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NET_DISPLAY_GROUP {
+impl ::core::default::Default for NET_DISPLAY_GROUP {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NET_DISPLAY_GROUP {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NET_DISPLAY_GROUP {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NET_DISPLAY_GROUP").field("grpi3_name", &self.grpi3_name).field("grpi3_comment", &self.grpi3_comment).field("grpi3_group_id", &self.grpi3_group_id).field("grpi3_attributes", &self.grpi3_attributes).field("grpi3_next_index", &self.grpi3_next_index).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NET_DISPLAY_GROUP {
+impl ::core::cmp::PartialEq for NET_DISPLAY_GROUP {
     fn eq(&self, other: &Self) -> bool {
         self.grpi3_name == other.grpi3_name && self.grpi3_comment == other.grpi3_comment && self.grpi3_group_id == other.grpi3_group_id && self.grpi3_attributes == other.grpi3_attributes && self.grpi3_next_index == other.grpi3_next_index
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NET_DISPLAY_GROUP {}
+impl ::core::cmp::Eq for NET_DISPLAY_GROUP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NET_DISPLAY_GROUP {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -6924,30 +6924,30 @@ pub struct NET_DISPLAY_MACHINE {
 #[cfg(feature = "Win32_Foundation")]
 impl NET_DISPLAY_MACHINE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NET_DISPLAY_MACHINE {
+impl ::core::default::Default for NET_DISPLAY_MACHINE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NET_DISPLAY_MACHINE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NET_DISPLAY_MACHINE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NET_DISPLAY_MACHINE").field("usri2_name", &self.usri2_name).field("usri2_comment", &self.usri2_comment).field("usri2_flags", &self.usri2_flags).field("usri2_user_id", &self.usri2_user_id).field("usri2_next_index", &self.usri2_next_index).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NET_DISPLAY_MACHINE {
+impl ::core::cmp::PartialEq for NET_DISPLAY_MACHINE {
     fn eq(&self, other: &Self) -> bool {
         self.usri2_name == other.usri2_name && self.usri2_comment == other.usri2_comment && self.usri2_flags == other.usri2_flags && self.usri2_user_id == other.usri2_user_id && self.usri2_next_index == other.usri2_next_index
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NET_DISPLAY_MACHINE {}
+impl ::core::cmp::Eq for NET_DISPLAY_MACHINE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NET_DISPLAY_MACHINE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -6962,14 +6962,14 @@ pub struct NET_DISPLAY_USER {
 #[cfg(feature = "Win32_Foundation")]
 impl NET_DISPLAY_USER {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NET_DISPLAY_USER {
+impl ::core::default::Default for NET_DISPLAY_USER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NET_DISPLAY_USER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NET_DISPLAY_USER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NET_DISPLAY_USER")
             .field("usri1_name", &self.usri1_name)
             .field("usri1_comment", &self.usri1_comment)
@@ -6981,13 +6981,13 @@ impl ::std::fmt::Debug for NET_DISPLAY_USER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NET_DISPLAY_USER {
+impl ::core::cmp::PartialEq for NET_DISPLAY_USER {
     fn eq(&self, other: &Self) -> bool {
         self.usri1_name == other.usri1_name && self.usri1_comment == other.usri1_comment && self.usri1_flags == other.usri1_flags && self.usri1_full_name == other.usri1_full_name && self.usri1_user_id == other.usri1_user_id && self.usri1_next_index == other.usri1_next_index
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NET_DISPLAY_USER {}
+impl ::core::cmp::Eq for NET_DISPLAY_USER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NET_DISPLAY_USER {
     type Abi = Self;
@@ -6995,7 +6995,7 @@ unsafe impl ::windows::runtime::Abi for NET_DISPLAY_USER {
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const NET_IGNORE_UNSUPPORTED_FLAGS: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_JOIN_DOMAIN_JOIN_OPTIONS(pub u32);
 pub const NETSETUP_JOIN_DOMAIN: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(1u32);
@@ -7015,7 +7015,7 @@ pub const NETSETUP_SET_MACHINE_NAME: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOM
 pub const NETSETUP_FORCE_SPN_SET: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(65536u32);
 pub const NETSETUP_NO_ACCT_REUSE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(131072u32);
 pub const NETSETUP_IGNORE_UNSUPPORTED_FLAGS: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(268435456u32);
-impl ::std::convert::From<u32> for NET_JOIN_DOMAIN_JOIN_OPTIONS {
+impl ::core::convert::From<u32> for NET_JOIN_DOMAIN_JOIN_OPTIONS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -7023,36 +7023,36 @@ impl ::std::convert::From<u32> for NET_JOIN_DOMAIN_JOIN_OPTIONS {
 unsafe impl ::windows::runtime::Abi for NET_JOIN_DOMAIN_JOIN_OPTIONS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for NET_JOIN_DOMAIN_JOIN_OPTIONS {
+impl ::core::ops::BitOr for NET_JOIN_DOMAIN_JOIN_OPTIONS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for NET_JOIN_DOMAIN_JOIN_OPTIONS {
+impl ::core::ops::BitAnd for NET_JOIN_DOMAIN_JOIN_OPTIONS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for NET_JOIN_DOMAIN_JOIN_OPTIONS {
+impl ::core::ops::BitOrAssign for NET_JOIN_DOMAIN_JOIN_OPTIONS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for NET_JOIN_DOMAIN_JOIN_OPTIONS {
+impl ::core::ops::BitAndAssign for NET_JOIN_DOMAIN_JOIN_OPTIONS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for NET_JOIN_DOMAIN_JOIN_OPTIONS {
+impl ::core::ops::Not for NET_JOIN_DOMAIN_JOIN_OPTIONS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(pub i32);
 pub const SUPPORTS_REMOTE_ADMIN_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(2i32);
@@ -7060,7 +7060,7 @@ pub const SUPPORTS_RPC: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUT
 pub const SUPPORTS_SAM_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(8i32);
 pub const SUPPORTS_UNICODE: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(16i32);
 pub const SUPPORTS_LOCAL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(32i32);
-impl ::std::convert::From<i32> for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
+impl ::core::convert::From<i32> for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -7069,11 +7069,11 @@ unsafe impl ::windows::runtime::Abi for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_REQUEST_PROVISION_OPTIONS(pub u32);
 pub const NETSETUP_PROVISION_ONLINE_CALLER: NET_REQUEST_PROVISION_OPTIONS = NET_REQUEST_PROVISION_OPTIONS(1073741824u32);
-impl ::std::convert::From<u32> for NET_REQUEST_PROVISION_OPTIONS {
+impl ::core::convert::From<u32> for NET_REQUEST_PROVISION_OPTIONS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -7081,36 +7081,36 @@ impl ::std::convert::From<u32> for NET_REQUEST_PROVISION_OPTIONS {
 unsafe impl ::windows::runtime::Abi for NET_REQUEST_PROVISION_OPTIONS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for NET_REQUEST_PROVISION_OPTIONS {
+impl ::core::ops::BitOr for NET_REQUEST_PROVISION_OPTIONS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for NET_REQUEST_PROVISION_OPTIONS {
+impl ::core::ops::BitAnd for NET_REQUEST_PROVISION_OPTIONS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for NET_REQUEST_PROVISION_OPTIONS {
+impl ::core::ops::BitOrAssign for NET_REQUEST_PROVISION_OPTIONS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for NET_REQUEST_PROVISION_OPTIONS {
+impl ::core::ops::BitAndAssign for NET_REQUEST_PROVISION_OPTIONS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for NET_REQUEST_PROVISION_OPTIONS {
+impl ::core::ops::Not for NET_REQUEST_PROVISION_OPTIONS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_SERVER_TYPE(pub u32);
 pub const SV_TYPE_WORKSTATION: NET_SERVER_TYPE = NET_SERVER_TYPE(1u32);
@@ -7146,7 +7146,7 @@ pub const SV_TYPE_ALTERNATE_XPORT: NET_SERVER_TYPE = NET_SERVER_TYPE(536870912u3
 pub const SV_TYPE_LOCAL_LIST_ONLY: NET_SERVER_TYPE = NET_SERVER_TYPE(1073741824u32);
 pub const SV_TYPE_DOMAIN_ENUM: NET_SERVER_TYPE = NET_SERVER_TYPE(2147483648u32);
 pub const SV_TYPE_ALL: NET_SERVER_TYPE = NET_SERVER_TYPE(4294967295u32);
-impl ::std::convert::From<u32> for NET_SERVER_TYPE {
+impl ::core::convert::From<u32> for NET_SERVER_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -7154,36 +7154,36 @@ impl ::std::convert::From<u32> for NET_SERVER_TYPE {
 unsafe impl ::windows::runtime::Abi for NET_SERVER_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for NET_SERVER_TYPE {
+impl ::core::ops::BitOr for NET_SERVER_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for NET_SERVER_TYPE {
+impl ::core::ops::BitAnd for NET_SERVER_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for NET_SERVER_TYPE {
+impl ::core::ops::BitOrAssign for NET_SERVER_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for NET_SERVER_TYPE {
+impl ::core::ops::BitAndAssign for NET_SERVER_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for NET_SERVER_TYPE {
+impl ::core::ops::Not for NET_SERVER_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_USER_ENUM_FILTER_FLAGS(pub u32);
 pub const FILTER_TEMP_DUPLICATE_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(1u32);
@@ -7191,7 +7191,7 @@ pub const FILTER_NORMAL_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILT
 pub const FILTER_INTERDOMAIN_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(8u32);
 pub const FILTER_WORKSTATION_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(16u32);
 pub const FILTER_SERVER_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(32u32);
-impl ::std::convert::From<u32> for NET_USER_ENUM_FILTER_FLAGS {
+impl ::core::convert::From<u32> for NET_USER_ENUM_FILTER_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -7199,35 +7199,35 @@ impl ::std::convert::From<u32> for NET_USER_ENUM_FILTER_FLAGS {
 unsafe impl ::windows::runtime::Abi for NET_USER_ENUM_FILTER_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for NET_USER_ENUM_FILTER_FLAGS {
+impl ::core::ops::BitOr for NET_USER_ENUM_FILTER_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for NET_USER_ENUM_FILTER_FLAGS {
+impl ::core::ops::BitAnd for NET_USER_ENUM_FILTER_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for NET_USER_ENUM_FILTER_FLAGS {
+impl ::core::ops::BitOrAssign for NET_USER_ENUM_FILTER_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for NET_USER_ENUM_FILTER_FLAGS {
+impl ::core::ops::BitAndAssign for NET_USER_ENUM_FILTER_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for NET_USER_ENUM_FILTER_FLAGS {
+impl ::core::ops::Not for NET_USER_ENUM_FILTER_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -7238,25 +7238,25 @@ pub struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 impl NET_VALIDATE_AUTHENTICATION_INPUT_ARG {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
+impl ::core::default::Default for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NET_VALIDATE_AUTHENTICATION_INPUT_ARG").field("InputPersistedFields", &self.InputPersistedFields).field("PasswordMatched", &self.PasswordMatched).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
+impl ::core::cmp::PartialEq for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     fn eq(&self, other: &Self) -> bool {
         self.InputPersistedFields == other.InputPersistedFields && self.PasswordMatched == other.PasswordMatched
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {}
+impl ::core::cmp::Eq for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     type Abi = Self;
@@ -7267,7 +7267,7 @@ pub const NET_VALIDATE_BAD_PASSWORD_COUNT: u32 = 8u32;
 pub const NET_VALIDATE_BAD_PASSWORD_TIME: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const NET_VALIDATE_LOCKOUT_TIME: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -7278,30 +7278,30 @@ pub struct NET_VALIDATE_OUTPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 impl NET_VALIDATE_OUTPUT_ARG {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NET_VALIDATE_OUTPUT_ARG {
+impl ::core::default::Default for NET_VALIDATE_OUTPUT_ARG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NET_VALIDATE_OUTPUT_ARG {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NET_VALIDATE_OUTPUT_ARG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NET_VALIDATE_OUTPUT_ARG").field("ChangedPersistedFields", &self.ChangedPersistedFields).field("ValidationStatus", &self.ValidationStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NET_VALIDATE_OUTPUT_ARG {
+impl ::core::cmp::PartialEq for NET_VALIDATE_OUTPUT_ARG {
     fn eq(&self, other: &Self) -> bool {
         self.ChangedPersistedFields == other.ChangedPersistedFields && self.ValidationStatus == other.ValidationStatus
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NET_VALIDATE_OUTPUT_ARG {}
+impl ::core::cmp::Eq for NET_VALIDATE_OUTPUT_ARG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NET_VALIDATE_OUTPUT_ARG {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -7315,14 +7315,14 @@ pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 impl NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
+impl ::core::default::Default for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG")
             .field("InputPersistedFields", &self.InputPersistedFields)
             .field("ClearPassword", &self.ClearPassword)
@@ -7333,18 +7333,18 @@ impl ::std::fmt::Debug for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
+impl ::core::cmp::PartialEq for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     fn eq(&self, other: &Self) -> bool {
         self.InputPersistedFields == other.InputPersistedFields && self.ClearPassword == other.ClearPassword && self.UserAccountName == other.UserAccountName && self.HashedPassword == other.HashedPassword && self.PasswordMatch == other.PasswordMatch
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {}
+impl ::core::cmp::Eq for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct NET_VALIDATE_PASSWORD_HASH {
@@ -7352,22 +7352,22 @@ pub struct NET_VALIDATE_PASSWORD_HASH {
     pub Hash: *mut u8,
 }
 impl NET_VALIDATE_PASSWORD_HASH {}
-impl ::std::default::Default for NET_VALIDATE_PASSWORD_HASH {
+impl ::core::default::Default for NET_VALIDATE_PASSWORD_HASH {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for NET_VALIDATE_PASSWORD_HASH {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NET_VALIDATE_PASSWORD_HASH {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NET_VALIDATE_PASSWORD_HASH").field("Length", &self.Length).field("Hash", &self.Hash).finish()
     }
 }
-impl ::std::cmp::PartialEq for NET_VALIDATE_PASSWORD_HASH {
+impl ::core::cmp::PartialEq for NET_VALIDATE_PASSWORD_HASH {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.Hash == other.Hash
     }
 }
-impl ::std::cmp::Eq for NET_VALIDATE_PASSWORD_HASH {}
+impl ::core::cmp::Eq for NET_VALIDATE_PASSWORD_HASH {}
 unsafe impl ::windows::runtime::Abi for NET_VALIDATE_PASSWORD_HASH {
     type Abi = Self;
 }
@@ -7377,7 +7377,7 @@ pub const NET_VALIDATE_PASSWORD_HISTORY: u32 = 32u32;
 pub const NET_VALIDATE_PASSWORD_HISTORY_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const NET_VALIDATE_PASSWORD_LAST_SET: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -7392,14 +7392,14 @@ pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 impl NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
+impl ::core::default::Default for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NET_VALIDATE_PASSWORD_RESET_INPUT_ARG")
             .field("InputPersistedFields", &self.InputPersistedFields)
             .field("ClearPassword", &self.ClearPassword)
@@ -7411,25 +7411,25 @@ impl ::std::fmt::Debug for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
+impl ::core::cmp::PartialEq for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     fn eq(&self, other: &Self) -> bool {
         self.InputPersistedFields == other.InputPersistedFields && self.ClearPassword == other.ClearPassword && self.UserAccountName == other.UserAccountName && self.HashedPassword == other.HashedPassword && self.PasswordMustChangeAtNextLogon == other.PasswordMustChangeAtNextLogon && self.ClearLockout == other.ClearLockout
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {}
+impl ::core::cmp::Eq for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_VALIDATE_PASSWORD_TYPE(pub i32);
 pub const NetValidateAuthentication: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(1i32);
 pub const NetValidatePasswordChange: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(2i32);
 pub const NetValidatePasswordReset: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(3i32);
-impl ::std::convert::From<i32> for NET_VALIDATE_PASSWORD_TYPE {
+impl ::core::convert::From<i32> for NET_VALIDATE_PASSWORD_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -7437,7 +7437,7 @@ impl ::std::convert::From<i32> for NET_VALIDATE_PASSWORD_TYPE {
 unsafe impl ::windows::runtime::Abi for NET_VALIDATE_PASSWORD_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -7453,14 +7453,14 @@ pub struct NET_VALIDATE_PERSISTED_FIELDS {
 #[cfg(feature = "Win32_Foundation")]
 impl NET_VALIDATE_PERSISTED_FIELDS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for NET_VALIDATE_PERSISTED_FIELDS {
+impl ::core::default::Default for NET_VALIDATE_PERSISTED_FIELDS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for NET_VALIDATE_PERSISTED_FIELDS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for NET_VALIDATE_PERSISTED_FIELDS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("NET_VALIDATE_PERSISTED_FIELDS")
             .field("PresentFields", &self.PresentFields)
             .field("PasswordLastSet", &self.PasswordLastSet)
@@ -7473,13 +7473,13 @@ impl ::std::fmt::Debug for NET_VALIDATE_PERSISTED_FIELDS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for NET_VALIDATE_PERSISTED_FIELDS {
+impl ::core::cmp::PartialEq for NET_VALIDATE_PERSISTED_FIELDS {
     fn eq(&self, other: &Self) -> bool {
         self.PresentFields == other.PresentFields && self.PasswordLastSet == other.PasswordLastSet && self.BadPasswordTime == other.BadPasswordTime && self.LockoutTime == other.LockoutTime && self.BadPasswordCount == other.BadPasswordCount && self.PasswordHistoryLength == other.PasswordHistoryLength && self.PasswordHistory == other.PasswordHistory
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for NET_VALIDATE_PERSISTED_FIELDS {}
+impl ::core::cmp::Eq for NET_VALIDATE_PERSISTED_FIELDS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NET_VALIDATE_PERSISTED_FIELDS {
     type Abi = Self;
@@ -7592,7 +7592,7 @@ pub unsafe fn NetAccessAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn NetAccessAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetAccessAdd(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetAccessAdd(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7607,7 +7607,7 @@ pub unsafe fn NetAccessDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn NetAccessDel(servername: super::super::Foundation::PWSTR, resource: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetAccessDel(servername.into_param().abi(), resource.into_param().abi()))
+        ::core::mem::transmute(NetAccessDel(servername.into_param().abi(), resource.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7622,16 +7622,16 @@ pub unsafe fn NetAccessEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn NetAccessEnum(servername: super::super::Foundation::PWSTR, basepath: super::super::Foundation::PWSTR, recursive: u32, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetAccessEnum(
+        ::core::mem::transmute(NetAccessEnum(
             servername.into_param().abi(),
             basepath.into_param().abi(),
-            ::std::mem::transmute(recursive),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(bufptr),
-            ::std::mem::transmute(prefmaxlen),
-            ::std::mem::transmute(entriesread),
-            ::std::mem::transmute(totalentries),
-            ::std::mem::transmute(resume_handle),
+            ::core::mem::transmute(recursive),
+            ::core::mem::transmute(level),
+            ::core::mem::transmute(bufptr),
+            ::core::mem::transmute(prefmaxlen),
+            ::core::mem::transmute(entriesread),
+            ::core::mem::transmute(totalentries),
+            ::core::mem::transmute(resume_handle),
         ))
     }
     #[cfg(not(windows))]
@@ -7647,7 +7647,7 @@ pub unsafe fn NetAccessGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetAccessGetInfo(servername: super::super::Foundation::PWSTR, resource: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetAccessGetInfo(servername.into_param().abi(), resource.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetAccessGetInfo(servername.into_param().abi(), resource.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7662,7 +7662,7 @@ pub unsafe fn NetAccessGetUserPerms<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn NetAccessGetUserPerms(servername: super::super::Foundation::PWSTR, ugname: super::super::Foundation::PWSTR, resource: super::super::Foundation::PWSTR, perms: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetAccessGetUserPerms(servername.into_param().abi(), ugname.into_param().abi(), resource.into_param().abi(), ::std::mem::transmute(perms)))
+        ::core::mem::transmute(NetAccessGetUserPerms(servername.into_param().abi(), ugname.into_param().abi(), resource.into_param().abi(), ::core::mem::transmute(perms)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7677,7 +7677,7 @@ pub unsafe fn NetAccessSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetAccessSetInfo(servername: super::super::Foundation::PWSTR, resource: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetAccessSetInfo(servername.into_param().abi(), resource.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetAccessSetInfo(servername.into_param().abi(), resource.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7692,7 +7692,7 @@ pub unsafe fn NetAddAlternateComputerName<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn NetAddAlternateComputerName(server: super::super::Foundation::PWSTR, alternatename: super::super::Foundation::PWSTR, domainaccount: super::super::Foundation::PWSTR, domainaccountpassword: super::super::Foundation::PWSTR, reserved: u32) -> u32;
         }
-        ::std::mem::transmute(NetAddAlternateComputerName(server.into_param().abi(), alternatename.into_param().abi(), domainaccount.into_param().abi(), domainaccountpassword.into_param().abi(), ::std::mem::transmute(reserved)))
+        ::core::mem::transmute(NetAddAlternateComputerName(server.into_param().abi(), alternatename.into_param().abi(), domainaccount.into_param().abi(), domainaccountpassword.into_param().abi(), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7707,7 +7707,7 @@ pub unsafe fn NetAddServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn NetAddServiceAccount(servername: super::super::Foundation::PWSTR, accountname: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
         }
-        NetAddServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), password.into_param().abi(), ::std::mem::transmute(flags)).ok()
+        NetAddServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7715,14 +7715,14 @@ pub unsafe fn NetAddServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a,
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAlertRaise<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(alerttype: Param0, buffer: *const ::std::ffi::c_void, buffersize: u32) -> u32 {
+pub unsafe fn NetAlertRaise<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(alerttype: Param0, buffer: *const ::core::ffi::c_void, buffersize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetAlertRaise(alerttype: super::super::Foundation::PWSTR, buffer: *const ::std::ffi::c_void, buffersize: u32) -> u32;
+            fn NetAlertRaise(alerttype: super::super::Foundation::PWSTR, buffer: *const ::core::ffi::c_void, buffersize: u32) -> u32;
         }
-        ::std::mem::transmute(NetAlertRaise(alerttype.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(buffersize)))
+        ::core::mem::transmute(NetAlertRaise(alerttype.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7730,70 +7730,70 @@ pub unsafe fn NetAlertRaise<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetAlertRaiseEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(alerttype: Param0, variableinfo: *const ::std::ffi::c_void, variableinfosize: u32, servicename: Param3) -> u32 {
+pub unsafe fn NetAlertRaiseEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(alerttype: Param0, variableinfo: *const ::core::ffi::c_void, variableinfosize: u32, servicename: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetAlertRaiseEx(alerttype: super::super::Foundation::PWSTR, variableinfo: *const ::std::ffi::c_void, variableinfosize: u32, servicename: super::super::Foundation::PWSTR) -> u32;
+            fn NetAlertRaiseEx(alerttype: super::super::Foundation::PWSTR, variableinfo: *const ::core::ffi::c_void, variableinfosize: u32, servicename: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetAlertRaiseEx(alerttype.into_param().abi(), ::std::mem::transmute(variableinfo), ::std::mem::transmute(variableinfosize), servicename.into_param().abi()))
+        ::core::mem::transmute(NetAlertRaiseEx(alerttype.into_param().abi(), ::core::mem::transmute(variableinfo), ::core::mem::transmute(variableinfosize), servicename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[inline]
-pub unsafe fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::std::ffi::c_void) -> u32;
+            fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(NetApiBufferAllocate(::std::mem::transmute(bytecount), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(NetApiBufferAllocate(::core::mem::transmute(bytecount), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[inline]
-pub unsafe fn NetApiBufferFree(buffer: *const ::std::ffi::c_void) -> u32 {
+pub unsafe fn NetApiBufferFree(buffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetApiBufferFree(buffer: *const ::std::ffi::c_void) -> u32;
+            fn NetApiBufferFree(buffer: *const ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(NetApiBufferFree(::std::mem::transmute(buffer)))
+        ::core::mem::transmute(NetApiBufferFree(::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[inline]
-pub unsafe fn NetApiBufferReallocate(oldbuffer: *const ::std::ffi::c_void, newbytecount: u32, newbuffer: *mut *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn NetApiBufferReallocate(oldbuffer: *const ::core::ffi::c_void, newbytecount: u32, newbuffer: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetApiBufferReallocate(oldbuffer: *const ::std::ffi::c_void, newbytecount: u32, newbuffer: *mut *mut ::std::ffi::c_void) -> u32;
+            fn NetApiBufferReallocate(oldbuffer: *const ::core::ffi::c_void, newbytecount: u32, newbuffer: *mut *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(NetApiBufferReallocate(::std::mem::transmute(oldbuffer), ::std::mem::transmute(newbytecount), ::std::mem::transmute(newbuffer)))
+        ::core::mem::transmute(NetApiBufferReallocate(::core::mem::transmute(oldbuffer), ::core::mem::transmute(newbytecount), ::core::mem::transmute(newbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[inline]
-pub unsafe fn NetApiBufferSize(buffer: *const ::std::ffi::c_void, bytecount: *mut u32) -> u32 {
+pub unsafe fn NetApiBufferSize(buffer: *const ::core::ffi::c_void, bytecount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetApiBufferSize(buffer: *const ::std::ffi::c_void, bytecount: *mut u32) -> u32;
+            fn NetApiBufferSize(buffer: *const ::core::ffi::c_void, bytecount: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetApiBufferSize(::std::mem::transmute(buffer), ::std::mem::transmute(bytecount)))
+        ::core::mem::transmute(NetApiBufferSize(::core::mem::transmute(buffer), ::core::mem::transmute(bytecount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7808,7 +7808,7 @@ pub unsafe fn NetAuditClear<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn NetAuditClear(server: super::super::Foundation::PWSTR, backupfile: super::super::Foundation::PWSTR, service: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetAuditClear(server.into_param().abi(), backupfile.into_param().abi(), service.into_param().abi()))
+        ::core::mem::transmute(NetAuditClear(server.into_param().abi(), backupfile.into_param().abi(), service.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7823,18 +7823,18 @@ pub unsafe fn NetAuditRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn NetAuditRead(server: super::super::Foundation::PWSTR, service: super::super::Foundation::PWSTR, auditloghandle: *mut HLOG, offset: u32, reserved1: *mut u32, reserved2: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxlen: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetAuditRead(
+        ::core::mem::transmute(NetAuditRead(
             server.into_param().abi(),
             service.into_param().abi(),
-            ::std::mem::transmute(auditloghandle),
-            ::std::mem::transmute(offset),
-            ::std::mem::transmute(reserved1),
-            ::std::mem::transmute(reserved2),
-            ::std::mem::transmute(offsetflag),
-            ::std::mem::transmute(bufptr),
-            ::std::mem::transmute(prefmaxlen),
-            ::std::mem::transmute(bytesread),
-            ::std::mem::transmute(totalavailable),
+            ::core::mem::transmute(auditloghandle),
+            ::core::mem::transmute(offset),
+            ::core::mem::transmute(reserved1),
+            ::core::mem::transmute(reserved2),
+            ::core::mem::transmute(offsetflag),
+            ::core::mem::transmute(bufptr),
+            ::core::mem::transmute(prefmaxlen),
+            ::core::mem::transmute(bytesread),
+            ::core::mem::transmute(totalavailable),
         ))
     }
     #[cfg(not(windows))]
@@ -7850,7 +7850,7 @@ pub unsafe fn NetAuditWrite<'a, Param3: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn NetAuditWrite(r#type: u32, buf: *mut u8, numbytes: u32, service: super::super::Foundation::PWSTR, reserved: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetAuditWrite(::std::mem::transmute(r#type), ::std::mem::transmute(buf), ::std::mem::transmute(numbytes), service.into_param().abi(), ::std::mem::transmute(reserved)))
+        ::core::mem::transmute(NetAuditWrite(::core::mem::transmute(r#type), ::core::mem::transmute(buf), ::core::mem::transmute(numbytes), service.into_param().abi(), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7865,7 +7865,7 @@ pub unsafe fn NetConfigGet<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn NetConfigGet(server: super::super::Foundation::PWSTR, component: super::super::Foundation::PWSTR, parameter: super::super::Foundation::PWSTR, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetConfigGet(server.into_param().abi(), component.into_param().abi(), parameter.into_param().abi(), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetConfigGet(server.into_param().abi(), component.into_param().abi(), parameter.into_param().abi(), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7880,7 +7880,7 @@ pub unsafe fn NetConfigGetAll<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn NetConfigGetAll(server: super::super::Foundation::PWSTR, component: super::super::Foundation::PWSTR, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetConfigGetAll(server.into_param().abi(), component.into_param().abi(), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetConfigGetAll(server.into_param().abi(), component.into_param().abi(), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7895,7 +7895,7 @@ pub unsafe fn NetConfigSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn NetConfigSet(server: super::super::Foundation::PWSTR, reserved1: super::super::Foundation::PWSTR, component: super::super::Foundation::PWSTR, level: u32, reserved2: u32, buf: *mut u8, reserved3: u32) -> u32;
         }
-        ::std::mem::transmute(NetConfigSet(server.into_param().abi(), reserved1.into_param().abi(), component.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(reserved2), ::std::mem::transmute(buf), ::std::mem::transmute(reserved3)))
+        ::core::mem::transmute(NetConfigSet(server.into_param().abi(), reserved1.into_param().abi(), component.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(reserved2), ::core::mem::transmute(buf), ::core::mem::transmute(reserved3)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7910,7 +7910,7 @@ pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_
         extern "system" {
             fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_PROVISIONING_PARAMS, pppackagebindata: *mut *mut u8, pdwpackagebindatasize: *mut u32, pppackagetextdata: *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetCreateProvisioningPackage(::std::mem::transmute(pprovisioningparams), ::std::mem::transmute(pppackagebindata), ::std::mem::transmute(pdwpackagebindatasize), ::std::mem::transmute(pppackagetextdata)))
+        ::core::mem::transmute(NetCreateProvisioningPackage(::core::mem::transmute(pprovisioningparams), ::core::mem::transmute(pppackagebindata), ::core::mem::transmute(pdwpackagebindatasize), ::core::mem::transmute(pppackagetextdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7925,7 +7925,7 @@ pub unsafe fn NetEnumerateComputerNames<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn NetEnumerateComputerNames(server: super::super::Foundation::PWSTR, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetEnumerateComputerNames(server.into_param().abi(), ::std::mem::transmute(nametype), ::std::mem::transmute(reserved), ::std::mem::transmute(entrycount), ::std::mem::transmute(computernames)))
+        ::core::mem::transmute(NetEnumerateComputerNames(server.into_param().abi(), ::core::mem::transmute(nametype), ::core::mem::transmute(reserved), ::core::mem::transmute(entrycount), ::core::mem::transmute(computernames)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7940,7 +7940,7 @@ pub unsafe fn NetEnumerateServiceAccounts<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn NetEnumerateServiceAccounts(servername: super::super::Foundation::PWSTR, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> super::super::Foundation::NTSTATUS;
         }
-        NetEnumerateServiceAccounts(servername.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(accountscount), ::std::mem::transmute(accounts)).ok()
+        NetEnumerateServiceAccounts(servername.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(accountscount), ::core::mem::transmute(accounts)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7955,7 +7955,7 @@ pub unsafe fn NetErrorLogClear<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetErrorLogClear(uncservername: super::super::Foundation::PWSTR, backupfile: super::super::Foundation::PWSTR, reserved: *const u8) -> u32;
         }
-        ::std::mem::transmute(NetErrorLogClear(uncservername.into_param().abi(), backupfile.into_param().abi(), ::std::mem::transmute(reserved)))
+        ::core::mem::transmute(NetErrorLogClear(uncservername.into_param().abi(), backupfile.into_param().abi(), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7970,18 +7970,18 @@ pub unsafe fn NetErrorLogRead<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn NetErrorLogRead(uncservername: super::super::Foundation::PWSTR, reserved1: super::super::Foundation::PWSTR, errorloghandle: *const HLOG, offset: u32, reserved2: *const u32, reserved3: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxsize: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetErrorLogRead(
+        ::core::mem::transmute(NetErrorLogRead(
             uncservername.into_param().abi(),
             reserved1.into_param().abi(),
-            ::std::mem::transmute(errorloghandle),
-            ::std::mem::transmute(offset),
-            ::std::mem::transmute(reserved2),
-            ::std::mem::transmute(reserved3),
-            ::std::mem::transmute(offsetflag),
-            ::std::mem::transmute(bufptr),
-            ::std::mem::transmute(prefmaxsize),
-            ::std::mem::transmute(bytesread),
-            ::std::mem::transmute(totalavailable),
+            ::core::mem::transmute(errorloghandle),
+            ::core::mem::transmute(offset),
+            ::core::mem::transmute(reserved2),
+            ::core::mem::transmute(reserved3),
+            ::core::mem::transmute(offsetflag),
+            ::core::mem::transmute(bufptr),
+            ::core::mem::transmute(prefmaxsize),
+            ::core::mem::transmute(bytesread),
+            ::core::mem::transmute(totalavailable),
         ))
     }
     #[cfg(not(windows))]
@@ -7997,7 +7997,7 @@ pub unsafe fn NetErrorLogWrite<'a, Param2: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetErrorLogWrite(reserved1: *const u8, code: u32, component: super::super::Foundation::PWSTR, buffer: *const u8, numbytes: u32, msgbuf: *const u8, strcount: u32, reserved2: *const u8) -> u32;
         }
-        ::std::mem::transmute(NetErrorLogWrite(::std::mem::transmute(reserved1), ::std::mem::transmute(code), component.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(numbytes), ::std::mem::transmute(msgbuf), ::std::mem::transmute(strcount), ::std::mem::transmute(reserved2)))
+        ::core::mem::transmute(NetErrorLogWrite(::core::mem::transmute(reserved1), ::core::mem::transmute(code), component.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(numbytes), ::core::mem::transmute(msgbuf), ::core::mem::transmute(strcount), ::core::mem::transmute(reserved2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8012,7 +8012,7 @@ pub unsafe fn NetFreeAadJoinInformation(pjoininfo: *const DSREG_JOIN_INFO) {
         extern "system" {
             fn NetFreeAadJoinInformation(pjoininfo: *const DSREG_JOIN_INFO);
         }
-        ::std::mem::transmute(NetFreeAadJoinInformation(::std::mem::transmute(pjoininfo)))
+        ::core::mem::transmute(NetFreeAadJoinInformation(::core::mem::transmute(pjoininfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8027,7 +8027,7 @@ pub unsafe fn NetGetAadJoinInformation<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn NetGetAadJoinInformation(pcsztenantid: super::super::Foundation::PWSTR, ppjoininfo: *mut *mut DSREG_JOIN_INFO) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <*mut DSREG_JOIN_INFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        let mut result__: <*mut DSREG_JOIN_INFO as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
         NetGetAadJoinInformation(pcsztenantid.into_param().abi(), &mut result__).from_abi::<*mut DSREG_JOIN_INFO>(result__)
     }
     #[cfg(not(windows))]
@@ -8043,7 +8043,7 @@ pub unsafe fn NetGetAnyDCName<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn NetGetAnyDCName(servername: super::super::Foundation::PWSTR, domainname: super::super::Foundation::PWSTR, buffer: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetGetAnyDCName(servername.into_param().abi(), domainname.into_param().abi(), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(NetGetAnyDCName(servername.into_param().abi(), domainname.into_param().abi(), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8058,7 +8058,7 @@ pub unsafe fn NetGetDCName<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn NetGetDCName(servername: super::super::Foundation::PWSTR, domainname: super::super::Foundation::PWSTR, buffer: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetGetDCName(servername.into_param().abi(), domainname.into_param().abi(), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(NetGetDCName(servername.into_param().abi(), domainname.into_param().abi(), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8073,7 +8073,7 @@ pub unsafe fn NetGetDisplayInformationIndex<'a, Param0: ::windows::runtime::Into
         extern "system" {
             fn NetGetDisplayInformationIndex(servername: super::super::Foundation::PWSTR, level: u32, prefix: super::super::Foundation::PWSTR, index: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetGetDisplayInformationIndex(servername.into_param().abi(), ::std::mem::transmute(level), prefix.into_param().abi(), ::std::mem::transmute(index)))
+        ::core::mem::transmute(NetGetDisplayInformationIndex(servername.into_param().abi(), ::core::mem::transmute(level), prefix.into_param().abi(), ::core::mem::transmute(index)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8088,7 +8088,7 @@ pub unsafe fn NetGetJoinInformation<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn NetGetJoinInformation(lpserver: super::super::Foundation::PWSTR, lpnamebuffer: *mut super::super::Foundation::PWSTR, buffertype: *mut NETSETUP_JOIN_STATUS) -> u32;
         }
-        ::std::mem::transmute(NetGetJoinInformation(lpserver.into_param().abi(), ::std::mem::transmute(lpnamebuffer), ::std::mem::transmute(buffertype)))
+        ::core::mem::transmute(NetGetJoinInformation(lpserver.into_param().abi(), ::core::mem::transmute(lpnamebuffer), ::core::mem::transmute(buffertype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8103,7 +8103,7 @@ pub unsafe fn NetGetJoinableOUs<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetGetJoinableOUs(lpserver: super::super::Foundation::PWSTR, lpdomain: super::super::Foundation::PWSTR, lpaccount: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, oucount: *mut u32, ous: *mut *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetGetJoinableOUs(lpserver.into_param().abi(), lpdomain.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), ::std::mem::transmute(oucount), ::std::mem::transmute(ous)))
+        ::core::mem::transmute(NetGetJoinableOUs(lpserver.into_param().abi(), lpdomain.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), ::core::mem::transmute(oucount), ::core::mem::transmute(ous)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8118,7 +8118,7 @@ pub unsafe fn NetGroupAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn NetGroupAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetGroupAdd(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetGroupAdd(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8133,7 +8133,7 @@ pub unsafe fn NetGroupAddUser<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn NetGroupAddUser(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetGroupAddUser(servername.into_param().abi(), groupname.into_param().abi(), username.into_param().abi()))
+        ::core::mem::transmute(NetGroupAddUser(servername.into_param().abi(), groupname.into_param().abi(), username.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8148,7 +8148,7 @@ pub unsafe fn NetGroupDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn NetGroupDel(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetGroupDel(servername.into_param().abi(), groupname.into_param().abi()))
+        ::core::mem::transmute(NetGroupDel(servername.into_param().abi(), groupname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8163,7 +8163,7 @@ pub unsafe fn NetGroupDelUser<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn NetGroupDelUser(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetGroupDelUser(servername.into_param().abi(), groupname.into_param().abi(), username.into_param().abi()))
+        ::core::mem::transmute(NetGroupDelUser(servername.into_param().abi(), groupname.into_param().abi(), username.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8178,7 +8178,7 @@ pub unsafe fn NetGroupEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn NetGroupEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32;
         }
-        ::std::mem::transmute(NetGroupEnum(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resume_handle)))
+        ::core::mem::transmute(NetGroupEnum(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8193,7 +8193,7 @@ pub unsafe fn NetGroupGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn NetGroupGetInfo(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetGroupGetInfo(servername.into_param().abi(), groupname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetGroupGetInfo(servername.into_param().abi(), groupname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8208,7 +8208,7 @@ pub unsafe fn NetGroupGetUsers<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetGroupGetUsers(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
         }
-        ::std::mem::transmute(NetGroupGetUsers(servername.into_param().abi(), groupname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resumehandle)))
+        ::core::mem::transmute(NetGroupGetUsers(servername.into_param().abi(), groupname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8223,7 +8223,7 @@ pub unsafe fn NetGroupSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn NetGroupSetInfo(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetGroupSetInfo(servername.into_param().abi(), groupname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetGroupSetInfo(servername.into_param().abi(), groupname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8238,7 +8238,7 @@ pub unsafe fn NetGroupSetUsers<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetGroupSetUsers(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
         }
-        ::std::mem::transmute(NetGroupSetUsers(servername.into_param().abi(), groupname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(totalentries)))
+        ::core::mem::transmute(NetGroupSetUsers(servername.into_param().abi(), groupname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(totalentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8253,7 +8253,7 @@ pub unsafe fn NetIsServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn NetIsServiceAccount(servername: super::super::Foundation::PWSTR, accountname: super::super::Foundation::PWSTR, isservice: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS;
         }
-        NetIsServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), ::std::mem::transmute(isservice)).ok()
+        NetIsServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), ::core::mem::transmute(isservice)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8275,7 +8275,7 @@ pub unsafe fn NetJoinDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn NetJoinDomain(lpserver: super::super::Foundation::PWSTR, lpdomain: super::super::Foundation::PWSTR, lpmachineaccountou: super::super::Foundation::PWSTR, lpaccount: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32;
         }
-        ::std::mem::transmute(NetJoinDomain(lpserver.into_param().abi(), lpdomain.into_param().abi(), lpmachineaccountou.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), ::std::mem::transmute(fjoinoptions)))
+        ::core::mem::transmute(NetJoinDomain(lpserver.into_param().abi(), lpdomain.into_param().abi(), lpmachineaccountou.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), ::core::mem::transmute(fjoinoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8290,7 +8290,7 @@ pub unsafe fn NetLocalGroupAdd<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetLocalGroupAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetLocalGroupAdd(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetLocalGroupAdd(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8305,7 +8305,7 @@ pub unsafe fn NetLocalGroupAddMember<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn NetLocalGroupAddMember(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, membersid: super::super::Foundation::PSID) -> u32;
         }
-        ::std::mem::transmute(NetLocalGroupAddMember(servername.into_param().abi(), groupname.into_param().abi(), membersid.into_param().abi()))
+        ::core::mem::transmute(NetLocalGroupAddMember(servername.into_param().abi(), groupname.into_param().abi(), membersid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8320,7 +8320,7 @@ pub unsafe fn NetLocalGroupAddMembers<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn NetLocalGroupAddMembers(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
         }
-        ::std::mem::transmute(NetLocalGroupAddMembers(servername.into_param().abi(), groupname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(totalentries)))
+        ::core::mem::transmute(NetLocalGroupAddMembers(servername.into_param().abi(), groupname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(totalentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8335,7 +8335,7 @@ pub unsafe fn NetLocalGroupDel<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetLocalGroupDel(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetLocalGroupDel(servername.into_param().abi(), groupname.into_param().abi()))
+        ::core::mem::transmute(NetLocalGroupDel(servername.into_param().abi(), groupname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8350,7 +8350,7 @@ pub unsafe fn NetLocalGroupDelMember<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn NetLocalGroupDelMember(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, membersid: super::super::Foundation::PSID) -> u32;
         }
-        ::std::mem::transmute(NetLocalGroupDelMember(servername.into_param().abi(), groupname.into_param().abi(), membersid.into_param().abi()))
+        ::core::mem::transmute(NetLocalGroupDelMember(servername.into_param().abi(), groupname.into_param().abi(), membersid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8365,7 +8365,7 @@ pub unsafe fn NetLocalGroupDelMembers<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn NetLocalGroupDelMembers(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
         }
-        ::std::mem::transmute(NetLocalGroupDelMembers(servername.into_param().abi(), groupname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(totalentries)))
+        ::core::mem::transmute(NetLocalGroupDelMembers(servername.into_param().abi(), groupname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(totalentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8380,7 +8380,7 @@ pub unsafe fn NetLocalGroupEnum<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetLocalGroupEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
         }
-        ::std::mem::transmute(NetLocalGroupEnum(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resumehandle)))
+        ::core::mem::transmute(NetLocalGroupEnum(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8395,7 +8395,7 @@ pub unsafe fn NetLocalGroupGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn NetLocalGroupGetInfo(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetLocalGroupGetInfo(servername.into_param().abi(), groupname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetLocalGroupGetInfo(servername.into_param().abi(), groupname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8410,7 +8410,16 @@ pub unsafe fn NetLocalGroupGetMembers<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn NetLocalGroupGetMembers(servername: super::super::Foundation::PWSTR, localgroupname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
         }
-        ::std::mem::transmute(NetLocalGroupGetMembers(servername.into_param().abi(), localgroupname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resumehandle)))
+        ::core::mem::transmute(NetLocalGroupGetMembers(
+            servername.into_param().abi(),
+            localgroupname.into_param().abi(),
+            ::core::mem::transmute(level),
+            ::core::mem::transmute(bufptr),
+            ::core::mem::transmute(prefmaxlen),
+            ::core::mem::transmute(entriesread),
+            ::core::mem::transmute(totalentries),
+            ::core::mem::transmute(resumehandle),
+        ))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8425,7 +8434,7 @@ pub unsafe fn NetLocalGroupSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn NetLocalGroupSetInfo(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetLocalGroupSetInfo(servername.into_param().abi(), groupname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetLocalGroupSetInfo(servername.into_param().abi(), groupname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8440,7 +8449,7 @@ pub unsafe fn NetLocalGroupSetMembers<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn NetLocalGroupSetMembers(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
         }
-        ::std::mem::transmute(NetLocalGroupSetMembers(servername.into_param().abi(), groupname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(totalentries)))
+        ::core::mem::transmute(NetLocalGroupSetMembers(servername.into_param().abi(), groupname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(totalentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8455,7 +8464,7 @@ pub unsafe fn NetMessageBufferSend<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn NetMessageBufferSend(servername: super::super::Foundation::PWSTR, msgname: super::super::Foundation::PWSTR, fromname: super::super::Foundation::PWSTR, buf: *const u8, buflen: u32) -> u32;
         }
-        ::std::mem::transmute(NetMessageBufferSend(servername.into_param().abi(), msgname.into_param().abi(), fromname.into_param().abi(), ::std::mem::transmute(buf), ::std::mem::transmute(buflen)))
+        ::core::mem::transmute(NetMessageBufferSend(servername.into_param().abi(), msgname.into_param().abi(), fromname.into_param().abi(), ::core::mem::transmute(buf), ::core::mem::transmute(buflen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8470,7 +8479,7 @@ pub unsafe fn NetMessageNameAdd<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetMessageNameAdd(servername: super::super::Foundation::PWSTR, msgname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetMessageNameAdd(servername.into_param().abi(), msgname.into_param().abi()))
+        ::core::mem::transmute(NetMessageNameAdd(servername.into_param().abi(), msgname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8485,7 +8494,7 @@ pub unsafe fn NetMessageNameDel<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetMessageNameDel(servername: super::super::Foundation::PWSTR, msgname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetMessageNameDel(servername.into_param().abi(), msgname.into_param().abi()))
+        ::core::mem::transmute(NetMessageNameDel(servername.into_param().abi(), msgname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8500,7 +8509,7 @@ pub unsafe fn NetMessageNameEnum<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn NetMessageNameEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *const *const u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetMessageNameEnum(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resume_handle)))
+        ::core::mem::transmute(NetMessageNameEnum(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8515,7 +8524,7 @@ pub unsafe fn NetMessageNameGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn NetMessageNameGetInfo(servername: super::super::Foundation::PWSTR, msgname: super::super::Foundation::PWSTR, level: u32, bufptr: *const *const u8) -> u32;
         }
-        ::std::mem::transmute(NetMessageNameGetInfo(servername.into_param().abi(), msgname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetMessageNameGetInfo(servername.into_param().abi(), msgname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8539,15 +8548,15 @@ pub unsafe fn NetProvisionComputerAccount<'a, Param0: ::windows::runtime::IntoPa
         extern "system" {
             fn NetProvisionComputerAccount(lpdomain: super::super::Foundation::PWSTR, lpmachinename: super::super::Foundation::PWSTR, lpmachineaccountou: super::super::Foundation::PWSTR, lpdcname: super::super::Foundation::PWSTR, dwoptions: NETSETUP_PROVISION, pprovisionbindata: *mut *mut u8, pdwprovisionbindatasize: *mut u32, pprovisiontextdata: *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetProvisionComputerAccount(
+        ::core::mem::transmute(NetProvisionComputerAccount(
             lpdomain.into_param().abi(),
             lpmachinename.into_param().abi(),
             lpmachineaccountou.into_param().abi(),
             lpdcname.into_param().abi(),
-            ::std::mem::transmute(dwoptions),
-            ::std::mem::transmute(pprovisionbindata),
-            ::std::mem::transmute(pdwprovisionbindatasize),
-            ::std::mem::transmute(pprovisiontextdata),
+            ::core::mem::transmute(dwoptions),
+            ::core::mem::transmute(pprovisionbindata),
+            ::core::mem::transmute(pdwprovisionbindatasize),
+            ::core::mem::transmute(pprovisiontextdata),
         ))
     }
     #[cfg(not(windows))]
@@ -8557,14 +8566,14 @@ pub const NetProvisioning: ::windows::runtime::GUID = ::windows::runtime::GUID::
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetQueryDisplayInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn NetQueryDisplayInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetQueryDisplayInformation(servername: super::super::Foundation::PWSTR, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::std::ffi::c_void) -> u32;
+            fn NetQueryDisplayInformation(servername: super::super::Foundation::PWSTR, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(NetQueryDisplayInformation(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(index), ::std::mem::transmute(entriesrequested), ::std::mem::transmute(preferredmaximumlength), ::std::mem::transmute(returnedentrycount), ::std::mem::transmute(sortedbuffer)))
+        ::core::mem::transmute(NetQueryDisplayInformation(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(index), ::core::mem::transmute(entriesrequested), ::core::mem::transmute(preferredmaximumlength), ::core::mem::transmute(returnedentrycount), ::core::mem::transmute(sortedbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8579,7 +8588,7 @@ pub unsafe fn NetQueryServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn NetQueryServiceAccount(servername: super::super::Foundation::PWSTR, accountname: super::super::Foundation::PWSTR, infolevel: u32, buffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
         }
-        NetQueryServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), ::std::mem::transmute(infolevel), ::std::mem::transmute(buffer)).ok()
+        NetQueryServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), ::core::mem::transmute(infolevel), ::core::mem::transmute(buffer)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8594,7 +8603,7 @@ pub unsafe fn NetRemoteComputerSupports<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn NetRemoteComputerSupports(uncservername: super::super::Foundation::PWSTR, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetRemoteComputerSupports(uncservername.into_param().abi(), ::std::mem::transmute(optionswanted), ::std::mem::transmute(optionssupported)))
+        ::core::mem::transmute(NetRemoteComputerSupports(uncservername.into_param().abi(), ::core::mem::transmute(optionswanted), ::core::mem::transmute(optionssupported)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8609,7 +8618,7 @@ pub unsafe fn NetRemoteTOD<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn NetRemoteTOD(uncservername: super::super::Foundation::PWSTR, bufferptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetRemoteTOD(uncservername.into_param().abi(), ::std::mem::transmute(bufferptr)))
+        ::core::mem::transmute(NetRemoteTOD(uncservername.into_param().abi(), ::core::mem::transmute(bufferptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8624,7 +8633,7 @@ pub unsafe fn NetRemoveAlternateComputerName<'a, Param0: ::windows::runtime::Int
         extern "system" {
             fn NetRemoveAlternateComputerName(server: super::super::Foundation::PWSTR, alternatename: super::super::Foundation::PWSTR, domainaccount: super::super::Foundation::PWSTR, domainaccountpassword: super::super::Foundation::PWSTR, reserved: u32) -> u32;
         }
-        ::std::mem::transmute(NetRemoveAlternateComputerName(server.into_param().abi(), alternatename.into_param().abi(), domainaccount.into_param().abi(), domainaccountpassword.into_param().abi(), ::std::mem::transmute(reserved)))
+        ::core::mem::transmute(NetRemoveAlternateComputerName(server.into_param().abi(), alternatename.into_param().abi(), domainaccount.into_param().abi(), domainaccountpassword.into_param().abi(), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8639,7 +8648,7 @@ pub unsafe fn NetRemoveServiceAccount<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn NetRemoveServiceAccount(servername: super::super::Foundation::PWSTR, accountname: super::super::Foundation::PWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
         }
-        NetRemoveServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), ::std::mem::transmute(flags)).ok()
+        NetRemoveServiceAccount(servername.into_param().abi(), accountname.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8654,7 +8663,7 @@ pub unsafe fn NetRenameMachineInDomain<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn NetRenameMachineInDomain(lpserver: super::super::Foundation::PWSTR, lpnewmachinename: super::super::Foundation::PWSTR, lpaccount: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, frenameoptions: u32) -> u32;
         }
-        ::std::mem::transmute(NetRenameMachineInDomain(lpserver.into_param().abi(), lpnewmachinename.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), ::std::mem::transmute(frenameoptions)))
+        ::core::mem::transmute(NetRenameMachineInDomain(lpserver.into_param().abi(), lpnewmachinename.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), ::core::mem::transmute(frenameoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8669,7 +8678,7 @@ pub unsafe fn NetReplExportDirAdd<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn NetReplExportDirAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetReplExportDirAdd(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetReplExportDirAdd(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8684,7 +8693,7 @@ pub unsafe fn NetReplExportDirDel<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn NetReplExportDirDel(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetReplExportDirDel(servername.into_param().abi(), dirname.into_param().abi()))
+        ::core::mem::transmute(NetReplExportDirDel(servername.into_param().abi(), dirname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8699,7 +8708,7 @@ pub unsafe fn NetReplExportDirEnum<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn NetReplExportDirEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetReplExportDirEnum(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resumehandle)))
+        ::core::mem::transmute(NetReplExportDirEnum(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8714,7 +8723,7 @@ pub unsafe fn NetReplExportDirGetInfo<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn NetReplExportDirGetInfo(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetReplExportDirGetInfo(servername.into_param().abi(), dirname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetReplExportDirGetInfo(servername.into_param().abi(), dirname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8729,7 +8738,7 @@ pub unsafe fn NetReplExportDirLock<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn NetReplExportDirLock(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetReplExportDirLock(servername.into_param().abi(), dirname.into_param().abi()))
+        ::core::mem::transmute(NetReplExportDirLock(servername.into_param().abi(), dirname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8744,7 +8753,7 @@ pub unsafe fn NetReplExportDirSetInfo<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn NetReplExportDirSetInfo(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetReplExportDirSetInfo(servername.into_param().abi(), dirname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetReplExportDirSetInfo(servername.into_param().abi(), dirname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8759,7 +8768,7 @@ pub unsafe fn NetReplExportDirUnlock<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn NetReplExportDirUnlock(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR, unlockforce: u32) -> u32;
         }
-        ::std::mem::transmute(NetReplExportDirUnlock(servername.into_param().abi(), dirname.into_param().abi(), ::std::mem::transmute(unlockforce)))
+        ::core::mem::transmute(NetReplExportDirUnlock(servername.into_param().abi(), dirname.into_param().abi(), ::core::mem::transmute(unlockforce)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8774,7 +8783,7 @@ pub unsafe fn NetReplGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn NetReplGetInfo(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetReplGetInfo(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetReplGetInfo(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8789,7 +8798,7 @@ pub unsafe fn NetReplImportDirAdd<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn NetReplImportDirAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetReplImportDirAdd(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetReplImportDirAdd(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8804,7 +8813,7 @@ pub unsafe fn NetReplImportDirDel<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn NetReplImportDirDel(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetReplImportDirDel(servername.into_param().abi(), dirname.into_param().abi()))
+        ::core::mem::transmute(NetReplImportDirDel(servername.into_param().abi(), dirname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8819,7 +8828,7 @@ pub unsafe fn NetReplImportDirEnum<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn NetReplImportDirEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetReplImportDirEnum(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resumehandle)))
+        ::core::mem::transmute(NetReplImportDirEnum(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8834,7 +8843,7 @@ pub unsafe fn NetReplImportDirGetInfo<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn NetReplImportDirGetInfo(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetReplImportDirGetInfo(servername.into_param().abi(), dirname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetReplImportDirGetInfo(servername.into_param().abi(), dirname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8849,7 +8858,7 @@ pub unsafe fn NetReplImportDirLock<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn NetReplImportDirLock(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetReplImportDirLock(servername.into_param().abi(), dirname.into_param().abi()))
+        ::core::mem::transmute(NetReplImportDirLock(servername.into_param().abi(), dirname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8864,7 +8873,7 @@ pub unsafe fn NetReplImportDirUnlock<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn NetReplImportDirUnlock(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR, unlockforce: u32) -> u32;
         }
-        ::std::mem::transmute(NetReplImportDirUnlock(servername.into_param().abi(), dirname.into_param().abi(), ::std::mem::transmute(unlockforce)))
+        ::core::mem::transmute(NetReplImportDirUnlock(servername.into_param().abi(), dirname.into_param().abi(), ::core::mem::transmute(unlockforce)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8879,7 +8888,7 @@ pub unsafe fn NetReplSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn NetReplSetInfo(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetReplSetInfo(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetReplSetInfo(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8894,7 +8903,7 @@ pub unsafe fn NetRequestOfflineDomainJoin<'a, Param3: ::windows::runtime::IntoPa
         extern "system" {
             fn NetRequestOfflineDomainJoin(pprovisionbindata: *const u8, cbprovisionbindatasize: u32, dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetRequestOfflineDomainJoin(::std::mem::transmute(pprovisionbindata), ::std::mem::transmute(cbprovisionbindatasize), ::std::mem::transmute(dwoptions), lpwindowspath.into_param().abi()))
+        ::core::mem::transmute(NetRequestOfflineDomainJoin(::core::mem::transmute(pprovisionbindata), ::core::mem::transmute(cbprovisionbindatasize), ::core::mem::transmute(dwoptions), lpwindowspath.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8902,14 +8911,14 @@ pub unsafe fn NetRequestOfflineDomainJoin<'a, Param3: ::windows::runtime::IntoPa
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetRequestProvisioningPackageInstall<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: Param3, pvreserved: *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn NetRequestProvisioningPackageInstall<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: Param3, pvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetRequestProvisioningPackageInstall(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: super::super::Foundation::PWSTR, pvreserved: *mut ::std::ffi::c_void) -> u32;
+            fn NetRequestProvisioningPackageInstall(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: super::super::Foundation::PWSTR, pvreserved: *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(NetRequestProvisioningPackageInstall(::std::mem::transmute(ppackagebindata), ::std::mem::transmute(dwpackagebindatasize), ::std::mem::transmute(dwprovisionoptions), lpwindowspath.into_param().abi(), ::std::mem::transmute(pvreserved)))
+        ::core::mem::transmute(NetRequestProvisioningPackageInstall(::core::mem::transmute(ppackagebindata), ::core::mem::transmute(dwpackagebindatasize), ::core::mem::transmute(dwprovisionoptions), lpwindowspath.into_param().abi(), ::core::mem::transmute(pvreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8924,7 +8933,7 @@ pub unsafe fn NetScheduleJobAdd<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetScheduleJobAdd(servername: super::super::Foundation::PWSTR, buffer: *mut u8, jobid: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetScheduleJobAdd(servername.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(jobid)))
+        ::core::mem::transmute(NetScheduleJobAdd(servername.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(jobid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8939,7 +8948,7 @@ pub unsafe fn NetScheduleJobDel<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetScheduleJobDel(servername: super::super::Foundation::PWSTR, minjobid: u32, maxjobid: u32) -> u32;
         }
-        ::std::mem::transmute(NetScheduleJobDel(servername.into_param().abi(), ::std::mem::transmute(minjobid), ::std::mem::transmute(maxjobid)))
+        ::core::mem::transmute(NetScheduleJobDel(servername.into_param().abi(), ::core::mem::transmute(minjobid), ::core::mem::transmute(maxjobid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8954,7 +8963,7 @@ pub unsafe fn NetScheduleJobEnum<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn NetScheduleJobEnum(servername: super::super::Foundation::PWSTR, pointertobuffer: *mut *mut u8, prefferedmaximumlength: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetScheduleJobEnum(servername.into_param().abi(), ::std::mem::transmute(pointertobuffer), ::std::mem::transmute(prefferedmaximumlength), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resumehandle)))
+        ::core::mem::transmute(NetScheduleJobEnum(servername.into_param().abi(), ::core::mem::transmute(pointertobuffer), ::core::mem::transmute(prefferedmaximumlength), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8969,7 +8978,7 @@ pub unsafe fn NetScheduleJobGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn NetScheduleJobGetInfo(servername: super::super::Foundation::PWSTR, jobid: u32, pointertobuffer: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetScheduleJobGetInfo(servername.into_param().abi(), ::std::mem::transmute(jobid), ::std::mem::transmute(pointertobuffer)))
+        ::core::mem::transmute(NetScheduleJobGetInfo(servername.into_param().abi(), ::core::mem::transmute(jobid), ::core::mem::transmute(pointertobuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8984,7 +8993,7 @@ pub unsafe fn NetServerComputerNameAdd<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn NetServerComputerNameAdd(servername: super::super::Foundation::PWSTR, emulateddomainname: super::super::Foundation::PWSTR, emulatedservername: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetServerComputerNameAdd(servername.into_param().abi(), emulateddomainname.into_param().abi(), emulatedservername.into_param().abi()))
+        ::core::mem::transmute(NetServerComputerNameAdd(servername.into_param().abi(), emulateddomainname.into_param().abi(), emulatedservername.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8999,7 +9008,7 @@ pub unsafe fn NetServerComputerNameDel<'a, Param0: ::windows::runtime::IntoParam
         extern "system" {
             fn NetServerComputerNameDel(servername: super::super::Foundation::PWSTR, emulatedservername: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetServerComputerNameDel(servername.into_param().abi(), emulatedservername.into_param().abi()))
+        ::core::mem::transmute(NetServerComputerNameDel(servername.into_param().abi(), emulatedservername.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9014,7 +9023,7 @@ pub unsafe fn NetServerDiskEnum<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetServerDiskEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetServerDiskEnum(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resume_handle)))
+        ::core::mem::transmute(NetServerDiskEnum(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9029,16 +9038,16 @@ pub unsafe fn NetServerEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn NetServerEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: NET_SERVER_TYPE, domain: super::super::Foundation::PWSTR, resume_handle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetServerEnum(
+        ::core::mem::transmute(NetServerEnum(
             servername.into_param().abi(),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(bufptr),
-            ::std::mem::transmute(prefmaxlen),
-            ::std::mem::transmute(entriesread),
-            ::std::mem::transmute(totalentries),
-            ::std::mem::transmute(servertype),
+            ::core::mem::transmute(level),
+            ::core::mem::transmute(bufptr),
+            ::core::mem::transmute(prefmaxlen),
+            ::core::mem::transmute(entriesread),
+            ::core::mem::transmute(totalentries),
+            ::core::mem::transmute(servertype),
             domain.into_param().abi(),
-            ::std::mem::transmute(resume_handle),
+            ::core::mem::transmute(resume_handle),
         ))
     }
     #[cfg(not(windows))]
@@ -9054,7 +9063,7 @@ pub unsafe fn NetServerGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetServerGetInfo(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetServerGetInfo(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetServerGetInfo(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9069,7 +9078,7 @@ pub unsafe fn NetServerSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetServerSetInfo(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parmerror: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetServerSetInfo(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parmerror)))
+        ::core::mem::transmute(NetServerSetInfo(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parmerror)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9084,7 +9093,7 @@ pub unsafe fn NetServerTransportAdd<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn NetServerTransportAdd(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *const u8) -> u32;
         }
-        ::std::mem::transmute(NetServerTransportAdd(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetServerTransportAdd(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9099,7 +9108,7 @@ pub unsafe fn NetServerTransportAddEx<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn NetServerTransportAddEx(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *const u8) -> u32;
         }
-        ::std::mem::transmute(NetServerTransportAddEx(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetServerTransportAddEx(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9114,7 +9123,7 @@ pub unsafe fn NetServerTransportDel<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn NetServerTransportDel(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *const u8) -> u32;
         }
-        ::std::mem::transmute(NetServerTransportDel(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetServerTransportDel(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9129,7 +9138,7 @@ pub unsafe fn NetServerTransportEnum<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn NetServerTransportEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetServerTransportEnum(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resume_handle)))
+        ::core::mem::transmute(NetServerTransportEnum(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9144,7 +9153,7 @@ pub unsafe fn NetServiceControl<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetServiceControl(servername: super::super::Foundation::PWSTR, service: super::super::Foundation::PWSTR, opcode: u32, arg: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetServiceControl(servername.into_param().abi(), service.into_param().abi(), ::std::mem::transmute(opcode), ::std::mem::transmute(arg), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetServiceControl(servername.into_param().abi(), service.into_param().abi(), ::core::mem::transmute(opcode), ::core::mem::transmute(arg), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9159,7 +9168,7 @@ pub unsafe fn NetServiceEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn NetServiceEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetServiceEnum(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resume_handle)))
+        ::core::mem::transmute(NetServiceEnum(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9174,7 +9183,7 @@ pub unsafe fn NetServiceGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetServiceGetInfo(servername: super::super::Foundation::PWSTR, service: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetServiceGetInfo(servername.into_param().abi(), service.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetServiceGetInfo(servername.into_param().abi(), service.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9189,7 +9198,7 @@ pub unsafe fn NetServiceInstall<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn NetServiceInstall(servername: super::super::Foundation::PWSTR, service: super::super::Foundation::PWSTR, argc: u32, argv: *const super::super::Foundation::PWSTR, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetServiceInstall(servername.into_param().abi(), service.into_param().abi(), ::std::mem::transmute(argc), ::std::mem::transmute(argv), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetServiceInstall(servername.into_param().abi(), service.into_param().abi(), ::core::mem::transmute(argc), ::core::mem::transmute(argv), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9204,7 +9213,7 @@ pub unsafe fn NetSetPrimaryComputerName<'a, Param0: ::windows::runtime::IntoPara
         extern "system" {
             fn NetSetPrimaryComputerName(server: super::super::Foundation::PWSTR, primaryname: super::super::Foundation::PWSTR, domainaccount: super::super::Foundation::PWSTR, domainaccountpassword: super::super::Foundation::PWSTR, reserved: u32) -> u32;
         }
-        ::std::mem::transmute(NetSetPrimaryComputerName(server.into_param().abi(), primaryname.into_param().abi(), domainaccount.into_param().abi(), domainaccountpassword.into_param().abi(), ::std::mem::transmute(reserved)))
+        ::core::mem::transmute(NetSetPrimaryComputerName(server.into_param().abi(), primaryname.into_param().abi(), domainaccount.into_param().abi(), domainaccountpassword.into_param().abi(), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9219,7 +9228,7 @@ pub unsafe fn NetUnjoinDomain<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn NetUnjoinDomain(lpserver: super::super::Foundation::PWSTR, lpaccount: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, funjoinoptions: u32) -> u32;
         }
-        ::std::mem::transmute(NetUnjoinDomain(lpserver.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), ::std::mem::transmute(funjoinoptions)))
+        ::core::mem::transmute(NetUnjoinDomain(lpserver.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), ::core::mem::transmute(funjoinoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9233,7 +9242,7 @@ pub unsafe fn NetUseAdd(servername: *const i8, levelflags: u32, buf: *const u8, 
         extern "system" {
             fn NetUseAdd(servername: *const i8, levelflags: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetUseAdd(::std::mem::transmute(servername), ::std::mem::transmute(levelflags), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetUseAdd(::core::mem::transmute(servername), ::core::mem::transmute(levelflags), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9248,7 +9257,7 @@ pub unsafe fn NetUseDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn NetUseDel(uncservername: super::super::Foundation::PWSTR, usename: super::super::Foundation::PWSTR, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32;
         }
-        ::std::mem::transmute(NetUseDel(uncservername.into_param().abi(), usename.into_param().abi(), ::std::mem::transmute(forcelevelflags)))
+        ::core::mem::transmute(NetUseDel(uncservername.into_param().abi(), usename.into_param().abi(), ::core::mem::transmute(forcelevelflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9263,7 +9272,7 @@ pub unsafe fn NetUseEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn NetUseEnum(uncservername: super::super::Foundation::PWSTR, levelflags: u32, bufptr: *mut *mut u8, preferedmaximumsize: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetUseEnum(uncservername.into_param().abi(), ::std::mem::transmute(levelflags), ::std::mem::transmute(bufptr), ::std::mem::transmute(preferedmaximumsize), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resumehandle)))
+        ::core::mem::transmute(NetUseEnum(uncservername.into_param().abi(), ::core::mem::transmute(levelflags), ::core::mem::transmute(bufptr), ::core::mem::transmute(preferedmaximumsize), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9278,7 +9287,7 @@ pub unsafe fn NetUseGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super:
         extern "system" {
             fn NetUseGetInfo(uncservername: super::super::Foundation::PWSTR, usename: super::super::Foundation::PWSTR, levelflags: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetUseGetInfo(uncservername.into_param().abi(), usename.into_param().abi(), ::std::mem::transmute(levelflags), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetUseGetInfo(uncservername.into_param().abi(), usename.into_param().abi(), ::core::mem::transmute(levelflags), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9293,7 +9302,7 @@ pub unsafe fn NetUserAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn NetUserAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetUserAdd(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetUserAdd(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9308,7 +9317,7 @@ pub unsafe fn NetUserChangePassword<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn NetUserChangePassword(domainname: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, oldpassword: super::super::Foundation::PWSTR, newpassword: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetUserChangePassword(domainname.into_param().abi(), username.into_param().abi(), oldpassword.into_param().abi(), newpassword.into_param().abi()))
+        ::core::mem::transmute(NetUserChangePassword(domainname.into_param().abi(), username.into_param().abi(), oldpassword.into_param().abi(), newpassword.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9323,7 +9332,7 @@ pub unsafe fn NetUserDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
         extern "system" {
             fn NetUserDel(servername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetUserDel(servername.into_param().abi(), username.into_param().abi()))
+        ::core::mem::transmute(NetUserDel(servername.into_param().abi(), username.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9338,7 +9347,7 @@ pub unsafe fn NetUserEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn NetUserEnum(servername: super::super::Foundation::PWSTR, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetUserEnum(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(filter), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resume_handle)))
+        ::core::mem::transmute(NetUserEnum(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(filter), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9353,7 +9362,7 @@ pub unsafe fn NetUserGetGroups<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetUserGetGroups(servername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetUserGetGroups(servername.into_param().abi(), username.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries)))
+        ::core::mem::transmute(NetUserGetGroups(servername.into_param().abi(), username.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9368,7 +9377,7 @@ pub unsafe fn NetUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn NetUserGetInfo(servername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetUserGetInfo(servername.into_param().abi(), username.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetUserGetInfo(servername.into_param().abi(), username.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9383,7 +9392,7 @@ pub unsafe fn NetUserGetLocalGroups<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn NetUserGetLocalGroups(servername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, flags: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetUserGetLocalGroups(servername.into_param().abi(), username.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(flags), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries)))
+        ::core::mem::transmute(NetUserGetLocalGroups(servername.into_param().abi(), username.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(flags), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9398,7 +9407,7 @@ pub unsafe fn NetUserModalsGet<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetUserModalsGet(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetUserModalsGet(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetUserModalsGet(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9413,7 +9422,7 @@ pub unsafe fn NetUserModalsSet<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetUserModalsSet(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetUserModalsSet(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetUserModalsSet(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9428,7 +9437,7 @@ pub unsafe fn NetUserSetGroups<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetUserSetGroups(servername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, buf: *const u8, num_entries: u32) -> u32;
         }
-        ::std::mem::transmute(NetUserSetGroups(servername.into_param().abi(), username.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(num_entries)))
+        ::core::mem::transmute(NetUserSetGroups(servername.into_param().abi(), username.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(num_entries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9443,7 +9452,7 @@ pub unsafe fn NetUserSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn NetUserSetInfo(servername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetUserSetInfo(servername.into_param().abi(), username.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetUserSetInfo(servername.into_param().abi(), username.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9458,7 +9467,7 @@ pub unsafe fn NetValidateName<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn NetValidateName(lpserver: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, lpaccount: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, nametype: NETSETUP_NAME_TYPE) -> u32;
         }
-        ::std::mem::transmute(NetValidateName(lpserver.into_param().abi(), lpname.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), ::std::mem::transmute(nametype)))
+        ::core::mem::transmute(NetValidateName(lpserver.into_param().abi(), lpname.into_param().abi(), lpaccount.into_param().abi(), lppassword.into_param().abi(), ::core::mem::transmute(nametype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9466,28 +9475,28 @@ pub unsafe fn NetValidateName<'a, Param0: ::windows::runtime::IntoParam<'a, supe
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetValidatePasswordPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, qualifier: *mut ::std::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::std::ffi::c_void, outputarg: *mut *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn NetValidatePasswordPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, qualifier: *mut ::core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetValidatePasswordPolicy(servername: super::super::Foundation::PWSTR, qualifier: *mut ::std::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::std::ffi::c_void, outputarg: *mut *mut ::std::ffi::c_void) -> u32;
+            fn NetValidatePasswordPolicy(servername: super::super::Foundation::PWSTR, qualifier: *mut ::core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(NetValidatePasswordPolicy(servername.into_param().abi(), ::std::mem::transmute(qualifier), ::std::mem::transmute(validationtype), ::std::mem::transmute(inputarg), ::std::mem::transmute(outputarg)))
+        ::core::mem::transmute(NetValidatePasswordPolicy(servername.into_param().abi(), ::core::mem::transmute(qualifier), ::core::mem::transmute(validationtype), ::core::mem::transmute(inputarg), ::core::mem::transmute(outputarg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[inline]
-pub unsafe fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::std::ffi::c_void) -> u32;
+            fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(NetValidatePasswordPolicyFree(::std::mem::transmute(outputarg)))
+        ::core::mem::transmute(NetValidatePasswordPolicyFree(::core::mem::transmute(outputarg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9502,7 +9511,7 @@ pub unsafe fn NetWkstaGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn NetWkstaGetInfo(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetWkstaGetInfo(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetWkstaGetInfo(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9517,7 +9526,7 @@ pub unsafe fn NetWkstaSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn NetWkstaSetInfo(servername: super::super::Foundation::PWSTR, level: u32, buffer: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetWkstaSetInfo(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buffer), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetWkstaSetInfo(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buffer), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9531,7 +9540,7 @@ pub unsafe fn NetWkstaTransportAdd(servername: *const i8, level: u32, buf: *cons
         extern "system" {
             fn NetWkstaTransportAdd(servername: *const i8, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetWkstaTransportAdd(::std::mem::transmute(servername), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetWkstaTransportAdd(::core::mem::transmute(servername), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9546,7 +9555,7 @@ pub unsafe fn NetWkstaTransportDel<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn NetWkstaTransportDel(servername: super::super::Foundation::PWSTR, transportname: super::super::Foundation::PWSTR, ucond: FORCE_LEVEL_FLAGS) -> u32;
         }
-        ::std::mem::transmute(NetWkstaTransportDel(servername.into_param().abi(), transportname.into_param().abi(), ::std::mem::transmute(ucond)))
+        ::core::mem::transmute(NetWkstaTransportDel(servername.into_param().abi(), transportname.into_param().abi(), ::core::mem::transmute(ucond)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9560,7 +9569,7 @@ pub unsafe fn NetWkstaTransportEnum(servername: *const i8, level: u32, bufptr: *
         extern "system" {
             fn NetWkstaTransportEnum(servername: *const i8, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetWkstaTransportEnum(::std::mem::transmute(servername), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resume_handle)))
+        ::core::mem::transmute(NetWkstaTransportEnum(::core::mem::transmute(servername), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9575,7 +9584,7 @@ pub unsafe fn NetWkstaUserEnum<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn NetWkstaUserEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetWkstaUserEnum(servername.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(entriesread), ::std::mem::transmute(totalentries), ::std::mem::transmute(resumehandle)))
+        ::core::mem::transmute(NetWkstaUserEnum(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9590,7 +9599,7 @@ pub unsafe fn NetWkstaUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn NetWkstaUserGetInfo(reserved: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetWkstaUserGetInfo(reserved.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetWkstaUserGetInfo(reserved.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9605,18 +9614,18 @@ pub unsafe fn NetWkstaUserSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn NetWkstaUserSetInfo(reserved: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetWkstaUserSetInfo(reserved.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buf), ::std::mem::transmute(parm_err)))
+        ::core::mem::transmute(NetWkstaUserSetInfo(reserved.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
 pub struct OBO_TOKEN {
     pub Type: OBO_TOKEN_TYPE,
-    pub pncc: ::std::option::Option<INetCfgComponent>,
+    pub pncc: ::core::option::Option<INetCfgComponent>,
     pub pszwManufacturer: super::super::Foundation::PWSTR,
     pub pszwProduct: super::super::Foundation::PWSTR,
     pub pszwDisplayName: super::super::Foundation::PWSTR,
@@ -9625,37 +9634,37 @@ pub struct OBO_TOKEN {
 #[cfg(feature = "Win32_Foundation")]
 impl OBO_TOKEN {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for OBO_TOKEN {
+impl ::core::default::Default for OBO_TOKEN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for OBO_TOKEN {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for OBO_TOKEN {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("OBO_TOKEN").field("Type", &self.Type).field("pncc", &self.pncc).field("pszwManufacturer", &self.pszwManufacturer).field("pszwProduct", &self.pszwProduct).field("pszwDisplayName", &self.pszwDisplayName).field("fRegistered", &self.fRegistered).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for OBO_TOKEN {
+impl ::core::cmp::PartialEq for OBO_TOKEN {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.pncc == other.pncc && self.pszwManufacturer == other.pszwManufacturer && self.pszwProduct == other.pszwProduct && self.pszwDisplayName == other.pszwDisplayName && self.fRegistered == other.fRegistered
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for OBO_TOKEN {}
+impl ::core::cmp::Eq for OBO_TOKEN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OBO_TOKEN {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OBO_TOKEN_TYPE(pub i32);
 pub const OBO_USER: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(1i32);
 pub const OBO_COMPONENT: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(2i32);
 pub const OBO_SOFTWARE: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(3i32);
-impl ::std::convert::From<i32> for OBO_TOKEN_TYPE {
+impl ::core::convert::From<i32> for OBO_TOKEN_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -9691,7 +9700,7 @@ pub const PREFIX_MISMATCH: i32 = -1073727510i32;
 pub const PREFIX_MISMATCH_FIXED: i32 = -1073727509i32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const PREFIX_MISMATCH_NOT_FIXED: i32 = -1073727508i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct PRINT_OTHER_INFO {
@@ -9701,22 +9710,22 @@ pub struct PRINT_OTHER_INFO {
     pub alrtpr_size: u32,
 }
 impl PRINT_OTHER_INFO {}
-impl ::std::default::Default for PRINT_OTHER_INFO {
+impl ::core::default::Default for PRINT_OTHER_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for PRINT_OTHER_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for PRINT_OTHER_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("PRINT_OTHER_INFO").field("alrtpr_jobid", &self.alrtpr_jobid).field("alrtpr_status", &self.alrtpr_status).field("alrtpr_submitted", &self.alrtpr_submitted).field("alrtpr_size", &self.alrtpr_size).finish()
     }
 }
-impl ::std::cmp::PartialEq for PRINT_OTHER_INFO {
+impl ::core::cmp::PartialEq for PRINT_OTHER_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.alrtpr_jobid == other.alrtpr_jobid && self.alrtpr_status == other.alrtpr_status && self.alrtpr_submitted == other.alrtpr_submitted && self.alrtpr_size == other.alrtpr_size
     }
 }
-impl ::std::cmp::Eq for PRINT_OTHER_INFO {}
+impl ::core::cmp::Eq for PRINT_OTHER_INFO {}
 unsafe impl ::windows::runtime::Abi for PRINT_OTHER_INFO {
     type Abi = Self;
 }
@@ -9796,7 +9805,7 @@ pub const PROTO_VENDOR_MS2: u32 = 16383u32;
 pub const PWLEN: u32 = 256u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const QNLEN: u32 = 80u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -9820,14 +9829,14 @@ pub struct RASCON_IPUI {
 #[cfg(feature = "Win32_Foundation")]
 impl RASCON_IPUI {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for RASCON_IPUI {
+impl ::core::default::Default for RASCON_IPUI {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for RASCON_IPUI {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RASCON_IPUI {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RASCON_IPUI")
             .field("guidConnection", &self.guidConnection)
             .field("fIPv6Cfg", &self.fIPv6Cfg)
@@ -9848,7 +9857,7 @@ impl ::std::fmt::Debug for RASCON_IPUI {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for RASCON_IPUI {
+impl ::core::cmp::PartialEq for RASCON_IPUI {
     fn eq(&self, other: &Self) -> bool {
         self.guidConnection == other.guidConnection
             && self.fIPv6Cfg == other.fIPv6Cfg
@@ -9868,12 +9877,12 @@ impl ::std::cmp::PartialEq for RASCON_IPUI {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for RASCON_IPUI {}
+impl ::core::cmp::Eq for RASCON_IPUI {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASCON_IPUI {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -9883,30 +9892,30 @@ pub struct REPL_EDIR_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl REPL_EDIR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for REPL_EDIR_INFO_0 {
+impl ::core::default::Default for REPL_EDIR_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for REPL_EDIR_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for REPL_EDIR_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("REPL_EDIR_INFO_0").field("rped0_dirname", &self.rped0_dirname).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for REPL_EDIR_INFO_0 {
+impl ::core::cmp::PartialEq for REPL_EDIR_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.rped0_dirname == other.rped0_dirname
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for REPL_EDIR_INFO_0 {}
+impl ::core::cmp::Eq for REPL_EDIR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REPL_EDIR_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -9918,82 +9927,82 @@ pub struct REPL_EDIR_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl REPL_EDIR_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for REPL_EDIR_INFO_1 {
+impl ::core::default::Default for REPL_EDIR_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for REPL_EDIR_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for REPL_EDIR_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("REPL_EDIR_INFO_1").field("rped1_dirname", &self.rped1_dirname).field("rped1_integrity", &self.rped1_integrity).field("rped1_extent", &self.rped1_extent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for REPL_EDIR_INFO_1 {
+impl ::core::cmp::PartialEq for REPL_EDIR_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.rped1_dirname == other.rped1_dirname && self.rped1_integrity == other.rped1_integrity && self.rped1_extent == other.rped1_extent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for REPL_EDIR_INFO_1 {}
+impl ::core::cmp::Eq for REPL_EDIR_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REPL_EDIR_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct REPL_EDIR_INFO_1000 {
     pub rped1000_integrity: u32,
 }
 impl REPL_EDIR_INFO_1000 {}
-impl ::std::default::Default for REPL_EDIR_INFO_1000 {
+impl ::core::default::Default for REPL_EDIR_INFO_1000 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for REPL_EDIR_INFO_1000 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for REPL_EDIR_INFO_1000 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("REPL_EDIR_INFO_1000").field("rped1000_integrity", &self.rped1000_integrity).finish()
     }
 }
-impl ::std::cmp::PartialEq for REPL_EDIR_INFO_1000 {
+impl ::core::cmp::PartialEq for REPL_EDIR_INFO_1000 {
     fn eq(&self, other: &Self) -> bool {
         self.rped1000_integrity == other.rped1000_integrity
     }
 }
-impl ::std::cmp::Eq for REPL_EDIR_INFO_1000 {}
+impl ::core::cmp::Eq for REPL_EDIR_INFO_1000 {}
 unsafe impl ::windows::runtime::Abi for REPL_EDIR_INFO_1000 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct REPL_EDIR_INFO_1001 {
     pub rped1001_extent: u32,
 }
 impl REPL_EDIR_INFO_1001 {}
-impl ::std::default::Default for REPL_EDIR_INFO_1001 {
+impl ::core::default::Default for REPL_EDIR_INFO_1001 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for REPL_EDIR_INFO_1001 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for REPL_EDIR_INFO_1001 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("REPL_EDIR_INFO_1001").field("rped1001_extent", &self.rped1001_extent).finish()
     }
 }
-impl ::std::cmp::PartialEq for REPL_EDIR_INFO_1001 {
+impl ::core::cmp::PartialEq for REPL_EDIR_INFO_1001 {
     fn eq(&self, other: &Self) -> bool {
         self.rped1001_extent == other.rped1001_extent
     }
 }
-impl ::std::cmp::Eq for REPL_EDIR_INFO_1001 {}
+impl ::core::cmp::Eq for REPL_EDIR_INFO_1001 {}
 unsafe impl ::windows::runtime::Abi for REPL_EDIR_INFO_1001 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -10007,25 +10016,25 @@ pub struct REPL_EDIR_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl REPL_EDIR_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for REPL_EDIR_INFO_2 {
+impl ::core::default::Default for REPL_EDIR_INFO_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for REPL_EDIR_INFO_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for REPL_EDIR_INFO_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("REPL_EDIR_INFO_2").field("rped2_dirname", &self.rped2_dirname).field("rped2_integrity", &self.rped2_integrity).field("rped2_extent", &self.rped2_extent).field("rped2_lockcount", &self.rped2_lockcount).field("rped2_locktime", &self.rped2_locktime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for REPL_EDIR_INFO_2 {
+impl ::core::cmp::PartialEq for REPL_EDIR_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.rped2_dirname == other.rped2_dirname && self.rped2_integrity == other.rped2_integrity && self.rped2_extent == other.rped2_extent && self.rped2_lockcount == other.rped2_lockcount && self.rped2_locktime == other.rped2_locktime
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for REPL_EDIR_INFO_2 {}
+impl ::core::cmp::Eq for REPL_EDIR_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REPL_EDIR_INFO_2 {
     type Abi = Self;
@@ -10040,7 +10049,7 @@ pub const REPL_EXTENT_FILE: u32 = 1u32;
 pub const REPL_EXTENT_TREE: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const REPL_GUARDTIME_INFOLEVEL: u32 = 1002u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -10050,30 +10059,30 @@ pub struct REPL_IDIR_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl REPL_IDIR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for REPL_IDIR_INFO_0 {
+impl ::core::default::Default for REPL_IDIR_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for REPL_IDIR_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for REPL_IDIR_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("REPL_IDIR_INFO_0").field("rpid0_dirname", &self.rpid0_dirname).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for REPL_IDIR_INFO_0 {
+impl ::core::cmp::PartialEq for REPL_IDIR_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.rpid0_dirname == other.rpid0_dirname
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for REPL_IDIR_INFO_0 {}
+impl ::core::cmp::Eq for REPL_IDIR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REPL_IDIR_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -10088,14 +10097,14 @@ pub struct REPL_IDIR_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl REPL_IDIR_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for REPL_IDIR_INFO_1 {
+impl ::core::default::Default for REPL_IDIR_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for REPL_IDIR_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for REPL_IDIR_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("REPL_IDIR_INFO_1")
             .field("rpid1_dirname", &self.rpid1_dirname)
             .field("rpid1_state", &self.rpid1_state)
@@ -10107,18 +10116,18 @@ impl ::std::fmt::Debug for REPL_IDIR_INFO_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for REPL_IDIR_INFO_1 {
+impl ::core::cmp::PartialEq for REPL_IDIR_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.rpid1_dirname == other.rpid1_dirname && self.rpid1_state == other.rpid1_state && self.rpid1_mastername == other.rpid1_mastername && self.rpid1_last_update_time == other.rpid1_last_update_time && self.rpid1_lockcount == other.rpid1_lockcount && self.rpid1_locktime == other.rpid1_locktime
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for REPL_IDIR_INFO_1 {}
+impl ::core::cmp::Eq for REPL_IDIR_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REPL_IDIR_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -10137,14 +10146,14 @@ pub struct REPL_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl REPL_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for REPL_INFO_0 {
+impl ::core::default::Default for REPL_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for REPL_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for REPL_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("REPL_INFO_0")
             .field("rp0_role", &self.rp0_role)
             .field("rp0_exportpath", &self.rp0_exportpath)
@@ -10160,118 +10169,118 @@ impl ::std::fmt::Debug for REPL_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for REPL_INFO_0 {
+impl ::core::cmp::PartialEq for REPL_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.rp0_role == other.rp0_role && self.rp0_exportpath == other.rp0_exportpath && self.rp0_exportlist == other.rp0_exportlist && self.rp0_importpath == other.rp0_importpath && self.rp0_importlist == other.rp0_importlist && self.rp0_logonusername == other.rp0_logonusername && self.rp0_interval == other.rp0_interval && self.rp0_pulse == other.rp0_pulse && self.rp0_guardtime == other.rp0_guardtime && self.rp0_random == other.rp0_random
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for REPL_INFO_0 {}
+impl ::core::cmp::Eq for REPL_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REPL_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct REPL_INFO_1000 {
     pub rp1000_interval: u32,
 }
 impl REPL_INFO_1000 {}
-impl ::std::default::Default for REPL_INFO_1000 {
+impl ::core::default::Default for REPL_INFO_1000 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for REPL_INFO_1000 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for REPL_INFO_1000 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("REPL_INFO_1000").field("rp1000_interval", &self.rp1000_interval).finish()
     }
 }
-impl ::std::cmp::PartialEq for REPL_INFO_1000 {
+impl ::core::cmp::PartialEq for REPL_INFO_1000 {
     fn eq(&self, other: &Self) -> bool {
         self.rp1000_interval == other.rp1000_interval
     }
 }
-impl ::std::cmp::Eq for REPL_INFO_1000 {}
+impl ::core::cmp::Eq for REPL_INFO_1000 {}
 unsafe impl ::windows::runtime::Abi for REPL_INFO_1000 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct REPL_INFO_1001 {
     pub rp1001_pulse: u32,
 }
 impl REPL_INFO_1001 {}
-impl ::std::default::Default for REPL_INFO_1001 {
+impl ::core::default::Default for REPL_INFO_1001 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for REPL_INFO_1001 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for REPL_INFO_1001 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("REPL_INFO_1001").field("rp1001_pulse", &self.rp1001_pulse).finish()
     }
 }
-impl ::std::cmp::PartialEq for REPL_INFO_1001 {
+impl ::core::cmp::PartialEq for REPL_INFO_1001 {
     fn eq(&self, other: &Self) -> bool {
         self.rp1001_pulse == other.rp1001_pulse
     }
 }
-impl ::std::cmp::Eq for REPL_INFO_1001 {}
+impl ::core::cmp::Eq for REPL_INFO_1001 {}
 unsafe impl ::windows::runtime::Abi for REPL_INFO_1001 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct REPL_INFO_1002 {
     pub rp1002_guardtime: u32,
 }
 impl REPL_INFO_1002 {}
-impl ::std::default::Default for REPL_INFO_1002 {
+impl ::core::default::Default for REPL_INFO_1002 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for REPL_INFO_1002 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for REPL_INFO_1002 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("REPL_INFO_1002").field("rp1002_guardtime", &self.rp1002_guardtime).finish()
     }
 }
-impl ::std::cmp::PartialEq for REPL_INFO_1002 {
+impl ::core::cmp::PartialEq for REPL_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
         self.rp1002_guardtime == other.rp1002_guardtime
     }
 }
-impl ::std::cmp::Eq for REPL_INFO_1002 {}
+impl ::core::cmp::Eq for REPL_INFO_1002 {}
 unsafe impl ::windows::runtime::Abi for REPL_INFO_1002 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct REPL_INFO_1003 {
     pub rp1003_random: u32,
 }
 impl REPL_INFO_1003 {}
-impl ::std::default::Default for REPL_INFO_1003 {
+impl ::core::default::Default for REPL_INFO_1003 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for REPL_INFO_1003 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for REPL_INFO_1003 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("REPL_INFO_1003").field("rp1003_random", &self.rp1003_random).finish()
     }
 }
-impl ::std::cmp::PartialEq for REPL_INFO_1003 {
+impl ::core::cmp::PartialEq for REPL_INFO_1003 {
     fn eq(&self, other: &Self) -> bool {
         self.rp1003_random == other.rp1003_random
     }
 }
-impl ::std::cmp::Eq for REPL_INFO_1003 {}
+impl ::core::cmp::Eq for REPL_INFO_1003 {}
 unsafe impl ::windows::runtime::Abi for REPL_INFO_1003 {
     type Abi = Self;
 }
@@ -10327,7 +10336,7 @@ pub const RIS_INTERFACE_MEDIA_ABSENT: u32 = 4u32;
 pub const RIS_INTERFACE_MEDIA_PRESENT: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const ROUTING_DOMAIN_INFO_REVISION_1: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct RTR_INFO_BLOCK_HEADER {
@@ -10337,28 +10346,28 @@ pub struct RTR_INFO_BLOCK_HEADER {
     pub TocEntry: [RTR_TOC_ENTRY; 1],
 }
 impl RTR_INFO_BLOCK_HEADER {}
-impl ::std::default::Default for RTR_INFO_BLOCK_HEADER {
+impl ::core::default::Default for RTR_INFO_BLOCK_HEADER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RTR_INFO_BLOCK_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RTR_INFO_BLOCK_HEADER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RTR_INFO_BLOCK_HEADER").field("Version", &self.Version).field("Size", &self.Size).field("TocEntriesCount", &self.TocEntriesCount).field("TocEntry", &self.TocEntry).finish()
     }
 }
-impl ::std::cmp::PartialEq for RTR_INFO_BLOCK_HEADER {
+impl ::core::cmp::PartialEq for RTR_INFO_BLOCK_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version && self.Size == other.Size && self.TocEntriesCount == other.TocEntriesCount && self.TocEntry == other.TocEntry
     }
 }
-impl ::std::cmp::Eq for RTR_INFO_BLOCK_HEADER {}
+impl ::core::cmp::Eq for RTR_INFO_BLOCK_HEADER {}
 unsafe impl ::windows::runtime::Abi for RTR_INFO_BLOCK_HEADER {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const RTR_INFO_BLOCK_VERSION: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct RTR_TOC_ENTRY {
@@ -10368,22 +10377,22 @@ pub struct RTR_TOC_ENTRY {
     pub Offset: u32,
 }
 impl RTR_TOC_ENTRY {}
-impl ::std::default::Default for RTR_TOC_ENTRY {
+impl ::core::default::Default for RTR_TOC_ENTRY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RTR_TOC_ENTRY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RTR_TOC_ENTRY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RTR_TOC_ENTRY").field("InfoType", &self.InfoType).field("InfoSize", &self.InfoSize).field("Count", &self.Count).field("Offset", &self.Offset).finish()
     }
 }
-impl ::std::cmp::PartialEq for RTR_TOC_ENTRY {
+impl ::core::cmp::PartialEq for RTR_TOC_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         self.InfoType == other.InfoType && self.InfoSize == other.InfoSize && self.Count == other.Count && self.Offset == other.Offset
     }
 }
-impl ::std::cmp::Eq for RTR_TOC_ENTRY {}
+impl ::core::cmp::Eq for RTR_TOC_ENTRY {}
 unsafe impl ::windows::runtime::Abi for RTR_TOC_ENTRY {
     type Abi = Self;
 }
@@ -10401,7 +10410,7 @@ pub unsafe fn RouterAssert<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn RouterAssert(pszfailedassertion: super::super::Foundation::PSTR, pszfilename: super::super::Foundation::PSTR, dwlinenumber: u32, pszmessage: super::super::Foundation::PSTR);
         }
-        ::std::mem::transmute(RouterAssert(pszfailedassertion.into_param().abi(), pszfilename.into_param().abi(), ::std::mem::transmute(dwlinenumber), pszmessage.into_param().abi()))
+        ::core::mem::transmute(RouterAssert(pszfailedassertion.into_param().abi(), pszfilename.into_param().abi(), ::core::mem::transmute(dwlinenumber), pszmessage.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10416,7 +10425,7 @@ pub unsafe fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut su
         extern "system" {
             fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(RouterGetErrorStringA(::std::mem::transmute(dwerrorcode), ::std::mem::transmute(lplpszerrorstring)))
+        ::core::mem::transmute(RouterGetErrorStringA(::core::mem::transmute(dwerrorcode), ::core::mem::transmute(lplpszerrorstring)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10431,7 +10440,7 @@ pub unsafe fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut s
         extern "system" {
             fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(RouterGetErrorStringW(::std::mem::transmute(dwerrorcode), ::std::mem::transmute(lplpwszerrorstring)))
+        ::core::mem::transmute(RouterGetErrorStringW(::core::mem::transmute(dwerrorcode), ::core::mem::transmute(lplpwszerrorstring)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10446,7 +10455,7 @@ pub unsafe fn RouterLogDeregisterA<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn RouterLogDeregisterA(hloghandle: super::super::Foundation::HANDLE);
         }
-        ::std::mem::transmute(RouterLogDeregisterA(hloghandle.into_param().abi()))
+        ::core::mem::transmute(RouterLogDeregisterA(hloghandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10461,7 +10470,7 @@ pub unsafe fn RouterLogDeregisterW<'a, Param0: ::windows::runtime::IntoParam<'a,
         extern "system" {
             fn RouterLogDeregisterW(hloghandle: super::super::Foundation::HANDLE);
         }
-        ::std::mem::transmute(RouterLogDeregisterW(hloghandle.into_param().abi()))
+        ::core::mem::transmute(RouterLogDeregisterW(hloghandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10476,7 +10485,7 @@ pub unsafe fn RouterLogEventA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn RouterLogEventA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwerrorcode: u32);
         }
-        ::std::mem::transmute(RouterLogEventA(hloghandle.into_param().abi(), ::std::mem::transmute(dweventtype), ::std::mem::transmute(dwmessageid), ::std::mem::transmute(dwsubstringcount), ::std::mem::transmute(plpszsubstringarray), ::std::mem::transmute(dwerrorcode)))
+        ::core::mem::transmute(RouterLogEventA(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwsubstringcount), ::core::mem::transmute(plpszsubstringarray), ::core::mem::transmute(dwerrorcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10491,7 +10500,7 @@ pub unsafe fn RouterLogEventDataA<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn RouterLogEventDataA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
         }
-        ::std::mem::transmute(RouterLogEventDataA(hloghandle.into_param().abi(), ::std::mem::transmute(dweventtype), ::std::mem::transmute(dwmessageid), ::std::mem::transmute(dwsubstringcount), ::std::mem::transmute(plpszsubstringarray), ::std::mem::transmute(dwdatabytes), ::std::mem::transmute(lpdatabytes)))
+        ::core::mem::transmute(RouterLogEventDataA(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwsubstringcount), ::core::mem::transmute(plpszsubstringarray), ::core::mem::transmute(dwdatabytes), ::core::mem::transmute(lpdatabytes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10506,7 +10515,7 @@ pub unsafe fn RouterLogEventDataW<'a, Param0: ::windows::runtime::IntoParam<'a, 
         extern "system" {
             fn RouterLogEventDataW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
         }
-        ::std::mem::transmute(RouterLogEventDataW(hloghandle.into_param().abi(), ::std::mem::transmute(dweventtype), ::std::mem::transmute(dwmessageid), ::std::mem::transmute(dwsubstringcount), ::std::mem::transmute(plpszsubstringarray), ::std::mem::transmute(dwdatabytes), ::std::mem::transmute(lpdatabytes)))
+        ::core::mem::transmute(RouterLogEventDataW(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwsubstringcount), ::core::mem::transmute(plpszsubstringarray), ::core::mem::transmute(dwdatabytes), ::core::mem::transmute(lpdatabytes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10521,7 +10530,7 @@ pub unsafe fn RouterLogEventExA<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn RouterLogEventExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: super::super::Foundation::PSTR);
         }
-        ::std::mem::transmute(RouterLogEventExA(hloghandle.into_param().abi(), ::std::mem::transmute(dweventtype), ::std::mem::transmute(dwerrorcode), ::std::mem::transmute(dwmessageid), ptszformat.into_param().abi()))
+        ::core::mem::transmute(RouterLogEventExA(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwmessageid), ptszformat.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10536,7 +10545,7 @@ pub unsafe fn RouterLogEventExW<'a, Param0: ::windows::runtime::IntoParam<'a, su
         extern "system" {
             fn RouterLogEventExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: super::super::Foundation::PWSTR);
         }
-        ::std::mem::transmute(RouterLogEventExW(hloghandle.into_param().abi(), ::std::mem::transmute(dweventtype), ::std::mem::transmute(dwerrorcode), ::std::mem::transmute(dwmessageid), ptszformat.into_param().abi()))
+        ::core::mem::transmute(RouterLogEventExW(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwmessageid), ptszformat.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10551,7 +10560,7 @@ pub unsafe fn RouterLogEventStringA<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn RouterLogEventStringA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwerrorcode: u32, dwerrorindex: u32);
         }
-        ::std::mem::transmute(RouterLogEventStringA(hloghandle.into_param().abi(), ::std::mem::transmute(dweventtype), ::std::mem::transmute(dwmessageid), ::std::mem::transmute(dwsubstringcount), ::std::mem::transmute(plpszsubstringarray), ::std::mem::transmute(dwerrorcode), ::std::mem::transmute(dwerrorindex)))
+        ::core::mem::transmute(RouterLogEventStringA(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwsubstringcount), ::core::mem::transmute(plpszsubstringarray), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwerrorindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10566,7 +10575,7 @@ pub unsafe fn RouterLogEventStringW<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn RouterLogEventStringW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwerrorcode: u32, dwerrorindex: u32);
         }
-        ::std::mem::transmute(RouterLogEventStringW(hloghandle.into_param().abi(), ::std::mem::transmute(dweventtype), ::std::mem::transmute(dwmessageid), ::std::mem::transmute(dwsubstringcount), ::std::mem::transmute(plpszsubstringarray), ::std::mem::transmute(dwerrorcode), ::std::mem::transmute(dwerrorindex)))
+        ::core::mem::transmute(RouterLogEventStringW(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwsubstringcount), ::core::mem::transmute(plpszsubstringarray), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwerrorindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10581,7 +10590,7 @@ pub unsafe fn RouterLogEventValistExA<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn RouterLogEventValistExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: super::super::Foundation::PSTR, arglist: *mut i8);
         }
-        ::std::mem::transmute(RouterLogEventValistExA(hloghandle.into_param().abi(), ::std::mem::transmute(dweventtype), ::std::mem::transmute(dwerrorcode), ::std::mem::transmute(dwmessageid), ptszformat.into_param().abi(), ::std::mem::transmute(arglist)))
+        ::core::mem::transmute(RouterLogEventValistExA(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwmessageid), ptszformat.into_param().abi(), ::core::mem::transmute(arglist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10596,7 +10605,7 @@ pub unsafe fn RouterLogEventValistExW<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn RouterLogEventValistExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: super::super::Foundation::PWSTR, arglist: *mut i8);
         }
-        ::std::mem::transmute(RouterLogEventValistExW(hloghandle.into_param().abi(), ::std::mem::transmute(dweventtype), ::std::mem::transmute(dwerrorcode), ::std::mem::transmute(dwmessageid), ptszformat.into_param().abi(), ::std::mem::transmute(arglist)))
+        ::core::mem::transmute(RouterLogEventValistExW(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwmessageid), ptszformat.into_param().abi(), ::core::mem::transmute(arglist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10611,7 +10620,7 @@ pub unsafe fn RouterLogEventW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn RouterLogEventW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwerrorcode: u32);
         }
-        ::std::mem::transmute(RouterLogEventW(hloghandle.into_param().abi(), ::std::mem::transmute(dweventtype), ::std::mem::transmute(dwmessageid), ::std::mem::transmute(dwsubstringcount), ::std::mem::transmute(plpszsubstringarray), ::std::mem::transmute(dwerrorcode)))
+        ::core::mem::transmute(RouterLogEventW(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwsubstringcount), ::core::mem::transmute(plpszsubstringarray), ::core::mem::transmute(dwerrorcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10626,7 +10635,7 @@ pub unsafe fn RouterLogRegisterA<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn RouterLogRegisterA(lpszsource: super::super::Foundation::PSTR) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(RouterLogRegisterA(lpszsource.into_param().abi()))
+        ::core::mem::transmute(RouterLogRegisterA(lpszsource.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10641,12 +10650,12 @@ pub unsafe fn RouterLogRegisterW<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn RouterLogRegisterW(lpszsource: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(RouterLogRegisterW(lpszsource.into_param().abi()))
+        ::core::mem::transmute(RouterLogRegisterW(lpszsource.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -10657,30 +10666,30 @@ pub struct SERVER_INFO_100 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_100 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_100 {
+impl ::core::default::Default for SERVER_INFO_100 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_100 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_100 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_100").field("sv100_platform_id", &self.sv100_platform_id).field("sv100_name", &self.sv100_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_100 {
+impl ::core::cmp::PartialEq for SERVER_INFO_100 {
     fn eq(&self, other: &Self) -> bool {
         self.sv100_platform_id == other.sv100_platform_id && self.sv100_name == other.sv100_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_100 {}
+impl ::core::cmp::Eq for SERVER_INFO_100 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_100 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -10690,30 +10699,30 @@ pub struct SERVER_INFO_1005 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1005 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1005 {
+impl ::core::default::Default for SERVER_INFO_1005 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1005 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1005 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1005").field("sv1005_comment", &self.sv1005_comment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1005 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1005 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1005_comment == other.sv1005_comment
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1005 {}
+impl ::core::cmp::Eq for SERVER_INFO_1005 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1005 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -10728,14 +10737,14 @@ pub struct SERVER_INFO_101 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_101 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_101 {
+impl ::core::default::Default for SERVER_INFO_101 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_101 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_101 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_101")
             .field("sv101_platform_id", &self.sv101_platform_id)
             .field("sv101_name", &self.sv101_name)
@@ -10747,122 +10756,122 @@ impl ::std::fmt::Debug for SERVER_INFO_101 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_101 {
+impl ::core::cmp::PartialEq for SERVER_INFO_101 {
     fn eq(&self, other: &Self) -> bool {
         self.sv101_platform_id == other.sv101_platform_id && self.sv101_name == other.sv101_name && self.sv101_version_major == other.sv101_version_major && self.sv101_version_minor == other.sv101_version_minor && self.sv101_type == other.sv101_type && self.sv101_comment == other.sv101_comment
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_101 {}
+impl ::core::cmp::Eq for SERVER_INFO_101 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_101 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1010 {
     pub sv1010_disc: i32,
 }
 impl SERVER_INFO_1010 {}
-impl ::std::default::Default for SERVER_INFO_1010 {
+impl ::core::default::Default for SERVER_INFO_1010 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1010 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1010 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1010").field("sv1010_disc", &self.sv1010_disc).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1010 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1010 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1010_disc == other.sv1010_disc
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1010 {}
+impl ::core::cmp::Eq for SERVER_INFO_1010 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1010 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1016 {
     pub sv1016_hidden: SERVER_INFO_HIDDEN,
 }
 impl SERVER_INFO_1016 {}
-impl ::std::default::Default for SERVER_INFO_1016 {
+impl ::core::default::Default for SERVER_INFO_1016 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1016 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1016 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1016").field("sv1016_hidden", &self.sv1016_hidden).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1016 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1016 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1016_hidden == other.sv1016_hidden
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1016 {}
+impl ::core::cmp::Eq for SERVER_INFO_1016 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1016 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1017 {
     pub sv1017_announce: u32,
 }
 impl SERVER_INFO_1017 {}
-impl ::std::default::Default for SERVER_INFO_1017 {
+impl ::core::default::Default for SERVER_INFO_1017 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1017 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1017 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1017").field("sv1017_announce", &self.sv1017_announce).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1017 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1017 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1017_announce == other.sv1017_announce
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1017 {}
+impl ::core::cmp::Eq for SERVER_INFO_1017 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1017 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1018 {
     pub sv1018_anndelta: u32,
 }
 impl SERVER_INFO_1018 {}
-impl ::std::default::Default for SERVER_INFO_1018 {
+impl ::core::default::Default for SERVER_INFO_1018 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1018 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1018 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1018").field("sv1018_anndelta", &self.sv1018_anndelta).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1018 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1018 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1018_anndelta == other.sv1018_anndelta
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1018 {}
+impl ::core::cmp::Eq for SERVER_INFO_1018 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1018 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -10884,14 +10893,14 @@ pub struct SERVER_INFO_102 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_102 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_102 {
+impl ::core::default::Default for SERVER_INFO_102 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_102 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_102 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_102")
             .field("sv102_platform_id", &self.sv102_platform_id)
             .field("sv102_name", &self.sv102_name)
@@ -10910,7 +10919,7 @@ impl ::std::fmt::Debug for SERVER_INFO_102 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_102 {
+impl ::core::cmp::PartialEq for SERVER_INFO_102 {
     fn eq(&self, other: &Self) -> bool {
         self.sv102_platform_id == other.sv102_platform_id
             && self.sv102_name == other.sv102_name
@@ -10928,12 +10937,12 @@ impl ::std::cmp::PartialEq for SERVER_INFO_102 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_102 {}
+impl ::core::cmp::Eq for SERVER_INFO_102 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_102 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -10956,14 +10965,14 @@ pub struct SERVER_INFO_103 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_103 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_103 {
+impl ::core::default::Default for SERVER_INFO_103 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_103 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_103 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_103")
             .field("sv103_platform_id", &self.sv103_platform_id)
             .field("sv103_name", &self.sv103_name)
@@ -10983,7 +10992,7 @@ impl ::std::fmt::Debug for SERVER_INFO_103 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_103 {
+impl ::core::cmp::PartialEq for SERVER_INFO_103 {
     fn eq(&self, other: &Self) -> bool {
         self.sv103_platform_id == other.sv103_platform_id
             && self.sv103_name == other.sv103_name
@@ -11002,272 +11011,272 @@ impl ::std::cmp::PartialEq for SERVER_INFO_103 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_103 {}
+impl ::core::cmp::Eq for SERVER_INFO_103 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_103 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1107 {
     pub sv1107_users: u32,
 }
 impl SERVER_INFO_1107 {}
-impl ::std::default::Default for SERVER_INFO_1107 {
+impl ::core::default::Default for SERVER_INFO_1107 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1107 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1107 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1107").field("sv1107_users", &self.sv1107_users).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1107 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1107 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1107_users == other.sv1107_users
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1107 {}
+impl ::core::cmp::Eq for SERVER_INFO_1107 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1107 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1501 {
     pub sv1501_sessopens: u32,
 }
 impl SERVER_INFO_1501 {}
-impl ::std::default::Default for SERVER_INFO_1501 {
+impl ::core::default::Default for SERVER_INFO_1501 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1501 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1501 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1501").field("sv1501_sessopens", &self.sv1501_sessopens).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1501 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1501 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1501_sessopens == other.sv1501_sessopens
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1501 {}
+impl ::core::cmp::Eq for SERVER_INFO_1501 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1501 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1502 {
     pub sv1502_sessvcs: u32,
 }
 impl SERVER_INFO_1502 {}
-impl ::std::default::Default for SERVER_INFO_1502 {
+impl ::core::default::Default for SERVER_INFO_1502 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1502 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1502 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1502").field("sv1502_sessvcs", &self.sv1502_sessvcs).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1502 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1502 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1502_sessvcs == other.sv1502_sessvcs
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1502 {}
+impl ::core::cmp::Eq for SERVER_INFO_1502 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1502 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1503 {
     pub sv1503_opensearch: u32,
 }
 impl SERVER_INFO_1503 {}
-impl ::std::default::Default for SERVER_INFO_1503 {
+impl ::core::default::Default for SERVER_INFO_1503 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1503 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1503 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1503").field("sv1503_opensearch", &self.sv1503_opensearch).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1503 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1503 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1503_opensearch == other.sv1503_opensearch
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1503 {}
+impl ::core::cmp::Eq for SERVER_INFO_1503 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1503 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1506 {
     pub sv1506_maxworkitems: u32,
 }
 impl SERVER_INFO_1506 {}
-impl ::std::default::Default for SERVER_INFO_1506 {
+impl ::core::default::Default for SERVER_INFO_1506 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1506 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1506 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1506").field("sv1506_maxworkitems", &self.sv1506_maxworkitems).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1506 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1506 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1506_maxworkitems == other.sv1506_maxworkitems
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1506 {}
+impl ::core::cmp::Eq for SERVER_INFO_1506 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1506 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1509 {
     pub sv1509_maxrawbuflen: u32,
 }
 impl SERVER_INFO_1509 {}
-impl ::std::default::Default for SERVER_INFO_1509 {
+impl ::core::default::Default for SERVER_INFO_1509 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1509 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1509 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1509").field("sv1509_maxrawbuflen", &self.sv1509_maxrawbuflen).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1509 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1509 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1509_maxrawbuflen == other.sv1509_maxrawbuflen
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1509 {}
+impl ::core::cmp::Eq for SERVER_INFO_1509 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1509 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1510 {
     pub sv1510_sessusers: u32,
 }
 impl SERVER_INFO_1510 {}
-impl ::std::default::Default for SERVER_INFO_1510 {
+impl ::core::default::Default for SERVER_INFO_1510 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1510 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1510 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1510").field("sv1510_sessusers", &self.sv1510_sessusers).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1510 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1510 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1510_sessusers == other.sv1510_sessusers
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1510 {}
+impl ::core::cmp::Eq for SERVER_INFO_1510 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1510 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1511 {
     pub sv1511_sessconns: u32,
 }
 impl SERVER_INFO_1511 {}
-impl ::std::default::Default for SERVER_INFO_1511 {
+impl ::core::default::Default for SERVER_INFO_1511 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1511 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1511 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1511").field("sv1511_sessconns", &self.sv1511_sessconns).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1511 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1511 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1511_sessconns == other.sv1511_sessconns
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1511 {}
+impl ::core::cmp::Eq for SERVER_INFO_1511 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1511 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1512 {
     pub sv1512_maxnonpagedmemoryusage: u32,
 }
 impl SERVER_INFO_1512 {}
-impl ::std::default::Default for SERVER_INFO_1512 {
+impl ::core::default::Default for SERVER_INFO_1512 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1512 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1512 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1512").field("sv1512_maxnonpagedmemoryusage", &self.sv1512_maxnonpagedmemoryusage).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1512 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1512 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1512_maxnonpagedmemoryusage == other.sv1512_maxnonpagedmemoryusage
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1512 {}
+impl ::core::cmp::Eq for SERVER_INFO_1512 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1512 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1513 {
     pub sv1513_maxpagedmemoryusage: u32,
 }
 impl SERVER_INFO_1513 {}
-impl ::std::default::Default for SERVER_INFO_1513 {
+impl ::core::default::Default for SERVER_INFO_1513 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1513 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1513 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1513").field("sv1513_maxpagedmemoryusage", &self.sv1513_maxpagedmemoryusage).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1513 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1513 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1513_maxpagedmemoryusage == other.sv1513_maxpagedmemoryusage
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1513 {}
+impl ::core::cmp::Eq for SERVER_INFO_1513 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1513 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -11277,30 +11286,30 @@ pub struct SERVER_INFO_1514 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1514 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1514 {
+impl ::core::default::Default for SERVER_INFO_1514 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1514 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1514 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1514").field("sv1514_enablesoftcompat", &self.sv1514_enablesoftcompat).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1514 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1514 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1514_enablesoftcompat == other.sv1514_enablesoftcompat
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1514 {}
+impl ::core::cmp::Eq for SERVER_INFO_1514 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1514 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -11310,30 +11319,30 @@ pub struct SERVER_INFO_1515 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1515 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1515 {
+impl ::core::default::Default for SERVER_INFO_1515 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1515 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1515 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1515").field("sv1515_enableforcedlogoff", &self.sv1515_enableforcedlogoff).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1515 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1515 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1515_enableforcedlogoff == other.sv1515_enableforcedlogoff
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1515 {}
+impl ::core::cmp::Eq for SERVER_INFO_1515 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1515 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -11343,30 +11352,30 @@ pub struct SERVER_INFO_1516 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1516 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1516 {
+impl ::core::default::Default for SERVER_INFO_1516 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1516 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1516 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1516").field("sv1516_timesource", &self.sv1516_timesource).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1516 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1516 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1516_timesource == other.sv1516_timesource
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1516 {}
+impl ::core::cmp::Eq for SERVER_INFO_1516 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1516 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -11376,342 +11385,342 @@ pub struct SERVER_INFO_1518 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1518 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1518 {
+impl ::core::default::Default for SERVER_INFO_1518 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1518 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1518 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1518").field("sv1518_lmannounce", &self.sv1518_lmannounce).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1518 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1518 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1518_lmannounce == other.sv1518_lmannounce
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1518 {}
+impl ::core::cmp::Eq for SERVER_INFO_1518 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1518 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1520 {
     pub sv1520_maxcopyreadlen: u32,
 }
 impl SERVER_INFO_1520 {}
-impl ::std::default::Default for SERVER_INFO_1520 {
+impl ::core::default::Default for SERVER_INFO_1520 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1520 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1520 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1520").field("sv1520_maxcopyreadlen", &self.sv1520_maxcopyreadlen).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1520 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1520 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1520_maxcopyreadlen == other.sv1520_maxcopyreadlen
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1520 {}
+impl ::core::cmp::Eq for SERVER_INFO_1520 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1520 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1521 {
     pub sv1521_maxcopywritelen: u32,
 }
 impl SERVER_INFO_1521 {}
-impl ::std::default::Default for SERVER_INFO_1521 {
+impl ::core::default::Default for SERVER_INFO_1521 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1521 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1521 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1521").field("sv1521_maxcopywritelen", &self.sv1521_maxcopywritelen).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1521 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1521 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1521_maxcopywritelen == other.sv1521_maxcopywritelen
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1521 {}
+impl ::core::cmp::Eq for SERVER_INFO_1521 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1521 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1522 {
     pub sv1522_minkeepsearch: u32,
 }
 impl SERVER_INFO_1522 {}
-impl ::std::default::Default for SERVER_INFO_1522 {
+impl ::core::default::Default for SERVER_INFO_1522 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1522 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1522 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1522").field("sv1522_minkeepsearch", &self.sv1522_minkeepsearch).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1522 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1522 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1522_minkeepsearch == other.sv1522_minkeepsearch
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1522 {}
+impl ::core::cmp::Eq for SERVER_INFO_1522 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1522 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1523 {
     pub sv1523_maxkeepsearch: u32,
 }
 impl SERVER_INFO_1523 {}
-impl ::std::default::Default for SERVER_INFO_1523 {
+impl ::core::default::Default for SERVER_INFO_1523 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1523 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1523 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1523").field("sv1523_maxkeepsearch", &self.sv1523_maxkeepsearch).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1523 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1523 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1523_maxkeepsearch == other.sv1523_maxkeepsearch
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1523 {}
+impl ::core::cmp::Eq for SERVER_INFO_1523 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1523 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1524 {
     pub sv1524_minkeepcomplsearch: u32,
 }
 impl SERVER_INFO_1524 {}
-impl ::std::default::Default for SERVER_INFO_1524 {
+impl ::core::default::Default for SERVER_INFO_1524 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1524 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1524 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1524").field("sv1524_minkeepcomplsearch", &self.sv1524_minkeepcomplsearch).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1524 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1524 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1524_minkeepcomplsearch == other.sv1524_minkeepcomplsearch
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1524 {}
+impl ::core::cmp::Eq for SERVER_INFO_1524 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1524 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1525 {
     pub sv1525_maxkeepcomplsearch: u32,
 }
 impl SERVER_INFO_1525 {}
-impl ::std::default::Default for SERVER_INFO_1525 {
+impl ::core::default::Default for SERVER_INFO_1525 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1525 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1525 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1525").field("sv1525_maxkeepcomplsearch", &self.sv1525_maxkeepcomplsearch).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1525 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1525 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1525_maxkeepcomplsearch == other.sv1525_maxkeepcomplsearch
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1525 {}
+impl ::core::cmp::Eq for SERVER_INFO_1525 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1525 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1528 {
     pub sv1528_scavtimeout: u32,
 }
 impl SERVER_INFO_1528 {}
-impl ::std::default::Default for SERVER_INFO_1528 {
+impl ::core::default::Default for SERVER_INFO_1528 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1528 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1528 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1528").field("sv1528_scavtimeout", &self.sv1528_scavtimeout).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1528 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1528 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1528_scavtimeout == other.sv1528_scavtimeout
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1528 {}
+impl ::core::cmp::Eq for SERVER_INFO_1528 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1528 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1529 {
     pub sv1529_minrcvqueue: u32,
 }
 impl SERVER_INFO_1529 {}
-impl ::std::default::Default for SERVER_INFO_1529 {
+impl ::core::default::Default for SERVER_INFO_1529 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1529 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1529 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1529").field("sv1529_minrcvqueue", &self.sv1529_minrcvqueue).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1529 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1529 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1529_minrcvqueue == other.sv1529_minrcvqueue
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1529 {}
+impl ::core::cmp::Eq for SERVER_INFO_1529 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1529 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1530 {
     pub sv1530_minfreeworkitems: u32,
 }
 impl SERVER_INFO_1530 {}
-impl ::std::default::Default for SERVER_INFO_1530 {
+impl ::core::default::Default for SERVER_INFO_1530 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1530 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1530 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1530").field("sv1530_minfreeworkitems", &self.sv1530_minfreeworkitems).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1530 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1530 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1530_minfreeworkitems == other.sv1530_minfreeworkitems
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1530 {}
+impl ::core::cmp::Eq for SERVER_INFO_1530 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1530 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1533 {
     pub sv1533_maxmpxct: u32,
 }
 impl SERVER_INFO_1533 {}
-impl ::std::default::Default for SERVER_INFO_1533 {
+impl ::core::default::Default for SERVER_INFO_1533 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1533 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1533 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1533").field("sv1533_maxmpxct", &self.sv1533_maxmpxct).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1533 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1533 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1533_maxmpxct == other.sv1533_maxmpxct
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1533 {}
+impl ::core::cmp::Eq for SERVER_INFO_1533 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1533 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1534 {
     pub sv1534_oplockbreakwait: u32,
 }
 impl SERVER_INFO_1534 {}
-impl ::std::default::Default for SERVER_INFO_1534 {
+impl ::core::default::Default for SERVER_INFO_1534 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1534 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1534 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1534").field("sv1534_oplockbreakwait", &self.sv1534_oplockbreakwait).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1534 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1534 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1534_oplockbreakwait == other.sv1534_oplockbreakwait
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1534 {}
+impl ::core::cmp::Eq for SERVER_INFO_1534 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1534 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1535 {
     pub sv1535_oplockbreakresponsewait: u32,
 }
 impl SERVER_INFO_1535 {}
-impl ::std::default::Default for SERVER_INFO_1535 {
+impl ::core::default::Default for SERVER_INFO_1535 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1535 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1535 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1535").field("sv1535_oplockbreakresponsewait", &self.sv1535_oplockbreakresponsewait).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1535 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1535 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1535_oplockbreakresponsewait == other.sv1535_oplockbreakresponsewait
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1535 {}
+impl ::core::cmp::Eq for SERVER_INFO_1535 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1535 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -11721,30 +11730,30 @@ pub struct SERVER_INFO_1536 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1536 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1536 {
+impl ::core::default::Default for SERVER_INFO_1536 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1536 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1536 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1536").field("sv1536_enableoplocks", &self.sv1536_enableoplocks).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1536 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1536 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1536_enableoplocks == other.sv1536_enableoplocks
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1536 {}
+impl ::core::cmp::Eq for SERVER_INFO_1536 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1536 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -11754,30 +11763,30 @@ pub struct SERVER_INFO_1537 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1537 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1537 {
+impl ::core::default::Default for SERVER_INFO_1537 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1537 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1537 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1537").field("sv1537_enableoplockforceclose", &self.sv1537_enableoplockforceclose).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1537 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1537 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1537_enableoplockforceclose == other.sv1537_enableoplockforceclose
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1537 {}
+impl ::core::cmp::Eq for SERVER_INFO_1537 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1537 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -11787,30 +11796,30 @@ pub struct SERVER_INFO_1538 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1538 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1538 {
+impl ::core::default::Default for SERVER_INFO_1538 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1538 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1538 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1538").field("sv1538_enablefcbopens", &self.sv1538_enablefcbopens).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1538 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1538 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1538_enablefcbopens == other.sv1538_enablefcbopens
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1538 {}
+impl ::core::cmp::Eq for SERVER_INFO_1538 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1538 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -11820,30 +11829,30 @@ pub struct SERVER_INFO_1539 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1539 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1539 {
+impl ::core::default::Default for SERVER_INFO_1539 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1539 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1539 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1539").field("sv1539_enableraw", &self.sv1539_enableraw).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1539 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1539 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1539_enableraw == other.sv1539_enableraw
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1539 {}
+impl ::core::cmp::Eq for SERVER_INFO_1539 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1539 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -11853,30 +11862,30 @@ pub struct SERVER_INFO_1540 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1540 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1540 {
+impl ::core::default::Default for SERVER_INFO_1540 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1540 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1540 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1540").field("sv1540_enablesharednetdrives", &self.sv1540_enablesharednetdrives).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1540 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1540 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1540_enablesharednetdrives == other.sv1540_enablesharednetdrives
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1540 {}
+impl ::core::cmp::Eq for SERVER_INFO_1540 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1540 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -11886,30 +11895,30 @@ pub struct SERVER_INFO_1541 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1541 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1541 {
+impl ::core::default::Default for SERVER_INFO_1541 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1541 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1541 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1541").field("sv1541_minfreeconnections", &self.sv1541_minfreeconnections).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1541 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1541 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1541_minfreeconnections == other.sv1541_minfreeconnections
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1541 {}
+impl ::core::cmp::Eq for SERVER_INFO_1541 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1541 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -11919,550 +11928,550 @@ pub struct SERVER_INFO_1542 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1542 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1542 {
+impl ::core::default::Default for SERVER_INFO_1542 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1542 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1542 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1542").field("sv1542_maxfreeconnections", &self.sv1542_maxfreeconnections).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1542 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1542 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1542_maxfreeconnections == other.sv1542_maxfreeconnections
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1542 {}
+impl ::core::cmp::Eq for SERVER_INFO_1542 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1542 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1543 {
     pub sv1543_initsesstable: u32,
 }
 impl SERVER_INFO_1543 {}
-impl ::std::default::Default for SERVER_INFO_1543 {
+impl ::core::default::Default for SERVER_INFO_1543 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1543 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1543 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1543").field("sv1543_initsesstable", &self.sv1543_initsesstable).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1543 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1543 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1543_initsesstable == other.sv1543_initsesstable
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1543 {}
+impl ::core::cmp::Eq for SERVER_INFO_1543 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1543 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1544 {
     pub sv1544_initconntable: u32,
 }
 impl SERVER_INFO_1544 {}
-impl ::std::default::Default for SERVER_INFO_1544 {
+impl ::core::default::Default for SERVER_INFO_1544 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1544 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1544 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1544").field("sv1544_initconntable", &self.sv1544_initconntable).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1544 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1544 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1544_initconntable == other.sv1544_initconntable
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1544 {}
+impl ::core::cmp::Eq for SERVER_INFO_1544 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1544 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1545 {
     pub sv1545_initfiletable: u32,
 }
 impl SERVER_INFO_1545 {}
-impl ::std::default::Default for SERVER_INFO_1545 {
+impl ::core::default::Default for SERVER_INFO_1545 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1545 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1545 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1545").field("sv1545_initfiletable", &self.sv1545_initfiletable).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1545 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1545 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1545_initfiletable == other.sv1545_initfiletable
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1545 {}
+impl ::core::cmp::Eq for SERVER_INFO_1545 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1545 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1546 {
     pub sv1546_initsearchtable: u32,
 }
 impl SERVER_INFO_1546 {}
-impl ::std::default::Default for SERVER_INFO_1546 {
+impl ::core::default::Default for SERVER_INFO_1546 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1546 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1546 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1546").field("sv1546_initsearchtable", &self.sv1546_initsearchtable).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1546 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1546 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1546_initsearchtable == other.sv1546_initsearchtable
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1546 {}
+impl ::core::cmp::Eq for SERVER_INFO_1546 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1546 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1547 {
     pub sv1547_alertschedule: u32,
 }
 impl SERVER_INFO_1547 {}
-impl ::std::default::Default for SERVER_INFO_1547 {
+impl ::core::default::Default for SERVER_INFO_1547 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1547 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1547 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1547").field("sv1547_alertschedule", &self.sv1547_alertschedule).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1547 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1547 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1547_alertschedule == other.sv1547_alertschedule
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1547 {}
+impl ::core::cmp::Eq for SERVER_INFO_1547 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1547 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1548 {
     pub sv1548_errorthreshold: u32,
 }
 impl SERVER_INFO_1548 {}
-impl ::std::default::Default for SERVER_INFO_1548 {
+impl ::core::default::Default for SERVER_INFO_1548 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1548 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1548 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1548").field("sv1548_errorthreshold", &self.sv1548_errorthreshold).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1548 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1548 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1548_errorthreshold == other.sv1548_errorthreshold
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1548 {}
+impl ::core::cmp::Eq for SERVER_INFO_1548 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1548 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1549 {
     pub sv1549_networkerrorthreshold: u32,
 }
 impl SERVER_INFO_1549 {}
-impl ::std::default::Default for SERVER_INFO_1549 {
+impl ::core::default::Default for SERVER_INFO_1549 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1549 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1549 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1549").field("sv1549_networkerrorthreshold", &self.sv1549_networkerrorthreshold).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1549 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1549 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1549_networkerrorthreshold == other.sv1549_networkerrorthreshold
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1549 {}
+impl ::core::cmp::Eq for SERVER_INFO_1549 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1549 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1550 {
     pub sv1550_diskspacethreshold: u32,
 }
 impl SERVER_INFO_1550 {}
-impl ::std::default::Default for SERVER_INFO_1550 {
+impl ::core::default::Default for SERVER_INFO_1550 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1550 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1550 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1550").field("sv1550_diskspacethreshold", &self.sv1550_diskspacethreshold).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1550 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1550 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1550_diskspacethreshold == other.sv1550_diskspacethreshold
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1550 {}
+impl ::core::cmp::Eq for SERVER_INFO_1550 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1550 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1552 {
     pub sv1552_maxlinkdelay: u32,
 }
 impl SERVER_INFO_1552 {}
-impl ::std::default::Default for SERVER_INFO_1552 {
+impl ::core::default::Default for SERVER_INFO_1552 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1552 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1552 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1552").field("sv1552_maxlinkdelay", &self.sv1552_maxlinkdelay).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1552 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1552 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1552_maxlinkdelay == other.sv1552_maxlinkdelay
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1552 {}
+impl ::core::cmp::Eq for SERVER_INFO_1552 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1552 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1553 {
     pub sv1553_minlinkthroughput: u32,
 }
 impl SERVER_INFO_1553 {}
-impl ::std::default::Default for SERVER_INFO_1553 {
+impl ::core::default::Default for SERVER_INFO_1553 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1553 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1553 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1553").field("sv1553_minlinkthroughput", &self.sv1553_minlinkthroughput).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1553 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1553 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1553_minlinkthroughput == other.sv1553_minlinkthroughput
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1553 {}
+impl ::core::cmp::Eq for SERVER_INFO_1553 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1553 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1554 {
     pub sv1554_linkinfovalidtime: u32,
 }
 impl SERVER_INFO_1554 {}
-impl ::std::default::Default for SERVER_INFO_1554 {
+impl ::core::default::Default for SERVER_INFO_1554 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1554 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1554 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1554").field("sv1554_linkinfovalidtime", &self.sv1554_linkinfovalidtime).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1554 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1554 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1554_linkinfovalidtime == other.sv1554_linkinfovalidtime
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1554 {}
+impl ::core::cmp::Eq for SERVER_INFO_1554 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1554 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1555 {
     pub sv1555_scavqosinfoupdatetime: u32,
 }
 impl SERVER_INFO_1555 {}
-impl ::std::default::Default for SERVER_INFO_1555 {
+impl ::core::default::Default for SERVER_INFO_1555 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1555 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1555 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1555").field("sv1555_scavqosinfoupdatetime", &self.sv1555_scavqosinfoupdatetime).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1555 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1555 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1555_scavqosinfoupdatetime == other.sv1555_scavqosinfoupdatetime
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1555 {}
+impl ::core::cmp::Eq for SERVER_INFO_1555 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1555 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1556 {
     pub sv1556_maxworkitemidletime: u32,
 }
 impl SERVER_INFO_1556 {}
-impl ::std::default::Default for SERVER_INFO_1556 {
+impl ::core::default::Default for SERVER_INFO_1556 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1556 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1556 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1556").field("sv1556_maxworkitemidletime", &self.sv1556_maxworkitemidletime).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1556 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1556 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1556_maxworkitemidletime == other.sv1556_maxworkitemidletime
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1556 {}
+impl ::core::cmp::Eq for SERVER_INFO_1556 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1556 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1557 {
     pub sv1557_maxrawworkitems: u32,
 }
 impl SERVER_INFO_1557 {}
-impl ::std::default::Default for SERVER_INFO_1557 {
+impl ::core::default::Default for SERVER_INFO_1557 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1557 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1557 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1557").field("sv1557_maxrawworkitems", &self.sv1557_maxrawworkitems).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1557 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1557 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1557_maxrawworkitems == other.sv1557_maxrawworkitems
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1557 {}
+impl ::core::cmp::Eq for SERVER_INFO_1557 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1557 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1560 {
     pub sv1560_producttype: u32,
 }
 impl SERVER_INFO_1560 {}
-impl ::std::default::Default for SERVER_INFO_1560 {
+impl ::core::default::Default for SERVER_INFO_1560 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1560 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1560 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1560").field("sv1560_producttype", &self.sv1560_producttype).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1560 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1560 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1560_producttype == other.sv1560_producttype
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1560 {}
+impl ::core::cmp::Eq for SERVER_INFO_1560 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1560 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1561 {
     pub sv1561_serversize: u32,
 }
 impl SERVER_INFO_1561 {}
-impl ::std::default::Default for SERVER_INFO_1561 {
+impl ::core::default::Default for SERVER_INFO_1561 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1561 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1561 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1561").field("sv1561_serversize", &self.sv1561_serversize).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1561 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1561 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1561_serversize == other.sv1561_serversize
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1561 {}
+impl ::core::cmp::Eq for SERVER_INFO_1561 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1561 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1562 {
     pub sv1562_connectionlessautodisc: u32,
 }
 impl SERVER_INFO_1562 {}
-impl ::std::default::Default for SERVER_INFO_1562 {
+impl ::core::default::Default for SERVER_INFO_1562 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1562 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1562 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1562").field("sv1562_connectionlessautodisc", &self.sv1562_connectionlessautodisc).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1562 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1562 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1562_connectionlessautodisc == other.sv1562_connectionlessautodisc
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1562 {}
+impl ::core::cmp::Eq for SERVER_INFO_1562 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1562 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1563 {
     pub sv1563_sharingviolationretries: u32,
 }
 impl SERVER_INFO_1563 {}
-impl ::std::default::Default for SERVER_INFO_1563 {
+impl ::core::default::Default for SERVER_INFO_1563 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1563 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1563 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1563").field("sv1563_sharingviolationretries", &self.sv1563_sharingviolationretries).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1563 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1563 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1563_sharingviolationretries == other.sv1563_sharingviolationretries
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1563 {}
+impl ::core::cmp::Eq for SERVER_INFO_1563 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1563 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1564 {
     pub sv1564_sharingviolationdelay: u32,
 }
 impl SERVER_INFO_1564 {}
-impl ::std::default::Default for SERVER_INFO_1564 {
+impl ::core::default::Default for SERVER_INFO_1564 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1564 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1564 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1564").field("sv1564_sharingviolationdelay", &self.sv1564_sharingviolationdelay).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1564 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1564 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1564_sharingviolationdelay == other.sv1564_sharingviolationdelay
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1564 {}
+impl ::core::cmp::Eq for SERVER_INFO_1564 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1564 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1565 {
     pub sv1565_maxglobalopensearch: u32,
 }
 impl SERVER_INFO_1565 {}
-impl ::std::default::Default for SERVER_INFO_1565 {
+impl ::core::default::Default for SERVER_INFO_1565 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1565 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1565 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1565").field("sv1565_maxglobalopensearch", &self.sv1565_maxglobalopensearch).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1565 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1565 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1565_maxglobalopensearch == other.sv1565_maxglobalopensearch
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1565 {}
+impl ::core::cmp::Eq for SERVER_INFO_1565 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1565 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -12472,498 +12481,498 @@ pub struct SERVER_INFO_1566 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1566 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1566 {
+impl ::core::default::Default for SERVER_INFO_1566 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1566 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1566 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1566").field("sv1566_removeduplicatesearches", &self.sv1566_removeduplicatesearches).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1566 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1566 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1566_removeduplicatesearches == other.sv1566_removeduplicatesearches
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1566 {}
+impl ::core::cmp::Eq for SERVER_INFO_1566 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1566 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1567 {
     pub sv1567_lockviolationretries: u32,
 }
 impl SERVER_INFO_1567 {}
-impl ::std::default::Default for SERVER_INFO_1567 {
+impl ::core::default::Default for SERVER_INFO_1567 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1567 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1567 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1567").field("sv1567_lockviolationretries", &self.sv1567_lockviolationretries).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1567 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1567 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1567_lockviolationretries == other.sv1567_lockviolationretries
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1567 {}
+impl ::core::cmp::Eq for SERVER_INFO_1567 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1567 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1568 {
     pub sv1568_lockviolationoffset: u32,
 }
 impl SERVER_INFO_1568 {}
-impl ::std::default::Default for SERVER_INFO_1568 {
+impl ::core::default::Default for SERVER_INFO_1568 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1568 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1568 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1568").field("sv1568_lockviolationoffset", &self.sv1568_lockviolationoffset).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1568 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1568 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1568_lockviolationoffset == other.sv1568_lockviolationoffset
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1568 {}
+impl ::core::cmp::Eq for SERVER_INFO_1568 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1568 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1569 {
     pub sv1569_lockviolationdelay: u32,
 }
 impl SERVER_INFO_1569 {}
-impl ::std::default::Default for SERVER_INFO_1569 {
+impl ::core::default::Default for SERVER_INFO_1569 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1569 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1569 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1569").field("sv1569_lockviolationdelay", &self.sv1569_lockviolationdelay).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1569 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1569 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1569_lockviolationdelay == other.sv1569_lockviolationdelay
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1569 {}
+impl ::core::cmp::Eq for SERVER_INFO_1569 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1569 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1570 {
     pub sv1570_mdlreadswitchover: u32,
 }
 impl SERVER_INFO_1570 {}
-impl ::std::default::Default for SERVER_INFO_1570 {
+impl ::core::default::Default for SERVER_INFO_1570 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1570 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1570 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1570").field("sv1570_mdlreadswitchover", &self.sv1570_mdlreadswitchover).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1570 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1570 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1570_mdlreadswitchover == other.sv1570_mdlreadswitchover
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1570 {}
+impl ::core::cmp::Eq for SERVER_INFO_1570 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1570 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1571 {
     pub sv1571_cachedopenlimit: u32,
 }
 impl SERVER_INFO_1571 {}
-impl ::std::default::Default for SERVER_INFO_1571 {
+impl ::core::default::Default for SERVER_INFO_1571 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1571 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1571 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1571").field("sv1571_cachedopenlimit", &self.sv1571_cachedopenlimit).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1571 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1571 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1571_cachedopenlimit == other.sv1571_cachedopenlimit
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1571 {}
+impl ::core::cmp::Eq for SERVER_INFO_1571 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1571 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1572 {
     pub sv1572_criticalthreads: u32,
 }
 impl SERVER_INFO_1572 {}
-impl ::std::default::Default for SERVER_INFO_1572 {
+impl ::core::default::Default for SERVER_INFO_1572 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1572 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1572 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1572").field("sv1572_criticalthreads", &self.sv1572_criticalthreads).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1572 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1572 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1572_criticalthreads == other.sv1572_criticalthreads
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1572 {}
+impl ::core::cmp::Eq for SERVER_INFO_1572 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1572 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1573 {
     pub sv1573_restrictnullsessaccess: u32,
 }
 impl SERVER_INFO_1573 {}
-impl ::std::default::Default for SERVER_INFO_1573 {
+impl ::core::default::Default for SERVER_INFO_1573 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1573 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1573 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1573").field("sv1573_restrictnullsessaccess", &self.sv1573_restrictnullsessaccess).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1573 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1573 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1573_restrictnullsessaccess == other.sv1573_restrictnullsessaccess
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1573 {}
+impl ::core::cmp::Eq for SERVER_INFO_1573 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1573 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1574 {
     pub sv1574_enablewfw311directipx: u32,
 }
 impl SERVER_INFO_1574 {}
-impl ::std::default::Default for SERVER_INFO_1574 {
+impl ::core::default::Default for SERVER_INFO_1574 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1574 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1574 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1574").field("sv1574_enablewfw311directipx", &self.sv1574_enablewfw311directipx).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1574 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1574 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1574_enablewfw311directipx == other.sv1574_enablewfw311directipx
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1574 {}
+impl ::core::cmp::Eq for SERVER_INFO_1574 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1574 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1575 {
     pub sv1575_otherqueueaffinity: u32,
 }
 impl SERVER_INFO_1575 {}
-impl ::std::default::Default for SERVER_INFO_1575 {
+impl ::core::default::Default for SERVER_INFO_1575 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1575 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1575 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1575").field("sv1575_otherqueueaffinity", &self.sv1575_otherqueueaffinity).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1575 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1575 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1575_otherqueueaffinity == other.sv1575_otherqueueaffinity
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1575 {}
+impl ::core::cmp::Eq for SERVER_INFO_1575 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1575 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1576 {
     pub sv1576_queuesamplesecs: u32,
 }
 impl SERVER_INFO_1576 {}
-impl ::std::default::Default for SERVER_INFO_1576 {
+impl ::core::default::Default for SERVER_INFO_1576 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1576 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1576 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1576").field("sv1576_queuesamplesecs", &self.sv1576_queuesamplesecs).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1576 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1576 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1576_queuesamplesecs == other.sv1576_queuesamplesecs
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1576 {}
+impl ::core::cmp::Eq for SERVER_INFO_1576 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1576 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1577 {
     pub sv1577_balancecount: u32,
 }
 impl SERVER_INFO_1577 {}
-impl ::std::default::Default for SERVER_INFO_1577 {
+impl ::core::default::Default for SERVER_INFO_1577 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1577 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1577 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1577").field("sv1577_balancecount", &self.sv1577_balancecount).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1577 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1577 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1577_balancecount == other.sv1577_balancecount
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1577 {}
+impl ::core::cmp::Eq for SERVER_INFO_1577 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1577 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1578 {
     pub sv1578_preferredaffinity: u32,
 }
 impl SERVER_INFO_1578 {}
-impl ::std::default::Default for SERVER_INFO_1578 {
+impl ::core::default::Default for SERVER_INFO_1578 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1578 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1578 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1578").field("sv1578_preferredaffinity", &self.sv1578_preferredaffinity).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1578 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1578 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1578_preferredaffinity == other.sv1578_preferredaffinity
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1578 {}
+impl ::core::cmp::Eq for SERVER_INFO_1578 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1578 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1579 {
     pub sv1579_maxfreerfcbs: u32,
 }
 impl SERVER_INFO_1579 {}
-impl ::std::default::Default for SERVER_INFO_1579 {
+impl ::core::default::Default for SERVER_INFO_1579 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1579 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1579 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1579").field("sv1579_maxfreerfcbs", &self.sv1579_maxfreerfcbs).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1579 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1579 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1579_maxfreerfcbs == other.sv1579_maxfreerfcbs
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1579 {}
+impl ::core::cmp::Eq for SERVER_INFO_1579 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1579 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1580 {
     pub sv1580_maxfreemfcbs: u32,
 }
 impl SERVER_INFO_1580 {}
-impl ::std::default::Default for SERVER_INFO_1580 {
+impl ::core::default::Default for SERVER_INFO_1580 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1580 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1580 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1580").field("sv1580_maxfreemfcbs", &self.sv1580_maxfreemfcbs).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1580 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1580 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1580_maxfreemfcbs == other.sv1580_maxfreemfcbs
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1580 {}
+impl ::core::cmp::Eq for SERVER_INFO_1580 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1580 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1581 {
     pub sv1581_maxfreemlcbs: u32,
 }
 impl SERVER_INFO_1581 {}
-impl ::std::default::Default for SERVER_INFO_1581 {
+impl ::core::default::Default for SERVER_INFO_1581 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1581 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1581 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1581").field("sv1581_maxfreemlcbs", &self.sv1581_maxfreemlcbs).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1581 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1581 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1581_maxfreemlcbs == other.sv1581_maxfreemlcbs
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1581 {}
+impl ::core::cmp::Eq for SERVER_INFO_1581 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1581 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1582 {
     pub sv1582_maxfreepagedpoolchunks: u32,
 }
 impl SERVER_INFO_1582 {}
-impl ::std::default::Default for SERVER_INFO_1582 {
+impl ::core::default::Default for SERVER_INFO_1582 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1582 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1582 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1582").field("sv1582_maxfreepagedpoolchunks", &self.sv1582_maxfreepagedpoolchunks).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1582 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1582 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1582_maxfreepagedpoolchunks == other.sv1582_maxfreepagedpoolchunks
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1582 {}
+impl ::core::cmp::Eq for SERVER_INFO_1582 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1582 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1583 {
     pub sv1583_minpagedpoolchunksize: u32,
 }
 impl SERVER_INFO_1583 {}
-impl ::std::default::Default for SERVER_INFO_1583 {
+impl ::core::default::Default for SERVER_INFO_1583 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1583 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1583 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1583").field("sv1583_minpagedpoolchunksize", &self.sv1583_minpagedpoolchunksize).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1583 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1583 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1583_minpagedpoolchunksize == other.sv1583_minpagedpoolchunksize
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1583 {}
+impl ::core::cmp::Eq for SERVER_INFO_1583 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1583 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1584 {
     pub sv1584_maxpagedpoolchunksize: u32,
 }
 impl SERVER_INFO_1584 {}
-impl ::std::default::Default for SERVER_INFO_1584 {
+impl ::core::default::Default for SERVER_INFO_1584 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1584 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1584 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1584").field("sv1584_maxpagedpoolchunksize", &self.sv1584_maxpagedpoolchunksize).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1584 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1584 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1584_maxpagedpoolchunksize == other.sv1584_maxpagedpoolchunksize
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1584 {}
+impl ::core::cmp::Eq for SERVER_INFO_1584 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1584 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -12973,342 +12982,342 @@ pub struct SERVER_INFO_1585 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1585 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1585 {
+impl ::core::default::Default for SERVER_INFO_1585 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1585 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1585 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1585").field("sv1585_sendsfrompreferredprocessor", &self.sv1585_sendsfrompreferredprocessor).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1585 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1585 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1585_sendsfrompreferredprocessor == other.sv1585_sendsfrompreferredprocessor
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1585 {}
+impl ::core::cmp::Eq for SERVER_INFO_1585 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1585 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1586 {
     pub sv1586_maxthreadsperqueue: u32,
 }
 impl SERVER_INFO_1586 {}
-impl ::std::default::Default for SERVER_INFO_1586 {
+impl ::core::default::Default for SERVER_INFO_1586 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1586 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1586 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1586").field("sv1586_maxthreadsperqueue", &self.sv1586_maxthreadsperqueue).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1586 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1586 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1586_maxthreadsperqueue == other.sv1586_maxthreadsperqueue
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1586 {}
+impl ::core::cmp::Eq for SERVER_INFO_1586 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1586 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1587 {
     pub sv1587_cacheddirectorylimit: u32,
 }
 impl SERVER_INFO_1587 {}
-impl ::std::default::Default for SERVER_INFO_1587 {
+impl ::core::default::Default for SERVER_INFO_1587 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1587 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1587 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1587").field("sv1587_cacheddirectorylimit", &self.sv1587_cacheddirectorylimit).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1587 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1587 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1587_cacheddirectorylimit == other.sv1587_cacheddirectorylimit
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1587 {}
+impl ::core::cmp::Eq for SERVER_INFO_1587 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1587 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1588 {
     pub sv1588_maxcopylength: u32,
 }
 impl SERVER_INFO_1588 {}
-impl ::std::default::Default for SERVER_INFO_1588 {
+impl ::core::default::Default for SERVER_INFO_1588 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1588 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1588 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1588").field("sv1588_maxcopylength", &self.sv1588_maxcopylength).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1588 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1588 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1588_maxcopylength == other.sv1588_maxcopylength
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1588 {}
+impl ::core::cmp::Eq for SERVER_INFO_1588 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1588 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1590 {
     pub sv1590_enablecompression: u32,
 }
 impl SERVER_INFO_1590 {}
-impl ::std::default::Default for SERVER_INFO_1590 {
+impl ::core::default::Default for SERVER_INFO_1590 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1590 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1590 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1590").field("sv1590_enablecompression", &self.sv1590_enablecompression).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1590 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1590 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1590_enablecompression == other.sv1590_enablecompression
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1590 {}
+impl ::core::cmp::Eq for SERVER_INFO_1590 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1590 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1591 {
     pub sv1591_autosharewks: u32,
 }
 impl SERVER_INFO_1591 {}
-impl ::std::default::Default for SERVER_INFO_1591 {
+impl ::core::default::Default for SERVER_INFO_1591 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1591 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1591 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1591").field("sv1591_autosharewks", &self.sv1591_autosharewks).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1591 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1591 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1591_autosharewks == other.sv1591_autosharewks
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1591 {}
+impl ::core::cmp::Eq for SERVER_INFO_1591 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1591 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1592 {
     pub sv1592_autosharewks: u32,
 }
 impl SERVER_INFO_1592 {}
-impl ::std::default::Default for SERVER_INFO_1592 {
+impl ::core::default::Default for SERVER_INFO_1592 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1592 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1592 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1592").field("sv1592_autosharewks", &self.sv1592_autosharewks).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1592 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1592 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1592_autosharewks == other.sv1592_autosharewks
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1592 {}
+impl ::core::cmp::Eq for SERVER_INFO_1592 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1592 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1593 {
     pub sv1593_enablesecuritysignature: u32,
 }
 impl SERVER_INFO_1593 {}
-impl ::std::default::Default for SERVER_INFO_1593 {
+impl ::core::default::Default for SERVER_INFO_1593 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1593 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1593 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1593").field("sv1593_enablesecuritysignature", &self.sv1593_enablesecuritysignature).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1593 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1593 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1593_enablesecuritysignature == other.sv1593_enablesecuritysignature
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1593 {}
+impl ::core::cmp::Eq for SERVER_INFO_1593 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1593 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1594 {
     pub sv1594_requiresecuritysignature: u32,
 }
 impl SERVER_INFO_1594 {}
-impl ::std::default::Default for SERVER_INFO_1594 {
+impl ::core::default::Default for SERVER_INFO_1594 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1594 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1594 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1594").field("sv1594_requiresecuritysignature", &self.sv1594_requiresecuritysignature).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1594 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1594 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1594_requiresecuritysignature == other.sv1594_requiresecuritysignature
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1594 {}
+impl ::core::cmp::Eq for SERVER_INFO_1594 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1594 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1595 {
     pub sv1595_minclientbuffersize: u32,
 }
 impl SERVER_INFO_1595 {}
-impl ::std::default::Default for SERVER_INFO_1595 {
+impl ::core::default::Default for SERVER_INFO_1595 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1595 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1595 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1595").field("sv1595_minclientbuffersize", &self.sv1595_minclientbuffersize).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1595 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1595 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1595_minclientbuffersize == other.sv1595_minclientbuffersize
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1595 {}
+impl ::core::cmp::Eq for SERVER_INFO_1595 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1595 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1596 {
     pub sv1596_ConnectionNoSessionsTimeout: u32,
 }
 impl SERVER_INFO_1596 {}
-impl ::std::default::Default for SERVER_INFO_1596 {
+impl ::core::default::Default for SERVER_INFO_1596 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1596 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1596 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1596").field("sv1596_ConnectionNoSessionsTimeout", &self.sv1596_ConnectionNoSessionsTimeout).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1596 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1596 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1596_ConnectionNoSessionsTimeout == other.sv1596_ConnectionNoSessionsTimeout
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1596 {}
+impl ::core::cmp::Eq for SERVER_INFO_1596 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1596 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1597 {
     pub sv1597_IdleThreadTimeOut: u32,
 }
 impl SERVER_INFO_1597 {}
-impl ::std::default::Default for SERVER_INFO_1597 {
+impl ::core::default::Default for SERVER_INFO_1597 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1597 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1597 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1597").field("sv1597_IdleThreadTimeOut", &self.sv1597_IdleThreadTimeOut).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1597 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1597 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1597_IdleThreadTimeOut == other.sv1597_IdleThreadTimeOut
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1597 {}
+impl ::core::cmp::Eq for SERVER_INFO_1597 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1597 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1598 {
     pub sv1598_enableW9xsecuritysignature: u32,
 }
 impl SERVER_INFO_1598 {}
-impl ::std::default::Default for SERVER_INFO_1598 {
+impl ::core::default::Default for SERVER_INFO_1598 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1598 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1598 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1598").field("sv1598_enableW9xsecuritysignature", &self.sv1598_enableW9xsecuritysignature).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1598 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1598 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1598_enableW9xsecuritysignature == other.sv1598_enableW9xsecuritysignature
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1598 {}
+impl ::core::cmp::Eq for SERVER_INFO_1598 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1598 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -13318,30 +13327,30 @@ pub struct SERVER_INFO_1599 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1599 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1599 {
+impl ::core::default::Default for SERVER_INFO_1599 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1599 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1599 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1599").field("sv1598_enforcekerberosreauthentication", &self.sv1598_enforcekerberosreauthentication).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1599 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1599 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1598_enforcekerberosreauthentication == other.sv1598_enforcekerberosreauthentication
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1599 {}
+impl ::core::cmp::Eq for SERVER_INFO_1599 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1599 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -13351,56 +13360,56 @@ pub struct SERVER_INFO_1600 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1600 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1600 {
+impl ::core::default::Default for SERVER_INFO_1600 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1600 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1600 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1600").field("sv1598_disabledos", &self.sv1598_disabledos).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1600 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1600 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1598_disabledos == other.sv1598_disabledos
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1600 {}
+impl ::core::cmp::Eq for SERVER_INFO_1600 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1600 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SERVER_INFO_1601 {
     pub sv1598_lowdiskspaceminimum: u32,
 }
 impl SERVER_INFO_1601 {}
-impl ::std::default::Default for SERVER_INFO_1601 {
+impl ::core::default::Default for SERVER_INFO_1601 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SERVER_INFO_1601 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1601 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1601").field("sv1598_lowdiskspaceminimum", &self.sv1598_lowdiskspaceminimum).finish()
     }
 }
-impl ::std::cmp::PartialEq for SERVER_INFO_1601 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1601 {
     fn eq(&self, other: &Self) -> bool {
         self.sv1598_lowdiskspaceminimum == other.sv1598_lowdiskspaceminimum
     }
 }
-impl ::std::cmp::Eq for SERVER_INFO_1601 {}
+impl ::core::cmp::Eq for SERVER_INFO_1601 {}
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1601 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -13410,30 +13419,30 @@ pub struct SERVER_INFO_1602 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_1602 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_1602 {
+impl ::core::default::Default for SERVER_INFO_1602 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_1602 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_1602 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_1602").field("sv_1598_disablestrictnamechecking", &self.sv_1598_disablestrictnamechecking).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_1602 {
+impl ::core::cmp::PartialEq for SERVER_INFO_1602 {
     fn eq(&self, other: &Self) -> bool {
         self.sv_1598_disablestrictnamechecking == other.sv_1598_disablestrictnamechecking
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_1602 {}
+impl ::core::cmp::Eq for SERVER_INFO_1602 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_1602 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -13473,14 +13482,14 @@ pub struct SERVER_INFO_402 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_402 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_402 {
+impl ::core::default::Default for SERVER_INFO_402 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_402 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_402 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_402")
             .field("sv402_ulist_mtime", &self.sv402_ulist_mtime)
             .field("sv402_glist_mtime", &self.sv402_glist_mtime)
@@ -13517,7 +13526,7 @@ impl ::std::fmt::Debug for SERVER_INFO_402 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_402 {
+impl ::core::cmp::PartialEq for SERVER_INFO_402 {
     fn eq(&self, other: &Self) -> bool {
         self.sv402_ulist_mtime == other.sv402_ulist_mtime
             && self.sv402_glist_mtime == other.sv402_glist_mtime
@@ -13553,12 +13562,12 @@ impl ::std::cmp::PartialEq for SERVER_INFO_402 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_402 {}
+impl ::core::cmp::Eq for SERVER_INFO_402 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_402 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -13601,14 +13610,14 @@ pub struct SERVER_INFO_403 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_403 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_403 {
+impl ::core::default::Default for SERVER_INFO_403 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_403 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_403 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_403")
             .field("sv403_ulist_mtime", &self.sv403_ulist_mtime)
             .field("sv403_glist_mtime", &self.sv403_glist_mtime)
@@ -13648,7 +13657,7 @@ impl ::std::fmt::Debug for SERVER_INFO_403 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_403 {
+impl ::core::cmp::PartialEq for SERVER_INFO_403 {
     fn eq(&self, other: &Self) -> bool {
         self.sv403_ulist_mtime == other.sv403_ulist_mtime
             && self.sv403_glist_mtime == other.sv403_glist_mtime
@@ -13687,12 +13696,12 @@ impl ::std::cmp::PartialEq for SERVER_INFO_403 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_403 {}
+impl ::core::cmp::Eq for SERVER_INFO_403 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_403 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -13719,14 +13728,14 @@ pub struct SERVER_INFO_502 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_502 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_502 {
+impl ::core::default::Default for SERVER_INFO_502 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_502 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_502 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_502")
             .field("sv502_sessopens", &self.sv502_sessopens)
             .field("sv502_sessvcs", &self.sv502_sessvcs)
@@ -13750,7 +13759,7 @@ impl ::std::fmt::Debug for SERVER_INFO_502 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_502 {
+impl ::core::cmp::PartialEq for SERVER_INFO_502 {
     fn eq(&self, other: &Self) -> bool {
         self.sv502_sessopens == other.sv502_sessopens
             && self.sv502_sessvcs == other.sv502_sessvcs
@@ -13773,12 +13782,12 @@ impl ::std::cmp::PartialEq for SERVER_INFO_502 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_502 {}
+impl ::core::cmp::Eq for SERVER_INFO_502 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_502 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -13829,14 +13838,14 @@ pub struct SERVER_INFO_503 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_503 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_503 {
+impl ::core::default::Default for SERVER_INFO_503 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_503 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_503 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_503")
             .field("sv503_sessopens", &self.sv503_sessopens)
             .field("sv503_sessvcs", &self.sv503_sessvcs)
@@ -13884,7 +13893,7 @@ impl ::std::fmt::Debug for SERVER_INFO_503 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_503 {
+impl ::core::cmp::PartialEq for SERVER_INFO_503 {
     fn eq(&self, other: &Self) -> bool {
         self.sv503_sessopens == other.sv503_sessopens
             && self.sv503_sessvcs == other.sv503_sessvcs
@@ -13931,12 +13940,12 @@ impl ::std::cmp::PartialEq for SERVER_INFO_503 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_503 {}
+impl ::core::cmp::Eq for SERVER_INFO_503 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_503 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -13988,14 +13997,14 @@ pub struct SERVER_INFO_598 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_598 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_598 {
+impl ::core::default::Default for SERVER_INFO_598 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_598 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_598 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_598")
             .field("sv598_maxrawworkitems", &self.sv598_maxrawworkitems)
             .field("sv598_maxthreadsperqueue", &self.sv598_maxthreadsperqueue)
@@ -14044,7 +14053,7 @@ impl ::std::fmt::Debug for SERVER_INFO_598 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_598 {
+impl ::core::cmp::PartialEq for SERVER_INFO_598 {
     fn eq(&self, other: &Self) -> bool {
         self.sv598_maxrawworkitems == other.sv598_maxrawworkitems
             && self.sv598_maxthreadsperqueue == other.sv598_maxthreadsperqueue
@@ -14092,12 +14101,12 @@ impl ::std::cmp::PartialEq for SERVER_INFO_598 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_598 {}
+impl ::core::cmp::Eq for SERVER_INFO_598 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_598 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -14162,14 +14171,14 @@ pub struct SERVER_INFO_599 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_INFO_599 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_INFO_599 {
+impl ::core::default::Default for SERVER_INFO_599 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_INFO_599 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_INFO_599 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_INFO_599")
             .field("sv599_sessopens", &self.sv599_sessopens)
             .field("sv599_sessvcs", &self.sv599_sessvcs)
@@ -14231,7 +14240,7 @@ impl ::std::fmt::Debug for SERVER_INFO_599 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_INFO_599 {
+impl ::core::cmp::PartialEq for SERVER_INFO_599 {
     fn eq(&self, other: &Self) -> bool {
         self.sv599_sessopens == other.sv599_sessopens
             && self.sv599_sessvcs == other.sv599_sessvcs
@@ -14292,18 +14301,18 @@ impl ::std::cmp::PartialEq for SERVER_INFO_599 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_INFO_599 {}
+impl ::core::cmp::Eq for SERVER_INFO_599 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_599 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SERVER_INFO_HIDDEN(pub u32);
 pub const SV_VISIBLE: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(0u32);
 pub const SV_HIDDEN: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(1u32);
-impl ::std::convert::From<u32> for SERVER_INFO_HIDDEN {
+impl ::core::convert::From<u32> for SERVER_INFO_HIDDEN {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -14311,41 +14320,41 @@ impl ::std::convert::From<u32> for SERVER_INFO_HIDDEN {
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_HIDDEN {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SERVER_INFO_HIDDEN {
+impl ::core::ops::BitOr for SERVER_INFO_HIDDEN {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SERVER_INFO_HIDDEN {
+impl ::core::ops::BitAnd for SERVER_INFO_HIDDEN {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SERVER_INFO_HIDDEN {
+impl ::core::ops::BitOrAssign for SERVER_INFO_HIDDEN {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SERVER_INFO_HIDDEN {
+impl ::core::ops::BitAndAssign for SERVER_INFO_HIDDEN {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SERVER_INFO_HIDDEN {
+impl ::core::ops::Not for SERVER_INFO_HIDDEN {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SERVER_INFO_SECURITY(pub u32);
 pub const SV_SHARESECURITY: SERVER_INFO_SECURITY = SERVER_INFO_SECURITY(0u32);
 pub const SV_USERSECURITY: SERVER_INFO_SECURITY = SERVER_INFO_SECURITY(1u32);
-impl ::std::convert::From<u32> for SERVER_INFO_SECURITY {
+impl ::core::convert::From<u32> for SERVER_INFO_SECURITY {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -14353,35 +14362,35 @@ impl ::std::convert::From<u32> for SERVER_INFO_SECURITY {
 unsafe impl ::windows::runtime::Abi for SERVER_INFO_SECURITY {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for SERVER_INFO_SECURITY {
+impl ::core::ops::BitOr for SERVER_INFO_SECURITY {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for SERVER_INFO_SECURITY {
+impl ::core::ops::BitAnd for SERVER_INFO_SECURITY {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for SERVER_INFO_SECURITY {
+impl ::core::ops::BitOrAssign for SERVER_INFO_SECURITY {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for SERVER_INFO_SECURITY {
+impl ::core::ops::BitAndAssign for SERVER_INFO_SECURITY {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for SERVER_INFO_SECURITY {
+impl ::core::ops::Not for SERVER_INFO_SECURITY {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -14395,14 +14404,14 @@ pub struct SERVER_TRANSPORT_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_TRANSPORT_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_TRANSPORT_INFO_0 {
+impl ::core::default::Default for SERVER_TRANSPORT_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_TRANSPORT_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_TRANSPORT_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_TRANSPORT_INFO_0")
             .field("svti0_numberofvcs", &self.svti0_numberofvcs)
             .field("svti0_transportname", &self.svti0_transportname)
@@ -14413,18 +14422,18 @@ impl ::std::fmt::Debug for SERVER_TRANSPORT_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_TRANSPORT_INFO_0 {
+impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.svti0_numberofvcs == other.svti0_numberofvcs && self.svti0_transportname == other.svti0_transportname && self.svti0_transportaddress == other.svti0_transportaddress && self.svti0_transportaddresslength == other.svti0_transportaddresslength && self.svti0_networkaddress == other.svti0_networkaddress
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_TRANSPORT_INFO_0 {}
+impl ::core::cmp::Eq for SERVER_TRANSPORT_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_TRANSPORT_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -14439,14 +14448,14 @@ pub struct SERVER_TRANSPORT_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_TRANSPORT_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_TRANSPORT_INFO_1 {
+impl ::core::default::Default for SERVER_TRANSPORT_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_TRANSPORT_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_TRANSPORT_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_TRANSPORT_INFO_1")
             .field("svti1_numberofvcs", &self.svti1_numberofvcs)
             .field("svti1_transportname", &self.svti1_transportname)
@@ -14458,18 +14467,18 @@ impl ::std::fmt::Debug for SERVER_TRANSPORT_INFO_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_TRANSPORT_INFO_1 {
+impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.svti1_numberofvcs == other.svti1_numberofvcs && self.svti1_transportname == other.svti1_transportname && self.svti1_transportaddress == other.svti1_transportaddress && self.svti1_transportaddresslength == other.svti1_transportaddresslength && self.svti1_networkaddress == other.svti1_networkaddress && self.svti1_domain == other.svti1_domain
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_TRANSPORT_INFO_1 {}
+impl ::core::cmp::Eq for SERVER_TRANSPORT_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_TRANSPORT_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -14485,14 +14494,14 @@ pub struct SERVER_TRANSPORT_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_TRANSPORT_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_TRANSPORT_INFO_2 {
+impl ::core::default::Default for SERVER_TRANSPORT_INFO_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_TRANSPORT_INFO_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_TRANSPORT_INFO_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_TRANSPORT_INFO_2")
             .field("svti2_numberofvcs", &self.svti2_numberofvcs)
             .field("svti2_transportname", &self.svti2_transportname)
@@ -14505,18 +14514,18 @@ impl ::std::fmt::Debug for SERVER_TRANSPORT_INFO_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_TRANSPORT_INFO_2 {
+impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.svti2_numberofvcs == other.svti2_numberofvcs && self.svti2_transportname == other.svti2_transportname && self.svti2_transportaddress == other.svti2_transportaddress && self.svti2_transportaddresslength == other.svti2_transportaddresslength && self.svti2_networkaddress == other.svti2_networkaddress && self.svti2_domain == other.svti2_domain && self.svti2_flags == other.svti2_flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_TRANSPORT_INFO_2 {}
+impl ::core::cmp::Eq for SERVER_TRANSPORT_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_TRANSPORT_INFO_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -14534,14 +14543,14 @@ pub struct SERVER_TRANSPORT_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVER_TRANSPORT_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVER_TRANSPORT_INFO_3 {
+impl ::core::default::Default for SERVER_TRANSPORT_INFO_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVER_TRANSPORT_INFO_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVER_TRANSPORT_INFO_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVER_TRANSPORT_INFO_3")
             .field("svti3_numberofvcs", &self.svti3_numberofvcs)
             .field("svti3_transportname", &self.svti3_transportname)
@@ -14556,7 +14565,7 @@ impl ::std::fmt::Debug for SERVER_TRANSPORT_INFO_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVER_TRANSPORT_INFO_3 {
+impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
         self.svti3_numberofvcs == other.svti3_numberofvcs
             && self.svti3_transportname == other.svti3_transportname
@@ -14570,7 +14579,7 @@ impl ::std::cmp::PartialEq for SERVER_TRANSPORT_INFO_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVER_TRANSPORT_INFO_3 {}
+impl ::core::cmp::Eq for SERVER_TRANSPORT_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVER_TRANSPORT_INFO_3 {
     type Abi = Self;
@@ -14609,7 +14618,7 @@ pub const SERVICE_CTRL_REDIR_DISK: u32 = 1u32;
 pub const SERVICE_CTRL_REDIR_PRINT: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const SERVICE_CTRL_UNINSTALL: u32 = 3u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -14619,30 +14628,30 @@ pub struct SERVICE_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVICE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVICE_INFO_0 {
+impl ::core::default::Default for SERVICE_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVICE_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVICE_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVICE_INFO_0").field("svci0_name", &self.svci0_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVICE_INFO_0 {
+impl ::core::cmp::PartialEq for SERVICE_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.svci0_name == other.svci0_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVICE_INFO_0 {}
+impl ::core::cmp::Eq for SERVICE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -14655,30 +14664,30 @@ pub struct SERVICE_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVICE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVICE_INFO_1 {
+impl ::core::default::Default for SERVICE_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVICE_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVICE_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVICE_INFO_1").field("svci1_name", &self.svci1_name).field("svci1_status", &self.svci1_status).field("svci1_code", &self.svci1_code).field("svci1_pid", &self.svci1_pid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVICE_INFO_1 {
+impl ::core::cmp::PartialEq for SERVICE_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.svci1_name == other.svci1_name && self.svci1_status == other.svci1_status && self.svci1_code == other.svci1_code && self.svci1_pid == other.svci1_pid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVICE_INFO_1 {}
+impl ::core::cmp::Eq for SERVICE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -14694,14 +14703,14 @@ pub struct SERVICE_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl SERVICE_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SERVICE_INFO_2 {
+impl ::core::default::Default for SERVICE_INFO_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SERVICE_INFO_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SERVICE_INFO_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SERVICE_INFO_2")
             .field("svci2_name", &self.svci2_name)
             .field("svci2_status", &self.svci2_status)
@@ -14714,13 +14723,13 @@ impl ::std::fmt::Debug for SERVICE_INFO_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SERVICE_INFO_2 {
+impl ::core::cmp::PartialEq for SERVICE_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.svci2_name == other.svci2_name && self.svci2_status == other.svci2_status && self.svci2_code == other.svci2_code && self.svci2_pid == other.svci2_pid && self.svci2_text == other.svci2_text && self.svci2_specific_error == other.svci2_specific_error && self.svci2_display_name == other.svci2_display_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SERVICE_INFO_2 {}
+impl ::core::cmp::Eq for SERVICE_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_INFO_2 {
     type Abi = Self;
@@ -14873,7 +14882,7 @@ pub const SESSION_CRYPT_KLEN: u32 = 21u32;
 pub const SESSION_PWLEN: u32 = 24u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const SHPWLEN: u32 = 8u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -14886,30 +14895,30 @@ pub struct SMB_COMPRESSION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl SMB_COMPRESSION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SMB_COMPRESSION_INFO {
+impl ::core::default::Default for SMB_COMPRESSION_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SMB_COMPRESSION_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SMB_COMPRESSION_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SMB_COMPRESSION_INFO").field("Switch", &self.Switch).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SMB_COMPRESSION_INFO {
+impl ::core::cmp::PartialEq for SMB_COMPRESSION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Switch == other.Switch && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SMB_COMPRESSION_INFO {}
+impl ::core::cmp::Eq for SMB_COMPRESSION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SMB_COMPRESSION_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SMB_TREE_CONNECT_PARAMETERS {
@@ -14919,26 +14928,26 @@ pub struct SMB_TREE_CONNECT_PARAMETERS {
     pub TreeConnectAttributes: u32,
 }
 impl SMB_TREE_CONNECT_PARAMETERS {}
-impl ::std::default::Default for SMB_TREE_CONNECT_PARAMETERS {
+impl ::core::default::Default for SMB_TREE_CONNECT_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SMB_TREE_CONNECT_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SMB_TREE_CONNECT_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SMB_TREE_CONNECT_PARAMETERS").field("EABufferOffset", &self.EABufferOffset).field("EABufferLen", &self.EABufferLen).field("CreateOptions", &self.CreateOptions).field("TreeConnectAttributes", &self.TreeConnectAttributes).finish()
     }
 }
-impl ::std::cmp::PartialEq for SMB_TREE_CONNECT_PARAMETERS {
+impl ::core::cmp::PartialEq for SMB_TREE_CONNECT_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.EABufferOffset == other.EABufferOffset && self.EABufferLen == other.EABufferLen && self.CreateOptions == other.CreateOptions && self.TreeConnectAttributes == other.TreeConnectAttributes
     }
 }
-impl ::std::cmp::Eq for SMB_TREE_CONNECT_PARAMETERS {}
+impl ::core::cmp::Eq for SMB_TREE_CONNECT_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for SMB_TREE_CONNECT_PARAMETERS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct SMB_USE_OPTION_COMPRESSION_PARAMETERS {
@@ -14947,22 +14956,22 @@ pub struct SMB_USE_OPTION_COMPRESSION_PARAMETERS {
     pub Reserved: u16,
 }
 impl SMB_USE_OPTION_COMPRESSION_PARAMETERS {}
-impl ::std::default::Default for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
+impl ::core::default::Default for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SMB_USE_OPTION_COMPRESSION_PARAMETERS").field("Tag", &self.Tag).field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
+impl ::core::cmp::PartialEq for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.Tag == other.Tag && self.Length == other.Length && self.Reserved == other.Reserved
     }
 }
-impl ::std::cmp::Eq for SMB_USE_OPTION_COMPRESSION_PARAMETERS {}
+impl ::core::cmp::Eq for SMB_USE_OPTION_COMPRESSION_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
     type Abi = Self;
 }
@@ -14972,7 +14981,7 @@ pub const SNLEN: u32 = 80u32;
 pub const SRV_HASH_GENERATION_ACTIVE: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const SRV_SUPPORT_HASH_GENERATION: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct STD_ALERT {
@@ -14981,22 +14990,22 @@ pub struct STD_ALERT {
     pub alrt_servicename: [u16; 81],
 }
 impl STD_ALERT {}
-impl ::std::default::Default for STD_ALERT {
+impl ::core::default::Default for STD_ALERT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for STD_ALERT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for STD_ALERT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("STD_ALERT").field("alrt_timestamp", &self.alrt_timestamp).field("alrt_eventname", &self.alrt_eventname).field("alrt_servicename", &self.alrt_servicename).finish()
     }
 }
-impl ::std::cmp::PartialEq for STD_ALERT {
+impl ::core::cmp::PartialEq for STD_ALERT {
     fn eq(&self, other: &Self) -> bool {
         self.alrt_timestamp == other.alrt_timestamp && self.alrt_eventname == other.alrt_eventname && self.alrt_servicename == other.alrt_servicename
     }
 }
-impl ::std::cmp::Eq for STD_ALERT {}
+impl ::core::cmp::Eq for STD_ALERT {}
 unsafe impl ::windows::runtime::Abi for STD_ALERT {
     type Abi = Self;
 }
@@ -15005,12 +15014,12 @@ pub const STXTLEN: u32 = 256u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const SUPPORTS_ANY: i32 = -1i32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SUPPORTS_BINDING_INTERFACE_FLAGS(pub i32);
 pub const NCF_LOWER: SUPPORTS_BINDING_INTERFACE_FLAGS = SUPPORTS_BINDING_INTERFACE_FLAGS(1i32);
 pub const NCF_UPPER: SUPPORTS_BINDING_INTERFACE_FLAGS = SUPPORTS_BINDING_INTERFACE_FLAGS(2i32);
-impl ::std::convert::From<i32> for SUPPORTS_BINDING_INTERFACE_FLAGS {
+impl ::core::convert::From<i32> for SUPPORTS_BINDING_INTERFACE_FLAGS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -15368,7 +15377,7 @@ pub unsafe fn SetNetScheduleAccountInformation<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct TIME_OF_DAY_INFO {
@@ -15386,13 +15395,13 @@ pub struct TIME_OF_DAY_INFO {
     pub tod_weekday: u32,
 }
 impl TIME_OF_DAY_INFO {}
-impl ::std::default::Default for TIME_OF_DAY_INFO {
+impl ::core::default::Default for TIME_OF_DAY_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TIME_OF_DAY_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TIME_OF_DAY_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TIME_OF_DAY_INFO")
             .field("tod_elapsedt", &self.tod_elapsedt)
             .field("tod_msecs", &self.tod_msecs)
@@ -15409,12 +15418,12 @@ impl ::std::fmt::Debug for TIME_OF_DAY_INFO {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for TIME_OF_DAY_INFO {
+impl ::core::cmp::PartialEq for TIME_OF_DAY_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.tod_elapsedt == other.tod_elapsedt && self.tod_msecs == other.tod_msecs && self.tod_hours == other.tod_hours && self.tod_mins == other.tod_mins && self.tod_secs == other.tod_secs && self.tod_hunds == other.tod_hunds && self.tod_timezone == other.tod_timezone && self.tod_tinterval == other.tod_tinterval && self.tod_day == other.tod_day && self.tod_month == other.tod_month && self.tod_year == other.tod_year && self.tod_weekday == other.tod_weekday
     }
 }
-impl ::std::cmp::Eq for TIME_OF_DAY_INFO {}
+impl ::core::cmp::Eq for TIME_OF_DAY_INFO {}
 unsafe impl ::windows::runtime::Abi for TIME_OF_DAY_INFO {
     type Abi = Self;
 }
@@ -15434,7 +15443,7 @@ pub const TRACE_USE_FILE: u32 = 1u32;
 pub const TRACE_USE_MASK: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const TRACE_USE_MSEC: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -15445,25 +15454,25 @@ pub struct TRANSPORT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl TRANSPORT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TRANSPORT_INFO {
+impl ::core::default::Default for TRANSPORT_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TRANSPORT_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TRANSPORT_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TRANSPORT_INFO").field("Type", &self.Type).field("SkipCertificateCheck", &self.SkipCertificateCheck).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TRANSPORT_INFO {
+impl ::core::cmp::PartialEq for TRANSPORT_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.SkipCertificateCheck == other.SkipCertificateCheck
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TRANSPORT_INFO {}
+impl ::core::cmp::Eq for TRANSPORT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TRANSPORT_INFO {
     type Abi = Self;
@@ -15473,13 +15482,13 @@ pub const TRANSPORT_NAME_PARMNUM: u32 = 202u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const TRANSPORT_QUALITYOFSERVICE_PARMNUM: u32 = 201u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRANSPORT_TYPE(pub i32);
 pub const UseTransportType_None: TRANSPORT_TYPE = TRANSPORT_TYPE(0i32);
 pub const UseTransportType_Wsk: TRANSPORT_TYPE = TRANSPORT_TYPE(1i32);
 pub const UseTransportType_Quic: TRANSPORT_TYPE = TRANSPORT_TYPE(2i32);
-impl ::std::convert::From<i32> for TRANSPORT_TYPE {
+impl ::core::convert::From<i32> for TRANSPORT_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -15496,7 +15505,7 @@ pub unsafe fn TraceDeregisterA(dwtraceid: u32) -> u32 {
         extern "system" {
             fn TraceDeregisterA(dwtraceid: u32) -> u32;
         }
-        ::std::mem::transmute(TraceDeregisterA(::std::mem::transmute(dwtraceid)))
+        ::core::mem::transmute(TraceDeregisterA(::core::mem::transmute(dwtraceid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15510,7 +15519,7 @@ pub unsafe fn TraceDeregisterExA(dwtraceid: u32, dwflags: u32) -> u32 {
         extern "system" {
             fn TraceDeregisterExA(dwtraceid: u32, dwflags: u32) -> u32;
         }
-        ::std::mem::transmute(TraceDeregisterExA(::std::mem::transmute(dwtraceid), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(TraceDeregisterExA(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15524,7 +15533,7 @@ pub unsafe fn TraceDeregisterExW(dwtraceid: u32, dwflags: u32) -> u32 {
         extern "system" {
             fn TraceDeregisterExW(dwtraceid: u32, dwflags: u32) -> u32;
         }
-        ::std::mem::transmute(TraceDeregisterExW(::std::mem::transmute(dwtraceid), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(TraceDeregisterExW(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15538,7 +15547,7 @@ pub unsafe fn TraceDeregisterW(dwtraceid: u32) -> u32 {
         extern "system" {
             fn TraceDeregisterW(dwtraceid: u32) -> u32;
         }
-        ::std::mem::transmute(TraceDeregisterW(::std::mem::transmute(dwtraceid)))
+        ::core::mem::transmute(TraceDeregisterW(::core::mem::transmute(dwtraceid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15553,7 +15562,7 @@ pub unsafe fn TraceDumpExA<'a, Param5: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn TraceDumpExA(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: super::super::Foundation::BOOL, lpszprefix: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(TraceDumpExA(::std::mem::transmute(dwtraceid), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpbbytes), ::std::mem::transmute(dwbytecount), ::std::mem::transmute(dwgroupsize), baddressprefix.into_param().abi(), lpszprefix.into_param().abi()))
+        ::core::mem::transmute(TraceDumpExA(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpbbytes), ::core::mem::transmute(dwbytecount), ::core::mem::transmute(dwgroupsize), baddressprefix.into_param().abi(), lpszprefix.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15568,7 +15577,7 @@ pub unsafe fn TraceDumpExW<'a, Param5: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn TraceDumpExW(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: super::super::Foundation::BOOL, lpszprefix: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(TraceDumpExW(::std::mem::transmute(dwtraceid), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpbbytes), ::std::mem::transmute(dwbytecount), ::std::mem::transmute(dwgroupsize), baddressprefix.into_param().abi(), lpszprefix.into_param().abi()))
+        ::core::mem::transmute(TraceDumpExW(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpbbytes), ::core::mem::transmute(dwbytecount), ::core::mem::transmute(dwgroupsize), baddressprefix.into_param().abi(), lpszprefix.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15583,7 +15592,7 @@ pub unsafe fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Fo
         extern "system" {
             fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(TraceGetConsoleA(::std::mem::transmute(dwtraceid), ::std::mem::transmute(lphconsole)))
+        ::core::mem::transmute(TraceGetConsoleA(::core::mem::transmute(dwtraceid), ::core::mem::transmute(lphconsole)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15598,7 +15607,7 @@ pub unsafe fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Fo
         extern "system" {
             fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(TraceGetConsoleW(::std::mem::transmute(dwtraceid), ::std::mem::transmute(lphconsole)))
+        ::core::mem::transmute(TraceGetConsoleW(::core::mem::transmute(dwtraceid), ::core::mem::transmute(lphconsole)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15613,7 +15622,7 @@ pub unsafe fn TracePrintfA<'a, Param1: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn TracePrintfA(dwtraceid: u32, lpszformat: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(TracePrintfA(::std::mem::transmute(dwtraceid), lpszformat.into_param().abi()))
+        ::core::mem::transmute(TracePrintfA(::core::mem::transmute(dwtraceid), lpszformat.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15628,7 +15637,7 @@ pub unsafe fn TracePrintfExA<'a, Param2: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn TracePrintfExA(dwtraceid: u32, dwflags: u32, lpszformat: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(TracePrintfExA(::std::mem::transmute(dwtraceid), ::std::mem::transmute(dwflags), lpszformat.into_param().abi()))
+        ::core::mem::transmute(TracePrintfExA(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), lpszformat.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15643,7 +15652,7 @@ pub unsafe fn TracePrintfExW<'a, Param2: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn TracePrintfExW(dwtraceid: u32, dwflags: u32, lpszformat: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(TracePrintfExW(::std::mem::transmute(dwtraceid), ::std::mem::transmute(dwflags), lpszformat.into_param().abi()))
+        ::core::mem::transmute(TracePrintfExW(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), lpszformat.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15658,7 +15667,7 @@ pub unsafe fn TracePrintfW<'a, Param1: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn TracePrintfW(dwtraceid: u32, lpszformat: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(TracePrintfW(::std::mem::transmute(dwtraceid), lpszformat.into_param().abi()))
+        ::core::mem::transmute(TracePrintfW(::core::mem::transmute(dwtraceid), lpszformat.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15673,7 +15682,7 @@ pub unsafe fn TracePutsExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn TracePutsExA(dwtraceid: u32, dwflags: u32, lpszstring: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(TracePutsExA(::std::mem::transmute(dwtraceid), ::std::mem::transmute(dwflags), lpszstring.into_param().abi()))
+        ::core::mem::transmute(TracePutsExA(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), lpszstring.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15688,7 +15697,7 @@ pub unsafe fn TracePutsExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn TracePutsExW(dwtraceid: u32, dwflags: u32, lpszstring: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(TracePutsExW(::std::mem::transmute(dwtraceid), ::std::mem::transmute(dwflags), lpszstring.into_param().abi()))
+        ::core::mem::transmute(TracePutsExW(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), lpszstring.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15703,7 +15712,7 @@ pub unsafe fn TraceRegisterExA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn TraceRegisterExA(lpszcallername: super::super::Foundation::PSTR, dwflags: u32) -> u32;
         }
-        ::std::mem::transmute(TraceRegisterExA(lpszcallername.into_param().abi(), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(TraceRegisterExA(lpszcallername.into_param().abi(), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15718,7 +15727,7 @@ pub unsafe fn TraceRegisterExW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn TraceRegisterExW(lpszcallername: super::super::Foundation::PWSTR, dwflags: u32) -> u32;
         }
-        ::std::mem::transmute(TraceRegisterExW(lpszcallername.into_param().abi(), ::std::mem::transmute(dwflags)))
+        ::core::mem::transmute(TraceRegisterExW(lpszcallername.into_param().abi(), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15733,7 +15742,7 @@ pub unsafe fn TraceVprintfExA<'a, Param2: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn TraceVprintfExA(dwtraceid: u32, dwflags: u32, lpszformat: super::super::Foundation::PSTR, arglist: *mut i8) -> u32;
         }
-        ::std::mem::transmute(TraceVprintfExA(::std::mem::transmute(dwtraceid), ::std::mem::transmute(dwflags), lpszformat.into_param().abi(), ::std::mem::transmute(arglist)))
+        ::core::mem::transmute(TraceVprintfExA(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), lpszformat.into_param().abi(), ::core::mem::transmute(arglist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15748,7 +15757,7 @@ pub unsafe fn TraceVprintfExW<'a, Param2: ::windows::runtime::IntoParam<'a, supe
         extern "system" {
             fn TraceVprintfExW(dwtraceid: u32, dwflags: u32, lpszformat: super::super::Foundation::PWSTR, arglist: *mut i8) -> u32;
         }
-        ::std::mem::transmute(TraceVprintfExW(::std::mem::transmute(dwtraceid), ::std::mem::transmute(dwflags), lpszformat.into_param().abi(), ::std::mem::transmute(arglist)))
+        ::core::mem::transmute(TraceVprintfExW(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), lpszformat.into_param().abi(), ::core::mem::transmute(arglist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15782,7 +15791,7 @@ pub const UPPER_GET_HINT_MASK: u32 = 267386880u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const UPPER_HINT_MASK: u32 = 65280u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USER_ACCOUNT_FLAGS(pub u32);
 pub const UF_SCRIPT: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(1u32);
@@ -15800,7 +15809,7 @@ pub const UF_DONT_REQUIRE_PREAUTH: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(41943
 pub const UF_TRUSTED_FOR_DELEGATION: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(524288u32);
 pub const UF_PASSWORD_EXPIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(8388608u32);
 pub const UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(16777216u32);
-impl ::std::convert::From<u32> for USER_ACCOUNT_FLAGS {
+impl ::core::convert::From<u32> for USER_ACCOUNT_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -15808,29 +15817,29 @@ impl ::std::convert::From<u32> for USER_ACCOUNT_FLAGS {
 unsafe impl ::windows::runtime::Abi for USER_ACCOUNT_FLAGS {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for USER_ACCOUNT_FLAGS {
+impl ::core::ops::BitOr for USER_ACCOUNT_FLAGS {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for USER_ACCOUNT_FLAGS {
+impl ::core::ops::BitAnd for USER_ACCOUNT_FLAGS {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for USER_ACCOUNT_FLAGS {
+impl ::core::ops::BitOrAssign for USER_ACCOUNT_FLAGS {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for USER_ACCOUNT_FLAGS {
+impl ::core::ops::BitAndAssign for USER_ACCOUNT_FLAGS {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for USER_ACCOUNT_FLAGS {
+impl ::core::ops::Not for USER_ACCOUNT_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -15854,7 +15863,7 @@ pub const USER_FULL_NAME_PARMNUM: u32 = 11u32;
 pub const USER_HOME_DIR_DRIVE_PARMNUM: u32 = 53u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const USER_HOME_DIR_PARMNUM: u32 = 6u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -15864,30 +15873,30 @@ pub struct USER_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_0 {
+impl ::core::default::Default for USER_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_0").field("usri0_name", &self.usri0_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_0 {
+impl ::core::cmp::PartialEq for USER_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.usri0_name == other.usri0_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_0 {}
+impl ::core::cmp::Eq for USER_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -15904,14 +15913,14 @@ pub struct USER_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_1 {
+impl ::core::default::Default for USER_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1")
             .field("usri1_name", &self.usri1_name)
             .field("usri1_password", &self.usri1_password)
@@ -15925,18 +15934,18 @@ impl ::std::fmt::Debug for USER_INFO_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_1 {
+impl ::core::cmp::PartialEq for USER_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1_name == other.usri1_name && self.usri1_password == other.usri1_password && self.usri1_password_age == other.usri1_password_age && self.usri1_priv == other.usri1_priv && self.usri1_home_dir == other.usri1_home_dir && self.usri1_comment == other.usri1_comment && self.usri1_flags == other.usri1_flags && self.usri1_script_path == other.usri1_script_path
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_1 {}
+impl ::core::cmp::Eq for USER_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -15949,30 +15958,30 @@ pub struct USER_INFO_10 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_10 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_10 {
+impl ::core::default::Default for USER_INFO_10 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_10 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_10 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_10").field("usri10_name", &self.usri10_name).field("usri10_comment", &self.usri10_comment).field("usri10_usr_comment", &self.usri10_usr_comment).field("usri10_full_name", &self.usri10_full_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_10 {
+impl ::core::cmp::PartialEq for USER_INFO_10 {
     fn eq(&self, other: &Self) -> bool {
         self.usri10_name == other.usri10_name && self.usri10_comment == other.usri10_comment && self.usri10_usr_comment == other.usri10_usr_comment && self.usri10_full_name == other.usri10_full_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_10 {}
+impl ::core::cmp::Eq for USER_INFO_10 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_10 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -15982,56 +15991,56 @@ pub struct USER_INFO_1003 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_1003 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_1003 {
+impl ::core::default::Default for USER_INFO_1003 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_1003 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1003 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1003").field("usri1003_password", &self.usri1003_password).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_1003 {
+impl ::core::cmp::PartialEq for USER_INFO_1003 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1003_password == other.usri1003_password
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_1003 {}
+impl ::core::cmp::Eq for USER_INFO_1003 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_1003 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_INFO_1005 {
     pub usri1005_priv: USER_PRIV,
 }
 impl USER_INFO_1005 {}
-impl ::std::default::Default for USER_INFO_1005 {
+impl ::core::default::Default for USER_INFO_1005 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_INFO_1005 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1005 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1005").field("usri1005_priv", &self.usri1005_priv).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_INFO_1005 {
+impl ::core::cmp::PartialEq for USER_INFO_1005 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1005_priv == other.usri1005_priv
     }
 }
-impl ::std::cmp::Eq for USER_INFO_1005 {}
+impl ::core::cmp::Eq for USER_INFO_1005 {}
 unsafe impl ::windows::runtime::Abi for USER_INFO_1005 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16041,30 +16050,30 @@ pub struct USER_INFO_1006 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_1006 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_1006 {
+impl ::core::default::Default for USER_INFO_1006 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_1006 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1006 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1006").field("usri1006_home_dir", &self.usri1006_home_dir).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_1006 {
+impl ::core::cmp::PartialEq for USER_INFO_1006 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1006_home_dir == other.usri1006_home_dir
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_1006 {}
+impl ::core::cmp::Eq for USER_INFO_1006 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_1006 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16074,56 +16083,56 @@ pub struct USER_INFO_1007 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_1007 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_1007 {
+impl ::core::default::Default for USER_INFO_1007 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_1007 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1007 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1007").field("usri1007_comment", &self.usri1007_comment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_1007 {
+impl ::core::cmp::PartialEq for USER_INFO_1007 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1007_comment == other.usri1007_comment
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_1007 {}
+impl ::core::cmp::Eq for USER_INFO_1007 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_1007 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_INFO_1008 {
     pub usri1008_flags: USER_ACCOUNT_FLAGS,
 }
 impl USER_INFO_1008 {}
-impl ::std::default::Default for USER_INFO_1008 {
+impl ::core::default::Default for USER_INFO_1008 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_INFO_1008 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1008 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1008").field("usri1008_flags", &self.usri1008_flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_INFO_1008 {
+impl ::core::cmp::PartialEq for USER_INFO_1008 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1008_flags == other.usri1008_flags
     }
 }
-impl ::std::cmp::Eq for USER_INFO_1008 {}
+impl ::core::cmp::Eq for USER_INFO_1008 {}
 unsafe impl ::windows::runtime::Abi for USER_INFO_1008 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16133,56 +16142,56 @@ pub struct USER_INFO_1009 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_1009 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_1009 {
+impl ::core::default::Default for USER_INFO_1009 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_1009 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1009 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1009").field("usri1009_script_path", &self.usri1009_script_path).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_1009 {
+impl ::core::cmp::PartialEq for USER_INFO_1009 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1009_script_path == other.usri1009_script_path
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_1009 {}
+impl ::core::cmp::Eq for USER_INFO_1009 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_1009 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_INFO_1010 {
     pub usri1010_auth_flags: AF_OP,
 }
 impl USER_INFO_1010 {}
-impl ::std::default::Default for USER_INFO_1010 {
+impl ::core::default::Default for USER_INFO_1010 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_INFO_1010 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1010 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1010").field("usri1010_auth_flags", &self.usri1010_auth_flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_INFO_1010 {
+impl ::core::cmp::PartialEq for USER_INFO_1010 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1010_auth_flags == other.usri1010_auth_flags
     }
 }
-impl ::std::cmp::Eq for USER_INFO_1010 {}
+impl ::core::cmp::Eq for USER_INFO_1010 {}
 unsafe impl ::windows::runtime::Abi for USER_INFO_1010 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16192,30 +16201,30 @@ pub struct USER_INFO_1011 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_1011 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_1011 {
+impl ::core::default::Default for USER_INFO_1011 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_1011 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1011 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1011").field("usri1011_full_name", &self.usri1011_full_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_1011 {
+impl ::core::cmp::PartialEq for USER_INFO_1011 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1011_full_name == other.usri1011_full_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_1011 {}
+impl ::core::cmp::Eq for USER_INFO_1011 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_1011 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16225,30 +16234,30 @@ pub struct USER_INFO_1012 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_1012 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_1012 {
+impl ::core::default::Default for USER_INFO_1012 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_1012 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1012 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1012").field("usri1012_usr_comment", &self.usri1012_usr_comment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_1012 {
+impl ::core::cmp::PartialEq for USER_INFO_1012 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1012_usr_comment == other.usri1012_usr_comment
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_1012 {}
+impl ::core::cmp::Eq for USER_INFO_1012 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_1012 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16258,30 +16267,30 @@ pub struct USER_INFO_1013 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_1013 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_1013 {
+impl ::core::default::Default for USER_INFO_1013 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_1013 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1013 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1013").field("usri1013_parms", &self.usri1013_parms).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_1013 {
+impl ::core::cmp::PartialEq for USER_INFO_1013 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1013_parms == other.usri1013_parms
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_1013 {}
+impl ::core::cmp::Eq for USER_INFO_1013 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_1013 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16291,82 +16300,82 @@ pub struct USER_INFO_1014 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_1014 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_1014 {
+impl ::core::default::Default for USER_INFO_1014 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_1014 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1014 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1014").field("usri1014_workstations", &self.usri1014_workstations).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_1014 {
+impl ::core::cmp::PartialEq for USER_INFO_1014 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1014_workstations == other.usri1014_workstations
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_1014 {}
+impl ::core::cmp::Eq for USER_INFO_1014 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_1014 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_INFO_1017 {
     pub usri1017_acct_expires: u32,
 }
 impl USER_INFO_1017 {}
-impl ::std::default::Default for USER_INFO_1017 {
+impl ::core::default::Default for USER_INFO_1017 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_INFO_1017 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1017 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1017").field("usri1017_acct_expires", &self.usri1017_acct_expires).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_INFO_1017 {
+impl ::core::cmp::PartialEq for USER_INFO_1017 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1017_acct_expires == other.usri1017_acct_expires
     }
 }
-impl ::std::cmp::Eq for USER_INFO_1017 {}
+impl ::core::cmp::Eq for USER_INFO_1017 {}
 unsafe impl ::windows::runtime::Abi for USER_INFO_1017 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_INFO_1018 {
     pub usri1018_max_storage: u32,
 }
 impl USER_INFO_1018 {}
-impl ::std::default::Default for USER_INFO_1018 {
+impl ::core::default::Default for USER_INFO_1018 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_INFO_1018 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1018 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1018").field("usri1018_max_storage", &self.usri1018_max_storage).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_INFO_1018 {
+impl ::core::cmp::PartialEq for USER_INFO_1018 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1018_max_storage == other.usri1018_max_storage
     }
 }
-impl ::std::cmp::Eq for USER_INFO_1018 {}
+impl ::core::cmp::Eq for USER_INFO_1018 {}
 unsafe impl ::windows::runtime::Abi for USER_INFO_1018 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_INFO_1020 {
@@ -16374,26 +16383,26 @@ pub struct USER_INFO_1020 {
     pub usri1020_logon_hours: *mut u8,
 }
 impl USER_INFO_1020 {}
-impl ::std::default::Default for USER_INFO_1020 {
+impl ::core::default::Default for USER_INFO_1020 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_INFO_1020 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1020 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1020").field("usri1020_units_per_week", &self.usri1020_units_per_week).field("usri1020_logon_hours", &self.usri1020_logon_hours).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_INFO_1020 {
+impl ::core::cmp::PartialEq for USER_INFO_1020 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1020_units_per_week == other.usri1020_units_per_week && self.usri1020_logon_hours == other.usri1020_logon_hours
     }
 }
-impl ::std::cmp::Eq for USER_INFO_1020 {}
+impl ::core::cmp::Eq for USER_INFO_1020 {}
 unsafe impl ::windows::runtime::Abi for USER_INFO_1020 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16403,108 +16412,108 @@ pub struct USER_INFO_1023 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_1023 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_1023 {
+impl ::core::default::Default for USER_INFO_1023 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_1023 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1023 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1023").field("usri1023_logon_server", &self.usri1023_logon_server).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_1023 {
+impl ::core::cmp::PartialEq for USER_INFO_1023 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1023_logon_server == other.usri1023_logon_server
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_1023 {}
+impl ::core::cmp::Eq for USER_INFO_1023 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_1023 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_INFO_1024 {
     pub usri1024_country_code: u32,
 }
 impl USER_INFO_1024 {}
-impl ::std::default::Default for USER_INFO_1024 {
+impl ::core::default::Default for USER_INFO_1024 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_INFO_1024 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1024 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1024").field("usri1024_country_code", &self.usri1024_country_code).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_INFO_1024 {
+impl ::core::cmp::PartialEq for USER_INFO_1024 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1024_country_code == other.usri1024_country_code
     }
 }
-impl ::std::cmp::Eq for USER_INFO_1024 {}
+impl ::core::cmp::Eq for USER_INFO_1024 {}
 unsafe impl ::windows::runtime::Abi for USER_INFO_1024 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_INFO_1025 {
     pub usri1025_code_page: u32,
 }
 impl USER_INFO_1025 {}
-impl ::std::default::Default for USER_INFO_1025 {
+impl ::core::default::Default for USER_INFO_1025 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_INFO_1025 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1025 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1025").field("usri1025_code_page", &self.usri1025_code_page).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_INFO_1025 {
+impl ::core::cmp::PartialEq for USER_INFO_1025 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1025_code_page == other.usri1025_code_page
     }
 }
-impl ::std::cmp::Eq for USER_INFO_1025 {}
+impl ::core::cmp::Eq for USER_INFO_1025 {}
 unsafe impl ::windows::runtime::Abi for USER_INFO_1025 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_INFO_1051 {
     pub usri1051_primary_group_id: u32,
 }
 impl USER_INFO_1051 {}
-impl ::std::default::Default for USER_INFO_1051 {
+impl ::core::default::Default for USER_INFO_1051 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_INFO_1051 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1051 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1051").field("usri1051_primary_group_id", &self.usri1051_primary_group_id).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_INFO_1051 {
+impl ::core::cmp::PartialEq for USER_INFO_1051 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1051_primary_group_id == other.usri1051_primary_group_id
     }
 }
-impl ::std::cmp::Eq for USER_INFO_1051 {}
+impl ::core::cmp::Eq for USER_INFO_1051 {}
 unsafe impl ::windows::runtime::Abi for USER_INFO_1051 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16514,30 +16523,30 @@ pub struct USER_INFO_1052 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_1052 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_1052 {
+impl ::core::default::Default for USER_INFO_1052 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_1052 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1052 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1052").field("usri1052_profile", &self.usri1052_profile).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_1052 {
+impl ::core::cmp::PartialEq for USER_INFO_1052 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1052_profile == other.usri1052_profile
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_1052 {}
+impl ::core::cmp::Eq for USER_INFO_1052 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_1052 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16547,30 +16556,30 @@ pub struct USER_INFO_1053 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_1053 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_1053 {
+impl ::core::default::Default for USER_INFO_1053 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_1053 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_1053 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_1053").field("usri1053_home_dir_drive", &self.usri1053_home_dir_drive).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_1053 {
+impl ::core::cmp::PartialEq for USER_INFO_1053 {
     fn eq(&self, other: &Self) -> bool {
         self.usri1053_home_dir_drive == other.usri1053_home_dir_drive
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_1053 {}
+impl ::core::cmp::Eq for USER_INFO_1053 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_1053 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16599,14 +16608,14 @@ pub struct USER_INFO_11 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_11 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_11 {
+impl ::core::default::Default for USER_INFO_11 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_11 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_11 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_11")
             .field("usri11_name", &self.usri11_name)
             .field("usri11_comment", &self.usri11_comment)
@@ -16632,7 +16641,7 @@ impl ::std::fmt::Debug for USER_INFO_11 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_11 {
+impl ::core::cmp::PartialEq for USER_INFO_11 {
     fn eq(&self, other: &Self) -> bool {
         self.usri11_name == other.usri11_name
             && self.usri11_comment == other.usri11_comment
@@ -16657,12 +16666,12 @@ impl ::std::cmp::PartialEq for USER_INFO_11 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_11 {}
+impl ::core::cmp::Eq for USER_INFO_11 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_11 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16695,14 +16704,14 @@ pub struct USER_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_2 {
+impl ::core::default::Default for USER_INFO_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_2")
             .field("usri2_name", &self.usri2_name)
             .field("usri2_password", &self.usri2_password)
@@ -16732,7 +16741,7 @@ impl ::std::fmt::Debug for USER_INFO_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_2 {
+impl ::core::cmp::PartialEq for USER_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.usri2_name == other.usri2_name
             && self.usri2_password == other.usri2_password
@@ -16761,12 +16770,12 @@ impl ::std::cmp::PartialEq for USER_INFO_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_2 {}
+impl ::core::cmp::Eq for USER_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16780,56 +16789,56 @@ pub struct USER_INFO_20 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_20 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_20 {
+impl ::core::default::Default for USER_INFO_20 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_20 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_20 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_20").field("usri20_name", &self.usri20_name).field("usri20_full_name", &self.usri20_full_name).field("usri20_comment", &self.usri20_comment).field("usri20_flags", &self.usri20_flags).field("usri20_user_id", &self.usri20_user_id).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_20 {
+impl ::core::cmp::PartialEq for USER_INFO_20 {
     fn eq(&self, other: &Self) -> bool {
         self.usri20_name == other.usri20_name && self.usri20_full_name == other.usri20_full_name && self.usri20_comment == other.usri20_comment && self.usri20_flags == other.usri20_flags && self.usri20_user_id == other.usri20_user_id
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_20 {}
+impl ::core::cmp::Eq for USER_INFO_20 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_20 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_INFO_21 {
     pub usri21_password: [u8; 16],
 }
 impl USER_INFO_21 {}
-impl ::std::default::Default for USER_INFO_21 {
+impl ::core::default::Default for USER_INFO_21 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_INFO_21 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_21 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_21").field("usri21_password", &self.usri21_password).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_INFO_21 {
+impl ::core::cmp::PartialEq for USER_INFO_21 {
     fn eq(&self, other: &Self) -> bool {
         self.usri21_password == other.usri21_password
     }
 }
-impl ::std::cmp::Eq for USER_INFO_21 {}
+impl ::core::cmp::Eq for USER_INFO_21 {}
 unsafe impl ::windows::runtime::Abi for USER_INFO_21 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16862,14 +16871,14 @@ pub struct USER_INFO_22 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_22 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_22 {
+impl ::core::default::Default for USER_INFO_22 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_22 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_22 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_22")
             .field("usri22_name", &self.usri22_name)
             .field("usri22_password", &self.usri22_password)
@@ -16899,7 +16908,7 @@ impl ::std::fmt::Debug for USER_INFO_22 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_22 {
+impl ::core::cmp::PartialEq for USER_INFO_22 {
     fn eq(&self, other: &Self) -> bool {
         self.usri22_name == other.usri22_name
             && self.usri22_password == other.usri22_password
@@ -16928,12 +16937,12 @@ impl ::std::cmp::PartialEq for USER_INFO_22 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_22 {}
+impl ::core::cmp::Eq for USER_INFO_22 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_22 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16947,30 +16956,30 @@ pub struct USER_INFO_23 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_23 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_23 {
+impl ::core::default::Default for USER_INFO_23 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_23 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_23 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_23").field("usri23_name", &self.usri23_name).field("usri23_full_name", &self.usri23_full_name).field("usri23_comment", &self.usri23_comment).field("usri23_flags", &self.usri23_flags).field("usri23_user_sid", &self.usri23_user_sid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_23 {
+impl ::core::cmp::PartialEq for USER_INFO_23 {
     fn eq(&self, other: &Self) -> bool {
         self.usri23_name == other.usri23_name && self.usri23_full_name == other.usri23_full_name && self.usri23_comment == other.usri23_comment && self.usri23_flags == other.usri23_flags && self.usri23_user_sid == other.usri23_user_sid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_23 {}
+impl ::core::cmp::Eq for USER_INFO_23 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_23 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -16984,14 +16993,14 @@ pub struct USER_INFO_24 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_24 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_24 {
+impl ::core::default::Default for USER_INFO_24 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_24 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_24 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_24")
             .field("usri24_internet_identity", &self.usri24_internet_identity)
             .field("usri24_flags", &self.usri24_flags)
@@ -17002,18 +17011,18 @@ impl ::std::fmt::Debug for USER_INFO_24 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_24 {
+impl ::core::cmp::PartialEq for USER_INFO_24 {
     fn eq(&self, other: &Self) -> bool {
         self.usri24_internet_identity == other.usri24_internet_identity && self.usri24_flags == other.usri24_flags && self.usri24_internet_provider_name == other.usri24_internet_provider_name && self.usri24_internet_principal_name == other.usri24_internet_principal_name && self.usri24_user_sid == other.usri24_user_sid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_24 {}
+impl ::core::cmp::Eq for USER_INFO_24 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_24 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -17051,14 +17060,14 @@ pub struct USER_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_3 {
+impl ::core::default::Default for USER_INFO_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_3")
             .field("usri3_name", &self.usri3_name)
             .field("usri3_password", &self.usri3_password)
@@ -17093,7 +17102,7 @@ impl ::std::fmt::Debug for USER_INFO_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_3 {
+impl ::core::cmp::PartialEq for USER_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
         self.usri3_name == other.usri3_name
             && self.usri3_password == other.usri3_password
@@ -17127,12 +17136,12 @@ impl ::std::cmp::PartialEq for USER_INFO_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_3 {}
+impl ::core::cmp::Eq for USER_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -17170,14 +17179,14 @@ pub struct USER_INFO_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_INFO_4 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_INFO_4 {
+impl ::core::default::Default for USER_INFO_4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_INFO_4 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_INFO_4 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_INFO_4")
             .field("usri4_name", &self.usri4_name)
             .field("usri4_password", &self.usri4_password)
@@ -17212,7 +17221,7 @@ impl ::std::fmt::Debug for USER_INFO_4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_INFO_4 {
+impl ::core::cmp::PartialEq for USER_INFO_4 {
     fn eq(&self, other: &Self) -> bool {
         self.usri4_name == other.usri4_name
             && self.usri4_password == other.usri4_password
@@ -17246,7 +17255,7 @@ impl ::std::cmp::PartialEq for USER_INFO_4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_INFO_4 {}
+impl ::core::cmp::Eq for USER_INFO_4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_INFO_4 {
     type Abi = Self;
@@ -17261,7 +17270,7 @@ pub const USER_LOGON_HOURS_PARMNUM: u32 = 20u32;
 pub const USER_LOGON_SERVER_PARMNUM: u32 = 23u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const USER_MAX_STORAGE_PARMNUM: u32 = 18u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_MODALS_INFO_0 {
@@ -17272,13 +17281,13 @@ pub struct USER_MODALS_INFO_0 {
     pub usrmod0_password_hist_len: u32,
 }
 impl USER_MODALS_INFO_0 {}
-impl ::std::default::Default for USER_MODALS_INFO_0 {
+impl ::core::default::Default for USER_MODALS_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_MODALS_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_MODALS_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_MODALS_INFO_0")
             .field("usrmod0_min_passwd_len", &self.usrmod0_min_passwd_len)
             .field("usrmod0_max_passwd_age", &self.usrmod0_max_passwd_age)
@@ -17288,16 +17297,16 @@ impl ::std::fmt::Debug for USER_MODALS_INFO_0 {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_MODALS_INFO_0 {
+impl ::core::cmp::PartialEq for USER_MODALS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.usrmod0_min_passwd_len == other.usrmod0_min_passwd_len && self.usrmod0_max_passwd_age == other.usrmod0_max_passwd_age && self.usrmod0_min_passwd_age == other.usrmod0_min_passwd_age && self.usrmod0_force_logoff == other.usrmod0_force_logoff && self.usrmod0_password_hist_len == other.usrmod0_password_hist_len
     }
 }
-impl ::std::cmp::Eq for USER_MODALS_INFO_0 {}
+impl ::core::cmp::Eq for USER_MODALS_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -17308,186 +17317,186 @@ pub struct USER_MODALS_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_MODALS_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_MODALS_INFO_1 {
+impl ::core::default::Default for USER_MODALS_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_MODALS_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_MODALS_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_MODALS_INFO_1").field("usrmod1_role", &self.usrmod1_role).field("usrmod1_primary", &self.usrmod1_primary).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_MODALS_INFO_1 {
+impl ::core::cmp::PartialEq for USER_MODALS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.usrmod1_role == other.usrmod1_role && self.usrmod1_primary == other.usrmod1_primary
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_MODALS_INFO_1 {}
+impl ::core::cmp::Eq for USER_MODALS_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_MODALS_INFO_1001 {
     pub usrmod1001_min_passwd_len: u32,
 }
 impl USER_MODALS_INFO_1001 {}
-impl ::std::default::Default for USER_MODALS_INFO_1001 {
+impl ::core::default::Default for USER_MODALS_INFO_1001 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_MODALS_INFO_1001 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_MODALS_INFO_1001 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_MODALS_INFO_1001").field("usrmod1001_min_passwd_len", &self.usrmod1001_min_passwd_len).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_MODALS_INFO_1001 {
+impl ::core::cmp::PartialEq for USER_MODALS_INFO_1001 {
     fn eq(&self, other: &Self) -> bool {
         self.usrmod1001_min_passwd_len == other.usrmod1001_min_passwd_len
     }
 }
-impl ::std::cmp::Eq for USER_MODALS_INFO_1001 {}
+impl ::core::cmp::Eq for USER_MODALS_INFO_1001 {}
 unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1001 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_MODALS_INFO_1002 {
     pub usrmod1002_max_passwd_age: u32,
 }
 impl USER_MODALS_INFO_1002 {}
-impl ::std::default::Default for USER_MODALS_INFO_1002 {
+impl ::core::default::Default for USER_MODALS_INFO_1002 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_MODALS_INFO_1002 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_MODALS_INFO_1002 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_MODALS_INFO_1002").field("usrmod1002_max_passwd_age", &self.usrmod1002_max_passwd_age).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_MODALS_INFO_1002 {
+impl ::core::cmp::PartialEq for USER_MODALS_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
         self.usrmod1002_max_passwd_age == other.usrmod1002_max_passwd_age
     }
 }
-impl ::std::cmp::Eq for USER_MODALS_INFO_1002 {}
+impl ::core::cmp::Eq for USER_MODALS_INFO_1002 {}
 unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1002 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_MODALS_INFO_1003 {
     pub usrmod1003_min_passwd_age: u32,
 }
 impl USER_MODALS_INFO_1003 {}
-impl ::std::default::Default for USER_MODALS_INFO_1003 {
+impl ::core::default::Default for USER_MODALS_INFO_1003 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_MODALS_INFO_1003 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_MODALS_INFO_1003 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_MODALS_INFO_1003").field("usrmod1003_min_passwd_age", &self.usrmod1003_min_passwd_age).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_MODALS_INFO_1003 {
+impl ::core::cmp::PartialEq for USER_MODALS_INFO_1003 {
     fn eq(&self, other: &Self) -> bool {
         self.usrmod1003_min_passwd_age == other.usrmod1003_min_passwd_age
     }
 }
-impl ::std::cmp::Eq for USER_MODALS_INFO_1003 {}
+impl ::core::cmp::Eq for USER_MODALS_INFO_1003 {}
 unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1003 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_MODALS_INFO_1004 {
     pub usrmod1004_force_logoff: u32,
 }
 impl USER_MODALS_INFO_1004 {}
-impl ::std::default::Default for USER_MODALS_INFO_1004 {
+impl ::core::default::Default for USER_MODALS_INFO_1004 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_MODALS_INFO_1004 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_MODALS_INFO_1004 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_MODALS_INFO_1004").field("usrmod1004_force_logoff", &self.usrmod1004_force_logoff).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_MODALS_INFO_1004 {
+impl ::core::cmp::PartialEq for USER_MODALS_INFO_1004 {
     fn eq(&self, other: &Self) -> bool {
         self.usrmod1004_force_logoff == other.usrmod1004_force_logoff
     }
 }
-impl ::std::cmp::Eq for USER_MODALS_INFO_1004 {}
+impl ::core::cmp::Eq for USER_MODALS_INFO_1004 {}
 unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1004 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_MODALS_INFO_1005 {
     pub usrmod1005_password_hist_len: u32,
 }
 impl USER_MODALS_INFO_1005 {}
-impl ::std::default::Default for USER_MODALS_INFO_1005 {
+impl ::core::default::Default for USER_MODALS_INFO_1005 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_MODALS_INFO_1005 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_MODALS_INFO_1005 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_MODALS_INFO_1005").field("usrmod1005_password_hist_len", &self.usrmod1005_password_hist_len).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_MODALS_INFO_1005 {
+impl ::core::cmp::PartialEq for USER_MODALS_INFO_1005 {
     fn eq(&self, other: &Self) -> bool {
         self.usrmod1005_password_hist_len == other.usrmod1005_password_hist_len
     }
 }
-impl ::std::cmp::Eq for USER_MODALS_INFO_1005 {}
+impl ::core::cmp::Eq for USER_MODALS_INFO_1005 {}
 unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1005 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_MODALS_INFO_1006 {
     pub usrmod1006_role: USER_MODALS_ROLES,
 }
 impl USER_MODALS_INFO_1006 {}
-impl ::std::default::Default for USER_MODALS_INFO_1006 {
+impl ::core::default::Default for USER_MODALS_INFO_1006 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_MODALS_INFO_1006 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_MODALS_INFO_1006 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_MODALS_INFO_1006").field("usrmod1006_role", &self.usrmod1006_role).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_MODALS_INFO_1006 {
+impl ::core::cmp::PartialEq for USER_MODALS_INFO_1006 {
     fn eq(&self, other: &Self) -> bool {
         self.usrmod1006_role == other.usrmod1006_role
     }
 }
-impl ::std::cmp::Eq for USER_MODALS_INFO_1006 {}
+impl ::core::cmp::Eq for USER_MODALS_INFO_1006 {}
 unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1006 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -17497,30 +17506,30 @@ pub struct USER_MODALS_INFO_1007 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_MODALS_INFO_1007 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_MODALS_INFO_1007 {
+impl ::core::default::Default for USER_MODALS_INFO_1007 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_MODALS_INFO_1007 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_MODALS_INFO_1007 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_MODALS_INFO_1007").field("usrmod1007_primary", &self.usrmod1007_primary).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_MODALS_INFO_1007 {
+impl ::core::cmp::PartialEq for USER_MODALS_INFO_1007 {
     fn eq(&self, other: &Self) -> bool {
         self.usrmod1007_primary == other.usrmod1007_primary
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_MODALS_INFO_1007 {}
+impl ::core::cmp::Eq for USER_MODALS_INFO_1007 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_1007 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -17531,30 +17540,30 @@ pub struct USER_MODALS_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl USER_MODALS_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USER_MODALS_INFO_2 {
+impl ::core::default::Default for USER_MODALS_INFO_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USER_MODALS_INFO_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_MODALS_INFO_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_MODALS_INFO_2").field("usrmod2_domain_name", &self.usrmod2_domain_name).field("usrmod2_domain_id", &self.usrmod2_domain_id).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USER_MODALS_INFO_2 {
+impl ::core::cmp::PartialEq for USER_MODALS_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.usrmod2_domain_name == other.usrmod2_domain_name && self.usrmod2_domain_id == other.usrmod2_domain_id
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USER_MODALS_INFO_2 {}
+impl ::core::cmp::Eq for USER_MODALS_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_MODALS_INFO_3 {
@@ -17563,34 +17572,34 @@ pub struct USER_MODALS_INFO_3 {
     pub usrmod3_lockout_threshold: u32,
 }
 impl USER_MODALS_INFO_3 {}
-impl ::std::default::Default for USER_MODALS_INFO_3 {
+impl ::core::default::Default for USER_MODALS_INFO_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_MODALS_INFO_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_MODALS_INFO_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_MODALS_INFO_3").field("usrmod3_lockout_duration", &self.usrmod3_lockout_duration).field("usrmod3_lockout_observation_window", &self.usrmod3_lockout_observation_window).field("usrmod3_lockout_threshold", &self.usrmod3_lockout_threshold).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_MODALS_INFO_3 {
+impl ::core::cmp::PartialEq for USER_MODALS_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
         self.usrmod3_lockout_duration == other.usrmod3_lockout_duration && self.usrmod3_lockout_observation_window == other.usrmod3_lockout_observation_window && self.usrmod3_lockout_threshold == other.usrmod3_lockout_threshold
     }
 }
-impl ::std::cmp::Eq for USER_MODALS_INFO_3 {}
+impl ::core::cmp::Eq for USER_MODALS_INFO_3 {}
 unsafe impl ::windows::runtime::Abi for USER_MODALS_INFO_3 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USER_MODALS_ROLES(pub u32);
 pub const UAS_ROLE_STANDALONE: USER_MODALS_ROLES = USER_MODALS_ROLES(0u32);
 pub const UAS_ROLE_MEMBER: USER_MODALS_ROLES = USER_MODALS_ROLES(1u32);
 pub const UAS_ROLE_BACKUP: USER_MODALS_ROLES = USER_MODALS_ROLES(2u32);
 pub const UAS_ROLE_PRIMARY: USER_MODALS_ROLES = USER_MODALS_ROLES(3u32);
-impl ::std::convert::From<u32> for USER_MODALS_ROLES {
+impl ::core::convert::From<u32> for USER_MODALS_ROLES {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -17598,29 +17607,29 @@ impl ::std::convert::From<u32> for USER_MODALS_ROLES {
 unsafe impl ::windows::runtime::Abi for USER_MODALS_ROLES {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for USER_MODALS_ROLES {
+impl ::core::ops::BitOr for USER_MODALS_ROLES {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for USER_MODALS_ROLES {
+impl ::core::ops::BitAnd for USER_MODALS_ROLES {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for USER_MODALS_ROLES {
+impl ::core::ops::BitOrAssign for USER_MODALS_ROLES {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for USER_MODALS_ROLES {
+impl ::core::ops::BitAndAssign for USER_MODALS_ROLES {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for USER_MODALS_ROLES {
+impl ::core::ops::Not for USER_MODALS_ROLES {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -17630,7 +17639,7 @@ impl ::std::ops::Not for USER_MODALS_ROLES {
 pub const USER_NAME_PARMNUM: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const USER_NUM_LOGONS_PARMNUM: u32 = 22u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USER_OTHER_INFO {
@@ -17638,22 +17647,22 @@ pub struct USER_OTHER_INFO {
     pub alrtus_numstrings: u32,
 }
 impl USER_OTHER_INFO {}
-impl ::std::default::Default for USER_OTHER_INFO {
+impl ::core::default::Default for USER_OTHER_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USER_OTHER_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USER_OTHER_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USER_OTHER_INFO").field("alrtus_errcode", &self.alrtus_errcode).field("alrtus_numstrings", &self.alrtus_numstrings).finish()
     }
 }
-impl ::std::cmp::PartialEq for USER_OTHER_INFO {
+impl ::core::cmp::PartialEq for USER_OTHER_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.alrtus_errcode == other.alrtus_errcode && self.alrtus_numstrings == other.alrtus_numstrings
     }
 }
-impl ::std::cmp::Eq for USER_OTHER_INFO {}
+impl ::core::cmp::Eq for USER_OTHER_INFO {}
 unsafe impl ::windows::runtime::Abi for USER_OTHER_INFO {
     type Abi = Self;
 }
@@ -17668,13 +17677,13 @@ pub const USER_PASSWORD_PARMNUM: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const USER_PRIMARY_GROUP_PARMNUM: u32 = 51u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USER_PRIV(pub u32);
 pub const USER_PRIV_GUEST: USER_PRIV = USER_PRIV(0u32);
 pub const USER_PRIV_USER: USER_PRIV = USER_PRIV(1u32);
 pub const USER_PRIV_ADMIN: USER_PRIV = USER_PRIV(2u32);
-impl ::std::convert::From<u32> for USER_PRIV {
+impl ::core::convert::From<u32> for USER_PRIV {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -17682,29 +17691,29 @@ impl ::std::convert::From<u32> for USER_PRIV {
 unsafe impl ::windows::runtime::Abi for USER_PRIV {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for USER_PRIV {
+impl ::core::ops::BitOr for USER_PRIV {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for USER_PRIV {
+impl ::core::ops::BitAnd for USER_PRIV {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for USER_PRIV {
+impl ::core::ops::BitOrAssign for USER_PRIV {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for USER_PRIV {
+impl ::core::ops::BitAndAssign for USER_PRIV {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for USER_PRIV {
+impl ::core::ops::Not for USER_PRIV {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -17744,7 +17753,7 @@ pub const USE_DOMAINNAME_PARMNUM: u32 = 6u32;
 pub const USE_FLAGS_PARMNUM: u32 = 7u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const USE_FLAG_GLOBAL_MAPPING: u32 = 65536u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -17755,30 +17764,30 @@ pub struct USE_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl USE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USE_INFO_0 {
+impl ::core::default::Default for USE_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USE_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USE_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USE_INFO_0").field("ui0_local", &self.ui0_local).field("ui0_remote", &self.ui0_remote).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USE_INFO_0 {
+impl ::core::cmp::PartialEq for USE_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.ui0_local == other.ui0_local && self.ui0_remote == other.ui0_remote
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USE_INFO_0 {}
+impl ::core::cmp::Eq for USE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USE_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -17794,14 +17803,14 @@ pub struct USE_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl USE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USE_INFO_1 {
+impl ::core::default::Default for USE_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USE_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USE_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USE_INFO_1")
             .field("ui1_local", &self.ui1_local)
             .field("ui1_remote", &self.ui1_remote)
@@ -17814,18 +17823,18 @@ impl ::std::fmt::Debug for USE_INFO_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USE_INFO_1 {
+impl ::core::cmp::PartialEq for USE_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.ui1_local == other.ui1_local && self.ui1_remote == other.ui1_remote && self.ui1_password == other.ui1_password && self.ui1_status == other.ui1_status && self.ui1_asg_type == other.ui1_asg_type && self.ui1_refcount == other.ui1_refcount && self.ui1_usecount == other.ui1_usecount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USE_INFO_1 {}
+impl ::core::cmp::Eq for USE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USE_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -17843,14 +17852,14 @@ pub struct USE_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl USE_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USE_INFO_2 {
+impl ::core::default::Default for USE_INFO_2 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USE_INFO_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USE_INFO_2 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USE_INFO_2")
             .field("ui2_local", &self.ui2_local)
             .field("ui2_remote", &self.ui2_remote)
@@ -17865,18 +17874,18 @@ impl ::std::fmt::Debug for USE_INFO_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USE_INFO_2 {
+impl ::core::cmp::PartialEq for USE_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.ui2_local == other.ui2_local && self.ui2_remote == other.ui2_remote && self.ui2_password == other.ui2_password && self.ui2_status == other.ui2_status && self.ui2_asg_type == other.ui2_asg_type && self.ui2_refcount == other.ui2_refcount && self.ui2_usecount == other.ui2_usecount && self.ui2_username == other.ui2_username && self.ui2_domainname == other.ui2_domainname
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USE_INFO_2 {}
+impl ::core::cmp::Eq for USE_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USE_INFO_2 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -17887,30 +17896,30 @@ pub struct USE_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl USE_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USE_INFO_3 {
+impl ::core::default::Default for USE_INFO_3 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USE_INFO_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USE_INFO_3 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USE_INFO_3").field("ui3_ui2", &self.ui3_ui2).field("ui3_flags", &self.ui3_flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USE_INFO_3 {
+impl ::core::cmp::PartialEq for USE_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
         self.ui3_ui2 == other.ui3_ui2 && self.ui3_flags == other.ui3_flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USE_INFO_3 {}
+impl ::core::cmp::Eq for USE_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USE_INFO_3 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -17922,30 +17931,30 @@ pub struct USE_INFO_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl USE_INFO_4 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USE_INFO_4 {
+impl ::core::default::Default for USE_INFO_4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USE_INFO_4 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USE_INFO_4 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USE_INFO_4").field("ui4_ui3", &self.ui4_ui3).field("ui4_auth_identity_length", &self.ui4_auth_identity_length).field("ui4_auth_identity", &self.ui4_auth_identity).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USE_INFO_4 {
+impl ::core::cmp::PartialEq for USE_INFO_4 {
     fn eq(&self, other: &Self) -> bool {
         self.ui4_ui3 == other.ui4_ui3 && self.ui4_auth_identity_length == other.ui4_auth_identity_length && self.ui4_auth_identity == other.ui4_auth_identity
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USE_INFO_4 {}
+impl ::core::cmp::Eq for USE_INFO_4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USE_INFO_4 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -17961,14 +17970,14 @@ pub struct USE_INFO_5 {
 #[cfg(feature = "Win32_Foundation")]
 impl USE_INFO_5 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for USE_INFO_5 {
+impl ::core::default::Default for USE_INFO_5 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for USE_INFO_5 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USE_INFO_5 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USE_INFO_5")
             .field("ui4_ui3", &self.ui4_ui3)
             .field("ui4_auth_identity_length", &self.ui4_auth_identity_length)
@@ -17981,26 +17990,26 @@ impl ::std::fmt::Debug for USE_INFO_5 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for USE_INFO_5 {
+impl ::core::cmp::PartialEq for USE_INFO_5 {
     fn eq(&self, other: &Self) -> bool {
         self.ui4_ui3 == other.ui4_ui3 && self.ui4_auth_identity_length == other.ui4_auth_identity_length && self.ui4_auth_identity == other.ui4_auth_identity && self.ui5_security_descriptor_length == other.ui5_security_descriptor_length && self.ui5_security_descriptor == other.ui5_security_descriptor && self.ui5_use_options_length == other.ui5_use_options_length && self.ui5_use_options == other.ui5_use_options
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for USE_INFO_5 {}
+impl ::core::cmp::Eq for USE_INFO_5 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USE_INFO_5 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USE_INFO_ASG_TYPE(pub u32);
 pub const USE_WILDCARD: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(4294967295u32);
 pub const USE_DISKDEV: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(0u32);
 pub const USE_SPOOLDEV: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(1u32);
 pub const USE_IPC: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(3u32);
-impl ::std::convert::From<u32> for USE_INFO_ASG_TYPE {
+impl ::core::convert::From<u32> for USE_INFO_ASG_TYPE {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -18008,29 +18017,29 @@ impl ::std::convert::From<u32> for USE_INFO_ASG_TYPE {
 unsafe impl ::windows::runtime::Abi for USE_INFO_ASG_TYPE {
     type Abi = Self;
 }
-impl ::std::ops::BitOr for USE_INFO_ASG_TYPE {
+impl ::core::ops::BitOr for USE_INFO_ASG_TYPE {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for USE_INFO_ASG_TYPE {
+impl ::core::ops::BitAnd for USE_INFO_ASG_TYPE {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for USE_INFO_ASG_TYPE {
+impl ::core::ops::BitOrAssign for USE_INFO_ASG_TYPE {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for USE_INFO_ASG_TYPE {
+impl ::core::ops::BitAndAssign for USE_INFO_ASG_TYPE {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for USE_INFO_ASG_TYPE {
+impl ::core::ops::Not for USE_INFO_ASG_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -18044,7 +18053,7 @@ pub const USE_NETERR: u32 = 3u32;
 pub const USE_OK: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const USE_OPTIONS_PARMNUM: u32 = 10u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
@@ -18053,26 +18062,26 @@ pub struct USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
     pub Reserved: u16,
 }
 impl USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {}
-impl ::std::default::Default for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
+impl ::core::default::Default for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USE_OPTION_DEFERRED_CONNECTION_PARAMETERS").field("Tag", &self.Tag).field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
+impl ::core::cmp::PartialEq for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.Tag == other.Tag && self.Length == other.Length && self.Reserved == other.Reserved
     }
 }
-impl ::std::cmp::Eq for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {}
+impl ::core::cmp::Eq for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USE_OPTION_GENERIC {
@@ -18081,54 +18090,54 @@ pub struct USE_OPTION_GENERIC {
     pub Reserved: u16,
 }
 impl USE_OPTION_GENERIC {}
-impl ::std::default::Default for USE_OPTION_GENERIC {
+impl ::core::default::Default for USE_OPTION_GENERIC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USE_OPTION_GENERIC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USE_OPTION_GENERIC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USE_OPTION_GENERIC").field("Tag", &self.Tag).field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for USE_OPTION_GENERIC {
+impl ::core::cmp::PartialEq for USE_OPTION_GENERIC {
     fn eq(&self, other: &Self) -> bool {
         self.Tag == other.Tag && self.Length == other.Length && self.Reserved == other.Reserved
     }
 }
-impl ::std::cmp::Eq for USE_OPTION_GENERIC {}
+impl ::core::cmp::Eq for USE_OPTION_GENERIC {}
 unsafe impl ::windows::runtime::Abi for USE_OPTION_GENERIC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USE_OPTION_PROPERTIES {
     pub Tag: u32,
-    pub pInfo: *mut ::std::ffi::c_void,
+    pub pInfo: *mut ::core::ffi::c_void,
     pub Length: usize,
 }
 impl USE_OPTION_PROPERTIES {}
-impl ::std::default::Default for USE_OPTION_PROPERTIES {
+impl ::core::default::Default for USE_OPTION_PROPERTIES {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USE_OPTION_PROPERTIES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USE_OPTION_PROPERTIES {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USE_OPTION_PROPERTIES").field("Tag", &self.Tag).field("pInfo", &self.pInfo).field("Length", &self.Length).finish()
     }
 }
-impl ::std::cmp::PartialEq for USE_OPTION_PROPERTIES {
+impl ::core::cmp::PartialEq for USE_OPTION_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
         self.Tag == other.Tag && self.pInfo == other.pInfo && self.Length == other.Length
     }
 }
-impl ::std::cmp::Eq for USE_OPTION_PROPERTIES {}
+impl ::core::cmp::Eq for USE_OPTION_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for USE_OPTION_PROPERTIES {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct USE_OPTION_TRANSPORT_PARAMETERS {
@@ -18137,22 +18146,22 @@ pub struct USE_OPTION_TRANSPORT_PARAMETERS {
     pub Reserved: u16,
 }
 impl USE_OPTION_TRANSPORT_PARAMETERS {}
-impl ::std::default::Default for USE_OPTION_TRANSPORT_PARAMETERS {
+impl ::core::default::Default for USE_OPTION_TRANSPORT_PARAMETERS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for USE_OPTION_TRANSPORT_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for USE_OPTION_TRANSPORT_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("USE_OPTION_TRANSPORT_PARAMETERS").field("Tag", &self.Tag).field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for USE_OPTION_TRANSPORT_PARAMETERS {
+impl ::core::cmp::PartialEq for USE_OPTION_TRANSPORT_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.Tag == other.Tag && self.Length == other.Length && self.Reserved == other.Reserved
     }
 }
-impl ::std::cmp::Eq for USE_OPTION_TRANSPORT_PARAMETERS {}
+impl ::core::cmp::Eq for USE_OPTION_TRANSPORT_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for USE_OPTION_TRANSPORT_PARAMETERS {
     type Abi = Self;
 }
@@ -18198,7 +18207,7 @@ pub const WKSTA_DORMANTFILELIMIT_PARMNUM: u32 = 46u32;
 pub const WKSTA_ERRLOGSZ_PARMNUM: u32 = 27u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const WKSTA_FORCECORECREATEMODE_PARMNUM: u32 = 60u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -18212,14 +18221,14 @@ pub struct WKSTA_INFO_100 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_100 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_100 {
+impl ::core::default::Default for WKSTA_INFO_100 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_100 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_100 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_100")
             .field("wki100_platform_id", &self.wki100_platform_id)
             .field("wki100_computername", &self.wki100_computername)
@@ -18230,18 +18239,18 @@ impl ::std::fmt::Debug for WKSTA_INFO_100 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_100 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_100 {
     fn eq(&self, other: &Self) -> bool {
         self.wki100_platform_id == other.wki100_platform_id && self.wki100_computername == other.wki100_computername && self.wki100_langroup == other.wki100_langroup && self.wki100_ver_major == other.wki100_ver_major && self.wki100_ver_minor == other.wki100_ver_minor
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_100 {}
+impl ::core::cmp::Eq for WKSTA_INFO_100 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_100 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -18256,14 +18265,14 @@ pub struct WKSTA_INFO_101 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_101 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_101 {
+impl ::core::default::Default for WKSTA_INFO_101 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_101 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_101 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_101")
             .field("wki101_platform_id", &self.wki101_platform_id)
             .field("wki101_computername", &self.wki101_computername)
@@ -18275,148 +18284,148 @@ impl ::std::fmt::Debug for WKSTA_INFO_101 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_101 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_101 {
     fn eq(&self, other: &Self) -> bool {
         self.wki101_platform_id == other.wki101_platform_id && self.wki101_computername == other.wki101_computername && self.wki101_langroup == other.wki101_langroup && self.wki101_ver_major == other.wki101_ver_major && self.wki101_ver_minor == other.wki101_ver_minor && self.wki101_lanroot == other.wki101_lanroot
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_101 {}
+impl ::core::cmp::Eq for WKSTA_INFO_101 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_101 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1010 {
     pub wki1010_char_wait: u32,
 }
 impl WKSTA_INFO_1010 {}
-impl ::std::default::Default for WKSTA_INFO_1010 {
+impl ::core::default::Default for WKSTA_INFO_1010 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1010 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1010 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1010").field("wki1010_char_wait", &self.wki1010_char_wait).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1010 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1010 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1010_char_wait == other.wki1010_char_wait
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1010 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1010 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1010 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1011 {
     pub wki1011_collection_time: u32,
 }
 impl WKSTA_INFO_1011 {}
-impl ::std::default::Default for WKSTA_INFO_1011 {
+impl ::core::default::Default for WKSTA_INFO_1011 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1011 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1011 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1011").field("wki1011_collection_time", &self.wki1011_collection_time).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1011 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1011 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1011_collection_time == other.wki1011_collection_time
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1011 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1011 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1011 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1012 {
     pub wki1012_maximum_collection_count: u32,
 }
 impl WKSTA_INFO_1012 {}
-impl ::std::default::Default for WKSTA_INFO_1012 {
+impl ::core::default::Default for WKSTA_INFO_1012 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1012 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1012 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1012").field("wki1012_maximum_collection_count", &self.wki1012_maximum_collection_count).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1012 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1012 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1012_maximum_collection_count == other.wki1012_maximum_collection_count
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1012 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1012 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1012 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1013 {
     pub wki1013_keep_conn: u32,
 }
 impl WKSTA_INFO_1013 {}
-impl ::std::default::Default for WKSTA_INFO_1013 {
+impl ::core::default::Default for WKSTA_INFO_1013 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1013 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1013 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1013").field("wki1013_keep_conn", &self.wki1013_keep_conn).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1013 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1013 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1013_keep_conn == other.wki1013_keep_conn
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1013 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1013 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1013 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1018 {
     pub wki1018_sess_timeout: u32,
 }
 impl WKSTA_INFO_1018 {}
-impl ::std::default::Default for WKSTA_INFO_1018 {
+impl ::core::default::Default for WKSTA_INFO_1018 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1018 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1018 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1018").field("wki1018_sess_timeout", &self.wki1018_sess_timeout).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1018 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1018 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1018_sess_timeout == other.wki1018_sess_timeout
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1018 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1018 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1018 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -18432,14 +18441,14 @@ pub struct WKSTA_INFO_102 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_102 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_102 {
+impl ::core::default::Default for WKSTA_INFO_102 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_102 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_102 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_102")
             .field("wki102_platform_id", &self.wki102_platform_id)
             .field("wki102_computername", &self.wki102_computername)
@@ -18452,330 +18461,330 @@ impl ::std::fmt::Debug for WKSTA_INFO_102 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_102 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_102 {
     fn eq(&self, other: &Self) -> bool {
         self.wki102_platform_id == other.wki102_platform_id && self.wki102_computername == other.wki102_computername && self.wki102_langroup == other.wki102_langroup && self.wki102_ver_major == other.wki102_ver_major && self.wki102_ver_minor == other.wki102_ver_minor && self.wki102_lanroot == other.wki102_lanroot && self.wki102_logged_on_users == other.wki102_logged_on_users
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_102 {}
+impl ::core::cmp::Eq for WKSTA_INFO_102 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_102 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1023 {
     pub wki1023_siz_char_buf: u32,
 }
 impl WKSTA_INFO_1023 {}
-impl ::std::default::Default for WKSTA_INFO_1023 {
+impl ::core::default::Default for WKSTA_INFO_1023 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1023 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1023 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1023").field("wki1023_siz_char_buf", &self.wki1023_siz_char_buf).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1023 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1023 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1023_siz_char_buf == other.wki1023_siz_char_buf
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1023 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1023 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1023 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1027 {
     pub wki1027_errlog_sz: u32,
 }
 impl WKSTA_INFO_1027 {}
-impl ::std::default::Default for WKSTA_INFO_1027 {
+impl ::core::default::Default for WKSTA_INFO_1027 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1027 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1027 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1027").field("wki1027_errlog_sz", &self.wki1027_errlog_sz).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1027 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1027 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1027_errlog_sz == other.wki1027_errlog_sz
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1027 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1027 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1027 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1028 {
     pub wki1028_print_buf_time: u32,
 }
 impl WKSTA_INFO_1028 {}
-impl ::std::default::Default for WKSTA_INFO_1028 {
+impl ::core::default::Default for WKSTA_INFO_1028 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1028 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1028 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1028").field("wki1028_print_buf_time", &self.wki1028_print_buf_time).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1028 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1028 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1028_print_buf_time == other.wki1028_print_buf_time
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1028 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1028 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1028 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1032 {
     pub wki1032_wrk_heuristics: u32,
 }
 impl WKSTA_INFO_1032 {}
-impl ::std::default::Default for WKSTA_INFO_1032 {
+impl ::core::default::Default for WKSTA_INFO_1032 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1032 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1032 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1032").field("wki1032_wrk_heuristics", &self.wki1032_wrk_heuristics).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1032 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1032 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1032_wrk_heuristics == other.wki1032_wrk_heuristics
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1032 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1032 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1032 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1033 {
     pub wki1033_max_threads: u32,
 }
 impl WKSTA_INFO_1033 {}
-impl ::std::default::Default for WKSTA_INFO_1033 {
+impl ::core::default::Default for WKSTA_INFO_1033 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1033 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1033 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1033").field("wki1033_max_threads", &self.wki1033_max_threads).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1033 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1033 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1033_max_threads == other.wki1033_max_threads
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1033 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1033 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1033 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1041 {
     pub wki1041_lock_quota: u32,
 }
 impl WKSTA_INFO_1041 {}
-impl ::std::default::Default for WKSTA_INFO_1041 {
+impl ::core::default::Default for WKSTA_INFO_1041 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1041 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1041 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1041").field("wki1041_lock_quota", &self.wki1041_lock_quota).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1041 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1041 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1041_lock_quota == other.wki1041_lock_quota
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1041 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1041 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1041 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1042 {
     pub wki1042_lock_increment: u32,
 }
 impl WKSTA_INFO_1042 {}
-impl ::std::default::Default for WKSTA_INFO_1042 {
+impl ::core::default::Default for WKSTA_INFO_1042 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1042 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1042 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1042").field("wki1042_lock_increment", &self.wki1042_lock_increment).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1042 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1042 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1042_lock_increment == other.wki1042_lock_increment
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1042 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1042 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1042 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1043 {
     pub wki1043_lock_maximum: u32,
 }
 impl WKSTA_INFO_1043 {}
-impl ::std::default::Default for WKSTA_INFO_1043 {
+impl ::core::default::Default for WKSTA_INFO_1043 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1043 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1043 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1043").field("wki1043_lock_maximum", &self.wki1043_lock_maximum).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1043 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1043 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1043_lock_maximum == other.wki1043_lock_maximum
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1043 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1043 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1043 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1044 {
     pub wki1044_pipe_increment: u32,
 }
 impl WKSTA_INFO_1044 {}
-impl ::std::default::Default for WKSTA_INFO_1044 {
+impl ::core::default::Default for WKSTA_INFO_1044 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1044 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1044 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1044").field("wki1044_pipe_increment", &self.wki1044_pipe_increment).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1044 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1044 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1044_pipe_increment == other.wki1044_pipe_increment
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1044 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1044 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1044 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1045 {
     pub wki1045_pipe_maximum: u32,
 }
 impl WKSTA_INFO_1045 {}
-impl ::std::default::Default for WKSTA_INFO_1045 {
+impl ::core::default::Default for WKSTA_INFO_1045 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1045 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1045 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1045").field("wki1045_pipe_maximum", &self.wki1045_pipe_maximum).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1045 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1045 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1045_pipe_maximum == other.wki1045_pipe_maximum
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1045 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1045 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1045 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1046 {
     pub wki1046_dormant_file_limit: u32,
 }
 impl WKSTA_INFO_1046 {}
-impl ::std::default::Default for WKSTA_INFO_1046 {
+impl ::core::default::Default for WKSTA_INFO_1046 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1046 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1046 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1046").field("wki1046_dormant_file_limit", &self.wki1046_dormant_file_limit).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1046 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1046 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1046_dormant_file_limit == other.wki1046_dormant_file_limit
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1046 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1046 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1046 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1047 {
     pub wki1047_cache_file_timeout: u32,
 }
 impl WKSTA_INFO_1047 {}
-impl ::std::default::Default for WKSTA_INFO_1047 {
+impl ::core::default::Default for WKSTA_INFO_1047 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1047 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1047 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1047").field("wki1047_cache_file_timeout", &self.wki1047_cache_file_timeout).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1047 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1047 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1047_cache_file_timeout == other.wki1047_cache_file_timeout
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1047 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1047 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1047 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -18785,30 +18794,30 @@ pub struct WKSTA_INFO_1048 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_1048 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_1048 {
+impl ::core::default::Default for WKSTA_INFO_1048 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_1048 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1048 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1048").field("wki1048_use_opportunistic_locking", &self.wki1048_use_opportunistic_locking).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_1048 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1048 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1048_use_opportunistic_locking == other.wki1048_use_opportunistic_locking
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_1048 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1048 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1048 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -18818,30 +18827,30 @@ pub struct WKSTA_INFO_1049 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_1049 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_1049 {
+impl ::core::default::Default for WKSTA_INFO_1049 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_1049 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1049 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1049").field("wki1049_use_unlock_behind", &self.wki1049_use_unlock_behind).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_1049 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1049 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1049_use_unlock_behind == other.wki1049_use_unlock_behind
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_1049 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1049 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1049 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -18851,30 +18860,30 @@ pub struct WKSTA_INFO_1050 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_1050 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_1050 {
+impl ::core::default::Default for WKSTA_INFO_1050 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_1050 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1050 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1050").field("wki1050_use_close_behind", &self.wki1050_use_close_behind).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_1050 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1050 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1050_use_close_behind == other.wki1050_use_close_behind
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_1050 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1050 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1050 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -18884,30 +18893,30 @@ pub struct WKSTA_INFO_1051 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_1051 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_1051 {
+impl ::core::default::Default for WKSTA_INFO_1051 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_1051 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1051 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1051").field("wki1051_buf_named_pipes", &self.wki1051_buf_named_pipes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_1051 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1051 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1051_buf_named_pipes == other.wki1051_buf_named_pipes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_1051 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1051 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1051 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -18917,30 +18926,30 @@ pub struct WKSTA_INFO_1052 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_1052 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_1052 {
+impl ::core::default::Default for WKSTA_INFO_1052 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_1052 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1052 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1052").field("wki1052_use_lock_read_unlock", &self.wki1052_use_lock_read_unlock).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_1052 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1052 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1052_use_lock_read_unlock == other.wki1052_use_lock_read_unlock
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_1052 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1052 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1052 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -18950,30 +18959,30 @@ pub struct WKSTA_INFO_1053 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_1053 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_1053 {
+impl ::core::default::Default for WKSTA_INFO_1053 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_1053 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1053 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1053").field("wki1053_utilize_nt_caching", &self.wki1053_utilize_nt_caching).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_1053 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1053 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1053_utilize_nt_caching == other.wki1053_utilize_nt_caching
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_1053 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1053 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1053 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -18983,30 +18992,30 @@ pub struct WKSTA_INFO_1054 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_1054 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_1054 {
+impl ::core::default::Default for WKSTA_INFO_1054 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_1054 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1054 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1054").field("wki1054_use_raw_read", &self.wki1054_use_raw_read).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_1054 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1054 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1054_use_raw_read == other.wki1054_use_raw_read
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_1054 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1054 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1054 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -19016,30 +19025,30 @@ pub struct WKSTA_INFO_1055 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_1055 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_1055 {
+impl ::core::default::Default for WKSTA_INFO_1055 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_1055 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1055 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1055").field("wki1055_use_raw_write", &self.wki1055_use_raw_write).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_1055 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1055 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1055_use_raw_write == other.wki1055_use_raw_write
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_1055 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1055 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1055 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -19049,30 +19058,30 @@ pub struct WKSTA_INFO_1056 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_1056 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_1056 {
+impl ::core::default::Default for WKSTA_INFO_1056 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_1056 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1056 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1056").field("wki1056_use_write_raw_data", &self.wki1056_use_write_raw_data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_1056 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1056 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1056_use_write_raw_data == other.wki1056_use_write_raw_data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_1056 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1056 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1056 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -19082,30 +19091,30 @@ pub struct WKSTA_INFO_1057 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_1057 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_1057 {
+impl ::core::default::Default for WKSTA_INFO_1057 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_1057 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1057 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1057").field("wki1057_use_encryption", &self.wki1057_use_encryption).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_1057 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1057 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1057_use_encryption == other.wki1057_use_encryption
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_1057 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1057 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1057 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -19115,30 +19124,30 @@ pub struct WKSTA_INFO_1058 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_1058 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_1058 {
+impl ::core::default::Default for WKSTA_INFO_1058 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_1058 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1058 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1058").field("wki1058_buf_files_deny_write", &self.wki1058_buf_files_deny_write).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_1058 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1058 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1058_buf_files_deny_write == other.wki1058_buf_files_deny_write
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_1058 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1058 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1058 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -19148,30 +19157,30 @@ pub struct WKSTA_INFO_1059 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_1059 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_1059 {
+impl ::core::default::Default for WKSTA_INFO_1059 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_1059 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1059 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1059").field("wki1059_buf_read_only_files", &self.wki1059_buf_read_only_files).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_1059 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1059 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1059_buf_read_only_files == other.wki1059_buf_read_only_files
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_1059 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1059 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1059 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -19181,30 +19190,30 @@ pub struct WKSTA_INFO_1060 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_1060 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_1060 {
+impl ::core::default::Default for WKSTA_INFO_1060 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_1060 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1060 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1060").field("wki1060_force_core_create_mode", &self.wki1060_force_core_create_mode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_1060 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1060 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1060_force_core_create_mode == other.wki1060_force_core_create_mode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_1060 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1060 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1060 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -19214,56 +19223,56 @@ pub struct WKSTA_INFO_1061 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_1061 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_1061 {
+impl ::core::default::Default for WKSTA_INFO_1061 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_1061 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1061 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1061").field("wki1061_use_512_byte_max_transfer", &self.wki1061_use_512_byte_max_transfer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_1061 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1061 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1061_use_512_byte_max_transfer == other.wki1061_use_512_byte_max_transfer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_1061 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1061 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1061 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub struct WKSTA_INFO_1062 {
     pub wki1062_read_ahead_throughput: u32,
 }
 impl WKSTA_INFO_1062 {}
-impl ::std::default::Default for WKSTA_INFO_1062 {
+impl ::core::default::Default for WKSTA_INFO_1062 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WKSTA_INFO_1062 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_1062 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_1062").field("wki1062_read_ahead_throughput", &self.wki1062_read_ahead_throughput).finish()
     }
 }
-impl ::std::cmp::PartialEq for WKSTA_INFO_1062 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_1062 {
     fn eq(&self, other: &Self) -> bool {
         self.wki1062_read_ahead_throughput == other.wki1062_read_ahead_throughput
     }
 }
-impl ::std::cmp::Eq for WKSTA_INFO_1062 {}
+impl ::core::cmp::Eq for WKSTA_INFO_1062 {}
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_1062 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -19292,14 +19301,14 @@ pub struct WKSTA_INFO_302 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_302 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_302 {
+impl ::core::default::Default for WKSTA_INFO_302 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_302 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_302 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_302")
             .field("wki302_char_wait", &self.wki302_char_wait)
             .field("wki302_collection_time", &self.wki302_collection_time)
@@ -19325,7 +19334,7 @@ impl ::std::fmt::Debug for WKSTA_INFO_302 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_302 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_302 {
     fn eq(&self, other: &Self) -> bool {
         self.wki302_char_wait == other.wki302_char_wait
             && self.wki302_collection_time == other.wki302_collection_time
@@ -19350,12 +19359,12 @@ impl ::std::cmp::PartialEq for WKSTA_INFO_302 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_302 {}
+impl ::core::cmp::Eq for WKSTA_INFO_302 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_302 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -19385,14 +19394,14 @@ pub struct WKSTA_INFO_402 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_402 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_402 {
+impl ::core::default::Default for WKSTA_INFO_402 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_402 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_402 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_402")
             .field("wki402_char_wait", &self.wki402_char_wait)
             .field("wki402_collection_time", &self.wki402_collection_time)
@@ -19419,7 +19428,7 @@ impl ::std::fmt::Debug for WKSTA_INFO_402 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_402 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_402 {
     fn eq(&self, other: &Self) -> bool {
         self.wki402_char_wait == other.wki402_char_wait
             && self.wki402_collection_time == other.wki402_collection_time
@@ -19445,12 +19454,12 @@ impl ::std::cmp::PartialEq for WKSTA_INFO_402 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_402 {}
+impl ::core::cmp::Eq for WKSTA_INFO_402 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_402 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -19494,14 +19503,14 @@ pub struct WKSTA_INFO_502 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_INFO_502 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_INFO_502 {
+impl ::core::default::Default for WKSTA_INFO_502 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_INFO_502 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_INFO_502 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_INFO_502")
             .field("wki502_char_wait", &self.wki502_char_wait)
             .field("wki502_collection_time", &self.wki502_collection_time)
@@ -19542,7 +19551,7 @@ impl ::std::fmt::Debug for WKSTA_INFO_502 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_INFO_502 {
+impl ::core::cmp::PartialEq for WKSTA_INFO_502 {
     fn eq(&self, other: &Self) -> bool {
         self.wki502_char_wait == other.wki502_char_wait
             && self.wki502_collection_time == other.wki502_collection_time
@@ -19582,7 +19591,7 @@ impl ::std::cmp::PartialEq for WKSTA_INFO_502 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_INFO_502 {}
+impl ::core::cmp::Eq for WKSTA_INFO_502 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_INFO_502 {
     type Abi = Self;
@@ -19645,7 +19654,7 @@ pub const WKSTA_SIZCHARBUF_PARMNUM: u32 = 23u32;
 pub const WKSTA_SIZERROR_PARMNUM: u32 = 19u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const WKSTA_SIZWORKBUF_PARMNUM: u32 = 29u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -19659,14 +19668,14 @@ pub struct WKSTA_TRANSPORT_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_TRANSPORT_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_TRANSPORT_INFO_0 {
+impl ::core::default::Default for WKSTA_TRANSPORT_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_TRANSPORT_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_TRANSPORT_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_TRANSPORT_INFO_0")
             .field("wkti0_quality_of_service", &self.wkti0_quality_of_service)
             .field("wkti0_number_of_vcs", &self.wkti0_number_of_vcs)
@@ -19677,13 +19686,13 @@ impl ::std::fmt::Debug for WKSTA_TRANSPORT_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_TRANSPORT_INFO_0 {
+impl ::core::cmp::PartialEq for WKSTA_TRANSPORT_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.wkti0_quality_of_service == other.wkti0_quality_of_service && self.wkti0_number_of_vcs == other.wkti0_number_of_vcs && self.wkti0_transport_name == other.wkti0_transport_name && self.wkti0_transport_address == other.wkti0_transport_address && self.wkti0_wan_ish == other.wkti0_wan_ish
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_TRANSPORT_INFO_0 {}
+impl ::core::cmp::Eq for WKSTA_TRANSPORT_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_TRANSPORT_INFO_0 {
     type Abi = Self;
@@ -19702,7 +19711,7 @@ pub const WKSTA_USEOPPORTUNISTICLOCKING_PARMNUM: u32 = 48u32;
 pub const WKSTA_USERAWREAD_PARMNUM: u32 = 54u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const WKSTA_USERAWWRITE_PARMNUM: u32 = 55u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -19712,30 +19721,30 @@ pub struct WKSTA_USER_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_USER_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_USER_INFO_0 {
+impl ::core::default::Default for WKSTA_USER_INFO_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_USER_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_USER_INFO_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_USER_INFO_0").field("wkui0_username", &self.wkui0_username).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_USER_INFO_0 {
+impl ::core::cmp::PartialEq for WKSTA_USER_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.wkui0_username == other.wkui0_username
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_USER_INFO_0 {}
+impl ::core::cmp::Eq for WKSTA_USER_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_USER_INFO_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -19748,30 +19757,30 @@ pub struct WKSTA_USER_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_USER_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_USER_INFO_1 {
+impl ::core::default::Default for WKSTA_USER_INFO_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_USER_INFO_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_USER_INFO_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_USER_INFO_1").field("wkui1_username", &self.wkui1_username).field("wkui1_logon_domain", &self.wkui1_logon_domain).field("wkui1_oth_domains", &self.wkui1_oth_domains).field("wkui1_logon_server", &self.wkui1_logon_server).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_USER_INFO_1 {
+impl ::core::cmp::PartialEq for WKSTA_USER_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.wkui1_username == other.wkui1_username && self.wkui1_logon_domain == other.wkui1_logon_domain && self.wkui1_oth_domains == other.wkui1_oth_domains && self.wkui1_logon_server == other.wkui1_logon_server
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_USER_INFO_1 {}
+impl ::core::cmp::Eq for WKSTA_USER_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_USER_INFO_1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -19781,25 +19790,25 @@ pub struct WKSTA_USER_INFO_1101 {
 #[cfg(feature = "Win32_Foundation")]
 impl WKSTA_USER_INFO_1101 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for WKSTA_USER_INFO_1101 {
+impl ::core::default::Default for WKSTA_USER_INFO_1101 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for WKSTA_USER_INFO_1101 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WKSTA_USER_INFO_1101 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WKSTA_USER_INFO_1101").field("wkui1101_oth_domains", &self.wkui1101_oth_domains).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for WKSTA_USER_INFO_1101 {
+impl ::core::cmp::PartialEq for WKSTA_USER_INFO_1101 {
     fn eq(&self, other: &Self) -> bool {
         self.wkui1101_oth_domains == other.wkui1101_oth_domains
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for WKSTA_USER_INFO_1101 {}
+impl ::core::cmp::Eq for WKSTA_USER_INFO_1101 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WKSTA_USER_INFO_1101 {
     type Abi = Self;
@@ -19817,7 +19826,7 @@ pub const WKSTA_VER_MINOR_PARMNUM: u32 = 5u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const WKSTA_WRKHEURISTICS_PARMNUM: u32 = 32u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-pub type WORKERFUNCTION = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void);
+pub type WORKERFUNCTION = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_SCHEMA: u32 = 34u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -19893,7 +19902,7 @@ pub const WZC_PROFILE_XML_ERROR_SSID_NOT_FOUND: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const WZC_PROFILE_XML_ERROR_UNSUPPORTED_VERSION: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct tagRASCON_IPUI_FLAGS(pub i32);
 pub const RCUIF_VPN: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(1i32);
@@ -19912,7 +19921,7 @@ pub const RCUIF_USE_IPv6_NAME_SERVERS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLA
 pub const RCUIF_USE_IPv6_REMOTE_GATEWAY: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(8192i32);
 pub const RCUIF_USE_IPv6_EXPLICIT_METRIC: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(16384i32);
 pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(32768i32);
-impl ::std::convert::From<i32> for tagRASCON_IPUI_FLAGS {
+impl ::core::convert::From<i32> for tagRASCON_IPUI_FLAGS {
     fn from(value: i32) -> Self {
         Self(value)
     }

@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Phone_Media_Devices`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioRoutingEndpoint(pub i32);
 impl AudioRoutingEndpoint {
@@ -13,7 +13,7 @@ impl AudioRoutingEndpoint {
     pub const BluetoothWithNoiseAndEchoCancellation: AudioRoutingEndpoint = AudioRoutingEndpoint(6i32);
     pub const BluetoothPreferred: AudioRoutingEndpoint = AudioRoutingEndpoint(7i32);
 }
-impl ::std::convert::From<i32> for AudioRoutingEndpoint {
+impl ::core::convert::From<i32> for AudioRoutingEndpoint {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -29,50 +29,50 @@ impl ::windows::runtime::DefaultType for AudioRoutingEndpoint {
 }
 #[doc = "*Required features: `Phone_Media_Devices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AudioRoutingManager(pub ::windows::runtime::IInspectable);
 impl AudioRoutingManager {
     #[doc = "*Required features: `Phone_Media_Devices`*"]
     pub fn GetAudioEndpoint(&self) -> ::windows::runtime::Result<AudioRoutingEndpoint> {
         let this = self;
         unsafe {
-            let mut result__: AudioRoutingEndpoint = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioRoutingEndpoint>(result__)
+            let mut result__: AudioRoutingEndpoint = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AudioRoutingEndpoint>(result__)
         }
     }
     #[doc = "*Required features: `Phone_Media_Devices`*"]
     pub fn SetAudioEndpoint(&self, endpoint: AudioRoutingEndpoint) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), endpoint).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), endpoint).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Phone_Media_Devices`, `Foundation`*"]
     pub fn AudioEndpointChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, ::windows::runtime::IInspectable>>>(&self, endpointchangehandler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), endpointchangehandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), endpointchangehandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Phone_Media_Devices`, `Foundation`*"]
     pub fn RemoveAudioEndpointChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Phone_Media_Devices`*"]
     pub fn AvailableAudioEndpoints(&self) -> ::windows::runtime::Result<AvailableAudioRoutingEndpoints> {
         let this = self;
         unsafe {
-            let mut result__: AvailableAudioRoutingEndpoints = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AvailableAudioRoutingEndpoints>(result__)
+            let mut result__: AvailableAudioRoutingEndpoints = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AvailableAudioRoutingEndpoints>(result__)
         }
     }
     #[doc = "*Required features: `Phone_Media_Devices`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<AudioRoutingManager> {
         Self::IAudioRoutingManagerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioRoutingManager>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AudioRoutingManager>(result__)
         })
     }
     pub fn IAudioRoutingManagerStatics<R, F: FnOnce(&IAudioRoutingManagerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -90,12 +90,12 @@ unsafe impl ::windows::runtime::Interface for AudioRoutingManager {
 impl ::windows::runtime::RuntimeName for AudioRoutingManager {
     const NAME: &'static str = "Windows.Phone.Media.Devices.AudioRoutingManager";
 }
-impl ::std::convert::From<AudioRoutingManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<AudioRoutingManager> for ::windows::runtime::IUnknown {
     fn from(value: AudioRoutingManager) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&AudioRoutingManager> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&AudioRoutingManager> for ::windows::runtime::IUnknown {
     fn from(value: &AudioRoutingManager) -> Self {
         value.0 .0.clone()
     }
@@ -110,12 +110,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<AudioRoutingManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<AudioRoutingManager> for ::windows::runtime::IInspectable {
     fn from(value: AudioRoutingManager) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&AudioRoutingManager> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&AudioRoutingManager> for ::windows::runtime::IInspectable {
     fn from(value: &AudioRoutingManager) -> Self {
         value.0.clone()
     }
@@ -130,10 +130,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for AudioRoutingManager {}
-unsafe impl ::std::marker::Sync for AudioRoutingManager {}
+unsafe impl ::core::marker::Send for AudioRoutingManager {}
+unsafe impl ::core::marker::Sync for AudioRoutingManager {}
 #[doc = "*Required features: `Phone_Media_Devices`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AvailableAudioRoutingEndpoints(pub u32);
 impl AvailableAudioRoutingEndpoints {
@@ -142,7 +142,7 @@ impl AvailableAudioRoutingEndpoints {
     pub const Speakerphone: AvailableAudioRoutingEndpoints = AvailableAudioRoutingEndpoints(2u32);
     pub const Bluetooth: AvailableAudioRoutingEndpoints = AvailableAudioRoutingEndpoints(4u32);
 }
-impl ::std::convert::From<u32> for AvailableAudioRoutingEndpoints {
+impl ::core::convert::From<u32> for AvailableAudioRoutingEndpoints {
     fn from(value: u32) -> Self {
         Self(value)
     }
@@ -156,29 +156,29 @@ unsafe impl ::windows::runtime::RuntimeType for AvailableAudioRoutingEndpoints {
 impl ::windows::runtime::DefaultType for AvailableAudioRoutingEndpoints {
     type DefaultType = Self;
 }
-impl ::std::ops::BitOr for AvailableAudioRoutingEndpoints {
+impl ::core::ops::BitOr for AvailableAudioRoutingEndpoints {
     type Output = Self;
     fn bitor(self, rhs: Self) -> Self {
         Self(self.0 | rhs.0)
     }
 }
-impl ::std::ops::BitAnd for AvailableAudioRoutingEndpoints {
+impl ::core::ops::BitAnd for AvailableAudioRoutingEndpoints {
     type Output = Self;
     fn bitand(self, rhs: Self) -> Self {
         Self(self.0 & rhs.0)
     }
 }
-impl ::std::ops::BitOrAssign for AvailableAudioRoutingEndpoints {
+impl ::core::ops::BitOrAssign for AvailableAudioRoutingEndpoints {
     fn bitor_assign(&mut self, rhs: Self) {
         self.0.bitor_assign(rhs.0)
     }
 }
-impl ::std::ops::BitAndAssign for AvailableAudioRoutingEndpoints {
+impl ::core::ops::BitAndAssign for AvailableAudioRoutingEndpoints {
     fn bitand_assign(&mut self, rhs: Self) {
         self.0.bitand_assign(rhs.0)
     }
 }
-impl ::std::ops::Not for AvailableAudioRoutingEndpoints {
+impl ::core::ops::Not for AvailableAudioRoutingEndpoints {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())

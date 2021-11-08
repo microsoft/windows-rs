@@ -15,7 +15,7 @@ pub mod Imaging;
 pub mod Printing;
 #[cfg(feature = "Graphics_Printing3D")]
 pub mod Printing3D;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Graphics`*"]
 pub struct DisplayAdapterId {
@@ -23,22 +23,22 @@ pub struct DisplayAdapterId {
     pub HighPart: i32,
 }
 impl DisplayAdapterId {}
-impl ::std::default::Default for DisplayAdapterId {
+impl ::core::default::Default for DisplayAdapterId {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DisplayAdapterId {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DisplayAdapterId {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DisplayAdapterId").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
-impl ::std::cmp::PartialEq for DisplayAdapterId {
+impl ::core::cmp::PartialEq for DisplayAdapterId {
     fn eq(&self, other: &Self) -> bool {
         self.LowPart == other.LowPart && self.HighPart == other.HighPart
     }
 }
-impl ::std::cmp::Eq for DisplayAdapterId {}
+impl ::core::cmp::Eq for DisplayAdapterId {}
 unsafe impl ::windows::runtime::Abi for DisplayAdapterId {
     type Abi = Self;
 }
@@ -48,29 +48,29 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayAdapterId {
 impl ::windows::runtime::DefaultType for DisplayAdapterId {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Graphics`*"]
 pub struct DisplayId {
     pub Value: u64,
 }
 impl DisplayId {}
-impl ::std::default::Default for DisplayId {
+impl ::core::default::Default for DisplayId {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for DisplayId {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for DisplayId {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("DisplayId").field("Value", &self.Value).finish()
     }
 }
-impl ::std::cmp::PartialEq for DisplayId {
+impl ::core::cmp::PartialEq for DisplayId {
     fn eq(&self, other: &Self) -> bool {
         self.Value == other.Value
     }
 }
-impl ::std::cmp::Eq for DisplayId {}
+impl ::core::cmp::Eq for DisplayId {}
 unsafe impl ::windows::runtime::Abi for DisplayId {
     type Abi = Self;
 }
@@ -81,7 +81,7 @@ impl ::windows::runtime::DefaultType for DisplayId {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 #[doc = "*Required features: `Graphics`*"]
 pub struct IGeometrySource2D(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeometrySource2D {
@@ -92,12 +92,12 @@ impl IGeometrySource2D {}
 unsafe impl ::windows::runtime::RuntimeType for IGeometrySource2D {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
 }
-impl ::std::convert::From<IGeometrySource2D> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IGeometrySource2D> for ::windows::runtime::IUnknown {
     fn from(value: IGeometrySource2D) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&IGeometrySource2D> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IGeometrySource2D> for ::windows::runtime::IUnknown {
     fn from(value: &IGeometrySource2D) -> Self {
         value.0 .0.clone()
     }
@@ -112,12 +112,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<IGeometrySource2D> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<IGeometrySource2D> for ::windows::runtime::IInspectable {
     fn from(value: IGeometrySource2D) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IGeometrySource2D> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&IGeometrySource2D> for ::windows::runtime::IInspectable {
     fn from(value: &IGeometrySource2D) -> Self {
         value.0.clone()
     }
@@ -142,7 +142,7 @@ pub struct IGeometrySource2D_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Graphics`*"]
 pub struct PointInt32 {
@@ -150,22 +150,22 @@ pub struct PointInt32 {
     pub Y: i32,
 }
 impl PointInt32 {}
-impl ::std::default::Default for PointInt32 {
+impl ::core::default::Default for PointInt32 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for PointInt32 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for PointInt32 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("PointInt32").field("X", &self.X).field("Y", &self.Y).finish()
     }
 }
-impl ::std::cmp::PartialEq for PointInt32 {
+impl ::core::cmp::PartialEq for PointInt32 {
     fn eq(&self, other: &Self) -> bool {
         self.X == other.X && self.Y == other.Y
     }
 }
-impl ::std::cmp::Eq for PointInt32 {}
+impl ::core::cmp::Eq for PointInt32 {}
 unsafe impl ::windows::runtime::Abi for PointInt32 {
     type Abi = Self;
 }
@@ -175,7 +175,7 @@ unsafe impl ::windows::runtime::RuntimeType for PointInt32 {
 impl ::windows::runtime::DefaultType for PointInt32 {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Graphics`*"]
 pub struct RectInt32 {
@@ -185,22 +185,22 @@ pub struct RectInt32 {
     pub Height: i32,
 }
 impl RectInt32 {}
-impl ::std::default::Default for RectInt32 {
+impl ::core::default::Default for RectInt32 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RectInt32 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RectInt32 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RectInt32").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
-impl ::std::cmp::PartialEq for RectInt32 {
+impl ::core::cmp::PartialEq for RectInt32 {
     fn eq(&self, other: &Self) -> bool {
         self.X == other.X && self.Y == other.Y && self.Width == other.Width && self.Height == other.Height
     }
 }
-impl ::std::cmp::Eq for RectInt32 {}
+impl ::core::cmp::Eq for RectInt32 {}
 unsafe impl ::windows::runtime::Abi for RectInt32 {
     type Abi = Self;
 }
@@ -210,7 +210,7 @@ unsafe impl ::windows::runtime::RuntimeType for RectInt32 {
 impl ::windows::runtime::DefaultType for RectInt32 {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Graphics`*"]
 pub struct SizeInt32 {
@@ -218,22 +218,22 @@ pub struct SizeInt32 {
     pub Height: i32,
 }
 impl SizeInt32 {}
-impl ::std::default::Default for SizeInt32 {
+impl ::core::default::Default for SizeInt32 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for SizeInt32 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for SizeInt32 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("SizeInt32").field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
-impl ::std::cmp::PartialEq for SizeInt32 {
+impl ::core::cmp::PartialEq for SizeInt32 {
     fn eq(&self, other: &Self) -> bool {
         self.Width == other.Width && self.Height == other.Height
     }
 }
-impl ::std::cmp::Eq for SizeInt32 {}
+impl ::core::cmp::Eq for SizeInt32 {}
 unsafe impl ::windows::runtime::Abi for SizeInt32 {
     type Abi = Self;
 }

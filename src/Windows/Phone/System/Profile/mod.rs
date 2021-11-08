@@ -24,8 +24,8 @@ impl RetailMode {
     #[doc = "*Required features: `Phone_System_Profile`*"]
     pub fn RetailModeEnabled() -> ::windows::runtime::Result<bool> {
         Self::IRetailModeStatics(|this| unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     pub fn IRetailModeStatics<R, F: FnOnce(&IRetailModeStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {

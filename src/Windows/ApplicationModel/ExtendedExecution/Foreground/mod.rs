@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ExtendedExecutionForegroundReason(pub i32);
 impl ExtendedExecutionForegroundReason {
@@ -9,7 +9,7 @@ impl ExtendedExecutionForegroundReason {
     pub const BackgroundAudio: ExtendedExecutionForegroundReason = ExtendedExecutionForegroundReason(2i32);
     pub const Unconstrained: ExtendedExecutionForegroundReason = ExtendedExecutionForegroundReason(3i32);
 }
-impl ::std::convert::From<i32> for ExtendedExecutionForegroundReason {
+impl ::core::convert::From<i32> for ExtendedExecutionForegroundReason {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -24,14 +24,14 @@ impl ::windows::runtime::DefaultType for ExtendedExecutionForegroundReason {
     type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ExtendedExecutionForegroundResult(pub i32);
 impl ExtendedExecutionForegroundResult {
     pub const Allowed: ExtendedExecutionForegroundResult = ExtendedExecutionForegroundResult(0i32);
     pub const Denied: ExtendedExecutionForegroundResult = ExtendedExecutionForegroundResult(1i32);
 }
-impl ::std::convert::From<i32> for ExtendedExecutionForegroundResult {
+impl ::core::convert::From<i32> for ExtendedExecutionForegroundResult {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -47,15 +47,15 @@ impl ::windows::runtime::DefaultType for ExtendedExecutionForegroundResult {
 }
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ExtendedExecutionForegroundRevokedEventArgs(pub ::windows::runtime::IInspectable);
 impl ExtendedExecutionForegroundRevokedEventArgs {
     #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<ExtendedExecutionForegroundRevokedReason> {
         let this = self;
         unsafe {
-            let mut result__: ExtendedExecutionForegroundRevokedReason = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ExtendedExecutionForegroundRevokedReason>(result__)
+            let mut result__: ExtendedExecutionForegroundRevokedReason = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ExtendedExecutionForegroundRevokedReason>(result__)
         }
     }
 }
@@ -69,12 +69,12 @@ unsafe impl ::windows::runtime::Interface for ExtendedExecutionForegroundRevoked
 impl ::windows::runtime::RuntimeName for ExtendedExecutionForegroundRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedEventArgs";
 }
-impl ::std::convert::From<ExtendedExecutionForegroundRevokedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ExtendedExecutionForegroundRevokedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: ExtendedExecutionForegroundRevokedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ExtendedExecutionForegroundRevokedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ExtendedExecutionForegroundRevokedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &ExtendedExecutionForegroundRevokedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -89,12 +89,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ExtendedExecutionForegroundRevokedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ExtendedExecutionForegroundRevokedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: ExtendedExecutionForegroundRevokedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ExtendedExecutionForegroundRevokedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ExtendedExecutionForegroundRevokedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &ExtendedExecutionForegroundRevokedEventArgs) -> Self {
         value.0.clone()
     }
@@ -109,17 +109,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for ExtendedExecutionForegroundRevokedEventArgs {}
-unsafe impl ::std::marker::Sync for ExtendedExecutionForegroundRevokedEventArgs {}
+unsafe impl ::core::marker::Send for ExtendedExecutionForegroundRevokedEventArgs {}
+unsafe impl ::core::marker::Sync for ExtendedExecutionForegroundRevokedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ExtendedExecutionForegroundRevokedReason(pub i32);
 impl ExtendedExecutionForegroundRevokedReason {
     pub const Resumed: ExtendedExecutionForegroundRevokedReason = ExtendedExecutionForegroundRevokedReason(0i32);
     pub const SystemPolicy: ExtendedExecutionForegroundRevokedReason = ExtendedExecutionForegroundRevokedReason(1i32);
 }
-impl ::std::convert::From<i32> for ExtendedExecutionForegroundRevokedReason {
+impl ::core::convert::From<i32> for ExtendedExecutionForegroundRevokedReason {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -135,7 +135,7 @@ impl ::windows::runtime::DefaultType for ExtendedExecutionForegroundRevokedReaso
 }
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ExtendedExecutionForegroundSession(pub ::windows::runtime::IInspectable);
 impl ExtendedExecutionForegroundSession {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -149,57 +149,57 @@ impl ExtendedExecutionForegroundSession {
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`, `Foundation`*"]
     pub fn Revoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<::windows::runtime::IInspectable, ExtendedExecutionForegroundRevokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`, `Foundation`*"]
     pub fn RemoveRevoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`, `Foundation`*"]
     pub fn RequestExtensionAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<ExtendedExecutionForegroundResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<ExtendedExecutionForegroundResult>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<ExtendedExecutionForegroundResult>>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<ExtendedExecutionForegroundReason> {
         let this = self;
         unsafe {
-            let mut result__: ExtendedExecutionForegroundReason = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ExtendedExecutionForegroundReason>(result__)
+            let mut result__: ExtendedExecutionForegroundReason = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ExtendedExecutionForegroundReason>(result__)
         }
     }
     #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
     pub fn SetReason(&self, value: ExtendedExecutionForegroundReason) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ExtendedExecutionForegroundSession {
@@ -212,12 +212,12 @@ unsafe impl ::windows::runtime::Interface for ExtendedExecutionForegroundSession
 impl ::windows::runtime::RuntimeName for ExtendedExecutionForegroundSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession";
 }
-impl ::std::convert::From<ExtendedExecutionForegroundSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<ExtendedExecutionForegroundSession> for ::windows::runtime::IUnknown {
     fn from(value: ExtendedExecutionForegroundSession) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&ExtendedExecutionForegroundSession> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&ExtendedExecutionForegroundSession> for ::windows::runtime::IUnknown {
     fn from(value: &ExtendedExecutionForegroundSession) -> Self {
         value.0 .0.clone()
     }
@@ -232,12 +232,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<ExtendedExecutionForegroundSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<ExtendedExecutionForegroundSession> for ::windows::runtime::IInspectable {
     fn from(value: ExtendedExecutionForegroundSession) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&ExtendedExecutionForegroundSession> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&ExtendedExecutionForegroundSession> for ::windows::runtime::IInspectable {
     fn from(value: &ExtendedExecutionForegroundSession) -> Self {
         value.0.clone()
     }
@@ -253,14 +253,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<ExtendedExecutionForegroundSession> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<ExtendedExecutionForegroundSession> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ExtendedExecutionForegroundSession) -> ::windows::runtime::Result<Self> {
-        ::std::convert::TryFrom::try_from(&value)
+        ::core::convert::TryFrom::try_from(&value)
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::TryFrom<&ExtendedExecutionForegroundSession> for super::super::super::Foundation::IClosable {
+impl ::core::convert::TryFrom<&ExtendedExecutionForegroundSession> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: &ExtendedExecutionForegroundSession) -> ::windows::runtime::Result<Self> {
         ::windows::runtime::Interface::cast(value)
@@ -275,11 +275,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClosable> for &ExtendedExecutionForegroundSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
-unsafe impl ::std::marker::Send for ExtendedExecutionForegroundSession {}
-unsafe impl ::std::marker::Sync for ExtendedExecutionForegroundSession {}
+unsafe impl ::core::marker::Send for ExtendedExecutionForegroundSession {}
+unsafe impl ::core::marker::Sync for ExtendedExecutionForegroundSession {}
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IExtendedExecutionForegroundRevokedEventArgs(pub ::windows::runtime::IInspectable);
@@ -314,8 +314,8 @@ pub struct IExtendedExecutionForegroundSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::core::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,

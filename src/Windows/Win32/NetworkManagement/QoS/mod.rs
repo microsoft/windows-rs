@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ABLE_TO_RECV_RSVP: u32 = 50002u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_NetworkManagement_Ndis`*"]
@@ -12,32 +12,32 @@ pub struct ADDRESS_LIST_DESCRIPTOR {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ADDRESS_LIST_DESCRIPTOR {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::std::default::Default for ADDRESS_LIST_DESCRIPTOR {
+impl ::core::default::Default for ADDRESS_LIST_DESCRIPTOR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::std::fmt::Debug for ADDRESS_LIST_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ADDRESS_LIST_DESCRIPTOR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ADDRESS_LIST_DESCRIPTOR").field("MediaType", &self.MediaType).field("AddressList", &self.AddressList).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::std::cmp::PartialEq for ADDRESS_LIST_DESCRIPTOR {
+impl ::core::cmp::PartialEq for ADDRESS_LIST_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.MediaType == other.MediaType && self.AddressList == other.AddressList
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::std::cmp::Eq for ADDRESS_LIST_DESCRIPTOR {}
+impl ::core::cmp::Eq for ADDRESS_LIST_DESCRIPTOR {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for ADDRESS_LIST_DESCRIPTOR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ADM_CTRL_FAILED: u32 = 3u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct ADSPEC {
@@ -45,28 +45,28 @@ pub struct ADSPEC {
     pub adspec_body: IS_ADSPEC_BODY,
 }
 impl ADSPEC {}
-impl ::std::default::Default for ADSPEC {
+impl ::core::default::Default for ADSPEC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ADSPEC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ADSPEC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ADSPEC").field("adspec_header", &self.adspec_header).field("adspec_body", &self.adspec_body).finish()
     }
 }
-impl ::std::cmp::PartialEq for ADSPEC {
+impl ::core::cmp::PartialEq for ADSPEC {
     fn eq(&self, other: &Self) -> bool {
         self.adspec_header == other.adspec_header && self.adspec_body == other.adspec_body
     }
 }
-impl ::std::cmp::Eq for ADSPEC {}
+impl ::core::cmp::Eq for ADSPEC {}
 unsafe impl ::windows::runtime::Abi for ADSPEC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const AD_FLAG_BREAK_BIT: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct AD_GENERAL_PARAMS {
@@ -77,26 +77,26 @@ pub struct AD_GENERAL_PARAMS {
     pub Flags: u32,
 }
 impl AD_GENERAL_PARAMS {}
-impl ::std::default::Default for AD_GENERAL_PARAMS {
+impl ::core::default::Default for AD_GENERAL_PARAMS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AD_GENERAL_PARAMS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AD_GENERAL_PARAMS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AD_GENERAL_PARAMS").field("IntServAwareHopCount", &self.IntServAwareHopCount).field("PathBandwidthEstimate", &self.PathBandwidthEstimate).field("MinimumLatency", &self.MinimumLatency).field("PathMTU", &self.PathMTU).field("Flags", &self.Flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for AD_GENERAL_PARAMS {
+impl ::core::cmp::PartialEq for AD_GENERAL_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.IntServAwareHopCount == other.IntServAwareHopCount && self.PathBandwidthEstimate == other.PathBandwidthEstimate && self.MinimumLatency == other.MinimumLatency && self.PathMTU == other.PathMTU && self.Flags == other.Flags
     }
 }
-impl ::std::cmp::Eq for AD_GENERAL_PARAMS {}
+impl ::core::cmp::Eq for AD_GENERAL_PARAMS {}
 unsafe impl ::windows::runtime::Abi for AD_GENERAL_PARAMS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct AD_GUARANTEED {
@@ -106,22 +106,22 @@ pub struct AD_GUARANTEED {
     pub DSum: u32,
 }
 impl AD_GUARANTEED {}
-impl ::std::default::Default for AD_GUARANTEED {
+impl ::core::default::Default for AD_GUARANTEED {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for AD_GUARANTEED {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for AD_GUARANTEED {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("AD_GUARANTEED").field("CTotal", &self.CTotal).field("DTotal", &self.DTotal).field("CSum", &self.CSum).field("DSum", &self.DSum).finish()
     }
 }
-impl ::std::cmp::PartialEq for AD_GUARANTEED {
+impl ::core::cmp::PartialEq for AD_GUARANTEED {
     fn eq(&self, other: &Self) -> bool {
         self.CTotal == other.CTotal && self.DTotal == other.DTotal && self.CSum == other.CSum && self.DSum == other.DSum
     }
 }
-impl ::std::cmp::Eq for AD_GUARANTEED {}
+impl ::core::cmp::Eq for AD_GUARANTEED {}
 unsafe impl ::windows::runtime::Abi for AD_GUARANTEED {
     type Abi = Self;
 }
@@ -137,7 +137,7 @@ pub type CBGETRSVPOBJECTS = unsafe extern "system" fn(lpmhandle: LPM_HANDLE, req
 pub const CONTROLLED_DELAY_SERV: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const CONTROLLED_LOAD_SERV: u32 = 5u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct CONTROL_SERVICE {
@@ -147,21 +147,21 @@ pub struct CONTROL_SERVICE {
     pub Anonymous: CONTROL_SERVICE_0,
 }
 impl CONTROL_SERVICE {}
-impl ::std::default::Default for CONTROL_SERVICE {
+impl ::core::default::Default for CONTROL_SERVICE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for CONTROL_SERVICE {
+impl ::core::cmp::PartialEq for CONTROL_SERVICE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for CONTROL_SERVICE {}
+impl ::core::cmp::Eq for CONTROL_SERVICE {}
 unsafe impl ::windows::runtime::Abi for CONTROL_SERVICE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub union CONTROL_SERVICE_0 {
@@ -169,17 +169,17 @@ pub union CONTROL_SERVICE_0 {
     pub ParamBuffer: [PARAM_BUFFER; 1],
 }
 impl CONTROL_SERVICE_0 {}
-impl ::std::default::Default for CONTROL_SERVICE_0 {
+impl ::core::default::Default for CONTROL_SERVICE_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for CONTROL_SERVICE_0 {
+impl ::core::cmp::PartialEq for CONTROL_SERVICE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for CONTROL_SERVICE_0 {}
+impl ::core::cmp::Eq for CONTROL_SERVICE_0 {}
 unsafe impl ::windows::runtime::Abi for CONTROL_SERVICE_0 {
     type Abi = Self;
 }
@@ -195,7 +195,7 @@ pub const CREDENTIAL_SUB_TYPE_UNICODE_ID: u32 = 2u32;
 pub const CREDENTIAL_SUB_TYPE_X509_V3_CERT: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const CURRENT_TCI_VERSION: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct CtrlLoadFlowspec {
@@ -204,22 +204,22 @@ pub struct CtrlLoadFlowspec {
     pub CL_spec_parms: GenTspecParms,
 }
 impl CtrlLoadFlowspec {}
-impl ::std::default::Default for CtrlLoadFlowspec {
+impl ::core::default::Default for CtrlLoadFlowspec {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for CtrlLoadFlowspec {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for CtrlLoadFlowspec {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("CtrlLoadFlowspec").field("CL_spec_serv_hdr", &self.CL_spec_serv_hdr).field("CL_spec_parm_hdr", &self.CL_spec_parm_hdr).field("CL_spec_parms", &self.CL_spec_parms).finish()
     }
 }
-impl ::std::cmp::PartialEq for CtrlLoadFlowspec {
+impl ::core::cmp::PartialEq for CtrlLoadFlowspec {
     fn eq(&self, other: &Self) -> bool {
         self.CL_spec_serv_hdr == other.CL_spec_serv_hdr && self.CL_spec_parm_hdr == other.CL_spec_parm_hdr && self.CL_spec_parms == other.CL_spec_parms
     }
 }
-impl ::std::cmp::Eq for CtrlLoadFlowspec {}
+impl ::core::cmp::Eq for CtrlLoadFlowspec {}
 unsafe impl ::windows::runtime::Abi for CtrlLoadFlowspec {
     type Abi = Self;
 }
@@ -227,7 +227,7 @@ unsafe impl ::windows::runtime::Abi for CtrlLoadFlowspec {
 pub const DUP_RESULTS: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const END_TO_END_QOSABILITY: u32 = 50006u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct ENUMERATION_BUFFER {
@@ -240,13 +240,13 @@ pub struct ENUMERATION_BUFFER {
     pub GenericFilter: [TC_GEN_FILTER; 1],
 }
 impl ENUMERATION_BUFFER {}
-impl ::std::default::Default for ENUMERATION_BUFFER {
+impl ::core::default::Default for ENUMERATION_BUFFER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ENUMERATION_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ENUMERATION_BUFFER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ENUMERATION_BUFFER")
             .field("Length", &self.Length)
             .field("OwnerProcessId", &self.OwnerProcessId)
@@ -258,12 +258,12 @@ impl ::std::fmt::Debug for ENUMERATION_BUFFER {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for ENUMERATION_BUFFER {
+impl ::core::cmp::PartialEq for ENUMERATION_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.OwnerProcessId == other.OwnerProcessId && self.FlowNameLength == other.FlowNameLength && self.FlowName == other.FlowName && self.pFlow == other.pFlow && self.NumberOfFilters == other.NumberOfFilters && self.GenericFilter == other.GenericFilter
     }
 }
-impl ::std::cmp::Eq for ENUMERATION_BUFFER {}
+impl ::core::cmp::Eq for ENUMERATION_BUFFER {}
 unsafe impl ::windows::runtime::Abi for ENUMERATION_BUFFER {
     type Abi = Self;
 }
@@ -303,7 +303,7 @@ pub const ERROR_INVALID_TOKEN_RATE: u32 = 7503u32;
 pub const ERROR_INVALID_TRAFFIC_CLASS: u32 = 7507u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_NO_MORE_INFO: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
@@ -314,24 +314,24 @@ pub struct ERROR_SPEC {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ERROR_SPEC {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for ERROR_SPEC {
+impl ::core::default::Default for ERROR_SPEC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for ERROR_SPEC {
+impl ::core::cmp::PartialEq for ERROR_SPEC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for ERROR_SPEC {}
+impl ::core::cmp::Eq for ERROR_SPEC {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for ERROR_SPEC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union ERROR_SPEC_0 {
@@ -340,19 +340,19 @@ pub union ERROR_SPEC_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ERROR_SPEC_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for ERROR_SPEC_0 {
+impl ::core::default::Default for ERROR_SPEC_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for ERROR_SPEC_0 {
+impl ::core::cmp::PartialEq for ERROR_SPEC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for ERROR_SPEC_0 {}
+impl ::core::cmp::Eq for ERROR_SPEC_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for ERROR_SPEC_0 {
     type Abi = Self;
@@ -381,7 +381,7 @@ pub const ERR_Usage_serv: u32 = 17u32;
 pub const ERR_global_mask: u32 = 4095u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const EXPIRED_CREDENTIAL: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
@@ -394,24 +394,24 @@ pub struct Error_Spec_IPv4 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Error_Spec_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for Error_Spec_IPv4 {
+impl ::core::default::Default for Error_Spec_IPv4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for Error_Spec_IPv4 {
+impl ::core::cmp::PartialEq for Error_Spec_IPv4 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for Error_Spec_IPv4 {}
+impl ::core::cmp::Eq for Error_Spec_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for Error_Spec_IPv4 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
@@ -422,24 +422,24 @@ pub struct FILTER_SPEC {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl FILTER_SPEC {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for FILTER_SPEC {
+impl ::core::default::Default for FILTER_SPEC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for FILTER_SPEC {
+impl ::core::cmp::PartialEq for FILTER_SPEC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for FILTER_SPEC {}
+impl ::core::cmp::Eq for FILTER_SPEC {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for FILTER_SPEC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union FILTER_SPEC_0 {
@@ -449,24 +449,24 @@ pub union FILTER_SPEC_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl FILTER_SPEC_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for FILTER_SPEC_0 {
+impl ::core::default::Default for FILTER_SPEC_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for FILTER_SPEC_0 {
+impl ::core::cmp::PartialEq for FILTER_SPEC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for FILTER_SPEC_0 {}
+impl ::core::cmp::Eq for FILTER_SPEC_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for FILTER_SPEC_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct FLOWDESCRIPTOR {
@@ -475,26 +475,26 @@ pub struct FLOWDESCRIPTOR {
     pub FilterList: *mut RSVP_FILTERSPEC,
 }
 impl FLOWDESCRIPTOR {}
-impl ::std::default::Default for FLOWDESCRIPTOR {
+impl ::core::default::Default for FLOWDESCRIPTOR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FLOWDESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FLOWDESCRIPTOR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FLOWDESCRIPTOR").field("FlowSpec", &self.FlowSpec).field("NumFilters", &self.NumFilters).field("FilterList", &self.FilterList).finish()
     }
 }
-impl ::std::cmp::PartialEq for FLOWDESCRIPTOR {
+impl ::core::cmp::PartialEq for FLOWDESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.FlowSpec == other.FlowSpec && self.NumFilters == other.NumFilters && self.FilterList == other.FilterList
     }
 }
-impl ::std::cmp::Eq for FLOWDESCRIPTOR {}
+impl ::core::cmp::Eq for FLOWDESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for FLOWDESCRIPTOR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct FLOWSPEC {
@@ -508,13 +508,13 @@ pub struct FLOWSPEC {
     pub MinimumPolicedSize: u32,
 }
 impl FLOWSPEC {}
-impl ::std::default::Default for FLOWSPEC {
+impl ::core::default::Default for FLOWSPEC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for FLOWSPEC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for FLOWSPEC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("FLOWSPEC")
             .field("TokenRate", &self.TokenRate)
             .field("TokenBucketSize", &self.TokenBucketSize)
@@ -527,12 +527,12 @@ impl ::std::fmt::Debug for FLOWSPEC {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for FLOWSPEC {
+impl ::core::cmp::PartialEq for FLOWSPEC {
     fn eq(&self, other: &Self) -> bool {
         self.TokenRate == other.TokenRate && self.TokenBucketSize == other.TokenBucketSize && self.PeakBandwidth == other.PeakBandwidth && self.Latency == other.Latency && self.DelayVariation == other.DelayVariation && self.ServiceType == other.ServiceType && self.MaxSduSize == other.MaxSduSize && self.MinimumPolicedSize == other.MinimumPolicedSize
     }
 }
-impl ::std::cmp::Eq for FLOWSPEC {}
+impl ::core::cmp::Eq for FLOWSPEC {}
 unsafe impl ::windows::runtime::Abi for FLOWSPEC {
     type Abi = Self;
 }
@@ -563,7 +563,7 @@ pub const FVEB_UNLOCK_FLAG_RECOVERY: u32 = 64u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FVEB_UNLOCK_FLAG_TPM: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FilterType(pub i32);
 pub const FILTERSPECV4: FilterType = FilterType(1i32);
@@ -572,7 +572,7 @@ pub const FILTERSPECV6_FLOW: FilterType = FilterType(3i32);
 pub const FILTERSPECV4_GPI: FilterType = FilterType(4i32);
 pub const FILTERSPECV6_GPI: FilterType = FilterType(5i32);
 pub const FILTERSPEC_END: FilterType = FilterType(6i32);
-impl ::std::convert::From<i32> for FilterType {
+impl ::core::convert::From<i32> for FilterType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -580,7 +580,7 @@ impl ::std::convert::From<i32> for FilterType {
 unsafe impl ::windows::runtime::Abi for FilterType {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
@@ -592,24 +592,24 @@ pub struct Filter_Spec_IPv4 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Filter_Spec_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for Filter_Spec_IPv4 {
+impl ::core::default::Default for Filter_Spec_IPv4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for Filter_Spec_IPv4 {
+impl ::core::cmp::PartialEq for Filter_Spec_IPv4 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for Filter_Spec_IPv4 {}
+impl ::core::cmp::Eq for Filter_Spec_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for Filter_Spec_IPv4 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
@@ -620,19 +620,19 @@ pub struct Filter_Spec_IPv4GPI {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Filter_Spec_IPv4GPI {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for Filter_Spec_IPv4GPI {
+impl ::core::default::Default for Filter_Spec_IPv4GPI {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for Filter_Spec_IPv4GPI {
+impl ::core::cmp::PartialEq for Filter_Spec_IPv4GPI {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for Filter_Spec_IPv4GPI {}
+impl ::core::cmp::Eq for Filter_Spec_IPv4GPI {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for Filter_Spec_IPv4GPI {
     type Abi = Self;
@@ -691,7 +691,7 @@ pub const GUID_QOS_NON_BESTEFFORT_LIMIT: ::windows::runtime::GUID = ::windows::r
 pub const GUID_QOS_REMAINING_BANDWIDTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3301250848, 16620, 4561, [44, 145, 0, 170, 0, 87, 73, 21]);
 pub const GUID_QOS_STATISTICS_BUFFER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3140225408, 59648, 4561, [176, 126, 0, 128, 199, 19, 130, 191]);
 pub const GUID_QOS_TIMER_RESOLUTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3121663112, 61758, 4562, [190, 27, 0, 160, 201, 158, 230, 59]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct Gads_parms_t {
@@ -706,13 +706,13 @@ pub struct Gads_parms_t {
     pub Gads_Dsum: u32,
 }
 impl Gads_parms_t {}
-impl ::std::default::Default for Gads_parms_t {
+impl ::core::default::Default for Gads_parms_t {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for Gads_parms_t {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for Gads_parms_t {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("Gads_parms_t")
             .field("Gads_serv_hdr", &self.Gads_serv_hdr)
             .field("Gads_Ctot_hdr", &self.Gads_Ctot_hdr)
@@ -726,16 +726,16 @@ impl ::std::fmt::Debug for Gads_parms_t {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for Gads_parms_t {
+impl ::core::cmp::PartialEq for Gads_parms_t {
     fn eq(&self, other: &Self) -> bool {
         self.Gads_serv_hdr == other.Gads_serv_hdr && self.Gads_Ctot_hdr == other.Gads_Ctot_hdr && self.Gads_Ctot == other.Gads_Ctot && self.Gads_Dtot_hdr == other.Gads_Dtot_hdr && self.Gads_Dtot == other.Gads_Dtot && self.Gads_Csum_hdr == other.Gads_Csum_hdr && self.Gads_Csum == other.Gads_Csum && self.Gads_Dsum_hdr == other.Gads_Dsum_hdr && self.Gads_Dsum == other.Gads_Dsum
     }
 }
-impl ::std::cmp::Eq for Gads_parms_t {}
+impl ::core::cmp::Eq for Gads_parms_t {}
 unsafe impl ::windows::runtime::Abi for Gads_parms_t {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct GenAdspecParams {
@@ -750,13 +750,13 @@ pub struct GenAdspecParams {
     pub gen_parm_composed_MTU: u32,
 }
 impl GenAdspecParams {}
-impl ::std::default::Default for GenAdspecParams {
+impl ::core::default::Default for GenAdspecParams {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for GenAdspecParams {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GenAdspecParams {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GenAdspecParams")
             .field("gen_parm_hdr", &self.gen_parm_hdr)
             .field("gen_parm_hopcnt_hdr", &self.gen_parm_hopcnt_hdr)
@@ -770,16 +770,16 @@ impl ::std::fmt::Debug for GenAdspecParams {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for GenAdspecParams {
+impl ::core::cmp::PartialEq for GenAdspecParams {
     fn eq(&self, other: &Self) -> bool {
         self.gen_parm_hdr == other.gen_parm_hdr && self.gen_parm_hopcnt_hdr == other.gen_parm_hopcnt_hdr && self.gen_parm_hopcnt == other.gen_parm_hopcnt && self.gen_parm_pathbw_hdr == other.gen_parm_pathbw_hdr && self.gen_parm_path_bw == other.gen_parm_path_bw && self.gen_parm_minlat_hdr == other.gen_parm_minlat_hdr && self.gen_parm_min_latency == other.gen_parm_min_latency && self.gen_parm_compmtu_hdr == other.gen_parm_compmtu_hdr && self.gen_parm_composed_MTU == other.gen_parm_composed_MTU
     }
 }
-impl ::std::cmp::Eq for GenAdspecParams {}
+impl ::core::cmp::Eq for GenAdspecParams {}
 unsafe impl ::windows::runtime::Abi for GenAdspecParams {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct GenTspec {
@@ -788,26 +788,26 @@ pub struct GenTspec {
     pub gen_Tspec_parms: GenTspecParms,
 }
 impl GenTspec {}
-impl ::std::default::Default for GenTspec {
+impl ::core::default::Default for GenTspec {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for GenTspec {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GenTspec {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GenTspec").field("gen_Tspec_serv_hdr", &self.gen_Tspec_serv_hdr).field("gen_Tspec_parm_hdr", &self.gen_Tspec_parm_hdr).field("gen_Tspec_parms", &self.gen_Tspec_parms).finish()
     }
 }
-impl ::std::cmp::PartialEq for GenTspec {
+impl ::core::cmp::PartialEq for GenTspec {
     fn eq(&self, other: &Self) -> bool {
         self.gen_Tspec_serv_hdr == other.gen_Tspec_serv_hdr && self.gen_Tspec_parm_hdr == other.gen_Tspec_parm_hdr && self.gen_Tspec_parms == other.gen_Tspec_parms
     }
 }
-impl ::std::cmp::Eq for GenTspec {}
+impl ::core::cmp::Eq for GenTspec {}
 unsafe impl ::windows::runtime::Abi for GenTspec {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct GenTspecParms {
@@ -818,26 +818,26 @@ pub struct GenTspecParms {
     pub TB_Tspec_M: u32,
 }
 impl GenTspecParms {}
-impl ::std::default::Default for GenTspecParms {
+impl ::core::default::Default for GenTspecParms {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for GenTspecParms {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GenTspecParms {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GenTspecParms").field("TB_Tspec_r", &self.TB_Tspec_r).field("TB_Tspec_b", &self.TB_Tspec_b).field("TB_Tspec_p", &self.TB_Tspec_p).field("TB_Tspec_m", &self.TB_Tspec_m).field("TB_Tspec_M", &self.TB_Tspec_M).finish()
     }
 }
-impl ::std::cmp::PartialEq for GenTspecParms {
+impl ::core::cmp::PartialEq for GenTspecParms {
     fn eq(&self, other: &Self) -> bool {
         self.TB_Tspec_r == other.TB_Tspec_r && self.TB_Tspec_b == other.TB_Tspec_b && self.TB_Tspec_p == other.TB_Tspec_p && self.TB_Tspec_m == other.TB_Tspec_m && self.TB_Tspec_M == other.TB_Tspec_M
     }
 }
-impl ::std::cmp::Eq for GenTspecParms {}
+impl ::core::cmp::Eq for GenTspecParms {}
 unsafe impl ::windows::runtime::Abi for GenTspecParms {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct GuarFlowSpec {
@@ -848,26 +848,26 @@ pub struct GuarFlowSpec {
     pub Guar_Rspec: GuarRspec,
 }
 impl GuarFlowSpec {}
-impl ::std::default::Default for GuarFlowSpec {
+impl ::core::default::Default for GuarFlowSpec {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for GuarFlowSpec {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GuarFlowSpec {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GuarFlowSpec").field("Guar_serv_hdr", &self.Guar_serv_hdr).field("Guar_Tspec_hdr", &self.Guar_Tspec_hdr).field("Guar_Tspec_parms", &self.Guar_Tspec_parms).field("Guar_Rspec_hdr", &self.Guar_Rspec_hdr).field("Guar_Rspec", &self.Guar_Rspec).finish()
     }
 }
-impl ::std::cmp::PartialEq for GuarFlowSpec {
+impl ::core::cmp::PartialEq for GuarFlowSpec {
     fn eq(&self, other: &Self) -> bool {
         self.Guar_serv_hdr == other.Guar_serv_hdr && self.Guar_Tspec_hdr == other.Guar_Tspec_hdr && self.Guar_Tspec_parms == other.Guar_Tspec_parms && self.Guar_Rspec_hdr == other.Guar_Rspec_hdr && self.Guar_Rspec == other.Guar_Rspec
     }
 }
-impl ::std::cmp::Eq for GuarFlowSpec {}
+impl ::core::cmp::Eq for GuarFlowSpec {}
 unsafe impl ::windows::runtime::Abi for GuarFlowSpec {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct GuarRspec {
@@ -875,22 +875,22 @@ pub struct GuarRspec {
     pub Guar_S: u32,
 }
 impl GuarRspec {}
-impl ::std::default::Default for GuarRspec {
+impl ::core::default::Default for GuarRspec {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for GuarRspec {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for GuarRspec {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("GuarRspec").field("Guar_R", &self.Guar_R).field("Guar_S", &self.Guar_S).finish()
     }
 }
-impl ::std::cmp::PartialEq for GuarRspec {
+impl ::core::cmp::PartialEq for GuarRspec {
     fn eq(&self, other: &Self) -> bool {
         self.Guar_R == other.Guar_R && self.Guar_S == other.Guar_S
     }
 }
-impl ::std::cmp::Eq for GuarRspec {}
+impl ::core::cmp::Eq for GuarRspec {}
 unsafe impl ::windows::runtime::Abi for GuarRspec {
     type Abi = Self;
 }
@@ -898,7 +898,7 @@ unsafe impl ::windows::runtime::Abi for GuarRspec {
 pub const HIGHLY_DELAY_SENSITIVE: u32 = 4294967294u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const IDENTITY_CHANGED: u32 = 5u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IDPE_ATTR {
@@ -908,26 +908,26 @@ pub struct IDPE_ATTR {
     pub PeAttribValue: [u8; 4],
 }
 impl IDPE_ATTR {}
-impl ::std::default::Default for IDPE_ATTR {
+impl ::core::default::Default for IDPE_ATTR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IDPE_ATTR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IDPE_ATTR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IDPE_ATTR").field("PeAttribLength", &self.PeAttribLength).field("PeAttribType", &self.PeAttribType).field("PeAttribSubType", &self.PeAttribSubType).field("PeAttribValue", &self.PeAttribValue).finish()
     }
 }
-impl ::std::cmp::PartialEq for IDPE_ATTR {
+impl ::core::cmp::PartialEq for IDPE_ATTR {
     fn eq(&self, other: &Self) -> bool {
         self.PeAttribLength == other.PeAttribLength && self.PeAttribType == other.PeAttribType && self.PeAttribSubType == other.PeAttribSubType && self.PeAttribValue == other.PeAttribValue
     }
 }
-impl ::std::cmp::Eq for IDPE_ATTR {}
+impl ::core::cmp::Eq for IDPE_ATTR {}
 unsafe impl ::windows::runtime::Abi for IDPE_ATTR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct ID_ERROR_OBJECT {
@@ -939,22 +939,22 @@ pub struct ID_ERROR_OBJECT {
     pub ucIdErrData: [u8; 4],
 }
 impl ID_ERROR_OBJECT {}
-impl ::std::default::Default for ID_ERROR_OBJECT {
+impl ::core::default::Default for ID_ERROR_OBJECT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for ID_ERROR_OBJECT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for ID_ERROR_OBJECT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("ID_ERROR_OBJECT").field("usIdErrLength", &self.usIdErrLength).field("ucAType", &self.ucAType).field("ucSubType", &self.ucSubType).field("usReserved", &self.usReserved).field("usIdErrorValue", &self.usIdErrorValue).field("ucIdErrData", &self.ucIdErrData).finish()
     }
 }
-impl ::std::cmp::PartialEq for ID_ERROR_OBJECT {
+impl ::core::cmp::PartialEq for ID_ERROR_OBJECT {
     fn eq(&self, other: &Self) -> bool {
         self.usIdErrLength == other.usIdErrLength && self.ucAType == other.ucAType && self.ucSubType == other.ucSubType && self.usReserved == other.usReserved && self.usIdErrorValue == other.usIdErrorValue && self.ucIdErrData == other.ucIdErrData
     }
 }
-impl ::std::cmp::Eq for ID_ERROR_OBJECT {}
+impl ::core::cmp::Eq for ID_ERROR_OBJECT {}
 unsafe impl ::windows::runtime::Abi for ID_ERROR_OBJECT {
     type Abi = Self;
 }
@@ -974,7 +974,7 @@ pub const INV_LPM_HANDLE: u32 = 1u32;
 pub const INV_REQ_HANDLE: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const INV_RESULTS: u32 = 5u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub union IN_ADDR_IPV4 {
@@ -982,47 +982,47 @@ pub union IN_ADDR_IPV4 {
     pub AddrBytes: [u8; 4],
 }
 impl IN_ADDR_IPV4 {}
-impl ::std::default::Default for IN_ADDR_IPV4 {
+impl ::core::default::Default for IN_ADDR_IPV4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IN_ADDR_IPV4 {
+impl ::core::cmp::PartialEq for IN_ADDR_IPV4 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IN_ADDR_IPV4 {}
+impl ::core::cmp::Eq for IN_ADDR_IPV4 {}
 unsafe impl ::windows::runtime::Abi for IN_ADDR_IPV4 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IN_ADDR_IPV6 {
     pub Addr: [u8; 16],
 }
 impl IN_ADDR_IPV6 {}
-impl ::std::default::Default for IN_ADDR_IPV6 {
+impl ::core::default::Default for IN_ADDR_IPV6 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IN_ADDR_IPV6 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IN_ADDR_IPV6 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IN_ADDR_IPV6").field("Addr", &self.Addr).finish()
     }
 }
-impl ::std::cmp::PartialEq for IN_ADDR_IPV6 {
+impl ::core::cmp::PartialEq for IN_ADDR_IPV6 {
     fn eq(&self, other: &Self) -> bool {
         self.Addr == other.Addr
     }
 }
-impl ::std::cmp::Eq for IN_ADDR_IPV6 {}
+impl ::core::cmp::Eq for IN_ADDR_IPV6 {}
 unsafe impl ::windows::runtime::Abi for IN_ADDR_IPV6 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IPX_PATTERN {
@@ -1030,26 +1030,26 @@ pub struct IPX_PATTERN {
     pub Dest: IPX_PATTERN_0,
 }
 impl IPX_PATTERN {}
-impl ::std::default::Default for IPX_PATTERN {
+impl ::core::default::Default for IPX_PATTERN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPX_PATTERN {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPX_PATTERN {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IPX_PATTERN").field("Src", &self.Src).field("Dest", &self.Dest).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPX_PATTERN {
+impl ::core::cmp::PartialEq for IPX_PATTERN {
     fn eq(&self, other: &Self) -> bool {
         self.Src == other.Src && self.Dest == other.Dest
     }
 }
-impl ::std::cmp::Eq for IPX_PATTERN {}
+impl ::core::cmp::Eq for IPX_PATTERN {}
 unsafe impl ::windows::runtime::Abi for IPX_PATTERN {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IPX_PATTERN_0 {
@@ -1058,22 +1058,22 @@ pub struct IPX_PATTERN_0 {
     pub Socket: u16,
 }
 impl IPX_PATTERN_0 {}
-impl ::std::default::Default for IPX_PATTERN_0 {
+impl ::core::default::Default for IPX_PATTERN_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IPX_PATTERN_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IPX_PATTERN_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_Src_e__Struct").field("NetworkAddress", &self.NetworkAddress).field("NodeAddress", &self.NodeAddress).field("Socket", &self.Socket).finish()
     }
 }
-impl ::std::cmp::PartialEq for IPX_PATTERN_0 {
+impl ::core::cmp::PartialEq for IPX_PATTERN_0 {
     fn eq(&self, other: &Self) -> bool {
         self.NetworkAddress == other.NetworkAddress && self.NodeAddress == other.NodeAddress && self.Socket == other.Socket
     }
 }
-impl ::std::cmp::Eq for IPX_PATTERN_0 {}
+impl ::core::cmp::Eq for IPX_PATTERN_0 {}
 unsafe impl ::windows::runtime::Abi for IPX_PATTERN_0 {
     type Abi = Self;
 }
@@ -1083,7 +1083,7 @@ pub const IP_INTFC_INFO_ID: u32 = 259u32;
 pub const IP_MIB_ADDRTABLE_ENTRY_ID: u32 = 258u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const IP_MIB_STATS_ID: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IP_PATTERN {
@@ -1096,21 +1096,21 @@ pub struct IP_PATTERN {
     pub Reserved3: [u8; 3],
 }
 impl IP_PATTERN {}
-impl ::std::default::Default for IP_PATTERN {
+impl ::core::default::Default for IP_PATTERN {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IP_PATTERN {
+impl ::core::cmp::PartialEq for IP_PATTERN {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IP_PATTERN {}
+impl ::core::cmp::Eq for IP_PATTERN {}
 unsafe impl ::windows::runtime::Abi for IP_PATTERN {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub union IP_PATTERN_0 {
@@ -1119,21 +1119,21 @@ pub union IP_PATTERN_0 {
     pub S_Spi: u32,
 }
 impl IP_PATTERN_0 {}
-impl ::std::default::Default for IP_PATTERN_0 {
+impl ::core::default::Default for IP_PATTERN_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IP_PATTERN_0 {
+impl ::core::cmp::PartialEq for IP_PATTERN_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IP_PATTERN_0 {}
+impl ::core::cmp::Eq for IP_PATTERN_0 {}
 unsafe impl ::windows::runtime::Abi for IP_PATTERN_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IP_PATTERN_0_0 {
@@ -1142,26 +1142,26 @@ pub struct IP_PATTERN_0_0 {
     pub filler: u16,
 }
 impl IP_PATTERN_0_0 {}
-impl ::std::default::Default for IP_PATTERN_0_0 {
+impl ::core::default::Default for IP_PATTERN_0_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IP_PATTERN_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IP_PATTERN_0_0 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_S_un_icmp_e__Struct").field("s_type", &self.s_type).field("s_code", &self.s_code).field("filler", &self.filler).finish()
     }
 }
-impl ::std::cmp::PartialEq for IP_PATTERN_0_0 {
+impl ::core::cmp::PartialEq for IP_PATTERN_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.s_type == other.s_type && self.s_code == other.s_code && self.filler == other.filler
     }
 }
-impl ::std::cmp::Eq for IP_PATTERN_0_0 {}
+impl ::core::cmp::Eq for IP_PATTERN_0_0 {}
 unsafe impl ::windows::runtime::Abi for IP_PATTERN_0_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IP_PATTERN_0_1 {
@@ -1169,22 +1169,22 @@ pub struct IP_PATTERN_0_1 {
     pub s_dstport: u16,
 }
 impl IP_PATTERN_0_1 {}
-impl ::std::default::Default for IP_PATTERN_0_1 {
+impl ::core::default::Default for IP_PATTERN_0_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IP_PATTERN_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IP_PATTERN_0_1 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("_S_un_ports_e__Struct").field("s_srcport", &self.s_srcport).field("s_dstport", &self.s_dstport).finish()
     }
 }
-impl ::std::cmp::PartialEq for IP_PATTERN_0_1 {
+impl ::core::cmp::PartialEq for IP_PATTERN_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.s_srcport == other.s_srcport && self.s_dstport == other.s_dstport
     }
 }
-impl ::std::cmp::Eq for IP_PATTERN_0_1 {}
+impl ::core::cmp::Eq for IP_PATTERN_0_1 {}
 unsafe impl ::windows::runtime::Abi for IP_PATTERN_0_1 {
     type Abi = Self;
 }
@@ -1192,7 +1192,7 @@ unsafe impl ::windows::runtime::Abi for IP_PATTERN_0_1 {
 pub const ISPH_FLG_INV: u32 = 128u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ISSH_BREAK_BIT: u32 = 128u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IS_ADSPEC_BODY {
@@ -1200,26 +1200,26 @@ pub struct IS_ADSPEC_BODY {
     pub adspec_genparms: GenAdspecParams,
 }
 impl IS_ADSPEC_BODY {}
-impl ::std::default::Default for IS_ADSPEC_BODY {
+impl ::core::default::Default for IS_ADSPEC_BODY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IS_ADSPEC_BODY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IS_ADSPEC_BODY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IS_ADSPEC_BODY").field("adspec_mh", &self.adspec_mh).field("adspec_genparms", &self.adspec_genparms).finish()
     }
 }
-impl ::std::cmp::PartialEq for IS_ADSPEC_BODY {
+impl ::core::cmp::PartialEq for IS_ADSPEC_BODY {
     fn eq(&self, other: &Self) -> bool {
         self.adspec_mh == other.adspec_mh && self.adspec_genparms == other.adspec_genparms
     }
 }
-impl ::std::cmp::Eq for IS_ADSPEC_BODY {}
+impl ::core::cmp::Eq for IS_ADSPEC_BODY {}
 unsafe impl ::windows::runtime::Abi for IS_ADSPEC_BODY {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IS_FLOWSPEC {
@@ -1227,23 +1227,23 @@ pub struct IS_FLOWSPEC {
     pub flow_body: IntServFlowSpec,
 }
 impl IS_FLOWSPEC {}
-impl ::std::default::Default for IS_FLOWSPEC {
+impl ::core::default::Default for IS_FLOWSPEC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IS_FLOWSPEC {
+impl ::core::cmp::PartialEq for IS_FLOWSPEC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IS_FLOWSPEC {}
+impl ::core::cmp::Eq for IS_FLOWSPEC {}
 unsafe impl ::windows::runtime::Abi for IS_FLOWSPEC {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const IS_GUAR_RSPEC: i32 = 130i32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IntServFlowSpec {
@@ -1251,21 +1251,21 @@ pub struct IntServFlowSpec {
     pub spec_u: IntServFlowSpec_0,
 }
 impl IntServFlowSpec {}
-impl ::std::default::Default for IntServFlowSpec {
+impl ::core::default::Default for IntServFlowSpec {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IntServFlowSpec {
+impl ::core::cmp::PartialEq for IntServFlowSpec {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IntServFlowSpec {}
+impl ::core::cmp::Eq for IntServFlowSpec {}
 unsafe impl ::windows::runtime::Abi for IntServFlowSpec {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub union IntServFlowSpec_0 {
@@ -1274,21 +1274,21 @@ pub union IntServFlowSpec_0 {
     pub Q_spec: QualAppFlowSpec,
 }
 impl IntServFlowSpec_0 {}
-impl ::std::default::Default for IntServFlowSpec_0 {
+impl ::core::default::Default for IntServFlowSpec_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IntServFlowSpec_0 {
+impl ::core::cmp::PartialEq for IntServFlowSpec_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IntServFlowSpec_0 {}
+impl ::core::cmp::Eq for IntServFlowSpec_0 {}
 unsafe impl ::windows::runtime::Abi for IntServFlowSpec_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IntServMainHdr {
@@ -1297,26 +1297,26 @@ pub struct IntServMainHdr {
     pub ismh_len32b: u16,
 }
 impl IntServMainHdr {}
-impl ::std::default::Default for IntServMainHdr {
+impl ::core::default::Default for IntServMainHdr {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IntServMainHdr {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IntServMainHdr {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IntServMainHdr").field("ismh_version", &self.ismh_version).field("ismh_unused", &self.ismh_unused).field("ismh_len32b", &self.ismh_len32b).finish()
     }
 }
-impl ::std::cmp::PartialEq for IntServMainHdr {
+impl ::core::cmp::PartialEq for IntServMainHdr {
     fn eq(&self, other: &Self) -> bool {
         self.ismh_version == other.ismh_version && self.ismh_unused == other.ismh_unused && self.ismh_len32b == other.ismh_len32b
     }
 }
-impl ::std::cmp::Eq for IntServMainHdr {}
+impl ::core::cmp::Eq for IntServMainHdr {}
 unsafe impl ::windows::runtime::Abi for IntServMainHdr {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IntServParmHdr {
@@ -1325,26 +1325,26 @@ pub struct IntServParmHdr {
     pub isph_len32b: u16,
 }
 impl IntServParmHdr {}
-impl ::std::default::Default for IntServParmHdr {
+impl ::core::default::Default for IntServParmHdr {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IntServParmHdr {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IntServParmHdr {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IntServParmHdr").field("isph_parm_num", &self.isph_parm_num).field("isph_flags", &self.isph_flags).field("isph_len32b", &self.isph_len32b).finish()
     }
 }
-impl ::std::cmp::PartialEq for IntServParmHdr {
+impl ::core::cmp::PartialEq for IntServParmHdr {
     fn eq(&self, other: &Self) -> bool {
         self.isph_parm_num == other.isph_parm_num && self.isph_flags == other.isph_flags && self.isph_len32b == other.isph_len32b
     }
 }
-impl ::std::cmp::Eq for IntServParmHdr {}
+impl ::core::cmp::Eq for IntServParmHdr {}
 unsafe impl ::windows::runtime::Abi for IntServParmHdr {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IntServServiceHdr {
@@ -1353,26 +1353,26 @@ pub struct IntServServiceHdr {
     pub issh_len32b: u16,
 }
 impl IntServServiceHdr {}
-impl ::std::default::Default for IntServServiceHdr {
+impl ::core::default::Default for IntServServiceHdr {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for IntServServiceHdr {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for IntServServiceHdr {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("IntServServiceHdr").field("issh_service", &self.issh_service).field("issh_flags", &self.issh_flags).field("issh_len32b", &self.issh_len32b).finish()
     }
 }
-impl ::std::cmp::PartialEq for IntServServiceHdr {
+impl ::core::cmp::PartialEq for IntServServiceHdr {
     fn eq(&self, other: &Self) -> bool {
         self.issh_service == other.issh_service && self.issh_flags == other.issh_flags && self.issh_len32b == other.issh_len32b
     }
 }
-impl ::std::cmp::Eq for IntServServiceHdr {}
+impl ::core::cmp::Eq for IntServServiceHdr {}
 unsafe impl ::windows::runtime::Abi for IntServServiceHdr {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct IntServTspecBody {
@@ -1380,21 +1380,21 @@ pub struct IntServTspecBody {
     pub tspec_u: IntServTspecBody_0,
 }
 impl IntServTspecBody {}
-impl ::std::default::Default for IntServTspecBody {
+impl ::core::default::Default for IntServTspecBody {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IntServTspecBody {
+impl ::core::cmp::PartialEq for IntServTspecBody {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IntServTspecBody {}
+impl ::core::cmp::Eq for IntServTspecBody {}
 unsafe impl ::windows::runtime::Abi for IntServTspecBody {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub union IntServTspecBody_0 {
@@ -1402,17 +1402,17 @@ pub union IntServTspecBody_0 {
     pub qual_stspec: QualTspec,
 }
 impl IntServTspecBody_0 {}
-impl ::std::default::Default for IntServTspecBody_0 {
+impl ::core::default::Default for IntServTspecBody_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for IntServTspecBody_0 {
+impl ::core::cmp::PartialEq for IntServTspecBody_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for IntServTspecBody_0 {}
+impl ::core::cmp::Eq for IntServTspecBody_0 {}
 unsafe impl ::windows::runtime::Abi for IntServTspecBody_0 {
     type Abi = Self;
 }
@@ -1424,42 +1424,42 @@ pub const LOCAL_QOSABILITY: u32 = 50005u32;
 pub const LOCAL_TRAFFIC_CONTROL: u32 = 50004u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPM_API_VERSION_1: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct LPM_HANDLE(pub isize);
-impl ::std::default::Default for LPM_HANDLE {
+impl ::core::default::Default for LPM_HANDLE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for LPM_HANDLE {}
 unsafe impl ::windows::runtime::Abi for LPM_HANDLE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct LPM_INIT_INFO {
     pub PcmVersionNumber: u32,
     pub ResultTimeLimit: u32,
     pub ConfiguredLpmCount: i32,
-    pub AllocMemory: ::std::option::Option<PALLOCMEM>,
-    pub FreeMemory: ::std::option::Option<PFREEMEM>,
-    pub PcmAdmitResultCallback: ::std::option::Option<CBADMITRESULT>,
-    pub GetRsvpObjectsCallback: ::std::option::Option<CBGETRSVPOBJECTS>,
+    pub AllocMemory: ::core::option::Option<PALLOCMEM>,
+    pub FreeMemory: ::core::option::Option<PFREEMEM>,
+    pub PcmAdmitResultCallback: ::core::option::Option<CBADMITRESULT>,
+    pub GetRsvpObjectsCallback: ::core::option::Option<CBGETRSVPOBJECTS>,
 }
 impl LPM_INIT_INFO {}
-impl ::std::default::Default for LPM_INIT_INFO {
+impl ::core::default::Default for LPM_INIT_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for LPM_INIT_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for LPM_INIT_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("LPM_INIT_INFO").field("PcmVersionNumber", &self.PcmVersionNumber).field("ResultTimeLimit", &self.ResultTimeLimit).field("ConfiguredLpmCount", &self.ConfiguredLpmCount).finish()
     }
 }
-impl ::std::cmp::PartialEq for LPM_INIT_INFO {
+impl ::core::cmp::PartialEq for LPM_INIT_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.PcmVersionNumber == other.PcmVersionNumber
             && self.ResultTimeLimit == other.ResultTimeLimit
@@ -1470,9 +1470,9 @@ impl ::std::cmp::PartialEq for LPM_INIT_INFO {
             && self.GetRsvpObjectsCallback.map(|f| f as usize) == other.GetRsvpObjectsCallback.map(|f| f as usize)
     }
 }
-impl ::std::cmp::Eq for LPM_INIT_INFO {}
+impl ::core::cmp::Eq for LPM_INIT_INFO {}
 unsafe impl ::windows::runtime::Abi for LPM_INIT_INFO {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPM_OK: u32 = 0u32;
@@ -1543,8 +1543,8 @@ pub const Opt_SndSel_mask: u32 = 7u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const Opt_Wildcard: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
-pub type PALLOCMEM = unsafe extern "system" fn(size: u32) -> *mut ::std::ffi::c_void;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type PALLOCMEM = unsafe extern "system" fn(size: u32) -> *mut ::core::ffi::c_void;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct PARAM_BUFFER {
@@ -1553,22 +1553,22 @@ pub struct PARAM_BUFFER {
     pub Buffer: [u8; 1],
 }
 impl PARAM_BUFFER {}
-impl ::std::default::Default for PARAM_BUFFER {
+impl ::core::default::Default for PARAM_BUFFER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for PARAM_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for PARAM_BUFFER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("PARAM_BUFFER").field("ParameterId", &self.ParameterId).field("Length", &self.Length).field("Buffer", &self.Buffer).finish()
     }
 }
-impl ::std::cmp::PartialEq for PARAM_BUFFER {
+impl ::core::cmp::PartialEq for PARAM_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.ParameterId == other.ParameterId && self.Length == other.Length && self.Buffer == other.Buffer
     }
 }
-impl ::std::cmp::Eq for PARAM_BUFFER {}
+impl ::core::cmp::Eq for PARAM_BUFFER {}
 unsafe impl ::windows::runtime::Abi for PARAM_BUFFER {
     type Abi = Self;
 }
@@ -1581,8 +1581,8 @@ pub const PE_ATTRIB_TYPE_POLICY_LOCATOR: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const PE_TYPE_APPID: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
-pub type PFREEMEM = unsafe extern "system" fn(pv: *mut ::std::ffi::c_void);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type PFREEMEM = unsafe extern "system" fn(pv: *mut ::core::ffi::c_void);
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct POLICY_DATA {
@@ -1591,26 +1591,26 @@ pub struct POLICY_DATA {
     pub usReserved: u16,
 }
 impl POLICY_DATA {}
-impl ::std::default::Default for POLICY_DATA {
+impl ::core::default::Default for POLICY_DATA {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for POLICY_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for POLICY_DATA {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("POLICY_DATA").field("PolicyObjHdr", &self.PolicyObjHdr).field("usPeOffset", &self.usPeOffset).field("usReserved", &self.usReserved).finish()
     }
 }
-impl ::std::cmp::PartialEq for POLICY_DATA {
+impl ::core::cmp::PartialEq for POLICY_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.PolicyObjHdr == other.PolicyObjHdr && self.usPeOffset == other.usPeOffset && self.usReserved == other.usReserved
     }
 }
-impl ::std::cmp::Eq for POLICY_DATA {}
+impl ::core::cmp::Eq for POLICY_DATA {}
 unsafe impl ::windows::runtime::Abi for POLICY_DATA {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct POLICY_ELEMENT {
@@ -1619,22 +1619,22 @@ pub struct POLICY_ELEMENT {
     pub ucPeData: [u8; 4],
 }
 impl POLICY_ELEMENT {}
-impl ::std::default::Default for POLICY_ELEMENT {
+impl ::core::default::Default for POLICY_ELEMENT {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for POLICY_ELEMENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for POLICY_ELEMENT {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("POLICY_ELEMENT").field("usPeLength", &self.usPeLength).field("usPeType", &self.usPeType).field("ucPeData", &self.ucPeData).finish()
     }
 }
-impl ::std::cmp::PartialEq for POLICY_ELEMENT {
+impl ::core::cmp::PartialEq for POLICY_ELEMENT {
     fn eq(&self, other: &Self) -> bool {
         self.usPeLength == other.usPeLength && self.usPeType == other.usPeType && self.ucPeData == other.ucPeData
     }
 }
-impl ::std::cmp::Eq for POLICY_ELEMENT {}
+impl ::core::cmp::Eq for POLICY_ELEMENT {}
 unsafe impl ::windows::runtime::Abi for POLICY_ELEMENT {
     type Abi = Self;
 }
@@ -1776,7 +1776,7 @@ pub const POLICY_LOCATOR_SUB_TYPE_UNICODE_DN_ENC: u32 = 4u32;
 pub const POSITIVE_INFINITY_RATE: u32 = 4294967294u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const PREDICTIVE_SERV: u32 = 3u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
@@ -1788,25 +1788,25 @@ pub struct QOS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl QOS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::std::default::Default for QOS {
+impl ::core::default::Default for QOS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::std::fmt::Debug for QOS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS").field("SendingFlowspec", &self.SendingFlowspec).field("ReceivingFlowspec", &self.ReceivingFlowspec).field("ProviderSpecific", &self.ProviderSpecific).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::std::cmp::PartialEq for QOS {
+impl ::core::cmp::PartialEq for QOS {
     fn eq(&self, other: &Self) -> bool {
         self.SendingFlowspec == other.SendingFlowspec && self.ReceivingFlowspec == other.ReceivingFlowspec && self.ProviderSpecific == other.ProviderSpecific
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::std::cmp::Eq for QOS {}
+impl ::core::cmp::Eq for QOS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for QOS {
     type Abi = Self;
@@ -1821,7 +1821,7 @@ pub unsafe fn QOSAddSocketToFlow<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn QOSAddSocketToFlow(qoshandle: super::super::Foundation::HANDLE, socket: super::super::Networking::WinSock::SOCKET, destaddr: *const super::super::Networking::WinSock::SOCKADDR, traffictype: QOS_TRAFFIC_TYPE, flags: u32, flowid: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(QOSAddSocketToFlow(qoshandle.into_param().abi(), socket.into_param().abi(), ::std::mem::transmute(destaddr), ::std::mem::transmute(traffictype), ::std::mem::transmute(flags), ::std::mem::transmute(flowid)))
+        ::core::mem::transmute(QOSAddSocketToFlow(qoshandle.into_param().abi(), socket.into_param().abi(), ::core::mem::transmute(destaddr), ::core::mem::transmute(traffictype), ::core::mem::transmute(flags), ::core::mem::transmute(flowid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1836,7 +1836,7 @@ pub unsafe fn QOSCancel<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn QOSCancel(qoshandle: super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(QOSCancel(qoshandle.into_param().abi(), ::std::mem::transmute(overlapped)))
+        ::core::mem::transmute(QOSCancel(qoshandle.into_param().abi(), ::core::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1851,7 +1851,7 @@ pub unsafe fn QOSCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn QOSCloseHandle(qoshandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(QOSCloseHandle(qoshandle.into_param().abi()))
+        ::core::mem::transmute(QOSCloseHandle(qoshandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1866,7 +1866,7 @@ pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super
         extern "system" {
             fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(QOSCreateHandle(::std::mem::transmute(version), ::std::mem::transmute(qoshandle)))
+        ::core::mem::transmute(QOSCreateHandle(::core::mem::transmute(version), ::core::mem::transmute(qoshandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1874,14 +1874,14 @@ pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QOSEnumerateFlows<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, size: *mut u32, buffer: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn QOSEnumerateFlows<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, size: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn QOSEnumerateFlows(qoshandle: super::super::Foundation::HANDLE, size: *mut u32, buffer: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn QOSEnumerateFlows(qoshandle: super::super::Foundation::HANDLE, size: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(QOSEnumerateFlows(qoshandle.into_param().abi(), ::std::mem::transmute(size), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(QOSEnumerateFlows(qoshandle.into_param().abi(), ::core::mem::transmute(size), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1889,14 +1889,14 @@ pub unsafe fn QOSEnumerateFlows<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn QOSNotifyFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::std::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn QOSNotifyFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn QOSNotifyFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::std::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn QOSNotifyFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(QOSNotifyFlow(qoshandle.into_param().abi(), ::std::mem::transmute(flowid), ::std::mem::transmute(operation), ::std::mem::transmute(size), ::std::mem::transmute(buffer), ::std::mem::transmute(flags), ::std::mem::transmute(overlapped)))
+        ::core::mem::transmute(QOSNotifyFlow(qoshandle.into_param().abi(), ::core::mem::transmute(flowid), ::core::mem::transmute(operation), ::core::mem::transmute(size), ::core::mem::transmute(buffer), ::core::mem::transmute(flags), ::core::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1904,14 +1904,14 @@ pub unsafe fn QOSNotifyFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn QOSQueryFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::std::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn QOSQueryFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn QOSQueryFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::std::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn QOSQueryFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(QOSQueryFlow(qoshandle.into_param().abi(), ::std::mem::transmute(flowid), ::std::mem::transmute(operation), ::std::mem::transmute(size), ::std::mem::transmute(buffer), ::std::mem::transmute(flags), ::std::mem::transmute(overlapped)))
+        ::core::mem::transmute(QOSQueryFlow(qoshandle.into_param().abi(), ::core::mem::transmute(flowid), ::core::mem::transmute(operation), ::core::mem::transmute(size), ::core::mem::transmute(buffer), ::core::mem::transmute(flags), ::core::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1926,7 +1926,7 @@ pub unsafe fn QOSRemoveSocketFromFlow<'a, Param0: ::windows::runtime::IntoParam<
         extern "system" {
             fn QOSRemoveSocketFromFlow(qoshandle: super::super::Foundation::HANDLE, socket: super::super::Networking::WinSock::SOCKET, flowid: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(QOSRemoveSocketFromFlow(qoshandle.into_param().abi(), socket.into_param().abi(), ::std::mem::transmute(flowid), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(QOSRemoveSocketFromFlow(qoshandle.into_param().abi(), socket.into_param().abi(), ::core::mem::transmute(flowid), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1938,14 +1938,14 @@ pub const QOSSP_ERR_BASE: u32 = 56000u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn QOSSetFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::std::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn QOSSetFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn QOSSetFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::std::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            fn QOSSetFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(QOSSetFlow(qoshandle.into_param().abi(), ::std::mem::transmute(flowid), ::std::mem::transmute(operation), ::std::mem::transmute(size), ::std::mem::transmute(buffer), ::std::mem::transmute(flags), ::std::mem::transmute(overlapped)))
+        ::core::mem::transmute(QOSSetFlow(qoshandle.into_param().abi(), ::core::mem::transmute(flowid), ::core::mem::transmute(operation), ::core::mem::transmute(size), ::core::mem::transmute(buffer), ::core::mem::transmute(flags), ::core::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1960,7 +1960,7 @@ pub unsafe fn QOSStartTrackingClient<'a, Param0: ::windows::runtime::IntoParam<'
         extern "system" {
             fn QOSStartTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(QOSStartTrackingClient(qoshandle.into_param().abi(), ::std::mem::transmute(destaddr), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(QOSStartTrackingClient(qoshandle.into_param().abi(), ::core::mem::transmute(destaddr), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1975,12 +1975,12 @@ pub unsafe fn QOSStopTrackingClient<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn QOSStopTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(QOSStopTrackingClient(qoshandle.into_param().abi(), ::std::mem::transmute(destaddr), ::std::mem::transmute(flags)))
+        ::core::mem::transmute(QOSStopTrackingClient(qoshandle.into_param().abi(), ::core::mem::transmute(destaddr), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
@@ -1992,30 +1992,30 @@ pub struct QOS_DESTADDR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl QOS_DESTADDR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::std::default::Default for QOS_DESTADDR {
+impl ::core::default::Default for QOS_DESTADDR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::std::fmt::Debug for QOS_DESTADDR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS_DESTADDR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS_DESTADDR").field("ObjectHdr", &self.ObjectHdr).field("SocketAddress", &self.SocketAddress).field("SocketAddressLength", &self.SocketAddressLength).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::std::cmp::PartialEq for QOS_DESTADDR {
+impl ::core::cmp::PartialEq for QOS_DESTADDR {
     fn eq(&self, other: &Self) -> bool {
         self.ObjectHdr == other.ObjectHdr && self.SocketAddress == other.SocketAddress && self.SocketAddressLength == other.SocketAddressLength
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::std::cmp::Eq for QOS_DESTADDR {}
+impl ::core::cmp::Eq for QOS_DESTADDR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for QOS_DESTADDR {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_DIFFSERV {
@@ -2024,26 +2024,26 @@ pub struct QOS_DIFFSERV {
     pub DiffservRule: [u8; 1],
 }
 impl QOS_DIFFSERV {}
-impl ::std::default::Default for QOS_DIFFSERV {
+impl ::core::default::Default for QOS_DIFFSERV {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QOS_DIFFSERV {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS_DIFFSERV {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS_DIFFSERV").field("ObjectHdr", &self.ObjectHdr).field("DSFieldCount", &self.DSFieldCount).field("DiffservRule", &self.DiffservRule).finish()
     }
 }
-impl ::std::cmp::PartialEq for QOS_DIFFSERV {
+impl ::core::cmp::PartialEq for QOS_DIFFSERV {
     fn eq(&self, other: &Self) -> bool {
         self.ObjectHdr == other.ObjectHdr && self.DSFieldCount == other.DSFieldCount && self.DiffservRule == other.DiffservRule
     }
 }
-impl ::std::cmp::Eq for QOS_DIFFSERV {}
+impl ::core::cmp::Eq for QOS_DIFFSERV {}
 unsafe impl ::windows::runtime::Abi for QOS_DIFFSERV {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_DIFFSERV_RULE {
@@ -2054,13 +2054,13 @@ pub struct QOS_DIFFSERV_RULE {
     pub NonConformingUserPriority: u8,
 }
 impl QOS_DIFFSERV_RULE {}
-impl ::std::default::Default for QOS_DIFFSERV_RULE {
+impl ::core::default::Default for QOS_DIFFSERV_RULE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QOS_DIFFSERV_RULE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS_DIFFSERV_RULE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS_DIFFSERV_RULE")
             .field("InboundDSField", &self.InboundDSField)
             .field("ConformingOutboundDSField", &self.ConformingOutboundDSField)
@@ -2070,16 +2070,16 @@ impl ::std::fmt::Debug for QOS_DIFFSERV_RULE {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for QOS_DIFFSERV_RULE {
+impl ::core::cmp::PartialEq for QOS_DIFFSERV_RULE {
     fn eq(&self, other: &Self) -> bool {
         self.InboundDSField == other.InboundDSField && self.ConformingOutboundDSField == other.ConformingOutboundDSField && self.NonConformingOutboundDSField == other.NonConformingOutboundDSField && self.ConformingUserPriority == other.ConformingUserPriority && self.NonConformingUserPriority == other.NonConformingUserPriority
     }
 }
-impl ::std::cmp::Eq for QOS_DIFFSERV_RULE {}
+impl ::core::cmp::Eq for QOS_DIFFSERV_RULE {}
 unsafe impl ::windows::runtime::Abi for QOS_DIFFSERV_RULE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_DS_CLASS {
@@ -2087,26 +2087,26 @@ pub struct QOS_DS_CLASS {
     pub DSField: u32,
 }
 impl QOS_DS_CLASS {}
-impl ::std::default::Default for QOS_DS_CLASS {
+impl ::core::default::Default for QOS_DS_CLASS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QOS_DS_CLASS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS_DS_CLASS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS_DS_CLASS").field("ObjectHdr", &self.ObjectHdr).field("DSField", &self.DSField).finish()
     }
 }
-impl ::std::cmp::PartialEq for QOS_DS_CLASS {
+impl ::core::cmp::PartialEq for QOS_DS_CLASS {
     fn eq(&self, other: &Self) -> bool {
         self.ObjectHdr == other.ObjectHdr && self.DSField == other.DSField
     }
 }
-impl ::std::cmp::Eq for QOS_DS_CLASS {}
+impl ::core::cmp::Eq for QOS_DS_CLASS {}
 unsafe impl ::windows::runtime::Abi for QOS_DS_CLASS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_FLOWRATE_OUTGOING {
@@ -2115,27 +2115,27 @@ pub struct QOS_FLOWRATE_OUTGOING {
     pub Reason: QOS_FLOWRATE_REASON,
 }
 impl QOS_FLOWRATE_OUTGOING {}
-impl ::std::default::Default for QOS_FLOWRATE_OUTGOING {
+impl ::core::default::Default for QOS_FLOWRATE_OUTGOING {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QOS_FLOWRATE_OUTGOING {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS_FLOWRATE_OUTGOING {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS_FLOWRATE_OUTGOING").field("Bandwidth", &self.Bandwidth).field("ShapingBehavior", &self.ShapingBehavior).field("Reason", &self.Reason).finish()
     }
 }
-impl ::std::cmp::PartialEq for QOS_FLOWRATE_OUTGOING {
+impl ::core::cmp::PartialEq for QOS_FLOWRATE_OUTGOING {
     fn eq(&self, other: &Self) -> bool {
         self.Bandwidth == other.Bandwidth && self.ShapingBehavior == other.ShapingBehavior && self.Reason == other.Reason
     }
 }
-impl ::std::cmp::Eq for QOS_FLOWRATE_OUTGOING {}
+impl ::core::cmp::Eq for QOS_FLOWRATE_OUTGOING {}
 unsafe impl ::windows::runtime::Abi for QOS_FLOWRATE_OUTGOING {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QOS_FLOWRATE_REASON(pub i32);
 pub const QOSFlowRateNotApplicable: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(0i32);
@@ -2143,7 +2143,7 @@ pub const QOSFlowRateContentChange: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(1i
 pub const QOSFlowRateCongestion: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(2i32);
 pub const QOSFlowRateHigherContentEncoding: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(3i32);
 pub const QOSFlowRateUserCaused: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(4i32);
-impl ::std::convert::From<i32> for QOS_FLOWRATE_REASON {
+impl ::core::convert::From<i32> for QOS_FLOWRATE_REASON {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2151,7 +2151,7 @@ impl ::std::convert::From<i32> for QOS_FLOWRATE_REASON {
 unsafe impl ::windows::runtime::Abi for QOS_FLOWRATE_REASON {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
@@ -2166,14 +2166,14 @@ pub struct QOS_FLOW_FUNDAMENTALS {
 #[cfg(feature = "Win32_Foundation")]
 impl QOS_FLOW_FUNDAMENTALS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for QOS_FLOW_FUNDAMENTALS {
+impl ::core::default::Default for QOS_FLOW_FUNDAMENTALS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for QOS_FLOW_FUNDAMENTALS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS_FLOW_FUNDAMENTALS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS_FLOW_FUNDAMENTALS")
             .field("BottleneckBandwidthSet", &self.BottleneckBandwidthSet)
             .field("BottleneckBandwidth", &self.BottleneckBandwidth)
@@ -2185,18 +2185,18 @@ impl ::std::fmt::Debug for QOS_FLOW_FUNDAMENTALS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for QOS_FLOW_FUNDAMENTALS {
+impl ::core::cmp::PartialEq for QOS_FLOW_FUNDAMENTALS {
     fn eq(&self, other: &Self) -> bool {
         self.BottleneckBandwidthSet == other.BottleneckBandwidthSet && self.BottleneckBandwidth == other.BottleneckBandwidth && self.AvailableBandwidthSet == other.AvailableBandwidthSet && self.AvailableBandwidth == other.AvailableBandwidth && self.RTTSet == other.RTTSet && self.RTT == other.RTT
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for QOS_FLOW_FUNDAMENTALS {}
+impl ::core::cmp::Eq for QOS_FLOW_FUNDAMENTALS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for QOS_FLOW_FUNDAMENTALS {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_FRIENDLY_NAME {
@@ -2204,22 +2204,22 @@ pub struct QOS_FRIENDLY_NAME {
     pub FriendlyName: [u16; 256],
 }
 impl QOS_FRIENDLY_NAME {}
-impl ::std::default::Default for QOS_FRIENDLY_NAME {
+impl ::core::default::Default for QOS_FRIENDLY_NAME {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QOS_FRIENDLY_NAME {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS_FRIENDLY_NAME {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS_FRIENDLY_NAME").field("ObjectHdr", &self.ObjectHdr).field("FriendlyName", &self.FriendlyName).finish()
     }
 }
-impl ::std::cmp::PartialEq for QOS_FRIENDLY_NAME {
+impl ::core::cmp::PartialEq for QOS_FRIENDLY_NAME {
     fn eq(&self, other: &Self) -> bool {
         self.ObjectHdr == other.ObjectHdr && self.FriendlyName == other.FriendlyName
     }
 }
-impl ::std::cmp::Eq for QOS_FRIENDLY_NAME {}
+impl ::core::cmp::Eq for QOS_FRIENDLY_NAME {}
 unsafe impl ::windows::runtime::Abi for QOS_FRIENDLY_NAME {
     type Abi = Self;
 }
@@ -2230,13 +2230,13 @@ pub const QOS_MAX_OBJECT_STRING_LENGTH: u32 = 256u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_NON_ADAPTIVE_FLOW: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QOS_NOTIFY_FLOW(pub i32);
 pub const QOSNotifyCongested: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(0i32);
 pub const QOSNotifyUncongested: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(1i32);
 pub const QOSNotifyAvailable: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(2i32);
-impl ::std::convert::From<i32> for QOS_NOTIFY_FLOW {
+impl ::core::convert::From<i32> for QOS_NOTIFY_FLOW {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2246,7 +2246,7 @@ unsafe impl ::windows::runtime::Abi for QOS_NOTIFY_FLOW {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_NOT_SPECIFIED: u32 = 4294967295u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_OBJECT_HDR {
@@ -2254,28 +2254,28 @@ pub struct QOS_OBJECT_HDR {
     pub ObjectLength: u32,
 }
 impl QOS_OBJECT_HDR {}
-impl ::std::default::Default for QOS_OBJECT_HDR {
+impl ::core::default::Default for QOS_OBJECT_HDR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QOS_OBJECT_HDR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS_OBJECT_HDR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS_OBJECT_HDR").field("ObjectType", &self.ObjectType).field("ObjectLength", &self.ObjectLength).finish()
     }
 }
-impl ::std::cmp::PartialEq for QOS_OBJECT_HDR {
+impl ::core::cmp::PartialEq for QOS_OBJECT_HDR {
     fn eq(&self, other: &Self) -> bool {
         self.ObjectType == other.ObjectType && self.ObjectLength == other.ObjectLength
     }
 }
-impl ::std::cmp::Eq for QOS_OBJECT_HDR {}
+impl ::core::cmp::Eq for QOS_OBJECT_HDR {}
 unsafe impl ::windows::runtime::Abi for QOS_OBJECT_HDR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: u32 = 4294967295u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_PACKET_PRIORITY {
@@ -2285,35 +2285,35 @@ pub struct QOS_PACKET_PRIORITY {
     pub NonConformantL2Value: u32,
 }
 impl QOS_PACKET_PRIORITY {}
-impl ::std::default::Default for QOS_PACKET_PRIORITY {
+impl ::core::default::Default for QOS_PACKET_PRIORITY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QOS_PACKET_PRIORITY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS_PACKET_PRIORITY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS_PACKET_PRIORITY").field("ConformantDSCPValue", &self.ConformantDSCPValue).field("NonConformantDSCPValue", &self.NonConformantDSCPValue).field("ConformantL2Value", &self.ConformantL2Value).field("NonConformantL2Value", &self.NonConformantL2Value).finish()
     }
 }
-impl ::std::cmp::PartialEq for QOS_PACKET_PRIORITY {
+impl ::core::cmp::PartialEq for QOS_PACKET_PRIORITY {
     fn eq(&self, other: &Self) -> bool {
         self.ConformantDSCPValue == other.ConformantDSCPValue && self.NonConformantDSCPValue == other.NonConformantDSCPValue && self.ConformantL2Value == other.ConformantL2Value && self.NonConformantL2Value == other.NonConformantL2Value
     }
 }
-impl ::std::cmp::Eq for QOS_PACKET_PRIORITY {}
+impl ::core::cmp::Eq for QOS_PACKET_PRIORITY {}
 unsafe impl ::windows::runtime::Abi for QOS_PACKET_PRIORITY {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_QUERYFLOW_FRESH: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QOS_QUERY_FLOW(pub i32);
 pub const QOSQueryFlowFundamentals: QOS_QUERY_FLOW = QOS_QUERY_FLOW(0i32);
 pub const QOSQueryPacketPriority: QOS_QUERY_FLOW = QOS_QUERY_FLOW(1i32);
 pub const QOSQueryOutgoingRate: QOS_QUERY_FLOW = QOS_QUERY_FLOW(2i32);
-impl ::std::convert::From<i32> for QOS_QUERY_FLOW {
+impl ::core::convert::From<i32> for QOS_QUERY_FLOW {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2321,7 +2321,7 @@ impl ::std::convert::From<i32> for QOS_QUERY_FLOW {
 unsafe impl ::windows::runtime::Abi for QOS_QUERY_FLOW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_SD_MODE {
@@ -2329,33 +2329,33 @@ pub struct QOS_SD_MODE {
     pub ShapeDiscardMode: u32,
 }
 impl QOS_SD_MODE {}
-impl ::std::default::Default for QOS_SD_MODE {
+impl ::core::default::Default for QOS_SD_MODE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QOS_SD_MODE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS_SD_MODE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS_SD_MODE").field("ObjectHdr", &self.ObjectHdr).field("ShapeDiscardMode", &self.ShapeDiscardMode).finish()
     }
 }
-impl ::std::cmp::PartialEq for QOS_SD_MODE {
+impl ::core::cmp::PartialEq for QOS_SD_MODE {
     fn eq(&self, other: &Self) -> bool {
         self.ObjectHdr == other.ObjectHdr && self.ShapeDiscardMode == other.ShapeDiscardMode
     }
 }
-impl ::std::cmp::Eq for QOS_SD_MODE {}
+impl ::core::cmp::Eq for QOS_SD_MODE {}
 unsafe impl ::windows::runtime::Abi for QOS_SD_MODE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QOS_SET_FLOW(pub i32);
 pub const QOSSetTrafficType: QOS_SET_FLOW = QOS_SET_FLOW(0i32);
 pub const QOSSetOutgoingRate: QOS_SET_FLOW = QOS_SET_FLOW(1i32);
 pub const QOSSetOutgoingDSCPValue: QOS_SET_FLOW = QOS_SET_FLOW(2i32);
-impl ::std::convert::From<i32> for QOS_SET_FLOW {
+impl ::core::convert::From<i32> for QOS_SET_FLOW {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2364,13 +2364,13 @@ unsafe impl ::windows::runtime::Abi for QOS_SET_FLOW {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QOS_SHAPING(pub i32);
 pub const QOSShapeOnly: QOS_SHAPING = QOS_SHAPING(0i32);
 pub const QOSShapeAndMark: QOS_SHAPING = QOS_SHAPING(1i32);
 pub const QOSUseNonConformantMarkings: QOS_SHAPING = QOS_SHAPING(2i32);
-impl ::std::convert::From<i32> for QOS_SHAPING {
+impl ::core::convert::From<i32> for QOS_SHAPING {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2378,7 +2378,7 @@ impl ::std::convert::From<i32> for QOS_SHAPING {
 unsafe impl ::windows::runtime::Abi for QOS_SHAPING {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_SHAPING_RATE {
@@ -2386,52 +2386,52 @@ pub struct QOS_SHAPING_RATE {
     pub ShapingRate: u32,
 }
 impl QOS_SHAPING_RATE {}
-impl ::std::default::Default for QOS_SHAPING_RATE {
+impl ::core::default::Default for QOS_SHAPING_RATE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QOS_SHAPING_RATE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS_SHAPING_RATE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS_SHAPING_RATE").field("ObjectHdr", &self.ObjectHdr).field("ShapingRate", &self.ShapingRate).finish()
     }
 }
-impl ::std::cmp::PartialEq for QOS_SHAPING_RATE {
+impl ::core::cmp::PartialEq for QOS_SHAPING_RATE {
     fn eq(&self, other: &Self) -> bool {
         self.ObjectHdr == other.ObjectHdr && self.ShapingRate == other.ShapingRate
     }
 }
-impl ::std::cmp::Eq for QOS_SHAPING_RATE {}
+impl ::core::cmp::Eq for QOS_SHAPING_RATE {}
 unsafe impl ::windows::runtime::Abi for QOS_SHAPING_RATE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_TCP_TRAFFIC {
     pub ObjectHdr: QOS_OBJECT_HDR,
 }
 impl QOS_TCP_TRAFFIC {}
-impl ::std::default::Default for QOS_TCP_TRAFFIC {
+impl ::core::default::Default for QOS_TCP_TRAFFIC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QOS_TCP_TRAFFIC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS_TCP_TRAFFIC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS_TCP_TRAFFIC").field("ObjectHdr", &self.ObjectHdr).finish()
     }
 }
-impl ::std::cmp::PartialEq for QOS_TCP_TRAFFIC {
+impl ::core::cmp::PartialEq for QOS_TCP_TRAFFIC {
     fn eq(&self, other: &Self) -> bool {
         self.ObjectHdr == other.ObjectHdr
     }
 }
-impl ::std::cmp::Eq for QOS_TCP_TRAFFIC {}
+impl ::core::cmp::Eq for QOS_TCP_TRAFFIC {}
 unsafe impl ::windows::runtime::Abi for QOS_TCP_TRAFFIC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_TRAFFIC_CLASS {
@@ -2439,29 +2439,29 @@ pub struct QOS_TRAFFIC_CLASS {
     pub TrafficClass: u32,
 }
 impl QOS_TRAFFIC_CLASS {}
-impl ::std::default::Default for QOS_TRAFFIC_CLASS {
+impl ::core::default::Default for QOS_TRAFFIC_CLASS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QOS_TRAFFIC_CLASS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS_TRAFFIC_CLASS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS_TRAFFIC_CLASS").field("ObjectHdr", &self.ObjectHdr).field("TrafficClass", &self.TrafficClass).finish()
     }
 }
-impl ::std::cmp::PartialEq for QOS_TRAFFIC_CLASS {
+impl ::core::cmp::PartialEq for QOS_TRAFFIC_CLASS {
     fn eq(&self, other: &Self) -> bool {
         self.ObjectHdr == other.ObjectHdr && self.TrafficClass == other.TrafficClass
     }
 }
-impl ::std::cmp::Eq for QOS_TRAFFIC_CLASS {}
+impl ::core::cmp::Eq for QOS_TRAFFIC_CLASS {}
 unsafe impl ::windows::runtime::Abi for QOS_TRAFFIC_CLASS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_TRAFFIC_GENERAL_ID_BASE: u32 = 4000u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QOS_TRAFFIC_TYPE(pub i32);
 pub const QOSTrafficTypeBestEffort: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(0i32);
@@ -2470,7 +2470,7 @@ pub const QOSTrafficTypeExcellentEffort: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(2i3
 pub const QOSTrafficTypeAudioVideo: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(3i32);
 pub const QOSTrafficTypeVoice: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(4i32);
 pub const QOSTrafficTypeControl: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(5i32);
-impl ::std::convert::From<i32> for QOS_TRAFFIC_TYPE {
+impl ::core::convert::From<i32> for QOS_TRAFFIC_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -2478,7 +2478,7 @@ impl ::std::convert::From<i32> for QOS_TRAFFIC_TYPE {
 unsafe impl ::windows::runtime::Abi for QOS_TRAFFIC_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QOS_VERSION {
@@ -2486,28 +2486,28 @@ pub struct QOS_VERSION {
     pub MinorVersion: u16,
 }
 impl QOS_VERSION {}
-impl ::std::default::Default for QOS_VERSION {
+impl ::core::default::Default for QOS_VERSION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QOS_VERSION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QOS_VERSION {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QOS_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
     }
 }
-impl ::std::cmp::PartialEq for QOS_VERSION {
+impl ::core::cmp::PartialEq for QOS_VERSION {
     fn eq(&self, other: &Self) -> bool {
         self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
     }
 }
-impl ::std::cmp::Eq for QOS_VERSION {}
+impl ::core::cmp::Eq for QOS_VERSION {}
 unsafe impl ::windows::runtime::Abi for QOS_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QUALITATIVE_SERV: u32 = 6u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QualAppFlowSpec {
@@ -2516,26 +2516,26 @@ pub struct QualAppFlowSpec {
     pub Q_spec_parms: QualTspecParms,
 }
 impl QualAppFlowSpec {}
-impl ::std::default::Default for QualAppFlowSpec {
+impl ::core::default::Default for QualAppFlowSpec {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QualAppFlowSpec {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QualAppFlowSpec {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QualAppFlowSpec").field("Q_spec_serv_hdr", &self.Q_spec_serv_hdr).field("Q_spec_parm_hdr", &self.Q_spec_parm_hdr).field("Q_spec_parms", &self.Q_spec_parms).finish()
     }
 }
-impl ::std::cmp::PartialEq for QualAppFlowSpec {
+impl ::core::cmp::PartialEq for QualAppFlowSpec {
     fn eq(&self, other: &Self) -> bool {
         self.Q_spec_serv_hdr == other.Q_spec_serv_hdr && self.Q_spec_parm_hdr == other.Q_spec_parm_hdr && self.Q_spec_parms == other.Q_spec_parms
     }
 }
-impl ::std::cmp::Eq for QualAppFlowSpec {}
+impl ::core::cmp::Eq for QualAppFlowSpec {}
 unsafe impl ::windows::runtime::Abi for QualAppFlowSpec {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QualTspec {
@@ -2544,48 +2544,48 @@ pub struct QualTspec {
     pub qual_Tspec_parms: QualTspecParms,
 }
 impl QualTspec {}
-impl ::std::default::Default for QualTspec {
+impl ::core::default::Default for QualTspec {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QualTspec {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QualTspec {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QualTspec").field("qual_Tspec_serv_hdr", &self.qual_Tspec_serv_hdr).field("qual_Tspec_parm_hdr", &self.qual_Tspec_parm_hdr).field("qual_Tspec_parms", &self.qual_Tspec_parms).finish()
     }
 }
-impl ::std::cmp::PartialEq for QualTspec {
+impl ::core::cmp::PartialEq for QualTspec {
     fn eq(&self, other: &Self) -> bool {
         self.qual_Tspec_serv_hdr == other.qual_Tspec_serv_hdr && self.qual_Tspec_parm_hdr == other.qual_Tspec_parm_hdr && self.qual_Tspec_parms == other.qual_Tspec_parms
     }
 }
-impl ::std::cmp::Eq for QualTspec {}
+impl ::core::cmp::Eq for QualTspec {}
 unsafe impl ::windows::runtime::Abi for QualTspec {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct QualTspecParms {
     pub TB_Tspec_M: u32,
 }
 impl QualTspecParms {}
-impl ::std::default::Default for QualTspecParms {
+impl ::core::default::Default for QualTspecParms {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for QualTspecParms {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for QualTspecParms {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("QualTspecParms").field("TB_Tspec_M", &self.TB_Tspec_M).finish()
     }
 }
-impl ::std::cmp::PartialEq for QualTspecParms {
+impl ::core::cmp::PartialEq for QualTspecParms {
     fn eq(&self, other: &Self) -> bool {
         self.TB_Tspec_M == other.TB_Tspec_M
     }
 }
-impl ::std::cmp::Eq for QualTspecParms {}
+impl ::core::cmp::Eq for QualTspecParms {}
 unsafe impl ::windows::runtime::Abi for QualTspecParms {
     type Abi = Self;
 }
@@ -2597,7 +2597,7 @@ pub const RCVD_RESV_TEAR: u32 = 2u32;
 pub const RESOURCES_ALLOCATED: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RESOURCES_MODIFIED: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RESV_STYLE {
@@ -2605,38 +2605,38 @@ pub struct RESV_STYLE {
     pub style_word: u32,
 }
 impl RESV_STYLE {}
-impl ::std::default::Default for RESV_STYLE {
+impl ::core::default::Default for RESV_STYLE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RESV_STYLE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RESV_STYLE {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RESV_STYLE").field("style_header", &self.style_header).field("style_word", &self.style_word).finish()
     }
 }
-impl ::std::cmp::PartialEq for RESV_STYLE {
+impl ::core::cmp::PartialEq for RESV_STYLE {
     fn eq(&self, other: &Self) -> bool {
         self.style_header == other.style_header && self.style_word == other.style_word
     }
 }
-impl ::std::cmp::Eq for RESV_STYLE {}
+impl ::core::cmp::Eq for RESV_STYLE {}
 unsafe impl ::windows::runtime::Abi for RESV_STYLE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct RHANDLE(pub isize);
-impl ::std::default::Default for RHANDLE {
+impl ::core::default::Default for RHANDLE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 unsafe impl ::windows::runtime::Handle for RHANDLE {}
 unsafe impl ::windows::runtime::Abi for RHANDLE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_ADSPEC {
@@ -2646,17 +2646,17 @@ pub struct RSVP_ADSPEC {
     pub Services: [CONTROL_SERVICE; 1],
 }
 impl RSVP_ADSPEC {}
-impl ::std::default::Default for RSVP_ADSPEC {
+impl ::core::default::Default for RSVP_ADSPEC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for RSVP_ADSPEC {
+impl ::core::cmp::PartialEq for RSVP_ADSPEC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for RSVP_ADSPEC {}
+impl ::core::cmp::Eq for RSVP_ADSPEC {}
 unsafe impl ::windows::runtime::Abi for RSVP_ADSPEC {
     type Abi = Self;
 }
@@ -2726,7 +2726,7 @@ pub const RSVP_Erv_Nonev: u32 = 0u32;
 pub const RSVP_Erv_Other: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_Erv_Peak_Rate: u32 = 32771u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_FILTERSPEC {
@@ -2734,21 +2734,21 @@ pub struct RSVP_FILTERSPEC {
     pub Anonymous: RSVP_FILTERSPEC_0,
 }
 impl RSVP_FILTERSPEC {}
-impl ::std::default::Default for RSVP_FILTERSPEC {
+impl ::core::default::Default for RSVP_FILTERSPEC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for RSVP_FILTERSPEC {
+impl ::core::cmp::PartialEq for RSVP_FILTERSPEC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for RSVP_FILTERSPEC {}
+impl ::core::cmp::Eq for RSVP_FILTERSPEC {}
 unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub union RSVP_FILTERSPEC_0 {
@@ -2759,21 +2759,21 @@ pub union RSVP_FILTERSPEC_0 {
     pub FilterSpecV6Gpi: RSVP_FILTERSPEC_V6_GPI,
 }
 impl RSVP_FILTERSPEC_0 {}
-impl ::std::default::Default for RSVP_FILTERSPEC_0 {
+impl ::core::default::Default for RSVP_FILTERSPEC_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for RSVP_FILTERSPEC_0 {
+impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for RSVP_FILTERSPEC_0 {}
+impl ::core::cmp::Eq for RSVP_FILTERSPEC_0 {}
 unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_FILTERSPEC_V4 {
@@ -2782,21 +2782,21 @@ pub struct RSVP_FILTERSPEC_V4 {
     pub Port: u16,
 }
 impl RSVP_FILTERSPEC_V4 {}
-impl ::std::default::Default for RSVP_FILTERSPEC_V4 {
+impl ::core::default::Default for RSVP_FILTERSPEC_V4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for RSVP_FILTERSPEC_V4 {
+impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V4 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for RSVP_FILTERSPEC_V4 {}
+impl ::core::cmp::Eq for RSVP_FILTERSPEC_V4 {}
 unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V4 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_FILTERSPEC_V4_GPI {
@@ -2804,21 +2804,21 @@ pub struct RSVP_FILTERSPEC_V4_GPI {
     pub GeneralPortId: u32,
 }
 impl RSVP_FILTERSPEC_V4_GPI {}
-impl ::std::default::Default for RSVP_FILTERSPEC_V4_GPI {
+impl ::core::default::Default for RSVP_FILTERSPEC_V4_GPI {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for RSVP_FILTERSPEC_V4_GPI {
+impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V4_GPI {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for RSVP_FILTERSPEC_V4_GPI {}
+impl ::core::cmp::Eq for RSVP_FILTERSPEC_V4_GPI {}
 unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V4_GPI {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_FILTERSPEC_V6 {
@@ -2827,26 +2827,26 @@ pub struct RSVP_FILTERSPEC_V6 {
     pub Port: u16,
 }
 impl RSVP_FILTERSPEC_V6 {}
-impl ::std::default::Default for RSVP_FILTERSPEC_V6 {
+impl ::core::default::Default for RSVP_FILTERSPEC_V6 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RSVP_FILTERSPEC_V6 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RSVP_FILTERSPEC_V6 {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RSVP_FILTERSPEC_V6").field("Address", &self.Address).field("UnUsed", &self.UnUsed).field("Port", &self.Port).finish()
     }
 }
-impl ::std::cmp::PartialEq for RSVP_FILTERSPEC_V6 {
+impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V6 {
     fn eq(&self, other: &Self) -> bool {
         self.Address == other.Address && self.UnUsed == other.UnUsed && self.Port == other.Port
     }
 }
-impl ::std::cmp::Eq for RSVP_FILTERSPEC_V6 {}
+impl ::core::cmp::Eq for RSVP_FILTERSPEC_V6 {}
 unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V6 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_FILTERSPEC_V6_FLOW {
@@ -2855,26 +2855,26 @@ pub struct RSVP_FILTERSPEC_V6_FLOW {
     pub FlowLabel: [u8; 3],
 }
 impl RSVP_FILTERSPEC_V6_FLOW {}
-impl ::std::default::Default for RSVP_FILTERSPEC_V6_FLOW {
+impl ::core::default::Default for RSVP_FILTERSPEC_V6_FLOW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RSVP_FILTERSPEC_V6_FLOW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RSVP_FILTERSPEC_V6_FLOW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RSVP_FILTERSPEC_V6_FLOW").field("Address", &self.Address).field("UnUsed", &self.UnUsed).field("FlowLabel", &self.FlowLabel).finish()
     }
 }
-impl ::std::cmp::PartialEq for RSVP_FILTERSPEC_V6_FLOW {
+impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V6_FLOW {
     fn eq(&self, other: &Self) -> bool {
         self.Address == other.Address && self.UnUsed == other.UnUsed && self.FlowLabel == other.FlowLabel
     }
 }
-impl ::std::cmp::Eq for RSVP_FILTERSPEC_V6_FLOW {}
+impl ::core::cmp::Eq for RSVP_FILTERSPEC_V6_FLOW {}
 unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V6_FLOW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_FILTERSPEC_V6_GPI {
@@ -2882,28 +2882,28 @@ pub struct RSVP_FILTERSPEC_V6_GPI {
     pub GeneralPortId: u32,
 }
 impl RSVP_FILTERSPEC_V6_GPI {}
-impl ::std::default::Default for RSVP_FILTERSPEC_V6_GPI {
+impl ::core::default::Default for RSVP_FILTERSPEC_V6_GPI {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RSVP_FILTERSPEC_V6_GPI {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RSVP_FILTERSPEC_V6_GPI {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RSVP_FILTERSPEC_V6_GPI").field("Address", &self.Address).field("GeneralPortId", &self.GeneralPortId).finish()
     }
 }
-impl ::std::cmp::PartialEq for RSVP_FILTERSPEC_V6_GPI {
+impl ::core::cmp::PartialEq for RSVP_FILTERSPEC_V6_GPI {
     fn eq(&self, other: &Self) -> bool {
         self.Address == other.Address && self.GeneralPortId == other.GeneralPortId
     }
 }
-impl ::std::cmp::Eq for RSVP_FILTERSPEC_V6_GPI {}
+impl ::core::cmp::Eq for RSVP_FILTERSPEC_V6_GPI {}
 unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V6_GPI {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_FIXED_FILTER_STYLE: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
@@ -2914,24 +2914,24 @@ pub struct RSVP_HOP {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl RSVP_HOP {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for RSVP_HOP {
+impl ::core::default::Default for RSVP_HOP {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for RSVP_HOP {
+impl ::core::cmp::PartialEq for RSVP_HOP {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for RSVP_HOP {}
+impl ::core::cmp::Eq for RSVP_HOP {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RSVP_HOP {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union RSVP_HOP_0 {
@@ -2940,24 +2940,24 @@ pub union RSVP_HOP_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl RSVP_HOP_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for RSVP_HOP_0 {
+impl ::core::default::Default for RSVP_HOP_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for RSVP_HOP_0 {
+impl ::core::cmp::PartialEq for RSVP_HOP_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for RSVP_HOP_0 {}
+impl ::core::cmp::Eq for RSVP_HOP_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RSVP_HOP_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
@@ -2978,14 +2978,14 @@ pub struct RSVP_MSG_OBJS {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl RSVP_MSG_OBJS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for RSVP_MSG_OBJS {
+impl ::core::default::Default for RSVP_MSG_OBJS {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::fmt::Debug for RSVP_MSG_OBJS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RSVP_MSG_OBJS {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RSVP_MSG_OBJS")
             .field("RsvpMsgType", &self.RsvpMsgType)
             .field("pRsvpSession", &self.pRsvpSession)
@@ -3003,13 +3003,13 @@ impl ::std::fmt::Debug for RSVP_MSG_OBJS {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for RSVP_MSG_OBJS {
+impl ::core::cmp::PartialEq for RSVP_MSG_OBJS {
     fn eq(&self, other: &Self) -> bool {
         self.RsvpMsgType == other.RsvpMsgType && self.pRsvpSession == other.pRsvpSession && self.pRsvpFromHop == other.pRsvpFromHop && self.pRsvpToHop == other.pRsvpToHop && self.pResvStyle == other.pResvStyle && self.pRsvpScope == other.pRsvpScope && self.FlowDescCount == other.FlowDescCount && self.pFlowDescs == other.pFlowDescs && self.PdObjectCount == other.PdObjectCount && self.ppPdObjects == other.ppPdObjects && self.pErrorSpec == other.pErrorSpec && self.pAdspec == other.pAdspec
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for RSVP_MSG_OBJS {}
+impl ::core::cmp::Eq for RSVP_MSG_OBJS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RSVP_MSG_OBJS {
     type Abi = Self;
@@ -3022,7 +3022,7 @@ pub const RSVP_PATH: u32 = 1u32;
 pub const RSVP_PATH_ERR: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_PATH_TEAR: u32 = 5u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_POLICY {
@@ -3031,26 +3031,26 @@ pub struct RSVP_POLICY {
     pub Info: [u8; 4],
 }
 impl RSVP_POLICY {}
-impl ::std::default::Default for RSVP_POLICY {
+impl ::core::default::Default for RSVP_POLICY {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RSVP_POLICY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RSVP_POLICY {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RSVP_POLICY").field("Len", &self.Len).field("Type", &self.Type).field("Info", &self.Info).finish()
     }
 }
-impl ::std::cmp::PartialEq for RSVP_POLICY {
+impl ::core::cmp::PartialEq for RSVP_POLICY {
     fn eq(&self, other: &Self) -> bool {
         self.Len == other.Len && self.Type == other.Type && self.Info == other.Info
     }
 }
-impl ::std::cmp::Eq for RSVP_POLICY {}
+impl ::core::cmp::Eq for RSVP_POLICY {}
 unsafe impl ::windows::runtime::Abi for RSVP_POLICY {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_POLICY_INFO {
@@ -3059,26 +3059,26 @@ pub struct RSVP_POLICY_INFO {
     pub PolicyElement: [RSVP_POLICY; 1],
 }
 impl RSVP_POLICY_INFO {}
-impl ::std::default::Default for RSVP_POLICY_INFO {
+impl ::core::default::Default for RSVP_POLICY_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RSVP_POLICY_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RSVP_POLICY_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RSVP_POLICY_INFO").field("ObjectHdr", &self.ObjectHdr).field("NumPolicyElement", &self.NumPolicyElement).field("PolicyElement", &self.PolicyElement).finish()
     }
 }
-impl ::std::cmp::PartialEq for RSVP_POLICY_INFO {
+impl ::core::cmp::PartialEq for RSVP_POLICY_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.ObjectHdr == other.ObjectHdr && self.NumPolicyElement == other.NumPolicyElement && self.PolicyElement == other.PolicyElement
     }
 }
-impl ::std::cmp::Eq for RSVP_POLICY_INFO {}
+impl ::core::cmp::Eq for RSVP_POLICY_INFO {}
 unsafe impl ::windows::runtime::Abi for RSVP_POLICY_INFO {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_RESERVE_INFO {
@@ -3090,22 +3090,22 @@ pub struct RSVP_RESERVE_INFO {
     pub FlowDescList: *mut FLOWDESCRIPTOR,
 }
 impl RSVP_RESERVE_INFO {}
-impl ::std::default::Default for RSVP_RESERVE_INFO {
+impl ::core::default::Default for RSVP_RESERVE_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RSVP_RESERVE_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RSVP_RESERVE_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RSVP_RESERVE_INFO").field("ObjectHdr", &self.ObjectHdr).field("Style", &self.Style).field("ConfirmRequest", &self.ConfirmRequest).field("PolicyElementList", &self.PolicyElementList).field("NumFlowDesc", &self.NumFlowDesc).field("FlowDescList", &self.FlowDescList).finish()
     }
 }
-impl ::std::cmp::PartialEq for RSVP_RESERVE_INFO {
+impl ::core::cmp::PartialEq for RSVP_RESERVE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.ObjectHdr == other.ObjectHdr && self.Style == other.Style && self.ConfirmRequest == other.ConfirmRequest && self.PolicyElementList == other.PolicyElementList && self.NumFlowDesc == other.NumFlowDesc && self.FlowDescList == other.FlowDescList
     }
 }
-impl ::std::cmp::Eq for RSVP_RESERVE_INFO {}
+impl ::core::cmp::Eq for RSVP_RESERVE_INFO {}
 unsafe impl ::windows::runtime::Abi for RSVP_RESERVE_INFO {
     type Abi = Self;
 }
@@ -3115,7 +3115,7 @@ pub const RSVP_RESV: u32 = 2u32;
 pub const RSVP_RESV_ERR: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_RESV_TEAR: u32 = 6u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
@@ -3126,24 +3126,24 @@ pub struct RSVP_SCOPE {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl RSVP_SCOPE {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for RSVP_SCOPE {
+impl ::core::default::Default for RSVP_SCOPE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for RSVP_SCOPE {
+impl ::core::cmp::PartialEq for RSVP_SCOPE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for RSVP_SCOPE {}
+impl ::core::cmp::Eq for RSVP_SCOPE {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RSVP_SCOPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union RSVP_SCOPE_0 {
@@ -3152,24 +3152,24 @@ pub union RSVP_SCOPE_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl RSVP_SCOPE_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for RSVP_SCOPE_0 {
+impl ::core::default::Default for RSVP_SCOPE_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for RSVP_SCOPE_0 {
+impl ::core::cmp::PartialEq for RSVP_SCOPE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for RSVP_SCOPE_0 {}
+impl ::core::cmp::Eq for RSVP_SCOPE_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RSVP_SCOPE_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
@@ -3180,24 +3180,24 @@ pub struct RSVP_SESSION {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl RSVP_SESSION {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for RSVP_SESSION {
+impl ::core::default::Default for RSVP_SESSION {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for RSVP_SESSION {
+impl ::core::cmp::PartialEq for RSVP_SESSION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for RSVP_SESSION {}
+impl ::core::cmp::Eq for RSVP_SESSION {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RSVP_SESSION {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union RSVP_SESSION_0 {
@@ -3206,26 +3206,26 @@ pub union RSVP_SESSION_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl RSVP_SESSION_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for RSVP_SESSION_0 {
+impl ::core::default::Default for RSVP_SESSION_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for RSVP_SESSION_0 {
+impl ::core::cmp::PartialEq for RSVP_SESSION_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for RSVP_SESSION_0 {}
+impl ::core::cmp::Eq for RSVP_SESSION_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RSVP_SESSION_0 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_SHARED_EXPLICIT_STYLE: u32 = 3u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RSVP_STATUS_INFO {
@@ -3235,28 +3235,28 @@ pub struct RSVP_STATUS_INFO {
     pub ExtendedStatus2: u32,
 }
 impl RSVP_STATUS_INFO {}
-impl ::std::default::Default for RSVP_STATUS_INFO {
+impl ::core::default::Default for RSVP_STATUS_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RSVP_STATUS_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RSVP_STATUS_INFO {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RSVP_STATUS_INFO").field("ObjectHdr", &self.ObjectHdr).field("StatusCode", &self.StatusCode).field("ExtendedStatus1", &self.ExtendedStatus1).field("ExtendedStatus2", &self.ExtendedStatus2).finish()
     }
 }
-impl ::std::cmp::PartialEq for RSVP_STATUS_INFO {
+impl ::core::cmp::PartialEq for RSVP_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.ObjectHdr == other.ObjectHdr && self.StatusCode == other.StatusCode && self.ExtendedStatus1 == other.ExtendedStatus1 && self.ExtendedStatus2 == other.ExtendedStatus2
     }
 }
-impl ::std::cmp::Eq for RSVP_STATUS_INFO {}
+impl ::core::cmp::Eq for RSVP_STATUS_INFO {}
 unsafe impl ::windows::runtime::Abi for RSVP_STATUS_INFO {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_WILDCARD_STYLE: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct RsvpObjHdr {
@@ -3265,26 +3265,26 @@ pub struct RsvpObjHdr {
     pub obj_ctype: u8,
 }
 impl RsvpObjHdr {}
-impl ::std::default::Default for RsvpObjHdr {
+impl ::core::default::Default for RsvpObjHdr {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for RsvpObjHdr {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for RsvpObjHdr {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("RsvpObjHdr").field("obj_length", &self.obj_length).field("obj_class", &self.obj_class).field("obj_ctype", &self.obj_ctype).finish()
     }
 }
-impl ::std::cmp::PartialEq for RsvpObjHdr {
+impl ::core::cmp::PartialEq for RsvpObjHdr {
     fn eq(&self, other: &Self) -> bool {
         self.obj_length == other.obj_length && self.obj_class == other.obj_class && self.obj_ctype == other.obj_ctype
     }
 }
-impl ::std::cmp::Eq for RsvpObjHdr {}
+impl ::core::cmp::Eq for RsvpObjHdr {}
 unsafe impl ::windows::runtime::Abi for RsvpObjHdr {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
@@ -3295,24 +3295,24 @@ pub struct Rsvp_Hop_IPv4 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Rsvp_Hop_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for Rsvp_Hop_IPv4 {
+impl ::core::default::Default for Rsvp_Hop_IPv4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for Rsvp_Hop_IPv4 {
+impl ::core::cmp::PartialEq for Rsvp_Hop_IPv4 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for Rsvp_Hop_IPv4 {}
+impl ::core::cmp::Eq for Rsvp_Hop_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for Rsvp_Hop_IPv4 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct SENDER_TSPEC {
@@ -3320,17 +3320,17 @@ pub struct SENDER_TSPEC {
     pub stspec_body: IntServTspecBody,
 }
 impl SENDER_TSPEC {}
-impl ::std::default::Default for SENDER_TSPEC {
+impl ::core::default::Default for SENDER_TSPEC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for SENDER_TSPEC {
+impl ::core::cmp::PartialEq for SENDER_TSPEC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for SENDER_TSPEC {}
+impl ::core::cmp::Eq for SENDER_TSPEC {}
 unsafe impl ::windows::runtime::Abi for SENDER_TSPEC {
     type Abi = Self;
 }
@@ -3694,7 +3694,7 @@ pub const SIPAKSRHDRSIGNATURE: u32 = 1297240907u32;
 pub const SIPALOGVERSION: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const STATE_TIMEOUT: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
@@ -3704,24 +3704,24 @@ pub struct Scope_list_ipv4 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Scope_list_ipv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for Scope_list_ipv4 {
+impl ::core::default::Default for Scope_list_ipv4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for Scope_list_ipv4 {
+impl ::core::cmp::PartialEq for Scope_list_ipv4 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for Scope_list_ipv4 {}
+impl ::core::cmp::Eq for Scope_list_ipv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for Scope_list_ipv4 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
@@ -3734,26 +3734,26 @@ pub struct Session_IPv4 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Session_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for Session_IPv4 {
+impl ::core::default::Default for Session_IPv4 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for Session_IPv4 {
+impl ::core::cmp::PartialEq for Session_IPv4 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for Session_IPv4 {}
+impl ::core::cmp::Eq for Session_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for Session_IPv4 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TCBASE: u32 = 7500u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct TCG_PCClientPCREventStruct {
@@ -3764,21 +3764,21 @@ pub struct TCG_PCClientPCREventStruct {
     pub event: [u8; 1],
 }
 impl TCG_PCClientPCREventStruct {}
-impl ::std::default::Default for TCG_PCClientPCREventStruct {
+impl ::core::default::Default for TCG_PCClientPCREventStruct {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for TCG_PCClientPCREventStruct {
+impl ::core::cmp::PartialEq for TCG_PCClientPCREventStruct {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for TCG_PCClientPCREventStruct {}
+impl ::core::cmp::Eq for TCG_PCClientPCREventStruct {}
 unsafe impl ::windows::runtime::Abi for TCG_PCClientPCREventStruct {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct TCG_PCClientTaggedEventStruct {
@@ -3787,58 +3787,58 @@ pub struct TCG_PCClientTaggedEventStruct {
     pub EventData: [u8; 1],
 }
 impl TCG_PCClientTaggedEventStruct {}
-impl ::std::default::Default for TCG_PCClientTaggedEventStruct {
+impl ::core::default::Default for TCG_PCClientTaggedEventStruct {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for TCG_PCClientTaggedEventStruct {
+impl ::core::cmp::PartialEq for TCG_PCClientTaggedEventStruct {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for TCG_PCClientTaggedEventStruct {}
+impl ::core::cmp::Eq for TCG_PCClientTaggedEventStruct {}
 unsafe impl ::windows::runtime::Abi for TCG_PCClientTaggedEventStruct {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TCI_ADD_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
-#[derive(:: std :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 pub struct TCI_CLIENT_FUNC_LIST {
-    pub ClNotifyHandler: ::std::option::Option<TCI_NOTIFY_HANDLER>,
-    pub ClAddFlowCompleteHandler: ::std::option::Option<TCI_ADD_FLOW_COMPLETE_HANDLER>,
-    pub ClModifyFlowCompleteHandler: ::std::option::Option<TCI_MOD_FLOW_COMPLETE_HANDLER>,
-    pub ClDeleteFlowCompleteHandler: ::std::option::Option<TCI_DEL_FLOW_COMPLETE_HANDLER>,
+    pub ClNotifyHandler: ::core::option::Option<TCI_NOTIFY_HANDLER>,
+    pub ClAddFlowCompleteHandler: ::core::option::Option<TCI_ADD_FLOW_COMPLETE_HANDLER>,
+    pub ClModifyFlowCompleteHandler: ::core::option::Option<TCI_MOD_FLOW_COMPLETE_HANDLER>,
+    pub ClDeleteFlowCompleteHandler: ::core::option::Option<TCI_DEL_FLOW_COMPLETE_HANDLER>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl TCI_CLIENT_FUNC_LIST {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TCI_CLIENT_FUNC_LIST {
+impl ::core::default::Default for TCI_CLIENT_FUNC_LIST {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TCI_CLIENT_FUNC_LIST {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TCI_CLIENT_FUNC_LIST {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TCI_CLIENT_FUNC_LIST").finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TCI_CLIENT_FUNC_LIST {
+impl ::core::cmp::PartialEq for TCI_CLIENT_FUNC_LIST {
     fn eq(&self, other: &Self) -> bool {
         self.ClNotifyHandler.map(|f| f as usize) == other.ClNotifyHandler.map(|f| f as usize) && self.ClAddFlowCompleteHandler.map(|f| f as usize) == other.ClAddFlowCompleteHandler.map(|f| f as usize) && self.ClModifyFlowCompleteHandler.map(|f| f as usize) == other.ClModifyFlowCompleteHandler.map(|f| f as usize) && self.ClDeleteFlowCompleteHandler.map(|f| f as usize) == other.ClDeleteFlowCompleteHandler.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TCI_CLIENT_FUNC_LIST {}
+impl ::core::cmp::Eq for TCI_CLIENT_FUNC_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TCI_CLIENT_FUNC_LIST {
-    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3848,37 +3848,37 @@ pub type TCI_DEL_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: su
 pub type TCI_MOD_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type TCI_NOTIFY_HANDLER = unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const ::std::ffi::c_void);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+pub type TCI_NOTIFY_HANDLER = unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const ::core::ffi::c_void);
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct TC_GEN_FILTER {
     pub AddressType: u16,
     pub PatternSize: u32,
-    pub Pattern: *mut ::std::ffi::c_void,
-    pub Mask: *mut ::std::ffi::c_void,
+    pub Pattern: *mut ::core::ffi::c_void,
+    pub Mask: *mut ::core::ffi::c_void,
 }
 impl TC_GEN_FILTER {}
-impl ::std::default::Default for TC_GEN_FILTER {
+impl ::core::default::Default for TC_GEN_FILTER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TC_GEN_FILTER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TC_GEN_FILTER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TC_GEN_FILTER").field("AddressType", &self.AddressType).field("PatternSize", &self.PatternSize).field("Pattern", &self.Pattern).field("Mask", &self.Mask).finish()
     }
 }
-impl ::std::cmp::PartialEq for TC_GEN_FILTER {
+impl ::core::cmp::PartialEq for TC_GEN_FILTER {
     fn eq(&self, other: &Self) -> bool {
         self.AddressType == other.AddressType && self.PatternSize == other.PatternSize && self.Pattern == other.Pattern && self.Mask == other.Mask
     }
 }
-impl ::std::cmp::Eq for TC_GEN_FILTER {}
+impl ::core::cmp::Eq for TC_GEN_FILTER {}
 unsafe impl ::windows::runtime::Abi for TC_GEN_FILTER {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct TC_GEN_FLOW {
@@ -3888,26 +3888,26 @@ pub struct TC_GEN_FLOW {
     pub TcObjects: [QOS_OBJECT_HDR; 1],
 }
 impl TC_GEN_FLOW {}
-impl ::std::default::Default for TC_GEN_FLOW {
+impl ::core::default::Default for TC_GEN_FLOW {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for TC_GEN_FLOW {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TC_GEN_FLOW {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TC_GEN_FLOW").field("SendingFlowspec", &self.SendingFlowspec).field("ReceivingFlowspec", &self.ReceivingFlowspec).field("TcObjectsLength", &self.TcObjectsLength).field("TcObjects", &self.TcObjects).finish()
     }
 }
-impl ::std::cmp::PartialEq for TC_GEN_FLOW {
+impl ::core::cmp::PartialEq for TC_GEN_FLOW {
     fn eq(&self, other: &Self) -> bool {
         self.SendingFlowspec == other.SendingFlowspec && self.ReceivingFlowspec == other.ReceivingFlowspec && self.TcObjectsLength == other.TcObjectsLength && self.TcObjects == other.TcObjects
     }
 }
-impl ::std::cmp::Eq for TC_GEN_FLOW {}
+impl ::core::cmp::Eq for TC_GEN_FLOW {}
 unsafe impl ::windows::runtime::Abi for TC_GEN_FLOW {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_NetworkManagement_Ndis`*"]
@@ -3920,25 +3920,25 @@ pub struct TC_IFC_DESCRIPTOR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl TC_IFC_DESCRIPTOR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-impl ::std::default::Default for TC_IFC_DESCRIPTOR {
+impl ::core::default::Default for TC_IFC_DESCRIPTOR {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-impl ::std::fmt::Debug for TC_IFC_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TC_IFC_DESCRIPTOR {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TC_IFC_DESCRIPTOR").field("Length", &self.Length).field("pInterfaceName", &self.pInterfaceName).field("pInterfaceID", &self.pInterfaceID).field("AddressListDesc", &self.AddressListDesc).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-impl ::std::cmp::PartialEq for TC_IFC_DESCRIPTOR {
+impl ::core::cmp::PartialEq for TC_IFC_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.pInterfaceName == other.pInterfaceName && self.pInterfaceID == other.pInterfaceID && self.AddressListDesc == other.AddressListDesc
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-impl ::std::cmp::Eq for TC_IFC_DESCRIPTOR {}
+impl ::core::cmp::Eq for TC_IFC_DESCRIPTOR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for TC_IFC_DESCRIPTOR {
     type Abi = Self;
@@ -3961,7 +3961,7 @@ pub const TC_NOTIFY_IFC_CLOSE: u32 = 2u32;
 pub const TC_NOTIFY_IFC_UP: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TC_NOTIFY_PARAM_CHANGED: u32 = 4u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_NetworkManagement_Ndis`*"]
@@ -3974,25 +3974,25 @@ pub struct TC_SUPPORTED_INFO_BUFFER {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl TC_SUPPORTED_INFO_BUFFER {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::std::default::Default for TC_SUPPORTED_INFO_BUFFER {
+impl ::core::default::Default for TC_SUPPORTED_INFO_BUFFER {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::std::fmt::Debug for TC_SUPPORTED_INFO_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for TC_SUPPORTED_INFO_BUFFER {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("TC_SUPPORTED_INFO_BUFFER").field("InstanceIDLength", &self.InstanceIDLength).field("InstanceID", &self.InstanceID).field("InterfaceLuid", &self.InterfaceLuid).field("AddrListDesc", &self.AddrListDesc).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::std::cmp::PartialEq for TC_SUPPORTED_INFO_BUFFER {
+impl ::core::cmp::PartialEq for TC_SUPPORTED_INFO_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.InstanceIDLength == other.InstanceIDLength && self.InstanceID == other.InstanceID && self.InterfaceLuid == other.InterfaceLuid && self.AddrListDesc == other.AddrListDesc
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl ::std::cmp::Eq for TC_SUPPORTED_INFO_BUFFER {}
+impl ::core::cmp::Eq for TC_SUPPORTED_INFO_BUFFER {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for TC_SUPPORTED_INFO_BUFFER {
     type Abi = Self;
@@ -4007,7 +4007,7 @@ pub unsafe fn TcAddFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
         extern "system" {
             fn TcAddFilter(flowhandle: super::super::Foundation::HANDLE, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(TcAddFilter(flowhandle.into_param().abi(), ::std::mem::transmute(pgenericfilter), ::std::mem::transmute(pfilterhandle)))
+        ::core::mem::transmute(TcAddFilter(flowhandle.into_param().abi(), ::core::mem::transmute(pgenericfilter), ::core::mem::transmute(pfilterhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4022,7 +4022,7 @@ pub unsafe fn TcAddFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
         extern "system" {
             fn TcAddFlow(ifchandle: super::super::Foundation::HANDLE, clflowctx: super::super::Foundation::HANDLE, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(TcAddFlow(ifchandle.into_param().abi(), clflowctx.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(pgenericflow), ::std::mem::transmute(pflowhandle)))
+        ::core::mem::transmute(TcAddFlow(ifchandle.into_param().abi(), clflowctx.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pgenericflow), ::core::mem::transmute(pflowhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4037,7 +4037,7 @@ pub unsafe fn TcCloseInterface<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn TcCloseInterface(ifchandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(TcCloseInterface(ifchandle.into_param().abi()))
+        ::core::mem::transmute(TcCloseInterface(ifchandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4052,7 +4052,7 @@ pub unsafe fn TcDeleteFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn TcDeleteFilter(filterhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(TcDeleteFilter(filterhandle.into_param().abi()))
+        ::core::mem::transmute(TcDeleteFilter(filterhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4067,7 +4067,7 @@ pub unsafe fn TcDeleteFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn TcDeleteFlow(flowhandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(TcDeleteFlow(flowhandle.into_param().abi()))
+        ::core::mem::transmute(TcDeleteFlow(flowhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4082,7 +4082,7 @@ pub unsafe fn TcDeregisterClient<'a, Param0: ::windows::runtime::IntoParam<'a, s
         extern "system" {
             fn TcDeregisterClient(clienthandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(TcDeregisterClient(clienthandle.into_param().abi()))
+        ::core::mem::transmute(TcDeregisterClient(clienthandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4097,7 +4097,7 @@ pub unsafe fn TcEnumerateFlows<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn TcEnumerateFlows(ifchandle: super::super::Foundation::HANDLE, penumhandle: *mut super::super::Foundation::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32;
         }
-        ::std::mem::transmute(TcEnumerateFlows(ifchandle.into_param().abi(), ::std::mem::transmute(penumhandle), ::std::mem::transmute(pflowcount), ::std::mem::transmute(pbufsize), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(TcEnumerateFlows(ifchandle.into_param().abi(), ::core::mem::transmute(penumhandle), ::core::mem::transmute(pflowcount), ::core::mem::transmute(pbufsize), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4112,7 +4112,7 @@ pub unsafe fn TcEnumerateInterfaces<'a, Param0: ::windows::runtime::IntoParam<'a
         extern "system" {
             fn TcEnumerateInterfaces(clienthandle: super::super::Foundation::HANDLE, pbuffersize: *mut u32, interfacebuffer: *mut TC_IFC_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(TcEnumerateInterfaces(clienthandle.into_param().abi(), ::std::mem::transmute(pbuffersize), ::std::mem::transmute(interfacebuffer)))
+        ::core::mem::transmute(TcEnumerateInterfaces(clienthandle.into_param().abi(), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(interfacebuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4127,7 +4127,7 @@ pub unsafe fn TcGetFlowNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn TcGetFlowNameA(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(TcGetFlowNameA(flowhandle.into_param().abi(), ::std::mem::transmute(strsize), ::std::mem::transmute(pflowname)))
+        ::core::mem::transmute(TcGetFlowNameA(flowhandle.into_param().abi(), ::core::mem::transmute(strsize), ::core::mem::transmute(pflowname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4142,7 +4142,7 @@ pub unsafe fn TcGetFlowNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super
         extern "system" {
             fn TcGetFlowNameW(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(TcGetFlowNameW(flowhandle.into_param().abi(), ::std::mem::transmute(strsize), ::std::mem::transmute(pflowname)))
+        ::core::mem::transmute(TcGetFlowNameW(flowhandle.into_param().abi(), ::core::mem::transmute(strsize), ::core::mem::transmute(pflowname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4157,7 +4157,7 @@ pub unsafe fn TcModifyFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
         extern "system" {
             fn TcModifyFlow(flowhandle: super::super::Foundation::HANDLE, pgenericflow: *const TC_GEN_FLOW) -> u32;
         }
-        ::std::mem::transmute(TcModifyFlow(flowhandle.into_param().abi(), ::std::mem::transmute(pgenericflow)))
+        ::core::mem::transmute(TcModifyFlow(flowhandle.into_param().abi(), ::core::mem::transmute(pgenericflow)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4172,7 +4172,7 @@ pub unsafe fn TcOpenInterfaceA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn TcOpenInterfaceA(pinterfacename: super::super::Foundation::PSTR, clienthandle: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, pifchandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(TcOpenInterfaceA(pinterfacename.into_param().abi(), clienthandle.into_param().abi(), clifcctx.into_param().abi(), ::std::mem::transmute(pifchandle)))
+        ::core::mem::transmute(TcOpenInterfaceA(pinterfacename.into_param().abi(), clienthandle.into_param().abi(), clifcctx.into_param().abi(), ::core::mem::transmute(pifchandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4187,7 +4187,7 @@ pub unsafe fn TcOpenInterfaceW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
         extern "system" {
             fn TcOpenInterfaceW(pinterfacename: super::super::Foundation::PWSTR, clienthandle: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, pifchandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(TcOpenInterfaceW(pinterfacename.into_param().abi(), clienthandle.into_param().abi(), clifcctx.into_param().abi(), ::std::mem::transmute(pifchandle)))
+        ::core::mem::transmute(TcOpenInterfaceW(pinterfacename.into_param().abi(), clienthandle.into_param().abi(), clifcctx.into_param().abi(), ::core::mem::transmute(pifchandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4195,14 +4195,14 @@ pub unsafe fn TcOpenInterfaceW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, pbuffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcQueryFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: *const ::windows::runtime::GUID, pbuffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32;
+            fn TcQueryFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: *const ::windows::runtime::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(TcQueryFlowA(pflowname.into_param().abi(), ::std::mem::transmute(pguidparam), ::std::mem::transmute(pbuffersize), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(TcQueryFlowA(pflowname.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4210,14 +4210,14 @@ pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, pbuffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcQueryFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: *const ::windows::runtime::GUID, pbuffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32;
+            fn TcQueryFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: *const ::windows::runtime::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(TcQueryFlowW(pflowname.into_param().abi(), ::std::mem::transmute(pguidparam), ::std::mem::transmute(pbuffersize), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(TcQueryFlowW(pflowname.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4225,14 +4225,14 @@ pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcQueryInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(ifchandle: Param0, pguidparam: *const ::windows::runtime::GUID, notifychange: Param2, pbuffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32 {
+pub unsafe fn TcQueryInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(ifchandle: Param0, pguidparam: *const ::windows::runtime::GUID, notifychange: Param2, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcQueryInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::runtime::GUID, notifychange: super::super::Foundation::BOOLEAN, pbuffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32;
+            fn TcQueryInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::runtime::GUID, notifychange: super::super::Foundation::BOOLEAN, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(TcQueryInterface(ifchandle.into_param().abi(), ::std::mem::transmute(pguidparam), notifychange.into_param().abi(), ::std::mem::transmute(pbuffersize), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(TcQueryInterface(ifchandle.into_param().abi(), ::core::mem::transmute(pguidparam), notifychange.into_param().abi(), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4245,9 +4245,9 @@ pub unsafe fn TcRegisterClient<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcRegisterClient(tciversion: u32, clregctx: super::super::Foundation::HANDLE, clienthandlerlist: *const ::std::mem::ManuallyDrop<TCI_CLIENT_FUNC_LIST>, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn TcRegisterClient(tciversion: u32, clregctx: super::super::Foundation::HANDLE, clienthandlerlist: *const ::core::mem::ManuallyDrop<TCI_CLIENT_FUNC_LIST>, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(TcRegisterClient(::std::mem::transmute(tciversion), clregctx.into_param().abi(), ::std::mem::transmute(clienthandlerlist), ::std::mem::transmute(pclienthandle)))
+        ::core::mem::transmute(TcRegisterClient(::core::mem::transmute(tciversion), clregctx.into_param().abi(), ::core::mem::transmute(clienthandlerlist), ::core::mem::transmute(pclienthandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4255,14 +4255,14 @@ pub unsafe fn TcRegisterClient<'a, Param1: ::windows::runtime::IntoParam<'a, sup
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcSetFlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::std::ffi::c_void) -> u32 {
+pub unsafe fn TcSetFlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcSetFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::std::ffi::c_void) -> u32;
+            fn TcSetFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(TcSetFlowA(pflowname.into_param().abi(), ::std::mem::transmute(pguidparam), ::std::mem::transmute(buffersize), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(TcSetFlowA(pflowname.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4270,14 +4270,14 @@ pub unsafe fn TcSetFlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcSetFlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::std::ffi::c_void) -> u32 {
+pub unsafe fn TcSetFlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcSetFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::std::ffi::c_void) -> u32;
+            fn TcSetFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(TcSetFlowW(pflowname.into_param().abi(), ::std::mem::transmute(pguidparam), ::std::mem::transmute(buffersize), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(TcSetFlowW(pflowname.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4285,14 +4285,14 @@ pub unsafe fn TcSetFlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcSetInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::std::ffi::c_void) -> u32 {
+pub unsafe fn TcSetInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TcSetInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::std::ffi::c_void) -> u32;
+            fn TcSetInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(TcSetInterface(ifchandle.into_param().abi(), ::std::mem::transmute(pguidparam), ::std::mem::transmute(buffersize), ::std::mem::transmute(buffer)))
+        ::core::mem::transmute(TcSetInterface(ifchandle.into_param().abi(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4333,37 +4333,37 @@ pub const WBCL_DIGEST_ALG_ID_SHA_2_512: u32 = 13u32;
 pub const WBCL_DIGEST_ALG_ID_SM3_256: u32 = 18u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const WBCL_HASH_LEN_SHA1: u32 = 20u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct WBCL_Iterator {
-    pub firstElementPtr: *mut ::std::ffi::c_void,
+    pub firstElementPtr: *mut ::core::ffi::c_void,
     pub logSize: u32,
-    pub currentElementPtr: *mut ::std::ffi::c_void,
+    pub currentElementPtr: *mut ::core::ffi::c_void,
     pub currentElementSize: u32,
     pub digestSize: u16,
     pub logFormat: u16,
     pub numberOfDigests: u32,
-    pub digestSizes: *mut ::std::ffi::c_void,
+    pub digestSizes: *mut ::core::ffi::c_void,
     pub supportedAlgorithms: u32,
     pub hashAlgorithm: u16,
 }
 impl WBCL_Iterator {}
-impl ::std::default::Default for WBCL_Iterator {
+impl ::core::default::Default for WBCL_Iterator {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WBCL_Iterator {
+impl ::core::cmp::PartialEq for WBCL_Iterator {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WBCL_Iterator {}
+impl ::core::cmp::Eq for WBCL_Iterator {}
 unsafe impl ::windows::runtime::Abi for WBCL_Iterator {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct WBCL_LogHdr {
@@ -4373,21 +4373,21 @@ pub struct WBCL_LogHdr {
     pub length: u32,
 }
 impl WBCL_LogHdr {}
-impl ::std::default::Default for WBCL_LogHdr {
+impl ::core::default::Default for WBCL_LogHdr {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WBCL_LogHdr {
+impl ::core::cmp::PartialEq for WBCL_LogHdr {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WBCL_LogHdr {}
+impl ::core::cmp::Eq for WBCL_LogHdr {}
 unsafe impl ::windows::runtime::Abi for WBCL_LogHdr {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
@@ -4398,24 +4398,24 @@ pub struct flow_desc {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl flow_desc {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for flow_desc {
+impl ::core::default::Default for flow_desc {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for flow_desc {
+impl ::core::cmp::PartialEq for flow_desc {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for flow_desc {}
+impl ::core::cmp::Eq for flow_desc {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for flow_desc {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union flow_desc_0 {
@@ -4425,24 +4425,24 @@ pub union flow_desc_0 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl flow_desc_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for flow_desc_0 {
+impl ::core::default::Default for flow_desc_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for flow_desc_0 {
+impl ::core::cmp::PartialEq for flow_desc_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for flow_desc_0 {}
+impl ::core::cmp::Eq for flow_desc_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for flow_desc_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union flow_desc_1 {
@@ -4452,25 +4452,25 @@ pub union flow_desc_1 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl flow_desc_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for flow_desc_1 {
+impl ::core::default::Default for flow_desc_1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for flow_desc_1 {
+impl ::core::cmp::PartialEq for flow_desc_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for flow_desc_1 {}
+impl ::core::cmp::Eq for flow_desc_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for flow_desc_1 {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct int_serv_wkp(pub i32);
 pub const IS_WKP_HOP_CNT: int_serv_wkp = int_serv_wkp(4i32);
@@ -4479,7 +4479,7 @@ pub const IS_WKP_MIN_LATENCY: int_serv_wkp = int_serv_wkp(8i32);
 pub const IS_WKP_COMPOSED_MTU: int_serv_wkp = int_serv_wkp(10i32);
 pub const IS_WKP_TB_TSPEC: int_serv_wkp = int_serv_wkp(127i32);
 pub const IS_WKP_Q_TSPEC: int_serv_wkp = int_serv_wkp(128i32);
-impl ::std::convert::From<i32> for int_serv_wkp {
+impl ::core::convert::From<i32> for int_serv_wkp {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -4487,7 +4487,7 @@ impl ::std::convert::From<i32> for int_serv_wkp {
 unsafe impl ::windows::runtime::Abi for int_serv_wkp {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
@@ -4500,24 +4500,24 @@ pub struct lpmiptable {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl lpmiptable {}
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::default::Default for lpmiptable {
+impl ::core::default::Default for lpmiptable {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::PartialEq for lpmiptable {
+impl ::core::cmp::PartialEq for lpmiptable {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::std::cmp::Eq for lpmiptable {}
+impl ::core::cmp::Eq for lpmiptable {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for lpmiptable {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct policy_decision {
@@ -4526,26 +4526,26 @@ pub struct policy_decision {
     pub wPolicyErrValue: u16,
 }
 impl policy_decision {}
-impl ::std::default::Default for policy_decision {
+impl ::core::default::Default for policy_decision {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for policy_decision {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for policy_decision {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("policy_decision").field("lpvResult", &self.lpvResult).field("wPolicyErrCode", &self.wPolicyErrCode).field("wPolicyErrValue", &self.wPolicyErrValue).finish()
     }
 }
-impl ::std::cmp::PartialEq for policy_decision {
+impl ::core::cmp::PartialEq for policy_decision {
     fn eq(&self, other: &Self) -> bool {
         self.lpvResult == other.lpvResult && self.wPolicyErrCode == other.wPolicyErrCode && self.wPolicyErrValue == other.wPolicyErrValue
     }
 }
-impl ::std::cmp::Eq for policy_decision {}
+impl ::core::cmp::Eq for policy_decision {}
 unsafe impl ::windows::runtime::Abi for policy_decision {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
@@ -4554,21 +4554,21 @@ pub struct tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     pub Signature: [u8; 1],
 }
 impl tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {}
-impl ::std::default::Default for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+impl ::core::default::Default for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+impl ::core::cmp::PartialEq for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {}
+impl ::core::cmp::Eq for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {}
 unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
@@ -4578,21 +4578,21 @@ pub struct tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     pub Digest: [u8; 1],
 }
 impl tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {}
-impl ::std::default::Default for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+impl ::core::default::Default for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+impl ::core::cmp::PartialEq for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {}
+impl ::core::cmp::Eq for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {}
 unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
@@ -4605,21 +4605,21 @@ pub struct tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     pub VarData: [u8; 1],
 }
 impl tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {}
-impl ::std::default::Default for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+impl ::core::default::Default for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+impl ::core::cmp::PartialEq for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {}
+impl ::core::cmp::Eq for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {}
 unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct tag_SIPAEVENT_SI_POLICY_PAYLOAD {
@@ -4630,21 +4630,21 @@ pub struct tag_SIPAEVENT_SI_POLICY_PAYLOAD {
     pub VarLengthData: [u8; 1],
 }
 impl tag_SIPAEVENT_SI_POLICY_PAYLOAD {}
-impl ::std::default::Default for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
+impl ::core::default::Default for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
+impl ::core::cmp::PartialEq for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tag_SIPAEVENT_SI_POLICY_PAYLOAD {}
+impl ::core::cmp::Eq for tag_SIPAEVENT_SI_POLICY_PAYLOAD {}
 unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
@@ -4652,42 +4652,42 @@ pub struct tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     pub Anonymous: tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0,
 }
 impl tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {}
-impl ::std::default::Default for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+impl ::core::default::Default for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+impl ::core::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {}
+impl ::core::cmp::Eq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {}
 unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub union tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
     pub RsaKeyInfo: tag_SIPAEVENT_VSM_IDK_RSA_INFO,
 }
 impl tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {}
-impl ::std::default::Default for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+impl ::core::default::Default for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+impl ::core::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {}
+impl ::core::cmp::Eq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {}
 unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub struct tag_SIPAEVENT_VSM_IDK_RSA_INFO {
@@ -4697,17 +4697,17 @@ pub struct tag_SIPAEVENT_VSM_IDK_RSA_INFO {
     pub PublicKeyData: [u8; 1],
 }
 impl tag_SIPAEVENT_VSM_IDK_RSA_INFO {}
-impl ::std::default::Default for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
+impl ::core::default::Default for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
+impl ::core::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for tag_SIPAEVENT_VSM_IDK_RSA_INFO {}
+impl ::core::cmp::Eq for tag_SIPAEVENT_VSM_IDK_RSA_INFO {}
 unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
     type Abi = Self;
 }

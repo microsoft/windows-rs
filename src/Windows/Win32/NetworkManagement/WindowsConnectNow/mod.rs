@@ -1,28 +1,28 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWCNConnectNotify(pub ::windows::runtime::IUnknown);
 impl IWCNConnectNotify {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn ConnectSucceeded(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn ConnectFailed(&self, hrfailure: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hrfailure)).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrfailure)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWCNConnectNotify {
     type Vtable = IWCNConnectNotify_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3238051487, 54074, 19019, [191, 35, 187, 239, 70, 99, 208, 23]);
 }
-impl ::std::convert::From<IWCNConnectNotify> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWCNConnectNotify> for ::windows::runtime::IUnknown {
     fn from(value: IWCNConnectNotify) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWCNConnectNotify> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWCNConnectNotify> for ::windows::runtime::IUnknown {
     fn from(value: &IWCNConnectNotify) -> Self {
         value.0.clone()
     }
@@ -48,65 +48,65 @@ pub struct IWCNConnectNotify_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWCNDevice(pub ::windows::runtime::IUnknown);
 impl IWCNDevice {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type), ::std::mem::transmute(dwpasswordlength), ::std::mem::transmute(pbpassword)).ok()
+        (::windows::runtime::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(dwpasswordlength), ::core::mem::transmute(pbpassword)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn Connect<'a, Param0: ::windows::runtime::IntoParam<'a, IWCNConnectNotify>>(&self, pnotify: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pnotify.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pnotify.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn GetAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(attributetype), ::std::mem::transmute(dwmaxbuffersize), ::std::mem::transmute(pbbuffer), ::std::mem::transmute(pdwbufferused)).ok()
+        (::windows::runtime::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(attributetype), ::core::mem::transmute(dwmaxbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwbufferused)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn GetIntegerAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(attributetype), &mut result__).from_abi::<u32>(result__)
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::core::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(attributetype), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_Foundation`*"]
     pub unsafe fn GetStringAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, cchmaxstring: u32, wszstring: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(attributetype), ::std::mem::transmute(cchmaxstring), ::std::mem::transmute(wszstring)).ok()
+        (::windows::runtime::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(attributetype), ::core::mem::transmute(cchmaxstring), ::core::mem::transmute(wszstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkProfile(&self, cchmaxstringlength: u32, wszprofile: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(cchmaxstringlength), ::std::mem::transmute(wszprofile)).ok()
+        (::windows::runtime::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchmaxstringlength), ::core::mem::transmute(wszprofile)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszprofilexml: Param0) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pszprofilexml.into_param().abi()).ok()
+        (::windows::runtime::Interface::vtable(self).9)(::core::mem::transmute_copy(self), pszprofilexml.into_param().abi()).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn GetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvendorextspec), ::std::mem::transmute(dwmaxbuffersize), ::std::mem::transmute(pbbuffer), ::std::mem::transmute(pdwbufferused)).ok()
+        (::windows::runtime::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvendorextspec), ::core::mem::transmute(dwmaxbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwbufferused)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn SetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, cbbuffer: u32, pbbuffer: *const u8) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvendorextspec), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(pbbuffer)).ok()
+        (::windows::runtime::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvendorextspec), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pbbuffer)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn Unadvise(&self) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
+        (::windows::runtime::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn SetNFCPasswordParams(&self, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *const u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *const u8, dwdhkeybloblength: u32, pbdhkeyblob: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(dwoobpasswordid),
-            ::std::mem::transmute(dwpasswordlength),
-            ::std::mem::transmute(pbpassword),
-            ::std::mem::transmute(dwremotepublickeyhashlength),
-            ::std::mem::transmute(pbremotepublickeyhash),
-            ::std::mem::transmute(dwdhkeybloblength),
-            ::std::mem::transmute(pbdhkeyblob),
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(r#type),
+            ::core::mem::transmute(dwoobpasswordid),
+            ::core::mem::transmute(dwpasswordlength),
+            ::core::mem::transmute(pbpassword),
+            ::core::mem::transmute(dwremotepublickeyhashlength),
+            ::core::mem::transmute(pbremotepublickeyhash),
+            ::core::mem::transmute(dwdhkeybloblength),
+            ::core::mem::transmute(pbdhkeyblob),
         )
         .ok()
     }
@@ -115,12 +115,12 @@ unsafe impl ::windows::runtime::Interface for IWCNDevice {
     type Vtable = IWCNDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3238051484, 54074, 19019, [191, 35, 187, 239, 70, 99, 208, 23]);
 }
-impl ::std::convert::From<IWCNDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<IWCNDevice> for ::windows::runtime::IUnknown {
     fn from(value: IWCNDevice) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&IWCNDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&IWCNDevice> for ::windows::runtime::IUnknown {
     fn from(value: &IWCNDevice) -> Self {
         value.0.clone()
     }
@@ -161,7 +161,7 @@ pub const WCNDeviceObject: ::windows::runtime::GUID = ::windows::runtime::GUID::
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_API_MAX_BUFFER_SIZE: u32 = 2096u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_ATTRIBUTE_TYPE(pub i32);
 pub const WCN_TYPE_AP_CHANNEL: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(0i32);
@@ -265,7 +265,7 @@ pub const WCN_TYPE_SETTINGS_DELAY_TIME: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(
 pub const WCN_TYPE_VERSION2: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(98i32);
 pub const WCN_TYPE_VENDOR_EXTENSION_WFA: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(99i32);
 pub const WCN_NUM_ATTRIBUTE_TYPES: WCN_ATTRIBUTE_TYPE = WCN_ATTRIBUTE_TYPE(100i32);
-impl ::std::convert::From<i32> for WCN_ATTRIBUTE_TYPE {
+impl ::core::convert::From<i32> for WCN_ATTRIBUTE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -294,7 +294,7 @@ pub const WCN_MICROSOFT_VENDOR_ID: u32 = 311u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_NO_SUBTYPE: u32 = 4294967294u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_PASSWORD_TYPE(pub i32);
 pub const WCN_PASSWORD_TYPE_PUSH_BUTTON: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(0i32);
@@ -302,7 +302,7 @@ pub const WCN_PASSWORD_TYPE_PIN: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(1i32);
 pub const WCN_PASSWORD_TYPE_PIN_REGISTRAR_SPECIFIED: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(2i32);
 pub const WCN_PASSWORD_TYPE_OOB_SPECIFIED: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(3i32);
 pub const WCN_PASSWORD_TYPE_WFDS: WCN_PASSWORD_TYPE = WCN_PASSWORD_TYPE(4i32);
-impl ::std::convert::From<i32> for WCN_PASSWORD_TYPE {
+impl ::core::convert::From<i32> for WCN_PASSWORD_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -311,13 +311,13 @@ unsafe impl ::windows::runtime::Abi for WCN_PASSWORD_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_SESSION_STATUS(pub i32);
 pub const WCN_SESSION_STATUS_SUCCESS: WCN_SESSION_STATUS = WCN_SESSION_STATUS(0i32);
 pub const WCN_SESSION_STATUS_FAILURE_GENERIC: WCN_SESSION_STATUS = WCN_SESSION_STATUS(1i32);
 pub const WCN_SESSION_STATUS_FAILURE_TIMEOUT: WCN_SESSION_STATUS = WCN_SESSION_STATUS(2i32);
-impl ::std::convert::From<i32> for WCN_SESSION_STATUS {
+impl ::core::convert::From<i32> for WCN_SESSION_STATUS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -470,7 +470,7 @@ pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__WINDOWS_MOBILE: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_WIFI_OUI: u32 = 5304836u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_ASSOCIATION_STATE(pub i32);
 pub const WCN_VALUE_AS_NOT_ASSOCIATED: WCN_VALUE_TYPE_ASSOCIATION_STATE = WCN_VALUE_TYPE_ASSOCIATION_STATE(0i32);
@@ -478,7 +478,7 @@ pub const WCN_VALUE_AS_CONNECTION_SUCCESS: WCN_VALUE_TYPE_ASSOCIATION_STATE = WC
 pub const WCN_VALUE_AS_CONFIGURATION_FAILURE: WCN_VALUE_TYPE_ASSOCIATION_STATE = WCN_VALUE_TYPE_ASSOCIATION_STATE(2i32);
 pub const WCN_VALUE_AS_ASSOCIATION_FAILURE: WCN_VALUE_TYPE_ASSOCIATION_STATE = WCN_VALUE_TYPE_ASSOCIATION_STATE(3i32);
 pub const WCN_VALUE_AS_IP_FAILURE: WCN_VALUE_TYPE_ASSOCIATION_STATE = WCN_VALUE_TYPE_ASSOCIATION_STATE(4i32);
-impl ::std::convert::From<i32> for WCN_VALUE_TYPE_ASSOCIATION_STATE {
+impl ::core::convert::From<i32> for WCN_VALUE_TYPE_ASSOCIATION_STATE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -487,7 +487,7 @@ unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_ASSOCIATION_STATE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_AUTHENTICATION_TYPE(pub i32);
 pub const WCN_VALUE_AT_OPEN: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = WCN_VALUE_TYPE_AUTHENTICATION_TYPE(1i32);
@@ -497,7 +497,7 @@ pub const WCN_VALUE_AT_WPA: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = WCN_VALUE_TYPE_
 pub const WCN_VALUE_AT_WPA2: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = WCN_VALUE_TYPE_AUTHENTICATION_TYPE(16i32);
 pub const WCN_VALUE_AT_WPA2PSK: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = WCN_VALUE_TYPE_AUTHENTICATION_TYPE(32i32);
 pub const WCN_VALUE_AT_WPAWPA2PSK_MIXED: WCN_VALUE_TYPE_AUTHENTICATION_TYPE = WCN_VALUE_TYPE_AUTHENTICATION_TYPE(34i32);
-impl ::std::convert::From<i32> for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
+impl ::core::convert::From<i32> for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -506,12 +506,12 @@ unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_BOOLEAN(pub i32);
 pub const WCN_VALUE_FALSE: WCN_VALUE_TYPE_BOOLEAN = WCN_VALUE_TYPE_BOOLEAN(0i32);
 pub const WCN_VALUE_TRUE: WCN_VALUE_TYPE_BOOLEAN = WCN_VALUE_TYPE_BOOLEAN(1i32);
-impl ::std::convert::From<i32> for WCN_VALUE_TYPE_BOOLEAN {
+impl ::core::convert::From<i32> for WCN_VALUE_TYPE_BOOLEAN {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -520,7 +520,7 @@ unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_BOOLEAN {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_CONFIGURATION_ERROR(pub i32);
 pub const WCN_VALUE_CE_NO_ERROR: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(0i32);
@@ -542,7 +542,7 @@ pub const WCN_VALUE_CE_SETUP_LOCKED: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VA
 pub const WCN_VALUE_CE_MESSAGE_TIMEOUT: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(16i32);
 pub const WCN_VALUE_CE_REGISTRATION_SESSION_TIMEOUT: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(17i32);
 pub const WCN_VALUE_CE_DEVICE_PASSWORD_AUTH_FAILURE: WCN_VALUE_TYPE_CONFIGURATION_ERROR = WCN_VALUE_TYPE_CONFIGURATION_ERROR(18i32);
-impl ::std::convert::From<i32> for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
+impl ::core::convert::From<i32> for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -551,7 +551,7 @@ unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_CONFIG_METHODS(pub i32);
 pub const WCN_VALUE_CM_USBA: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(1i32);
@@ -567,7 +567,7 @@ pub const WCN_VALUE_CM_VIRT_PUSHBUTTON: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALU
 pub const WCN_VALUE_CM_PHYS_PUSHBUTTON: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(1152i32);
 pub const WCN_VALUE_CM_VIRT_DISPLAY: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(8200i32);
 pub const WCN_VALUE_CM_PHYS_DISPLAY: WCN_VALUE_TYPE_CONFIG_METHODS = WCN_VALUE_TYPE_CONFIG_METHODS(16392i32);
-impl ::std::convert::From<i32> for WCN_VALUE_TYPE_CONFIG_METHODS {
+impl ::core::convert::From<i32> for WCN_VALUE_TYPE_CONFIG_METHODS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -576,12 +576,12 @@ unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_CONFIG_METHODS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_CONNECTION_TYPE(pub i32);
 pub const WCN_VALUE_CT_ESS: WCN_VALUE_TYPE_CONNECTION_TYPE = WCN_VALUE_TYPE_CONNECTION_TYPE(1i32);
 pub const WCN_VALUE_CT_IBSS: WCN_VALUE_TYPE_CONNECTION_TYPE = WCN_VALUE_TYPE_CONNECTION_TYPE(2i32);
-impl ::std::convert::From<i32> for WCN_VALUE_TYPE_CONNECTION_TYPE {
+impl ::core::convert::From<i32> for WCN_VALUE_TYPE_CONNECTION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -590,7 +590,7 @@ unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_CONNECTION_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(pub i32);
 pub const WCN_VALUE_DP_DEFAULT: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(0i32);
@@ -603,7 +603,7 @@ pub const WCN_VALUE_DP_NFC_CONNECTION_HANDOVER: WCN_VALUE_TYPE_DEVICE_PASSWORD_I
 pub const WCN_VALUE_DP_WFD_SERVICES: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(8i32);
 pub const WCN_VALUE_DP_OUTOFBAND_MIN: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(16i32);
 pub const WCN_VALUE_DP_OUTOFBAND_MAX: WCN_VALUE_TYPE_DEVICE_PASSWORD_ID = WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(65535i32);
-impl ::std::convert::From<i32> for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
+impl ::core::convert::From<i32> for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -612,7 +612,7 @@ unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_ENCRYPTION_TYPE(pub i32);
 pub const WCN_VALUE_ET_NONE: WCN_VALUE_TYPE_ENCRYPTION_TYPE = WCN_VALUE_TYPE_ENCRYPTION_TYPE(1i32);
@@ -620,7 +620,7 @@ pub const WCN_VALUE_ET_WEP: WCN_VALUE_TYPE_ENCRYPTION_TYPE = WCN_VALUE_TYPE_ENCR
 pub const WCN_VALUE_ET_TKIP: WCN_VALUE_TYPE_ENCRYPTION_TYPE = WCN_VALUE_TYPE_ENCRYPTION_TYPE(4i32);
 pub const WCN_VALUE_ET_AES: WCN_VALUE_TYPE_ENCRYPTION_TYPE = WCN_VALUE_TYPE_ENCRYPTION_TYPE(8i32);
 pub const WCN_VALUE_ET_TKIP_AES_MIXED: WCN_VALUE_TYPE_ENCRYPTION_TYPE = WCN_VALUE_TYPE_ENCRYPTION_TYPE(12i32);
-impl ::std::convert::From<i32> for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
+impl ::core::convert::From<i32> for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -629,7 +629,7 @@ unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_MESSAGE_TYPE(pub i32);
 pub const WCN_VALUE_MT_BEACON: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(1i32);
@@ -647,7 +647,7 @@ pub const WCN_VALUE_MT_M8: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_
 pub const WCN_VALUE_MT_ACK: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(13i32);
 pub const WCN_VALUE_MT_NACK: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(14i32);
 pub const WCN_VALUE_MT_DONE: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(15i32);
-impl ::std::convert::From<i32> for WCN_VALUE_TYPE_MESSAGE_TYPE {
+impl ::core::convert::From<i32> for WCN_VALUE_TYPE_MESSAGE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -655,7 +655,7 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_MESSAGE_TYPE {
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_MESSAGE_TYPE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
@@ -664,29 +664,29 @@ pub struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     pub SubCategory: u16,
 }
 impl WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {}
-impl ::std::default::Default for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
+impl ::core::default::Default for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::cmp::PartialEq for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
+impl ::core::cmp::PartialEq for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-impl ::std::cmp::Eq for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {}
+impl ::core::cmp::Eq for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {}
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_REQUEST_TYPE(pub i32);
 pub const WCN_VALUE_ReqT_ENROLLEE_INFO: WCN_VALUE_TYPE_REQUEST_TYPE = WCN_VALUE_TYPE_REQUEST_TYPE(0i32);
 pub const WCN_VALUE_ReqT_ENROLLEE_OPEN_1X: WCN_VALUE_TYPE_REQUEST_TYPE = WCN_VALUE_TYPE_REQUEST_TYPE(1i32);
 pub const WCN_VALUE_ReqT_REGISTRAR: WCN_VALUE_TYPE_REQUEST_TYPE = WCN_VALUE_TYPE_REQUEST_TYPE(2i32);
 pub const WCN_VALUE_ReqT_MANAGER_REGISTRAR: WCN_VALUE_TYPE_REQUEST_TYPE = WCN_VALUE_TYPE_REQUEST_TYPE(3i32);
-impl ::std::convert::From<i32> for WCN_VALUE_TYPE_REQUEST_TYPE {
+impl ::core::convert::From<i32> for WCN_VALUE_TYPE_REQUEST_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -695,14 +695,14 @@ unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_REQUEST_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_RESPONSE_TYPE(pub i32);
 pub const WCN_VALUE_RspT_ENROLLEE_INFO: WCN_VALUE_TYPE_RESPONSE_TYPE = WCN_VALUE_TYPE_RESPONSE_TYPE(0i32);
 pub const WCN_VALUE_RspT_ENROLLEE_OPEN_1X: WCN_VALUE_TYPE_RESPONSE_TYPE = WCN_VALUE_TYPE_RESPONSE_TYPE(1i32);
 pub const WCN_VALUE_RspT_REGISTRAR: WCN_VALUE_TYPE_RESPONSE_TYPE = WCN_VALUE_TYPE_RESPONSE_TYPE(2i32);
 pub const WCN_VALUE_RspT_AP: WCN_VALUE_TYPE_RESPONSE_TYPE = WCN_VALUE_TYPE_RESPONSE_TYPE(3i32);
-impl ::std::convert::From<i32> for WCN_VALUE_TYPE_RESPONSE_TYPE {
+impl ::core::convert::From<i32> for WCN_VALUE_TYPE_RESPONSE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -711,12 +711,12 @@ unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_RESPONSE_TYPE {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_RF_BANDS(pub i32);
 pub const WCN_VALUE_RB_24GHZ: WCN_VALUE_TYPE_RF_BANDS = WCN_VALUE_TYPE_RF_BANDS(1i32);
 pub const WCN_VALUE_RB_50GHZ: WCN_VALUE_TYPE_RF_BANDS = WCN_VALUE_TYPE_RF_BANDS(2i32);
-impl ::std::convert::From<i32> for WCN_VALUE_TYPE_RF_BANDS {
+impl ::core::convert::From<i32> for WCN_VALUE_TYPE_RF_BANDS {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -725,12 +725,12 @@ unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_RF_BANDS {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_VERSION(pub i32);
 pub const WCN_VALUE_VERSION_1_0: WCN_VALUE_TYPE_VERSION = WCN_VALUE_TYPE_VERSION(16i32);
 pub const WCN_VALUE_VERSION_2_0: WCN_VALUE_TYPE_VERSION = WCN_VALUE_TYPE_VERSION(32i32);
-impl ::std::convert::From<i32> for WCN_VALUE_TYPE_VERSION {
+impl ::core::convert::From<i32> for WCN_VALUE_TYPE_VERSION {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -739,13 +739,13 @@ unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_VERSION {
     type Abi = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(pub i32);
 pub const WCN_VALUE_SS_RESERVED00: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(0i32);
 pub const WCN_VALUE_SS_NOT_CONFIGURED: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(1i32);
 pub const WCN_VALUE_SS_CONFIGURED: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(2i32);
-impl ::std::convert::From<i32> for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
+impl ::core::convert::From<i32> for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -753,7 +753,7 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
     type Abi = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub struct WCN_VENDOR_EXTENSION_SPEC {
@@ -763,22 +763,22 @@ pub struct WCN_VENDOR_EXTENSION_SPEC {
     pub Flags: u32,
 }
 impl WCN_VENDOR_EXTENSION_SPEC {}
-impl ::std::default::Default for WCN_VENDOR_EXTENSION_SPEC {
+impl ::core::default::Default for WCN_VENDOR_EXTENSION_SPEC {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for WCN_VENDOR_EXTENSION_SPEC {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for WCN_VENDOR_EXTENSION_SPEC {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("WCN_VENDOR_EXTENSION_SPEC").field("VendorId", &self.VendorId).field("SubType", &self.SubType).field("Index", &self.Index).field("Flags", &self.Flags).finish()
     }
 }
-impl ::std::cmp::PartialEq for WCN_VENDOR_EXTENSION_SPEC {
+impl ::core::cmp::PartialEq for WCN_VENDOR_EXTENSION_SPEC {
     fn eq(&self, other: &Self) -> bool {
         self.VendorId == other.VendorId && self.SubType == other.SubType && self.Index == other.Index && self.Flags == other.Flags
     }
 }
-impl ::std::cmp::Eq for WCN_VENDOR_EXTENSION_SPEC {}
+impl ::core::cmp::Eq for WCN_VENDOR_EXTENSION_SPEC {}
 unsafe impl ::windows::runtime::Abi for WCN_VENDOR_EXTENSION_SPEC {
     type Abi = Self;
 }

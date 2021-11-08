@@ -423,7 +423,7 @@ pub struct ITouchCapabilities_abi(
 );
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct KeyboardCapabilities(pub ::windows::runtime::IInspectable);
 impl KeyboardCapabilities {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -437,8 +437,8 @@ impl KeyboardCapabilities {
     pub fn KeyboardPresent(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
 }
@@ -452,12 +452,12 @@ unsafe impl ::windows::runtime::Interface for KeyboardCapabilities {
 impl ::windows::runtime::RuntimeName for KeyboardCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.KeyboardCapabilities";
 }
-impl ::std::convert::From<KeyboardCapabilities> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<KeyboardCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: KeyboardCapabilities) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&KeyboardCapabilities> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&KeyboardCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &KeyboardCapabilities) -> Self {
         value.0 .0.clone()
     }
@@ -472,12 +472,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<KeyboardCapabilities> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<KeyboardCapabilities> for ::windows::runtime::IInspectable {
     fn from(value: KeyboardCapabilities) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&KeyboardCapabilities> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&KeyboardCapabilities> for ::windows::runtime::IInspectable {
     fn from(value: &KeyboardCapabilities) -> Self {
         value.0.clone()
     }
@@ -492,11 +492,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for KeyboardCapabilities {}
-unsafe impl ::std::marker::Sync for KeyboardCapabilities {}
+unsafe impl ::core::marker::Send for KeyboardCapabilities {}
+unsafe impl ::core::marker::Sync for KeyboardCapabilities {}
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MouseCapabilities(pub ::windows::runtime::IInspectable);
 impl MouseCapabilities {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -510,40 +510,40 @@ impl MouseCapabilities {
     pub fn MousePresent(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn VerticalWheelPresent(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn HorizontalWheelPresent(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn SwapButtons(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn NumberOfButtons(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -557,12 +557,12 @@ unsafe impl ::windows::runtime::Interface for MouseCapabilities {
 impl ::windows::runtime::RuntimeName for MouseCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.MouseCapabilities";
 }
-impl ::std::convert::From<MouseCapabilities> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MouseCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: MouseCapabilities) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MouseCapabilities> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MouseCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &MouseCapabilities) -> Self {
         value.0 .0.clone()
     }
@@ -577,12 +577,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MouseCapabilities> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MouseCapabilities> for ::windows::runtime::IInspectable {
     fn from(value: MouseCapabilities) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MouseCapabilities> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MouseCapabilities> for ::windows::runtime::IInspectable {
     fn from(value: &MouseCapabilities) -> Self {
         value.0.clone()
     }
@@ -597,9 +597,9 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for MouseCapabilities {}
-unsafe impl ::std::marker::Sync for MouseCapabilities {}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+unsafe impl ::core::marker::Send for MouseCapabilities {}
+unsafe impl ::core::marker::Sync for MouseCapabilities {}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Devices_Input`*"]
 pub struct MouseDelta {
@@ -607,22 +607,22 @@ pub struct MouseDelta {
     pub Y: i32,
 }
 impl MouseDelta {}
-impl ::std::default::Default for MouseDelta {
+impl ::core::default::Default for MouseDelta {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for MouseDelta {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for MouseDelta {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("MouseDelta").field("X", &self.X).field("Y", &self.Y).finish()
     }
 }
-impl ::std::cmp::PartialEq for MouseDelta {
+impl ::core::cmp::PartialEq for MouseDelta {
     fn eq(&self, other: &Self) -> bool {
         self.X == other.X && self.Y == other.Y
     }
 }
-impl ::std::cmp::Eq for MouseDelta {}
+impl ::core::cmp::Eq for MouseDelta {}
 unsafe impl ::windows::runtime::Abi for MouseDelta {
     type Abi = Self;
 }
@@ -634,7 +634,7 @@ impl ::windows::runtime::DefaultType for MouseDelta {
 }
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MouseDevice(pub ::windows::runtime::IInspectable);
 impl MouseDevice {
     #[cfg(feature = "Foundation")]
@@ -642,21 +642,21 @@ impl MouseDevice {
     pub fn MouseMoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MouseDevice, MouseEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input`, `Foundation`*"]
     pub fn RemoveMouseMoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<MouseDevice> {
         Self::IMouseDeviceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MouseDevice>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MouseDevice>(result__)
         })
     }
     pub fn IMouseDeviceStatics<R, F: FnOnce(&IMouseDeviceStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -674,12 +674,12 @@ unsafe impl ::windows::runtime::Interface for MouseDevice {
 impl ::windows::runtime::RuntimeName for MouseDevice {
     const NAME: &'static str = "Windows.Devices.Input.MouseDevice";
 }
-impl ::std::convert::From<MouseDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MouseDevice> for ::windows::runtime::IUnknown {
     fn from(value: MouseDevice) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MouseDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MouseDevice> for ::windows::runtime::IUnknown {
     fn from(value: &MouseDevice) -> Self {
         value.0 .0.clone()
     }
@@ -694,12 +694,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MouseDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MouseDevice> for ::windows::runtime::IInspectable {
     fn from(value: MouseDevice) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MouseDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MouseDevice> for ::windows::runtime::IInspectable {
     fn from(value: &MouseDevice) -> Self {
         value.0.clone()
     }
@@ -716,15 +716,15 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MouseEventArgs(pub ::windows::runtime::IInspectable);
 impl MouseEventArgs {
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn MouseDelta(&self) -> ::windows::runtime::Result<MouseDelta> {
         let this = self;
         unsafe {
-            let mut result__: MouseDelta = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MouseDelta>(result__)
+            let mut result__: MouseDelta = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MouseDelta>(result__)
         }
     }
 }
@@ -738,12 +738,12 @@ unsafe impl ::windows::runtime::Interface for MouseEventArgs {
 impl ::windows::runtime::RuntimeName for MouseEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.MouseEventArgs";
 }
-impl ::std::convert::From<MouseEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<MouseEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: MouseEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&MouseEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&MouseEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &MouseEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -758,12 +758,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<MouseEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<MouseEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: MouseEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&MouseEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&MouseEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &MouseEventArgs) -> Self {
         value.0.clone()
     }
@@ -780,15 +780,15 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PenButtonListener(pub ::windows::runtime::IInspectable);
 impl PenButtonListener {
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn IsSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -796,66 +796,66 @@ impl PenButtonListener {
     pub fn IsSupportedChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PenButtonListener, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input`, `Foundation`*"]
     pub fn RemoveIsSupportedChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input`, `Foundation`*"]
     pub fn TailButtonClicked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonClickedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input`, `Foundation`*"]
     pub fn RemoveTailButtonClicked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input`, `Foundation`*"]
     pub fn TailButtonDoubleClicked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonDoubleClickedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input`, `Foundation`*"]
     pub fn RemoveTailButtonDoubleClicked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input`, `Foundation`*"]
     pub fn TailButtonLongPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonLongPressedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).13)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input`, `Foundation`*"]
     pub fn RemoveTailButtonLongPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<PenButtonListener> {
         Self::IPenButtonListenerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PenButtonListener>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PenButtonListener>(result__)
         })
     }
     pub fn IPenButtonListenerStatics<R, F: FnOnce(&IPenButtonListenerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -873,12 +873,12 @@ unsafe impl ::windows::runtime::Interface for PenButtonListener {
 impl ::windows::runtime::RuntimeName for PenButtonListener {
     const NAME: &'static str = "Windows.Devices.Input.PenButtonListener";
 }
-impl ::std::convert::From<PenButtonListener> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PenButtonListener> for ::windows::runtime::IUnknown {
     fn from(value: PenButtonListener) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PenButtonListener> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PenButtonListener> for ::windows::runtime::IUnknown {
     fn from(value: &PenButtonListener) -> Self {
         value.0 .0.clone()
     }
@@ -893,12 +893,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PenButtonListener> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PenButtonListener> for ::windows::runtime::IInspectable {
     fn from(value: PenButtonListener) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PenButtonListener> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PenButtonListener> for ::windows::runtime::IInspectable {
     fn from(value: &PenButtonListener) -> Self {
         value.0.clone()
     }
@@ -913,26 +913,26 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PenButtonListener {}
-unsafe impl ::std::marker::Sync for PenButtonListener {}
+unsafe impl ::core::marker::Send for PenButtonListener {}
+unsafe impl ::core::marker::Sync for PenButtonListener {}
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PenDevice(pub ::windows::runtime::IInspectable);
 impl PenDevice {
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn PenId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
+            let mut result__: ::windows::runtime::GUID = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn GetFromPointerId(pointerid: u32) -> ::windows::runtime::Result<PenDevice> {
         Self::IPenDeviceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), pointerid, &mut result__).from_abi::<PenDevice>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pointerid, &mut result__).from_abi::<PenDevice>(result__)
         })
     }
     #[cfg(feature = "Devices_Haptics")]
@@ -940,8 +940,8 @@ impl PenDevice {
     pub fn SimpleHapticsController(&self) -> ::windows::runtime::Result<super::Haptics::SimpleHapticsController> {
         let this = &::windows::runtime::Interface::cast::<IPenDevice2>(self)?;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Haptics::SimpleHapticsController>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Haptics::SimpleHapticsController>(result__)
         }
     }
     pub fn IPenDeviceStatics<R, F: FnOnce(&IPenDeviceStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -959,12 +959,12 @@ unsafe impl ::windows::runtime::Interface for PenDevice {
 impl ::windows::runtime::RuntimeName for PenDevice {
     const NAME: &'static str = "Windows.Devices.Input.PenDevice";
 }
-impl ::std::convert::From<PenDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PenDevice> for ::windows::runtime::IUnknown {
     fn from(value: PenDevice) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PenDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PenDevice> for ::windows::runtime::IUnknown {
     fn from(value: &PenDevice) -> Self {
         value.0 .0.clone()
     }
@@ -979,12 +979,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PenDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PenDevice> for ::windows::runtime::IInspectable {
     fn from(value: PenDevice) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PenDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PenDevice> for ::windows::runtime::IInspectable {
     fn from(value: &PenDevice) -> Self {
         value.0.clone()
     }
@@ -999,19 +999,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PenDevice {}
-unsafe impl ::std::marker::Sync for PenDevice {}
+unsafe impl ::core::marker::Send for PenDevice {}
+unsafe impl ::core::marker::Sync for PenDevice {}
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PenDockListener(pub ::windows::runtime::IInspectable);
 impl PenDockListener {
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn IsSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1019,51 +1019,51 @@ impl PenDockListener {
     pub fn IsSupportedChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PenDockListener, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input`, `Foundation`*"]
     pub fn RemoveIsSupportedChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input`, `Foundation`*"]
     pub fn Docked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PenDockListener, PenDockedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input`, `Foundation`*"]
     pub fn RemoveDocked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input`, `Foundation`*"]
     pub fn Undocked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PenDockListener, PenUndockedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Input`, `Foundation`*"]
     pub fn RemoveUndocked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<PenDockListener> {
         Self::IPenDockListenerStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PenDockListener>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PenDockListener>(result__)
         })
     }
     pub fn IPenDockListenerStatics<R, F: FnOnce(&IPenDockListenerStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1081,12 +1081,12 @@ unsafe impl ::windows::runtime::Interface for PenDockListener {
 impl ::windows::runtime::RuntimeName for PenDockListener {
     const NAME: &'static str = "Windows.Devices.Input.PenDockListener";
 }
-impl ::std::convert::From<PenDockListener> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PenDockListener> for ::windows::runtime::IUnknown {
     fn from(value: PenDockListener) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PenDockListener> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PenDockListener> for ::windows::runtime::IUnknown {
     fn from(value: &PenDockListener) -> Self {
         value.0 .0.clone()
     }
@@ -1101,12 +1101,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PenDockListener> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PenDockListener> for ::windows::runtime::IInspectable {
     fn from(value: PenDockListener) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PenDockListener> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PenDockListener> for ::windows::runtime::IInspectable {
     fn from(value: &PenDockListener) -> Self {
         value.0.clone()
     }
@@ -1121,11 +1121,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PenDockListener {}
-unsafe impl ::std::marker::Sync for PenDockListener {}
+unsafe impl ::core::marker::Send for PenDockListener {}
+unsafe impl ::core::marker::Sync for PenDockListener {}
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PenDockedEventArgs(pub ::windows::runtime::IInspectable);
 impl PenDockedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for PenDockedEventArgs {
@@ -1138,12 +1138,12 @@ unsafe impl ::windows::runtime::Interface for PenDockedEventArgs {
 impl ::windows::runtime::RuntimeName for PenDockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenDockedEventArgs";
 }
-impl ::std::convert::From<PenDockedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PenDockedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PenDockedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PenDockedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PenDockedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PenDockedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1158,12 +1158,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PenDockedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PenDockedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: PenDockedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PenDockedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PenDockedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &PenDockedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1178,11 +1178,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PenDockedEventArgs {}
-unsafe impl ::std::marker::Sync for PenDockedEventArgs {}
+unsafe impl ::core::marker::Send for PenDockedEventArgs {}
+unsafe impl ::core::marker::Sync for PenDockedEventArgs {}
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PenTailButtonClickedEventArgs(pub ::windows::runtime::IInspectable);
 impl PenTailButtonClickedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for PenTailButtonClickedEventArgs {
@@ -1195,12 +1195,12 @@ unsafe impl ::windows::runtime::Interface for PenTailButtonClickedEventArgs {
 impl ::windows::runtime::RuntimeName for PenTailButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonClickedEventArgs";
 }
-impl ::std::convert::From<PenTailButtonClickedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PenTailButtonClickedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PenTailButtonClickedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PenTailButtonClickedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PenTailButtonClickedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PenTailButtonClickedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1215,12 +1215,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PenTailButtonClickedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PenTailButtonClickedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: PenTailButtonClickedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PenTailButtonClickedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PenTailButtonClickedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &PenTailButtonClickedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1235,11 +1235,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PenTailButtonClickedEventArgs {}
-unsafe impl ::std::marker::Sync for PenTailButtonClickedEventArgs {}
+unsafe impl ::core::marker::Send for PenTailButtonClickedEventArgs {}
+unsafe impl ::core::marker::Sync for PenTailButtonClickedEventArgs {}
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PenTailButtonDoubleClickedEventArgs(pub ::windows::runtime::IInspectable);
 impl PenTailButtonDoubleClickedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for PenTailButtonDoubleClickedEventArgs {
@@ -1252,12 +1252,12 @@ unsafe impl ::windows::runtime::Interface for PenTailButtonDoubleClickedEventArg
 impl ::windows::runtime::RuntimeName for PenTailButtonDoubleClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonDoubleClickedEventArgs";
 }
-impl ::std::convert::From<PenTailButtonDoubleClickedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PenTailButtonDoubleClickedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PenTailButtonDoubleClickedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PenTailButtonDoubleClickedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PenTailButtonDoubleClickedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PenTailButtonDoubleClickedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1272,12 +1272,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PenTailButtonDoubleClickedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PenTailButtonDoubleClickedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: PenTailButtonDoubleClickedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PenTailButtonDoubleClickedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PenTailButtonDoubleClickedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &PenTailButtonDoubleClickedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1292,11 +1292,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PenTailButtonDoubleClickedEventArgs {}
-unsafe impl ::std::marker::Sync for PenTailButtonDoubleClickedEventArgs {}
+unsafe impl ::core::marker::Send for PenTailButtonDoubleClickedEventArgs {}
+unsafe impl ::core::marker::Sync for PenTailButtonDoubleClickedEventArgs {}
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PenTailButtonLongPressedEventArgs(pub ::windows::runtime::IInspectable);
 impl PenTailButtonLongPressedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for PenTailButtonLongPressedEventArgs {
@@ -1309,12 +1309,12 @@ unsafe impl ::windows::runtime::Interface for PenTailButtonLongPressedEventArgs 
 impl ::windows::runtime::RuntimeName for PenTailButtonLongPressedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonLongPressedEventArgs";
 }
-impl ::std::convert::From<PenTailButtonLongPressedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PenTailButtonLongPressedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PenTailButtonLongPressedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PenTailButtonLongPressedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PenTailButtonLongPressedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PenTailButtonLongPressedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1329,12 +1329,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PenTailButtonLongPressedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PenTailButtonLongPressedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: PenTailButtonLongPressedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PenTailButtonLongPressedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PenTailButtonLongPressedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &PenTailButtonLongPressedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1349,11 +1349,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PenTailButtonLongPressedEventArgs {}
-unsafe impl ::std::marker::Sync for PenTailButtonLongPressedEventArgs {}
+unsafe impl ::core::marker::Send for PenTailButtonLongPressedEventArgs {}
+unsafe impl ::core::marker::Sync for PenTailButtonLongPressedEventArgs {}
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PenUndockedEventArgs(pub ::windows::runtime::IInspectable);
 impl PenUndockedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for PenUndockedEventArgs {
@@ -1366,12 +1366,12 @@ unsafe impl ::windows::runtime::Interface for PenUndockedEventArgs {
 impl ::windows::runtime::RuntimeName for PenUndockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenUndockedEventArgs";
 }
-impl ::std::convert::From<PenUndockedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PenUndockedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: PenUndockedEventArgs) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PenUndockedEventArgs> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PenUndockedEventArgs> for ::windows::runtime::IUnknown {
     fn from(value: &PenUndockedEventArgs) -> Self {
         value.0 .0.clone()
     }
@@ -1386,12 +1386,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PenUndockedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PenUndockedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: PenUndockedEventArgs) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PenUndockedEventArgs> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PenUndockedEventArgs> for ::windows::runtime::IInspectable {
     fn from(value: &PenUndockedEventArgs) -> Self {
         value.0.clone()
     }
@@ -1406,35 +1406,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for PenUndockedEventArgs {}
-unsafe impl ::std::marker::Sync for PenUndockedEventArgs {}
+unsafe impl ::core::marker::Send for PenUndockedEventArgs {}
+unsafe impl ::core::marker::Sync for PenUndockedEventArgs {}
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PointerDevice(pub ::windows::runtime::IInspectable);
 impl PointerDevice {
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn PointerDeviceType(&self) -> ::windows::runtime::Result<PointerDeviceType> {
         let this = self;
         unsafe {
-            let mut result__: PointerDeviceType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PointerDeviceType>(result__)
+            let mut result__: PointerDeviceType = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PointerDeviceType>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn IsIntegrated(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__: bool = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn MaxContacts(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1442,8 +1442,8 @@ impl PointerDevice {
     pub fn PhysicalDeviceRect(&self) -> ::windows::runtime::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1451,8 +1451,8 @@ impl PointerDevice {
     pub fn ScreenRect(&self) -> ::windows::runtime::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
+            let mut result__: super::super::Foundation::Rect = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1460,31 +1460,31 @@ impl PointerDevice {
     pub fn SupportedUsages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<PointerDeviceUsage>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PointerDeviceUsage>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PointerDeviceUsage>>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn MaxPointersWithZDistance(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IPointerDevice2>(self)?;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn GetPointerDevice(pointerid: u32) -> ::windows::runtime::Result<PointerDevice> {
         Self::IPointerDeviceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), pointerid, &mut result__).from_abi::<PointerDevice>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pointerid, &mut result__).from_abi::<PointerDevice>(result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Input`, `Foundation_Collections`*"]
     pub fn GetPointerDevices() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<PointerDevice>> {
         Self::IPointerDeviceStatics(|this| unsafe {
-            let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PointerDevice>>(result__)
+            let mut result__: ::windows::runtime::RawPtr = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PointerDevice>>(result__)
         })
     }
     pub fn IPointerDeviceStatics<R, F: FnOnce(&IPointerDeviceStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
@@ -1502,12 +1502,12 @@ unsafe impl ::windows::runtime::Interface for PointerDevice {
 impl ::windows::runtime::RuntimeName for PointerDevice {
     const NAME: &'static str = "Windows.Devices.Input.PointerDevice";
 }
-impl ::std::convert::From<PointerDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<PointerDevice> for ::windows::runtime::IUnknown {
     fn from(value: PointerDevice) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&PointerDevice> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&PointerDevice> for ::windows::runtime::IUnknown {
     fn from(value: &PointerDevice) -> Self {
         value.0 .0.clone()
     }
@@ -1522,12 +1522,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<PointerDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<PointerDevice> for ::windows::runtime::IInspectable {
     fn from(value: PointerDevice) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&PointerDevice> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&PointerDevice> for ::windows::runtime::IInspectable {
     fn from(value: &PointerDevice) -> Self {
         value.0.clone()
     }
@@ -1543,7 +1543,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
     }
 }
 #[doc = "*Required features: `Devices_Input`*"]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PointerDeviceType(pub i32);
 impl PointerDeviceType {
@@ -1551,7 +1551,7 @@ impl PointerDeviceType {
     pub const Pen: PointerDeviceType = PointerDeviceType(1i32);
     pub const Mouse: PointerDeviceType = PointerDeviceType(2i32);
 }
-impl ::std::convert::From<i32> for PointerDeviceType {
+impl ::core::convert::From<i32> for PointerDeviceType {
     fn from(value: i32) -> Self {
         Self(value)
     }
@@ -1565,7 +1565,7 @@ unsafe impl ::windows::runtime::RuntimeType for PointerDeviceType {
 impl ::windows::runtime::DefaultType for PointerDeviceType {
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Devices_Input`*"]
 pub struct PointerDeviceUsage {
@@ -1579,13 +1579,13 @@ pub struct PointerDeviceUsage {
     pub PhysicalMultiplier: f32,
 }
 impl PointerDeviceUsage {}
-impl ::std::default::Default for PointerDeviceUsage {
+impl ::core::default::Default for PointerDeviceUsage {
     fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::std::fmt::Debug for PointerDeviceUsage {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+impl ::core::fmt::Debug for PointerDeviceUsage {
+    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         fmt.debug_struct("PointerDeviceUsage")
             .field("UsagePage", &self.UsagePage)
             .field("Usage", &self.Usage)
@@ -1598,12 +1598,12 @@ impl ::std::fmt::Debug for PointerDeviceUsage {
             .finish()
     }
 }
-impl ::std::cmp::PartialEq for PointerDeviceUsage {
+impl ::core::cmp::PartialEq for PointerDeviceUsage {
     fn eq(&self, other: &Self) -> bool {
         self.UsagePage == other.UsagePage && self.Usage == other.Usage && self.MinLogical == other.MinLogical && self.MaxLogical == other.MaxLogical && self.MinPhysical == other.MinPhysical && self.MaxPhysical == other.MaxPhysical && self.Unit == other.Unit && self.PhysicalMultiplier == other.PhysicalMultiplier
     }
 }
-impl ::std::cmp::Eq for PointerDeviceUsage {}
+impl ::core::cmp::Eq for PointerDeviceUsage {}
 unsafe impl ::windows::runtime::Abi for PointerDeviceUsage {
     type Abi = Self;
 }
@@ -1615,7 +1615,7 @@ impl ::windows::runtime::DefaultType for PointerDeviceUsage {
 }
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TouchCapabilities(pub ::windows::runtime::IInspectable);
 impl TouchCapabilities {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1629,16 +1629,16 @@ impl TouchCapabilities {
     pub fn TouchPresent(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__: i32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `Devices_Input`*"]
     pub fn Contacts(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__: u32 = ::core::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -1652,12 +1652,12 @@ unsafe impl ::windows::runtime::Interface for TouchCapabilities {
 impl ::windows::runtime::RuntimeName for TouchCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.TouchCapabilities";
 }
-impl ::std::convert::From<TouchCapabilities> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<TouchCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: TouchCapabilities) -> Self {
         value.0 .0
     }
 }
-impl ::std::convert::From<&TouchCapabilities> for ::windows::runtime::IUnknown {
+impl ::core::convert::From<&TouchCapabilities> for ::windows::runtime::IUnknown {
     fn from(value: &TouchCapabilities) -> Self {
         value.0 .0.clone()
     }
@@ -1672,12 +1672,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a
         ::windows::runtime::Param::Borrowed(&self.0 .0)
     }
 }
-impl ::std::convert::From<TouchCapabilities> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<TouchCapabilities> for ::windows::runtime::IInspectable {
     fn from(value: TouchCapabilities) -> Self {
         value.0
     }
 }
-impl ::std::convert::From<&TouchCapabilities> for ::windows::runtime::IInspectable {
+impl ::core::convert::From<&TouchCapabilities> for ::windows::runtime::IInspectable {
     fn from(value: &TouchCapabilities) -> Self {
         value.0.clone()
     }
@@ -1692,5 +1692,5 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
-unsafe impl ::std::marker::Send for TouchCapabilities {}
-unsafe impl ::std::marker::Sync for TouchCapabilities {}
+unsafe impl ::core::marker::Send for TouchCapabilities {}
+unsafe impl ::core::marker::Sync for TouchCapabilities {}
