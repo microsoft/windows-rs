@@ -12,7 +12,7 @@ pub struct WaiterSignaler(HANDLE);
 impl Waiter {
     pub fn new() -> (Waiter, WaiterSignaler) {
         unsafe {
-            let handle = CreateEventA(std::ptr::null_mut(), true, false, None);
+            let handle = CreateEventA(core::ptr::null_mut(), true, false, None);
             (Waiter(handle), WaiterSignaler(handle))
         }
     }

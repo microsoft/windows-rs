@@ -13,7 +13,7 @@ fn test() {
 
     // Query implies add_ref
     unsafe {
-        count.query(&IWeakReferenceSource::IID, std::ptr::null_mut());
+        count.query(&IWeakReferenceSource::IID, core::ptr::null_mut());
     }
 
     // Ref count is now owned by tearoff

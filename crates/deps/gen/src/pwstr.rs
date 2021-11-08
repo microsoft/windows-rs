@@ -12,7 +12,7 @@ pub fn gen_pwstr() -> TokenStream {
         }
         impl ::std::default::Default for PWSTR {
             fn default() -> Self {
-                Self(::std::ptr::null_mut())
+                Self(::core::ptr::null_mut())
             }
         }
         unsafe impl ::windows::runtime::Abi for PWSTR {

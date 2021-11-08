@@ -186,7 +186,7 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
     // arguments to ensure the call succeeds in the non-aggregating case.
     let composable_args = match interface.kind {
         InterfaceKind::Composable => quote! {
-            ::std::ptr::null_mut(), &mut ::std::option::Option::<::windows::runtime::IInspectable>::None as *mut _ as _,
+            ::core::ptr::null_mut(), &mut ::std::option::Option::<::windows::runtime::IInspectable>::None as *mut _ as _,
         },
         InterfaceKind::Extend => quote! {
             ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _,

@@ -90,7 +90,7 @@ fn constant() {
 #[test]
 fn function() -> windows::runtime::Result<()> {
     unsafe {
-        let event = CreateEventW(std::ptr::null_mut(), true, false, PWSTR(std::ptr::null_mut()));
+        let event = CreateEventW(core::ptr::null_mut(), true, false, PWSTR(core::ptr::null_mut()));
         assert!(event.0 != 0);
 
         SetEvent(event).ok()?;
@@ -185,10 +185,10 @@ fn onecore_imports() -> windows::runtime::Result<()> {
         let port = uri.GetPort()?;
         assert!(port == 80);
 
-        let result = MiniDumpWriteDump(None, 0, None, MiniDumpNormal, std::ptr::null_mut(), std::ptr::null_mut(), std::ptr::null_mut());
+        let result = MiniDumpWriteDump(None, 0, None, MiniDumpNormal, core::ptr::null_mut(), core::ptr::null_mut(), core::ptr::null_mut());
         assert!(!result.as_bool());
 
-        assert!(D3DDisassemble11Trace(std::ptr::null_mut(), 0, None, 0, 0, 0).is_err());
+        assert!(D3DDisassemble11Trace(core::ptr::null_mut(), 0, None, 0, 0, 0).is_err());
 
         Ok(())
     }

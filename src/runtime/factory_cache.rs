@@ -14,7 +14,7 @@ pub struct FactoryCache<C, I> {
 
 impl<C, I> FactoryCache<C, I> {
     pub const fn new() -> Self {
-        Self { shared: AtomicPtr::new(::std::ptr::null_mut()), _c: PhantomData, _i: PhantomData }
+        Self { shared: AtomicPtr::new(::core::ptr::null_mut()), _c: PhantomData, _i: PhantomData }
     }
 }
 
@@ -34,7 +34,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
 
             // If the factory is agile, we can safely cache it.
             if factory.cast::<IAgileObject>().is_ok() {
-                if self.shared.compare_exchange_weak(std::ptr::null_mut(), unsafe { core::mem::transmute_copy(&factory) }, Ordering::Relaxed, Ordering::Relaxed).is_ok() {
+                if self.shared.compare_exchange_weak(core::ptr::null_mut(), unsafe { core::mem::transmute_copy(&factory) }, Ordering::Relaxed, Ordering::Relaxed).is_ok() {
                     core::mem::forget(factory);
                 }
             } else {
@@ -62,7 +62,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
         // If this fails because combase hasn't been loaded yet then load combase
         // automatically so that it "just works" for apartment-agnostic code.
         if code == HRESULT(CO_E_NOTINITIALIZED as _) {
-            let mut _cookie = std::ptr::null_mut();
+            let mut _cookie = core::ptr::null_mut();
 
             // Won't get any delay-load errors here if we got CO_E_NOTINITIALIZED, so quiet the
             // warning from the #[must_use] on the returned Result<>.
@@ -95,7 +95,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 
             if let Ok(function) = delay_load(&library, "DllGetActivationFactory") {
                 let function: DllGetActivationFactory = core::mem::transmute(function);
-                let mut abi = std::ptr::null_mut();
+                let mut abi = core::ptr::null_mut();
                 let _ = function(core::mem::transmute_copy(&name), &mut abi);
 
                 if abi.is_null() {

@@ -153,7 +153,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
 
                         unsafe {
                             let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
-                            ::core::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
+                            ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
                         }
                     }
                 }
@@ -162,7 +162,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                         unsafe {
                             let mut ptr = (implementation as *mut _ as *mut ::windows::runtime::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
                             (*ptr).count.add_ref();
-                            ::core::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
+                            ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
                         }
                     }
                 }
@@ -225,7 +225,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
 
                 unsafe {
                     let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
-                    ::core::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
+                    ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
                 }
             }
         }
@@ -235,7 +235,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
 
                 unsafe {
                     let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
-                    ::core::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
+                    ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
                 }
             }
         }
@@ -283,7 +283,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                         || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
                             &mut self.identity_vtable as *mut _ as _
                     } #queries else {
-                        ::std::ptr::null_mut()
+                        ::core::ptr::null_mut()
                     };
 
                     if !(*interface).is_null() {
@@ -325,7 +325,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                 // since the data to be returned is type- not instance-specific so can be shared for all
                 // interfaces.
                 *count = 0;
-                *values = ::std::ptr::null_mut();
+                *values = ::core::ptr::null_mut();
                 ::windows::runtime::HRESULT(0)
             }
             unsafe extern "system" fn GetRuntimeClassName(

@@ -7,7 +7,7 @@ pub fn gen_bstr() -> TokenStream {
         pub struct BSTR(pub *mut u16);
         impl BSTR {
             pub fn new() -> Self {
-                Self(std::ptr::null_mut())
+                Self(core::ptr::null_mut())
             }
 
             pub fn is_empty(&self) -> bool {
@@ -24,7 +24,7 @@ pub fn gen_bstr() -> TokenStream {
 
             pub fn from_wide(value: &[u16]) -> Self {
                 if value.len() == 0 {
-                    return Self(::std::ptr::null_mut());
+                    return Self(::core::ptr::null_mut());
                 }
 
                 unsafe {
@@ -83,7 +83,7 @@ pub fn gen_bstr() -> TokenStream {
         }
         impl ::std::default::Default for BSTR {
             fn default() -> Self {
-                Self(::std::ptr::null_mut())
+                Self(::core::ptr::null_mut())
             }
         }
         impl ::core::fmt::Display for BSTR {

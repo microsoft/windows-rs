@@ -1323,7 +1323,7 @@ pub mod Windows {
             pub struct BSTR(pub *mut u16);
             impl BSTR {
                 pub fn new() -> Self {
-                    Self(std::ptr::null_mut())
+                    Self(core::ptr::null_mut())
                 }
                 pub fn is_empty(&self) -> bool {
                     self.len() == 0
@@ -1337,7 +1337,7 @@ pub mod Windows {
                 }
                 pub fn from_wide(value: &[u16]) -> Self {
                     if value.len() == 0 {
-                        return Self(::std::ptr::null_mut());
+                        return Self(::core::ptr::null_mut());
                     }
                     unsafe { SysAllocStringLen(PWSTR(value.as_ptr() as *mut _), value.len() as u32) }
                 }
@@ -1383,7 +1383,7 @@ pub mod Windows {
             }
             impl ::std::default::Default for BSTR {
                 fn default() -> Self {
-                    Self(::std::ptr::null_mut())
+                    Self(::core::ptr::null_mut())
                 }
             }
             impl ::core::fmt::Display for BSTR {
@@ -1514,7 +1514,7 @@ pub mod Windows {
             }
             impl ::std::default::Default for PSTR {
                 fn default() -> Self {
-                    Self(::std::ptr::null_mut())
+                    Self(::core::ptr::null_mut())
                 }
             }
             unsafe impl ::windows::runtime::Abi for PSTR {
@@ -1549,7 +1549,7 @@ pub mod Windows {
             }
             impl ::std::default::Default for PWSTR {
                 fn default() -> Self {
-                    Self(::std::ptr::null_mut())
+                    Self(::core::ptr::null_mut())
                 }
             }
             unsafe impl ::windows::runtime::Abi for PWSTR {

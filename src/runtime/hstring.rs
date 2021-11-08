@@ -14,7 +14,7 @@ impl HSTRING {
     ///
     /// This function does not allocate memory.
     pub fn new() -> Self {
-        Self(std::ptr::null_mut())
+        Self(core::ptr::null_mut())
     }
 
     /// Returns `true` if the string is empty.
@@ -70,7 +70,7 @@ impl HSTRING {
             }
         }
 
-        self.0 = std::ptr::null_mut();
+        self.0 = core::ptr::null_mut();
     }
 
     /// # Safety
@@ -87,12 +87,12 @@ impl HSTRING {
         for (index, wide) in iter.enumerate() {
             debug_assert!((index as u32) < len);
 
-            std::ptr::write((*ptr).data.add(index), wide);
+            core::ptr::write((*ptr).data.add(index), wide);
             (*ptr).len = index as u32 + 1;
         }
 
         // Write a 0 byte to the end of the buffer.
-        std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
+        core::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
         Self(ptr)
     }
 }
@@ -262,7 +262,7 @@ impl Header {
             // Otherwise, allocate a new string and copy the value into the new string.
             let copy = Header::alloc(self.len);
             unsafe {
-                std::ptr::copy_nonoverlapping(self.data, (*copy).data, self.len as usize + 1);
+                core::ptr::copy_nonoverlapping(self.data, (*copy).data, self.len as usize + 1);
             }
             copy
         }

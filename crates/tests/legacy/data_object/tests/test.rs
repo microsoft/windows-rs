@@ -22,7 +22,7 @@ struct Test {
 impl Test {
     fn GetData(&mut self, _: *const FORMATETC) -> Result<STGMEDIUM> {
         self.GetData = true;
-        Ok(STGMEDIUM { tymed: 0, Anonymous: STGMEDIUM_0 { pstg: std::ptr::null_mut() }, pUnkForRelease: None })
+        Ok(STGMEDIUM { tymed: 0, Anonymous: STGMEDIUM_0 { pstg: core::ptr::null_mut() }, pUnkForRelease: None })
     }
 
     fn GetDataHere(&mut self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {
@@ -70,13 +70,13 @@ impl Test {
 fn test() -> Result<()> {
     unsafe {
         let d: IDataObject = Test::default().into();
-        d.GetData(std::ptr::null_mut())?;
-        d.GetDataHere(std::ptr::null_mut(), std::ptr::null_mut())?;
-        d.QueryGetData(std::ptr::null_mut())?;
-        d.GetCanonicalFormatEtc(std::ptr::null_mut())?;
-        d.SetData(std::ptr::null_mut(), std::ptr::null_mut(), false)?;
+        d.GetData(core::ptr::null_mut())?;
+        d.GetDataHere(core::ptr::null_mut(), core::ptr::null_mut())?;
+        d.QueryGetData(core::ptr::null_mut())?;
+        d.GetCanonicalFormatEtc(core::ptr::null_mut())?;
+        d.SetData(core::ptr::null_mut(), core::ptr::null_mut(), false)?;
         let _ = d.EnumFormatEtc(0);
-        d.DAdvise(std::ptr::null_mut(), 0, None)?;
+        d.DAdvise(core::ptr::null_mut(), 0, None)?;
         d.DUnadvise(0)?;
         let _ = d.EnumDAdvise();
 

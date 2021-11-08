@@ -104,7 +104,7 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
                     iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
                         &mut (*this).vtable as *mut _ as _
                     } else {
-                        ::std::ptr::null_mut()
+                        ::core::ptr::null_mut()
                     };
 
                 // TODO: implement IMarshal

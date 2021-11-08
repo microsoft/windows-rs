@@ -13,7 +13,7 @@ impl IInspectable {
     /// Returns the canonical type name for the underlying object.
     pub fn type_name(&self) -> Result<HSTRING> {
         unsafe {
-            let mut abi = std::ptr::null_mut();
+            let mut abi = core::ptr::null_mut();
             (self.vtable().4)(core::mem::transmute_copy(self), &mut abi).ok()?;
             Ok(core::mem::transmute(abi))
         }

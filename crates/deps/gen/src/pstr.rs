@@ -12,7 +12,7 @@ pub fn gen_pstr() -> TokenStream {
         }
         impl ::std::default::Default for PSTR {
             fn default() -> Self {
-                Self(::std::ptr::null_mut())
+                Self(::core::ptr::null_mut())
             }
         }
         unsafe impl ::windows::runtime::Abi for PSTR {

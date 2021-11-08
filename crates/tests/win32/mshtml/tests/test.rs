@@ -7,7 +7,7 @@ use windows::Win32::Web::MsHtml::*;
 #[test]
 fn main() -> Result<()> {
     unsafe {
-        CoInitializeEx(std::ptr::null_mut(), COINIT_MULTITHREADED)?;
+        CoInitializeEx(core::ptr::null_mut(), COINIT_MULTITHREADED)?;
 
         let doc: IHTMLDocument3 = CoCreateInstance(&HTMLDocument, None, CLSCTX_ALL)?;
 

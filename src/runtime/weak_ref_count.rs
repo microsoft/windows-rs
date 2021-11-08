@@ -39,7 +39,7 @@ impl WeakRefCount {
     /// # Safety
     pub unsafe fn query(&self, iid: &::windows::runtime::GUID, object: RawPtr) -> RawPtr {
         if iid != &IWeakReferenceSource::IID {
-            return std::ptr::null_mut();
+            return core::ptr::null_mut();
         }
 
         let mut count_or_pointer = self.0.load(Ordering::Relaxed);
@@ -145,7 +145,7 @@ impl TearOff {
         // tear-off, it represents a distinct COM identity and thus does not share or delegate to
         // the object.
 
-        *interface = if iid == &IWeakReference::IID || iid == &IUnknown::IID || iid == &IAgileObject::IID { ptr } else { std::ptr::null_mut() };
+        *interface = if iid == &IWeakReference::IID || iid == &IUnknown::IID || iid == &IAgileObject::IID { ptr } else { core::ptr::null_mut() };
 
         // TODO: implement IMarshal
 
@@ -224,7 +224,7 @@ impl TearOff {
                 result
             })
             .unwrap_or_else(|_| {
-                *interface = std::ptr::null_mut();
+                *interface = core::ptr::null_mut();
                 HRESULT(0)
             })
     }

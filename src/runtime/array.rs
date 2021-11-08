@@ -9,7 +9,7 @@ pub struct Array<T: RuntimeType> {
 
 impl<T: RuntimeType> Default for Array<T> {
     fn default() -> Self {
-        Array { data: std::ptr::null_mut(), len: 0 }
+        Array { data: core::ptr::null_mut(), len: 0 }
     }
 }
 
@@ -37,7 +37,7 @@ impl<T: RuntimeType> Array<T> {
         // bytes making the entire array zero initialized. We have assured
         // above that the data ptr is not null.
         unsafe {
-            std::ptr::write_bytes(data, 0, len);
+            core::ptr::write_bytes(data, 0, len);
         }
 
         let len = len as u32;
@@ -67,7 +67,7 @@ impl<T: RuntimeType> Array<T> {
             return;
         }
 
-        let mut data = std::ptr::null_mut();
+        let mut data = core::ptr::null_mut();
         let mut len = 0;
 
         core::mem::swap(&mut data, &mut self.data);
@@ -78,7 +78,7 @@ impl<T: RuntimeType> Array<T> {
         unsafe {
             // Call the destructors of all the elements of the old array
             // SAFETY: the slice cannot be used after the call to `drop_in_place`
-            std::ptr::drop_in_place(std::slice::from_raw_parts_mut(data, len as usize));
+            core::ptr::drop_in_place(std::slice::from_raw_parts_mut(data, len as usize));
             // Free the data memory where the elements were
             // SAFETY: we have unique access to the data pointer at this point
             // so freeing it is the right thing to do

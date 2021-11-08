@@ -568,7 +568,7 @@ impl View for [u8] {
         unsafe {
             let mut data = core::mem::MaybeUninit::zeroed().assume_init();
 
-            std::ptr::copy_nonoverlapping(self[cli_offset as usize..].as_ptr(), &mut data as *mut T as *mut u8, core::mem::size_of::<T>());
+            core::ptr::copy_nonoverlapping(self[cli_offset as usize..].as_ptr(), &mut data as *mut T as *mut u8, core::mem::size_of::<T>());
 
             data
         }

@@ -54,7 +54,7 @@ fn boolean() {
 
 #[test]
 fn pstr() {
-    let handle = PSTR(std::ptr::null_mut());
+    let handle = PSTR(core::ptr::null_mut());
     let _clone = handle.clone();
     let _copy: PSTR = handle;
     assert!(handle.is_null());
@@ -64,7 +64,7 @@ fn pstr() {
 
 #[test]
 fn pwstr() {
-    let handle = PWSTR(std::ptr::null_mut());
+    let handle = PWSTR(core::ptr::null_mut());
     let _clone = handle.clone();
     let _copy: PWSTR = handle;
     assert!(handle.is_null());
@@ -75,10 +75,10 @@ fn pwstr() {
 #[test]
 fn lpproc_thread_attribute_list() {
     // This is an interesting test because this handle type has a pointer field unlike most others.
-    let handle = LPPROC_THREAD_ATTRIBUTE_LIST(std::ptr::null_mut());
+    let handle = LPPROC_THREAD_ATTRIBUTE_LIST(core::ptr::null_mut());
     let _clone = handle.clone();
     let _copy: LPPROC_THREAD_ATTRIBUTE_LIST = handle;
-    assert!(LPPROC_THREAD_ATTRIBUTE_LIST::default() == LPPROC_THREAD_ATTRIBUTE_LIST(std::ptr::null_mut()));
+    assert!(LPPROC_THREAD_ATTRIBUTE_LIST::default() == LPPROC_THREAD_ATTRIBUTE_LIST(core::ptr::null_mut()));
     assert!(LPPROC_THREAD_ATTRIBUTE_LIST::default().is_invalid());
     assert_eq!(format!("{:?}", LPPROC_THREAD_ATTRIBUTE_LIST::default()), "LPPROC_THREAD_ATTRIBUTE_LIST(0x0)");
 

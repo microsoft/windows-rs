@@ -12,7 +12,7 @@ fn test() {
     }
 
     let callback: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = callback;
-    assert_eq!(64, unsafe { callback(std::ptr::null()) });
+    assert_eq!(64, unsafe { callback(core::ptr::null()) });
 }
 
 #[test]
@@ -27,5 +27,5 @@ fn test() {
     }
 
     let callback: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = callback;
-    assert_eq!(32, unsafe { callback(std::ptr::null()) });
+    assert_eq!(32, unsafe { callback(core::ptr::null()) });
 }
