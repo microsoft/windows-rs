@@ -33,8 +33,8 @@ impl Row {
     }
 }
 
-impl std::hash::Hash for Row {
-    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+impl core::hash::Hash for Row {
+    fn hash<H: core::hash::Hasher>(&self, state: &mut H) {
         self.row.hash(state);
         self.table.hash(state);
         self.file.bytes.as_ptr().hash(state);
