@@ -2,7 +2,7 @@ use super::*;
 use core::convert::TryInto;
 
 use bindings::{
-    Windows::Win32::Foundation::{GetLastError, BSTR, S_OK},
+    Windows::Win32::Foundation::{GetLastError, BSTR, S_OK, BOOL},
     Windows::Win32::System::Ole::Automation::{GetErrorInfo, SetErrorInfo},
     Windows::Win32::System::WinRT::{ILanguageExceptionErrorInfo2, IRestrictedErrorInfo},
 };
@@ -105,7 +105,7 @@ impl core::convert::From<Error> for HRESULT {
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(not(feature = "no_std"))]
 impl core::convert::From<Error> for std::io::Error {
     fn from(from: Error) -> Self {
         Self::from_raw_os_error((from.code.0 & 0xFFFF) as _)
@@ -156,11 +156,11 @@ impl core::fmt::Display for Error {
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(not(feature = "no_std"))]
 impl std::error::Error for Error {}
 
 demand_load! {
     "combase.dll" {
-        fn RoOriginateError(code: HRESULT, message: core::mem::ManuallyDrop<HSTRING>) -> i32;
+        fn RoOriginateError(code: HRESULT, message: core::mem::ManuallyDrop<HSTRING>) -> BOOL;
     }
 }

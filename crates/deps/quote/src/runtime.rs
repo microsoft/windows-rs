@@ -42,8 +42,8 @@ pub mod ext {
     use super::RepInterp;
     use super::{HasIterator as HasIter, ThereIsNoIteratorInRepetition as DoesNotHaveIter};
     use crate::ToTokens;
-    use std::collections::btree_set::{self, BTreeSet};
     use core::slice;
+    use std::collections::btree_set::{self, BTreeSet};
 
     /// Extension trait providing the `quote_into_iter` method on iterators.
     pub trait RepIteratorExt: Iterator + Sized {

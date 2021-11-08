@@ -1,5 +1,8 @@
 use super::*;
-use bindings::Windows::Win32::Graphics::DirectDraw::CO_E_NOTINITIALIZED;
+use bindings::{
+    Windows::Win32::Foundation::CLASS_E_CLASSNOTAVAILABLE,
+    Windows::Win32::Graphics::DirectDraw::CO_E_NOTINITIALIZED,
+};
 use core::marker::PhantomData;
 use core::sync::atomic::{AtomicPtr, Ordering};
 
@@ -57,7 +60,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 
         // Treat any delay-load errors like standard errors, so that the heuristics
         // below can still load registration-free libraries on Windows versions below 10.
-        let mut code = code.unwrap_or_else(|code| code);
+        let mut code = code.unwrap_or_else(|| CLASS_E_CLASSNOTAVAILABLE);
 
         // If this fails because combase hasn't been loaded yet then load combase
         // automatically so that it "just works" for apartment-agnostic code.
@@ -69,7 +72,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             let _ = CoIncrementMTAUsage(&mut _cookie);
 
             // Now try a second time to get the activation factory via the OS.
-            code = RoGetActivationFactory(core::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _).unwrap_or_else(|code| code);
+            code = RoGetActivationFactory(core::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _).unwrap();
         }
 
         // If this succeeded then return the resulting factory interface.
@@ -93,7 +96,9 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             library.push_str(path);
             library.push_str(".dll");
 
-            if let Ok(function) = delay_load(&library, "DllGetActivationFactory") {
+            let function = delay_load(&library, "DllGetActivationFactory");
+
+            if !function.is_null() {
                 let function: DllGetActivationFactory = core::mem::transmute(function);
                 let mut abi = core::ptr::null_mut();
                 let _ = function(core::mem::transmute_copy(&name), &mut abi);

@@ -1,7 +1,7 @@
 fn main() -> std::io::Result<()> {
     let tokens = macros::generate! {
         Windows::Foundation::{IReference, IStringable, PropertyValue},
-        Windows::Win32::Foundation::{CloseHandle, GetLastError, E_NOINTERFACE, S_OK},
+        Windows::Win32::Foundation::{CloseHandle, GetLastError, E_NOINTERFACE, CLASS_E_CLASSNOTAVAILABLE, S_OK},
         Windows::Win32::Graphics::DirectDraw::CO_E_NOTINITIALIZED,
         Windows::Win32::System::Com::{CoCreateGuid, CoTaskMemAlloc, CoTaskMemFree, IAgileObject},
         Windows::Win32::System::Diagnostics::Debug::FormatMessageW,

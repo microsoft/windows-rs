@@ -1353,33 +1353,33 @@ pub mod Windows {
                     Self::from_wide(self.as_wide())
                 }
             }
-            #[cfg(feature = "std")]
+            #[cfg(not(feature = "no_std"))]
             impl ::core::convert::From<&str> for BSTR {
                 fn from(value: &str) -> Self {
                     let value: ::std::vec::Vec<u16> = value.encode_utf16().collect();
                     Self::from_wide(&value)
                 }
             }
-            #[cfg(feature = "std")]
+            #[cfg(not(feature = "no_std"))]
             impl ::core::convert::From<::std::string::String> for BSTR {
                 fn from(value: ::std::string::String) -> Self {
                     value.as_str().into()
                 }
             }
-            #[cfg(feature = "std")]
+            #[cfg(not(feature = "no_std"))]
             impl ::core::convert::From<&::std::string::String> for BSTR {
                 fn from(value: &::std::string::String) -> Self {
                     value.as_str().into()
                 }
             }
-            #[cfg(feature = "std")]
+            #[cfg(not(feature = "no_std"))]
             impl<'a> ::core::convert::TryFrom<&'a BSTR> for ::std::string::String {
                 type Error = ::std::string::FromUtf16Error;
                 fn try_from(value: &BSTR) -> ::core::result::Result<Self, Self::Error> {
                     ::std::string::String::from_utf16(value.as_wide())
                 }
             }
-            #[cfg(feature = "std")]
+            #[cfg(not(feature = "no_std"))]
             impl ::core::convert::TryFrom<BSTR> for ::std::string::String {
                 type Error = ::std::string::FromUtf16Error;
                 fn try_from(value: BSTR) -> ::core::result::Result<Self, Self::Error> {
@@ -1391,7 +1391,7 @@ pub mod Windows {
                     Self(::core::ptr::null_mut())
                 }
             }
-            #[cfg(feature = "std")]
+            #[cfg(not(feature = "no_std"))]
             impl ::core::fmt::Display for BSTR {
                 fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     use core::fmt::Write;
@@ -1411,7 +1411,7 @@ pub mod Windows {
                     self.as_wide() == other.as_wide()
                 }
             }
-            #[cfg(feature = "std")]
+            #[cfg(not(feature = "no_std"))]
             impl ::core::cmp::PartialEq<::std::string::String> for BSTR {
                 fn eq(&self, other: &::std::string::String) -> bool {
                     self == other.as_str()
@@ -1453,6 +1453,7 @@ pub mod Windows {
                     ::windows::runtime::Param::Owned(self.into())
                 }
             }
+            pub const CLASS_E_CLASSNOTAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147221231i32 as _);
             #[inline]
             pub unsafe fn CloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HANDLE>>(hobject: Param0) -> BOOL {
                 #[cfg(windows)]
@@ -1526,7 +1527,7 @@ pub mod Windows {
             }
             unsafe impl ::windows::runtime::Abi for PSTR {
                 type Abi = Self;
-                #[cfg(feature = "std")]
+                #[cfg(not(feature = "no_std"))]
                 unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
                     if let ::windows::runtime::Param::Boxed(value) = param {
                         if !value.is_null() {
@@ -1537,13 +1538,13 @@ pub mod Windows {
                     }
                 }
             }
-            #[cfg(feature = "std")]
+            #[cfg(not(feature = "no_std"))]
             impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for &str {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
                     ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
                 }
             }
-            #[cfg(feature = "std")]
+            #[cfg(not(feature = "no_std"))]
             impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for String {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
                     ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
@@ -1564,7 +1565,7 @@ pub mod Windows {
             }
             unsafe impl ::windows::runtime::Abi for PWSTR {
                 type Abi = Self;
-                #[cfg(feature = "std")]
+                #[cfg(not(feature = "no_std"))]
                 unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
                     if let ::windows::runtime::Param::Boxed(value) = param {
                         if !value.is_null() {
@@ -1575,26 +1576,26 @@ pub mod Windows {
                     }
                 }
             }
-            #[cfg(feature = "std")]
+            #[cfg(not(feature = "no_std"))]
             impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for &str {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
                     ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
                 }
             }
-            #[cfg(feature = "std")]
+            #[cfg(not(feature = "no_std"))]
             impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for String {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
                     ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
                 }
             }
-            #[cfg(all(windows, feature = "std"))]
+            #[cfg(all(windows, not(feature = "no_std")))]
             impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for &::std::ffi::OsStr {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
                     use std::os::windows::ffi::OsStrExt;
                     ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
                 }
             }
-            #[cfg(all(windows, feature = "std"))]
+            #[cfg(all(windows, not(feature = "no_std")))]
             impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for ::std::ffi::OsString {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
                     use std::os::windows::ffi::OsStrExt;

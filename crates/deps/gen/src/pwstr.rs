@@ -18,7 +18,7 @@ pub fn gen_pwstr() -> TokenStream {
         unsafe impl ::windows::runtime::Abi for PWSTR {
             type Abi = Self;
 
-            #[cfg(feature = "std")]
+            #[cfg(not(feature = "no_std"))]
             unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
                 if let ::windows::runtime::Param::Boxed(value) = param {
                     if !value.is_null() {
@@ -27,27 +27,27 @@ pub fn gen_pwstr() -> TokenStream {
                 }
             }
         }
-        #[cfg(feature = "std")]
+        #[cfg(not(feature = "no_std"))]
         impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for &str {
             fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
                 ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
             }
         }
-        #[cfg(feature = "std")]
+        #[cfg(not(feature = "no_std"))]
         impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for String {
             fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
                 // TODO: call variant above
                 ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
             }
         }
-        #[cfg(all(windows, feature = "std"))]
+        #[cfg(all(windows, not(feature = "no_std")))]
         impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for &::std::ffi::OsStr {
             fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
                 use ::std::os::windows::ffi::OsStrExt;
                 ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
             }
         }
-        #[cfg(all(windows, feature = "std"))]
+        #[cfg(all(windows, not(feature = "no_std")))]
         impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for ::std::ffi::OsString {
             fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
                 use ::std::os::windows::ffi::OsStrExt;

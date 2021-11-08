@@ -18,7 +18,7 @@ pub fn gen_pstr() -> TokenStream {
         unsafe impl ::windows::runtime::Abi for PSTR {
             type Abi = Self;
 
-            #[cfg(feature = "std")]
+            #[cfg(not(feature = "no_std"))]
             unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
                 if let ::windows::runtime::Param::Boxed(value) = param {
                     if !value.is_null() {
@@ -27,13 +27,13 @@ pub fn gen_pstr() -> TokenStream {
                 }
             }
         }
-        #[cfg(feature = "std")]
+        #[cfg(not(feature = "no_std"))]
         impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for &str {
             fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
                 ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
             }
         }
-        #[cfg(feature = "std")]
+        #[cfg(not(feature = "no_std"))]
         impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for String {
             fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
                 // TODO: call variant above
