@@ -1,6 +1,4 @@
 use super::*;
-use core::convert::TryFrom;
-use core::result::Result as StdResult;
 
 // TODO: move to HSTRING generated code?
 
@@ -203,19 +201,19 @@ impl PartialEq<HSTRING> for &str {
 }
 
 #[cfg(not(feature = "no_std"))]
-impl<'a> TryFrom<&'a HSTRING> for String {
+impl<'a> core::convert::TryFrom<&'a HSTRING> for String {
     type Error = std::string::FromUtf16Error;
 
-    fn try_from(hstring: &HSTRING) -> StdResult<Self, Self::Error> {
+    fn try_from(hstring: &HSTRING) -> core::result::Result<Self, Self::Error> {
         String::from_utf16(hstring.as_wide())
     }
 }
 
 #[cfg(not(feature = "no_std"))]
-impl TryFrom<HSTRING> for String {
+impl core::convert::TryFrom<HSTRING> for String {
     type Error = std::string::FromUtf16Error;
 
-    fn try_from(hstring: HSTRING) -> StdResult<Self, Self::Error> {
+    fn try_from(hstring: HSTRING) -> core::result::Result<Self, Self::Error> {
         String::try_from(&hstring)
     }
 }

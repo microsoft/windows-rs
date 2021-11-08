@@ -1,5 +1,4 @@
 use super::*;
-use core::convert::TryInto;
 
 use bindings::{
     Windows::Win32::Foundation::{GetLastError, BOOL, BSTR, S_OK},
@@ -20,8 +19,7 @@ impl Error {
 
     /// This creates a new WinRT error object, capturing the stack and other information about the
     /// point of failure.
-    pub fn new(code: HRESULT, message: &str) -> Self {
-        let message: HSTRING = message.into();
+    pub fn new(code: HRESULT, message: HSTRING) -> Self {
 
         // RoOriginateError creates the error object and associates it with the thread.
         // Need to ignore the result, as that is the delay-load error, which would mean
@@ -128,8 +126,7 @@ impl core::convert::From<HRESULT> for Error {
 
         if let Ok(info) = unsafe { GetErrorInfo(0) } {
             let message = unsafe { info.GetDescription().unwrap_or_default() };
-            let message: HSTRING = message.try_into().unwrap_or_default();
-            Self::new(code, &message)
+            Self::new(code, HSTRING::from_wide(message.as_wide()))
         } else {
             Self { code, info: None }
         }
