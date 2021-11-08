@@ -17,12 +17,12 @@ pub mod Windows {
                 fmt.debug_struct("DateTime").field("UniversalTime", &self.UniversalTime).finish()
             }
         }
-        impl ::std::cmp::PartialEq for DateTime {
+        impl ::core::cmp::PartialEq for DateTime {
             fn eq(&self, other: &Self) -> bool {
                 self.UniversalTime == other.UniversalTime
             }
         }
-        impl ::std::cmp::Eq for DateTime {}
+        impl ::core::cmp::Eq for DateTime {}
         unsafe impl ::windows::runtime::Abi for DateTime {
             type Abi = Self;
         }
@@ -805,12 +805,12 @@ pub mod Windows {
                 fmt.debug_struct("Point").field("X", &self.X).field("Y", &self.Y).finish()
             }
         }
-        impl ::std::cmp::PartialEq for Point {
+        impl ::core::cmp::PartialEq for Point {
             fn eq(&self, other: &Self) -> bool {
                 self.X == other.X && self.Y == other.Y
             }
         }
-        impl ::std::cmp::Eq for Point {}
+        impl ::core::cmp::Eq for Point {}
         unsafe impl ::windows::runtime::Abi for Point {
             type Abi = Self;
         }
@@ -1143,12 +1143,12 @@ pub mod Windows {
                 fmt.debug_struct("Rect").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
             }
         }
-        impl ::std::cmp::PartialEq for Rect {
+        impl ::core::cmp::PartialEq for Rect {
             fn eq(&self, other: &Self) -> bool {
                 self.X == other.X && self.Y == other.Y && self.Width == other.Width && self.Height == other.Height
             }
         }
-        impl ::std::cmp::Eq for Rect {}
+        impl ::core::cmp::Eq for Rect {}
         unsafe impl ::windows::runtime::Abi for Rect {
             type Abi = Self;
         }
@@ -1175,12 +1175,12 @@ pub mod Windows {
                 fmt.debug_struct("Size").field("Width", &self.Width).field("Height", &self.Height).finish()
             }
         }
-        impl ::std::cmp::PartialEq for Size {
+        impl ::core::cmp::PartialEq for Size {
             fn eq(&self, other: &Self) -> bool {
                 self.Width == other.Width && self.Height == other.Height
             }
         }
-        impl ::std::cmp::Eq for Size {}
+        impl ::core::cmp::Eq for Size {}
         unsafe impl ::windows::runtime::Abi for Size {
             type Abi = Self;
         }
@@ -1206,12 +1206,12 @@ pub mod Windows {
                 fmt.debug_struct("TimeSpan").field("Duration", &self.Duration).finish()
             }
         }
-        impl ::std::cmp::PartialEq for TimeSpan {
+        impl ::core::cmp::PartialEq for TimeSpan {
             fn eq(&self, other: &Self) -> bool {
                 self.Duration == other.Duration
             }
         }
-        impl ::std::cmp::Eq for TimeSpan {}
+        impl ::core::cmp::Eq for TimeSpan {}
         unsafe impl ::windows::runtime::Abi for TimeSpan {
             type Abi = Self;
         }
@@ -1293,12 +1293,12 @@ pub mod Windows {
                     (*value).into()
                 }
             }
-            impl ::std::cmp::PartialEq<bool> for BOOL {
+            impl ::core::cmp::PartialEq<bool> for BOOL {
                 fn eq(&self, other: &bool) -> bool {
                     self.as_bool() == *other
                 }
             }
-            impl ::std::cmp::PartialEq<BOOL> for bool {
+            impl ::core::cmp::PartialEq<BOOL> for bool {
                 fn eq(&self, other: &BOOL) -> bool {
                     *self == other.as_bool()
                 }
@@ -1400,27 +1400,27 @@ pub mod Windows {
                     ::std::write!(f, "{}", self)
                 }
             }
-            impl ::std::cmp::PartialEq for BSTR {
+            impl ::core::cmp::PartialEq for BSTR {
                 fn eq(&self, other: &Self) -> bool {
                     self.as_wide() == other.as_wide()
                 }
             }
-            impl ::std::cmp::PartialEq<::std::string::String> for BSTR {
+            impl ::core::cmp::PartialEq<::std::string::String> for BSTR {
                 fn eq(&self, other: &::std::string::String) -> bool {
                     self == other.as_str()
                 }
             }
-            impl ::std::cmp::PartialEq<str> for BSTR {
+            impl ::core::cmp::PartialEq<str> for BSTR {
                 fn eq(&self, other: &str) -> bool {
                     self == other
                 }
             }
-            impl ::std::cmp::PartialEq<&str> for BSTR {
+            impl ::core::cmp::PartialEq<&str> for BSTR {
                 fn eq(&self, other: &&str) -> bool {
                     self.as_wide().iter().copied().eq(other.encode_utf16())
                 }
             }
-            impl ::std::cmp::PartialEq<BSTR> for &str {
+            impl ::core::cmp::PartialEq<BSTR> for &str {
                 fn eq(&self, other: &BSTR) -> bool {
                     other == self
                 }
@@ -1697,12 +1697,12 @@ pub mod Windows {
                     fmt.debug_struct("SECURITY_ATTRIBUTES").field("nLength", &self.nLength).field("lpSecurityDescriptor", &self.lpSecurityDescriptor).field("bInheritHandle", &self.bInheritHandle).finish()
                 }
             }
-            impl ::std::cmp::PartialEq for SECURITY_ATTRIBUTES {
+            impl ::core::cmp::PartialEq for SECURITY_ATTRIBUTES {
                 fn eq(&self, other: &Self) -> bool {
                     self.nLength == other.nLength && self.lpSecurityDescriptor == other.lpSecurityDescriptor && self.bInheritHandle == other.bInheritHandle
                 }
             }
-            impl ::std::cmp::Eq for SECURITY_ATTRIBUTES {}
+            impl ::core::cmp::Eq for SECURITY_ATTRIBUTES {}
             unsafe impl ::windows::runtime::Abi for SECURITY_ATTRIBUTES {
                 type Abi = Self;
             }

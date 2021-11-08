@@ -1,7 +1,7 @@
 #![allow(clippy::many_single_char_names)]
 
 use super::*;
-use std::cmp::Ordering;
+use core::cmp::Ordering;
 
 #[derive(Default)]
 pub struct TableData {

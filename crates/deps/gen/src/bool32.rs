@@ -3,7 +3,7 @@ use super::*;
 pub fn gen_bool32() -> TokenStream {
     quote! {
         #[repr(transparent)]
-        #[derive(::core::default::Default, ::std::clone::Clone, ::std::marker::Copy, ::std::cmp::PartialEq, ::std::cmp::Eq, ::core::fmt::Debug)]
+        #[derive(::core::default::Default, ::std::clone::Clone, ::std::marker::Copy, ::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug)]
         pub struct BOOL(pub i32);
 
         unsafe impl ::windows::runtime::Abi for BOOL {
@@ -65,13 +65,13 @@ pub fn gen_bool32() -> TokenStream {
             }
         }
 
-        impl ::std::cmp::PartialEq<bool> for BOOL {
+        impl ::core::cmp::PartialEq<bool> for BOOL {
             fn eq(&self, other: &bool) -> bool {
                 self.as_bool() == *other
             }
         }
 
-        impl ::std::cmp::PartialEq<BOOL> for bool {
+        impl ::core::cmp::PartialEq<BOOL> for bool {
             fn eq(&self, other: &BOOL) -> bool {
                 *self == other.as_bool()
             }

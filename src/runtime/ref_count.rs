@@ -24,9 +24,9 @@ impl RefCount {
         let remaining = self.0.fetch_sub(1, Ordering::Release) - 1;
 
         match remaining.cmp(&0) {
-            std::cmp::Ordering::Equal => fence(Ordering::Acquire),
-            std::cmp::Ordering::Less => panic!("Object has been over-released."),
-            std::cmp::Ordering::Greater => {}
+            core::cmp::Ordering::Equal => fence(Ordering::Acquire),
+            core::cmp::Ordering::Less => panic!("Object has been over-released."),
+            core::cmp::Ordering::Greater => {}
         }
 
         remaining as u32

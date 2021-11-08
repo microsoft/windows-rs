@@ -3,7 +3,7 @@ use super::*;
 pub fn gen_ntstatus() -> TokenStream {
     quote! {
         #[repr(transparent)]
-        #[derive(::core::default::Default, ::std::clone::Clone, ::std::marker::Copy, ::std::cmp::PartialEq, ::std::cmp::Eq, ::core::fmt::Debug)]
+        #[derive(::core::default::Default, ::std::clone::Clone, ::std::marker::Copy, ::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug)]
         pub struct NTSTATUS(pub u32);
 
         impl NTSTATUS {

@@ -121,7 +121,7 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
 
     quote! {
         #doc
-        #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy, ::std::clone::Clone, ::core::default::Default, ::core::fmt::Debug)]
+        #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::std::marker::Copy, ::std::clone::Clone, ::core::default::Default, ::core::fmt::Debug)]
         #[repr(transparent)]
         pub struct #name(pub #underlying_type);
         #fields

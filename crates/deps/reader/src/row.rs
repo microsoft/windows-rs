@@ -50,13 +50,13 @@ impl PartialEq for Row {
 impl Eq for Row {}
 
 impl Ord for Row {
-    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+    fn cmp(&self, other: &Self) -> core::cmp::Ordering {
         (self.row, self.table, self.file.bytes.as_ptr() as usize).cmp(&(other.row, other.table, other.file.bytes.as_ptr() as usize))
     }
 }
 
 impl PartialOrd for Row {
-    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+    fn partial_cmp(&self, other: &Self) -> Option<core::cmp::Ordering> {
         Some(self.cmp(other))
     }
 }

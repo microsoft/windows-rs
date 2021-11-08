@@ -39,7 +39,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         };
 
         return quote! {
-            #[derive(::std::clone::Clone, ::std::marker::Copy, ::core::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq)]
+            #[derive(::std::clone::Clone, ::std::marker::Copy, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq)]
             #[repr(transparent)]
             pub struct #name(pub #signature);
             impl ::core::default::Default for #name {
@@ -87,7 +87,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         } else {
             return quote! {
                 #[repr(C)]
-                #[derive(::std::clone::Clone, ::core::default::Default, ::core::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy)]
+                #[derive(::std::clone::Clone, ::core::default::Default, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq, ::std::marker::Copy)]
                 pub struct #name(pub u8);
             };
         }
@@ -204,14 +204,14 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     let compare = if is_union | has_union | has_complex_array | is_packed {
         quote! {
             #cfg
-            impl ::std::cmp::PartialEq for #name {
+            impl ::core::cmp::PartialEq for #name {
                 fn eq(&self, _other: &Self) -> bool {
                     // TODO: figure out how to compare complex structs
                     unimplemented!()
                 }
             }
             #cfg
-            impl ::std::cmp::Eq for #name {}
+            impl ::core::cmp::Eq for #name {}
         }
     } else {
         let compare = fields.iter().map(|(_, signature, name)| {
@@ -231,24 +231,24 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         if layout.is_some() {
             quote! {
                 #cfg
-                impl ::std::cmp::PartialEq for #name {
+                impl ::core::cmp::PartialEq for #name {
                     fn eq(&self, other: &Self) -> bool {
                         unsafe { #(#compare)&&* }
                     }
                 }
                 #cfg
-                impl ::std::cmp::Eq for #name {}
+                impl ::core::cmp::Eq for #name {}
             }
         } else {
             quote! {
                 #cfg
-                impl ::std::cmp::PartialEq for #name {
+                impl ::core::cmp::PartialEq for #name {
                     fn eq(&self, other: &Self) -> bool {
                         #(#compare)&&*
                     }
                 }
                 #cfg
-                impl ::std::cmp::Eq for #name {}
+                impl ::core::cmp::Eq for #name {}
             }
         }
     };

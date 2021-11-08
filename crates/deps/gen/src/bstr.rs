@@ -3,7 +3,7 @@ use super::*;
 pub fn gen_bstr() -> TokenStream {
     quote! {
         #[repr(transparent)]
-        #[derive(::std::cmp::Eq)]
+        #[derive(::core::cmp::Eq)]
         pub struct BSTR(pub *mut u16);
         impl BSTR {
             pub fn new() -> Self {
@@ -100,28 +100,28 @@ pub fn gen_bstr() -> TokenStream {
                 ::std::write!(f, "{}", self)
             }
         }
-        impl ::std::cmp::PartialEq for BSTR {
+        impl ::core::cmp::PartialEq for BSTR {
             fn eq(&self, other: &Self) -> bool {
                 self.as_wide() == other.as_wide()
             }
         }
-        impl ::std::cmp::PartialEq<::std::string::String> for BSTR {
+        impl ::core::cmp::PartialEq<::std::string::String> for BSTR {
             fn eq(&self, other: &::std::string::String) -> bool {
                 self == other.as_str()
             }
         }
-        impl ::std::cmp::PartialEq<str> for BSTR {
+        impl ::core::cmp::PartialEq<str> for BSTR {
             fn eq(&self, other: &str) -> bool {
                 self == other
             }
         }
-        impl ::std::cmp::PartialEq<&str> for BSTR {
+        impl ::core::cmp::PartialEq<&str> for BSTR {
             fn eq(&self, other: &&str) -> bool {
                 self.as_wide().iter().copied().eq(other.encode_utf16())
             }
         }
 
-        impl ::std::cmp::PartialEq<BSTR> for &str {
+        impl ::core::cmp::PartialEq<BSTR> for &str {
             fn eq(&self, other: &BSTR) -> bool {
                 other == self
             }
