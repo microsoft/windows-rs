@@ -26,7 +26,7 @@ fn test_race() {
 
     let mut last_progress = [0; CONCURRENCY];
     loop {
-        std::thread::sleep(std::time::Duration::from_millis(500));
+        std::thread::sleep(core::time::Duration::from_millis(500));
         let mut new_progress = [0; CONCURRENCY];
         for i in 0..CONCURRENCY {
             new_progress[i] = PROGRESS[i].load(Ordering::Relaxed);

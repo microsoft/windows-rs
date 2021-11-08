@@ -2,7 +2,7 @@ use rayon::prelude::*;
 use std::io::prelude::*;
 
 fn main() {
-    let start = std::time::Instant::now();
+    let start = core::time::Instant::now();
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
     output.push("src/Windows");
     let _ = std::fs::remove_dir_all(&output);
