@@ -42,7 +42,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
             #[derive(::std::clone::Clone, ::std::marker::Copy, ::core::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq)]
             #[repr(transparent)]
             pub struct #name(pub #signature);
-            impl ::std::default::Default for #name {
+            impl ::core::default::Default for #name {
                 fn default() -> Self {
                     unsafe { ::core::mem::zeroed() }
                 }
@@ -87,7 +87,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         } else {
             return quote! {
                 #[repr(C)]
-                #[derive(::std::clone::Clone, ::std::default::Default, ::core::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy)]
+                #[derive(::std::clone::Clone, ::core::default::Default, ::core::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy)]
                 pub struct #name(pub u8);
             };
         }
@@ -318,7 +318,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
             #(#constants)*
         }
         #cfg
-        impl ::std::default::Default for #name {
+        impl ::core::default::Default for #name {
             fn default() -> Self {
                 unsafe { ::core::mem::zeroed() }
             }

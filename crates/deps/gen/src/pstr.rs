@@ -10,7 +10,7 @@ pub fn gen_pstr() -> TokenStream {
                 self.0.is_null()
             }
         }
-        impl ::std::default::Default for PSTR {
+        impl ::core::default::Default for PSTR {
             fn default() -> Self {
                 Self(::core::ptr::null_mut())
             }

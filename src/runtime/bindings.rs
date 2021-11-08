@@ -7,7 +7,7 @@ pub mod Windows {
             pub UniversalTime: i64,
         }
         impl DateTime {}
-        impl ::std::default::Default for DateTime {
+        impl ::core::default::Default for DateTime {
             fn default() -> Self {
                 unsafe { ::core::mem::zeroed() }
             }
@@ -795,7 +795,7 @@ pub mod Windows {
             pub Y: f32,
         }
         impl Point {}
-        impl ::std::default::Default for Point {
+        impl ::core::default::Default for Point {
             fn default() -> Self {
                 unsafe { ::core::mem::zeroed() }
             }
@@ -1133,7 +1133,7 @@ pub mod Windows {
             pub Height: f32,
         }
         impl Rect {}
-        impl ::std::default::Default for Rect {
+        impl ::core::default::Default for Rect {
             fn default() -> Self {
                 unsafe { ::core::mem::zeroed() }
             }
@@ -1165,7 +1165,7 @@ pub mod Windows {
             pub Height: f32,
         }
         impl Size {}
-        impl ::std::default::Default for Size {
+        impl ::core::default::Default for Size {
             fn default() -> Self {
                 unsafe { ::core::mem::zeroed() }
             }
@@ -1196,7 +1196,7 @@ pub mod Windows {
             pub Duration: i64,
         }
         impl TimeSpan {}
-        impl ::std::default::Default for TimeSpan {
+        impl ::core::default::Default for TimeSpan {
             fn default() -> Self {
                 unsafe { ::core::mem::zeroed() }
             }
@@ -1381,7 +1381,7 @@ pub mod Windows {
                     ::std::string::String::try_from(&value)
                 }
             }
-            impl ::std::default::Default for BSTR {
+            impl ::core::default::Default for BSTR {
                 fn default() -> Self {
                     Self(::core::ptr::null_mut())
                 }
@@ -1495,7 +1495,7 @@ pub mod Windows {
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: core :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
             #[repr(transparent)]
             pub struct HINSTANCE(pub isize);
-            impl ::std::default::Default for HINSTANCE {
+            impl ::core::default::Default for HINSTANCE {
                 fn default() -> Self {
                     unsafe { ::core::mem::zeroed() }
                 }
@@ -1512,7 +1512,7 @@ pub mod Windows {
                     self.0.is_null()
                 }
             }
-            impl ::std::default::Default for PSTR {
+            impl ::core::default::Default for PSTR {
                 fn default() -> Self {
                     Self(::core::ptr::null_mut())
                 }
@@ -1547,7 +1547,7 @@ pub mod Windows {
                     self.0.is_null()
                 }
             }
-            impl ::std::default::Default for PWSTR {
+            impl ::core::default::Default for PWSTR {
                 fn default() -> Self {
                     Self(::core::ptr::null_mut())
                 }
@@ -1687,7 +1687,7 @@ pub mod Windows {
                 pub bInheritHandle: super::Foundation::BOOL,
             }
             impl SECURITY_ATTRIBUTES {}
-            impl ::std::default::Default for SECURITY_ATTRIBUTES {
+            impl ::core::default::Default for SECURITY_ATTRIBUTES {
                 fn default() -> Self {
                     unsafe { ::core::mem::zeroed() }
                 }
@@ -1987,7 +1987,7 @@ pub mod Windows {
                 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: core :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
                 #[repr(transparent)]
                 pub struct HeapHandle(pub isize);
-                impl ::std::default::Default for HeapHandle {
+                impl ::core::default::Default for HeapHandle {
                     fn default() -> Self {
                         unsafe { ::core::mem::zeroed() }
                     }

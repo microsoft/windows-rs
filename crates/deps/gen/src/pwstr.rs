@@ -10,7 +10,7 @@ pub fn gen_pwstr() -> TokenStream {
                 self.0.is_null()
             }
         }
-        impl ::std::default::Default for PWSTR {
+        impl ::core::default::Default for PWSTR {
             fn default() -> Self {
                 Self(::core::ptr::null_mut())
             }

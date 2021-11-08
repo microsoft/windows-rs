@@ -223,7 +223,7 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
                 #cfg
                 #doc
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
-                    let mut result__: #return_sig = ::std::default::Default::default();
+                    let mut result__: #return_sig = ::core::default::Default::default();
                     (::windows::runtime::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), &mut result__ #(,#args)*);
                     result__
                 }

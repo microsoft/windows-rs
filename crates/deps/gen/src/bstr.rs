@@ -81,7 +81,7 @@ pub fn gen_bstr() -> TokenStream {
                 ::std::string::String::try_from(&value)
             }
         }
-        impl ::std::default::Default for BSTR {
+        impl ::core::default::Default for BSTR {
             fn default() -> Self {
                 Self(::core::ptr::null_mut())
             }
