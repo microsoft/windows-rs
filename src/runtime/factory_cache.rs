@@ -1,8 +1,5 @@
 use super::*;
-use bindings::{
-    Windows::Win32::Foundation::CLASS_E_CLASSNOTAVAILABLE,
-    Windows::Win32::Graphics::DirectDraw::CO_E_NOTINITIALIZED,
-};
+use bindings::{Windows::Win32::Foundation::CLASS_E_CLASSNOTAVAILABLE, Windows::Win32::Graphics::DirectDraw::CO_E_NOTINITIALIZED};
 use core::marker::PhantomData;
 use core::sync::atomic::{AtomicPtr, Ordering};
 

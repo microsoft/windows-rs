@@ -79,6 +79,7 @@ windows_x86_64_gnu = { path = "crates/targets/x86_64_gnu", version = "0.25.0" }
 
 [features]
 default = []
+no_std = []
 deprecated = []
 build = ["windows_gen", "windows_macros", "windows_reader"]
 "#
