@@ -1,4 +1,4 @@
-use std::convert::*;
+use core::convert::*;
 use std::iter::FromIterator;
 
 use test_winrt::{

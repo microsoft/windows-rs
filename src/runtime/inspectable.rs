@@ -56,19 +56,19 @@ impl core::fmt::Debug for IInspectable {
 
 macro_rules! primitive_boxed_type {
     ($(($t:ty, $m:ident)),+) => {
-        $(impl std::convert::TryFrom<$t> for IInspectable {
+        $(impl core::convert::TryFrom<$t> for IInspectable {
             type Error = Error;
             fn try_from(value: $t) -> Result<Self> {
                 PropertyValue::$m(value)
             }
         }
-        impl std::convert::TryFrom<IInspectable> for $t {
+        impl core::convert::TryFrom<IInspectable> for $t {
             type Error = Error;
             fn try_from(value: IInspectable) -> Result<Self> {
                 <IInspectable as Interface>::cast::<IReference<$t>>(&value)?.Value()
             }
         }
-        impl std::convert::TryFrom<&IInspectable> for $t {
+        impl core::convert::TryFrom<&IInspectable> for $t {
             type Error = Error;
             fn try_from(value: &IInspectable) -> Result<Self> {
                 <IInspectable as Interface>::cast::<IReference<$t>>(value)?.Value()
@@ -90,31 +90,31 @@ primitive_boxed_type! {
     (f64, CreateDouble)
 }
 
-impl std::convert::TryFrom<&str> for IInspectable {
+impl core::convert::TryFrom<&str> for IInspectable {
     type Error = Error;
     fn try_from(value: &str) -> Result<Self> {
         PropertyValue::CreateString(value)
     }
 }
-impl std::convert::TryFrom<HSTRING> for IInspectable {
+impl core::convert::TryFrom<HSTRING> for IInspectable {
     type Error = Error;
     fn try_from(value: HSTRING) -> Result<Self> {
         PropertyValue::CreateString(value)
     }
 }
-impl std::convert::TryFrom<&HSTRING> for IInspectable {
+impl core::convert::TryFrom<&HSTRING> for IInspectable {
     type Error = Error;
     fn try_from(value: &HSTRING) -> Result<Self> {
         PropertyValue::CreateString(value)
     }
 }
-impl std::convert::TryFrom<IInspectable> for HSTRING {
+impl core::convert::TryFrom<IInspectable> for HSTRING {
     type Error = Error;
     fn try_from(value: IInspectable) -> Result<Self> {
         <IInspectable as Interface>::cast::<IReference<HSTRING>>(&value)?.Value()
     }
 }
-impl std::convert::TryFrom<&IInspectable> for HSTRING {
+impl core::convert::TryFrom<&IInspectable> for HSTRING {
     type Error = Error;
     fn try_from(value: &IInspectable) -> Result<Self> {
         <IInspectable as Interface>::cast::<IReference<HSTRING>>(value)?.Value()

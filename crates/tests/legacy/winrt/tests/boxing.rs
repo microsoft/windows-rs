@@ -1,4 +1,4 @@
-use std::convert::{TryFrom, TryInto};
+use core::convert::{TryFrom, TryInto};
 use test_winrt::Windows::Foundation::{IPropertyValue, PropertyValue};
 use windows::runtime::{IInspectable, Interface, HSTRING};
 

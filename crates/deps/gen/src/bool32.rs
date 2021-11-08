@@ -37,19 +37,19 @@ pub fn gen_bool32() -> TokenStream {
             }
         }
 
-        impl ::std::convert::From<BOOL> for bool {
+        impl ::core::convert::From<BOOL> for bool {
             fn from(value: BOOL) -> Self {
                 value.as_bool()
             }
         }
 
-        impl ::std::convert::From<&BOOL> for bool {
+        impl ::core::convert::From<&BOOL> for bool {
             fn from(value: &BOOL) -> Self {
                 value.as_bool()
             }
         }
 
-        impl ::std::convert::From<bool> for BOOL {
+        impl ::core::convert::From<bool> for BOOL {
             fn from(value: bool) -> Self {
                 if value {
                     BOOL(1)
@@ -59,7 +59,7 @@ pub fn gen_bool32() -> TokenStream {
             }
         }
 
-        impl ::std::convert::From<&bool> for BOOL {
+        impl ::core::convert::From<&bool> for BOOL {
             fn from(value: &bool) -> Self {
                 (*value).into()
             }

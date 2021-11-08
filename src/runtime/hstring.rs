@@ -1,5 +1,5 @@
 use super::*;
-use std::convert::TryFrom;
+use core::convert::TryFrom;
 use std::result::Result as StdResult;
 
 // TODO: move to HSTRING generated code?

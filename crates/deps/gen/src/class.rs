@@ -236,13 +236,13 @@ impl Class {
 
             quote! {
                 #cfg
-                impl ::std::convert::From<#from> for #into {
+                impl ::core::convert::From<#from> for #into {
                     fn from(value: #from) -> Self {
-                        ::std::convert::Into::<#into>::into(&value)
+                        ::core::convert::Into::<#into>::into(&value)
                     }
                 }
                 #cfg
-                impl ::std::convert::From<&#from> for #into {
+                impl ::core::convert::From<&#from> for #into {
                     fn from(value: &#from) -> Self {
                         // This unwrap is legitimate because conversion to base can never fail because
                         // the base can never change across versions.
@@ -252,13 +252,13 @@ impl Class {
                 #cfg
                 impl<'a> ::windows::runtime::IntoParam<'a, #into> for #from {
                     fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                        ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(self))
+                        ::windows::runtime::Param::Owned(::core::convert::Into::<#into>::into(self))
                     }
                 }
                 #cfg
                 impl<'a> ::windows::runtime::IntoParam<'a, #into> for &#from {
                     fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                        ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(::core::clone::Clone::clone(self)))
+                        ::windows::runtime::Param::Owned(::core::convert::Into::<#into>::into(::core::clone::Clone::clone(self)))
                     }
                 }
             }

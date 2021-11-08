@@ -1,5 +1,5 @@
 use super::*;
-use std::convert::TryInto;
+use core::convert::TryInto;
 
 use bindings::{
     Windows::Win32::Foundation::{GetLastError, BSTR, S_OK},
@@ -92,7 +92,7 @@ impl Error {
     }
 }
 
-impl std::convert::From<Error> for HRESULT {
+impl core::convert::From<Error> for HRESULT {
     fn from(error: Error) -> Self {
         let code = error.code;
         let info = error.info.and_then(|info| info.cast().ok());
@@ -105,13 +105,13 @@ impl std::convert::From<Error> for HRESULT {
     }
 }
 
-impl std::convert::From<Error> for std::io::Error {
+impl core::convert::From<Error> for std::io::Error {
     fn from(from: Error) -> Self {
         Self::from_raw_os_error((from.code.0 & 0xFFFF) as _)
     }
 }
 
-impl std::convert::From<HRESULT> for Error {
+impl core::convert::From<HRESULT> for Error {
     fn from(code: HRESULT) -> Self {
         let info: Option<IRestrictedErrorInfo> = unsafe { GetErrorInfo(0).and_then(|e| e.cast()).ok() };
 

@@ -48,25 +48,25 @@ pub fn gen_bstr() -> TokenStream {
                 Self::from_wide(self.as_wide())
             }
         }
-        impl ::std::convert::From<&str> for BSTR {
+        impl ::core::convert::From<&str> for BSTR {
             fn from(value: &str) -> Self {
                 let value: ::std::vec::Vec<u16> = value.encode_utf16().collect();
                 Self::from_wide(&value)
             }
         }
 
-        impl ::std::convert::From<::std::string::String> for BSTR {
+        impl ::core::convert::From<::std::string::String> for BSTR {
             fn from(value: ::std::string::String) -> Self {
                 value.as_str().into()
             }
         }
 
-        impl  ::std::convert::From<&::std::string::String> for BSTR {
+        impl  ::core::convert::From<&::std::string::String> for BSTR {
             fn from(value: &::std::string::String) -> Self {
                 value.as_str().into()
             }
         }
-        impl<'a> ::std::convert::TryFrom<&'a BSTR> for ::std::string::String {
+        impl<'a> ::core::convert::TryFrom<&'a BSTR> for ::std::string::String {
             type Error = ::std::string::FromUtf16Error;
 
             fn try_from(value: &BSTR) -> ::std::result::Result<Self, Self::Error> {
@@ -74,7 +74,7 @@ pub fn gen_bstr() -> TokenStream {
             }
         }
 
-        impl ::std::convert::TryFrom<BSTR> for ::std::string::String {
+        impl ::core::convert::TryFrom<BSTR> for ::std::string::String {
             type Error = ::std::string::FromUtf16Error;
 
             fn try_from(value: BSTR) -> ::std::result::Result<Self, Self::Error> {

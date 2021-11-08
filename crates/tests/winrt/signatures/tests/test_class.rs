@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 
-use std::convert::TryInto;
+use core::convert::TryInto;
 use test_winrt_signatures::*;
 use windows::runtime::*;
 use Component::Signatures::*;

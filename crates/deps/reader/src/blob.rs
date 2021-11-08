@@ -1,5 +1,5 @@
 use super::{Decode, File, TypeDefOrRef};
-use std::convert::TryInto;
+use core::convert::TryInto;
 
 pub struct Blob {
     pub file: &'static File,

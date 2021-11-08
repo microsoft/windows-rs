@@ -260,12 +260,12 @@ pub mod Windows {
         unsafe impl ::windows::runtime::RuntimeType for IPropertyValue {
             const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{4bd682dd-7554-40e9-9a9b-82654ede7e62}");
         }
-        impl ::std::convert::From<IPropertyValue> for ::windows::runtime::IUnknown {
+        impl ::core::convert::From<IPropertyValue> for ::windows::runtime::IUnknown {
             fn from(value: IPropertyValue) -> Self {
                 value.0 .0
             }
         }
-        impl ::std::convert::From<&IPropertyValue> for ::windows::runtime::IUnknown {
+        impl ::core::convert::From<&IPropertyValue> for ::windows::runtime::IUnknown {
             fn from(value: &IPropertyValue) -> Self {
                 value.0 .0.clone()
             }
@@ -280,12 +280,12 @@ pub mod Windows {
                 ::windows::runtime::Param::Borrowed(&self.0 .0)
             }
         }
-        impl ::std::convert::From<IPropertyValue> for ::windows::runtime::IInspectable {
+        impl ::core::convert::From<IPropertyValue> for ::windows::runtime::IInspectable {
             fn from(value: IPropertyValue) -> Self {
                 value.0
             }
         }
-        impl ::std::convert::From<&IPropertyValue> for ::windows::runtime::IInspectable {
+        impl ::core::convert::From<&IPropertyValue> for ::windows::runtime::IInspectable {
             fn from(value: &IPropertyValue) -> Self {
                 value.0.clone()
             }
@@ -642,12 +642,12 @@ pub mod Windows {
         unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IReference<T> {
             const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17706-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
         }
-        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IReference<T>> for ::windows::runtime::IUnknown {
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::core::convert::From<IReference<T>> for ::windows::runtime::IUnknown {
             fn from(value: IReference<T>) -> Self {
                 value.0 .0
             }
         }
-        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IReference<T>> for ::windows::runtime::IUnknown {
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::core::convert::From<&IReference<T>> for ::windows::runtime::IUnknown {
             fn from(value: &IReference<T>) -> Self {
                 value.0 .0.clone()
             }
@@ -662,12 +662,12 @@ pub mod Windows {
                 ::windows::runtime::Param::Borrowed(&self.0 .0)
             }
         }
-        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IReference<T>> for ::windows::runtime::IInspectable {
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::core::convert::From<IReference<T>> for ::windows::runtime::IInspectable {
             fn from(value: IReference<T>) -> Self {
                 value.0
             }
         }
-        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IReference<T>> for ::windows::runtime::IInspectable {
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::core::convert::From<&IReference<T>> for ::windows::runtime::IInspectable {
             fn from(value: &IReference<T>) -> Self {
                 value.0.clone()
             }
@@ -682,13 +682,13 @@ pub mod Windows {
                 ::windows::runtime::Param::Borrowed(&self.0)
             }
         }
-        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::TryFrom<IReference<T>> for IPropertyValue {
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::core::convert::TryFrom<IReference<T>> for IPropertyValue {
             type Error = ::windows::runtime::Error;
             fn try_from(value: IReference<T>) -> ::windows::runtime::Result<Self> {
-                ::std::convert::TryFrom::try_from(&value)
+                ::core::convert::TryFrom::try_from(&value)
             }
         }
-        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::TryFrom<&IReference<T>> for IPropertyValue {
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::core::convert::TryFrom<&IReference<T>> for IPropertyValue {
             type Error = ::windows::runtime::Error;
             fn try_from(value: &IReference<T>) -> ::windows::runtime::Result<Self> {
                 ::windows::runtime::Interface::cast(value)
@@ -701,7 +701,7 @@ pub mod Windows {
         }
         impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, IPropertyValue> for &IReference<T> {
             fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyValue> {
-                ::std::convert::TryInto::<IPropertyValue>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
+                ::core::convert::TryInto::<IPropertyValue>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
             }
         }
         #[repr(C)]
@@ -737,12 +737,12 @@ pub mod Windows {
         unsafe impl ::windows::runtime::RuntimeType for IStringable {
             const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{96369f54-8eb6-48f0-abce-c1b211e627c3}");
         }
-        impl ::std::convert::From<IStringable> for ::windows::runtime::IUnknown {
+        impl ::core::convert::From<IStringable> for ::windows::runtime::IUnknown {
             fn from(value: IStringable) -> Self {
                 value.0 .0
             }
         }
-        impl ::std::convert::From<&IStringable> for ::windows::runtime::IUnknown {
+        impl ::core::convert::From<&IStringable> for ::windows::runtime::IUnknown {
             fn from(value: &IStringable) -> Self {
                 value.0 .0.clone()
             }
@@ -757,12 +757,12 @@ pub mod Windows {
                 ::windows::runtime::Param::Borrowed(&self.0 .0)
             }
         }
-        impl ::std::convert::From<IStringable> for ::windows::runtime::IInspectable {
+        impl ::core::convert::From<IStringable> for ::windows::runtime::IInspectable {
             fn from(value: IStringable) -> Self {
                 value.0
             }
         }
-        impl ::std::convert::From<&IStringable> for ::windows::runtime::IInspectable {
+        impl ::core::convert::From<&IStringable> for ::windows::runtime::IInspectable {
             fn from(value: &IStringable) -> Self {
                 value.0.clone()
             }
@@ -866,7 +866,7 @@ pub mod Windows {
             pub const RectArray: PropertyType = PropertyType(1043i32);
             pub const OtherTypeArray: PropertyType = PropertyType(1044i32);
         }
-        impl ::std::convert::From<i32> for PropertyType {
+        impl ::core::convert::From<i32> for PropertyType {
             fn from(value: i32) -> Self {
                 Self(value)
             }
@@ -1221,12 +1221,12 @@ pub mod Windows {
         impl ::windows::runtime::DefaultType for TimeSpan {
             type DefaultType = Self;
         }
-        impl ::std::convert::From<::std::time::Duration> for TimeSpan {
+        impl ::core::convert::From<::std::time::Duration> for TimeSpan {
             fn from(value: ::std::time::Duration) -> Self {
                 Self { Duration: (value.as_nanos() / 100) as i64 }
             }
         }
-        impl ::std::convert::From<TimeSpan> for ::std::time::Duration {
+        impl ::core::convert::From<TimeSpan> for ::std::time::Duration {
             fn from(value: TimeSpan) -> Self {
                 ::std::time::Duration::from_nanos((value.Duration * 100) as u64)
             }
@@ -1269,17 +1269,17 @@ pub mod Windows {
                     self.ok().expect(msg);
                 }
             }
-            impl ::std::convert::From<BOOL> for bool {
+            impl ::core::convert::From<BOOL> for bool {
                 fn from(value: BOOL) -> Self {
                     value.as_bool()
                 }
             }
-            impl ::std::convert::From<&BOOL> for bool {
+            impl ::core::convert::From<&BOOL> for bool {
                 fn from(value: &BOOL) -> Self {
                     value.as_bool()
                 }
             }
-            impl ::std::convert::From<bool> for BOOL {
+            impl ::core::convert::From<bool> for BOOL {
                 fn from(value: bool) -> Self {
                     if value {
                         BOOL(1)
@@ -1288,7 +1288,7 @@ pub mod Windows {
                     }
                 }
             }
-            impl ::std::convert::From<&bool> for BOOL {
+            impl ::core::convert::From<&bool> for BOOL {
                 fn from(value: &bool) -> Self {
                     (*value).into()
                 }
@@ -1353,29 +1353,29 @@ pub mod Windows {
                     Self::from_wide(self.as_wide())
                 }
             }
-            impl ::std::convert::From<&str> for BSTR {
+            impl ::core::convert::From<&str> for BSTR {
                 fn from(value: &str) -> Self {
                     let value: ::std::vec::Vec<u16> = value.encode_utf16().collect();
                     Self::from_wide(&value)
                 }
             }
-            impl ::std::convert::From<::std::string::String> for BSTR {
+            impl ::core::convert::From<::std::string::String> for BSTR {
                 fn from(value: ::std::string::String) -> Self {
                     value.as_str().into()
                 }
             }
-            impl ::std::convert::From<&::std::string::String> for BSTR {
+            impl ::core::convert::From<&::std::string::String> for BSTR {
                 fn from(value: &::std::string::String) -> Self {
                     value.as_str().into()
                 }
             }
-            impl<'a> ::std::convert::TryFrom<&'a BSTR> for ::std::string::String {
+            impl<'a> ::core::convert::TryFrom<&'a BSTR> for ::std::string::String {
                 type Error = ::std::string::FromUtf16Error;
                 fn try_from(value: &BSTR) -> ::std::result::Result<Self, Self::Error> {
                     ::std::string::String::from_utf16(value.as_wide())
                 }
             }
-            impl ::std::convert::TryFrom<BSTR> for ::std::string::String {
+            impl ::core::convert::TryFrom<BSTR> for ::std::string::String {
                 type Error = ::std::string::FromUtf16Error;
                 fn try_from(value: BSTR) -> ::std::result::Result<Self, Self::Error> {
                     ::std::string::String::try_from(&value)
@@ -1631,7 +1631,7 @@ pub mod Windows {
             #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: core :: fmt :: Debug)]
             #[repr(transparent)]
             pub struct WIN32_ERROR(pub u32);
-            impl ::std::convert::From<u32> for WIN32_ERROR {
+            impl ::core::convert::From<u32> for WIN32_ERROR {
                 fn from(value: u32) -> Self {
                     Self(value)
                 }
@@ -1667,7 +1667,7 @@ pub mod Windows {
                     Self(self.0.not())
                 }
             }
-            impl ::std::convert::From<WIN32_ERROR> for ::windows::runtime::HRESULT {
+            impl ::core::convert::From<WIN32_ERROR> for ::windows::runtime::HRESULT {
                 fn from(value: WIN32_ERROR) -> Self {
                     Self(if value.0 as i32 <= 0 { value.0 } else { (value.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 })
                 }
@@ -1757,12 +1757,12 @@ pub mod Windows {
                     type Vtable = IAgileObject_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2498374548, 59852, 18912, [192, 255, 238, 100, 202, 143, 91, 144]);
                 }
-                impl ::std::convert::From<IAgileObject> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<IAgileObject> for ::windows::runtime::IUnknown {
                     fn from(value: IAgileObject) -> Self {
                         value.0
                     }
                 }
-                impl ::std::convert::From<&IAgileObject> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<&IAgileObject> for ::windows::runtime::IUnknown {
                     fn from(value: &IAgileObject) -> Self {
                         value.0.clone()
                     }
@@ -1796,7 +1796,7 @@ pub mod Windows {
                     pub const FORMAT_MESSAGE_FROM_STRING: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(1024u32);
                     pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(4096u32);
                     pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(512u32);
-                    impl ::std::convert::From<u32> for FORMAT_MESSAGE_OPTIONS {
+                    impl ::core::convert::From<u32> for FORMAT_MESSAGE_OPTIONS {
                         fn from(value: u32) -> Self {
                             Self(value)
                         }
@@ -1922,7 +1922,7 @@ pub mod Windows {
                 pub const HEAP_TAG_SHIFT: HEAP_FLAGS = HEAP_FLAGS(18u32);
                 pub const HEAP_CREATE_SEGMENT_HEAP: HEAP_FLAGS = HEAP_FLAGS(256u32);
                 pub const HEAP_CREATE_HARDENED: HEAP_FLAGS = HEAP_FLAGS(512u32);
-                impl ::std::convert::From<u32> for HEAP_FLAGS {
+                impl ::core::convert::From<u32> for HEAP_FLAGS {
                     fn from(value: u32) -> Self {
                         Self(value)
                     }
@@ -2042,12 +2042,12 @@ pub mod Windows {
                         type Vtable = IErrorInfo_abi;
                         const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(485667104, 21629, 4123, [142, 101, 8, 0, 43, 43, 209, 25]);
                     }
-                    impl ::std::convert::From<IErrorInfo> for ::windows::runtime::IUnknown {
+                    impl ::core::convert::From<IErrorInfo> for ::windows::runtime::IUnknown {
                         fn from(value: IErrorInfo) -> Self {
                             value.0
                         }
                     }
-                    impl ::std::convert::From<&IErrorInfo> for ::windows::runtime::IUnknown {
+                    impl ::core::convert::From<&IErrorInfo> for ::windows::runtime::IUnknown {
                         fn from(value: &IErrorInfo) -> Self {
                             value.0.clone()
                         }
@@ -2144,12 +2144,12 @@ pub mod Windows {
                     type Vtable = ILanguageExceptionErrorInfo_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(77782003, 57219, 4460, [9, 70, 8, 18, 171, 246, 224, 125]);
                 }
-                impl ::std::convert::From<ILanguageExceptionErrorInfo> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<ILanguageExceptionErrorInfo> for ::windows::runtime::IUnknown {
                     fn from(value: ILanguageExceptionErrorInfo) -> Self {
                         value.0
                     }
                 }
-                impl ::std::convert::From<&ILanguageExceptionErrorInfo> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<&ILanguageExceptionErrorInfo> for ::windows::runtime::IUnknown {
                     fn from(value: &ILanguageExceptionErrorInfo) -> Self {
                         value.0.clone()
                     }
@@ -2196,12 +2196,12 @@ pub mod Windows {
                     type Vtable = ILanguageExceptionErrorInfo2_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464264132, 23447, 16972, [182, 32, 40, 34, 145, 87, 52, 221]);
                 }
-                impl ::std::convert::From<ILanguageExceptionErrorInfo2> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<ILanguageExceptionErrorInfo2> for ::windows::runtime::IUnknown {
                     fn from(value: ILanguageExceptionErrorInfo2) -> Self {
                         value.0
                     }
                 }
-                impl ::std::convert::From<&ILanguageExceptionErrorInfo2> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<&ILanguageExceptionErrorInfo2> for ::windows::runtime::IUnknown {
                     fn from(value: &ILanguageExceptionErrorInfo2) -> Self {
                         value.0.clone()
                     }
@@ -2216,14 +2216,14 @@ pub mod Windows {
                         ::windows::runtime::Param::Borrowed(&self.0)
                     }
                 }
-                impl ::std::convert::From<ILanguageExceptionErrorInfo2> for ILanguageExceptionErrorInfo {
+                impl ::core::convert::From<ILanguageExceptionErrorInfo2> for ILanguageExceptionErrorInfo {
                     fn from(value: ILanguageExceptionErrorInfo2) -> Self {
                         unsafe { ::core::mem::transmute(value) }
                     }
                 }
-                impl ::std::convert::From<&ILanguageExceptionErrorInfo2> for ILanguageExceptionErrorInfo {
+                impl ::core::convert::From<&ILanguageExceptionErrorInfo2> for ILanguageExceptionErrorInfo {
                     fn from(value: &ILanguageExceptionErrorInfo2) -> Self {
-                        ::std::convert::From::from(::core::clone::Clone::clone(value))
+                        ::core::convert::From::from(::core::clone::Clone::clone(value))
                     }
                 }
                 impl<'a> ::windows::runtime::IntoParam<'a, ILanguageExceptionErrorInfo> for ILanguageExceptionErrorInfo2 {
@@ -2263,12 +2263,12 @@ pub mod Windows {
                     type Vtable = IRestrictedErrorInfo_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2193256594, 19592, 17021, [167, 188, 22, 221, 147, 254, 182, 126]);
                 }
-                impl ::std::convert::From<IRestrictedErrorInfo> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<IRestrictedErrorInfo> for ::windows::runtime::IUnknown {
                     fn from(value: IRestrictedErrorInfo) -> Self {
                         value.0
                     }
                 }
-                impl ::std::convert::From<&IRestrictedErrorInfo> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<&IRestrictedErrorInfo> for ::windows::runtime::IUnknown {
                     fn from(value: &IRestrictedErrorInfo) -> Self {
                         value.0.clone()
                     }
@@ -2307,12 +2307,12 @@ pub mod Windows {
                     type Vtable = IWeakReference_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(55, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
                 }
-                impl ::std::convert::From<IWeakReference> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<IWeakReference> for ::windows::runtime::IUnknown {
                     fn from(value: IWeakReference) -> Self {
                         value.0
                     }
                 }
-                impl ::std::convert::From<&IWeakReference> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<&IWeakReference> for ::windows::runtime::IUnknown {
                     fn from(value: &IWeakReference) -> Self {
                         value.0.clone()
                     }
@@ -2348,12 +2348,12 @@ pub mod Windows {
                     type Vtable = IWeakReferenceSource_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(56, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
                 }
-                impl ::std::convert::From<IWeakReferenceSource> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<IWeakReferenceSource> for ::windows::runtime::IUnknown {
                     fn from(value: IWeakReferenceSource) -> Self {
                         value.0
                     }
                 }
-                impl ::std::convert::From<&IWeakReferenceSource> for ::windows::runtime::IUnknown {
+                impl ::core::convert::From<&IWeakReferenceSource> for ::windows::runtime::IUnknown {
                     fn from(value: &IWeakReferenceSource) -> Self {
                         value.0.clone()
                     }

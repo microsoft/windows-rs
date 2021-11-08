@@ -58,15 +58,15 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
 
             conversions.combine(&quote! {
                 #cfg
-                impl ::std::convert::From<#name> for #into {
+                impl ::core::convert::From<#name> for #into {
                     fn from(value: #name) -> Self {
                         unsafe { ::core::mem::transmute(value) }
                     }
                 }
                 #cfg
-                impl ::std::convert::From<&#name> for #into {
+                impl ::core::convert::From<&#name> for #into {
                     fn from(value: &#name) -> Self {
-                        ::std::convert::From::from(::core::clone::Clone::clone(value))
+                        ::core::convert::From::from(::core::clone::Clone::clone(value))
                     }
                 }
                 #cfg

@@ -147,7 +147,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
 
         if !def.is_exclusive() {
             tokens.combine(&quote! {
-                impl <#constraints> ::std::convert::From<#impl_ident> for #interface_ident {
+                impl <#constraints> ::core::convert::From<#impl_ident> for #interface_ident {
                     fn from(implementation: #impl_ident) -> Self {
                         let com = #box_ident::<#(#generics,)*>::new(implementation);
 
@@ -157,7 +157,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                         }
                     }
                 }
-                impl <#constraints> ::std::convert::From<&mut #impl_ident> for #interface_ident {
+                impl <#constraints> ::core::convert::From<&mut #impl_ident> for #interface_ident {
                     fn from(implementation: &mut #impl_ident) -> Self {
                         unsafe {
                             let mut ptr = (implementation as *mut _ as *mut ::windows::runtime::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
@@ -219,7 +219,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                 }
             }
         }
-        impl <#constraints> ::std::convert::From<#impl_ident> for ::windows::runtime::IUnknown {
+        impl <#constraints> ::core::convert::From<#impl_ident> for ::windows::runtime::IUnknown {
             fn from(implementation: #impl_ident) -> Self {
                 let com = #box_ident::<#(#generics,)*>::new(implementation);
 
@@ -229,7 +229,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                 }
             }
         }
-        impl <#constraints> ::std::convert::From<#impl_ident> for ::windows::runtime::IInspectable {
+        impl <#constraints> ::core::convert::From<#impl_ident> for ::windows::runtime::IInspectable {
             fn from(implementation: #impl_ident) -> Self {
                 let com = #box_ident::<#(#generics,)*>::new(implementation);
 

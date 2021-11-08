@@ -180,7 +180,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                         type IntoIter = #wfc VectorViewIterator<Self::Item>;
 
                         fn into_iter(self) -> Self::IntoIter {
-                            #wfc VectorViewIterator::new(::std::convert::TryInto::try_into(self).ok())
+                            #wfc VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
                         }
                     }
                 };
@@ -206,7 +206,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                         type IntoIter = #wfc VectorIterator<Self::Item>;
 
                         fn into_iter(self) -> Self::IntoIter {
-                            #wfc VectorIterator::new(::std::convert::TryInto::try_into(self).ok())
+                            #wfc VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
                         }
                     }
                 };

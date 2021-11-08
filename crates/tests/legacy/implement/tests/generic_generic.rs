@@ -1,4 +1,4 @@
-use std::convert::TryInto;
+use core::convert::TryInto;
 use test_implement::*;
 use windows::runtime::*;
 use Windows::Foundation::Collections::*;

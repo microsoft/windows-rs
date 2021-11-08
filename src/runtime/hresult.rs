@@ -100,7 +100,7 @@ impl ::windows::runtime::DefaultType for HRESULT {
     type DefaultType = Self;
 }
 
-impl<T> std::convert::From<Result<T>> for HRESULT {
+impl<T> core::convert::From<Result<T>> for HRESULT {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {
             return error.into();
