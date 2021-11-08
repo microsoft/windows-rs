@@ -126,7 +126,7 @@ pub fn gen_bstr() -> TokenStream {
                 other == self
             }
         }
-        impl ::std::ops::Drop for BSTR {
+        impl ::core::ops::Drop for BSTR {
             fn drop(&mut self) {
                 if !self.0.is_null() {
                     unsafe { SysFreeString(self as &Self) }

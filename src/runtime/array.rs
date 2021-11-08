@@ -104,7 +104,7 @@ impl<T: RuntimeType> Array<T> {
     }
 }
 
-impl<T: RuntimeType> std::ops::Deref for Array<T> {
+impl<T: RuntimeType> core::ops::Deref for Array<T> {
     type Target = [T::DefaultType];
 
     fn deref(&self) -> &[T::DefaultType] {
@@ -117,7 +117,7 @@ impl<T: RuntimeType> std::ops::Deref for Array<T> {
     }
 }
 
-impl<T: RuntimeType> std::ops::DerefMut for Array<T> {
+impl<T: RuntimeType> core::ops::DerefMut for Array<T> {
     fn deref_mut(&mut self) -> &mut [T::DefaultType] {
         if self.is_empty() {
             return &mut [];

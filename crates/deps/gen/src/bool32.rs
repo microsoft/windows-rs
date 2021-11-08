@@ -77,7 +77,7 @@ pub fn gen_bool32() -> TokenStream {
             }
         }
 
-        impl ::std::ops::Not for BOOL {
+        impl ::core::ops::Not for BOOL {
             type Output = Self;
             fn not(self) -> Self::Output {
                 if self.as_bool() {

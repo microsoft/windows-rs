@@ -1303,7 +1303,7 @@ pub mod Windows {
                     *self == other.as_bool()
                 }
             }
-            impl std::ops::Not for BOOL {
+            impl core::ops::Not for BOOL {
                 type Output = Self;
                 fn not(self) -> Self::Output {
                     if self.as_bool() {
@@ -1425,7 +1425,7 @@ pub mod Windows {
                     other == self
                 }
             }
-            impl ::std::ops::Drop for BSTR {
+            impl ::core::ops::Drop for BSTR {
                 fn drop(&mut self) {
                     if !self.0.is_null() {
                         unsafe { SysFreeString(self as &Self) }
@@ -1639,29 +1639,29 @@ pub mod Windows {
             unsafe impl ::windows::runtime::Abi for WIN32_ERROR {
                 type Abi = Self;
             }
-            impl ::std::ops::BitOr for WIN32_ERROR {
+            impl ::core::ops::BitOr for WIN32_ERROR {
                 type Output = Self;
                 fn bitor(self, rhs: Self) -> Self {
                     Self(self.0 | rhs.0)
                 }
             }
-            impl ::std::ops::BitAnd for WIN32_ERROR {
+            impl ::core::ops::BitAnd for WIN32_ERROR {
                 type Output = Self;
                 fn bitand(self, rhs: Self) -> Self {
                     Self(self.0 & rhs.0)
                 }
             }
-            impl ::std::ops::BitOrAssign for WIN32_ERROR {
+            impl ::core::ops::BitOrAssign for WIN32_ERROR {
                 fn bitor_assign(&mut self, rhs: Self) {
                     self.0.bitor_assign(rhs.0)
                 }
             }
-            impl ::std::ops::BitAndAssign for WIN32_ERROR {
+            impl ::core::ops::BitAndAssign for WIN32_ERROR {
                 fn bitand_assign(&mut self, rhs: Self) {
                     self.0.bitand_assign(rhs.0)
                 }
             }
-            impl ::std::ops::Not for WIN32_ERROR {
+            impl ::core::ops::Not for WIN32_ERROR {
                 type Output = Self;
                 fn not(self) -> Self {
                     Self(self.0.not())
@@ -1804,29 +1804,29 @@ pub mod Windows {
                     unsafe impl ::windows::runtime::Abi for FORMAT_MESSAGE_OPTIONS {
                         type Abi = Self;
                     }
-                    impl ::std::ops::BitOr for FORMAT_MESSAGE_OPTIONS {
+                    impl ::core::ops::BitOr for FORMAT_MESSAGE_OPTIONS {
                         type Output = Self;
                         fn bitor(self, rhs: Self) -> Self {
                             Self(self.0 | rhs.0)
                         }
                     }
-                    impl ::std::ops::BitAnd for FORMAT_MESSAGE_OPTIONS {
+                    impl ::core::ops::BitAnd for FORMAT_MESSAGE_OPTIONS {
                         type Output = Self;
                         fn bitand(self, rhs: Self) -> Self {
                             Self(self.0 & rhs.0)
                         }
                     }
-                    impl ::std::ops::BitOrAssign for FORMAT_MESSAGE_OPTIONS {
+                    impl ::core::ops::BitOrAssign for FORMAT_MESSAGE_OPTIONS {
                         fn bitor_assign(&mut self, rhs: Self) {
                             self.0.bitor_assign(rhs.0)
                         }
                     }
-                    impl ::std::ops::BitAndAssign for FORMAT_MESSAGE_OPTIONS {
+                    impl ::core::ops::BitAndAssign for FORMAT_MESSAGE_OPTIONS {
                         fn bitand_assign(&mut self, rhs: Self) {
                             self.0.bitand_assign(rhs.0)
                         }
                     }
-                    impl ::std::ops::Not for FORMAT_MESSAGE_OPTIONS {
+                    impl ::core::ops::Not for FORMAT_MESSAGE_OPTIONS {
                         type Output = Self;
                         fn not(self) -> Self {
                             Self(self.0.not())
@@ -1930,29 +1930,29 @@ pub mod Windows {
                 unsafe impl ::windows::runtime::Abi for HEAP_FLAGS {
                     type Abi = Self;
                 }
-                impl ::std::ops::BitOr for HEAP_FLAGS {
+                impl ::core::ops::BitOr for HEAP_FLAGS {
                     type Output = Self;
                     fn bitor(self, rhs: Self) -> Self {
                         Self(self.0 | rhs.0)
                     }
                 }
-                impl ::std::ops::BitAnd for HEAP_FLAGS {
+                impl ::core::ops::BitAnd for HEAP_FLAGS {
                     type Output = Self;
                     fn bitand(self, rhs: Self) -> Self {
                         Self(self.0 & rhs.0)
                     }
                 }
-                impl ::std::ops::BitOrAssign for HEAP_FLAGS {
+                impl ::core::ops::BitOrAssign for HEAP_FLAGS {
                     fn bitor_assign(&mut self, rhs: Self) {
                         self.0.bitor_assign(rhs.0)
                     }
                 }
-                impl ::std::ops::BitAndAssign for HEAP_FLAGS {
+                impl ::core::ops::BitAndAssign for HEAP_FLAGS {
                     fn bitand_assign(&mut self, rhs: Self) {
                         self.0.bitand_assign(rhs.0)
                     }
                 }
-                impl ::std::ops::Not for HEAP_FLAGS {
+                impl ::core::ops::Not for HEAP_FLAGS {
                     type Output = Self;
                     fn not(self) -> Self {
                         Self(self.0.not())

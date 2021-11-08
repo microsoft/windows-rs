@@ -85,85 +85,85 @@ pub fn gen_matrix4x4() -> TokenStream {
             }
         }
 
-        impl ::std::ops::Add<Matrix4x4> for Matrix4x4 {
+        impl ::core::ops::Add<Matrix4x4> for Matrix4x4 {
             type Output = Matrix4x4;
             fn add(self, rhs: Matrix4x4) -> Matrix4x4 {
                 self.impl_add(&rhs)
             }
         }
-        impl ::std::ops::Add<&Matrix4x4> for Matrix4x4 {
+        impl ::core::ops::Add<&Matrix4x4> for Matrix4x4 {
             type Output = Matrix4x4;
             fn add(self, rhs: &Matrix4x4) -> Matrix4x4 {
                 self.impl_add(rhs)
             }
         }
-        impl ::std::ops::Add<Matrix4x4> for &Matrix4x4 {
+        impl ::core::ops::Add<Matrix4x4> for &Matrix4x4 {
             type Output = Matrix4x4;
             fn add(self, rhs: Matrix4x4) -> Matrix4x4 {
                 self.impl_add(&rhs)
             }
         }
-        impl ::std::ops::Add<&Matrix4x4> for &Matrix4x4 {
+        impl ::core::ops::Add<&Matrix4x4> for &Matrix4x4 {
             type Output = Matrix4x4;
             fn add(self, rhs: &Matrix4x4) -> Matrix4x4 {
                 self.impl_add(rhs)
             }
         }
-        impl ::std::ops::Sub<Matrix4x4> for Matrix4x4 {
+        impl ::core::ops::Sub<Matrix4x4> for Matrix4x4 {
             type Output = Matrix4x4;
             fn sub(self, rhs: Matrix4x4) -> Matrix4x4 {
                 self.impl_sub(&rhs)
             }
         }
-        impl ::std::ops::Sub<&Matrix4x4> for Matrix4x4 {
+        impl ::core::ops::Sub<&Matrix4x4> for Matrix4x4 {
             type Output = Matrix4x4;
             fn sub(self, rhs: &Matrix4x4) -> Matrix4x4 {
                 self.impl_sub(rhs)
             }
         }
-        impl ::std::ops::Sub<Matrix4x4> for &Matrix4x4 {
+        impl ::core::ops::Sub<Matrix4x4> for &Matrix4x4 {
             type Output = Matrix4x4;
             fn sub(self, rhs: Matrix4x4) -> Matrix4x4 {
                 self.impl_sub(&rhs)
             }
         }
-        impl ::std::ops::Sub<&Matrix4x4> for &Matrix4x4 {
+        impl ::core::ops::Sub<&Matrix4x4> for &Matrix4x4 {
             type Output = Matrix4x4;
             fn sub(self, rhs: &Matrix4x4) -> Matrix4x4 {
                 self.impl_sub(rhs)
             }
         }
-        impl ::std::ops::Mul<Matrix4x4> for Matrix4x4 {
+        impl ::core::ops::Mul<Matrix4x4> for Matrix4x4 {
             type Output = Matrix4x4;
             fn mul(self, rhs: Matrix4x4) -> Matrix4x4 {
                 self.impl_mul(&rhs)
             }
         }
-        impl ::std::ops::Mul<&Matrix4x4> for Matrix4x4 {
+        impl ::core::ops::Mul<&Matrix4x4> for Matrix4x4 {
             type Output = Matrix4x4;
             fn mul(self, rhs: &Matrix4x4) -> Matrix4x4 {
                 self.impl_mul(rhs)
             }
         }
-        impl ::std::ops::Mul<Matrix4x4> for &Matrix4x4 {
+        impl ::core::ops::Mul<Matrix4x4> for &Matrix4x4 {
             type Output = Matrix4x4;
             fn mul(self, rhs: Matrix4x4) -> Matrix4x4 {
                 self.impl_mul(&rhs)
             }
         }
-        impl ::std::ops::Mul<&Matrix4x4> for &Matrix4x4 {
+        impl ::core::ops::Mul<&Matrix4x4> for &Matrix4x4 {
             type Output = Matrix4x4;
             fn mul(self, rhs: &Matrix4x4) -> Matrix4x4 {
                 self.impl_mul(rhs)
             }
         }
-        impl ::std::ops::Mul<f32> for Matrix4x4 {
+        impl ::core::ops::Mul<f32> for Matrix4x4 {
             type Output = Matrix4x4;
             fn mul(self, rhs: f32) -> Matrix4x4 {
                 self.impl_mul_f32(rhs)
             }
         }
-        impl ::std::ops::Mul<f32> for &Matrix4x4 {
+        impl ::core::ops::Mul<f32> for &Matrix4x4 {
             type Output = Matrix4x4;
             fn mul(self, rhs: f32) -> Matrix4x4 {
                 self.impl_mul_f32(rhs)

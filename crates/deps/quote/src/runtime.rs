@@ -1,5 +1,5 @@
 use crate::{Delimiter, ToTokens, TokenStream};
-use std::ops::BitOr;
+use core::ops::BitOr;
 
 pub struct HasIterator; // True
 pub struct ThereIsNoIteratorInRepetition; // False
