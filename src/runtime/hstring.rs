@@ -137,7 +137,7 @@ unsafe impl Sync for HSTRING {}
 impl core::fmt::Display for HSTRING {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         use ::core::fmt::Write;
-        for c in std::char::decode_utf16(self.as_wide().iter().cloned()) {
+        for c in core::char::decode_utf16(self.as_wide().iter().cloned()) {
             f.write_char(c.map_err(|_| core::fmt::Error)?)?
         }
         Ok(())
@@ -198,6 +198,7 @@ impl PartialEq<HSTRING> for &str {
     }
 }
 
+#[cfg(not(feature = "no_std"))]
 impl<'a> TryFrom<&'a HSTRING> for String {
     type Error = std::string::FromUtf16Error;
 
@@ -206,6 +207,7 @@ impl<'a> TryFrom<&'a HSTRING> for String {
     }
 }
 
+#[cfg(not(feature = "no_std"))]
 impl TryFrom<HSTRING> for String {
     type Error = std::string::FromUtf16Error;
 

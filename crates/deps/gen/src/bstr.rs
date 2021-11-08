@@ -92,7 +92,7 @@ pub fn gen_bstr() -> TokenStream {
         impl ::core::fmt::Display for BSTR {
             fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 use ::core::fmt::Write;
-                for c in ::std::char::decode_utf16(self.as_wide().iter().cloned()) {
+                for c in ::core::char::decode_utf16(self.as_wide().iter().cloned()) {
                     f.write_char(c.map_err(|_| ::core::fmt::Error)?)?
                 }
                 Ok(())
