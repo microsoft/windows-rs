@@ -58,8 +58,8 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
                 quote! {}
             } else {
                 quote! {
-                    unsafe impl<#constraints> ::std::marker::Send for #name {}
-                    unsafe impl<#constraints> ::std::marker::Sync for #name {}
+                    unsafe impl<#constraints> ::core::marker::Send for #name {}
+                    unsafe impl<#constraints> ::core::marker::Sync for #name {}
                 }
             };
 

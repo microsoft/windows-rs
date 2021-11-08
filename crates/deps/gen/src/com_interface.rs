@@ -86,8 +86,8 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
 
         let send_sync = if def.type_name() == TypeName::IRestrictedErrorInfo {
             quote! {
-                unsafe impl ::std::marker::Send for #name {}
-                unsafe impl ::std::marker::Sync for #name {}
+                unsafe impl ::core::marker::Send for #name {}
+                unsafe impl ::core::marker::Sync for #name {}
             }
         } else {
             quote! {}

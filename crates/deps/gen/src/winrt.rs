@@ -343,7 +343,7 @@ pub fn gen_winrt_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
 pub fn gen_phantoms(def: &TypeDef) -> impl Iterator<Item = TokenStream> + '_ {
     def.generics.iter().map(move |g| {
         let g = gen_name(g, &Gen::absolute());
-        quote! { ::std::marker::PhantomData::<#g> }
+        quote! { ::core::marker::PhantomData::<#g> }
     })
 }
 

@@ -1,6 +1,6 @@
 use super::*;
 use bindings::Windows::Win32::System::WinRT::{IWeakReference, IWeakReferenceSource};
-use std::marker::PhantomData;
+use core::marker::PhantomData;
 
 /// `Weak` holds a non-owning reference to an object.
 #[derive(Clone, PartialEq, Eq, Default, Debug)]

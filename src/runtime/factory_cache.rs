@@ -1,6 +1,6 @@
 use super::*;
 use bindings::Windows::Win32::Graphics::DirectDraw::CO_E_NOTINITIALIZED;
-use std::marker::PhantomData;
+use core::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
 
 type DllGetActivationFactory = extern "system" fn(name: core::mem::ManuallyDrop<HSTRING>, factory: *mut RawPtr) -> HRESULT;

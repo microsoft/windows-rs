@@ -39,7 +39,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         };
 
         return quote! {
-            #[derive(::std::clone::Clone, ::std::marker::Copy, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq)]
+            #[derive(::std::clone::Clone, ::core::marker::Copy, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq)]
             #[repr(transparent)]
             pub struct #name(pub #signature);
             impl ::core::default::Default for #name {
@@ -87,7 +87,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         } else {
             return quote! {
                 #[repr(C)]
-                #[derive(::std::clone::Clone, ::core::default::Default, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq, ::std::marker::Copy)]
+                #[derive(::std::clone::Clone, ::core::default::Default, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy)]
                 pub struct #name(pub u8);
             };
         }
@@ -132,7 +132,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
 
     let clone_or_copy = if def.is_blittable() {
         quote! {
-            #[derive(::std::clone::Clone, ::std::marker::Copy)]
+            #[derive(::std::clone::Clone, ::core::marker::Copy)]
         }
     } else if is_union || has_union || is_packed {
         quote! {

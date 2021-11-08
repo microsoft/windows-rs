@@ -407,7 +407,7 @@ pub mod Windows {
         );
         #[repr(transparent)]
         #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: core :: fmt :: Debug)]
-        pub struct IReference<T>(pub ::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
+        pub struct IReference<T>(pub ::windows::runtime::IInspectable, ::core::marker::PhantomData<T>)
         where
             T: ::windows::runtime::RuntimeType + 'static;
         unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::Interface for IReference<T> {
@@ -714,7 +714,7 @@ pub mod Windows {
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut <T as ::windows::runtime::Abi>::Abi) -> ::windows::runtime::HRESULT,
-            pub ::std::marker::PhantomData<T>,
+            pub ::core::marker::PhantomData<T>,
         )
         where
             T: ::windows::runtime::RuntimeType + 'static;
@@ -2283,8 +2283,8 @@ pub mod Windows {
                         ::windows::runtime::Param::Borrowed(&self.0)
                     }
                 }
-                unsafe impl ::std::marker::Send for IRestrictedErrorInfo {}
-                unsafe impl ::std::marker::Sync for IRestrictedErrorInfo {}
+                unsafe impl ::core::marker::Send for IRestrictedErrorInfo {}
+                unsafe impl ::core::marker::Sync for IRestrictedErrorInfo {}
                 #[repr(C)]
                 #[doc(hidden)]
                 pub struct IRestrictedErrorInfo_abi(

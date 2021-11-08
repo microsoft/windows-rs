@@ -179,7 +179,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
         let mut phantoms = TokenStream::with_capacity();
 
         for _ in 0..def.generic_params().count() {
-            phantoms.combine(&quote! { std::marker::PhantomData, })
+            phantoms.combine(&quote! { core::marker::PhantomData, })
         }
 
         vtable_ctors.combine(&quote! {

@@ -2,7 +2,7 @@ use super::*;
 
 pub fn gen_pstr() -> TokenStream {
     quote! {
-        #[derive(::std::clone::Clone, ::std::marker::Copy, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq)]
+        #[derive(::std::clone::Clone, ::core::marker::Copy, ::core::fmt::Debug, ::core::cmp::PartialEq, ::core::cmp::Eq)]
         #[repr(transparent)]
         pub struct PSTR(pub *mut u8);
         impl PSTR {

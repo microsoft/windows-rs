@@ -136,9 +136,9 @@ impl Class {
                 let send_sync = if self.0.is_agile() {
                     quote! {
                         #cfg
-                        unsafe impl ::std::marker::Send for #name {}
+                        unsafe impl ::core::marker::Send for #name {}
                         #cfg
-                        unsafe impl ::std::marker::Sync for #name {}
+                        unsafe impl ::core::marker::Sync for #name {}
                     }
                 } else {
                     TokenStream::new()
