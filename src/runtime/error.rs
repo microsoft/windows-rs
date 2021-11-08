@@ -57,7 +57,7 @@ impl Error {
     }
 
     /// The error message describing the error.
-    pub fn message(&self) -> String {
+    pub fn message(&self) -> HSTRING {
         // First attempt to retrieve the restricted error information.
         if let Some(info) = &self.info {
             let mut fallback = BSTR::default();
@@ -69,12 +69,9 @@ impl Error {
                 let _ = info.GetErrorDetails(&mut fallback, &mut code, &mut message, &mut unused);
             }
 
-            let message = if !message.is_empty() { message } else { fallback };
-
-            let message: String = message.try_into().unwrap_or_default();
-
             if self.code == code {
-                return message.trim_end().to_owned();
+                let message = if !message.is_empty() { message } else { fallback };
+                return HSTRING::from_wide(message.as_wide());
             }
         }
 
@@ -131,10 +128,10 @@ impl core::convert::From<HRESULT> for Error {
 
         if let Ok(info) = unsafe { GetErrorInfo(0) } {
             let message = unsafe { info.GetDescription().unwrap_or_default() };
-            let message: String = message.try_into().unwrap_or_default();
+            let message: HSTRING = message.try_into().unwrap_or_default();
             Self::new(code, &message)
         } else {
-            Self::new(code, "")
+            Self { code, info: None }
         }
     }
 }
@@ -152,7 +149,7 @@ impl core::fmt::Debug for Error {
 
 impl core::fmt::Display for Error {
     fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        fmt.write_str(&self.message())
+        core::write!(fmt, "{}", self.message())
     }
 }
 

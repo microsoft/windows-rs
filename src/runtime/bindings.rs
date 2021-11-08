@@ -1391,7 +1391,6 @@ pub mod Windows {
                     Self(::core::ptr::null_mut())
                 }
             }
-            #[cfg(not(feature = "no_std"))]
             impl ::core::fmt::Display for BSTR {
                 fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     use core::fmt::Write;
@@ -1448,7 +1447,8 @@ pub mod Windows {
                     ::windows::runtime::Param::Owned(self.into())
                 }
             }
-            impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for String {
+            #[cfg(not(feature = "no_std"))]
+            impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for ::std::string::String {
                 fn into_param(self) -> ::windows::runtime::Param<'a, BSTR> {
                     ::windows::runtime::Param::Owned(self.into())
                 }

@@ -77,13 +77,13 @@ impl HRESULT {
     }
 
     /// The error message describing the error.
-    pub fn message(&self) -> String {
+    pub fn message(&self) -> HSTRING {
         let mut message = HeapString(core::ptr::null_mut());
 
         unsafe {
             let size = FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, core::ptr::null(), self.0, 0, PWSTR(core::mem::transmute(&mut message.0)), 0, core::ptr::null_mut());
 
-            String::from_utf16_lossy(core::slice::from_raw_parts(message.0 as *const u16, size as usize)).trim_end().to_owned()
+            HSTRING::from_wide(core::slice::from_raw_parts(message.0 as *const u16, size as usize))
         }
     }
 }

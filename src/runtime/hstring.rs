@@ -48,6 +48,7 @@ impl HSTRING {
     }
 
     /// Get the contents of this `HSTRING` as a String lossily.
+    #[cfg(not(feature = "no_std"))]
     pub fn to_string_lossy(&self) -> String {
         String::from_utf16_lossy(self.as_wide())
     }
@@ -156,12 +157,14 @@ impl From<&str> for HSTRING {
     }
 }
 
+#[cfg(not(feature = "no_std"))]
 impl From<String> for HSTRING {
     fn from(value: String) -> Self {
         value.as_str().into()
     }
 }
 
+#[cfg(not(feature = "no_std"))]
 impl From<&String> for HSTRING {
     fn from(value: &String) -> Self {
         value.as_str().into()
@@ -174,6 +177,7 @@ impl PartialEq for HSTRING {
     }
 }
 
+#[cfg(not(feature = "no_std"))]
 impl PartialEq<String> for HSTRING {
     fn eq(&self, other: &String) -> bool {
         self == other.as_str()
