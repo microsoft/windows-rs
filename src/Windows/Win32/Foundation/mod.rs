@@ -257,11 +257,10 @@ impl ::core::default::Default for BSTR {
         Self(::core::ptr::null_mut())
     }
 }
-#[cfg(not(feature = "no_std"))]
 impl ::core::fmt::Display for BSTR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         use core::fmt::Write;
-        for c in ::std::char::decode_utf16(self.as_wide().iter().cloned()) {
+        for c in ::core::char::decode_utf16(self.as_wide().iter().cloned()) {
             f.write_char(c.map_err(|_| ::core::fmt::Error)?)?
         }
         Ok(())
@@ -314,7 +313,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for &str {
         ::windows::runtime::Param::Owned(self.into())
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for String {
+#[cfg(not(feature = "no_std"))]
+impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for ::std::string::String {
     fn into_param(self) -> ::windows::runtime::Param<'a, BSTR> {
         ::windows::runtime::Param::Owned(self.into())
     }
