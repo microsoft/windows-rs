@@ -151,7 +151,7 @@ impl Class {
                     #cfg
                     #doc
                     #[repr(transparent)]
-                    #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+                    #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::core::fmt::Debug)]
                     pub struct #name(pub ::windows::runtime::IInspectable);
                     #cfg
                     impl #name {
@@ -202,7 +202,7 @@ impl Class {
             quote! {
                 #cfg
                 #[repr(transparent)]
-                #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+                #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::core::fmt::Debug)]
                 #[doc(hidden)]
                 pub struct #name(pub ::windows::runtime::IInspectable);
                 #cfg

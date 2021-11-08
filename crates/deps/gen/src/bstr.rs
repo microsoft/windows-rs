@@ -86,17 +86,17 @@ pub fn gen_bstr() -> TokenStream {
                 Self(::std::ptr::null_mut())
             }
         }
-        impl ::std::fmt::Display for BSTR {
-            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                use ::std::fmt::Write;
+        impl ::core::fmt::Display for BSTR {
+            fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                use ::core::fmt::Write;
                 for c in ::std::char::decode_utf16(self.as_wide().iter().cloned()) {
-                    f.write_char(c.map_err(|_| ::std::fmt::Error)?)?
+                    f.write_char(c.map_err(|_| ::core::fmt::Error)?)?
                 }
                 Ok(())
             }
         }
-        impl ::std::fmt::Debug for BSTR {
-            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        impl ::core::fmt::Debug for BSTR {
+            fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 ::std::write!(f, "{}", self)
             }
         }

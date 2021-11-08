@@ -101,8 +101,8 @@ fn trim_tick(name: &'static str) -> &'static str {
     }
 }
 
-impl std::fmt::Display for TypeName {
-    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Display for TypeName {
+    fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(fmt, "{}.{}", self.namespace, self.name)
     }
 }

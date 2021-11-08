@@ -108,7 +108,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
         quote! {
             #doc
             #[repr(transparent)]
-            #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+            #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::core::fmt::Debug)]
             pub struct #name(pub ::windows::runtime::IUnknown);
             impl #name {
                 #(#methods)*
@@ -132,7 +132,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
     } else {
         quote! {
             #[repr(transparent)]
-            #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+            #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::core::fmt::Debug)]
             #[doc(hidden)]
             pub struct #name(pub ::windows::runtime::IUnknown);
             unsafe impl ::windows::runtime::Interface for #name {

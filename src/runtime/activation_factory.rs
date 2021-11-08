@@ -40,8 +40,8 @@ unsafe impl Interface for IActivationFactory {
     const IID: GUID = GUID::from_values(0x0000_0035, 0x0000, 0x0000, [0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46]);
 }
 
-impl std::fmt::Debug for IActivationFactory {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for IActivationFactory {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{:?}", self.0)
     }
 }

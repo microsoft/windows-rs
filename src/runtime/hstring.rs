@@ -134,18 +134,18 @@ impl Drop for HSTRING {
 unsafe impl Send for HSTRING {}
 unsafe impl Sync for HSTRING {}
 
-impl std::fmt::Display for HSTRING {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        use std::fmt::Write;
+impl core::fmt::Display for HSTRING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        use ::core::fmt::Write;
         for c in std::char::decode_utf16(self.as_wide().iter().cloned()) {
-            f.write_char(c.map_err(|_| std::fmt::Error)?)?
+            f.write_char(c.map_err(|_| core::fmt::Error)?)?
         }
         Ok(())
     }
 }
 
-impl std::fmt::Debug for HSTRING {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for HSTRING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "{}", self)
     }
 }

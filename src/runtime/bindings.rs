@@ -12,8 +12,8 @@ pub mod Windows {
                 unsafe { ::std::mem::zeroed() }
             }
         }
-        impl ::std::fmt::Debug for DateTime {
-            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        impl ::core::fmt::Debug for DateTime {
+            fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 fmt.debug_struct("DateTime").field("UniversalTime", &self.UniversalTime).finish()
             }
         }
@@ -33,7 +33,7 @@ pub mod Windows {
             type DefaultType = Self;
         }
         #[repr(transparent)]
-        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: core :: fmt :: Debug)]
         pub struct IPropertyValue(pub ::windows::runtime::IInspectable);
         unsafe impl ::windows::runtime::Interface for IPropertyValue {
             type Vtable = IPropertyValue_abi;
@@ -406,7 +406,7 @@ pub mod Windows {
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const Rect, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
         );
         #[repr(transparent)]
-        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: core :: fmt :: Debug)]
         pub struct IReference<T>(pub ::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
         where
             T: ::windows::runtime::RuntimeType + 'static;
@@ -719,7 +719,7 @@ pub mod Windows {
         where
             T: ::windows::runtime::RuntimeType + 'static;
         #[repr(transparent)]
-        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: core :: fmt :: Debug)]
         pub struct IStringable(pub ::windows::runtime::IInspectable);
         unsafe impl ::windows::runtime::Interface for IStringable {
             type Vtable = IStringable_abi;
@@ -800,8 +800,8 @@ pub mod Windows {
                 unsafe { ::std::mem::zeroed() }
             }
         }
-        impl ::std::fmt::Debug for Point {
-            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        impl ::core::fmt::Debug for Point {
+            fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 fmt.debug_struct("Point").field("X", &self.X).field("Y", &self.Y).finish()
             }
         }
@@ -820,7 +820,7 @@ pub mod Windows {
         impl ::windows::runtime::DefaultType for Point {
             type DefaultType = Self;
         }
-        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: core :: fmt :: Debug)]
         #[repr(transparent)]
         pub struct PropertyType(pub i32);
         impl PropertyType {
@@ -1138,8 +1138,8 @@ pub mod Windows {
                 unsafe { ::std::mem::zeroed() }
             }
         }
-        impl ::std::fmt::Debug for Rect {
-            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        impl ::core::fmt::Debug for Rect {
+            fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 fmt.debug_struct("Rect").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
             }
         }
@@ -1170,8 +1170,8 @@ pub mod Windows {
                 unsafe { ::std::mem::zeroed() }
             }
         }
-        impl ::std::fmt::Debug for Size {
-            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        impl ::core::fmt::Debug for Size {
+            fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 fmt.debug_struct("Size").field("Width", &self.Width).field("Height", &self.Height).finish()
             }
         }
@@ -1201,8 +1201,8 @@ pub mod Windows {
                 unsafe { ::std::mem::zeroed() }
             }
         }
-        impl ::std::fmt::Debug for TimeSpan {
-            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        impl ::core::fmt::Debug for TimeSpan {
+            fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 fmt.debug_struct("TimeSpan").field("Duration", &self.Duration).finish()
             }
         }
@@ -1240,7 +1240,7 @@ pub mod Windows {
     pub mod Win32 {
         pub mod Foundation {
             #[repr(transparent)]
-            #[derive(:: std :: default :: Default, :: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: fmt :: Debug)]
+            #[derive(:: std :: default :: Default, :: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: core :: fmt :: Debug)]
             pub struct BOOL(pub i32);
             unsafe impl ::windows::runtime::Abi for BOOL {
                 type Abi = Self;
@@ -1386,17 +1386,17 @@ pub mod Windows {
                     Self(::std::ptr::null_mut())
                 }
             }
-            impl ::std::fmt::Display for BSTR {
-                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                    use std::fmt::Write;
+            impl ::core::fmt::Display for BSTR {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                    use core::fmt::Write;
                     for c in ::std::char::decode_utf16(self.as_wide().iter().cloned()) {
-                        f.write_char(c.map_err(|_| ::std::fmt::Error)?)?
+                        f.write_char(c.map_err(|_| ::core::fmt::Error)?)?
                     }
                     Ok(())
                 }
             }
-            impl ::std::fmt::Debug for BSTR {
-                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+            impl ::core::fmt::Debug for BSTR {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     ::std::write!(f, "{}", self)
                 }
             }
@@ -1474,7 +1474,7 @@ pub mod Windows {
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
             }
-            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: default :: Default, :: core :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
             #[repr(transparent)]
             pub struct HANDLE(pub isize);
             unsafe impl ::windows::runtime::Handle for HANDLE {
@@ -1492,7 +1492,7 @@ pub mod Windows {
             unsafe impl ::windows::runtime::Abi for HANDLE {
                 type Abi = Self;
             }
-            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: core :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
             #[repr(transparent)]
             pub struct HINSTANCE(pub isize);
             impl ::std::default::Default for HINSTANCE {
@@ -1504,7 +1504,7 @@ pub mod Windows {
             unsafe impl ::windows::runtime::Abi for HINSTANCE {
                 type Abi = Self;
             }
-            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: core :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
             #[repr(transparent)]
             pub struct PSTR(pub *mut u8);
             impl PSTR {
@@ -1539,7 +1539,7 @@ pub mod Windows {
                     ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::std::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
                 }
             }
-            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: core :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
             #[repr(transparent)]
             pub struct PWSTR(pub *mut u16);
             impl PWSTR {
@@ -1628,7 +1628,7 @@ pub mod Windows {
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
             }
-            #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+            #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: core :: fmt :: Debug)]
             #[repr(transparent)]
             pub struct WIN32_ERROR(pub u32);
             impl ::std::convert::From<u32> for WIN32_ERROR {
@@ -1692,8 +1692,8 @@ pub mod Windows {
                     unsafe { ::std::mem::zeroed() }
                 }
             }
-            impl ::std::fmt::Debug for SECURITY_ATTRIBUTES {
-                fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+            impl ::core::fmt::Debug for SECURITY_ATTRIBUTES {
+                fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     fmt.debug_struct("SECURITY_ATTRIBUTES").field("nLength", &self.nLength).field("lpSecurityDescriptor", &self.lpSecurityDescriptor).field("bInheritHandle", &self.bInheritHandle).finish()
                 }
             }
@@ -1750,7 +1750,7 @@ pub mod Windows {
                     unimplemented!("Unsupported target OS");
                 }
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct IAgileObject(pub ::windows::runtime::IUnknown);
                 impl IAgileObject {}
                 unsafe impl ::windows::runtime::Interface for IAgileObject {
@@ -1787,7 +1787,7 @@ pub mod Windows {
             }
             pub mod Diagnostics {
                 pub mod Debug {
-                    #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+                    #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: core :: fmt :: Debug)]
                     #[repr(transparent)]
                     pub struct FORMAT_MESSAGE_OPTIONS(pub u32);
                     pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(256u32);
@@ -1902,7 +1902,7 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
+                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: core :: fmt :: Debug)]
                 #[repr(transparent)]
                 pub struct HEAP_FLAGS(pub u32);
                 pub const HEAP_NONE: HEAP_FLAGS = HEAP_FLAGS(0u32);
@@ -1984,7 +1984,7 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
-                #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
+                #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: core :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
                 #[repr(transparent)]
                 pub struct HeapHandle(pub isize);
                 impl ::std::default::Default for HeapHandle {
@@ -2014,7 +2014,7 @@ pub mod Windows {
                         unimplemented!("Unsupported target OS");
                     }
                     #[repr(transparent)]
-                    #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                    #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: core :: fmt :: Debug)]
                     pub struct IErrorInfo(pub ::windows::runtime::IUnknown);
                     impl IErrorInfo {
                         pub unsafe fn GetGUID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -2132,7 +2132,7 @@ pub mod Windows {
             }
             pub mod WinRT {
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct ILanguageExceptionErrorInfo(pub ::windows::runtime::IUnknown);
                 impl ILanguageExceptionErrorInfo {
                     pub unsafe fn GetLanguageException(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -2173,7 +2173,7 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languageexception: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
                 );
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct ILanguageExceptionErrorInfo2(pub ::windows::runtime::IUnknown);
                 impl ILanguageExceptionErrorInfo2 {
                     pub unsafe fn GetLanguageException(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -2248,7 +2248,7 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propagatedlanguageexceptionerrorinfohead: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
                 );
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct IRestrictedErrorInfo(pub ::windows::runtime::IUnknown);
                 impl IRestrictedErrorInfo {
                     pub unsafe fn GetErrorDetails(&self, description: *mut super::super::Foundation::BSTR, error: *mut ::windows::runtime::HRESULT, restricteddescription: *mut super::super::Foundation::BSTR, capabilitysid: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
@@ -2295,7 +2295,7 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reference: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
                 );
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct IWeakReference(pub ::windows::runtime::IUnknown);
                 impl IWeakReference {
                     pub unsafe fn Resolve<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
@@ -2336,7 +2336,7 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, objectreference: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
                 );
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct IWeakReferenceSource(pub ::windows::runtime::IUnknown);
                 impl IWeakReferenceSource {
                     pub unsafe fn GetWeakReference(&self) -> ::windows::runtime::Result<IWeakReference> {
