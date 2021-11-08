@@ -1,5 +1,5 @@
 use core::convert::*;
-use std::iter::FromIterator;
+use core::iter::FromIterator;
 
 use test_winrt::{
     Windows::Foundation::Collections::{IIterable, IVectorView, PropertySet},

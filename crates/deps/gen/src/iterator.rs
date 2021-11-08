@@ -10,7 +10,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
         // If the type is IIterator<T> then simply implement the Iterator trait over top.
         TypeName::IIterator => {
             return quote! {
-                impl<T: ::windows::runtime::RuntimeType> ::std::iter::Iterator for IIterator<T> {
+                impl<T: ::windows::runtime::RuntimeType> ::core::iter::Iterator for IIterator<T> {
                     type Item = T;
 
                     fn next(&mut self) -> ::core::option::Option<Self::Item> {
@@ -29,15 +29,15 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
         // IIterator<T> returned by first() to implement the Iterator trait.
         TypeName::IIterable => {
             return quote! {
-                impl<T: ::windows::runtime::RuntimeType> ::std::iter::IntoIterator for IIterable<T> {
+                impl<T: ::windows::runtime::RuntimeType> ::core::iter::IntoIterator for IIterable<T> {
                     type Item = T;
                     type IntoIter = IIterator<Self::Item>;
 
                     fn into_iter(self) -> Self::IntoIter {
-                        ::std::iter::IntoIterator::into_iter(&self)
+                        ::core::iter::IntoIterator::into_iter(&self)
                     }
                 }
-                impl<T: ::windows::runtime::RuntimeType> ::std::iter::IntoIterator for &IIterable<T> {
+                impl<T: ::windows::runtime::RuntimeType> ::core::iter::IntoIterator for &IIterable<T> {
                     type Item = T;
                     type IntoIter = IIterator<Self::Item>;
 
@@ -62,7 +62,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                     }
                 }
 
-                impl<T: ::windows::runtime::RuntimeType> ::std::iter::Iterator for VectorViewIterator<T> {
+                impl<T: ::windows::runtime::RuntimeType> ::core::iter::Iterator for VectorViewIterator<T> {
                     type Item = T;
 
                     fn next(&mut self) -> ::core::option::Option<Self::Item> {
@@ -77,15 +77,15 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                     }
                 }
 
-                impl<T: ::windows::runtime::RuntimeType> ::std::iter::IntoIterator for IVectorView<T> {
+                impl<T: ::windows::runtime::RuntimeType> ::core::iter::IntoIterator for IVectorView<T> {
                     type Item = T;
                     type IntoIter = VectorViewIterator<Self::Item>;
 
                     fn into_iter(self) -> Self::IntoIter {
-                        ::std::iter::IntoIterator::into_iter(&self)
+                        ::core::iter::IntoIterator::into_iter(&self)
                     }
                 }
-                impl<T: ::windows::runtime::RuntimeType> ::std::iter::IntoIterator for &IVectorView<T> {
+                impl<T: ::windows::runtime::RuntimeType> ::core::iter::IntoIterator for &IVectorView<T> {
                     type Item = T;
                     type IntoIter = VectorViewIterator<Self::Item>;
 
@@ -109,7 +109,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                     }
                 }
 
-                impl<T: ::windows::runtime::RuntimeType> ::std::iter::Iterator for VectorIterator<T> {
+                impl<T: ::windows::runtime::RuntimeType> ::core::iter::Iterator for VectorIterator<T> {
                     type Item = T;
 
                     fn next(&mut self) -> ::core::option::Option<Self::Item> {
@@ -124,15 +124,15 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                     }
                 }
 
-                impl<T: ::windows::runtime::RuntimeType> ::std::iter::IntoIterator for IVector<T> {
+                impl<T: ::windows::runtime::RuntimeType> ::core::iter::IntoIterator for IVector<T> {
                     type Item = T;
                     type IntoIter = VectorIterator<Self::Item>;
 
                     fn into_iter(self) -> Self::IntoIter {
-                        ::std::iter::IntoIterator::into_iter(&self)
+                        ::core::iter::IntoIterator::into_iter(&self)
                     }
                 }
-                impl<T: ::windows::runtime::RuntimeType> ::std::iter::IntoIterator for &IVector<T> {
+                impl<T: ::windows::runtime::RuntimeType> ::core::iter::IntoIterator for &IVector<T> {
                     type Item = T;
                     type IntoIter = VectorIterator<Self::Item>;
 
@@ -166,16 +166,16 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
 
                 return quote! {
                     #features
-                    impl<#constraints> ::std::iter::IntoIterator for #name {
+                    impl<#constraints> ::core::iter::IntoIterator for #name {
                         type Item = #item;
                         type IntoIter = #wfc VectorViewIterator<Self::Item>;
 
                         fn into_iter(self) -> Self::IntoIter {
-                            ::std::iter::IntoIterator::into_iter(&self)
+                            ::core::iter::IntoIterator::into_iter(&self)
                         }
                     }
                     #features
-                    impl<#constraints> ::std::iter::IntoIterator for &#name {
+                    impl<#constraints> ::core::iter::IntoIterator for &#name {
                         type Item = #item;
                         type IntoIter = #wfc VectorViewIterator<Self::Item>;
 
@@ -192,16 +192,16 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
 
                 return quote! {
                     #features
-                    impl<#constraints> ::std::iter::IntoIterator for #name {
+                    impl<#constraints> ::core::iter::IntoIterator for #name {
                         type Item = #item;
                         type IntoIter = #wfc VectorIterator<Self::Item>;
 
                         fn into_iter(self) -> Self::IntoIter {
-                            ::std::iter::IntoIterator::into_iter(&self)
+                            ::core::iter::IntoIterator::into_iter(&self)
                         }
                     }
                     #features
-                    impl<#constraints> ::std::iter::IntoIterator for &#name {
+                    impl<#constraints> ::core::iter::IntoIterator for &#name {
                         type Item = #item;
                         type IntoIter = #wfc VectorIterator<Self::Item>;
 
@@ -227,16 +227,16 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
 
             quote! {
                 #features
-               impl<#constraints> ::std::iter::IntoIterator for #name {
+               impl<#constraints> ::core::iter::IntoIterator for #name {
                     type Item = #item;
                     type IntoIter = #wfc IIterator<Self::Item>;
 
                     fn into_iter(self) -> Self::IntoIter {
-                        ::std::iter::IntoIterator::into_iter(&self)
+                        ::core::iter::IntoIterator::into_iter(&self)
                     }
                 }
                 #features
-                impl<#constraints> ::std::iter::IntoIterator for &#name {
+                impl<#constraints> ::core::iter::IntoIterator for &#name {
                     type Item = #item;
                     type IntoIter = #wfc IIterator<Self::Item>;
 

@@ -28,13 +28,13 @@ pub fn gen_pstr() -> TokenStream {
         }
         impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for &str {
             fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
-                ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::std::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
+                ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
             }
         }
         impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for String {
             fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
                 // TODO: call variant above
-                ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::std::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
+                ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
             }
         }
     }

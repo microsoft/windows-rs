@@ -109,7 +109,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
             const #interface_constant: ::windows::runtime::GUID = <#interface_ident as ::windows::runtime::Interface>::IID;
         });
 
-        for method in base_interfaces.iter().rev().chain(std::iter::once(def)).map(|def| def.methods()).flatten() {
+        for method in base_interfaces.iter().rev().chain(core::iter::once(def)).map(|def| def.methods()).flatten() {
             let method_ident = gen::to_ident(&method.rust_name());
 
             abi_count += 1;
@@ -364,6 +364,6 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
     });
 
     let mut tokens = tokens.parse::<proc_macro::TokenStream>().unwrap();
-    tokens.extend(std::iter::once(original_type));
+    tokens.extend(core::iter::once(original_type));
     tokens
 }

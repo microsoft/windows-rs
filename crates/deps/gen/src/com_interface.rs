@@ -9,7 +9,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
 
         let (bases, inspectable) = def.base_interfaces();
 
-        let abi_signatures = bases.iter().rev().chain(std::iter::once(def)).map(|def| def.methods()).flatten().map(|method| {
+        let abi_signatures = bases.iter().rev().chain(core::iter::once(def)).map(|def| def.methods()).flatten().map(|method| {
             let signature = method.signature(&[]);
             let abi = gen_win32_abi(&signature, gen);
             if gen.root.is_empty() {
@@ -46,7 +46,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             0
         };
 
-        let methods = method_bases.rev().chain(std::iter::once(def)).map(|def| def.methods()).flatten().enumerate().map(|(vtable_offset, method)| gen_method(base_offset + vtable_offset, &method, &mut method_names, gen));
+        let methods = method_bases.rev().chain(core::iter::once(def)).map(|def| def.methods()).flatten().enumerate().map(|(vtable_offset, method)| gen_method(base_offset + vtable_offset, &method, &mut method_names, gen));
 
         let mut conversions = gen_unknown(&name);
 
