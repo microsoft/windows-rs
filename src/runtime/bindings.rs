@@ -1395,7 +1395,7 @@ pub mod Windows {
             impl ::core::fmt::Display for BSTR {
                 fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     use core::fmt::Write;
-                    for c in ::std::char::decode_utf16(self.as_wide().iter().cloned()) {
+                    for c in ::core::char::decode_utf16(self.as_wide().iter().cloned()) {
                         f.write_char(c.map_err(|_| ::core::fmt::Error)?)?
                     }
                     Ok(())
@@ -1468,6 +1468,7 @@ pub mod Windows {
                 unimplemented!("Unsupported target OS");
             }
             pub const E_NOINTERFACE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147467262i32 as _);
+            pub const E_OUTOFMEMORY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024882i32 as _);
             pub type FARPROC = unsafe extern "system" fn() -> isize;
             #[inline]
             pub unsafe fn GetLastError() -> WIN32_ERROR {

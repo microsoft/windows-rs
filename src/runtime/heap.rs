@@ -1,8 +1,17 @@
 use super::*;
-use bindings::Windows::Win32::System::Memory::*;
+use bindings::{
+    Windows::Win32::Foundation::*,
+    Windows::Win32::System::Memory::*,
+};
 
-pub fn heap_alloc(bytes: usize) -> RawPtr {
-    unsafe { HeapAlloc(GetProcessHeap(), HEAP_NONE, bytes) }
+pub fn heap_alloc(bytes: usize) -> Result<RawPtr> {
+    let ptr = unsafe { HeapAlloc(GetProcessHeap(), HEAP_NONE, bytes) };
+
+    if ptr.is_null() {
+        Err(E_OUTOFMEMORY.into())
+    } else {
+        Ok(ptr)
+    }
 }
 
 /// # Safety

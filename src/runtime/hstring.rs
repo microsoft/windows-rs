@@ -240,9 +240,8 @@ impl Header {
         // Allocate enough space for header and two bytes per character.
         let alloc_size = core::mem::size_of::<Header>() + 2 * len as usize;
 
-        let header = heap_alloc(alloc_size) as *mut Header;
-
-        assert!(!header.is_null(), "Could not successfully allocate for HSTRING");
+        // TODO: allow this failure to propagate
+        let header = heap_alloc(alloc_size).expect("Could not successfully allocate for HSTRING") as *mut Header;
 
         unsafe {
             (*header).flags = 0;

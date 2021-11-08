@@ -89,11 +89,12 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
         // fails it will attempt "A.dll" before giving up.
         while let Some(pos) = path.rfind('.') {
             path = &path[..pos];
-            let mut library = String::with_capacity(path.len() + 4);
-            library.push_str(path);
-            library.push_str(".dll");
 
-            let function = delay_load(&library, "DllGetActivationFactory");
+            let library = core::slice::from_raw_parts_mut(heap_alloc(path.len() + 4)? as *mut u8, path.len() + 4);
+            library.copy_from_slice(path.as_bytes());
+            library[path.len()..].copy_from_slice(b".dll");
+
+            let function = delay_load(core::str::from_utf8_unchecked(library), "DllGetActivationFactory");
 
             if !function.is_null() {
                 let function: DllGetActivationFactory = core::mem::transmute(function);
