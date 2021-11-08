@@ -1,13 +1,13 @@
 use super::*;
 use bindings::Windows::Win32::Graphics::DirectDraw::CO_E_NOTINITIALIZED;
 use core::marker::PhantomData;
-use std::sync::atomic::{AtomicPtr, Ordering};
+use core::sync::atomic::{AtomicPtr, Ordering};
 
 type DllGetActivationFactory = extern "system" fn(name: core::mem::ManuallyDrop<HSTRING>, factory: *mut RawPtr) -> HRESULT;
 
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
-    shared: AtomicPtr<std::ffi::c_void>,
+    shared: AtomicPtr<core::ffi::c_void>,
     _c: PhantomData<C>,
     _i: PhantomData<I>,
 }

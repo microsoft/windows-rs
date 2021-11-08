@@ -48,24 +48,26 @@ pub fn gen_bstr() -> TokenStream {
                 Self::from_wide(self.as_wide())
             }
         }
+        #[cfg(feature = "std")]
         impl ::core::convert::From<&str> for BSTR {
             fn from(value: &str) -> Self {
                 let value: ::std::vec::Vec<u16> = value.encode_utf16().collect();
                 Self::from_wide(&value)
             }
         }
-
+        #[cfg(feature = "std")]
         impl ::core::convert::From<::std::string::String> for BSTR {
             fn from(value: ::std::string::String) -> Self {
                 value.as_str().into()
             }
         }
-
+        #[cfg(feature = "std")]
         impl  ::core::convert::From<&::std::string::String> for BSTR {
             fn from(value: &::std::string::String) -> Self {
                 value.as_str().into()
             }
         }
+        #[cfg(feature = "std")]
         impl<'a> ::core::convert::TryFrom<&'a BSTR> for ::std::string::String {
             type Error = ::std::string::FromUtf16Error;
 
@@ -73,7 +75,7 @@ pub fn gen_bstr() -> TokenStream {
                 ::std::string::String::from_utf16(value.as_wide())
             }
         }
-
+        #[cfg(feature = "std")]
         impl ::core::convert::TryFrom<BSTR> for ::std::string::String {
             type Error = ::std::string::FromUtf16Error;
 
@@ -86,6 +88,7 @@ pub fn gen_bstr() -> TokenStream {
                 Self(::core::ptr::null_mut())
             }
         }
+        #[cfg(feature = "std")]
         impl ::core::fmt::Display for BSTR {
             fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 use ::core::fmt::Write;
@@ -97,7 +100,7 @@ pub fn gen_bstr() -> TokenStream {
         }
         impl ::core::fmt::Debug for BSTR {
             fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                ::std::write!(f, "{}", self)
+                ::core::write!(f, "{}", self)
             }
         }
         impl ::core::cmp::PartialEq for BSTR {
@@ -105,6 +108,7 @@ pub fn gen_bstr() -> TokenStream {
                 self.as_wide() == other.as_wide()
             }
         }
+        #[cfg(feature = "std")]
         impl ::core::cmp::PartialEq<::std::string::String> for BSTR {
             fn eq(&self, other: &::std::string::String) -> bool {
                 self == other.as_str()

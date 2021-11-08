@@ -5,7 +5,7 @@ use super::*;
 /// under the hood to provide reference-counted lifetime management as well as the ability
 /// to query for additional interfaces that the object may implement.
 #[repr(transparent)]
-pub struct IUnknown(core::ptr::NonNull<std::ffi::c_void>);
+pub struct IUnknown(core::ptr::NonNull<core::ffi::c_void>);
 
 #[doc(hidden)]
 #[repr(C)]

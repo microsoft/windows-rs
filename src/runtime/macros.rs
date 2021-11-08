@@ -13,7 +13,7 @@ macro_rules! demand_load {
 
                 ONCE.call_once(|| {
                     VALUE = ::core::mem::MaybeUninit::new(
-                        ::windows::runtime::delay_load($library, ::std::stringify!($sym))
+                        ::windows::runtime::delay_load($library, ::core::stringify!($sym))
                     )
                 });
 

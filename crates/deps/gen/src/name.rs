@@ -18,7 +18,7 @@ fn to_abi_ident(name: &str) -> TokenStream {
 
 pub fn gen_name(def: &ElementType, gen: &Gen) -> TokenStream {
     match def {
-        ElementType::Void => quote! { ::std::ffi::c_void },
+        ElementType::Void => quote! { ::core::ffi::c_void },
         ElementType::Bool => quote! { bool },
         ElementType::Char => quote! { u16 },
         ElementType::I8 => quote! { i8 },

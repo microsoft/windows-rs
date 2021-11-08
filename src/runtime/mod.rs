@@ -81,7 +81,7 @@ pub use bindings::Windows::Win32::System::Com::IAgileObject;
 
 // TODO: rather than hiding, consider just removing
 #[doc(hidden)]
-pub type RawPtr = *mut std::ffi::c_void;
+pub type RawPtr = *mut core::ffi::c_void;
 
 #[cfg(feature = "build")]
 pub use windows_macros::{build, generate, implement, include_bindings};
@@ -92,5 +92,5 @@ pub use windows_reader::workspace_dir;
 
 extern "C" {
     #[doc(hidden)]
-    pub fn memcmp(left: *const std::ffi::c_void, right: *const std::ffi::c_void, len: usize) -> i32;
+    pub fn memcmp(left: *const core::ffi::c_void, right: *const core::ffi::c_void, len: usize) -> i32;
 }

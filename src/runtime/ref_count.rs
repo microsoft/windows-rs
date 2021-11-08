@@ -1,4 +1,4 @@
-use std::sync::atomic::{fence, AtomicI32, Ordering};
+use core::sync::atomic::{fence, AtomicI32, Ordering};
 
 #[doc(hidden)]
 #[repr(transparent)]

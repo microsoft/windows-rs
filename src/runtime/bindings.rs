@@ -1353,28 +1353,33 @@ pub mod Windows {
                     Self::from_wide(self.as_wide())
                 }
             }
+            #[cfg(feature = "std")]
             impl ::core::convert::From<&str> for BSTR {
                 fn from(value: &str) -> Self {
                     let value: ::std::vec::Vec<u16> = value.encode_utf16().collect();
                     Self::from_wide(&value)
                 }
             }
+            #[cfg(feature = "std")]
             impl ::core::convert::From<::std::string::String> for BSTR {
                 fn from(value: ::std::string::String) -> Self {
                     value.as_str().into()
                 }
             }
+            #[cfg(feature = "std")]
             impl ::core::convert::From<&::std::string::String> for BSTR {
                 fn from(value: &::std::string::String) -> Self {
                     value.as_str().into()
                 }
             }
+            #[cfg(feature = "std")]
             impl<'a> ::core::convert::TryFrom<&'a BSTR> for ::std::string::String {
                 type Error = ::std::string::FromUtf16Error;
                 fn try_from(value: &BSTR) -> ::core::result::Result<Self, Self::Error> {
                     ::std::string::String::from_utf16(value.as_wide())
                 }
             }
+            #[cfg(feature = "std")]
             impl ::core::convert::TryFrom<BSTR> for ::std::string::String {
                 type Error = ::std::string::FromUtf16Error;
                 fn try_from(value: BSTR) -> ::core::result::Result<Self, Self::Error> {
@@ -1386,6 +1391,7 @@ pub mod Windows {
                     Self(::core::ptr::null_mut())
                 }
             }
+            #[cfg(feature = "std")]
             impl ::core::fmt::Display for BSTR {
                 fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     use core::fmt::Write;
@@ -1397,7 +1403,7 @@ pub mod Windows {
             }
             impl ::core::fmt::Debug for BSTR {
                 fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                    ::std::write!(f, "{}", self)
+                    ::core::write!(f, "{}", self)
                 }
             }
             impl ::core::cmp::PartialEq for BSTR {
@@ -1405,6 +1411,7 @@ pub mod Windows {
                     self.as_wide() == other.as_wide()
                 }
             }
+            #[cfg(feature = "std")]
             impl ::core::cmp::PartialEq<::std::string::String> for BSTR {
                 fn eq(&self, other: &::std::string::String) -> bool {
                     self == other.as_str()
@@ -1519,6 +1526,7 @@ pub mod Windows {
             }
             unsafe impl ::windows::runtime::Abi for PSTR {
                 type Abi = Self;
+                #[cfg(feature = "std")]
                 unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
                     if let ::windows::runtime::Param::Boxed(value) = param {
                         if !value.is_null() {
@@ -1529,11 +1537,13 @@ pub mod Windows {
                     }
                 }
             }
+            #[cfg(feature = "std")]
             impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for &str {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
                     ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
                 }
             }
+            #[cfg(feature = "std")]
             impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for String {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
                     ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
@@ -1554,6 +1564,7 @@ pub mod Windows {
             }
             unsafe impl ::windows::runtime::Abi for PWSTR {
                 type Abi = Self;
+                #[cfg(feature = "std")]
                 unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
                     if let ::windows::runtime::Param::Boxed(value) = param {
                         if !value.is_null() {
@@ -1564,24 +1575,26 @@ pub mod Windows {
                     }
                 }
             }
+            #[cfg(feature = "std")]
             impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for &str {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
                     ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
                 }
             }
+            #[cfg(feature = "std")]
             impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for String {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
                     ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
                 }
             }
-            #[cfg(windows)]
+            #[cfg(all(windows, feature = "std"))]
             impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for &::std::ffi::OsStr {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
                     use std::os::windows::ffi::OsStrExt;
                     ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::core::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
                 }
             }
-            #[cfg(windows)]
+            #[cfg(all(windows, feature = "std"))]
             impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for ::std::ffi::OsString {
                 fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
                     use std::os::windows::ffi::OsStrExt;
@@ -1683,7 +1696,7 @@ pub mod Windows {
             #[repr(C)]
             pub struct SECURITY_ATTRIBUTES {
                 pub nLength: u32,
-                pub lpSecurityDescriptor: *mut ::std::ffi::c_void,
+                pub lpSecurityDescriptor: *mut ::core::ffi::c_void,
                 pub bInheritHandle: super::Foundation::BOOL,
             }
             impl SECURITY_ATTRIBUTES {}
@@ -1724,12 +1737,12 @@ pub mod Windows {
                     unimplemented!("Unsupported target OS");
                 }
                 #[inline]
-                pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
+                pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void {
                     #[cfg(windows)]
                     {
                         #[link(name = "windows")]
                         extern "system" {
-                            fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void;
+                            fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void;
                         }
                         ::core::mem::transmute(CoTaskMemAlloc(::core::mem::transmute(cb)))
                     }
@@ -1737,12 +1750,12 @@ pub mod Windows {
                     unimplemented!("Unsupported target OS");
                 }
                 #[inline]
-                pub unsafe fn CoTaskMemFree(pv: *const ::std::ffi::c_void) {
+                pub unsafe fn CoTaskMemFree(pv: *const ::core::ffi::c_void) {
                     #[cfg(windows)]
                     {
                         #[link(name = "windows")]
                         extern "system" {
-                            fn CoTaskMemFree(pv: *const ::std::ffi::c_void);
+                            fn CoTaskMemFree(pv: *const ::core::ffi::c_void);
                         }
                         ::core::mem::transmute(CoTaskMemFree(::core::mem::transmute(pv)))
                     }
@@ -1833,12 +1846,12 @@ pub mod Windows {
                         }
                     }
                     #[inline]
-                    pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::std::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: super::super::super::Foundation::PWSTR, nsize: u32, arguments: *const *const i8) -> u32 {
+                    pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: super::super::super::Foundation::PWSTR, nsize: u32, arguments: *const *const i8) -> u32 {
                         #[cfg(windows)]
                         {
                             #[link(name = "windows")]
                             extern "system" {
-                                fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::std::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: super::super::super::Foundation::PWSTR, nsize: u32, arguments: *const *const i8) -> u32;
+                                fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: super::super::super::Foundation::PWSTR, nsize: u32, arguments: *const *const i8) -> u32;
                             }
                             ::core::mem::transmute(FormatMessageW(::core::mem::transmute(dwflags), ::core::mem::transmute(lpsource), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwlanguageid), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize), ::core::mem::transmute(arguments)))
                         }
@@ -1959,12 +1972,12 @@ pub mod Windows {
                     }
                 }
                 #[inline]
-                pub unsafe fn HeapAlloc<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::std::ffi::c_void {
+                pub unsafe fn HeapAlloc<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void {
                     #[cfg(windows)]
                     {
                         #[link(name = "windows")]
                         extern "system" {
-                            fn HeapAlloc(hheap: HeapHandle, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::std::ffi::c_void;
+                            fn HeapAlloc(hheap: HeapHandle, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void;
                         }
                         ::core::mem::transmute(HeapAlloc(hheap.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwbytes)))
                     }
@@ -1972,12 +1985,12 @@ pub mod Windows {
                     unimplemented!("Unsupported target OS");
                 }
                 #[inline]
-                pub unsafe fn HeapFree<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, lpmem: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
+                pub unsafe fn HeapFree<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
                     #[cfg(windows)]
                     {
                         #[link(name = "windows")]
                         extern "system" {
-                            fn HeapFree(hheap: HeapHandle, dwflags: HEAP_FLAGS, lpmem: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+                            fn HeapFree(hheap: HeapHandle, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
                         }
                         ::core::mem::transmute(HeapFree(hheap.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpmem)))
                     }
@@ -2333,7 +2346,7 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, objectreference: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows::runtime::HRESULT,
                 );
                 #[repr(transparent)]
                 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]

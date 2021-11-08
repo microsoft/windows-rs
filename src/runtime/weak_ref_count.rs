@@ -5,7 +5,7 @@ use bindings::Windows::Win32::{
     Foundation::E_NOINTERFACE,
     System::WinRT::{IWeakReference, IWeakReferenceSource, IWeakReferenceSource_abi, IWeakReference_abi},
 };
-use std::sync::atomic::{AtomicIsize, Ordering};
+use core::sync::atomic::{AtomicIsize, Ordering};
 
 #[doc(hidden)]
 #[repr(transparent)]
