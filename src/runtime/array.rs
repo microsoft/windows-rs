@@ -22,7 +22,7 @@ impl<T: RuntimeType> Array<T> {
     /// Creates an array of the given length with default values.
     pub fn with_len(len: usize) -> Self {
         assert!(len < std::u32::MAX as usize);
-        let bytes_amount = len.checked_mul(std::mem::size_of::<T>()).expect("Attempted to allocate too large an Array");
+        let bytes_amount = len.checked_mul(core::mem::size_of::<T>()).expect("Attempted to allocate too large an Array");
 
         // WinRT arrays must be allocated with CoTaskMemAlloc.
         // SAFETY: the call to CoTaskMemAlloc is safe to perform
@@ -70,8 +70,8 @@ impl<T: RuntimeType> Array<T> {
         let mut data = std::ptr::null_mut();
         let mut len = 0;
 
-        std::mem::swap(&mut data, &mut self.data);
-        std::mem::swap(&mut len, &mut self.len);
+        core::mem::swap(&mut data, &mut self.data);
+        core::mem::swap(&mut len, &mut self.len);
 
         // SAFETY: At this point, self has been reset to zero so any panics in T's destructor would
         // only leak data not leave the array in bad state.
@@ -99,7 +99,7 @@ impl<T: RuntimeType> Array<T> {
     /// Turn the array into a pointer to its data and its length
     pub fn into_abi(self) -> (*mut T::Abi, u32) {
         let abi = (self.data as *mut _, self.len);
-        std::mem::forget(self);
+        core::mem::forget(self);
         abi
     }
 }
@@ -138,12 +138,12 @@ impl<T: RuntimeType> Drop for Array<T> {
 pub struct ArrayProxy<T: RuntimeType> {
     data: *mut *mut T::DefaultType,
     len: *mut u32,
-    temp: std::mem::ManuallyDrop<Array<T>>,
+    temp: core::mem::ManuallyDrop<Array<T>>,
 }
 
 impl<T: RuntimeType> ArrayProxy<T> {
     pub fn from_raw_parts(data: *mut *mut T::DefaultType, len: *mut u32) -> Self {
-        Self { data, len, temp: std::mem::ManuallyDrop::new(Array::new()) }
+        Self { data, len, temp: core::mem::ManuallyDrop::new(Array::new()) }
     }
 
     pub fn as_array(&mut self) -> &mut Array<T> {

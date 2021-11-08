@@ -153,7 +153,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
 
                         unsafe {
                             let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
-                            ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
+                            ::core::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
                         }
                     }
                 }
@@ -162,13 +162,13 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                         unsafe {
                             let mut ptr = (implementation as *mut _ as *mut ::windows::runtime::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
                             (*ptr).count.add_ref();
-                            ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
+                            ::core::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
                         }
                     }
                 }
                 impl<#constraints> ::windows::runtime::ToImpl<#interface_ident> for #impl_ident {
                     unsafe fn to_impl(interface: &#interface_ident) -> &mut Self {
-                        let this: ::windows::runtime::RawPtr = std::mem::transmute_copy(interface);
+                        let this: ::windows::runtime::RawPtr = core::mem::transmute_copy(interface);
                         let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut #box_ident::<#(#generics,)*>;
                         &mut (*this).implementation
                     }
@@ -225,7 +225,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
 
                 unsafe {
                     let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
-                    ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
+                    ::core::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
                 }
             }
         }
@@ -235,7 +235,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
 
                 unsafe {
                     let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
-                    ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
+                    ::core::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
                 }
             }
         }
@@ -337,7 +337,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                 // implementation should return an empty string.
 
                 let h = ::windows::runtime::HSTRING::new();
-                *value = ::std::mem::transmute(h);
+                *value = ::core::mem::transmute(h);
                 ::windows::runtime::HRESULT(0)
             }
             unsafe extern "system" fn GetTrustLevel(_: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT {

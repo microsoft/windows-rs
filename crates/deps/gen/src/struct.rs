@@ -44,7 +44,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
             pub struct #name(pub #signature);
             impl ::std::default::Default for #name {
                 fn default() -> Self {
-                    unsafe { ::std::mem::zeroed() }
+                    unsafe { ::core::mem::zeroed() }
                 }
             }
             unsafe impl ::windows::runtime::Handle for #name {}
@@ -181,7 +181,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         quote! {
             #cfg
             unsafe impl ::windows::runtime::Abi for #name {
-                type Abi = ::std::mem::ManuallyDrop<Self>;
+                type Abi = ::core::mem::ManuallyDrop<Self>;
             }
         }
     };
@@ -320,7 +320,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         #cfg
         impl ::std::default::Default for #name {
             fn default() -> Self {
-                unsafe { ::std::mem::zeroed() }
+                unsafe { ::core::mem::zeroed() }
             }
         }
         #debug

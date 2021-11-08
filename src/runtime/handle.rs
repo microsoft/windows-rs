@@ -4,7 +4,7 @@ use super::*;
 /// # Safety
 pub unsafe trait Handle: Sized + PartialEq {
     fn is_invalid(&self) -> bool {
-        *self == unsafe { std::mem::zeroed() }
+        *self == unsafe { core::mem::zeroed() }
     }
 
     fn ok(self) -> Result<Self> {

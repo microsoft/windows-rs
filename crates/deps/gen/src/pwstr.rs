@@ -40,14 +40,14 @@ pub fn gen_pwstr() -> TokenStream {
         #[cfg(windows)]
         impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for &::std::ffi::OsStr {
             fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
-                use std::os::windows::ffi::OsStrExt;
+                use ::std::os::windows::ffi::OsStrExt;
                 ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::std::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
             }
         }
         #[cfg(windows)]
         impl<'a> ::windows::runtime::IntoParam<'a, PWSTR> for ::std::ffi::OsString {
             fn into_param(self) -> ::windows::runtime::Param<'a, PWSTR> {
-                use std::os::windows::ffi::OsStrExt;
+                use ::std::os::windows::ffi::OsStrExt;
                 ::windows::runtime::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::std::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
             }
         }

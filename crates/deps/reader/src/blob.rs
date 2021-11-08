@@ -64,7 +64,7 @@ impl Blob {
 
     pub fn read_utf16(&self) -> String {
         let bytes = &self.file.bytes[self.offset..];
-        if bytes.as_ptr().align_offset(std::mem::align_of::<u16>()) > 0 {
+        if bytes.as_ptr().align_offset(core::mem::align_of::<u16>()) > 0 {
             let bytes = bytes.chunks_exact(2).take(self.size / 2).map(|chunk| u16::from_le_bytes(chunk.try_into().unwrap())).collect::<Vec<u16>>();
             String::from_utf16(&bytes).unwrap()
         } else {

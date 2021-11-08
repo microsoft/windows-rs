@@ -65,7 +65,7 @@ pub fn gen_name(def: &ElementType, gen: &Gen) -> TokenStream {
 pub fn gen_abi_type_name(def: &ElementType, gen: &Gen) -> TokenStream {
     match def {
         ElementType::String => {
-            quote! { ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> }
+            quote! { ::core::mem::ManuallyDrop<::windows::runtime::HSTRING> }
         }
         ElementType::IUnknown | ElementType::IInspectable => {
             quote! { ::windows::runtime::RawPtr }
@@ -138,7 +138,7 @@ fn gen_abi_type(def: &TypeDef, gen: &Gen) -> TokenStream {
             if def.is_blittable() {
                 tokens
             } else {
-                quote! { ::std::mem::ManuallyDrop<#tokens> }
+                quote! { ::core::mem::ManuallyDrop<#tokens> }
             }
         }
         _ => quote! { ::windows::runtime::RawPtr },

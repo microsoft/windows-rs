@@ -18,7 +18,7 @@ impl IActivationFactory {
 
             // Even though the factory will generally return the WinRT default interface, this isn't guaranteed
             // so a cast is required to convert the `IInspectable` into `I`, or the class type.
-            (self.vtable().6)(std::mem::transmute_copy(self), &mut object).and_some(object)?.cast()
+            (self.vtable().6)(core::mem::transmute_copy(self), &mut object).and_some(object)?.cast()
         }
     }
 }

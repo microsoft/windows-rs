@@ -3,7 +3,7 @@ use bindings::Windows::Win32::Graphics::DirectDraw::CO_E_NOTINITIALIZED;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
 
-type DllGetActivationFactory = extern "system" fn(name: std::mem::ManuallyDrop<HSTRING>, factory: *mut RawPtr) -> HRESULT;
+type DllGetActivationFactory = extern "system" fn(name: core::mem::ManuallyDrop<HSTRING>, factory: *mut RawPtr) -> HRESULT;
 
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
@@ -26,7 +26,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
 
             // If a pointer is found, the cache is primed and we're good to go.
             if !ptr.is_null() {
-                return callback(unsafe { std::mem::transmute(&ptr) });
+                return callback(unsafe { core::mem::transmute(&ptr) });
             }
 
             // Otherwise, we load the factory the usual way.
@@ -34,8 +34,8 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
 
             // If the factory is agile, we can safely cache it.
             if factory.cast::<IAgileObject>().is_ok() {
-                if self.shared.compare_exchange_weak(std::ptr::null_mut(), unsafe { std::mem::transmute_copy(&factory) }, Ordering::Relaxed, Ordering::Relaxed).is_ok() {
-                    std::mem::forget(factory);
+                if self.shared.compare_exchange_weak(std::ptr::null_mut(), unsafe { core::mem::transmute_copy(&factory) }, Ordering::Relaxed, Ordering::Relaxed).is_ok() {
+                    core::mem::forget(factory);
                 }
             } else {
                 // Otherwise, for non-agile factories we simply use the factory
@@ -53,7 +53,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 
     unsafe {
         // First attempt to get the activation factory via the OS.
-        let code = RoGetActivationFactory(std::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _);
+        let code = RoGetActivationFactory(core::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _);
 
         // Treat any delay-load errors like standard errors, so that the heuristics
         // below can still load registration-free libraries on Windows versions below 10.
@@ -69,7 +69,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             let _ = CoIncrementMTAUsage(&mut _cookie);
 
             // Now try a second time to get the activation factory via the OS.
-            code = RoGetActivationFactory(std::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _).unwrap_or_else(|code| code);
+            code = RoGetActivationFactory(core::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _).unwrap_or_else(|code| code);
         }
 
         // If this succeeded then return the resulting factory interface.
@@ -94,15 +94,15 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             library.push_str(".dll");
 
             if let Ok(function) = delay_load(&library, "DllGetActivationFactory") {
-                let function: DllGetActivationFactory = std::mem::transmute(function);
+                let function: DllGetActivationFactory = core::mem::transmute(function);
                 let mut abi = std::ptr::null_mut();
-                let _ = function(std::mem::transmute_copy(&name), &mut abi);
+                let _ = function(core::mem::transmute_copy(&name), &mut abi);
 
                 if abi.is_null() {
                     continue;
                 }
 
-                let factory: IActivationFactory = std::mem::transmute(abi);
+                let factory: IActivationFactory = core::mem::transmute(abi);
                 return factory.cast();
             }
         }
@@ -116,6 +116,6 @@ demand_load! {
         fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> HRESULT;
     }
     "combase.dll" {
-        fn RoGetActivationFactory(hstring: std::mem::ManuallyDrop<HSTRING>, interface: &GUID, result: *mut RawPtr) -> HRESULT;
+        fn RoGetActivationFactory(hstring: core::mem::ManuallyDrop<HSTRING>, interface: &GUID, result: *mut RawPtr) -> HRESULT;
     }
 }

@@ -14,10 +14,10 @@ impl<'a, T: Abi> Param<'a, T> {
     /// # Safety
     pub unsafe fn abi(&self) -> T::Abi {
         match self {
-            Param::Borrowed(value) => std::mem::transmute_copy(*value),
-            Param::Owned(value) => std::mem::transmute_copy(value),
-            Param::Boxed(value) => std::mem::transmute_copy(value),
-            Param::None => std::mem::zeroed(),
+            Param::Borrowed(value) => core::mem::transmute_copy(*value),
+            Param::Owned(value) => core::mem::transmute_copy(value),
+            Param::Boxed(value) => core::mem::transmute_copy(value),
+            Param::None => core::mem::zeroed(),
         }
     }
 }

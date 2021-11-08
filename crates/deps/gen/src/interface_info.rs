@@ -67,7 +67,7 @@ impl InterfaceInfo {
                     #cfg
                     impl<#constraints> ::std::convert::From<#from> for #into {
                         fn from(value: #from) -> Self {
-                            unsafe { ::std::mem::transmute(value) }
+                            unsafe { ::core::mem::transmute(value) }
                         }
                     }
                     #cfg
@@ -79,13 +79,13 @@ impl InterfaceInfo {
                     #cfg
                     impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for #from {
                         fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                            ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
+                            ::windows::runtime::Param::Owned(unsafe { ::core::mem::transmute(self) })
                         }
                     }
                     #cfg
                     impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for &#from {
                         fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                            ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
+                            ::windows::runtime::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
                         }
                     }
                 }

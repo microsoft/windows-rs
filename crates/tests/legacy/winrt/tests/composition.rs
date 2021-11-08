@@ -8,7 +8,7 @@ fn create_dispatcher() -> DispatcherQueueController {
     // we aren't pumping messages, the Compositor won't commit. This is fine for the test for now.
 
     let options = DispatcherQueueOptions {
-        dwSize: std::mem::size_of::<DispatcherQueueOptions>() as u32,
+        dwSize: core::mem::size_of::<DispatcherQueueOptions>() as u32,
         threadType: DQTYPE_THREAD_CURRENT,
         apartmentType: DQTAT_COM_NONE,
     };

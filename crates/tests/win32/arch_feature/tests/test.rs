@@ -3,7 +3,7 @@ use windows::{Win32::System::Diagnostics::Debug::CONTEXT, Win32::System::Environ
 #[test]
 #[cfg(target_arch = "x86_64")]
 fn test() {
-    assert_eq!(1232, std::mem::size_of::<CONTEXT>());
+    assert_eq!(1232, core::mem::size_of::<CONTEXT>());
 
     use windows::Win32::System::Environment::VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64;
 
@@ -18,7 +18,7 @@ fn test() {
 #[test]
 #[cfg(target_arch = "x86")]
 fn test() {
-    assert_eq!(716, std::mem::size_of::<CONTEXT>());
+    assert_eq!(716, core::mem::size_of::<CONTEXT>());
 
     use windows::Win32::System::Environment::VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32;
 

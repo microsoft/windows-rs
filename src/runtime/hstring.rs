@@ -98,7 +98,7 @@ impl HSTRING {
 }
 
 unsafe impl Abi for HSTRING {
-    type Abi = std::mem::ManuallyDrop<Self>;
+    type Abi = core::mem::ManuallyDrop<Self>;
 }
 
 unsafe impl RuntimeType for HSTRING {
@@ -223,7 +223,7 @@ struct Header {
     _0: u32,
     _1: u32,
     data: *mut u16,
-    shared: std::mem::MaybeUninit<Shared>,
+    shared: core::mem::MaybeUninit<Shared>,
 }
 
 #[repr(C)]
@@ -236,7 +236,7 @@ impl Header {
     fn alloc(len: u32) -> *mut Header {
         debug_assert!(len != 0);
         // Allocate enough space for header and two bytes per character.
-        let alloc_size = std::mem::size_of::<Header>() + 2 * len as usize;
+        let alloc_size = core::mem::size_of::<Header>() + 2 * len as usize;
 
         let header = heap_alloc(alloc_size) as *mut Header;
 

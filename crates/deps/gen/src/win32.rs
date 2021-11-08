@@ -32,9 +32,9 @@ fn gen_win32_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     let kind = gen_win32_param(param, gen);
 
     if param.signature.pointers == 0 && param.signature.kind.is_nullable() {
-        quote! { ::std::mem::transmute::<_, &#kind>(&#name) }
+        quote! { ::core::mem::transmute::<_, &#kind>(&#name) }
     } else {
-        quote! { ::std::mem::transmute_copy::<_, #kind>(&#name) }
+        quote! { ::core::mem::transmute_copy::<_, #kind>(&#name) }
     }
 }
 
@@ -83,7 +83,7 @@ pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
     if param.is_convertible() {
         quote! { #name.into_param().abi() }
     } else {
-        quote! { ::std::mem::transmute(#name) }
+        quote! { ::core::mem::transmute(#name) }
     }
 }
 
@@ -97,7 +97,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
             quote! {
                 match #inner(#(#invoke_args,)*) {
                     ::std::result::Result::Ok(ok__) => {
-                        *#result = ::std::mem::transmute(ok__);
+                        *#result = ::core::mem::transmute(ok__);
                         ::windows::runtime::HRESULT(0)
                     }
                     ::std::result::Result::Err(err) => err.into()

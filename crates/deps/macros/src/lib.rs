@@ -77,7 +77,7 @@ pub fn derive_struct_traits(input: proc_macro::TokenStream) -> proc_macro::Token
         impl ::std::cmp::PartialEq for #name {
             fn eq(&self, other: &Self) -> bool {
                 unsafe {
-                    ::windows::runtime::memcmp(self as *const _ as _, other as *const _ as _, std::mem::size_of::<#name>()) == 0
+                    ::windows::runtime::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<#name>()) == 0
                 }
             }
         }

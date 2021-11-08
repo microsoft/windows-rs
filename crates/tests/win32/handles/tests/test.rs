@@ -19,7 +19,7 @@ fn hwnd() {
 
     assert!(HWND(0).ok().unwrap_err().code() == ERROR_INVALID_WINDOW_HANDLE.into());
 
-    assert!(std::mem::size_of::<HWND>() == std::mem::size_of::<usize>());
+    assert!(core::mem::size_of::<HWND>() == core::mem::size_of::<usize>());
 }
 
 #[test]
@@ -42,14 +42,14 @@ fn handle() {
 
     assert!(HANDLE(-1).ok().unwrap_err().code() == ERROR_FILE_NOT_FOUND.into());
 
-    assert!(std::mem::size_of::<HANDLE>() == std::mem::size_of::<usize>());
+    assert!(core::mem::size_of::<HANDLE>() == core::mem::size_of::<usize>());
 }
 
 #[test]
 fn boolean() {
     // Although BOOLEAN is considered a Win32 handle type, it is not pointer-sized like most handle types.
     // This test just validates that such types have the correct layout.
-    assert!(std::mem::size_of::<BOOLEAN>() == 1);
+    assert!(core::mem::size_of::<BOOLEAN>() == 1);
 }
 
 #[test]
@@ -58,7 +58,7 @@ fn pstr() {
     let _clone = handle.clone();
     let _copy: PSTR = handle;
     assert!(handle.is_null());
-    assert!(PSTR::default() == unsafe { std::mem::zeroed() });
+    assert!(PSTR::default() == unsafe { core::mem::zeroed() });
     assert_eq!(format!("{:?}", PSTR::default()), "PSTR(0x0)");
 }
 
@@ -68,7 +68,7 @@ fn pwstr() {
     let _clone = handle.clone();
     let _copy: PWSTR = handle;
     assert!(handle.is_null());
-    assert!(PWSTR::default() == unsafe { std::mem::zeroed() });
+    assert!(PWSTR::default() == unsafe { core::mem::zeroed() });
     assert_eq!(format!("{:?}", PWSTR::default()), "PWSTR(0x0)");
 }
 
@@ -88,7 +88,7 @@ fn lpproc_thread_attribute_list() {
 
     assert!(LPPROC_THREAD_ATTRIBUTE_LIST::default().ok().unwrap_err().code() == ERROR_INVALID_WINDOW_HANDLE.into());
 
-    assert!(std::mem::size_of::<LPPROC_THREAD_ATTRIBUTE_LIST>() == std::mem::size_of::<usize>());
+    assert!(core::mem::size_of::<LPPROC_THREAD_ATTRIBUTE_LIST>() == core::mem::size_of::<usize>());
 }
 
 #[test]

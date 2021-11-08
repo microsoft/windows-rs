@@ -61,21 +61,21 @@ fn dxgi_mode_desc() {
 #[cfg(target_pointer_width = "64")]
 #[test]
 fn size64() {
-    assert!(std::mem::size_of::<ACCESS_MODE>() == 4);
-    assert!(std::mem::size_of::<DXGI_ADAPTER_FLAG>() == 4);
-    assert!(std::mem::size_of::<RECT>() == 16);
-    assert!(std::mem::size_of::<DXGI_MODE_DESC>() == 28);
-    assert_eq!(std::mem::size_of::<CHOOSECOLORW>(), 72);
+    assert!(core::mem::size_of::<ACCESS_MODE>() == 4);
+    assert!(core::mem::size_of::<DXGI_ADAPTER_FLAG>() == 4);
+    assert!(core::mem::size_of::<RECT>() == 16);
+    assert!(core::mem::size_of::<DXGI_MODE_DESC>() == 28);
+    assert_eq!(core::mem::size_of::<CHOOSECOLORW>(), 72);
 }
 
 #[cfg(target_pointer_width = "32")]
 #[test]
 fn size32() {
-    assert!(std::mem::size_of::<ACCESS_MODE>() == 4);
-    assert!(std::mem::size_of::<DXGI_ADAPTER_FLAG>() == 4);
-    assert!(std::mem::size_of::<RECT>() == 16);
-    assert!(std::mem::size_of::<DXGI_MODE_DESC>() == 28);
-    assert!(std::mem::size_of::<CHOOSECOLORW>() == 36);
+    assert!(core::mem::size_of::<ACCESS_MODE>() == 4);
+    assert!(core::mem::size_of::<DXGI_ADAPTER_FLAG>() == 4);
+    assert!(core::mem::size_of::<RECT>() == 16);
+    assert!(core::mem::size_of::<DXGI_MODE_DESC>() == 28);
+    assert!(core::mem::size_of::<CHOOSECOLORW>() == 36);
 }
 
 #[test]
@@ -123,29 +123,29 @@ fn com() -> windows::runtime::Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(0, true)?;
         let values = vec![1, 20, 300, 4000];
-        let copied = stream.Write(values.as_ptr() as _, (values.len() * std::mem::size_of::<i32>()) as u32)?;
+        let copied = stream.Write(values.as_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32)?;
 
-        assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
+        assert!(copied == (values.len() * core::mem::size_of::<i32>()) as u32);
 
-        let copied = stream.Write(&UIAnimationTransitionLibrary as *const _ as _, std::mem::size_of::<windows::runtime::GUID>() as u32)?;
+        let copied = stream.Write(&UIAnimationTransitionLibrary as *const _ as _, core::mem::size_of::<windows::runtime::GUID>() as u32)?;
 
-        assert!(copied == std::mem::size_of::<windows::runtime::GUID>() as u32);
+        assert!(copied == core::mem::size_of::<windows::runtime::GUID>() as u32);
         let position = stream.Seek(0, STREAM_SEEK_SET)?;
 
         assert!(position == 0);
         let mut values = vec![0, 0, 0, 0];
         let mut copied = 0;
 
-        stream.Read(values.as_mut_ptr() as _, (values.len() * std::mem::size_of::<i32>()) as u32, &mut copied)?;
+        stream.Read(values.as_mut_ptr() as _, (values.len() * core::mem::size_of::<i32>()) as u32, &mut copied)?;
 
-        assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
+        assert!(copied == (values.len() * core::mem::size_of::<i32>()) as u32);
         assert!(values == vec![1, 20, 300, 4000]);
         let mut value: windows::runtime::GUID = windows::runtime::GUID::default();
         let mut copied = 0;
 
-        stream.Read(&mut value as *mut _ as _, std::mem::size_of::<windows::runtime::GUID>() as u32, &mut copied)?;
+        stream.Read(&mut value as *mut _ as _, core::mem::size_of::<windows::runtime::GUID>() as u32, &mut copied)?;
 
-        assert!(copied == std::mem::size_of::<windows::runtime::GUID>() as u32);
+        assert!(copied == core::mem::size_of::<windows::runtime::GUID>() as u32);
         assert!(value == UIAnimationTransitionLibrary);
     }
 
@@ -266,7 +266,7 @@ extern "system" fn callback_w(param0: HWND, param1: PWSTR, param2: HANDLE) -> BO
 fn empty_struct() {
     let ldap = ldapsearch(123);
     assert!(ldap.0 == 123);
-    assert!(std::mem::size_of::<ldapsearch>() == 1);
+    assert!(core::mem::size_of::<ldapsearch>() == 1);
 
     assert!(UIAnimationManager == GUID::from("4C1FC63A-695C-47E8-A339-1A194BE3D0B8"));
 }

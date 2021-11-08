@@ -49,13 +49,13 @@ impl WeakRefCount {
         }
 
         let tear_off = TearOff::new(object, count_or_pointer as _);
-        let tear_off_ptr: RawPtr = std::mem::transmute_copy(&tear_off);
-        let encoding: usize = ((tear_off_ptr as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
+        let tear_off_ptr: RawPtr = core::mem::transmute_copy(&tear_off);
+        let encoding: usize = ((tear_off_ptr as usize) >> 1) | (1 << (core::mem::size_of::<usize>() * 8 - 1));
 
         loop {
             match self.0.compare_exchange_weak(count_or_pointer, encoding as _, Ordering::AcqRel, Ordering::Relaxed) {
                 Ok(_) => {
-                    let result: RawPtr = std::mem::transmute(tear_off);
+                    let result: RawPtr = core::mem::transmute(tear_off);
                     TearOff::from_strong_ptr(result).strong_count.add_ref();
                     return result;
                 }
@@ -87,7 +87,7 @@ struct TearOff {
 impl TearOff {
     #[allow(clippy::new_ret_no_self)]
     unsafe fn new(object: RawPtr, strong_count: u32) -> IWeakReferenceSource {
-        std::mem::transmute(Box::new(TearOff {
+        core::mem::transmute(Box::new(TearOff {
             strong_vtable: &Self::STRONG_VTABLE,
             weak_vtable: &Self::WEAK_VTABLE,
             object,
@@ -99,7 +99,7 @@ impl TearOff {
     unsafe fn from_encoding(encoding: isize) -> RawPtr {
         let tear_off = TearOff::decode(encoding);
         tear_off.strong_count.add_ref();
-        std::mem::transmute(tear_off)
+        core::mem::transmute(tear_off)
     }
 
     const STRONG_VTABLE: IWeakReferenceSource_abi = IWeakReferenceSource_abi(Self::StrongQueryInterface, Self::StrongAddRef, Self::StrongRelease, Self::StrongDowngrade);
@@ -115,7 +115,7 @@ impl TearOff {
     }
 
     unsafe fn decode<'a>(value: isize) -> &'a mut Self {
-        std::mem::transmute(value << 1)
+        core::mem::transmute(value << 1)
     }
 
     unsafe fn query_interface(&self, iid: *const GUID, interface: *mut RawPtr) -> HRESULT {
