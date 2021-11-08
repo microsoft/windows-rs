@@ -86,11 +86,11 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
         let abi_size_name = to_ident(&format!("{}_array_size", param.param.name()));
 
         if param.param.is_input() {
-            quote! { ::std::slice::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
+            quote! { ::core::slice::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
         } else if param.signature.by_ref {
             quote! { ::windows::runtime::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name).as_array() }
         } else {
-            quote! { ::std::slice::from_raw_parts_mut(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
+            quote! { ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
         }
     } else if param.param.is_input() {
         if param.signature.kind.is_primitive() {

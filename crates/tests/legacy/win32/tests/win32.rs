@@ -233,7 +233,7 @@ extern "system" fn callback_a(param0: HWND, param1: PSTR, param2: HANDLE) -> BOO
             end = end.add(1);
         }
 
-        let s = String::from_utf8_lossy(std::slice::from_raw_parts(param1.0 as *const u8, len)).into_owned();
+        let s = String::from_utf8_lossy(core::slice::from_raw_parts(param1.0 as *const u8, len)).into_owned();
         assert!(s == "hello a");
         BOOL(789)
     }
@@ -256,7 +256,7 @@ extern "system" fn callback_w(param0: HWND, param1: PWSTR, param2: HANDLE) -> BO
             end = end.add(1);
         }
 
-        let s = String::from_utf16_lossy(std::slice::from_raw_parts(param1.0, len));
+        let s = String::from_utf16_lossy(core::slice::from_raw_parts(param1.0, len));
         assert!(s == "hello w");
         BOOL(789)
     }

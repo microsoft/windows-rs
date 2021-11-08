@@ -559,7 +559,7 @@ impl View for [u8] {
     fn view_as_slice_of<T: Pod>(&self, cli_offset: u32, len: u32) -> &[T] {
         let ptr = assert_proper_length_and_alignment!(self, T, cli_offset, sizeof::<T>() * len);
 
-        unsafe { std::slice::from_raw_parts(ptr, len as usize) }
+        unsafe { core::slice::from_raw_parts(ptr, len as usize) }
     }
 
     fn copy_as<T: CopyPod>(&self, cli_offset: u32) -> T {

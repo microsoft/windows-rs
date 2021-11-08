@@ -69,7 +69,7 @@ impl Blob {
             String::from_utf16(&bytes).unwrap()
         } else {
             assert!(bytes.len() >= self.size, "Attempt to read from end of memory");
-            let bytes = unsafe { std::slice::from_raw_parts(bytes.as_ptr() as *const u16, self.size / 2) };
+            let bytes = unsafe { core::slice::from_raw_parts(bytes.as_ptr() as *const u16, self.size / 2) };
             String::from_utf16(bytes).unwrap()
         }
     }

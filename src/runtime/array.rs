@@ -78,7 +78,7 @@ impl<T: RuntimeType> Array<T> {
         unsafe {
             // Call the destructors of all the elements of the old array
             // SAFETY: the slice cannot be used after the call to `drop_in_place`
-            core::ptr::drop_in_place(std::slice::from_raw_parts_mut(data, len as usize));
+            core::ptr::drop_in_place(core::slice::from_raw_parts_mut(data, len as usize));
             // Free the data memory where the elements were
             // SAFETY: we have unique access to the data pointer at this point
             // so freeing it is the right thing to do
@@ -113,7 +113,7 @@ impl<T: RuntimeType> std::ops::Deref for Array<T> {
         }
 
         // SAFETY: data must not be null if the array is not empty
-        unsafe { std::slice::from_raw_parts(self.data, self.len as usize) }
+        unsafe { core::slice::from_raw_parts(self.data, self.len as usize) }
     }
 }
 
@@ -124,7 +124,7 @@ impl<T: RuntimeType> std::ops::DerefMut for Array<T> {
         }
 
         // SAFETY: data must not be null if the array is not empty
-        unsafe { std::slice::from_raw_parts_mut(self.data, self.len as usize) }
+        unsafe { core::slice::from_raw_parts_mut(self.data, self.len as usize) }
     }
 }
 

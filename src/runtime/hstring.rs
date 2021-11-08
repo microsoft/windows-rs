@@ -39,7 +39,7 @@ impl HSTRING {
         }
 
         let header = self.0;
-        unsafe { std::slice::from_raw_parts((*header).data, (*header).len as usize) }
+        unsafe { core::slice::from_raw_parts((*header).data, (*header).len as usize) }
     }
 
     /// Create a `HSTRING` from a slice of 16 bit characters (wchars).
