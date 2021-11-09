@@ -1487,12 +1487,15 @@ unsafe impl ::core::marker::Sync for Print3DTaskSourceRequestedArgs {}
 pub struct Print3DTaskSourceRequestedHandler(::windows::runtime::IUnknown);
 impl Print3DTaskSourceRequestedHandler {
     pub fn new<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = Print3DTaskSourceRequestedHandler_box::<F> {
-            vtable: &Print3DTaskSourceRequestedHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<Print3DTaskSourceRequestedHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut Print3DTaskSourceRequestedHandler_box<F>;
+            *object = Print3DTaskSourceRequestedHandler_box::<F> {
+                vtable: &Print3DTaskSourceRequestedHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Graphics_Printing3D`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, Print3DTaskSourceRequestedArgs>>(&self, args: Param0) -> ::windows::runtime::Result<()> {
@@ -1541,11 +1544,11 @@ impl<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::wind
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }

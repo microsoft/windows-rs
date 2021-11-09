@@ -632,12 +632,15 @@ unsafe impl ::core::marker::Sync for ContextRequestedEventArgs {}
 pub struct DoubleTappedEventHandler(::windows::runtime::IUnknown);
 impl DoubleTappedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<DoubleTappedRoutedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = DoubleTappedEventHandler_box::<F> {
-            vtable: &DoubleTappedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<DoubleTappedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut DoubleTappedEventHandler_box<F>;
+            *object = DoubleTappedEventHandler_box::<F> {
+                vtable: &DoubleTappedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Input`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, DoubleTappedRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -686,11 +689,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -1701,12 +1704,15 @@ unsafe impl ::core::marker::Sync for GettingFocusEventArgs {}
 pub struct HoldingEventHandler(::windows::runtime::IUnknown);
 impl HoldingEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<HoldingRoutedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = HoldingEventHandler_box::<F> {
-            vtable: &HoldingEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<HoldingEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut HoldingEventHandler_box<F>;
+            *object = HoldingEventHandler_box::<F> {
+                vtable: &HoldingEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Input`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, HoldingRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -1755,11 +1761,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -4069,12 +4075,15 @@ impl ::windows::runtime::DefaultType for InputScopeNameValue {
 pub struct KeyEventHandler(::windows::runtime::IUnknown);
 impl KeyEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<KeyRoutedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = KeyEventHandler_box::<F> {
-            vtable: &KeyEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<KeyEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut KeyEventHandler_box<F>;
+            *object = KeyEventHandler_box::<F> {
+                vtable: &KeyEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Input`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, KeyRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -4123,11 +4132,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -4868,12 +4877,15 @@ unsafe impl ::core::marker::Sync for LosingFocusEventArgs {}
 pub struct ManipulationCompletedEventHandler(::windows::runtime::IUnknown);
 impl ManipulationCompletedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<ManipulationCompletedRoutedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ManipulationCompletedEventHandler_box::<F> {
-            vtable: &ManipulationCompletedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<ManipulationCompletedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut ManipulationCompletedEventHandler_box<F>;
+            *object = ManipulationCompletedEventHandler_box::<F> {
+                vtable: &ManipulationCompletedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Input`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ManipulationCompletedRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -4922,11 +4934,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -5103,12 +5115,15 @@ unsafe impl ::core::marker::Sync for ManipulationCompletedRoutedEventArgs {}
 pub struct ManipulationDeltaEventHandler(::windows::runtime::IUnknown);
 impl ManipulationDeltaEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<ManipulationDeltaRoutedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ManipulationDeltaEventHandler_box::<F> {
-            vtable: &ManipulationDeltaEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<ManipulationDeltaEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut ManipulationDeltaEventHandler_box<F>;
+            *object = ManipulationDeltaEventHandler_box::<F> {
+                vtable: &ManipulationDeltaEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Input`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ManipulationDeltaRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -5157,11 +5172,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -5352,12 +5367,15 @@ unsafe impl ::core::marker::Sync for ManipulationDeltaRoutedEventArgs {}
 pub struct ManipulationInertiaStartingEventHandler(::windows::runtime::IUnknown);
 impl ManipulationInertiaStartingEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<ManipulationInertiaStartingRoutedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ManipulationInertiaStartingEventHandler_box::<F> {
-            vtable: &ManipulationInertiaStartingEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<ManipulationInertiaStartingEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut ManipulationInertiaStartingEventHandler_box<F>;
+            *object = ManipulationInertiaStartingEventHandler_box::<F> {
+                vtable: &ManipulationInertiaStartingEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Input`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ManipulationInertiaStartingRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -5406,11 +5424,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -5783,12 +5801,15 @@ unsafe impl ::core::marker::Sync for ManipulationPivot {}
 pub struct ManipulationStartedEventHandler(::windows::runtime::IUnknown);
 impl ManipulationStartedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<ManipulationStartedRoutedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ManipulationStartedEventHandler_box::<F> {
-            vtable: &ManipulationStartedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<ManipulationStartedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut ManipulationStartedEventHandler_box<F>;
+            *object = ManipulationStartedEventHandler_box::<F> {
+                vtable: &ManipulationStartedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Input`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ManipulationStartedRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -5837,11 +5858,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -6010,12 +6031,15 @@ unsafe impl ::core::marker::Sync for ManipulationStartedRoutedEventArgs {}
 pub struct ManipulationStartingEventHandler(::windows::runtime::IUnknown);
 impl ManipulationStartingEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<ManipulationStartingRoutedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ManipulationStartingEventHandler_box::<F> {
-            vtable: &ManipulationStartingEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<ManipulationStartingEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut ManipulationStartingEventHandler_box<F>;
+            *object = ManipulationStartingEventHandler_box::<F> {
+                vtable: &ManipulationStartingEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Input`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ManipulationStartingRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -6064,11 +6088,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -6438,12 +6462,15 @@ unsafe impl ::core::marker::Sync for Pointer {}
 pub struct PointerEventHandler(::windows::runtime::IUnknown);
 impl PointerEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<PointerRoutedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = PointerEventHandler_box::<F> {
-            vtable: &PointerEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<PointerEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut PointerEventHandler_box<F>;
+            *object = PointerEventHandler_box::<F> {
+                vtable: &PointerEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Input`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, PointerRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -6492,11 +6519,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -6746,12 +6773,15 @@ unsafe impl ::core::marker::Sync for ProcessKeyboardAcceleratorEventArgs {}
 pub struct RightTappedEventHandler(::windows::runtime::IUnknown);
 impl RightTappedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<RightTappedRoutedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = RightTappedEventHandler_box::<F> {
-            vtable: &RightTappedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<RightTappedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut RightTappedEventHandler_box<F>;
+            *object = RightTappedEventHandler_box::<F> {
+                vtable: &RightTappedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Input`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, RightTappedRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -6800,11 +6830,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -7341,12 +7371,15 @@ impl ::windows::runtime::DefaultType for StandardUICommandKind {
 pub struct TappedEventHandler(::windows::runtime::IUnknown);
 impl TappedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<TappedRoutedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = TappedEventHandler_box::<F> {
-            vtable: &TappedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<TappedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut TappedEventHandler_box<F>;
+            *object = TappedEventHandler_box::<F> {
+                vtable: &TappedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Input`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, TappedRoutedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -7395,11 +7428,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }

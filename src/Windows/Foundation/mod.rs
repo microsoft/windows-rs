@@ -13,12 +13,15 @@ pub mod Numerics;
 pub struct AsyncActionCompletedHandler(::windows::runtime::IUnknown);
 impl AsyncActionCompletedHandler {
     pub fn new<F: FnMut(&::core::option::Option<IAsyncAction>, AsyncStatus) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = AsyncActionCompletedHandler_box::<F> {
-            vtable: &AsyncActionCompletedHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<AsyncActionCompletedHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut AsyncActionCompletedHandler_box<F>;
+            *object = AsyncActionCompletedHandler_box::<F> {
+                vtable: &AsyncActionCompletedHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IAsyncAction>>(&self, asyncinfo: Param0, asyncstatus: AsyncStatus) -> ::windows::runtime::Result<()> {
@@ -67,11 +70,11 @@ impl<F: FnMut(&::core::option::Option<IAsyncAction>, AsyncStatus) -> ::windows::
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -88,12 +91,15 @@ where
     TProgress: ::windows::runtime::RuntimeType + 'static;
 impl<TProgress: ::windows::runtime::RuntimeType + 'static> AsyncActionProgressHandler<TProgress> {
     pub fn new<F: FnMut(&::core::option::Option<IAsyncActionWithProgress<TProgress>>, &<TProgress as ::windows::runtime::DefaultType>::DefaultType) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = AsyncActionProgressHandler_box::<TProgress, F> {
-            vtable: &AsyncActionProgressHandler_box::<TProgress, F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<AsyncActionProgressHandler_box<TProgress, F>>()).expect("Could not successfully allocate delegate") as *mut AsyncActionProgressHandler_box<TProgress, F>;
+            *object = AsyncActionProgressHandler_box::<TProgress, F> {
+                vtable: &AsyncActionProgressHandler_box::<TProgress, F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IAsyncActionWithProgress<TProgress>>, Param1: ::windows::runtime::IntoParam<'a, TProgress>>(&self, asyncinfo: Param0, progressinfo: Param1) -> ::windows::runtime::Result<()> {
@@ -148,11 +154,11 @@ impl<TProgress: ::windows::runtime::RuntimeType + 'static, F: FnMut(&::core::opt
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -173,12 +179,15 @@ where
     TProgress: ::windows::runtime::RuntimeType + 'static;
 impl<TProgress: ::windows::runtime::RuntimeType + 'static> AsyncActionWithProgressCompletedHandler<TProgress> {
     pub fn new<F: FnMut(&::core::option::Option<IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = AsyncActionWithProgressCompletedHandler_box::<TProgress, F> {
-            vtable: &AsyncActionWithProgressCompletedHandler_box::<TProgress, F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<AsyncActionWithProgressCompletedHandler_box<TProgress, F>>()).expect("Could not successfully allocate delegate") as *mut AsyncActionWithProgressCompletedHandler_box<TProgress, F>;
+            *object = AsyncActionWithProgressCompletedHandler_box::<TProgress, F> {
+                vtable: &AsyncActionWithProgressCompletedHandler_box::<TProgress, F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IAsyncActionWithProgress<TProgress>>>(&self, asyncinfo: Param0, asyncstatus: AsyncStatus) -> ::windows::runtime::Result<()> {
@@ -233,11 +242,11 @@ impl<TProgress: ::windows::runtime::RuntimeType + 'static, F: FnMut(&::core::opt
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -254,12 +263,15 @@ where
     TResult: ::windows::runtime::RuntimeType + 'static;
 impl<TResult: ::windows::runtime::RuntimeType + 'static> AsyncOperationCompletedHandler<TResult> {
     pub fn new<F: FnMut(&::core::option::Option<IAsyncOperation<TResult>>, AsyncStatus) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = AsyncOperationCompletedHandler_box::<TResult, F> {
-            vtable: &AsyncOperationCompletedHandler_box::<TResult, F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<AsyncOperationCompletedHandler_box<TResult, F>>()).expect("Could not successfully allocate delegate") as *mut AsyncOperationCompletedHandler_box<TResult, F>;
+            *object = AsyncOperationCompletedHandler_box::<TResult, F> {
+                vtable: &AsyncOperationCompletedHandler_box::<TResult, F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IAsyncOperation<TResult>>>(&self, asyncinfo: Param0, asyncstatus: AsyncStatus) -> ::windows::runtime::Result<()> {
@@ -314,11 +326,11 @@ impl<TResult: ::windows::runtime::RuntimeType + 'static, F: FnMut(&::core::optio
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -336,12 +348,15 @@ where
     TProgress: ::windows::runtime::RuntimeType + 'static;
 impl<TResult: ::windows::runtime::RuntimeType + 'static, TProgress: ::windows::runtime::RuntimeType + 'static> AsyncOperationProgressHandler<TResult, TProgress> {
     pub fn new<F: FnMut(&::core::option::Option<IAsyncOperationWithProgress<TResult, TProgress>>, &<TProgress as ::windows::runtime::DefaultType>::DefaultType) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = AsyncOperationProgressHandler_box::<TResult, TProgress, F> {
-            vtable: &AsyncOperationProgressHandler_box::<TResult, TProgress, F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<AsyncOperationProgressHandler_box<TResult, TProgress, F>>()).expect("Could not successfully allocate delegate") as *mut AsyncOperationProgressHandler_box<TResult, TProgress, F>;
+            *object = AsyncOperationProgressHandler_box::<TResult, TProgress, F> {
+                vtable: &AsyncOperationProgressHandler_box::<TResult, TProgress, F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>, Param1: ::windows::runtime::IntoParam<'a, TProgress>>(&self, asyncinfo: Param0, progressinfo: Param1) -> ::windows::runtime::Result<()> {
@@ -408,11 +423,11 @@ impl<TResult: ::windows::runtime::RuntimeType + 'static, TProgress: ::windows::r
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -434,12 +449,15 @@ where
     TProgress: ::windows::runtime::RuntimeType + 'static;
 impl<TResult: ::windows::runtime::RuntimeType + 'static, TProgress: ::windows::runtime::RuntimeType + 'static> AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
     pub fn new<F: FnMut(&::core::option::Option<IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = AsyncOperationWithProgressCompletedHandler_box::<TResult, TProgress, F> {
-            vtable: &AsyncOperationWithProgressCompletedHandler_box::<TResult, TProgress, F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<AsyncOperationWithProgressCompletedHandler_box<TResult, TProgress, F>>()).expect("Could not successfully allocate delegate") as *mut AsyncOperationWithProgressCompletedHandler_box<TResult, TProgress, F>;
+            *object = AsyncOperationWithProgressCompletedHandler_box::<TResult, TProgress, F> {
+                vtable: &AsyncOperationWithProgressCompletedHandler_box::<TResult, TProgress, F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>>(&self, asyncinfo: Param0, asyncstatus: AsyncStatus) -> ::windows::runtime::Result<()> {
@@ -506,11 +524,11 @@ impl<TResult: ::windows::runtime::RuntimeType + 'static, TProgress: ::windows::r
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -682,12 +700,15 @@ unsafe impl ::core::marker::Sync for Deferral {}
 pub struct DeferralCompletedHandler(::windows::runtime::IUnknown);
 impl DeferralCompletedHandler {
     pub fn new<F: FnMut() -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = DeferralCompletedHandler_box::<F> {
-            vtable: &DeferralCompletedHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<DeferralCompletedHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut DeferralCompletedHandler_box<F>;
+            *object = DeferralCompletedHandler_box::<F> {
+                vtable: &DeferralCompletedHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke(&self) -> ::windows::runtime::Result<()> {
@@ -736,11 +757,11 @@ impl<F: FnMut() -> ::windows::runtime::Result<()> + 'static> DeferralCompletedHa
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -757,12 +778,15 @@ where
     T: ::windows::runtime::RuntimeType + 'static;
 impl<T: ::windows::runtime::RuntimeType + 'static> EventHandler<T> {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &<T as ::windows::runtime::DefaultType>::DefaultType) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = EventHandler_box::<T, F> {
-            vtable: &EventHandler_box::<T, F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<EventHandler_box<T, F>>()).expect("Could not successfully allocate delegate") as *mut EventHandler_box<T, F>;
+            *object = EventHandler_box::<T, F> {
+                vtable: &EventHandler_box::<T, F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, T>>(&self, sender: Param0, args: Param1) -> ::windows::runtime::Result<()> {
@@ -817,11 +841,11 @@ impl<T: ::windows::runtime::RuntimeType + 'static, F: FnMut(&::core::option::Opt
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -4193,12 +4217,15 @@ where
     TResult: ::windows::runtime::RuntimeType + 'static;
 impl<TSender: ::windows::runtime::RuntimeType + 'static, TResult: ::windows::runtime::RuntimeType + 'static> TypedEventHandler<TSender, TResult> {
     pub fn new<F: FnMut(&<TSender as ::windows::runtime::DefaultType>::DefaultType, &<TResult as ::windows::runtime::DefaultType>::DefaultType) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = TypedEventHandler_box::<TSender, TResult, F> {
-            vtable: &TypedEventHandler_box::<TSender, TResult, F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<TypedEventHandler_box<TSender, TResult, F>>()).expect("Could not successfully allocate delegate") as *mut TypedEventHandler_box<TSender, TResult, F>;
+            *object = TypedEventHandler_box::<TSender, TResult, F> {
+                vtable: &TypedEventHandler_box::<TSender, TResult, F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, TSender>, Param1: ::windows::runtime::IntoParam<'a, TResult>>(&self, sender: Param0, args: Param1) -> ::windows::runtime::Result<()> {
@@ -4265,11 +4292,11 @@ impl<TSender: ::windows::runtime::RuntimeType + 'static, TResult: ::windows::run
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }

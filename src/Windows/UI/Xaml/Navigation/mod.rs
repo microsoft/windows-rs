@@ -311,12 +311,15 @@ pub struct IPageStackEntryStatics_abi(
 pub struct LoadCompletedEventHandler(::windows::runtime::IUnknown);
 impl LoadCompletedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<NavigationEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = LoadCompletedEventHandler_box::<F> {
-            vtable: &LoadCompletedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<LoadCompletedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut LoadCompletedEventHandler_box<F>;
+            *object = LoadCompletedEventHandler_box::<F> {
+                vtable: &LoadCompletedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Navigation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, NavigationEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -365,11 +368,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -388,12 +391,15 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
 pub struct NavigatedEventHandler(::windows::runtime::IUnknown);
 impl NavigatedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<NavigationEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = NavigatedEventHandler_box::<F> {
-            vtable: &NavigatedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<NavigatedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut NavigatedEventHandler_box<F>;
+            *object = NavigatedEventHandler_box::<F> {
+                vtable: &NavigatedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Navigation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, NavigationEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -442,11 +448,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -570,12 +576,15 @@ unsafe impl ::core::marker::Sync for NavigatingCancelEventArgs {}
 pub struct NavigatingCancelEventHandler(::windows::runtime::IUnknown);
 impl NavigatingCancelEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<NavigatingCancelEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = NavigatingCancelEventHandler_box::<F> {
-            vtable: &NavigatingCancelEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<NavigatingCancelEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut NavigatingCancelEventHandler_box<F>;
+            *object = NavigatingCancelEventHandler_box::<F> {
+                vtable: &NavigatingCancelEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Navigation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, NavigatingCancelEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -624,11 +633,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -873,12 +882,15 @@ unsafe impl ::core::marker::Sync for NavigationFailedEventArgs {}
 pub struct NavigationFailedEventHandler(::windows::runtime::IUnknown);
 impl NavigationFailedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<NavigationFailedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = NavigationFailedEventHandler_box::<F> {
-            vtable: &NavigationFailedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<NavigationFailedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut NavigationFailedEventHandler_box<F>;
+            *object = NavigationFailedEventHandler_box::<F> {
+                vtable: &NavigationFailedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Navigation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, NavigationFailedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -927,11 +939,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -974,12 +986,15 @@ impl ::windows::runtime::DefaultType for NavigationMode {
 pub struct NavigationStoppedEventHandler(::windows::runtime::IUnknown);
 impl NavigationStoppedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<NavigationEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = NavigationStoppedEventHandler_box::<F> {
-            vtable: &NavigationStoppedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<NavigationStoppedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut NavigationStoppedEventHandler_box<F>;
+            *object = NavigationStoppedEventHandler_box::<F> {
+                vtable: &NavigationStoppedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Navigation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, NavigationEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -1028,11 +1043,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }

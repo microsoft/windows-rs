@@ -3788,12 +3788,15 @@ impl ::windows::runtime::DefaultType for SmsDeviceStatus {
 pub struct SmsDeviceStatusChangedEventHandler(::windows::runtime::IUnknown);
 impl SmsDeviceStatusChangedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<SmsDevice>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = SmsDeviceStatusChangedEventHandler_box::<F> {
-            vtable: &SmsDeviceStatusChangedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<SmsDeviceStatusChangedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut SmsDeviceStatusChangedEventHandler_box<F>;
+            *object = SmsDeviceStatusChangedEventHandler_box::<F> {
+                vtable: &SmsDeviceStatusChangedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, SmsDevice>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -3842,11 +3845,11 @@ impl<F: FnMut(&::core::option::Option<SmsDevice>) -> ::windows::runtime::Result<
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -4382,12 +4385,15 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 pub struct SmsMessageReceivedEventHandler(::windows::runtime::IUnknown);
 impl SmsMessageReceivedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<SmsDevice>, &::core::option::Option<SmsMessageReceivedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = SmsMessageReceivedEventHandler_box::<F> {
-            vtable: &SmsMessageReceivedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<SmsMessageReceivedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut SmsMessageReceivedEventHandler_box<F>;
+            *object = SmsMessageReceivedEventHandler_box::<F> {
+                vtable: &SmsMessageReceivedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, SmsDevice>, Param1: ::windows::runtime::IntoParam<'a, SmsMessageReceivedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -4436,11 +4442,11 @@ impl<F: FnMut(&::core::option::Option<SmsDevice>, &::core::option::Option<SmsMes
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }

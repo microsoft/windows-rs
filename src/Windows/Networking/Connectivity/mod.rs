@@ -2978,12 +2978,15 @@ unsafe impl ::core::marker::Sync for NetworkStateChangeEventDetails {}
 pub struct NetworkStatusChangedEventHandler(::windows::runtime::IUnknown);
 impl NetworkStatusChangedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = NetworkStatusChangedEventHandler_box::<F> {
-            vtable: &NetworkStatusChangedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<NetworkStatusChangedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut NetworkStatusChangedEventHandler_box<F>;
+            *object = NetworkStatusChangedEventHandler_box::<F> {
+                vtable: &NetworkStatusChangedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Networking_Connectivity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -3032,11 +3035,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>) -> ::wi
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }

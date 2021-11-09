@@ -50,13 +50,15 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
         #cfg
         impl<#constraints> #name {
             pub fn new<#fn_constraint>(invoke: F) -> Self {
-                let com = #box_name {
-                    vtable: &#box_name::VTABLE,
-                    count: ::windows::runtime::RefCount::new(1),
-                    invoke,
-                };
                 unsafe {
-                    core::mem::transmute(::std::boxed::Box::new(com))
+                    // TODO: allow this failure to propagate
+                    let object = ::windows::runtime::heap_alloc(core::mem::size_of::<#box_name>()).expect("Could not successfully allocate delegate") as *mut #box_name;
+                    *object = #box_name {
+                        vtable: &#box_name::VTABLE,
+                        count: ::windows::runtime::RefCount::new(1),
+                        invoke,
+                    };
+                    core::mem::transmute(object)
                 }
             }
             #invoke
@@ -120,12 +122,12 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
                 let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
                 (*this).count.add_ref()
             }
-            unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-                let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+            unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+                let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
                 let remaining = (*this).count.release();
 
                 if remaining == 0 {
-                    Box::from_raw(this);
+                    ::windows::runtime::heap_free(ptr);
                 }
 
                 remaining

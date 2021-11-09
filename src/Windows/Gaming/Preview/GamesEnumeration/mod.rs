@@ -114,12 +114,15 @@ impl ::windows::runtime::DefaultType for GameListCategory {
 pub struct GameListChangedEventHandler(::windows::runtime::IUnknown);
 impl GameListChangedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<GameListEntry>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = GameListChangedEventHandler_box::<F> {
-            vtable: &GameListChangedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<GameListChangedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut GameListChangedEventHandler_box<F>;
+            *object = GameListChangedEventHandler_box::<F> {
+                vtable: &GameListChangedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, GameListEntry>>(&self, game: Param0) -> ::windows::runtime::Result<()> {
@@ -168,11 +171,11 @@ impl<F: FnMut(&::core::option::Option<GameListEntry>) -> ::windows::runtime::Res
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -401,12 +404,15 @@ impl ::windows::runtime::DefaultType for GameListEntryLaunchableState {
 pub struct GameListRemovedEventHandler(::windows::runtime::IUnknown);
 impl GameListRemovedEventHandler {
     pub fn new<F: FnMut(&::windows::runtime::HSTRING) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = GameListRemovedEventHandler_box::<F> {
-            vtable: &GameListRemovedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<GameListRemovedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut GameListRemovedEventHandler_box<F>;
+            *object = GameListRemovedEventHandler_box::<F> {
+                vtable: &GameListRemovedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, identifier: Param0) -> ::windows::runtime::Result<()> {
@@ -455,11 +461,11 @@ impl<F: FnMut(&::windows::runtime::HSTRING) -> ::windows::runtime::Result<()> + 
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }

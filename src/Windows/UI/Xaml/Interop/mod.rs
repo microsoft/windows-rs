@@ -5,12 +5,15 @@
 pub struct BindableVectorChangedEventHandler(::windows::runtime::IUnknown);
 impl BindableVectorChangedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<IBindableObservableVector>, &::core::option::Option<::windows::runtime::IInspectable>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = BindableVectorChangedEventHandler_box::<F> {
-            vtable: &BindableVectorChangedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<BindableVectorChangedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut BindableVectorChangedEventHandler_box<F>;
+            *object = BindableVectorChangedEventHandler_box::<F> {
+                vtable: &BindableVectorChangedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Interop`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IBindableObservableVector>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, vector: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -59,11 +62,11 @@ impl<F: FnMut(&::core::option::Option<IBindableObservableVector>, &::core::optio
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -981,12 +984,15 @@ unsafe impl ::core::marker::Sync for NotifyCollectionChangedEventArgs {}
 pub struct NotifyCollectionChangedEventHandler(::windows::runtime::IUnknown);
 impl NotifyCollectionChangedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<NotifyCollectionChangedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = NotifyCollectionChangedEventHandler_box::<F> {
-            vtable: &NotifyCollectionChangedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<NotifyCollectionChangedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut NotifyCollectionChangedEventHandler_box<F>;
+            *object = NotifyCollectionChangedEventHandler_box::<F> {
+                vtable: &NotifyCollectionChangedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `UI_Xaml_Interop`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, NotifyCollectionChangedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -1035,11 +1041,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }

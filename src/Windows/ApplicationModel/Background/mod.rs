@@ -996,12 +996,15 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 pub struct BackgroundTaskCanceledEventHandler(::windows::runtime::IUnknown);
 impl BackgroundTaskCanceledEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = BackgroundTaskCanceledEventHandler_box::<F> {
-            vtable: &BackgroundTaskCanceledEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<BackgroundTaskCanceledEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut BackgroundTaskCanceledEventHandler_box<F>;
+            *object = BackgroundTaskCanceledEventHandler_box::<F> {
+                vtable: &BackgroundTaskCanceledEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `ApplicationModel_Background`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IBackgroundTaskInstance>>(&self, sender: Param0, reason: BackgroundTaskCancellationReason) -> ::windows::runtime::Result<()> {
@@ -1050,11 +1053,11 @@ impl<F: FnMut(&::core::option::Option<IBackgroundTaskInstance>, BackgroundTaskCa
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -1172,12 +1175,15 @@ unsafe impl ::core::marker::Sync for BackgroundTaskCompletedEventArgs {}
 pub struct BackgroundTaskCompletedEventHandler(::windows::runtime::IUnknown);
 impl BackgroundTaskCompletedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::option::Option<BackgroundTaskCompletedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = BackgroundTaskCompletedEventHandler_box::<F> {
-            vtable: &BackgroundTaskCompletedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<BackgroundTaskCompletedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut BackgroundTaskCompletedEventHandler_box<F>;
+            *object = BackgroundTaskCompletedEventHandler_box::<F> {
+                vtable: &BackgroundTaskCompletedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `ApplicationModel_Background`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, BackgroundTaskRegistration>, Param1: ::windows::runtime::IntoParam<'a, BackgroundTaskCompletedEventArgs>>(&self, sender: Param0, args: Param1) -> ::windows::runtime::Result<()> {
@@ -1226,11 +1232,11 @@ impl<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::opti
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -1386,12 +1392,15 @@ unsafe impl ::core::marker::Sync for BackgroundTaskProgressEventArgs {}
 pub struct BackgroundTaskProgressEventHandler(::windows::runtime::IUnknown);
 impl BackgroundTaskProgressEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::option::Option<BackgroundTaskProgressEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = BackgroundTaskProgressEventHandler_box::<F> {
-            vtable: &BackgroundTaskProgressEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<BackgroundTaskProgressEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut BackgroundTaskProgressEventHandler_box<F>;
+            *object = BackgroundTaskProgressEventHandler_box::<F> {
+                vtable: &BackgroundTaskProgressEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `ApplicationModel_Background`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, BackgroundTaskRegistration>, Param1: ::windows::runtime::IntoParam<'a, BackgroundTaskProgressEventArgs>>(&self, sender: Param0, args: Param1) -> ::windows::runtime::Result<()> {
@@ -1440,11 +1449,11 @@ impl<F: FnMut(&::core::option::Option<BackgroundTaskRegistration>, &::core::opti
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }

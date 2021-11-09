@@ -858,12 +858,15 @@ pub struct CallControlContract(pub u8);
 pub struct CallControlEventHandler(::windows::runtime::IUnknown);
 impl CallControlEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<CallControl>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = CallControlEventHandler_box::<F> {
-            vtable: &CallControlEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<CallControlEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut CallControlEventHandler_box<F>;
+            *object = CallControlEventHandler_box::<F> {
+                vtable: &CallControlEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Media_Devices`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, CallControl>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -912,11 +915,11 @@ impl<F: FnMut(&::core::option::Option<CallControl>) -> ::windows::runtime::Resul
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -1549,12 +1552,15 @@ unsafe impl ::core::marker::Sync for DialRequestedEventArgs {}
 pub struct DialRequestedEventHandler(::windows::runtime::IUnknown);
 impl DialRequestedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<DialRequestedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = DialRequestedEventHandler_box::<F> {
-            vtable: &DialRequestedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<DialRequestedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut DialRequestedEventHandler_box<F>;
+            *object = DialRequestedEventHandler_box::<F> {
+                vtable: &DialRequestedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Media_Devices`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, CallControl>, Param1: ::windows::runtime::IntoParam<'a, DialRequestedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -1603,11 +1609,11 @@ impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<Dial
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -4994,12 +5000,15 @@ unsafe impl ::core::marker::Sync for KeypadPressedEventArgs {}
 pub struct KeypadPressedEventHandler(::windows::runtime::IUnknown);
 impl KeypadPressedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<KeypadPressedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = KeypadPressedEventHandler_box::<F> {
-            vtable: &KeypadPressedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<KeypadPressedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut KeypadPressedEventHandler_box<F>;
+            *object = KeypadPressedEventHandler_box::<F> {
+                vtable: &KeypadPressedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Media_Devices`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, CallControl>, Param1: ::windows::runtime::IntoParam<'a, KeypadPressedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -5048,11 +5057,11 @@ impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<Keyp
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -6152,12 +6161,15 @@ unsafe impl ::core::marker::Sync for RedialRequestedEventArgs {}
 pub struct RedialRequestedEventHandler(::windows::runtime::IUnknown);
 impl RedialRequestedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<RedialRequestedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = RedialRequestedEventHandler_box::<F> {
-            vtable: &RedialRequestedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<RedialRequestedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut RedialRequestedEventHandler_box<F>;
+            *object = RedialRequestedEventHandler_box::<F> {
+                vtable: &RedialRequestedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Media_Devices`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, CallControl>, Param1: ::windows::runtime::IntoParam<'a, RedialRequestedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -6206,11 +6218,11 @@ impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<Redi
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }

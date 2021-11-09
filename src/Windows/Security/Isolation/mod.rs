@@ -7,12 +7,15 @@ pub struct HostMessageReceivedCallback(::windows::runtime::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl HostMessageReceivedCallback {
     pub fn new<F: FnMut(&::windows::runtime::GUID, &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = HostMessageReceivedCallback_box::<F> {
-            vtable: &HostMessageReceivedCallback_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<HostMessageReceivedCallback_box<F>>()).expect("Could not successfully allocate delegate") as *mut HostMessageReceivedCallback_box<F>;
+            *object = HostMessageReceivedCallback_box::<F> {
+                vtable: &HostMessageReceivedCallback_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Isolation`, `Foundation_Collections`*"]
@@ -67,11 +70,11 @@ impl<F: FnMut(&::windows::runtime::GUID, &::core::option::Option<super::super::F
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -2767,12 +2770,15 @@ pub struct MessageReceivedCallback(::windows::runtime::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl MessageReceivedCallback {
     pub fn new<F: FnMut(&::windows::runtime::GUID, &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = MessageReceivedCallback_box::<F> {
-            vtable: &MessageReceivedCallback_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<MessageReceivedCallback_box<F>>()).expect("Could not successfully allocate delegate") as *mut MessageReceivedCallback_box<F>;
+            *object = MessageReceivedCallback_box::<F> {
+                vtable: &MessageReceivedCallback_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Security_Isolation`, `Foundation_Collections`*"]
@@ -2827,11 +2833,11 @@ impl<F: FnMut(&::windows::runtime::GUID, &::core::option::Option<super::super::F
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }

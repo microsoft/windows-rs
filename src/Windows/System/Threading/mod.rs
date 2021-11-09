@@ -229,12 +229,15 @@ unsafe impl ::core::marker::Sync for ThreadPoolTimer {}
 pub struct TimerDestroyedHandler(::windows::runtime::IUnknown);
 impl TimerDestroyedHandler {
     pub fn new<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = TimerDestroyedHandler_box::<F> {
-            vtable: &TimerDestroyedHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<TimerDestroyedHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut TimerDestroyedHandler_box<F>;
+            *object = TimerDestroyedHandler_box::<F> {
+                vtable: &TimerDestroyedHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `System_Threading`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ThreadPoolTimer>>(&self, timer: Param0) -> ::windows::runtime::Result<()> {
@@ -283,11 +286,11 @@ impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::runtime::R
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -302,12 +305,15 @@ impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::runtime::R
 pub struct TimerElapsedHandler(::windows::runtime::IUnknown);
 impl TimerElapsedHandler {
     pub fn new<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = TimerElapsedHandler_box::<F> {
-            vtable: &TimerElapsedHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<TimerElapsedHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut TimerElapsedHandler_box<F>;
+            *object = TimerElapsedHandler_box::<F> {
+                vtable: &TimerElapsedHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `System_Threading`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ThreadPoolTimer>>(&self, timer: Param0) -> ::windows::runtime::Result<()> {
@@ -356,11 +362,11 @@ impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::runtime::R
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -377,12 +383,15 @@ pub struct WorkItemHandler(::windows::runtime::IUnknown);
 #[cfg(feature = "Foundation")]
 impl WorkItemHandler {
     pub fn new<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = WorkItemHandler_box::<F> {
-            vtable: &WorkItemHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<WorkItemHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut WorkItemHandler_box<F>;
+            *object = WorkItemHandler_box::<F> {
+                vtable: &WorkItemHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_Threading`, `Foundation`*"]
@@ -437,11 +446,11 @@ impl<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }

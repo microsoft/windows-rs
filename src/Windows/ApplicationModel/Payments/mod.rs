@@ -2197,12 +2197,15 @@ unsafe impl ::core::marker::Sync for PaymentRequestChangedArgs {}
 pub struct PaymentRequestChangedHandler(::windows::runtime::IUnknown);
 impl PaymentRequestChangedHandler {
     pub fn new<F: FnMut(&::core::option::Option<PaymentRequest>, &::core::option::Option<PaymentRequestChangedArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = PaymentRequestChangedHandler_box::<F> {
-            vtable: &PaymentRequestChangedHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<PaymentRequestChangedHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut PaymentRequestChangedHandler_box<F>;
+            *object = PaymentRequestChangedHandler_box::<F> {
+                vtable: &PaymentRequestChangedHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `ApplicationModel_Payments`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, PaymentRequest>, Param1: ::windows::runtime::IntoParam<'a, PaymentRequestChangedArgs>>(&self, paymentrequest: Param0, args: Param1) -> ::windows::runtime::Result<()> {
@@ -2251,11 +2254,11 @@ impl<F: FnMut(&::core::option::Option<PaymentRequest>, &::core::option::Option<P
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }

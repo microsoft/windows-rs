@@ -81,12 +81,15 @@ unsafe impl ::core::marker::Sync for ComponentLoadFailedEventArgs {}
 pub struct ComponentLoadFailedEventHandler(::windows::runtime::IUnknown);
 impl ComponentLoadFailedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::Option<ComponentLoadFailedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ComponentLoadFailedEventHandler_box::<F> {
-            vtable: &ComponentLoadFailedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<ComponentLoadFailedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut ComponentLoadFailedEventHandler_box<F>;
+            *object = ComponentLoadFailedEventHandler_box::<F> {
+                vtable: &ComponentLoadFailedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, MediaProtectionManager>, Param1: ::windows::runtime::IntoParam<'a, ComponentLoadFailedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -135,11 +138,11 @@ impl<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -1077,12 +1080,15 @@ pub struct ProtectionRenewalContract(pub u8);
 pub struct RebootNeededEventHandler(::windows::runtime::IUnknown);
 impl RebootNeededEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<MediaProtectionManager>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = RebootNeededEventHandler_box::<F> {
-            vtable: &RebootNeededEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<RebootNeededEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut RebootNeededEventHandler_box<F>;
+            *object = RebootNeededEventHandler_box::<F> {
+                vtable: &RebootNeededEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, MediaProtectionManager>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -1131,11 +1137,11 @@ impl<F: FnMut(&::core::option::Option<MediaProtectionManager>) -> ::windows::run
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
@@ -1486,12 +1492,15 @@ unsafe impl ::core::marker::Sync for ServiceRequestedEventArgs {}
 pub struct ServiceRequestedEventHandler(::windows::runtime::IUnknown);
 impl ServiceRequestedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::Option<ServiceRequestedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ServiceRequestedEventHandler_box::<F> {
-            vtable: &ServiceRequestedEventHandler_box::<F>::VTABLE,
-            count: ::windows::runtime::RefCount::new(1),
-            invoke,
-        };
-        unsafe { core::mem::transmute(::std::boxed::Box::new(com)) }
+        unsafe {
+            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<ServiceRequestedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut ServiceRequestedEventHandler_box<F>;
+            *object = ServiceRequestedEventHandler_box::<F> {
+                vtable: &ServiceRequestedEventHandler_box::<F>::VTABLE,
+                count: ::windows::runtime::RefCount::new(1),
+                invoke,
+            };
+            core::mem::transmute(object)
+        }
     }
     #[doc = "*Required features: `Media_Protection`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, MediaProtectionManager>, Param1: ::windows::runtime::IntoParam<'a, ServiceRequestedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -1540,11 +1549,11 @@ impl<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
-        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
+        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            Box::from_raw(this);
+            ::windows::runtime::heap_free(ptr);
         }
         remaining
     }
