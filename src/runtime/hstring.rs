@@ -275,6 +275,7 @@ impl Header {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::convert::TryFrom;
     type StringType = HSTRING;
 
     #[test]

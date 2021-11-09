@@ -87,13 +87,17 @@ struct TearOff {
 impl TearOff {
     #[allow(clippy::new_ret_no_self)]
     unsafe fn new(object: RawPtr, strong_count: u32) -> IWeakReferenceSource {
-        core::mem::transmute(Box::new(TearOff {
+        // TODO: allow this failure to propagate
+        let tearoff = heap_alloc(core::mem::size_of::<TearOff>()).expect("Could not successfully allocate for TearOff") as *mut TearOff;
+        *tearoff = TearOff {
             strong_vtable: &Self::STRONG_VTABLE,
             weak_vtable: &Self::WEAK_VTABLE,
             object,
             strong_count: RefCount::new(strong_count),
             weak_count: RefCount::new(1),
-        }))
+        };
+
+        core::mem::transmute(tearoff)
     }
 
     unsafe fn from_encoding(encoding: isize) -> RawPtr {
@@ -188,7 +192,7 @@ impl TearOff {
         // If there are no remaining references, it means that the object has already been
         // destroyed. Go ahead and destroy the tear-off.
         if remaining == 0 {
-            Box::from_raw(this);
+            heap_free(this as *mut _ as _);
         }
 
         remaining
