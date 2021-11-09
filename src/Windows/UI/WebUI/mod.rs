@@ -70,15 +70,12 @@ pub struct ActivatedEventHandler(::windows::runtime::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ActivatedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<ActivatedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut ActivatedEventHandler_box<F>;
-            *object = ActivatedEventHandler_box::<F> {
-                vtable: &ActivatedEventHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = ActivatedEventHandler_box::<F> {
+            vtable: &ActivatedEventHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
@@ -133,11 +130,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -328,15 +325,12 @@ pub struct BackgroundActivatedEventHandler(::windows::runtime::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl BackgroundActivatedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<BackgroundActivatedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut BackgroundActivatedEventHandler_box<F>;
-            *object = BackgroundActivatedEventHandler_box::<F> {
-                vtable: &BackgroundActivatedEventHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = BackgroundActivatedEventHandler_box::<F> {
+            vtable: &BackgroundActivatedEventHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel_Activation`*"]
@@ -391,11 +385,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -522,15 +516,12 @@ pub struct EnteredBackgroundEventHandler(::windows::runtime::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl EnteredBackgroundEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<EnteredBackgroundEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut EnteredBackgroundEventHandler_box<F>;
-            *object = EnteredBackgroundEventHandler_box::<F> {
-                vtable: &EnteredBackgroundEventHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = EnteredBackgroundEventHandler_box::<F> {
+            vtable: &EnteredBackgroundEventHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
@@ -585,11 +576,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1476,15 +1467,12 @@ pub struct LeavingBackgroundEventHandler(::windows::runtime::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl LeavingBackgroundEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<LeavingBackgroundEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut LeavingBackgroundEventHandler_box<F>;
-            *object = LeavingBackgroundEventHandler_box::<F> {
-                vtable: &LeavingBackgroundEventHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = LeavingBackgroundEventHandler_box::<F> {
+            vtable: &LeavingBackgroundEventHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
@@ -1539,11 +1527,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1562,15 +1550,12 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
 pub struct NavigatedEventHandler(::windows::runtime::IUnknown);
 impl NavigatedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<IWebUINavigatedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<NavigatedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut NavigatedEventHandler_box<F>;
-            *object = NavigatedEventHandler_box::<F> {
-                vtable: &NavigatedEventHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = NavigatedEventHandler_box::<F> {
+            vtable: &NavigatedEventHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, IWebUINavigatedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
@@ -1619,11 +1604,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1756,15 +1741,12 @@ impl ::windows::runtime::DefaultType for PrintContent {
 pub struct ResumingEventHandler(::windows::runtime::IUnknown);
 impl ResumingEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<ResumingEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut ResumingEventHandler_box<F>;
-            *object = ResumingEventHandler_box::<F> {
-                vtable: &ResumingEventHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = ResumingEventHandler_box::<F> {
+            vtable: &ResumingEventHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_WebUI`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -1813,11 +1795,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>) -> ::wi
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -2035,15 +2017,12 @@ pub struct SuspendingEventHandler(::windows::runtime::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<SuspendingEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut SuspendingEventHandler_box<F>;
-            *object = SuspendingEventHandler_box::<F> {
-                vtable: &SuspendingEventHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = SuspendingEventHandler_box::<F> {
+            vtable: &SuspendingEventHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "ApplicationModel")]
     #[doc = "*Required features: `UI_WebUI`, `ApplicationModel`*"]
@@ -2098,11 +2077,11 @@ impl<F: FnMut(&::core::option::Option<::windows::runtime::IInspectable>, &::core
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

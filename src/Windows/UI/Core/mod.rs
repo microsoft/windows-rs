@@ -3535,15 +3535,12 @@ unsafe impl ::core::marker::Sync for CoreWindowResizeManager {}
 pub struct DispatchedHandler(::windows::runtime::IUnknown);
 impl DispatchedHandler {
     pub fn new<F: FnMut() -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<DispatchedHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut DispatchedHandler_box<F>;
-            *object = DispatchedHandler_box::<F> {
-                vtable: &DispatchedHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = DispatchedHandler_box::<F> {
+            vtable: &DispatchedHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Core`*"]
     pub fn Invoke(&self) -> ::windows::runtime::Result<()> {
@@ -3592,11 +3589,11 @@ impl<F: FnMut() -> ::windows::runtime::Result<()> + 'static> DispatchedHandler_b
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -6027,15 +6024,12 @@ pub struct IWindowSizeChangedEventArgs_abi(
 pub struct IdleDispatchedHandler(::windows::runtime::IUnknown);
 impl IdleDispatchedHandler {
     pub fn new<F: FnMut(&::core::option::Option<IdleDispatchedHandlerArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<IdleDispatchedHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut IdleDispatchedHandler_box<F>;
-            *object = IdleDispatchedHandler_box::<F> {
-                vtable: &IdleDispatchedHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = IdleDispatchedHandler_box::<F> {
+            vtable: &IdleDispatchedHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_Core`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IdleDispatchedHandlerArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
@@ -6084,11 +6078,11 @@ impl<F: FnMut(&::core::option::Option<IdleDispatchedHandlerArgs>) -> ::windows::
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

@@ -174,15 +174,12 @@ unsafe impl ::core::marker::Sync for RemoteTextConnection {}
 pub struct RemoteTextConnectionDataHandler(::windows::runtime::IUnknown);
 impl RemoteTextConnectionDataHandler {
     pub fn new<F: FnMut(&[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<bool> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<RemoteTextConnectionDataHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut RemoteTextConnectionDataHandler_box<F>;
-            *object = RemoteTextConnectionDataHandler_box::<F> {
-                vtable: &RemoteTextConnectionDataHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = RemoteTextConnectionDataHandler_box::<F> {
+            vtable: &RemoteTextConnectionDataHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn Invoke(&self, pdudata: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<bool> {
@@ -234,11 +231,11 @@ impl<F: FnMut(&[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::wind
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

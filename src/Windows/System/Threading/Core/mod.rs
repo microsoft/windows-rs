@@ -184,15 +184,12 @@ unsafe impl ::core::marker::Sync for PreallocatedWorkItem {}
 pub struct SignalHandler(::windows::runtime::IUnknown);
 impl SignalHandler {
     pub fn new<F: FnMut(&::core::option::Option<SignalNotifier>, bool) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<SignalHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut SignalHandler_box<F>;
-            *object = SignalHandler_box::<F> {
-                vtable: &SignalHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = SignalHandler_box::<F> {
+            vtable: &SignalHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `System_Threading_Core`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, SignalNotifier>>(&self, signalnotifier: Param0, timedout: bool) -> ::windows::runtime::Result<()> {
@@ -241,11 +238,11 @@ impl<F: FnMut(&::core::option::Option<SignalNotifier>, bool) -> ::windows::runti
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

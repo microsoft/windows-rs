@@ -5488,17 +5488,10 @@ unsafe impl ::windows::runtime::Abi for PSTR {
         }
     }
 }
+#[cfg(feature = "std")]
 impl<'a> ::windows::runtime::IntoParam<'a, PSTR> for &str {
     fn into_param(self) -> ::windows::runtime::Param<'a, PSTR> {
-        let len = self.as_bytes().len();
-        if let Ok(value) = ::windows::runtime::heap_alloc(len + 1) {
-            let value = unsafe { core::slice::from_raw_parts_mut(value as *mut u8, len + 1) };
-            value[..len].copy_from_slice(self.as_bytes());
-            value[len] = 0;
-            ::windows::runtime::Param::Boxed(PSTR(value.as_mut_ptr()))
-        } else {
-            ::windows::runtime::Param::None
-        }
+        ::windows::runtime::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::std::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
     }
 }
 #[cfg(feature = "std")]

@@ -588,15 +588,12 @@ pub struct SelectableWordSegmentsTokenizingHandler(::windows::runtime::IUnknown)
 #[cfg(feature = "Foundation_Collections")]
 impl SelectableWordSegmentsTokenizingHandler {
     pub fn new<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<SelectableWordSegmentsTokenizingHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut SelectableWordSegmentsTokenizingHandler_box<F>;
-            *object = SelectableWordSegmentsTokenizingHandler_box::<F> {
-                vtable: &SelectableWordSegmentsTokenizingHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = SelectableWordSegmentsTokenizingHandler_box::<F> {
+            vtable: &SelectableWordSegmentsTokenizingHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Data_Text`, `Foundation_Collections`*"]
@@ -651,11 +648,11 @@ impl<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIt
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -1660,15 +1657,12 @@ pub struct WordSegmentsTokenizingHandler(::windows::runtime::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl WordSegmentsTokenizingHandler {
     pub fn new<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<WordSegmentsTokenizingHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut WordSegmentsTokenizingHandler_box<F>;
-            *object = WordSegmentsTokenizingHandler_box::<F> {
-                vtable: &WordSegmentsTokenizingHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = WordSegmentsTokenizingHandler_box::<F> {
+            vtable: &WordSegmentsTokenizingHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Data_Text`, `Foundation_Collections`*"]
@@ -1723,11 +1717,11 @@ impl<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIt
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

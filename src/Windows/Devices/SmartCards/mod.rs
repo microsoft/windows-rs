@@ -4595,15 +4595,12 @@ unsafe impl ::core::marker::Sync for SmartCardPinResetDeferral {}
 pub struct SmartCardPinResetHandler(::windows::runtime::IUnknown);
 impl SmartCardPinResetHandler {
     pub fn new<F: FnMut(&::core::option::Option<SmartCardProvisioning>, &::core::option::Option<SmartCardPinResetRequest>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<SmartCardPinResetHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut SmartCardPinResetHandler_box<F>;
-            *object = SmartCardPinResetHandler_box::<F> {
-                vtable: &SmartCardPinResetHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = SmartCardPinResetHandler_box::<F> {
+            vtable: &SmartCardPinResetHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Devices_SmartCards`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, SmartCardProvisioning>, Param1: ::windows::runtime::IntoParam<'a, SmartCardPinResetRequest>>(&self, sender: Param0, request: Param1) -> ::windows::runtime::Result<()> {
@@ -4652,11 +4649,11 @@ impl<F: FnMut(&::core::option::Option<SmartCardProvisioning>, &::core::option::O
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

@@ -1716,15 +1716,12 @@ unsafe impl ::core::marker::Sync for DataProviderDeferral {}
 pub struct DataProviderHandler(::windows::runtime::IUnknown);
 impl DataProviderHandler {
     pub fn new<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<DataProviderHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut DataProviderHandler_box<F>;
-            *object = DataProviderHandler_box::<F> {
-                vtable: &DataProviderHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = DataProviderHandler_box::<F> {
+            vtable: &DataProviderHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, DataProviderRequest>>(&self, request: Param0) -> ::windows::runtime::Result<()> {
@@ -1773,11 +1770,11 @@ impl<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::runtim
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -3601,15 +3598,12 @@ unsafe impl ::core::marker::Sync for ShareProvider {}
 pub struct ShareProviderHandler(::windows::runtime::IUnknown);
 impl ShareProviderHandler {
     pub fn new<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<ShareProviderHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut ShareProviderHandler_box<F>;
-            *object = ShareProviderHandler_box::<F> {
-                vtable: &ShareProviderHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = ShareProviderHandler_box::<F> {
+            vtable: &ShareProviderHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ShareProviderOperation>>(&self, operation: Param0) -> ::windows::runtime::Result<()> {
@@ -3658,11 +3652,11 @@ impl<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::run
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

@@ -846,15 +846,12 @@ pub struct IUnfulfilledConsumable_abi(
 pub struct LicenseChangedEventHandler(::windows::runtime::IUnknown);
 impl LicenseChangedEventHandler {
     pub fn new<F: FnMut() -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<LicenseChangedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut LicenseChangedEventHandler_box<F>;
-            *object = LicenseChangedEventHandler_box::<F> {
-                vtable: &LicenseChangedEventHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = LicenseChangedEventHandler_box::<F> {
+            vtable: &LicenseChangedEventHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn Invoke(&self) -> ::windows::runtime::Result<()> {
@@ -903,11 +900,11 @@ impl<F: FnMut() -> ::windows::runtime::Result<()> + 'static> LicenseChangedEvent
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

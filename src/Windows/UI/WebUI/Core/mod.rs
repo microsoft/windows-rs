@@ -362,15 +362,12 @@ pub struct IWebUICommandBarSymbolIconFactory_abi(
 pub struct MenuClosedEventHandler(::windows::runtime::IUnknown);
 impl MenuClosedEventHandler {
     pub fn new<F: FnMut() -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<MenuClosedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut MenuClosedEventHandler_box<F>;
-            *object = MenuClosedEventHandler_box::<F> {
-                vtable: &MenuClosedEventHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = MenuClosedEventHandler_box::<F> {
+            vtable: &MenuClosedEventHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Invoke(&self) -> ::windows::runtime::Result<()> {
@@ -419,11 +416,11 @@ impl<F: FnMut() -> ::windows::runtime::Result<()> + 'static> MenuClosedEventHand
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -438,15 +435,12 @@ impl<F: FnMut() -> ::windows::runtime::Result<()> + 'static> MenuClosedEventHand
 pub struct MenuOpenedEventHandler(::windows::runtime::IUnknown);
 impl MenuOpenedEventHandler {
     pub fn new<F: FnMut() -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<MenuOpenedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut MenuOpenedEventHandler_box<F>;
-            *object = MenuOpenedEventHandler_box::<F> {
-                vtable: &MenuOpenedEventHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = MenuOpenedEventHandler_box::<F> {
+            vtable: &MenuOpenedEventHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Invoke(&self) -> ::windows::runtime::Result<()> {
@@ -495,11 +489,11 @@ impl<F: FnMut() -> ::windows::runtime::Result<()> + 'static> MenuOpenedEventHand
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -514,15 +508,12 @@ impl<F: FnMut() -> ::windows::runtime::Result<()> + 'static> MenuOpenedEventHand
 pub struct SizeChangedEventHandler(::windows::runtime::IUnknown);
 impl SizeChangedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<WebUICommandBarSizeChangedEventArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<SizeChangedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut SizeChangedEventHandler_box<F>;
-            *object = SizeChangedEventHandler_box::<F> {
-                vtable: &SizeChangedEventHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = SizeChangedEventHandler_box::<F> {
+            vtable: &SizeChangedEventHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, WebUICommandBarSizeChangedEventArgs>>(&self, eventargs: Param0) -> ::windows::runtime::Result<()> {
@@ -571,11 +562,11 @@ impl<F: FnMut(&::core::option::Option<WebUICommandBarSizeChangedEventArgs>) -> :
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

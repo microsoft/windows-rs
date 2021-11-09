@@ -2935,15 +2935,12 @@ unsafe impl ::core::marker::Sync for PrintTaskSourceRequestedDeferral {}
 pub struct PrintTaskSourceRequestedHandler(::windows::runtime::IUnknown);
 impl PrintTaskSourceRequestedHandler {
     pub fn new<F: FnMut(&::core::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<PrintTaskSourceRequestedHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut PrintTaskSourceRequestedHandler_box<F>;
-            *object = PrintTaskSourceRequestedHandler_box::<F> {
-                vtable: &PrintTaskSourceRequestedHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = PrintTaskSourceRequestedHandler_box::<F> {
+            vtable: &PrintTaskSourceRequestedHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Graphics_Printing`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, PrintTaskSourceRequestedArgs>>(&self, args: Param0) -> ::windows::runtime::Result<()> {
@@ -2992,11 +2989,11 @@ impl<F: FnMut(&::core::option::Option<PrintTaskSourceRequestedArgs>) -> ::window
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }

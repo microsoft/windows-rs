@@ -71,15 +71,12 @@ unsafe impl ::core::marker::Sync for ConnectionRequestedEventArgs {}
 pub struct DeviceArrivedEventHandler(::windows::runtime::IUnknown);
 impl DeviceArrivedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<DeviceArrivedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut DeviceArrivedEventHandler_box<F>;
-            *object = DeviceArrivedEventHandler_box::<F> {
-                vtable: &DeviceArrivedEventHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = DeviceArrivedEventHandler_box::<F> {
+            vtable: &DeviceArrivedEventHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -128,11 +125,11 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::runtime::R
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -147,15 +144,12 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::runtime::R
 pub struct DeviceDepartedEventHandler(::windows::runtime::IUnknown);
 impl DeviceDepartedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<DeviceDepartedEventHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut DeviceDepartedEventHandler_box<F>;
-            *object = DeviceDepartedEventHandler_box::<F> {
-                vtable: &DeviceDepartedEventHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = DeviceDepartedEventHandler_box::<F> {
+            vtable: &DeviceDepartedEventHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
@@ -204,11 +198,11 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::runtime::R
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -509,15 +503,12 @@ pub struct ITriggeredConnectionStateChangedEventArgs_abi(
 pub struct MessageReceivedHandler(::windows::runtime::IUnknown);
 impl MessageReceivedHandler {
     pub fn new<F: FnMut(&::core::option::Option<ProximityDevice>, &::core::option::Option<ProximityMessage>) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<MessageReceivedHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut MessageReceivedHandler_box<F>;
-            *object = MessageReceivedHandler_box::<F> {
-                vtable: &MessageReceivedHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = MessageReceivedHandler_box::<F> {
+            vtable: &MessageReceivedHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>, Param1: ::windows::runtime::IntoParam<'a, ProximityMessage>>(&self, sender: Param0, message: Param1) -> ::windows::runtime::Result<()> {
@@ -566,11 +557,11 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>, &::core::option::Option<
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
@@ -585,15 +576,12 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>, &::core::option::Option<
 pub struct MessageTransmittedHandler(::windows::runtime::IUnknown);
 impl MessageTransmittedHandler {
     pub fn new<F: FnMut(&::core::option::Option<ProximityDevice>, i64) -> ::windows::runtime::Result<()> + 'static>(invoke: F) -> Self {
-        unsafe {
-            let object = ::windows::runtime::heap_alloc(core::mem::size_of::<MessageTransmittedHandler_box<F>>()).expect("Could not successfully allocate delegate") as *mut MessageTransmittedHandler_box<F>;
-            *object = MessageTransmittedHandler_box::<F> {
-                vtable: &MessageTransmittedHandler_box::<F>::VTABLE,
-                count: ::windows::runtime::RefCount::new(1),
-                invoke,
-            };
-            core::mem::transmute(object)
-        }
+        let com = MessageTransmittedHandler_box::<F> {
+            vtable: &MessageTransmittedHandler_box::<F>::VTABLE,
+            count: ::windows::runtime::RefCount::new(1),
+            invoke,
+        };
+        unsafe { std::mem::transmute(::windows::runtime::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>>(&self, sender: Param0, messageid: i64) -> ::windows::runtime::Result<()> {
@@ -642,11 +630,11 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>, i64) -> ::windows::runti
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(ptr: ::windows::runtime::RawPtr) -> u32 {
-        let this = ptr as *mut ::windows::runtime::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: ::windows::runtime::RawPtr) -> u32 {
+        let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            ::windows::runtime::heap_free(ptr);
+            ::windows::runtime::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
