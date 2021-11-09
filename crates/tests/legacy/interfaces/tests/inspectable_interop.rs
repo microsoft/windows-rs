@@ -1,7 +1,4 @@
-use test_interfaces::{
-    Windows::Win32::System::WinRT::*,
-    Windows::Win32::System::WinRT::Composition::*,  
-};
+use test_interfaces::{Windows::Win32::System::WinRT::Composition::*, Windows::Win32::System::WinRT::*};
 
 #[test]
 fn test() {
