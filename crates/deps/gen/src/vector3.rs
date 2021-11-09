@@ -51,12 +51,14 @@ pub fn gen_vector3() -> TokenStream {
             pub fn length(&self) -> f32 {
                 self.length_squared().sqrt()
             }
+            #[cfg(feature = "std")]
             pub fn distance(&self, value: &Self) -> f32 {
                 (self - value).length()
             }
             pub fn distance_squared(&self, value: &Self) -> f32 {
                 (self - value).length_squared()
             }
+            #[cfg(feature = "std")]
             pub fn normalize(&self) -> Self {
                 self / self.length()
             }
